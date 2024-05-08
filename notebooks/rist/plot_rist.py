@@ -1,8 +1,3 @@
-##############################
-# Uitilities to create grids for RIST and run plot
-##############################
-
-
 import numpy as np
 import pandas as pd
 import os
@@ -13,7 +8,7 @@ from bokeh.models import ColumnDataSource
 from bokeh.models.widgets import Slider, Select, Div
 from bokeh.models.annotations import Title
 from bokeh.layouts import column, row, layout
-from bokeh.io import show, output_notebook# enables plot interface in the Jupyter notebook
+from bokeh.io import show, output_notebook # enables plot interface in the Jupyter notebook
 from bokeh.application import Application
 from bokeh.application.handlers import FunctionHandler
 from bokeh.palettes import Sunset
@@ -31,7 +26,6 @@ class plot_rist():
         '''
 
         # Initial setup with default inputs to initiate RIST plot
-        # self.grid_date = '2024-04-26'
         self.master_grid, self.colors = self.load_grid()
 
 
@@ -47,10 +41,8 @@ class plot_rist():
 
         self.plot = self.create_plot()
         self.widgets = self.create_widgets()
-        self.usage_note = self.create_notes()
         self.layout_with_note = layout([
-                                        [[self.widgets], [self.plot]], 
-                                        [self.usage_note]
+                                        [[self.widgets], [self.plot]]
                                         ], width=1600)
 
 
@@ -137,7 +129,6 @@ class plot_rist():
         matable_options = ['hlwas_imaging', 'hltds_imaging1', 'hltds_imaging2', 'hltds_imaging3', 'hltds_imaging4', 'gbtds'] # 'defocus_mod', 'defocus_lrg'
         self.matable_select = Select(title='MA Table', options=matable_options, value='hlwas_imaging')
         
-        # nresultant_options = ['1', '2', '3(Rec. Min)', '4', '5', '6', '7', '8(Max)']    # macthing nresultant options for hlwas 
         nresultant_options = ['2', '3(Rec. Min)', '4', '5', '6', '7', '8(Max)']    
         self.nresultant_select = Select(title='# of Resultant', options=nresultant_options, value= '5')
 
@@ -150,47 +141,6 @@ class plot_rist():
 
         return widgets
     
-
-    def create_notes(self):
-        '''
-        Creates notes for the bokeh plot
-
-        Returns:
-        --------
-        usage_note: bokeh widget that conatins the usage notes
-        '''       
-
-        # Annotation
-        message = ''
-        message += '<h2>Notes</h2>'  
-        message += '<ul>'
-        message += '<li> RIST assumes a flat spectrum point source target. For extended sources or targets with different spectral shapes, '
-        message += ' please use Pandeia for more accurate results. </li>'
-        message += '<li> Current version of the RIST only supports the imaging mode of the WFI. </li>'
-        message += '<li> RIST uses a pre-computed grid of Pandeia spanning a set of the following inputs: source brightness, '
-        message += ' background and level, MA table, and number of resultants. </li>'
-        message += '<ul><li> The target magnitude is in ABmag. </ul></li>'        
-        message += '<ul><li> For the background spectrums: </ul></li>'
-        message += '<ul><ul><li> The zodiacal background spectrum is set to 120% of the minimum zodiacal background with  assumed date of January 16, 2020'
-        message += ' and RA & DEC of ' + r'17$$^h$$26$$^m$$44$$^s$$ & -73$$^\circ$$19$$^m$$56$$^s$$ </ul></ul></li>' 
-        message += '<ul><li>For the MA tables: </li>'
-        message += '<ul><li> HLWAS: High Latitude Wide Area Survey </li></ul>'
-        message += '<ul><li> HLTDS: High Latitude Time Domain Survey </li></ul>'
-        message += '<ul><li> GBTDS: Galactic Bulge Time Domain Survey </li></ul></ul>'
-        message += '<li> Computed values for the SNR can be seen by hovering the mouse over the points. </li>'
-        message += '<li> Pandeia sets SNR to zero for saturated points and hence the RIST  '
-        message += '-- the saturated points are marked with triangles in the plot</li>'        
-        message += '<li> The x-axis shows the central wavelength of each Roman filter. </li>'
-        message += '<li> Please see the <a href="https://roman-docs.stsci.edu/">RDox</a>'
-        message += ' for the detailed references of'
-        message += ' RIST (to be linked) '
-        message += ' and <a href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/pandeia-for-roman/overview-of-pandeia">Pandeia</a>. </li>'
-        message += '</ul>'
-
-        usage_note = Div(text=message, styles = {'font-size': '12pt'}, 
-                         width=1050, height=500, width_policy = 'fixed', align='center')
-
-        return usage_note
     
 
     def update_data(self, attrname, old, new):
@@ -230,8 +180,7 @@ class plot_rist():
         # Update the nresultant select option based on the MA table selection
         if (self.matable_select.value == 'hlwas_imaging' or 
             self.matable_select.value == 'hltds_imaging1'):
-            dynamic_nresultant_options = ['2', '3(Rec. Min)', '4', '5', '6', '7', '8(Max)']
-            # dynamic_nresultant_options = ['1', '2', '3(Rec. Min)', '4', '5', '6', '7', '8(Max)']               
+            dynamic_nresultant_options = ['2', '3(Rec. Min)', '4', '5', '6', '7', '8(Max)']       
         elif self.matable_select.value == 'hltds_imaging2':
             dynamic_nresultant_options = ['2(Rec. Min)', '3', '4', '5', '6', '7', '8(Max)']        
         elif self.matable_select.value == 'hltds_imaging3':
@@ -296,16 +245,12 @@ class plot_rist():
         self.nresultant = new_nresultant
         self.background = new_background
 
-        # For testing purpose only
-        # new_values = new_matable + '_' + new_nresultant + '_' + new_background
-        # print('New Values:' + new_values)
 
         # Search the grid that matches the selection
         lookup = self.lookup_grid()
         new_result = self.master_grid[lookup]
     
         # Generate the new data points
-        # wvl = new_result.attrs['central_wvl']
         snr = new_result.interp(magnitude = new_magnitude) 
         snr_saturated = new_result.interp(magnitude = new_magnitude) 
 
@@ -314,10 +259,7 @@ class plot_rist():
         snr_saturated = snr_saturated.where(snr_saturated <= self.ymin*1.1, 0)
 
         self.source.data['snr'] = snr
-        self.source.data['snr_saturated'] = snr_saturated
-        # For testing purpose only
-        # print('New SNR delivered: ' + str(self.source.data['snr'].values) + ' for mag =  ' + str(new_magnitude) + ' and '+ new_background)
-        # print('Lingering nresultant value: ' + str(self.nresultant_select.value))        
+        self.source.data['snr_saturated'] = snr_saturated     
 
 
 
@@ -334,9 +276,6 @@ class plot_rist():
         '''
 
         # Load the master grid
-        # module_dir = os.path.dirname(os.path.realpath(__file__))
-        # rist_data_dir = os.path.join(os.path.dirname(module_dir), 'data')
-        # master_grid = pd.read_pickle(rist_data_dir+'/grid_wfi_{}.pkl'.format(self.grid_date))
         master_grid = pd.read_pickle('grid_wfi.pkl')
 
         # Use color scheme of Sunset for plotting each filters
@@ -430,4 +369,4 @@ class plot_rist():
     handler = FunctionHandler(modify_doc)
     app = Application(handler)
     show(app)
-    # show(app, notebook_url='http://localhost:7324')
+
