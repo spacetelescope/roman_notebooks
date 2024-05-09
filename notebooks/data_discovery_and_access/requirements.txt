@@ -1,0 +1,4 @@
+astropy
+astroquery
+s3fs
+roman_datamodels
