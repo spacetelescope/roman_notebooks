@@ -1,4 +1,5 @@
 astropy
 astroquery
+boto3
 s3fs
 roman_datamodels
