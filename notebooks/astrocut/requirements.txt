@@ -1,0 +1,6 @@
+asdf>=3.2.0
+astrocut>=0.11.0
+astropy>=6.1.0
+matplotlib>=3.10.0
+numpy>=1.26.4
+s3fs>=2024.5.0
