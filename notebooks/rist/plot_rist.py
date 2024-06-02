@@ -43,7 +43,7 @@ class plot_rist():
         self.widgets = self.create_widgets()
         self.layout_with_note = layout([
                                         [[self.widgets], [self.plot]]
-                                        ], width=1600)
+                                        ], width=1400)
 
 
     def create_plot(self):
@@ -58,7 +58,7 @@ class plot_rist():
         tooltips = [('Filter', '@desc'),
                     ('SNR', '@snr{int}')]       
 
-        plot = figure(height=450, width=900, title='  ',
+        plot = figure(height=450, width=800, title='  ',
                       tools='crosshair,pan,reset,save,box_zoom,hover',
                       x_range=[0.5, 2.5], y_range=[self.ymin, self.ymax],
                       x_axis_type='log', y_axis_type='log',
@@ -95,7 +95,7 @@ class plot_rist():
         legend = plot.legend[0]
         legend.location = 'center'
         legend.label_text_font_size = '12pt'
-        legend.label_width = 60
+        legend.label_width = 45
         plot.add_layout(legend, 'right')
 
         # Title
@@ -123,8 +123,10 @@ class plot_rist():
 
         self.magnitude_slider = Slider(start=magnitude_slider_min, end=magnitude_slider_max, value=20, step=.1, title='Magnitude (ABmag)', direction="rtl")
 
-        background_options = ['ecliptic & low', 'ecliptic & medium', 'ecliptic & high', 'zodiacal & 120%min', 'none']
-        self.background_select = Select(title='Background & Level', options=background_options, value='zodiacal & 120%min')
+        background_options = ['ecliptic & low', 'ecliptic & medium', 'ecliptic & high', 
+                              'minzodi & benchmark', 'minzodi & low', 'minzodi & medium', 'minzodi & high',
+                              'none']
+        self.background_select = Select(title='Background & Level', options=background_options, value='minzodi & benchmark')
         
         matable_options = ['hlwas_imaging', 'hltds_imaging1', 'hltds_imaging2', 'hltds_imaging3', 'hltds_imaging4', 'gbtds'] # 'defocus_mod', 'defocus_lrg'
         self.matable_select = Select(title='MA Table', options=matable_options, value='hlwas_imaging')
@@ -161,14 +163,20 @@ class plot_rist():
 
         # New background selection
         # Insert '_' to match the formatting
-        if self.background_select.value == 'zodiacal & 120%min':
+        if self.background_select.value == 'minzodi & benchmark':
             new_background = 'minzodi_benchmark'
         elif self.background_select.value == 'ecliptic & low':
             new_background = 'ecliptic_low'         
         elif self.background_select.value == 'ecliptic & medium':
             new_background = 'ecliptic_medium'
         elif self.background_select.value == 'ecliptic & high':
-            new_background = 'ecliptic_high'              
+            new_background = 'ecliptic_high'
+        elif self.background_select.value == 'minzodi & low':
+            new_background = 'minzodi_low'         
+        elif self.background_select.value == 'minzodi & medium':
+            new_background = 'minzodi_medium'
+        elif self.background_select.value == 'minzodi & high':
+            new_background = 'minzodi_high'                      
         elif self.background_select.value == 'none':
             new_background = 'none_'            
         else:
