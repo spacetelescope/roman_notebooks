@@ -1,0 +1,27 @@
+# Roman Cloud Science Tutorials
+
+Roman mission data will be useful and interesting to many group and workflows. Here we outline the cotents of each notebook, and suggest the most likely users to benefit from that lesson.
+
+## "Typical" Users
+
+The most common users we expect to have are
+1. Instrument Scientists, who are interested in simulating the performance of the instruments and running the calibration pipelines.
+2. Proposers, who want to estimate the necessary conditions for observing a target.
+3. Data analysts, which covers a wide range of astronomers and cosmologists that want to use Roman data for science.
+
+There are many potential workflows that we haven't covered in this outline; even if you don't see it here, RSP can likely support your workflow!
+
+
+| Notebook Title                                                                                                  | Description and Scope of Notebook                                                                                                                                                                                   | Interested Audiences  |
+|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| [Data Discovery and Access](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)     | This lesson covers the details on accessing data in the cloud Archive, often referred to as the "S3 bucket".                                                                                                        | Everyone!             |
+| [Working with ASDF](../content/notebooks/working_with_asdf/working_with_asdf.ipynb)                             | Learn to open ASDF files with roman_datamodels, access metadata, manipulate arrays, and save changes to disk.                                                                                                       | Everyone!             |
+| [Data Visualization](../content/notebooks/data_visualization/data_visualization.ipynb)                          | Use Imviz to display a preview of Roman images, aligning WCS and making adjustments to better view features of interest.                                                                                            | Everyone!             |
+| [WebbPSF](../content/notebooks/webbpsf/webbpsf.ipynb)                                                           | Generate Roman simulated images using WebbPSF; this tutorial will walk through a few examples, showing how to customize parameters and compute properties like FWHM and encircled energy.                           | Instrument Scientists |
+| [Running Romancal and Romanisim](../content/notebooks/romanisim_romancal/romanisim_romancal.ipynb)              | Generate level 1 and level 2 WFI images using romanism, and run the exposure-level pipeline on these images.                                                                                                        | Instrument Scientists |
+| [Synphot](../content/notebooks/romanisim_romancal/romanisim_romancal.ipynb)                                     | Synthetic photometry software (specifically, synphot) can be used to estimate the brightness of sources in the Roman WFI. In this tutorial, we estimate the actual photon detection efficiency for various targets. | Instrument Scientists |
+| [Pandeia](../content/notebooks/pandeia/pandeia.ipynb)                                                           | The pandeia package can be used to estimate the exposure parameters needed for a given signal-to-noise ratio for a small area (<5% of a WFI). In this example, we walk through a few common use cases.              | Proposers             |
+| [RIST](../content/notebooks/rist/rist.ipynb)                                                                    | The Roman Interactive Sensitivity Tool (RIST) is a simplified, interactive version of Pandeia. In this video tutorial, we estimate the signal-to-noise ratio for a variety of brightnesses and filters.             | Proposers             |
+| [STIPS](../content/notebooks/stips/stips.ipynb)                                                                 | STIPS is the preferred software for simulating large Roman fields-of-view. This tutorial simulates several scenes, ranging from "basic" scene to a user-generated catalog with multiple pointings.                  | Proposers             |
+| [Aperture Photometry](../content/notebooks/aperture_photometry/aperture_photometry.ipynb)                       | We perform forced aperture photometry on a set of 1000 stars and 1000 galaxies, using a simulated, calibrated Roman WFI image in the F158 band.                                                                     | Data analysts         |
+| [Galaxy Shapes](../content/notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.ipynb)                     | This notebook illustrates a typical usage case of Roman images; namely, performing shape measurements of galaxies. Here we use the galsim package to measure ellipticity.                                           | Data analysts         |
