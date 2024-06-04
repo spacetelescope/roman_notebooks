@@ -1,4 +1,0 @@
-stips
-astropy
-matplotlib
-esutil # --no-cache-dir option recommended on pip install
