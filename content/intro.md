@@ -1,7 +1,7 @@
 # Welcome to RSP!
 
-The Roman Science Platform (RSP) enables you to analyze data from the Nancy Grace Roman Space Telescope without installing or downloading anything on your own computer.
-You can open a new Python notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
+The Roman Science Platform (RSP) enables you to access, simulate, visualize, and analyze data from the Nancy Grace Roman Space Telescope without installing or downloading anything on your own computer.
+You can open a new Python Jupyter notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
 or use the links below to learn more.
 
 <img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [What is RSP?](../markdown/what-is-rsp.md)
@@ -19,6 +19,10 @@ or use the links below to learn more.
 
 
 **Please note!** Your home directory (/home/jovyan) is saved and will persist between sessions. In addition to being saved on AWS, your data is backed up twice a month; even so, it is always prudent to save important files in multiple locations.
+
+**Caveats and known limitations**
+- The Wide Field Instrument (WFI) simulated data are the only Roman products currently available on the Roman Science Platform.
+- The Jupyter Notebook Tutorials and Science Workflows offered in this Summer 2024 release focus on the WFI Imaging mode.
 
 **Questions?** Please contact the [Roman help desk](https://stsci.service-now.com/roman) or [open an issue on GitHub](https://github.com/spacetelescope/roman_notebooks). We particularly welcome suggestions for adding additional packages and tutorials.
 
