@@ -11,11 +11,15 @@ Each notebook can also be seen as an individual component or module within a lar
 - Science Workflow: A combination of documentation and notebook tutorials demonstrating how to achieve a specific science-focused use case.
 
 ### Workflows
-Each science workflow has its own separate page:
+While users can choose to run any single Jupyter Notebook tutorial as a standalone tool, Science Workflows are designed to offer a complete end-to-end experience. Here, we consider three common workflows focused on the Roman Wide Field Instrument (WFI):
+
 - [WFI Observation Planning](workflows/wfi-obs-plan.md)
 - [WFI Data Simulation](workflows/wfi-data-sim.md)
 - [WFI Data Analysis](workflows/wfi-data-analysis.md)
 
+There are many potential workflows not covered in this outline; even if you don't see it here, the RSP can likely support your workflow! While the current content primarily focuses on the WFI imaging mode, Jupyter Notebook tutorials and Science Workflows for spectroscopic products will be available by Winter 2024.
+
+## All Notebooks
 Below is an outline of the content covered in each notebook and the Science Workflows they are part of. While the current content primarily focuses on the WFI imaging mode, Jupyter Notebook tutorials for spectroscopic products will be available by Winter 2024.
 
 
