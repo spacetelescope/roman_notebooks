@@ -10,8 +10,9 @@ or use the links below to learn more.
 
 <img src="../images/icons/download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I install extra software?](../markdown/install-software.md)
 
-<img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I work with cloud data?](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb
-)
+<img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I work with cloud data?](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
+
+<img src="../images/icons/team.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I work on a team?](../markdown/teams.md)
 
 <img src="../images/icons/learning.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Cloud-optimized Roman Science Tutorials](../markdown/tutorials.md)
 
@@ -27,4 +28,4 @@ or use the links below to learn more.
 **Questions?** Please contact the [Roman help desk](https://stsci.service-now.com/roman) or [open an issue on GitHub](https://github.com/spacetelescope/roman_notebooks). We particularly welcome suggestions for adding additional packages and tutorials.
 
 ---
-*Last Updated: May 2024*
+*Last Updated: June 2024*
