@@ -20,7 +20,7 @@ Now that we've created the base environment, we can proceed to the next step.
 
 To install software, we must activate the environment. Note that we need to use the environment name, not the display name. Following the above example, this would be:
 
-`kernel-activate tess-lc`
+`source kernel-activate tess-lc`
 
 With the kernel activated, you can now install software.
 
