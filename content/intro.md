@@ -4,11 +4,13 @@ The Roman Science Platform (RSP) enables you to access, simulate, visualize, and
 You can open a new Python Jupyter notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
 or use the links below to learn more.
 
-<img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [What is RSP?](../markdown/what-is-rsp.md)
+<img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [What is the RSP?](../markdown/what-is-rsp.md)
 
 <img src="../images/icons/checkmark.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [What software is pre-installed? (pending platform)](../markdown/software-installed.md)
 
 <img src="../images/icons/download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I install extra software?](../markdown/install-software.md)
+
+<img src="../images/icons/database.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [What data are available?](../markdown/simulated-data.md)
 
 <img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I work with cloud data?](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
 
