@@ -6,7 +6,7 @@ or use the links below to learn more.
 
 <img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [What is the RSP?](../markdown/what-is-rsp.md)
 
-<img src="../images/icons/checkmark.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [What software is pre-installed? (pending platform)](../markdown/software-installed.md)
+<img src="../images/icons/checkmark.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [What software is pre-installed?](../markdown/software-installed.md)
 
 <img src="../images/icons/download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I install extra software?](../markdown/install-software.md)
 
@@ -16,7 +16,7 @@ or use the links below to learn more.
 
 <img src="../images/icons/team.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I work on a team?](../markdown/teams.md)
 
-<img src="../images/icons/learning.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Cloud-optimized Roman Science Tutorials](../markdown/tutorials.md)
+<img src="../images/icons/learning.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Roman Science Workflows and Notebook Tutorials](../markdown/tutorials.md)
 
 <!--<img src="../images/icons/book.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [All Jupyter Notebook Tutorials](../markdown/science-examples.md)-->
 
