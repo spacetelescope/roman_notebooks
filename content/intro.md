@@ -4,6 +4,8 @@ The Roman Science Platform (RSP) enables you to access, simulate, visualize, and
 You can open a new Python Jupyter notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
 or use the links below to learn more.
 
+<img src="../images/icons/jupyter.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [How do I use the Jupyter Interface?](../markdown/jupyter.md)
+
 <img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [What is the RSP?](../markdown/what-is-rsp.md)
 
 <img src="../images/icons/checkmark.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [What software is pre-installed?](../markdown/software-installed.md)
