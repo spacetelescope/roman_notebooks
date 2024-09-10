@@ -14,7 +14,7 @@ or use the links below to learn more.
 
 <img src="../images/icons/database.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [What data are available?](../markdown/simulated-data.md)
 
-<img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I work with cloud data?](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
+<img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Best practices for cloud data](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
 
 <img src="../images/icons/team.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I work on a team?](../markdown/teams.md)
 
