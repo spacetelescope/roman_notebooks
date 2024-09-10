@@ -4,7 +4,9 @@ As part of the science platform, STScI provides pre-installed software. You can 
 <span style="font-variant:small-caps;">note:</span> Any commands given on this page must be entered into a terminal window. To open a new terminal window, select <span style="font-variant:small-caps;">file > new terminal</span> from the menu bar.
 
 ## What software is installed?
-To get a full list of pre-installed software, run `conda list`. Since this list is often quite long, you can filter it with `conda list <package>`. 
+To get a full list of pre-installed software, run `conda list`. 
+
+Since this full list is often quite long, you can filter it with `conda list <package>`. For example, `conda list python` or `conda list numpy`.
 
 ## How do I install and manage my own software?
 It is essential to create software environments when working in a cloud platform. A simple `pip install <package>` will not produce the desired installation. (Instead, it will produce a temporary installation that will be deleted when you next log in)
