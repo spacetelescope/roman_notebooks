@@ -3,8 +3,7 @@
 <span style="font-variant:small-caps;">the rsp is still in active development! your feedback will help us prioritize improvements.</span>
 
 
-The Roman Science Platform (RSP) enables you to access, simulate, visualize, and analyze data from the Nancy Grace Roman Space Telescope without installing or downloading anything on your own computer.
-You can open a new Python Jupyter notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
+The Roman Science Platform (RSP) enables you to access, simulate, visualize, and analyze data from the Nancy Grace Roman Space Telescope without installing or downloading anything on your own computer. You can open a new Python Jupyter notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
 or use the links below to learn more.
 
 <img src="../images/icons/jupyter.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [How do I use the Jupyter Interface?](../markdown/jupyter.md)
