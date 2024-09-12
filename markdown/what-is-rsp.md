@@ -13,7 +13,7 @@ The RSP is intended for users interested in preparing observing programs and/or 
 
 The virtual server that runs your personal instance of RSP will shut down after ~1 hour of inactivity; you can restart it the next time you access the platform.
 
-You can start and stop your computing server any time from the JupyterHub control panel, which can be accessed from the top menu in JupyterLab (<span style="font-variant:small-caps;">file › Hub Control Panel</span>) or the "Home" tab from JupyterHub pages. You might use this to, for example, clear unwanted changes to your Python environment.
+You can start and stop your computing server any time from the JupyterHub control panel, which can be accessed from the top menu in JupyterLab (<span style="font-variant:small-caps;">file › Hub Control Panel</span>) or the "Home" tab from JupyterHub pages. You might use this to, for example, clear unwanted changes to your Python environment. Shutting down after you've finished work also helps save STScI resources!
 
 ## More Information
 
