@@ -1,7 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <defs>
-    <style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 25 25"
+   version="1.1"
+   sodipodi:docname="cloud_download.svg"
+   width="25"
+   height="25"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4036"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="-7.0677966"
+     inkscape:cy="5.4915254"
+     inkscape:window-width="1606"
+     inkscape:window-height="766"
+     inkscape:window-x="2712"
+     inkscape:window-y="536"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs4021">
+    <style
+       id="style4019">
       .cls-1 {
         fill: none;
       }
@@ -11,12 +44,43 @@
       }
     </style>
   </defs>
-  <path class="cls-1" d="m0,0h24v24H0V0Z"/>
-  <g>
-    <path class="cls-2" d="m12.28,16.38l4.19-4.19h-2.71v-3.61h-3.61v3.61h-2.71l4.19,4.19c.18.18.46.18.64,0Z"/>
-    <g>
-      <path d="m6.55,19c-3.26,0-5.91-2.65-5.91-5.91,0-2.94,2.13-5.4,5.01-5.84,1.29-2.28,3.69-3.68,6.32-3.68,3.33,0,6.24,2.29,7.04,5.49,2.43.35,4.29,2.45,4.29,4.93,0,2.76-2.25,5.01-5.01,5.01H6.55Zm5.44-2.97l3.29-3.34h-2.01v-3.61h-2.61v3.61h-2l3.33,3.34Z"/>
-      <path class="cls-2" d="m11.96,4.07c3.28,0,6.02,2.34,6.63,5.45,2.35.16,4.19,2.09,4.19,4.47s-2.02,4.51-4.51,4.51H6.55c-2.99,0-5.41-2.43-5.41-5.41,0-2.79,2.11-5.09,4.83-5.38,1.13-2.16,3.39-3.64,6-3.64m0,12.45c.12,0,.23-.05.32-.14l4.19-4.19h-2.71v-3.61h-3.61v3.61h-2.71l4.19,4.19c.09.09.21.14.32.14m0-13.45c-2.73,0-5.22,1.42-6.63,3.73C2.34,7.36.14,9.98.14,13.09c0,3.54,2.88,6.41,6.41,6.41h11.73c3.04,0,5.51-2.47,5.51-5.51,0-2.62-1.87-4.85-4.39-5.37-.97-3.26-3.99-5.55-7.44-5.55h0Zm-.8,6.51h1.61v3.61h1.29l-2.1,2.1-2.1-2.1h1.3v-3.61h0Z"/>
+  <g
+     id="g4033"
+     style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.9;stroke-dasharray:none;stroke-opacity:1"
+     transform="translate(0.54237284,1.0169491)">
+    <path
+       class="cls-2"
+       d="m 12.28,16.38 4.19,-4.19 H 13.76 V 8.58 h -3.61 v 3.61 H 7.44 l 4.19,4.19 c 0.18,0.18 0.46,0.18 0.64,0 z"
+       id="path4025"
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.89999911;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       id="g4031"
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.2;stroke-dasharray:none;stroke-opacity:1">
+      <path
+         d="m 6.55,19 c -3.26,0 -5.91,-2.65 -5.91,-5.91 0,-2.94 2.13,-5.4 5.01,-5.84 1.29,-2.28 3.69,-3.68 6.32,-3.68 3.33,0 6.24,2.29 7.04,5.49 2.43,0.35 4.29,2.45 4.29,4.93 0,2.76 -2.25,5.01 -5.01,5.01 z m 5.44,-2.97 3.29,-3.34 H 13.27 V 9.08 h -2.61 v 3.61 h -2 z"
+         id="path4027"
+         style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.2;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         class="cls-2"
+         d="m 11.96,4.07 c 3.28,0 6.02,2.34 6.63,5.45 2.35,0.16 4.19,2.09 4.19,4.47 0,2.38 -2.02,4.51 -4.51,4.51 H 6.55 C 3.56,18.5 1.14,16.07 1.14,13.09 1.14,10.3 3.25,8 5.97,7.71 7.1,5.55 9.36,4.07 11.97,4.07 m 0,12.45 c 0.12,0 0.23,-0.05 0.32,-0.14 l 4.19,-4.19 H 13.77 V 8.58 h -3.61 v 3.61 H 7.45 l 4.19,4.19 c 0.09,0.09 0.21,0.14 0.32,0.14 m 0,-13.45 C 9.23,3.07 6.74,4.49 5.33,6.8 2.34,7.36 0.14,9.98 0.14,13.09 c 0,3.54 2.88,6.41 6.41,6.41 h 11.73 c 3.04,0 5.51,-2.47 5.51,-5.51 0,-2.62 -1.87,-4.85 -4.39,-5.37 C 18.43,5.36 15.41,3.07 11.96,3.07 Z m -0.8,6.51 h 1.61 v 3.61 h 1.29 l -2.1,2.1 -2.1,-2.1 h 1.3 z"
+         id="path4029"
+         style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.2;stroke-dasharray:none;stroke-opacity:1" />
     </g>
   </g>
+  <rect
+     style="fill:#000000;stroke:none;stroke-width:0.739823;stroke-dasharray:none"
+     id="rect294"
+     width="12.101695"
+     height="7.1186438"
+     x="6.5593214"
+     y="11.796612"
+     ry="1.1024449" />
+  <rect
+     style="fill:#000000;stroke:none;stroke-width:0.507515;stroke-dasharray:none"
+     id="rect294-9"
+     width="5.6949153"
+     height="7.1186438"
+     x="9.9152536"
+     y="7.3220339"
+     ry="1.1024449" />
 </svg>
