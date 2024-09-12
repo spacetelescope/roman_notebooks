@@ -22,7 +22,7 @@ or use the links below to learn more.
 
 <img src="../images/icons/book.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Roman Space Telescope Documentation Home](https://roman-docs.stsci.edu/)
 
-**Please note!** Your home directory (/home/jovyan) is saved and will persist between sessions. In addition to being saved on [AWS](https://aws.amazon.com/what-is-aws/), your data are backed up twice a month; even so, it is always prudent to save important files in multiple locations.
+**Please note!** Your home directory (/home/{your-username}) is saved and will persist between sessions. In addition to being saved on [AWS](https://aws.amazon.com/what-is-aws/), your data are backed up twice a month; even so, it is always prudent to save important files in multiple locations.
 
 **Caveats and known limitations**
 - The Wide Field Instrument (WFI) simulated data are the only Roman products currently available on the Roman Science Platform.
