@@ -10,7 +10,7 @@ or use the links below to learn more.
 
 <img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [What is the RSP?](../markdown/what-is-rsp.md)
 
-<img src="../images/icons/learning.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Roman Science Workflows and Notebook Tutorials](../markdown/tutorials.md)
+<img src="../images/icons/learning.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Roman Science Workflows](../markdown/workflows.md) and [Notebook Tutorials](../markdown/tutorials.md)
 
 <img src="../images/icons/database.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [What data are available?](../markdown/simulated-data.md)
 
