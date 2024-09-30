@@ -3,22 +3,26 @@
 <span style="font-variant:small-caps;">the rsp is still in active development! your feedback will help us prioritize improvements.</span>
 
 
-The Roman Science Platform (RSP) enables you to access, simulate, visualize, and analyze data from the Nancy Grace Roman Space Telescope without installing or downloading anything on your own computer. You can open a new Python Jupyter notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
+The Roman Science Platform (RSP) enables you to access, simulate, visualize, and analyze data from the Nancy Grace Roman Space Telescope without installing or downloading anything on your own computer. The RSP is accessed through JupyterLab, allowing you to run Jupyter Notebooks and scripts to perform a scientific analysis.
+You can open a new Python Jupyter notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
 or use the links below to learn more.
 
-<img src="../images/icons/jupyter.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [How do I use the Jupyter Interface?](../markdown/jupyter.md)
+<img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [RSP Overview](../markdown/what-is-rsp.md)
 
-<img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [What is the RSP?](../markdown/what-is-rsp.md)
 
-<img src="../images/icons/learning.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Roman Science Workflows](../markdown/workflows.md) and [Notebook Tutorials](../markdown/tutorials.md)
+<img src="../images/icons/jupyter.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Getting Started with Jupyter](../markdown/jupyter.md)
 
-<img src="../images/icons/database.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [What data are available?](../markdown/simulated-data.md)
+<img src="../images/icons/learning.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Roman Science Workflows](../markdown/workflows.md)
 
-<img src="../images/icons/download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I install extra software?](../markdown/software.md)
+<img src="../images/icons/book-stack.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [All Notebook Tutorials](../markdown/tutorials.md)
 
-<img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Best practices for cloud data](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
+<img src="../images/icons/database.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Available Data](../markdown/simulated-data.md)
 
-<img src="../images/icons/team.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [How do I work on a team?](../markdown/teams.md)
+<img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Data Discovery and Access](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
+
+<img src="../images/icons/team.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Working on a Team](../markdown/teams.md)
+
+<img src="../images/icons/download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Installing extra software](../markdown/software.md)
 
 <img src="../images/icons/book.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Roman Space Telescope Documentation Home](https://roman-docs.stsci.edu/)
 

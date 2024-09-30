@@ -1,4 +1,4 @@
-# Software on the Science Platform
+# Installing Extra Software
 As part of the science platform, STScI provides pre-installed software. You can also install your own software.
 
 <span style="font-variant:small-caps;">note:</span> Any commands given on this page must be entered into a terminal window. To open a new terminal window, select <span style="font-variant:small-caps;">file > new terminal</span> from the menu bar.

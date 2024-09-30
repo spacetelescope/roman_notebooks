@@ -1,5 +1,7 @@
 # Getting Started with Jupyter
 
+<span style="font-variant:small-caps;">note: the next version of the rsp will integrate the welcome tour; for now, this documentation remains</span>
+
 ## The Basics: How do I use the interface?
 The [try Jupyter](https://try.jupyter.org) site is a great place to begin; select the "JupyterLab" option, then start the "Welcome Tour". This interactive tour will give you a thorough walkthrough of the JupyterLab user interface. Once that tour is complete, you should open a new, blank notebook and begin the "Notebook Tour"; it explains how to write and run code in a notebook environment.
 

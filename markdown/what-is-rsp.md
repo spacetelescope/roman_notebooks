@@ -1,4 +1,4 @@
-# What is the Roman Science Platform?
+# RSP Overview
 
 The Roman Science Platform (RSP) is a set of services and tools to query, visualize, simulate, and analyze Roman data. The RSP operates on a web-based platform called [JupyterHub](https://docs.jupyter.org/en/latest/), allowing users to collaboratively work in [JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) sessions. Here, they can create [Jupyter notebooks](https://docs.jupyter.org/en/latest/). As web-based platform, RSP is operating-system agnostic and can be run on any modern internet browser. A stable Python environment is provided and maintained, including many commonly-used packages, the [Roman STScI Data Pipelines](https://roman-docs.stsci.edu/data-handbook-home/roman-stsci-data-pipelines), and [Roman related simulation and analysis tools](https://roman-docs.stsci.edu/simulation-tools-handbook-home). Users can create their own environments (Python or otherwise) and [install custom software](software.md). 
 
