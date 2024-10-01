@@ -15,7 +15,7 @@ As part of the science platform, you can use some helper commands to create and 
 
 ### 1. Creating a Conda Environment
 
-First, you should use the `kernel create` command to generate an environment for your software. You can select your desired Python version, and choose a name for the environment.
+First, you should use the `kernel-create` command to generate an environment for your software. You can select your desired Python version, and choose a name for the environment.
 
 `kernel-create <environment-name> [<python-version>] [<lab-display-name>]`
 
