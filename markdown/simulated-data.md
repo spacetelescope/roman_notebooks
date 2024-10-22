@@ -14,7 +14,7 @@ There are currently three types of simulated WFI images available for use with t
 
 
 
-An overview of the simulation tools and data products can be found below. At present, the majority of these files are stored in a private AWS S3 bucket accessible only within the RSP. More details on accessing these products can be found [**HERE**](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb).
+An overview of the simulation tools and data products can be found below. At present, the majority of these files are stored in a private AWS S3 bucket accessible only within the RSP. See the [Cloud Data Access Notebook](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb) for more details on accessing these products.
 
 
 
