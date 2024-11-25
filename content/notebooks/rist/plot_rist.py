@@ -12,7 +12,7 @@ from bokeh.io import show, output_notebook # enables plot interface in the Jupyt
 from bokeh.application import Application
 from bokeh.application.handlers import FunctionHandler
 from bokeh.palettes import Sunset
-import pdb
+
 output_notebook()
 
 
@@ -36,7 +36,7 @@ class plot_rist():
         self.magnitude = 20
         self.ymin = 1e-2        # Setting the y-axis min and max for plotting
         self.ymax = 1e3
-        self.ma_table = 'C2A_IMG_HLWAS'#'hlwas_imaging'
+        self.ma_table = 'C2A_IMG_HLWAS'
         self.nresultant = 5
         self.background = 'minzodi_benchmark'
         self.mag_system = 'abmag'
@@ -138,12 +138,8 @@ class plot_rist():
         self.sed_type_button_group = RadioButtonGroup(labels=['Flat', 'A0V', 'G2V', 'M5V'], active=0)
 
         background_options = ['minzodi & benchmark']
-        # background_options = ['ecliptic & low', 'ecliptic & medium', 'ecliptic & high', 
-        #                 'minzodi & benchmark', 'minzodi & low', 'minzodi & medium', 'minzodi & high',
-        #                 'none']                      
         self.background_select = Select(title='Background & Level', options=background_options, value='minzodi & benchmark')
         
-        # matable_options = ['hlwas_imaging', 'hltds_imaging1', 'hltds_imaging2', 'hltds_imaging3', 'hltds_imaging4', 'gbtds'] # 'defocus_mod', 'defocus_lrg'
         matable_options = ['C1_IMG_MICROLENS', 'C2A_IMG_HLWAS', 'C2B_IMG_HLWAS', 'C2C_IMG_HLWAS', 'C2D_IMG_HLWAS', 'C2E_IMG_HLWAS', 'C2F_IMG_HLWAS', 'C2G_IMG_HLWAS', 'C2H_IMG_HLWAS'] # 'defocus_mod', 'defocus_lrg'
         self.matable_select = Select(title='MA Table', options=matable_options, value='C2A_IMG_HLWAS')
         
@@ -214,20 +210,6 @@ class plot_rist():
         else:
             dynamic_nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16(Max)'] 
  
-
-        # if (self.matable_select.value == 'hlwas_imaging' or 
-        #     self.matable_select.value == 'hltds_imaging1'):
-        #     dynamic_nresultant_options = ['2', '3(Rec. Min)', '4', '5', '6', '7', '8(Max)']       
-        # elif self.matable_select.value == 'hltds_imaging2':
-        #     dynamic_nresultant_options = ['2(Rec. Min)', '3', '4', '5', '6', '7', '8(Max)']        
-        # elif self.matable_select.value == 'hltds_imaging3':
-        #     dynamic_nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6', '7', '8', '9', '10(Max)']   
-        # elif self.matable_select.value == 'hltds_imaging4':
-        #     dynamic_nresultant_options = ['2', '3', '4', '5', '6(Rec. Min)', '7', '8', '9', '10(Max)'] 
-        # elif self.matable_select.value == 'gbtds':
-        #     dynamic_nresultant_options = ['2(Rec. Min)', '3', '4', '5', '6(Max)']   
-
-
 
         # New # of resultant selection
         self.nresultant_select.options = dynamic_nresultant_options
@@ -353,8 +335,6 @@ class plot_rist():
         lookup: index number that corresponds to the requested inputs
 
         '''
-        # print(self.mag_system)
-        # print(self.sed_type)
         grid_name = self.ma_table + '_' + str(self.nresultant) + '_' + self.background + '_' + self.mag_system + '_' + self.sed_type
         
         lookup = np.where(grid_name == self.grid_properties)[0][0]
