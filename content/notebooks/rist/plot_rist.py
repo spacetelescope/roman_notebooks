@@ -132,7 +132,7 @@ class plot_rist():
         magnitude_slider_min = min(mags)
         magnitude_slider_max = max(mags)
 
-        self.magnitude_slider = Slider(start=magnitude_slider_min, end=magnitude_slider_max, value=20, step=.1, title='Magnitude (ABmag)', direction="rtl")
+        self.magnitude_slider = Slider(start=magnitude_slider_min, end=magnitude_slider_max, value=20, step=.1, title='Magnitude', direction="rtl")
 
         # SED type
         self.sed_type_button_group = RadioButtonGroup(labels=['Flat', 'A0V', 'G2V', 'M5V'], active=0)
@@ -153,7 +153,11 @@ class plot_rist():
             w2.on_change('active', self.update_data)
         
         # Set up layouts and add to document
-        widgets = column(self.magsys_button_group, self.sed_type_button_group, self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select)
+        label_magsys = Div(text='Input Magnitude Type')
+        label_sedtype = Div(text='Spectrum Type')
+        widgets = column(column(label_magsys, self.magsys_button_group), 
+                        column(label_sedtype, self.sed_type_button_group), 
+                        self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select)
         
 
         return widgets
