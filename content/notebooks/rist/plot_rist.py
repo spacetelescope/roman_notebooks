@@ -62,7 +62,7 @@ class plot_rist():
 
         '''       
         tooltips = [('Filter', '@desc'),
-                    ('SNR', '@snr{int}')]       
+                    ('SNR', '@snr{0.00}')]       
 
         plot = figure(height=450, width=800, title='  ',
                       tools='crosshair,pan,reset,save,box_zoom,hover',
@@ -296,9 +296,28 @@ class plot_rist():
         snr = new_result.interp(magnitude = new_magnitude) 
         snr_saturated = new_result.interp(magnitude = new_magnitude) 
 
+        # Treat the dim points first to avoid a confusion with how the saturated points are plotted
+        # This is because the saturated points will be set to ymin * 1.1 in the next few lines
+        # Some dim targets' SNRs are happened to be ymin * 1.1. so set them to any value 
+        # just above ymin*1.1 to be replaced to 0 later
+        # The value also has to be non 0 which is what Pandeia sets for the saturated sources from the calculation) 
+        # This treatment is for the snr_saturated array to make them not appear in the plot as 'saturated' points
+        snr_saturated = snr_saturated.where(snr_saturated != round(self.ymin*1.1, 3), round(self.ymin*1.11, 4))
+        
+        # Also changing SNR = ymin because ymin * 1.1 and ymin are too close in the log space and
+        # it still looks like it is a saturated point in the plot (turn to the triangle)
+        snr_saturated = snr_saturated.where(snr_saturated != round(self.ymin, 3), round(self.ymin*1.11, 4))
+
+        # Unfortunately, there are also SNR = 0 for the actual dim star..
+        if new_magnitude > 26:
+            # Set the actual SNR=0 to nan to not get confused with the saturated onnes
+            snr_saturated = snr_saturated.where(snr_saturated != 0, np.nan)
+
         # Create array of saturated points
-        snr_saturated = snr_saturated.where(snr_saturated != 0, self.ymin*1.1)
-        snr_saturated = snr_saturated.where(snr_saturated <= self.ymin*1.1, 0)
+        # Pandas dataframe's built-in where function 'keeps the original values where the condition is True and replaces them with 
+        # NaN or another specified value where the condition is False.' 
+        snr_saturated = snr_saturated.where(snr_saturated != 0, round(self.ymin*1.1, 3))  # Look for where SNR = 0 and set it to ymin*1.1
+        snr_saturated = snr_saturated.where(snr_saturated <= round(self.ymin*1.1, 3), 0)  # Look for where 
 
         self.source.data['snr'] = snr
         self.source.data['snr_saturated'] = snr_saturated     
