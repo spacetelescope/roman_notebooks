@@ -1,7 +1,7 @@
 # Working on a Team
 
 ## Accessing Team Resources
-When you log into the RSP, you will see options to log in: either using your personal account or via “team” accounts. Your team membership has been determined a priori for this validation stage. In the future, users will be able to manage their team membership through a web-based interface. The selection you make at this stage (personal or a specific team) determines who will be charged for the resources used during your session. In addition, you must select how many resources (CPUs and GBs of RAM) you want available during your session. 
+When you log into the RRN, you will see options to log in: either using your personal account or via “team” accounts. Your team membership has been determined a priori for this workshop. In the future, users will be able to request/manage their team membership. The selection you make at this stage (personal or a specific team) determines who will be charged for the resources used during your session. In addition, you must select how many resources (CPUs and GBs of RAM) you want available during your session. 
 
 After logging in and launching a session, you will have access to a persistent home storage area located at `/home/{your-username}/`. If you are a member of any teams, you can also access shared storage at `/teams/{team-name}`. All teams directories on the platform will be visible, but you only have read and write access to the teams you are a member of.
 
