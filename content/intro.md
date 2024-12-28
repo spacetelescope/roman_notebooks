@@ -1,9 +1,9 @@
-# Welcome to the RSP!
+# Welcome to the RRN!
 
-<span style="font-variant:small-caps;">the rsp is still in active development! your feedback will help us prioritize improvements.</span>
+<span style="font-variant:small-caps;">the RRN is still in active development! your feedback will help us prioritize improvements.</span>
 
 
-The Roman Science Platform (RSP) enables you to access, simulate, visualize, and analyze data from the Nancy Grace Roman Space Telescope without installing or downloading anything on your own computer. The RSP is accessed through JupyterLab, allowing you to run Jupyter Notebooks and scripts to perform a scientific analysis.
+The Roman Research Nexus (RRN) enables you to access, simulate, visualize, and analyze data from the Nancy Grace Roman Space Telescope without installing or downloading anything on your own computer. The RRN is accessed through JupyterLab, allowing you to run Jupyter Notebooks and scripts to perform scientific analysis.
 You can open a new Python Jupyter notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
 or use the links below to learn more.
 
@@ -29,10 +29,10 @@ or use the links below to learn more.
 **Please note!** Your home directory (/home/{your-username}) is saved and will persist between sessions. In addition to being saved on [AWS](https://aws.amazon.com/what-is-aws/), your data are backed up twice a month; even so, it is always prudent to save important files in multiple locations.
 
 **Caveats and known limitations**
-- The Wide Field Instrument (WFI) simulated data are the only Roman products currently available on the Roman Science Platform.
-- The Jupyter Notebook Tutorials and Science Workflows offered in this Summer 2024 release focus on the WFI Imaging mode.
+- The Wide Field Instrument (WFI) simulated data are the only Roman products currently available on the Roman Research Nexus.
+- The main focus of the Jupyter Notebook Tutorials and Science Workflows offered in this release is the WFI Imaging mode. More content on the WFI Spectroscopic mode will be added in future releases.
 
 **Questions?** Please contact the [Roman help desk](https://stsci.service-now.com/roman) or [open an issue on GitHub](https://github.com/spacetelescope/roman_notebooks). We particularly welcome suggestions for adding additional packages and tutorials.
 
 ---
-*Last Updated: September 2024*
+*Last Updated: December 2024*
