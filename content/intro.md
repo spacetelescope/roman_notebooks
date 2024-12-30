@@ -1,6 +1,6 @@
 # Welcome to the Roman Research Nexus!
 
-<span style="font-variant:small-caps;">the RRN is still in active development! your feedback will help us prioritize improvements.</span>
+<span style="font-variant:small-caps;"> Please note that the RRN is still in active development! Your feedback will help us prioritize improvements.</span>
 
 
 The Roman Research Nexus (RRN) enables you to access, simulate, visualize, and analyze data from the Nancy Grace Roman Space Telescope without installing or downloading anything on your own computer. The RRN is accessed through JupyterLab, allowing you to run Jupyter Notebooks and scripts to perform scientific analysis.
