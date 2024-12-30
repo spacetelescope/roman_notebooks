@@ -1,4 +1,4 @@
-# Welcome to the RRN!
+# Welcome to the Roman Research Nexus!
 
 <span style="font-variant:small-caps;">the RRN is still in active development! your feedback will help us prioritize improvements.</span>
 
