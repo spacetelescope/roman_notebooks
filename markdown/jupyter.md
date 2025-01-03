@@ -1,15 +1,16 @@
 # Getting Started with Jupyter
 
-<span style="font-variant:small-caps;">note: the next version of the rsp will integrate the welcome tour; for now, this documentation sends you to the Jupyter site.</span>
-
 ## The Basics: How do I use the interface?
-The [Try Jupyter](https://try.jupyter.org) site is a great place to begin; select the "JupyterLab" option, then start the "Welcome Tour". This interactive tour will give you a thorough walkthrough of the JupyterLab user interface. Once that tour is complete, you should open a new, blank notebook and begin the "Notebook Tour"; it explains how to write and run code in a notebook environment.
+If you are new to Jupyter, we encourage you to take the **"Welcome Tour"**. This interactive tour provides a comprehensive walkthrough of the JupyterLab user interface. You can access the tour when prompted during your first login or later through the **help** menu. 
+
+To learn more about Jupyter notebooks, start by opening a new blank notebook. In the main work area, open a new tab and select **"Notebook"** under any available kernel. You are now ready to begin the "Notebook Tour", which offers of writing and running code in the notebook environment.
+
+For more information on the Jupyter interface, please visit the ["Try Jupyter"](https://jupyter.org/try) page.
 
 ## Changing to a Different Server
 To switch to a different server type (e.g. one with more CPU cores, or with different team access), you first need to shutdown your existing server. To do this, select <span style="font-variant:small-caps;">file › hub control panel</span> from the menu bar and then click the <span style="font-variant:small-caps;">stop my server</span> button. Then, you can click the <span style="font-variant:small-caps;">start my server</span> button to launch a server of your choice.
 
-Note: when you're finished with work, you should also stop your server. This saves computational resources (and therefore expense) for STScI.
-
+Note: To conserve computational resources, please remember to shut down your server when you have finished your work.
 
 ## A Detailed Description: How does this work?
-Users curious about how Jupyter works (and the history and motivation for a computational notebook) should start by reading the ["What is Jupyter?"](https://docs.jupyter.org/en/latest/what_is_jupyter.html) page.
+Users curious about how Jupyter works, as well as the history and motivation behind computational notebooks, should start by reading the ["What is Jupyter?"](https://docs.jupyter.org/en/latest/what_is_jupyter.html) page.
