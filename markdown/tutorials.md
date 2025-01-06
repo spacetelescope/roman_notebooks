@@ -1,11 +1,17 @@
 # All Notebook Tutorials
+
 ## What are Notebook Tutorials?
-In the Roman Research Nexus (RRN) framework, a notebook tutorial refers to a Jupyter notebook demonstrating how to use a specific piece of code or tool.  A set of predefined Jupyter notebook tutorials is available to demonstrate how to use tools and software for accessing, simulating, processing, visualizing, and analyzing Roman Wide Field Instrument (WFI) data within the research nexus. Although the current content primarily focuses on WFI imaging mode, more material on spectroscopic products will be available by Summer 2025.
+In the Roman Research Nexus (RRN) framework, a notebook tutorial refers to a Jupyter notebook demonstrating how to use a specific piece of code or tool. A set of predefined Jupyter notebook tutorials is available to demonstrate how to use tools and software for accessing, simulating, processing, visualizing, and analyzing Roman Wide Field Instrument (WFI) data within the research nexus. Although the current content primarily focuses on WFI imaging mode, more material on spectroscopic products will be available by Summer 2025.
 
 Each tutorial is self-contained, well-documented, and guides users through every step. While Jupyter notebook tutorials can be used as standalone tools, they also function as individual components or modules within larger [Science Workflows](./workflows.md), offering users a complete end-to-end experience.
 
 ## How to Use the Notebook Tutorials
 Jupyter notebooks provide an efficient and powerful way to interact with Roman datasets. Always remember to [save and shut down all notebooks and log out](./jupyter.md) of JupyterLab when you finish your work. This is important to preserve resources for other users and to ensure that you enter the Roman Research Nexus in a known state every time.
+
+### A Caveat: Read-Only Notebooks and Git-Sync
+Notebooks are provided in read-only format within reference directories. You can make edits and run cells, but any changes to the notebook must be saved to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file > save notebook as > my-nbs/nb.ipynb</span>). Note that the directory must exist before you attempt to add a notebook to it.
+
+We use this system to avoid overwriting user edits. Each time you log in, the latest version of the reference notebooks is fetched from github. Requiring files to be saved elsewhere allows us to make edits and improvements without fear of erasing user work.
 
 ## All Notebooks
 Below is an outline of the content covered in each notebook and the [Science Workflows](./workflows.md) they are part of. 
