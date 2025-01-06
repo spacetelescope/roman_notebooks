@@ -7,7 +7,7 @@ The Roman Research Nexus (RRN) enables you to access, simulate, visualize, and a
 You can open a new Python Jupyter notebook via the top menu (<span style="font-variant:small-caps;">file › new › notebook</span>)
 or use the links below to learn more.
 
-<img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [RSP Overview](../markdown/what-is-rsp.md)
+<img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [RRN Overview](../markdown/what-is-rrn.md)
 
 
 <img src="../images/icons/jupyter.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Getting Started with Jupyter](../markdown/jupyter.md)
