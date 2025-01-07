@@ -16,9 +16,7 @@ collapse the data along the time axis into rate images suitable for scientific a
 - [Mosaic Pipeline](../../content/notebooks/mosaic_pipeline/mosaic_pipelin.ipynb): Process Roman WFI Exposure Level Products into Mosaic Images
 > Use RomanCal, the Roman calibration pipeline, to process exposure level (L2) products into mosaic (L3) images. The mosaic pipeline is responsible for combining individual detector exposures into mosaics made up of multiple exposures. In this context, mosaic indicates a combination or stack of multiple exposures into a larger or deeper image. To learn more about the overall mosaic level pipeline and its different steps visit the [RDox documentation](ADD LINK).
 
-  <img width="600" alt="image" src="https://github.com/user-attachments/assets/75a998ac-fc3c-4b09-965b-51d405fa020c" />
-
-
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/99d0bd05-b0f3-428f-8193-f9dcd27132f0" />
 
 ## Caveats and limitations
 While the current content focuses on the WFI imaging mode, more material on the WFI spectroscopic mode will be available by Summer 2025.
