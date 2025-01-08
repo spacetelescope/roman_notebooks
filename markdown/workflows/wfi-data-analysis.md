@@ -16,7 +16,7 @@ This science workflow guides users through the discovery and access of data whil
     - > [Roman cutouts](../../content/notebooks/roman_cutouts/roman_cutouts.ipynb): Create cutouts from Roman simulated images using the [Astrocut](https://astrocut.readthedocs.io/en/latest/index.html#http://) service, which offers tools to generate cutouts from large astronomical images.
     - > [Grism Spectral Extraction](../../content/notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb): Follow a simple workflow to extract 1D grism spectra for individual objects from a simulated Roman WFI 2D dispersed image. Apply both the 'box extraction' method with various box dimensions and the optimal extraction technique to a variety of sources to produce wavelength- and flux-calibrated 1D spectra.
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/f13a8511-61e2-4054-8640-0ab61dd427ce" />
+<img width="650" alt="image" src="https://github.com/user-attachments/assets/f13a8511-61e2-4054-8640-0ab61dd427ce" />
 
 ## Caveat and limitations
 While the current content focuses on WFI imaging mode, more content on spectroscopic products will be available by Summer 2025.
