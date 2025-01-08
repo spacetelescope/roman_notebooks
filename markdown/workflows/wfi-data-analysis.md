@@ -19,4 +19,4 @@ This science workflow guides users through the discovery and access of data whil
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/f13a8511-61e2-4054-8640-0ab61dd427ce" />
 
 ## Caveat and limitations
-While the current content focuses on WFI imaging mode, more material on spectroscopic products will be available by Summer 2025.
+While the current content focuses on WFI imaging mode, more content on spectroscopic products will be available by Summer 2025.
