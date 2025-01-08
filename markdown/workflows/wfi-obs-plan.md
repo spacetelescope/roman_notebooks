@@ -17,4 +17,4 @@ This workflow is designed for users aiming to plan WFI surveys and observations 
 ﻿<img width="600" alt="image" src="https://github.com/user-attachments/assets/0f22c0cc-f297-48b5-87e6-854f6cdb069e" />
 
 ## Caveats and Limitations
-While the current content primarily focuses on the WFI imaging mode, more material on spectroscopic products will be available by summer 2025.
+While the current content primarily focuses on the WFI imaging mode, more content on spectroscopic products will be available by summer 2025.
