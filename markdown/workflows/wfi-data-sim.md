@@ -19,4 +19,4 @@ collapse the data along the time axis into rate images suitable for scientific a
   <img width="600" alt="image" src="https://github.com/user-attachments/assets/99d0bd05-b0f3-428f-8193-f9dcd27132f0" />
 
 ## Caveats and limitations
-While the current content focuses on the WFI imaging mode, more material on the WFI spectroscopic mode will be available by Summer 2025.
+While the current content focuses on the WFI imaging mode, more content on the WFI spectroscopic mode will be available by Summer 2025.
