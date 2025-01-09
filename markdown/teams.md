@@ -13,24 +13,26 @@ Each team will be assigned an admin user, who has permissions to manage all file
 
 ### teams/{team-name}/
 
-By default, within `teams/{team-name}/`, the setgid bit is set, causing any directories or files created here or below to be group-owned by this team but user-owned by whoever creates the file.  Initially, the user sticky bit is also set on this directory so that members of the group can create their own artifacts but not rename or delete those of other members.
+By default, within `teams/{team-name}/`, any directories or files created are group-owned by the team but user-owned by the file's creator. This means team members cannot rename or delete shared files. However, when working under your team directory, other team members **can** modify the contents of files and directories you create.
 
-For regular users,  each file or directory retains the identity of the creator as owner,  so aside from admins we can discern who created what.  Not even the team admin can delete the group directory itself due to the permissions of teams.  By default,  when working under your team directory, you will assign write privileges to the team enabling them to modify files and directories you create.
+For regular users, each file or directory retains the identity of the creator as owner; aside from admins, it is always clear who created a file. 
 
-Because of these permissions, users who are not team members cannot access this level or below even to read or traverse.  Note that by carefully manipulating the "other" bits, non-team members could be granted traversal and/or read access to nested directories and files, with that configuration controllable by the team admin.
+Users who are not team members cannot access the shared folder, or any folders it contains. The team admin can manually grant access to non-team members.
+
+Not even the team admin can delete the shared directory. 
 
 ### teams/{team-name}/{dir}/
 
-Users can create personally-owned directories within their team directories. The default permissions are that all team members can read, write, and traverse these directories, and these permissions can be updated by the user who created them. This property enables admins to create directories here which are not writable by other group members.
+Users can create personally-owned directories within their team directories. The default permissions are that all team members can read, write, and traverse these directories; permissions can be updated by the user who created the directory. By modifying permissions, users can create directories in the shared folder which are not writable by other group members.
 
-It will be the user's responsibility to set the sticky bit to protect files from being manipulated accidentally by other team members. The group assignment is driven by the setgid bit on the /teams/<group> directory where this artifact is created.
+It is the user's responsibility to protect files from being manipulated accidentally by other team members. 
 
 ### teams/{team-name}/{dir}/{file}
 
-By default, files created within the `teams/{team-name}/` directory will be readable by both user and group, writeable only by user. Team members are responsible for updating the permissions of these files in order to grant additional access.
+By default, files created within subdirectories of `teams/{team-name}/` will be readable by both user and group, but writeable only by user. Team members are responsible for updating the permissions of these files in order to grant additional access.
 
 ## Creating New Files and Directories
 
-The default ownership of files and directories you create will be yourself as user/owner and either the relevant group (when under /teams) or your personal group as group (under $HOME). chown and/or chgrp are used to manipulate ownership of existing files and directories.   These can be found as both shell commands and programming language function calls.
+The default ownership of files and directories you create will be yourself as user/owner and either the relevant group (when under /teams) or your personal group (under $HOME) as the group. chown (change owner) and/or chgrp (change group) are used to manipulate ownership of existing files and directories. These can be found as both shell commands (i.e. can be typed into a terminal window) and programming language function calls.
 
-The default permissions of new files and directories you create are largely controlled by the `umask` feature of Linux/UNIX.  These are user=rwx group=rwx other=rx when umask=002 octal. The umask value is used to select the permission bits which should NOT be set.  Permission bits can be altered after creation using the chmod shell or various Programming Language functions.
+In general, permissions of new files and directories you create are controlled by the `umask` feature of Linux/UNIX. These are user=rwx group=rwx other=rx when umask=002 octal.[HUH? are we saying these are the default values? Do we need to include the octal equivalent??] The umask value is used to select the permission bits which should NOT be set. [HUH? can we give an example? ]Permission bits can be altered after creation using the chmod shell or various Programming Language functions.
