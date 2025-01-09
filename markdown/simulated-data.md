@@ -2,7 +2,7 @@
 
 
 
-There are currently three types of simulated WFI images available for use with the Roman Science Platform (RSP). These include data products from:
+There are currently three types of simulated WFI images available for use with the Roman Research Nexus (RRN). These include data products from:
 
 
 
@@ -14,7 +14,7 @@ There are currently three types of simulated WFI images available for use with t
 
 
 
-An overview of the simulation tools and data products can be found below. At present, the majority of these files are stored in a private AWS S3 bucket accessible only within the RSP. See the [Cloud Data Access Notebook](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb) for more details on accessing these products.
+An overview of the simulation tools and data products can be found below. At present, the majority of these files are stored in a private AWS S3 bucket accessible only within the RRN. See the [Cloud Data Access Notebook](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb) for more details on accessing these products.
 
 
 
@@ -24,23 +24,22 @@ An overview of the simulation tools and data products can be found below. At pre
 
 ## <a name="romanisim"></a>Roman I-Sim Simulated Images
 
-[Roman I-Sim](https://github.com/spacetelescope/romanisim) generates Roman WFI imaging products by combining an input source catalog with simulated instrument and detector effects. A detailed description of the features included in the simulations can be found in the Roman-I-Sim [package documentation](https://romanisim.readthedocs.io/en/latest/romanisim/overview.html).
+[Roman I-Sim](https://github.com/spacetelescope/romanisim) generates Roman WFI imaging products by combining an input source catalog with simulated instrument and detector effects. A detailed description of the features included in the simulations can be found in the Roman I-Sim [package documentation](https://romanisim.readthedocs.io/en/latest/romanisim/overview.html).
 
-The Roman I-Sim products have metadata and an organizational structure  identical to what is expected for actual Roman data taken during operations. For example, the products are stored in Advanced Scientific Data Format (ASDF) files and adhere to the development version of the [WFI science data product schema](https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/data-levels-and-products) installed on the RSP. In the example [Science Workflows and Tutorials](LINK), the input catalogs are provided as Enhanced Character-Separated Value (ECSV) files and are generated using the parametric source generation offered within the tool. It is important to note that this source generation process does not utilize spectral energy distribution (SED) information to produce sources with realistic colors.
+The Roman I-Sim products have metadata and an organizational structure identical to what is expected for actual Roman data taken during operations. For example, the products are stored in ASDF files and adhere to the released version of the [WFI science data product schema](https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/data-levels-and-products) installed on the RRN. In the example [Science Workflows and Tutorials](tutorials.md), the input catalogs are provided as Enhanced Character-Separated Value (ECSV) files and combine stars from the Gaia source catalog and galaxies generated using the parametric source generation offered within the tool. It is important to note that Gaia the brightnesses of the Gaia stars are set to the Gaia r-band magnitude in all Roman filters (i.e., a flat spectral energy distribution (SED)) and that the parametric source generation process does not utilize SED information to produce sources with realistic colors.
 
-Roman I-Sim products are created using reference files from the [Calibration Reference Data System](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (CRDS). Therefore, the accuracy of the instrumental effects in the simulations _is only as good as the reference files used to create them_. Currently, many of the reference files in CRDS do not reflect knowledge gained from laboratory ground test campaigns, since the analysis of these data is ongoing. In the absence of measured ground test results,  sample reference files are created based on a combination of mission requirements, observatory/WFI models, and simulations. Additionally, some reference files (e.g., for photometric calibration) are based on a single, idealized detector. Questions regarding calibration reference files should be sent to the [Roman Helpdesk at STScI](https://stsci.service-now.com/roman).
+Roman I-Sim products are created using reference files from the [Calibration Reference Data System](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (CRDS). Therefore, the accuracy of the instrumental effects in the simulations _is only as good as the reference files used to create them_. The current suite of reference files contains preliminary versions of calibration data based on ground testing and are likely to improve as characterization of the ground test data continues. Questions regarding calibration reference files should be sent to the [Roman Helpdesk at STScI](https://stsci.service-now.com/roman).
 
-The Roman-I-Sim simulated products include:
+The Roman I-Sim simulated products include four full-focal-plane exposures (18 detectors each) in a four-point box dither pattern near the globular cluster NGC 6535 centered at (Ra, Dec) = (270.94, -0.2) deg in the F106 optical element. The dither pattern is approximately half-detector offsets in both X and Y to ensure complete filling of the gaps between detectors. The table below shows the dither pattern used for the simulation, where the offsets are given as relative to the previous point in the pattern:
 
-- A simulation of a dense region (~12.5 sq deg) composed of 10<sup>8</sup> stars and 10<sup>6</sup> galaxies
+| Dither Step | Offset X (arcsec) | Offset Y (arcsec) |
+| --- | --- | --- |
+| 0 | 0.00 | 0.00 |
+| 1 | 0.55 | 200.55 |
+| 2 | 200.55 | 0.55 |
+| 3 | 0.55 | -200.55 |
 
-- Two full-focal-plane exposures (18 detectors each) centered at (RA, Dec) = (0.50, 0.50) deg in the F129 (J) and F158 (H) optical elements.
-
-- Two full-focal-plane exposures (18 detectors each) centered at (RA, Dec) = (0.47, 0.51) deg in the F129 (J) and F158 (H) optical elements.
-
-- A simulation of a 'high-latitude' region (~0.5 sq deg) composed of 3 x 10<sup>4</sup> stars and 10<sup>4</sup> galaxies.
-
-- One detector (WFI01) in F106 (Y) with the WFI focal plane centered at (RA, Dec) = (0.0, 0.0) deg.
+From these four full-focal-plane exposures, we also include a mosaic made from one detector (WFI11) using each of the dither positions that cover the full extent of NGC 6535.
 
 ## <a name="stips"></a>STIPS Astronomical Scenes
 
