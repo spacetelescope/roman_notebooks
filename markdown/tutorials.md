@@ -1,40 +1,35 @@
-# RSP Jupyter Notebooks Tutorials
-Jupyter Notebooks offer an efficient and powerful way to interact with Roman datasets. Always save and shut down all notebooks, and log out of JupyterLab when you have finished your work. This is important to preserve resources for other users and to ensure you enter the RSP in a known state every time.
+# All Notebook Tutorials
+
+## What are Notebook Tutorials?
+In the Roman Research Nexus (RRN) framework, a notebook tutorial refers to a Jupyter notebook demonstrating how to use a specific piece of code or tool. A set of predefined Jupyter notebook tutorials is available to demonstrate how to use tools and software for accessing, simulating, processing, visualizing, and analyzing Roman Wide Field Instrument (WFI) data within the research nexus. Although the current content primarily focuses on WFI imaging mode, more material on spectroscopic products will be available by Summer 2025.
+
+Each tutorial is self-contained, well-documented, and guides users through every step. While Jupyter notebook tutorials can be used as standalone tools, they also function as individual components or modules within larger [Science Workflows](./workflows.md), offering users a complete end-to-end experience.
 
 ## How to Use the Notebook Tutorials
-A set of predefined Jupyter Notebook tutorials is available to demonstrate how to use tools and software to access, simulate, process, visualize, and analyze Roman Wide Field Instrument (WFI) data within the science platform. Each tutorial is self-contained, well-documented, and guides users through each step.
+Jupyter notebooks provide an efficient and powerful way to interact with Roman datasets. Always remember to [save and shut down all notebooks and log out](./jupyter.md) of JupyterLab when you finish your work. This is important to preserve resources for other users and to ensure that you enter the Roman Research Nexus in a known state every time.
 
-Each notebook can also be seen as an individual component or module within a larger science workflow, offering users a complete end-to-end experience. While many different workflows are possible, the current documentation focuses on three main use cases: WFI observation planning, WFI data simulations, and WFI data analysis.
+### A Caveat: Read-Only Notebooks and Git-Sync
+Notebooks are provided in read-only format within reference directories. You can make edits and run cells, but any changes to the notebook must be saved to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file > save notebook as > my-nbs/nb.ipynb</span>). Note that the directory must exist before you attempt to add a notebook to it.
 
-### Summary
-- Tutorial: A notebook demonstrating how to use specific code or tools.
-- Science Workflow: A combination of documentation and notebook tutorials demonstrating how to achieve a specific science-focused use case.
-
-### Workflows
-While users can choose to run any single Jupyter Notebook tutorial as a standalone tool, Science Workflows are designed to offer a complete end-to-end experience. Here, we consider three common workflows focused on the Roman Wide Field Instrument (WFI):
-
-- [WFI Observation Planning](workflows/wfi-obs-plan.md)
-- [WFI Data Simulation](workflows/wfi-data-sim.md)
-- [WFI Data Analysis](workflows/wfi-data-analysis.md)
-
-There are many potential workflows not covered in this outline; even if you don't see it here, the RSP can likely support your workflow! While the current content primarily focuses on the WFI imaging mode, Jupyter Notebook tutorials and Science Workflows for spectroscopic products will be available by Winter 2024.
+We use this system to avoid overwriting user edits. Each time you log in, the latest version of the reference notebooks is fetched from github. Requiring files to be saved elsewhere allows us to make edits and improvements without fear of erasing user work.
 
 ## All Notebooks
-Below is an outline of the content covered in each notebook and the Science Workflows they are part of. While the current content primarily focuses on the WFI imaging mode, Jupyter Notebook tutorials for spectroscopic products will be available by Winter 2024.
-
-
+Below is an outline of the content covered in each notebook and the [Science Workflows](./workflows.md) they are part of. 
 
 | Jupyter Notebook Tutorial                                                                                   | Content and Scope                                                                                                       | Science Workflow(s)                      |
 |-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
-| [Data Discovery and Access](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb) | Access data in the cloud archive ("S3 bucket")                                                                          | WFI Data Analysis                        |
-| [Working with ASDF](../content/notebooks/working_with_asdf/working_with_asdf.ipynb)                         | Open ASDF files with roman_datamodels, access metadata, manipulate arrays, and save changes to disk                     | WFI Data Simulation<br>WFI Data Analysis |
-| [Data Visualization](../content/notebooks/data_visualization/data_visualization.ipynb)                      | Use Imviz to display a preview of Roman Level 2 products.                                                               | WFI Data Simulation<br>WFI Data Analysis |
-| [Roman I-sim](../content/notebooks/romanisim/romanisim.ipynb)                                               | Generate Level 1 and Level 2 WFI imaging products.                                                                      | WFI Data Simulation                      |
-| [RomanCal](..content/notebooks/romancal/romancal.ipynb)                                                     | Process WFI L1 imaging raw data to obtain exposure level products.                                                      | WFI Data Simulation<br>WFI Data Analysis |
-| [Aperture Photometry](../content/notebooks/aperture_photometry/aperture_photometry.ipynb)                   | Perform forced aperture photometry on a simulated WFI image.                                                            | WFI Data Analysis                        |
-| [Galaxy Shapes](../content/notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.ipynb)                 | Perform shape measurements of galaxies on a simulated WFI image.                                                        | WFI Data Analysis                        |
-| [Pandeia](../content/notebooks/pandeia/pandeia.ipynb)                                                       | Estimate the exposure parameters needed to reach a given SNR for simulated sources in a small area of one WFI detector. | WFI Observations Planning                |
-| [RIST](../content/notebooks/rist/rist.ipynb)                                                                | Simplified, interactive version of Pandeia. Estimate the SNR for a variety of target brightnesses and filters.          | WFI Observations Planning                |
-| [STIPS](../content/notebooks/stips/stips.ipynb)                                                             | Simulate large astronomical scenes with WFI full field-of-view.                                                         | WFI Observations Planning                |
-| [Synphot](../content/notebooks/romanisim_romancal/romanisim_romancal.ipynb)                                 | Synthetic photometry software, estimate the brightness of sources observed with Roman WFI.                              | WFI Observations Planning                |
-| [WebbPSF](../content/notebooks/webbpsf/webbpsf.ipynb)                                                       | Generate WFI simulated Point Spread Functions using WebbPSF.                                                            | WFI Observations Planning                |
+| [Data Discovery and Access](../content/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb) | Retrieve data from MAST or access simulated Roman data in the cloud archive ("S3 bucket").                                                                          | [WFI Data Analysis](./workflows/wfi-data-analysys.md)                        |
+| [Working with ASDF](../content/notebooks/working_with_asdf/working_with_asdf.ipynb)                         | Open ASDF files with roman_datamodels, access metadata, manipulate arrays, and save changes to disk.                     | [WFI Data Simulation](./workflows/wfi-data-sim.md)<br>[WFI Data Analysis](./workflows/wfi-data-analysys.md) |
+| [Data Visualization](../content/notebooks/data_visualization/data_visualization.ipynb)                      | Visualize and explore Roman WFI images.                                                               | [WFI Data Simulation](./workflows/wfi-data-sim.md)<br>[WFI Data Analysis](./workflows/wfi-data-analysys.md) |
+| [Roman I-sim](../content/notebooks/romanisim/romanisim.ipynb)                                               | Generate Level 1 and Level 2 WFI imaging products.                                                                      | [WFI Data Simulation](./workflows/wfi-data-sim.md)                    |
+| [Exposure Pipeline](../content/notebooks/exposure_pipeline/exposure_pipeline.ipynb)                                                     | Process Level 1 data with the Roman WFI science calibration pipeline, RomanCal, to produce Level 2 exposure level data.                                                      | [WFI Data Simulation](./workflows/wfi-data-sim.md) |
+| [Mosaic Pipeline](../content/notebooks/mosaic_pipeline/mosaic_pipeline.ipynb)                                                     | Combine multiple Level 2 data products into a Level 3 distortion-corrected and co-added image, using the Roman WFI science calibration pipeline, RomanCal.                                                        | [WFI Data Simulation](./workflows/wfi-data-sim.md) |
+| [Aperture Photometry](../content/notebooks/aperture_photometry/aperture_photometry.ipynb)                   | Perform forced aperture photometry on a simulated WFI image.                                                            | [WFI Data Analysis](./workflows/wfi-data-analysys.md)                        |
+| [Galaxy Shapes](../content/notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.ipynb)                 | Perform shape measurements of galaxies on a simulated WFI image.                                                        | [WFI Data Analysis](./workflows/wfi-data-analysys.md)                        |
+| [Roman Cutouts](../content/notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.ipynb)                 | Generate cutouts from a Roman WFI image.                                                        | [WFI Data Analysis](./workflows/wfi-data-analysys.md)   
+| [Grism Spectral Extraction](../content/notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb)                 | Extract 1-D spectra from a simulated Roman WFI 2-D slitless spectral image.                                                        | [WFI Data Analysis](./workflows/wfi-data-analysys.md)     |
+| [Pandeia](../content/notebooks/pandeia/pandeia.ipynb)                                                       | Estimate the exposure parameters needed to reach a given SNR for simulated sources in a small area of one WFI detector. | [WFI Observations Planning](./workflows/wfi-obs-plan.md)                |
+| [RIST](../content/notebooks/rist/rist.ipynb)                                                                | Roman Interactive Sensitivity Tool. Simplified, interactive version of Pandeia. Estimate the SNR for a variety of target brightnesses and filters.          | [WFI Observations Planning](./workflows/wfi-obs-plan.md)                |
+| [STIPS](../content/notebooks/stips/stips.ipynb)                                                             | Simulate large astronomical scenes with WFI full field-of-view.                                                         | [WFI Observations Planning](./workflows/wfi-obs-plan.md)                |
+| [Synphot](../content/notebooks/synphot/synphot.ipynb)                                 | Synthetic photometry software, estimate the brightness of sources observed with Roman WFI.                              | [WFI Observations Planning](./workflows/wfi-obs-plan.md)                |
+| [WebbPSF](../content/notebooks/webbpsf/webbpsf.ipynb)                                                       | Generate WFI simulated Point Spread Functions using WebbPSF.                                                            | [WFI Observations Planning](./workflows/wfi-obs-plan.md)                |
