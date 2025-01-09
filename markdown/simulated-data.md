@@ -77,4 +77,6 @@ The data is contained in the `roman` block, which contains the following sub-blo
 | meta | Metadata block|
 | catalogs | Block containing the truth catalogs of the sources whose positions lie in the image of interest |
 
+## Spectroscopy Data
 
+Simulated grism images from Wang et al. (2022, ApJ, 928, 1) that were developed as part of the Roman High Latitude Spectroscopic Survey (HLSS) Grism Simulation Products are also provided. Please refer to [documentation on IRSA](https://irsa.ipac.caltech.edu/data/theory/Roman/Wang2022a/) the full details on this simulation. Briefly, these simulations cover an area of 4 sq. deg. in total over the redshift range of 0 < z < 3. These simulation products have been created to resemble as closely as possible the future observation by incorporating the survey parameters of the planned HLSS, such as detection limits, exposure times, roll angles, and dithering. From the simulation, we provide one grism file and one direct imaging file for the spectroscopic extraction tutorial.
