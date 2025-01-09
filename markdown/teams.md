@@ -34,5 +34,3 @@ By default, files created within subdirectories of `teams/{team-name}/` will be 
 ## Creating New Files and Directories
 
 The default ownership of files and directories you create will be yourself as user/owner and either the relevant group (when under /teams) or your personal group (under $HOME) as the group. chown (change owner) and/or chgrp (change group) are used to manipulate ownership of existing files and directories. These can be found as both shell commands (i.e. can be typed into a terminal window) and programming language function calls.
-
-In general, permissions of new files and directories you create are controlled by the `umask` feature of Linux/UNIX. These are user=rwx group=rwx other=rx when umask=002 octal.[HUH? are we saying these are the default values? Do we need to include the octal equivalent??] The umask value is used to select the permission bits which should NOT be set. [HUH? can we give an example? ]Permission bits can be altered after creation using the chmod shell or various Programming Language functions.
