@@ -2,6 +2,8 @@
 
 This science workflow guides the user through the simulation, processing, manipulation, and visualization of WFI imaging data products.
 
+<span style="font-variant: small-caps;"> **NOTE** - To run this workflow, please make sure you have started a medium or large server in the RRN. </span>
+
 
 ## Workflow
 - [Roman-I-Sim](../../content/notebooks/romanisim/romanisim.ipynb): Simulate Roman WFI Raw Data and Exposure Level Products
