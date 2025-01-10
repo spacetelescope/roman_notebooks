@@ -2,7 +2,7 @@
 
 This science workflow guides the user through the simulation, processing, manipulation, and visualization of WFI imaging data products.
 
-<span style="font-variant: small-caps;"> **NOTE** - To run this workflow, please make sure you have started a medium or large server in the RRN. </span>
+<span style="font-variant: small-caps;"> **IMPORTANT NOTE** - To run this workflow, please make sure you have started a large server in the RRN. </span>
 
 
 ## Workflow
