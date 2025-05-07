@@ -1,0 +1,4 @@
+numpy
+astropy
+matplotlib
+sncosmo
