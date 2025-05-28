@@ -3,3 +3,9 @@ astropy
 photutils
 roman_datamodels
 s3fs
+crds
+copy
+matplotlib
+numpy
+os
+stpsf
