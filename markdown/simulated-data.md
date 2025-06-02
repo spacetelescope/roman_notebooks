@@ -30,14 +30,14 @@ The Roman I-Sim products have metadata and an organizational structure identical
 
 Roman I-Sim products are created using reference files from the [Calibration Reference Data System](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (CRDS). Therefore, the accuracy of the instrumental effects in the simulations _is only as good as the reference files used to create them_. The current suite contains preliminary versions of reference files based on ground testing, and it is expected to improve as characterization of the ground test data continues. Questions regarding calibration reference files should be sent to the [Roman Helpdesk at STScI](https://stsci.service-now.com/roman).
 
-The Roman I-Sim simulated products include four full-focal-plane exposures (18 detectors each) in a four-point box dither pattern near the globular cluster NGC 6535, centered at (Ra, Dec) = (270.94, -0.2) deg, using the F106 optical element. The offset in the dither pattern is approximately half-detector in both X and Y directions to ensure complete filling of the gaps between detectors. The table below shows the dither pattern used for the simulation, where the offsets are given as relative to the previous point in the pattern:
+The Roman I-Sim simulated products include four full-focal-plane exposures (18 detectors each) in a four-point box dither pattern near the globular cluster NGC 6535, centered at (Ra, Dec) = (270.94, -0.2) deg, using the F106 optical element. The offset in the dither pattern is approximately half-detector in both X and Y directions to ensure complete filling of the gaps between detectors. The table below shows the dither pattern used for the simulation, where the offsets are given as relative to the first point in the pattern:
 
 | Dither Step | Offset X (arcsec) | Offset Y (arcsec) |
 | --- | --- | --- |
 | 0 | 0.00 | 0.00 |
-| 1 | 0.55 | 200.55 |
-| 2 | 200.55 | 0.55 |
-| 3 | 0.55 | -200.55 |
+| 1 | -205.20 | 0.88 |
+| 2 | -204.32 | 206.08 |
+| 3 | 0.88 | 205.20 |
 
 From these four full-focal-plane exposures, we also generate a mosaic for detector 11 (WFI11) using each of the dither positions that cover the full extent of NGC 6535.
 
