@@ -7,13 +7,13 @@ The primary advantage of working in the Nexus is proximity to data. In the case 
 
 ## Who is the RRN for?
 
-The RRN is intended for users interested in generating or exploring Roman simulations and working with Roman data. We offer a variety of [Jupyter notebook tutorials](tutorials.md) that demonstrate how to use tools and software to simulate, process, visualize, and analyze Roman Wide Field Instrument (WFI) data. Additionally, we organize the tutorials into Science Workflows that showcase how to use them as building blocks to address more complex scientific use cases. 
+The RRN is intended for users interested in generating or exploring Roman simulations and working with Roman data. We offer a variety of [Jupyter notebook tutorials](tutorials.md) that demonstrate how to use tools and software to simulate, process, visualize, and analyze Roman Wide Field Instrument (WFI) data. Additionally, we organize the tutorials into [Science Workflows](workflows.md) that showcase how to use them as building blocks to address more complex scientific use cases. 
 
 ## Restarting Your Server
 
 The virtual server that runs your personal instance of the RRN will shut down after ~1 hour of inactivity; you can restart it the next time you access the Nexus.
 
-You can start and stop your computing server any time from the JupyterHub control panel, which can be accessed from the top menu in JupyterLab (<span style="font-variant:small-caps;">file › Hub Control Panel</span>) or the "Home" tab from JupyterHub pages. You might use this to, for example, clear unwanted changes to your Python environment. Shutting down after you've finished work also helps saving STScI resources!
+You can start and stop your computing server any time from the JupyterHub control panel, which can be accessed from the top menu in JupyterLab (<span style="font-variant:small-caps;">file › Hub Control Panel</span>) or the "Home" tab from JupyterHub pages. You might use this, for example, to clear unwanted changes to your Python environment. Shutting down after you've finished work also helps saving STScI resources!
 
 ## More Information
 

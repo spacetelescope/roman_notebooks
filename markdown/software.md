@@ -4,12 +4,12 @@ As part of the Research Nexus, STScI provides pre-installed software. However, y
 <span style="font-variant:small-caps;">Note:</span> Any commands given on this page must be entered into a terminal window. To open a new terminal window, select <span style="font-variant:small-caps;">file > new terminal</span> from the menu bar.
 
 ## What software is pre-installed?
-To get a full list of pre-installed software, run `conda list`. Since this full list is quite long, you can check the version for a particular package using `conda list <package>`. For example, `conda list astropy` or `conda list numpy`.
+To view a full list of pre-installed software, run `conda list`. Since the list is quite long, you can check the version of a specific package by running `conda list <package>`. For example, `conda list astropy` or `conda list numpy`.
 
-If there is a package that you think should be included by default, you can submit a request to the [Roman help desk](https://stsci.service-now.com/roman).
+If there is a package you believe should be included by default, you can submit a request to the [Roman help desk](https://stsci.service-now.com/roman).
 
 ## How do I install and manage my own software?
-It is essential to create software environments when working in the cloud nexus. A simple `pip install <package>` will not result in a persistent installation. Instead, it will produce a temporary installation that will be deleted upon your next log in.
+When working in the Nexus, it is essential to create dedicated software environments. A simple `pip install <package>` will not result in a persistent installation. Instead, it creates a temporary installation that will be deleted the next time you log in.
 
 As part of the Research Nexus, you can use helper commands to create and manage software environments. Follow the steps below to setup your own environments and install packages.
 

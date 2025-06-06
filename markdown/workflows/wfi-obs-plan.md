@@ -17,4 +17,4 @@ This workflow is designed for users aiming to plan WFI surveys and observations 
  <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-obs-planning.png" alt="WFI Observation Planning Workflow" width="500" />
 
 ## Caveats and Limitations
-While the current content primarily focuses on the WFI imaging mode, more content on spectroscopic products will be available by summer 2025.
+While the current content primarily focuses on the WFI imaging mode, more content on spectroscopic products will be available in future releases.
