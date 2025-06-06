@@ -10,4 +10,4 @@ We currently support three Science Workflows focused on the Roman Wide Field Ins
 
 There are many potential workflows beyond those listed here. Even if yours is not explicitly mentioned, the RRN can likely support your specific workflow!
 
-Although the current content primarily focuses on WFI imaging mode, more content on spectroscopic products will be available by Summer 2025.
+Although the current content primarily focuses on WFI imaging mode, more content on spectroscopic products will be available in future releases.
