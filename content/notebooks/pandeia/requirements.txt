@@ -1,2 +1,3 @@
-pandeia.engine
-scipy
+pandeia.engine>=2024.12
+scipy>=1.15.2
+numpy>=2.2.3

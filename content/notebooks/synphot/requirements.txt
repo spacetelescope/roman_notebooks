@@ -1,0 +1,5 @@
+astropy>=7.0.1
+matplotlib>=3.10.0
+synphot>=1.5.0
+stsynphot>=1.4.0
+stpsf>=2.1.0
