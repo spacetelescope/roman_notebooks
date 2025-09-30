@@ -1,0 +1,7 @@
+asdf==4.2.0
+matplotlib==3.10.6
+numpy==2.3.3
+roman_datamodels==0.25.0
+romancal==0.20.2
+s3fs==2025.9.0
+scipy==1.16.2
