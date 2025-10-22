@@ -1,36 +1,55 @@
-pandeia:
-  version: 2025.9
-  data_url: 
-    - https://stsci.box.com/shared/static/0qjvuqwkurhx1xd13i63j760cosep9wh.gz"
-  environment_variable: pandeia_refdata
-  install_path: ${HOME}/refdata/
-  data_path: pandeia_data-2025.9-roman
-stpsf:
-  version: 2.1.0
-  data_url:
-    - https://stsci.box.com/shared/static/kqfolg2bfzqc4mjkgmujo06d3iaymahv.gz
-  environment_variable: STPSF_PATH
-  install_path: ${HOME}/refdata/
-  data_path: stpsf-data
-stips:
-  version: 2.3.0
-  data_url:
-    - https://stsci.box.com/shared/static/761vz7zav7pux03fg0hhqq7z2uw8nmqw.tgz
-  environment_variable: stips_data
-  install_path: ${HOME}/refdata/
-  data_path: stips_data
-synphot:
-  version: 1.6.0
-  data_url:
-    - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_everything_multi_v18_sed.tar
-    - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_star-galaxy-models_multi_v3_synphot2.tar
-    - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_castelli-kurucz-2004-atlas_multi_v2_synphot3.tar
-    - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_kurucz-1993-atlas_multi_v2_synphot4.tar
-    - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_pheonix-models_multi_v3_synphot5.tar
-    - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_calibration-spectra_multi_v13_synphot6.tar
-    - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_jwst_multi_etc-models_multi_v1_synphot7.tar
-    - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_modewave_multi_v1_synphot8.tar
-    - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_other-spectra_multi_v2_sed.tar
-  environment_variable: PYSYN_CDBS
-  install_path: ${HOME}/refdata/
-  data_path: grp/redcat/trds/
+# For each Python package that requires a data installation, give the
+# package name and:
+#   version - package version number
+#   data_url - the data_url is a list of URLs of tarballs to install
+#   environment_variable - variable to reference the installed data
+#   install_path - top directory under which to install the data
+#   data_path - name of the directory the tarball is expended into
+# The final path to the data is the join os install_path + data_path.
+#
+# For Nexus setup, the install_path value can be overridden to point
+# to a shared data path (instead of $HOME).
+install_files:
+  pandeia:
+    version: 2025.9
+    data_url: 
+      - https://stsci.box.com/shared/static/0qjvuqwkurhx1xd13i63j760cosep9wh.gz
+    environment_variable: pandeia_refdata
+    install_path: ${HOME}/refdata/
+    data_path: pandeia_data-2025.9-roman
+  stpsf:
+    version: 2.1.0
+    data_url:
+      - https://stsci.box.com/shared/static/kqfolg2bfzqc4mjkgmujo06d3iaymahv.gz
+    environment_variable: STPSF_PATH
+    install_path: ${HOME}/refdata/
+    data_path: stpsf-data
+  stips:
+    version: 2.3.0
+    data_url:
+      - https://stsci.box.com/shared/static/761vz7zav7pux03fg0hhqq7z2uw8nmqw.tgz
+    environment_variable: stips_data
+    install_path: ${HOME}/refdata/
+    data_path: stips_data
+  synphot:
+    version: 1.6.0
+    data_url:
+      - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_everything_multi_v18_sed.tar
+      - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_star-galaxy-models_multi_v3_synphot2.tar
+      - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_castelli-kurucz-2004-atlas_multi_v2_synphot3.tar
+      - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_kurucz-1993-atlas_multi_v2_synphot4.tar
+      - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_pheonix-models_multi_v3_synphot5.tar
+      - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_calibration-spectra_multi_v13_synphot6.tar
+      - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_jwst_multi_etc-models_multi_v1_synphot7.tar
+      - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_modewave_multi_v1_synphot8.tar
+      - https://archive.stsci.edu/hlsps/reference-atlases/hlsp_reference-atlases_hst_multi_other-spectra_multi_v2_sed.tar
+    environment_variable: PYSYN_CDBS
+    install_path: ${HOME}/refdata/
+    data_path: grp/redcat/trds/
+# Add environment variables that do not require an data download
+# and install. For each variable, the name of the variable is given
+# followed by a value.
+other_variables:
+  CRDS_SERVER_URL: https://roman-crds-tvac.stsci.edu
+  CRDS_CONTEXT: roman_0027.pmap
+  CRDS_PATH: ${HOME}/crds_cache    # Nexus CRDS caches are local for now
