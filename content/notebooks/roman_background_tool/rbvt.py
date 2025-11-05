@@ -787,7 +787,7 @@ def plot_rbt(doc):
 
     # ---------- Layout (2×2) ----------
     controls = column(
-        Div(text="<h2>Roman Interactive Background Tool (RBT)</h2>"),
+        Div(text="<h2>Roman Background Visualization Tool (RBVT)</h2>"),
         row(ra_slider,   ra_input),
         row(dec_slider,  dec_input),
         row(thresh_slider, thresh_input),
