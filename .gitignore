@@ -3,3 +3,8 @@
 mastDownload
 *.asdf
 *.ecsv
+*.log
+*.tmp
+__pycache__/
+*.py[cod]
+
