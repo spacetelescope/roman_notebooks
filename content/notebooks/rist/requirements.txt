@@ -1,0 +1,5 @@
+numpy>=2.2.3
+pandas>=2.2.3
+bokeh>=3.7.3
+scipy
+xarray
