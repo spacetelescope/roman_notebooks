@@ -22,7 +22,7 @@ from astropy import units as u
 
 __version__ = "no_version_info"
 
-from roman_backgrounds import tgt_vis
+import tgt_vis
 
 
 class background:
