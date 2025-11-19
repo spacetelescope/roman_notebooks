@@ -1,0 +1,8 @@
+asdf>=4.1.0
+asdf-astropy>=0.7.1
+astrocut>=1.0.1
+astropy>=7.1.1
+matplotlib>=3.10.7
+numpy>=1.26.4
+s3fs>=2025.10.0
+roman_datamodels==0.28.1
