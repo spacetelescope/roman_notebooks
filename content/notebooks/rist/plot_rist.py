@@ -36,9 +36,9 @@ class plot_rist():
         self.magnitude = 20
         self.ymin = 1e-2        # Setting the y-axis min and max for plotting
         self.ymax = 1e3
-        self.ma_table = 'C2A_IMG_HLWAS'
-        self.nresultant = 5
-        self.background = 'minzodi_benchmark'
+        self.ma_table = 'im_120_8'#'im_135_8'
+        # self.nresultant = 5
+        self.background = 'hlwas-medium_field1_medium'
         self.mag_system = 'abmag'
         self.sed_type = 'flat_'
 
@@ -137,16 +137,45 @@ class plot_rist():
         # SED type
         self.sed_type_button_group = RadioButtonGroup(labels=['Flat', 'A0V', 'G2V', 'M5V'], active=0)
 
-        background_options = ['minzodi & benchmark']
-        self.background_select = Select(title='Background & Level', options=background_options, value='minzodi & benchmark')
+        # background_options = ['hlwas-medium_field1', 'hlwas-medium_field2',
+        #                       'hlwas-wide_field1', 'hlwas-wide_field2', 'hlwas-wide_field3', 'hlwas-wide_field4',
+        #                       'gbtds_mid_5stripe', 'hltds']
+        # background_options = ['hlwas-medium_field1 & high', 'hlwas-medium_field1 & medium', 'hlwas-medium_field1 & low',
+        #                       'hlwas-medium_field2 & high', 'hlwas-medium_field2 & medium', 'hlwas-medium_field2 & low',
+        #                       'hlwas-wide_field1 & high','hlwas-wide_field1 & medium','hlwas-wide_field1 & low',
+        #                       'hlwas-wide_field2 & high','hlwas-wide_field2 & medium','hlwas-wide_field2 & low',
+        #                       'hlwas-wide_field3 & high','hlwas-wide_field3 & medium','hlwas-wide_field3 & low',
+        #                       'hlwas-wide_field4 & high','hlwas-wide_field4 & medium','hlwas-wide_field4 & low',
+        #                       'gbtds_mid_5stripe & high','gbtds_mid_5stripe & medium','gbtds_mid_5stripe & low',
+        #                       'hltds & medium']       
+        background_options = ['hlwas-medium_field1',
+                              'hlwas-medium_field2', 
+                              'hlwas-wide_field1',
+                              'hlwas-wide_field2',
+                              'hlwas-wide_field3',
+                              'hlwas-wide_field4',
+                              'gbtds_mid_5stripe',
+                              'hltds']     
+        # background_options = ['minzodi & benchmark']
+        self.background_select = Select(title='Background', options=background_options, value='hlwas-medium_field1')
         
-        matable_options = ['C1_IMG_MICROLENS', 'C2A_IMG_HLWAS', 'C2B_IMG_HLWAS', 'C2C_IMG_HLWAS', 'C2D_IMG_HLWAS', 'C2E_IMG_HLWAS', 'C2F_IMG_HLWAS', 'C2G_IMG_HLWAS', 'C2H_IMG_HLWAS'] # 'defocus_mod', 'defocus_lrg'
-        self.matable_select = Select(title='MA Table', options=matable_options, value='C2A_IMG_HLWAS')
-        
-        nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6', '7', '8', '9', '10(Max)']    
-        self.nresultant_select = Select(title='# of Resultant', options=nresultant_options, value= '5')
+        # background_level_options = ['high', 'medium', 'low']
+        # background_level_options = ['medium']
+        # self.background_level_select = Select(title='Background Level', options=background_level_options, value='medium')
 
-        for w1 in [self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select]:
+        # matable_options = ['C1_IMG_MICROLENS', 'C2A_IMG_HLWAS', 'C2B_IMG_HLWAS', 'C2C_IMG_HLWAS', 'C2D_IMG_HLWAS', 'C2E_IMG_HLWAS', 'C2F_IMG_HLWAS', 'C2G_IMG_HLWAS', 'C2H_IMG_HLWAS'] # 'defocus_mod', 'defocus_lrg'
+        matable_options = ['im_60_6_s', 'im_66_6', 'im_76_7_s', 'im_85_7', 'im_95_7', 'im_101_7', 'im_107_7',
+                           'im_107_8_s', 'im_120_8', 'im_135_8', 'im_152_9', 'im_171_10', 'im_193_11', 'im_193_14_s',
+                           'im_225_13', 'im_250_14', 'im_284_14', 'im_294_16', 'im_307_16', 'im_360_16', 'im_409_16',
+                           'im_420_16', 'im_460_16', 'im_500_16', 'im_550_16', 'im_600_16', 'im_650_16', 'im_700_16', 
+                           'im_750_16', 'im_800_16', 'im_900_16', 'im_950_16', 'im_1000_16']
+        self.matable_select = Select(title='MA Table (obs mode_exp time_# of resultants)', options=matable_options, value='im_120_8')
+        
+        # nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6', '7', '8', '9', '10(Max)']    
+        # self.nresultant_select = Select(title='# of Resultant', options=nresultant_options, value= '5')
+
+        # for w1 in [self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select]:
+        for w1 in [self.magnitude_slider, self.background_select, self.matable_select]:
             w1.on_change('value', self.update_data)
 
         for w2 in [self.magsys_button_group, self.sed_type_button_group]:
@@ -157,7 +186,8 @@ class plot_rist():
         label_sedtype = Div(text='Spectrum Type')
         widgets = column(column(label_magsys, self.magsys_button_group), 
                         column(label_sedtype, self.sed_type_button_group), 
-                        self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select)
+                        self.magnitude_slider, self.background_select, self.matable_select)
+                        # self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select)
         
 
         return widgets
@@ -180,24 +210,33 @@ class plot_rist():
         # New target magnitude selection
         new_magnitude = self.magnitude_slider.value
 
-        # New background selection
+        # Update the background level option based on the background selection
+        if self.background_select.value == 'hltds':
+            dynamic_background_level_options = ['medium']
+        else:
+            dynamic_background_level_options = ['high', 'medium', 'low']
+
+        # New background level selection
+        # self.background_level_select.options = dynamic_background_level_options
+
+        # Now merge the background and level selection
         # Insert '_' to match the formatting
-        if self.background_select.value == 'minzodi & benchmark':
-            new_background = 'minzodi_benchmark'
-        elif self.background_select.value == 'ecliptic & low':
-            new_background = 'ecliptic_low'         
-        elif self.background_select.value == 'ecliptic & medium':
-            new_background = 'ecliptic_medium'
-        elif self.background_select.value == 'ecliptic & high':
-            new_background = 'ecliptic_high'
-        elif self.background_select.value == 'minzodi & low':
-            new_background = 'minzodi_low'         
-        elif self.background_select.value == 'minzodi & medium':
-            new_background = 'minzodi_medium'
-        elif self.background_select.value == 'minzodi & high':
-            new_background = 'minzodi_high'                      
-        elif self.background_select.value == 'none':
-            new_background = 'none_'            
+        if (self.background_select.value == 'hlwas-medium_field1'):
+            new_background = 'hlwas-medium_field1_medium'        
+        elif (self.background_select.value == 'hlwas-medium_field2'):
+            new_background = 'hlwas-medium_field2_medium'        
+        elif (self.background_select.value == 'hlwas-wide_field1'):
+            new_background = 'hlwas-wide_field1_medium'      
+        elif (self.background_select.value == 'hlwas-wide_field2'):
+            new_background = 'hlwas-wide_field2_medium'      
+        elif (self.background_select.value == 'hlwas-wide_field3'):
+            new_background = 'hlwas-wide_field3_medium'      
+        elif (self.background_select.value == 'hlwas-wide_field4'):
+            new_background = 'hlwas-wide_field4_medium'      
+        elif (self.background_select.value == 'gbtds_mid_5stripe'):
+            new_background = 'gbtds_mid_5stripe_medium'      
+        elif (self.background_select.value == 'hltds'):
+            new_background = 'hltds_medium'            
         else:
             new_background = self.background_select.value
             
@@ -205,60 +244,31 @@ class plot_rist():
         new_matable = self.matable_select.value
 
         # Update the nresultant select option based on the MA table selection
-        if self.matable_select.value == 'C1_IMG_MICROLENS':
-            dynamic_nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6(Max)']       
-        elif self.matable_select.value == 'C2A_IMG_HLWAS':
-            dynamic_nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6', '7', '8', '9', '10(Max)']        
-        elif self.matable_select.value == 'C2B_IMG_HLWAS':
-            dynamic_nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6', '7', '8', '9', '10', '11', '12', '13(Max)']   
-        else:
-            dynamic_nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16(Max)'] 
- 
+        # This is just to show the max resultant (not the truncation)
+        if self.matable_select.value in ['im_60_6_s','im_66_6']:
+            dynamic_nresultant_options = '5'  
+        elif self.matable_select.value in ['im_76_7_s', 'im_85_7', 'im_95_7', 'im_101_7', 'im_107_7']:
+            dynamic_nresultant_options = '6'        
+        elif self.matable_select.value in ['im_107_8_s', 'im_120_8', 'im_135_8']:
+            dynamic_nresultant_options = '7' 
+        elif self.matable_select.value in ['im_152_9']:
+            dynamic_nresultant_options = '8' 
+        elif self.matable_select.value in ['im_171_10']:
+            dynamic_nresultant_options = '9' 
+        elif self.matable_select.value in ['im_193_11']:
+            dynamic_nresultant_options = '10' 
+        elif self.matable_select.value in ['im_225_13']:
+            dynamic_nresultant_options = '12' 
+        elif self.matable_select.value in ['im_193_14_s', 'im_250_14', 'im_284_14']:
+            dynamic_nresultant_options = '13' 
+        elif self.matable_select.value in ['im_294_16', 'im_307_16', 'im_360_16', 'im_409_16', 'im_420_16', 
+                                           'im_460_16', 'im_500_16', 'im_550_16', 'im_600_16', 'im_650_16', 'im_700_16', 
+                                           'im_750_16', 'im_800_16', 'im_900_16', 'im_950_16', 'im_1000_16']:
+            dynamic_nresultant_options = '15' 
 
         # New # of resultant selection
-        self.nresultant_select.options = dynamic_nresultant_options
-            
-        # If the exact text for nresultant doesn't belong to the option, give them a special treatment
-        # This is to handle cases for switching between MA tables
-        if self.nresultant_select.value not in dynamic_nresultant_options:
-            # Split the text to further examine
-            nresultant_text_handle = str.split(self.nresultant_select.value, '(')
-    
-            if self.matable_select.value == 'C1_IMG_MICROLENS': 
-                if int(nresultant_text_handle[0]) == 4:
-                    self.nresultant_select.value = '4(Rec. Min)'
-                elif int(nresultant_text_handle[0]) >= 6:
-                    self.nresultant_select.value = '6(Max)' # If the input value is greater than the max, set it back to max
-                else:
-                    self.nresultant_select.value = nresultant_text_handle[0]                                     
-            elif self.matable_select.value == 'C2A_IMG_HLWAS':
-                if int(nresultant_text_handle[0]) == 4:
-                    self.nresultant_select.value = '4(Rec. Min)'
-                elif int(nresultant_text_handle[0]) >= 10:
-                    self.nresultant_select.value = '10(Max)' # If the input value is greater than the max, set it back to max
-                else:
-                    self.nresultant_select.value = nresultant_text_handle[0]
-            elif self.matable_select.value == 'C2B_IMG_HLWAS':
-                if int(nresultant_text_handle[0]) == 4:
-                    self.nresultant_select.value = '4(Rec. Min)'
-                elif int(nresultant_text_handle[0]) == 13:
-                    self.nresultant_select.value = '13(Max)' # If the input value is greater than the max, set it back to max   
-                else:
-                    self.nresultant_select.value = nresultant_text_handle[0]                         
-            else:
-                if int(nresultant_text_handle[0]) == 4:
-                    self.nresultant_select.value = '4(Rec. Min)'
-                elif int(nresultant_text_handle[0]) == 16:
-                    self.nresultant_select.value = '16(Max)' # If the input value is greater than the max, set it back to max   
-                else:
-                    self.nresultant_select.value = nresultant_text_handle[0]                         
-        
-                        
-        # To assign the selection to nresultant, I need to drop the (Rec. Min) and (Max) text 
-        if self.nresultant_select.value in ['4(Rec. Min)', '6(Max)', '10(Max)', '13(Max)', '16(Max)']:
-            new_nresultant = str.split(self.nresultant_select.value, '(')[0]
-        else:
-            new_nresultant = self.nresultant_select.value
+        # self.nresultant_select.options = dynamic_nresultant_options
+        new_nresultant = dynamic_nresultant_options#self.nresultant_select.value
 
 
         # Treat the magnitude system
@@ -283,6 +293,7 @@ class plot_rist():
         self.ma_table = new_matable
         self.nresultant = new_nresultant
         self.background = new_background
+
 
         self.mag_system = new_magsys
         self.sed_type =  new_sedtype
@@ -358,8 +369,10 @@ class plot_rist():
         lookup: index number that corresponds to the requested inputs
 
         '''
-        grid_name = self.ma_table + '_' + str(self.nresultant) + '_' + self.background + '_' + self.mag_system + '_' + self.sed_type
-        
+        # grid_name = self.ma_table + '_' + str(self.nresultant) + '_' + self.background + '_' + self.mag_system + '_' + self.sed_type
+        grid_name = self.ma_table + '_'  + self.background + '_' + self.mag_system + '_' + self.sed_type
+
+
         lookup = np.where(grid_name == self.grid_properties)[0][0]
 
        
@@ -405,8 +418,10 @@ class plot_rist():
         # Get the grid properties
         grid_properties = []
         for gp, grid_property in enumerate(self.master_grid):
-            grid_properties.append(self.master_grid[gp].attrs['ma_table']['name'] + '_' + str(self.master_grid[gp].attrs['ma_table']['nresultant'])
-                                + '_' + self.master_grid[gp].attrs['background'] + '_' + self.master_grid[gp].attrs['mag_system'] + '_' + self.master_grid[gp].attrs['sed_type'])
+            grid_properties.append(self.master_grid[gp].attrs['ma_table']['name'] + 
+                                   '_' + self.master_grid[gp].attrs['background'] + 
+                                   '_' + self.master_grid[gp].attrs['mag_system'] + 
+                                   '_' + self.master_grid[gp].attrs['sed_type'])
 
         # Convert the list to numpy array
         grid_properties = np.asarray(grid_properties)
