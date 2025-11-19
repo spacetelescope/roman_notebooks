@@ -2,3 +2,4 @@ pandeia.engine==2025.9
 pandas>=2.2.3
 scipy
 healpy
+requests
