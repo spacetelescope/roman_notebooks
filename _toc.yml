@@ -3,6 +3,21 @@
 format: jb-book
 root: intro
 parts:
- - caption: Example
-   chapters:
-   - file: notebooks/example_notebook/example_notebook.ipynb
+  - caption: Notebooks
+    chapters:
+      - file: notebooks/aperture_photometry/aperture_photometry.ipynb
+      - file: notebooks/data_discovery_and_access/data_discovery_and_access.ipynb
+      - file: notebooks/data_visualization/data_visualization.ipynb
+      - file: notebooks/exposure_pipeline/exposure_pipeline.ipynb
+      - file: notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb
+      - file: notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.ipynb
+      - file: notebooks/mosaic_pipeline/mosaic_pipeline.ipynb
+      - file: notebooks/pandeia/pandeia.ipynb
+      - file: notebooks/rist/rist.ipynb
+      - file: notebooks/roman_cutouts/roman_cutouts.ipynb
+      - file: notebooks/romanisim/romanisim.ipynb
+      - file: notebooks/stips/stips.ipynb
+      - file: notebooks/stpsf/stpsf.ipynb
+      - file: notebooks/synphot/synphot.ipynb
+      - file: notebooks/time_domain_simulations/time_domain_simulations.ipynb
+      - file: notebooks/working_with_asdf/working_with_asdf.ipynb
