@@ -1,5 +1,6 @@
 pandeia.engine==2025.9
+matplotlib>=3.10.7
 pandas>=2.2.3
-scipy
-healpy
-requests
+scipy>=1.16.3
+healpy>=1.18.1
+requests>=2.32.5
