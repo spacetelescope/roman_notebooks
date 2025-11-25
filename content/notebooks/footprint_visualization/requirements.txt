@@ -7,4 +7,5 @@ healpy>=1.18.1
 hpgeom>=1.4.0
 skyproj<=2.1.1
 ipympl>=0.9.8
+healsparse>=1.11.1
 dask[complete]
