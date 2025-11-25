@@ -5,5 +5,6 @@ astropy>=7.0.1
 pysiaf>=0.24.1
 healpy>=1.18.1
 hpgeom>=1.4.0
-healsparse>=1.11.1
-skyproj>=2.1.2
+skyproj<=2.1.1
+ipympl>=0.9.8
+dask[complete]
