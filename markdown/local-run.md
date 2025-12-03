@@ -55,11 +55,15 @@ For example, for `STPSF` you need to define `STSPSF_PATH`.
 
 In the commnad line or permanently in your shell profile (e.g., ~/.bashrc, ~/.zshrc):
 
-    export STSPSF_PATH="/your/preferred/path/to/stpsf_data"
+```
+export STSPSF_PATH="/your/preferred/path/to/stpsf_data"
+```
 
 You can also add a cell in your notebook with the following code:
 
-```os.environ['STSPSF_PATH'] = "/your/preferred/path/to/stpsf_data"```
+```
+os.environ['STSPSF_PATH'] = "/your/preferred/path/to/stpsf_data"```
+```
 
 this cell should be run before the first code cell in the notebook. This is in particular useful with you re-run your notebook and you did not set this environment variable in your shell profile.
 
@@ -73,10 +77,14 @@ The other variables you might need to set are:
 
 If you wish to re-download the data files, even after setting the environment variable, you can accomplish this in the command line with:
 
-    unset STSPSF_PATH
+```
+unset STSPSF_PATH
+```
 
 for the `STSPSF_PATH` environment variable. Or in the notebook:
 
-```os.environ.pop('STSPSF_PATH', None)```
+```
+os.environ.pop('STSPSF_PATH', None)
+```
 
 Depending on which (if any) reference data are missing, this cell may take several minutes to execute.
