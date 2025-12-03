@@ -12,7 +12,7 @@ Markdown documentation files are contained within the `markdown/` folder.
 
 ## Local Installation
 
-The notebooks in this repository are designed to work on the Roman Research Nexus for the best user experience. Due to the size of Roman data, local use is not recommended for most users. However, we provide instructions for local installation below. For detailed instructions refer to the [**Working Localy **](markdown/local-run.md) instructions.
+The notebooks in this repository are designed to work on the Roman Research Nexus for the best user experience. Due to the size of Roman data, local use is not recommended for most users. However, we provide instructions for local installation below. For detailed instructions refer to the [**Working Localy**](markdown/local-run.md) instructions.
 
 ## Get Support
 

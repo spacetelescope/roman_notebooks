@@ -62,7 +62,7 @@ export STSPSF_PATH="/your/preferred/path/to/stpsf_data"
 You can also add a cell in your notebook with the following code:
 
 ```
-os.environ['STSPSF_PATH'] = "/your/preferred/path/to/stpsf_data"```
+os.environ['STSPSF_PATH'] = "/your/preferred/path/to/stpsf_data"
 ```
 
 this cell should be run before the first code cell in the notebook. This is in particular useful with you re-run your notebook and you did not set this environment variable in your shell profile.
