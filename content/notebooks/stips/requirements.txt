@@ -1,4 +1,0 @@
-stips>=2.2.2
-astropy>=7.0.1
-matplotlib>=3.10.0
-esutil>=0.6.16 # --no-cache-dir option recommended on pip install

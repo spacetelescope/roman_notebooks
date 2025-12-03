@@ -1,0 +1,8 @@
+astropy>=7.0.1
+matplotlib>=3.10.0
+numpy>=2.2.3
+jdaviz>=4.3.1
+asdf>=4.1.0
+asdf-astropy>=0.7.1
+roman_datamodels==0.27.0
+s3fs>=2025.5.1

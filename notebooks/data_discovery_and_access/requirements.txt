@@ -1,0 +1,5 @@
+astropy >= 7.0.1
+astroquery >= 0.4.10
+boto3 >= 1.37.3
+s3fs >= 2025.5.1
+roman_datamodels == 0.27.0

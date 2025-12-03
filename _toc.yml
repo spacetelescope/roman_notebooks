@@ -1,8 +1,21 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
 format: jb-book
-root: intro
-parts:
- - caption: Example
-   chapters:
-   - file: notebooks/example_notebook/example_notebook.ipynb
+root: index
+chapters:
+- file: notebooks/aperture_photometry/aperture_photometry
+- file: notebooks/background_visualization_tool/RBVT
+- file: notebooks/data_discovery_and_access/data_discovery_and_access
+- file: notebooks/data_visualization/data_visualization
+- file: notebooks/exposure_pipeline/exposure_pipeline
+- file: notebooks/footprint_visualization/footprint_visualization
+- file: notebooks/grism_spectral_extraction/grism_spectral_extraction
+- file: notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes
+- file: notebooks/mosaic_pipeline/mosaic_pipeline
+- file: notebooks/pandeia/pandeia
+- file: notebooks/rist/rist
+- file: notebooks/roman_cutouts/roman_cutouts
+- file: notebooks/romanisim/romanisim
+- file: notebooks/stips/stips
+- file: notebooks/stpsf/stpsf
+- file: notebooks/synphot/synphot
+- file: notebooks/time_domain_simulations/time_domain_simulations
+- file: notebooks/working_with_asdf/working_with_asdf
