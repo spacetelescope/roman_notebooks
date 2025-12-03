@@ -5,7 +5,7 @@ Some of these apply to all notebooks will other to a selected few.
 
 ## Setting up the environment for all notebooks
 
-Not every notebook in this repository uses the same dependencies. For reproducibility and to avoid conflicts, each notebook folder contains its own requirements.txt file listing only the packages required for that specific notebook. 
+The notebooks were tested with Python 3.13, earlier and later versions might not have the desired results. Also note, not every notebook in this repository uses the same dependencies. For reproducibility and to avoid conflicts, each notebook folder contains its own requirements.txt file listing only the packages required for that specific notebook. 
 
 The recommended steps:
 
@@ -27,8 +27,8 @@ Navigate to the specific notebook folder and install the exact dependencies for 
 Additionally, a correctly configured [Calibration Reference Data System](https://roman-crds.stsci.edu/static/users_guide/index.html) setup is required to simulate and/or calibrate Roman observations. Please set the environment variable below:
 
 ```
-export CRDS_SERVER_URL = "https://roman-crds.stsci.edu"
-export CRDS_PATH = "/path/to/crds/cache/"
+export CRDS_SERVER_URL="https://roman-crds.stsci.edu"
+export CRDS_PATH="/path/to/crds/cache/"
 ```
 
 where `CRDS_PATH` points to your CRDS cache. If you do not have a cache already, the directory will be created the first time CRDS is used in the notebooks, but the path must still be set in advance.
