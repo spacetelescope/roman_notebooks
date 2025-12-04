@@ -408,7 +408,7 @@ document.write(`
 Some of these apply to all notebooks will other to a selected few.</p>
 <section id="setting-up-the-environment-for-all-notebooks">
 <h2>Setting up the environment for all notebooks<a class="headerlink" href="#setting-up-the-environment-for-all-notebooks" title="Link to this heading">#</a></h2>
-<p>Not every notebook in this repository uses the same dependencies. For reproducibility and to avoid conflicts, each notebook folder contains its own requirements.txt file listing only the packages required for that specific notebook.</p>
+<p>The notebooks were tested with Python 3.13, earlier and later versions might not have the desired results. Also note, not every notebook in this repository uses the same dependencies. For reproducibility and to avoid conflicts, each notebook folder contains its own requirements.txt file listing only the packages required for that specific notebook.</p>
 <p>The recommended steps:</p>
 <p>Create a dedicated environment for the notebook you want to run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda create -n &lt;env_name&gt; python=3.13 ipython jupyterlab
@@ -426,8 +426,8 @@ conda activate &lt;env_name&gt;
 <section id="to-calibrate-roman-observations">
 <h3>To calibrate Roman observations<a class="headerlink" href="#to-calibrate-roman-observations" title="Link to this heading">#</a></h3>
 <p>Additionally, a correctly configured <a class="reference external" href="https://roman-crds.stsci.edu/static/users_guide/index.html">Calibration Reference Data System</a> setup is required to simulate and/or calibrate Roman observations. Please set the environment variable below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CRDS_SERVER_URL</span> <span class="o">=</span> <span class="s2">&quot;https://roman-crds.stsci.edu&quot;</span>
-<span class="n">export</span> <span class="n">CRDS_PATH</span> <span class="o">=</span> <span class="s2">&quot;/path/to/crds/cache/&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CRDS_SERVER_URL</span><span class="o">=</span><span class="s2">&quot;https://roman-crds.stsci.edu&quot;</span>
+<span class="n">export</span> <span class="n">CRDS_PATH</span><span class="o">=</span><span class="s2">&quot;/path/to/crds/cache/&quot;</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">CRDS_PATH</span></code> points to your CRDS cache. If you do not have a cache already, the directory will be created the first time CRDS is used in the notebooks, but the path must still be set in advance.</p>
@@ -451,11 +451,13 @@ conda activate &lt;env_name&gt;
 <p>If you already have the data locally and don’t want to re-dowload it, ensure you have set up the environment variables before starting the notebook.</p>
 <p>For example, for <code class="docutils literal notranslate"><span class="pre">STPSF</span></code> you need to define <code class="docutils literal notranslate"><span class="pre">STSPSF_PATH</span></code>.</p>
 <p>In the commnad line or permanently in your shell profile (e.g., ~/.bashrc, ~/.zshrc):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export STSPSF_PATH=&quot;/your/preferred/path/to/stpsf_data&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">STSPSF_PATH</span><span class="o">=</span><span class="s2">&quot;/your/preferred/path/to/stpsf_data&quot;</span>
 </pre></div>
 </div>
 <p>You can also add a cell in your notebook with the following code:</p>
-<p><code class="docutils literal notranslate"><span class="pre">os.environ['STSPSF_PATH']</span> <span class="pre">=</span> <span class="pre">&quot;/your/preferred/path/to/stpsf_data&quot;</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;STSPSF_PATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/your/preferred/path/to/stpsf_data&quot;</span>
+</pre></div>
+</div>
 <p>this cell should be run before the first code cell in the notebook. This is in particular useful with you re-run your notebook and you did not set this environment variable in your shell profile.</p>
 <p>The other variables you might need to set are:</p>
 <ul class="simple">
@@ -467,11 +469,13 @@ conda activate &lt;env_name&gt;
 <section id="to-force-re-download">
 <h3>To force re-download:<a class="headerlink" href="#to-force-re-download" title="Link to this heading">#</a></h3>
 <p>If you wish to re-download the data files, even after setting the environment variable, you can accomplish this in the command line with:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unset STSPSF_PATH
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unset</span> <span class="n">STSPSF_PATH</span>
 </pre></div>
 </div>
 <p>for the <code class="docutils literal notranslate"><span class="pre">STSPSF_PATH</span></code> environment variable. Or in the notebook:</p>
-<p><code class="docutils literal notranslate"><span class="pre">os.environ.pop('STSPSF_PATH',</span> <span class="pre">None)</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;STSPSF_PATH&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Depending on which (if any) reference data are missing, this cell may take several minutes to execute.</p>
 </section>
 </section>

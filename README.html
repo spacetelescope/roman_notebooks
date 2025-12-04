@@ -382,7 +382,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-organization">Repository Organization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-installation-not-recommended">Local Installation (Not Recommended)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-installation">Local Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-support">Get Support</a></li>
 </ul>
             </nav>
@@ -404,25 +404,9 @@ document.write(`
 <p>Notebook tutorials are organized under the <code class="docutils literal notranslate"><span class="pre">content/notebooks/</span></code> directory. Each notebook is contained within a folder along with a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file and any other supporting files required to run the notebook.</p>
 <p>Markdown documentation files are contained within the <code class="docutils literal notranslate"><span class="pre">markdown/</span></code> folder.</p>
 </section>
-<section id="local-installation-not-recommended">
-<h2>Local Installation (Not Recommended)<a class="headerlink" href="#local-installation-not-recommended" title="Link to this heading">#</a></h2>
-<p>The notebooks in this repository are designed to work on the Roman Research Nexus for the best user experience. Due to the size of Roman data, local use is not recommended for most users. However, we provide instructions for local installation below.</p>
-<p>The notebooks contained in this repository can be run locally with the correct environment setup. It is recommended to create a new environment (e.g., with <a class="reference external" href="https://mamba.readthedocs.io/en/latest/index.html">mamba</a>) to run the tutorials. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">roman</span><span class="o">-</span><span class="n">notebooks</span> <span class="n">python</span> <span class="n">ipython</span> <span class="n">jupyterlab</span>
-</pre></div>
-</div>
-<p>Each notebook folder includes a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with the necessary Python package versions listed. To install package dependencies from a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, first navigate to a notebook folder and then use the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
-</pre></div>
-</div>
-<p>Several notebooks use packages that require supplementary data to be installed (e.g., <code class="docutils literal notranslate"><span class="pre">stpsf</span></code> for generating Roman Wide Field Instrument point spread functions). In those instances, a Python script is called at the beginning of the notebook to check for these data dependencies, download the appropriate data files if they are not found, and instruct you on how to set the correct environment variables.</p>
-<p>Additionally, a correctly configured <a class="reference external" href="https://roman-crds.stsci.edu/static/users_guide/index.html">Calibration Reference Data System</a> setup is required to simulate and/or calibrate Roman observations. Please set the environment variable below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CRDS_SERVER_URL</span> <span class="o">=</span> <span class="s2">&quot;https://roman-crds.stsci.edu&quot;</span>
-<span class="n">export</span> <span class="n">CRDS_PATH</span> <span class="o">=</span> <span class="s2">&quot;/path/to/crds/cache/&quot;</span>
-</pre></div>
-</div>
-<p>where <code class="docutils literal notranslate"><span class="pre">CRDS_PATH</span></code> points to your CRDS cache. If you do not have a cache already, the directory will be created the first time CRDS is used in the notebooks, but the path must still be set in advance.</p>
-<p>Note that any embedded, relative links to markdown files and other notebook tutorials may not work if the repository is cloned and modified or if files are selectively installed.</p>
+<section id="local-installation">
+<h2>Local Installation<a class="headerlink" href="#local-installation" title="Link to this heading">#</a></h2>
+<p>The notebooks in this repository are designed to work on the Roman Research Nexus for the best user experience. Due to the size of Roman data, local use is not recommended for most users. However, we provide instructions for local installation below. For detailed instructions refer to the <a class="reference internal" href="markdown/local-run.html"><span class="std std-doc"><strong>Working Localy</strong></span></a> instructions.</p>
 </section>
 <section id="get-support">
 <h2>Get Support<a class="headerlink" href="#get-support" title="Link to this heading">#</a></h2>
@@ -489,7 +473,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-organization">Repository Organization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-installation-not-recommended">Local Installation (Not Recommended)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-installation">Local Installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-support">Get Support</a></li>
 </ul>
   </nav></div>
