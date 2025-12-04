@@ -1,0 +1,11 @@
+matplotlib>=3.10.0
+numpy>=2.2.3
+pandas>=2.3.0
+astropy>=7.0.1
+pysiaf>=0.24.1
+healpy>=1.18.1
+hpgeom>=1.4.0
+skyproj<=2.1.1
+ipympl>=0.9.8
+healsparse>=1.11.1
+dask[complete]
