@@ -1,5 +1,5 @@
 format: jb-book
-root: index
+root: intro
 chapters:
 - file: notebooks/aperture_photometry/aperture_photometry
 - file: notebooks/background_visualization_tool/RBVT
