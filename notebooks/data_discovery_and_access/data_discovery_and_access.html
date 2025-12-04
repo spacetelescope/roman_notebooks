@@ -1,0 +1,1383 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Roman Research Nexus Data Discovery and Access in the Cloud &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/data_discovery_and_access/data_discovery_and_access';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Roman Spectroscopy: Grism Spectral Extraction" href="../grism_spectral_extraction/grism_spectral_extraction.html" />
+    <link rel="prev" title="The Roman Background Visualization Tool (RBVT)" href="../background_visualization_tool/RBVT.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">STScI Roman Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    roman_notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data_discovery_and_access/data_discovery_and_access.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/data_discovery_and_access/data_discovery_and_access.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Roman Research Nexus Data Discovery and Access in the Cloud</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining terms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-mast-data">Accessing MAST Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enabling-cloud-access">Enabling Cloud Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-mast">Querying MAST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-files-directly-into-memory">Streaming files directly into memory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-from-the-roman-research-nexus-s3-bucket">Streaming from the Roman Research Nexus S3 Bucket</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-roman-i-sim-data">Opening Roman I-Sim Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-openuniverse-simulated-data">Opening OpenUniverse Simulated Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-files-not-recommended">Downloading Files (not recommended)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="roman-research-nexus-data-discovery-and-access-in-the-cloud">
+<h1>Roman Research Nexus Data Discovery and Access in the Cloud<a class="headerlink" href="#roman-research-nexus-data-discovery-and-access-in-the-cloud" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Here we import the required packages for our data access examples including:</p>
+<ul class="simple">
+<li><p><em>asdf</em> for accessing ASDF files</p></li>
+<li><p><em>astropy.io fits</em> for accessing FITS files</p></li>
+<li><p><em>astropy.mast Observations</em> for accessing, searching, and selecting data from other missions</p></li>
+<li><p><em>s3fs</em> for streaming in data directly from the cloud</p></li>
+<li><p><em>roman_datamodels</em> for opening Roman ASDF files. You can find additional information on how to work with ASDF files in the Working with ASDF notebook tutorial.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asdf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.mast</span><span class="w"> </span><span class="kn">import</span> <span class="n">Observations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This notebook is designed to provide examples of accessing data from the Research Nexus. Due to its survey nature, the Roman Space Telescope will produce large volumes of data that will need to be easily and quickly accessed to perform scientific tasks like creating catalogs, performing difference imaging, generating light curves, etc. Downloading all the required data would burden most users by requiring excessive data storage solutions (likely &gt;10TB).</p>
+<p>This notebook demonstrates how to stream data from the cloud directly into memory, bypassing the need to download the data locally and use excess storage. This method of cloud-based data access is <em>HIGHLY</em> recommended. However, we understand that some use-cases will require downloading the data locally, so we provide an example at the end of the notebook.</p>
+<p>During operations, each Roman data file will be given a Unique Resource Identifier (URI), an analog to an online filepath that is similar to a URL, which points to where the data is hosted on the AWS cloud. Users will retrieve these URIs from one of several sources including MAST (see <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data">Accessing WFI Data</a> for more information) and will be able to use the URI to access the desired data from the cloud.</p>
+<p>Here-in we examine how to download data from two types of sources:</p>
+<ul class="simple">
+<li><p>The STScI MAST server which hosts data for in-flight telescopes including Hubble, TESS, and JWST and will host Roman data in the future</p></li>
+<li><p>Simulated Roman Space Telescope data hosted in storage containers on the AWS cloud</p></li>
+</ul>
+<section id="defining-terms">
+<h3>Defining terms<a class="headerlink" href="#defining-terms" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>Cloud computing</em>: the practice of using a network of remote servers hosted on the internet to store, manage, and process data, rather than using a local server or a personal computer.</p></li>
+<li><p><em>AWS</em>: Amazon Web Services (AWS) is the cloud computing platform provided by Amazon.</p></li>
+<li><p><em>URI</em>: a Universal Resource Identifier (URI) is a sequence of characters that identifies a name or a unique resource on the Internet. URLs for websites are a subclass of URIs.</p></li>
+<li><p><em>AWS S3</em>: Amazon Simple Storage Service (S3) is a scalable and cost-effective object storage service on the AWS cloud platform. Storage containers within S3 are knwon as “buckets,” so we often refer to these storage devices as “S3 buckets” or “S3 servers”.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="accessing-mast-data">
+<h2>Accessing MAST Data<a class="headerlink" href="#accessing-mast-data" title="Link to this heading">#</a></h2>
+<p>In this section, we will go through the steps to retreive archived MAST data from the cloud including how to query the archive and stream the files directly from the cloud, as well as download them locally.</p>
+<section id="enabling-cloud-access">
+<h3>Enabling Cloud Access<a class="headerlink" href="#enabling-cloud-access" title="Link to this heading">#</a></h3>
+<p>The most important step for accessing data from the cloud is to enable <em>astroquery</em> to retreive URIs and other relevant cloud information. Even if we are working locally and plan to download the data files (not recommended for Roman data), we need to use this command to copy the file locations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Observations</span><span class="o">.</span><span class="n">enable_cloud_dataset</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: Using the S3 STScI public dataset [astroquery.mast.cloud]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="querying-mast">
+<h3>Querying MAST<a class="headerlink" href="#querying-mast" title="Link to this heading">#</a></h3>
+<p>Now we are ready to begin our query. This example is rather simple, but it is quick and easy to reproduce. We will be querying HST WFC3/IR data of M85. In practice, the science platform should primarily be used for analyzing and exploring Roman data products. However due to the smaller file sizes, HST WFC3/IR data provides a nice example. The process is identical regardless of which space telescope is used.</p>
+<p>In our query, we specify that we want to look at HST data using the F160W filter and WFC3/IR. We also specify the proposal id to easily get the data of interest. Once we get the desired observations, we gather the list of products that go into the observations. We then filter the products to gather all the level 3 science data products associated with a specific project which still leaves us with 60 data products.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># query MAST for matching observations</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">obs_collection</span><span class="o">=</span><span class="s1">&#39;HST&#39;</span><span class="p">,</span>
+                                  <span class="n">filters</span><span class="o">=</span><span class="s1">&#39;F160W&#39;</span><span class="p">,</span>
+                                  <span class="n">instrument_name</span><span class="o">=</span><span class="s1">&#39;WFC3/IR&#39;</span><span class="p">,</span>
+                                  <span class="n">proposal_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;11360&#39;</span><span class="p">],</span>
+                                  <span class="n">dataRights</span><span class="o">=</span><span class="s1">&#39;PUBLIC&#39;</span><span class="p">)</span>
+<span class="c1"># get the list of products (files)</span>
+<span class="n">products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+
+<span class="c1"># filter the products</span>
+<span class="n">filtered</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span>
+                                        <span class="n">calib_level</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> 
+                                        <span class="n">productType</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SCIENCE&#39;</span><span class="p">],</span> 
+                                        <span class="n">dataproduct_type</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">],</span> 
+                                        <span class="n">project</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CALWF3&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Filtered data products:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">filtered</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># filter for just one product</span>
+<span class="n">single</span> <span class="o">=</span>  <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">filtered</span><span class="p">,</span>
+                                       <span class="n">obsID</span><span class="o">=</span><span class="s1">&#39;24797441&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Single data product:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">single</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Filtered data products:
+  obsID   obs_collection dataproduct_type ... dataRights calib_level filters
+-------- -------------- ---------------- ... ---------- ----------- -------
+23831959            HST            image ...     PUBLIC           3   F160W
+23831959            HST            image ...     PUBLIC           3   F160W
+23831961            HST            image ...     PUBLIC           3   F160W
+23831961            HST            image ...     PUBLIC           3   F160W
+23831988            HST            image ...     PUBLIC           3   F160W
+23831988            HST            image ...     PUBLIC           3   F160W
+23831990            HST            image ...     PUBLIC           3   F160W
+23831990            HST            image ...     PUBLIC           3   F160W
+23832009            HST            image ...     PUBLIC           3   F160W
+23832009            HST            image ...     PUBLIC           3   F160W
+     ...            ...              ... ...        ...         ...     ...
+24797437            HST            image ...     PUBLIC           3   F160W
+24797437            HST            image ...     PUBLIC           3   F160W
+24797441            HST            image ...     PUBLIC           3   F160W
+24797441            HST            image ...     PUBLIC           3   F160W
+24797446            HST            image ...     PUBLIC           3   F160W
+24797446            HST            image ...     PUBLIC           3   F160W
+24797447            HST            image ...     PUBLIC           3   F160W
+24797447            HST            image ...     PUBLIC           3   F160W
+24797448            HST            image ...     PUBLIC           3   F160W
+24797448            HST            image ...     PUBLIC           3   F160W
+Length = 60 rows 
+
+Single data product:
+  obsID   obs_collection dataproduct_type ... dataRights calib_level filters
+-------- -------------- ---------------- ... ---------- ----------- -------
+24797441            HST            image ...     PUBLIC           3   F160W
+24797441            HST            image ...     PUBLIC           3   F160W 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have our desired products, we can gather the URIs for each of the files which indicate their locations in the MAST AWS S3 servers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uris</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_cloud_uris</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+<span class="n">uris</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: 30 of 60 products were duplicates. Only returning 30 unique product(s). [astroquery.mast.utils]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;s3://stpubdata/hst/public/ib6w/ib6wd4lrq/ib6wd4lrq_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wd4ltq/ib6wd4ltq_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wd6f5q/ib6wd6f5q_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wd6f7q/ib6wd6f7q_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6we1p9q/ib6we1p9q_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6we1paq/ib6we1paq_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wr8kdq/ib6wr8kdq_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wr8kfq/ib6wr8kfq_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w11050/ib6w11050_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w21050/ib6w21050_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w37040/ib6w37040_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w39010/ib6w39010_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w41050/ib6w41050_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w61070/ib6w61070_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w71040/ib6w71040_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w810b0/ib6w810b0_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w810c0/ib6w810c0_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w810d0/ib6w810d0_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w810e0/ib6w810e0_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6w91020/ib6w91020_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wa1030/ib6wa1030_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wb1070/ib6wb1070_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wd4090/ib6wd4090_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wd6080/ib6wd6080_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wr1050/ib6wr1050_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wr80a0/ib6wr80a0_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wr9040/ib6wr9040_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wra070/ib6wra070_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wra080/ib6wra080_drz.fits&#39;,
+ &#39;s3://stpubdata/hst/public/ib6w/ib6wra090/ib6wra090_drz.fits&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_cloud_uris</span></code> method checks for duplicates in the provided products to minimize the data access volume. It is also important to note that <code class="docutils literal notranslate"><span class="pre">get_cloud_uris</span></code> will always return a list. Thus, we need to extract an individual URI string to access the file. Here we choose the first URI, but in practice you would select the URI associated with the desired file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uri</span> <span class="o">=</span> <span class="n">uris</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="streaming-files-directly-into-memory">
+<h3>Streaming files directly into memory<a class="headerlink" href="#streaming-files-directly-into-memory" title="Link to this heading">#</a></h3>
+<p>Here, we will use <code class="docutils literal notranslate"><span class="pre">fsspec</span></code> to directly access the data stored in the AWS S3 servers. Because the URI points to a FITS file, we can use <code class="docutils literal notranslate"><span class="pre">fits.open</span></code> to access the information in the file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">&#39;readonly&#39;</span><span class="p">,</span> <span class="n">fsspec_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;anon&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span> <span class="k">as</span> <span class="n">HDUlist</span><span class="p">:</span>
+    <span class="n">HDUlist</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+    <span class="n">sci</span> <span class="o">=</span> <span class="n">HDUlist</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+    
+<span class="nb">type</span><span class="p">(</span><span class="n">sci</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Filename: &lt;class &#39;s3fs.core.S3File&#39;&gt;
+No.    Name      Ver    Type      Cards   Dimensions   Format
+  0  PRIMARY       1 PrimaryHDU     770   ()      
+  1  SCI           1 ImageHDU        90   (543, 484)   float32   
+  2  WHT           1 ImageHDU        45   (543, 484)   float32   
+  3  CTX           1 ImageHDU        40   (543, 484)   int32   
+  4  HDRTAB        1 BinTableHDU    561   1R x 276C   [9A, 3A, K, D, D, D, D, D, D, D, D, D, D, D, D, K, 8A, 4A, 1A, 4A, D, D, D, D, D, 3A, D, D, D, D, D, D, D, D, D, D, D, D, K, K, D, 3A, D, D, D, D, K, K, 8A, 23A, 11A, 19A, 4A, D, D, K, K, D, D, D, D, 23A, D, D, D, D, K, K, D, 3A, 8A, L, D, D, D, 23A, 1A, D, D, D, D, D, D, 12A, 12A, 8A, 23A, D, D, 10A, 10A, D, D, D, 2A, 23A, 3A, 4A, 8A, 7A, D, K, D, 6A, 9A, D, D, D, 4A, 18A, 3A, K, 5A, D, D, D, 8A, D, 3A, D, D, D, 3A, 1A, D, 23A, D, D, D, 3A, L, 1A, 4A, D, 3A, 6A, D, D, D, D, D, 23A, D, D, D, D, D, 1A, K, K, K, K, 8A, 23A, K, K, 10A, 7A, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, D, 13A, D, 24A, 23A, D, 1A, 1A, D, K, D, D, 1A, 1A, D, D, D, D, D, D, D, D, D, D, D, 4A, D, K, 23A, D, 8A, D, D, 28A, D, D, L, D, D, 6A, 9A, 2A, 4A, D, 1A, K, 1A, 1A, 1A, 1A, D, D, D, D, D, D, 4A, D, D, 4A, 3A, 1A, K, 3A, 5A, K, D, D, D, 4A, K, D, D, D, L, K, K, 11A, 1A, D, D, D, D, K, L, 6A, L, 8A, D, D, 1A, 10A, K, 3A, 8A, 8A, D, K, D, 30A, 8A, 8A]   
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="streaming-from-the-roman-research-nexus-s3-bucket">
+<h2>Streaming from the Roman Research Nexus S3 Bucket<a class="headerlink" href="#streaming-from-the-roman-research-nexus-s3-bucket" title="Link to this heading">#</a></h2>
+<p>Though Roman data will eventually be available through MAST, we currently offer a small set of simulated data available via an AWS Open Data Program S3 bucket. These files can be streamed in exactly the same way as the HST FITS file above. Additionally, we can browse the available files similarly to a Unix terminal. A full list of commands can be found in the <code class="docutils literal notranslate"><span class="pre">s3fs</span></code> documentation <a class="reference external" href="https://s3fs.readthedocs.io/en/latest/api.html#">here</a>.</p>
+<p>We can view the files in the S3 bucket by performing a list command (<code class="docutils literal notranslate"><span class="pre">ls</span></code>) on the main Nexus directory:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s1">&#39;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/&#39;</span>
+<span class="n">fs</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">asdf_dir_uri</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._Roman_OpticalModel_v0.5.yml&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._r9999901001001001001_0001_wfi01_f129_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._r9999901001001001001_0001_wfi01_f129_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._r9999902002002002002_0001_wfi01_f213_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._r9999902002002002002_0001_wfi01_f213_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61524_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61524_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61529_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61529_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61534_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61534_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61539_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61539_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61544_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61544_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61549_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61549_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61554_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61554_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61559_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61559_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61564_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61564_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61569_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61569_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61574_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61574_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61579_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61579_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61584_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61584_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61589_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61589_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61594_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61594_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61599_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61599_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61604_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61604_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61609_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61609_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61614_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61614_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61619_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61619_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61624_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61624_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61629_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61629_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61634_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61634_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61639_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61639_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61644_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61644_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61649_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61649_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61654_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61654_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61659_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61659_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61664_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61664_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61669_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61669_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61674_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/._roman_sn1a_61674_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/Roman_OpticalModel_v0.5.yml&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/full_catalog.ecsv&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/my_roman_mosaic_asn.json&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/my_roman_mosaic_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/my_roman_mosaic_coadd.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/my_roman_mosaic_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi01_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi01_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi01_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi02_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi02_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi02_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi02_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi03_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi03_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi03_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi03_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi04_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi04_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi04_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi04_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi05_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi05_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi05_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi05_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi06_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi06_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi06_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi06_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi07_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi07_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi07_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi07_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi08_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi08_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi08_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi08_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi09_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi09_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi09_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi09_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi10_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi10_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi10_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi10_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi11_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi11_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi11_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi11_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi12_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi12_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi12_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi12_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi13_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi13_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi13_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi13_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi14_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi14_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi14_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi14_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi15_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi15_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi15_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi15_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi16_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi16_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi16_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi16_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi17_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi17_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi17_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi17_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi18_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi18_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi18_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0001_wfi18_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi01_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi01_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi01_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi01_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi02_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi02_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi02_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi02_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi03_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi03_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi03_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi03_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi04_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi04_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi04_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi04_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi05_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi05_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi05_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi05_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi06_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi06_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi06_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi06_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi07_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi07_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi07_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi07_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi08_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi08_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi08_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi08_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi09_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi09_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi09_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi09_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi10_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi10_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi10_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi10_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi11_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi11_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi11_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi11_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi12_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi12_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi12_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi12_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi13_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi13_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi13_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi13_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi14_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi14_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi14_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi14_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi15_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi15_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi15_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi15_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi16_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi16_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi16_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi16_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi17_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi17_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi17_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi17_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi18_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi18_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi18_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0002_wfi18_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi01_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi01_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi01_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi01_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi02_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi02_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi02_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi02_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi03_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi03_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi03_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi03_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi04_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi04_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi04_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi04_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi05_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi05_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi05_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi05_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi06_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi06_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi06_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi06_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi07_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi07_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi07_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi07_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi08_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi08_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi08_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi08_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi09_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi09_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi09_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi09_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi10_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi10_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi10_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi10_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi11_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi11_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi11_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi11_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi12_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi12_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi12_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi12_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi13_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi13_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi13_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi13_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi14_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi14_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi14_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi14_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi15_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi15_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi15_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi15_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi16_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi16_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi16_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi16_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi17_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi17_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi17_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi17_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi18_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi18_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi18_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0003_wfi18_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi01_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi01_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi01_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi01_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi02_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi02_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi02_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi02_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi03_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi03_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi03_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi03_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi04_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi04_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi04_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi04_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi05_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi05_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi05_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi05_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi06_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi06_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi06_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi06_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi07_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi07_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi07_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi07_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi08_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi08_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi08_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi08_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi09_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi09_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi09_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi09_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi10_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi10_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi10_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi10_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi11_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi11_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi11_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi11_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi12_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi12_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi12_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi12_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi13_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi13_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi13_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi13_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi14_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi14_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi14_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi14_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi15_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi15_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi15_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi15_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi16_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi16_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi16_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi16_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi17_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi17_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi17_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi17_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi18_f106_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi18_f106_cat.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi18_f106_segm.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0003201001001001004_0004_wfi18_f106_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0007601002004013001_0001_catalog.fits&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0007601002004013001_0001_qso.fits&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0007601002004013001_0001_wfi01_f158_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r0007601002004013002_0001_wfi01_grism_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r9999901001001001001_0001_wfi01_f129_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r9999901001001001001_0001_wfi01_f129_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r9999902002002002002_0001_wfi01_f213_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/r9999902002002002002_0001_wfi01_f213_uncal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61524_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61524_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61529_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61529_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61534_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61534_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61539_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61539_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61544_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61544_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61549_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61549_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61554_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61554_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61559_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61559_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61564_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61564_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61569_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61569_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61574_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61574_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61579_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61579_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61584_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61584_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61589_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61589_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61594_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61594_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61599_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61599_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61604_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61604_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61609_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61609_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61614_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61614_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61619_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61619_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61624_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61624_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61629_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61629_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61634_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61634_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61639_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61639_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61644_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61644_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61649_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61649_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61654_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61654_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61659_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61659_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61664_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61664_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61669_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61669_f213.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61674_f129.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/tutorial_data/roman_sn1a_61674_f213.asdf&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">fs.ls()</span></code> command allows us to list the contents of the URI. In the above example, the <code class="docutils literal notranslate"><span class="pre">s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/</span></code> bucket contains numerous files for the notebook tutorials.</p>
+<p>In the next subsection, we will explore opening data files made using the Roman image simulator “Roman I-Sim.” These simulations are saved in the same file formats as Roman data and are useful to help develop file ingestion pipelines. More Roman I-Sim simulated data will be made available in the future.</p>
+<p>For more information on the available data products, please visit the <a class="reference internal" href="#../../../markdown/simulated-data.md"><span class="xref myst">Simulated Data Products</span></a> documentation.</p>
+<section id="opening-roman-i-sim-data">
+<h3>Opening Roman I-Sim Data<a class="headerlink" href="#opening-roman-i-sim-data" title="Link to this heading">#</a></h3>
+<p>Diving into the S3 bucket, we find several different files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*_uncal.asdf</span></code>: Level 1 (L1; ucalibrated ramp cube) files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_cal.asdf</span></code>: Level 2 (L2; calibrated rate image) files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_coadd.asdf</span></code>: Level 3 (L3; resampled image) files.</p></li>
+<li><p>Some additional miscellaneous files for various tutorials.</p></li>
+</ul>
+<p>To learn how these files were generated, please see the <a class="reference internal" href="#../romanisim/romanisim.ipynb"><span class="xref myst">Roman I-Sim</span></a> tutorial notebook.</p>
+<p>As you can see, Roman WFI data are stored in Advanced Scientific Data Format (ASDF) files. See the tutorial notebook <a class="reference internal" href="../working_with_asdf/working_with_asdf.html"><span class="std std-doc">Working with ASDF</span></a> for more information. Regarding file names, note that the first element (separated by underscores) of the file name string of L1* and L2* files denotes programmatic information (e.g., program ID, visit ID, etc.), while the second element gives the exposure number within the visit. Thus, <code class="docutils literal notranslate"><span class="pre">r0003201001001001004_0001_wfi02_f106_cal.asdf</span></code> and <code class="docutils literal notranslate"><span class="pre">r0003201001001001004_0002_wfi02_f106_cal.asdf</span></code> are exposure level (L2) files from the same visit but represent exposures 1 and 2, respectively, of the detector WFI02. For simulated data, such as the files used for these tutorials, the first element of the file name string has been chosen simply as an example. The file naming convention for Roman is quite elaborate as each includes all the relevant information about the observation. For more information on the file naming conventions, please see the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/data-levels-and-products">Data Levels and Products</a> Roman documentation page.</p>
+<p><strong>Note:</strong> Archival file names for the mosaic images (L3 products) are still being finalized. The L3 file in the S3 bucket has a generic file name (<code class="docutils literal notranslate"><span class="pre">my_roman_mosaic_coadd.asdf</span></code>) that does not follow any naming convention.</p>
+<p>Below, we use <code class="docutils literal notranslate"><span class="pre">roman_datamodels</span></code> to read the ASDF file corresponding to a dense region. To simplify the workflow, we are providing a URI to the data. Once the data will be available through MAST during operations, users will need to retrieve the URIs using astroquery.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0003201001001001004_0001_wfi11_f106_cal.asdf&#39;</span>
+
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dm</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">dm</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root (AsdfObject)
+├─asdf_library (Software)
+│ ├─author (str): The ASDF Developers
+│ ├─homepage (str): http://github.com/asdf-format/asdf
+│ ├─name (str): asdf
+│ └─version (str): 4.1.0
+├─history (AsdfDictNode)
+│ └─extensions (AsdfListNode) ...
+└─roman (WfiImage) # Level 2 (L2) Calibrated Roman Wide Field Instrument (WFI) Rate Image.
+  ├─meta (AsdfDictNode) ...
+  ├─data (NDArrayType) # Science Data (DN/s) or (MJy/sr) ...
+  ├─dq (NDArrayType) # Data Quality ...
+  ├─err (NDArrayType) # Error (DN / s) or (MJy / sr) ...
+  ├─var_poisson (NDArrayType) # Poisson Variance (DN^2/s^2) or (MJy^2/sr^2) ...
+  ├─var_rnoise (NDArrayType) # Read Noise Variance (DN^2/s^2) or (MJy^2/sr^2) ...
+  ├─var_flat (NDArrayType) # Flat Field Variance (DN^2/s^2) or (MJy^2/sr^2) ...
+  ├─amp33 (NDArrayType) # Amplifier 33 Reference Pixel Data (DN) ...
+  ├─border_ref_pix_left (NDArrayType) # Left-Edge Border Reference Pixels (DN) ...
+  ├─border_ref_pix_right (NDArrayType) # Right-Edge Border Reference Pixels (DN) ...
+  ├─border_ref_pix_top (NDArrayType) # Border Reference Pixels on the Top of the Detector (DN) ...
+  ├─border_ref_pix_bottom (NDArrayType) # Bottom-Edge Border Reference Pixels (DN) ...
+  ├─dq_border_ref_pix_left (NDArrayType) # Left-Edge Border Reference Pixel Data Quality (DN) ...
+  └─3 not shown
+Some nodes not shown.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="opening-openuniverse-simulated-data">
+<h3>Opening OpenUniverse Simulated Data<a class="headerlink" href="#opening-openuniverse-simulated-data" title="Link to this heading">#</a></h3>
+<p>The OpenUniverse data is hosted in its own S3 bucket (see the <a class="reference external" href="https://registry.opendata.aws/openuniverse2024/">OpenUniverse AWS Open Data</a> website for more information). Additionally, IPAC has created two <a class="reference external" href="https://irsa.ipac.caltech.edu/docs/notebooks/">OpenUniverse notebooks</a> showcasing how to interact with the original data and catalog files. In this notebook, we focus on how to access the files.</p>
+<p>The simulations are natively saved as FITS files and are divided by survey (the Wide Area Survey (WAS) or the Time Domain Survey (TDS)), optical element, and HEALPix cell (<a class="reference external" href="https://healpix.sourceforge.io">HEALPix</a> is a commonly used way to uniformly discretize the area of a sphere). Please see <a class="reference internal" href="#../../../markdown/simulated-data.md"><span class="xref myst">Simulated Data Products</span></a> for more information about specific OpenUniverse data products.</p>
+<p>Below we provide an example of streaming a simulated “calibrated” image FITS file from an S3 bucket using an alternate method. Instead of initializing our own <code class="docutils literal notranslate"><span class="pre">S3FileSystem</span></code>, we pass the credentials (anonymous credentails in this case, as the data is public) directly to <code class="docutils literal notranslate"><span class="pre">fits.open</span></code>, allowing it to create the file system. This shorthand is covenient when the URI is explicitly provided, but it does not allow exploration of the S3 directory structure without intitializing the <code class="docutils literal notranslate"><span class="pre">S3FileSystem</span></code> separately.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3bucket</span> <span class="o">=</span> <span class="s1">&#39;s3://nasa-irsa-simulations/openuniverse2024/roman/preview/RomanWAS/images/simple_model&#39;</span>
+<span class="n">band</span> <span class="o">=</span> <span class="s1">&#39;F184&#39;</span>
+<span class="n">hpix</span> <span class="o">=</span> <span class="s1">&#39;15297&#39;</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">s3fpath</span> <span class="o">=</span> <span class="n">s3bucket</span><span class="o">+</span><span class="sa">f</span><span class="s1">&#39;/</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">hpix</span><span class="si">}</span><span class="s1">/Roman_WAS_simple_model_</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">hpix</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">sensor</span><span class="si">}</span><span class="s1">.fits.gz&#39;</span>
+
+<span class="n">fits_file</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">s3fpath</span><span class="p">,</span> <span class="n">fsspec_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;anon&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fits_file</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Filename: &lt;class &#39;s3fs.core.S3File&#39;&gt;
+No.    Name      Ver    Type      Cards   Dimensions   Format
+  0  PRIMARY       1 PrimaryHDU      63   ()      
+  1  SCI           1 ImageHDU        68   (4088, 4088)   float64   
+  2  ERR           1 ImageHDU        68   (4088, 4088)   float32   
+  3  DQ            1 ImageHDU        70   (4088, 4088)   int32 (rescales to uint32)   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="downloading-files-not-recommended">
+<h2>Downloading Files (not recommended)<a class="headerlink" href="#downloading-files-not-recommended" title="Link to this heading">#</a></h2>
+<p>Downloading Roman data products is not recommended due to their large file sizes and the high volume expected from the mission’s survey nature. Instead, users are encouraged to adopt workflows that utilize the file streaming services described above for an optimal experience.</p>
+<p>However, in specific science cases, downloading files may be necessary. To do so, you can use the URIs along with the <code class="docutils literal notranslate"><span class="pre">S3FileSystem.get</span></code> function (documentation available <a class="reference external" href="https://s3fs.readthedocs.io/en/latest/api.html#s3fs.core.S3FileSystem.get">here</a>). The code snippet below demonstrates how to download data to your personal instance of the Research Nexus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># commented out as this use case is not recommended and should only be needed in rare circumstances</span>
+<span class="c1"># from pathlib import Path</span>
+<span class="c1"># URI =  ## Set this to the URI string you want to download.</span>
+<span class="c1"># local_file_path = Path(&#39;data/&#39;)</span>
+<span class="c1"># local_file_path.mkdir(parents=True, exist_ok=True)</span>
+<span class="c1"># fs = s3fs.S3FileSystem()</span>
+<span class="c1"># fs.get(URI, local_file_path)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<p>Additional information can be found at the following links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://s3fs.readthedocs.io/en/latest/api.html#"><code class="docutils literal notranslate"><span class="pre">s3fs</span></code> Documentation</a></p></li>
+<li><p><a class="reference internal" href="../working_with_asdf/working_with_asdf.html"><span class="std std-doc">Working with ASDF Notebook</span></a></p></li>
+<li><p><a class="reference external" href="https://registry.opendata.aws/openuniverse2024/">OpenUniverse AWS Open Data</a></p></li>
+<li><p><a class="reference external" href="https://irsa.ipac.caltech.edu/docs/notebooks/">OpenUniverse notebooks</a></p></li>
+<li><p><a class="reference internal" href="#../../../markdown/simulated-data.md"><span class="xref myst">Simulated Data Products Document</span></a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.501.2044T/abstract">MNRAS paper detailing Open Universe data simulation methods (Troxel et al 2021)</a></p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.522.2801T/abstract">MNRAS paper detailing the previewed Open Universe data (Troxel et al 2023)</a></p></li>
+</ul>
+</section>
+<section id="about-this-notebook">
+<h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p>The data streaming information from this notebook largely builds off of the TIKE data-acces notebook by Thomas Dutkiewicz.</p>
+<p><strong>Author:</strong> Will C. Schultz, Tyler Desjardins <br />
+<strong>Updated On:</strong> 2025-09-30</p>
+<hr class="docutils" />
+<p><a class="reference internal" href="#top"><span class="xref myst">Top of Page</span></a>
+<a class="reference internal" href="https://raw.githubusercontent.com/spacetelescope/notebooks/master/assets/stsci_pri_combo_mark_horizonal_white_bkgd.png"><img alt="Space Telescope Logo" src="https://raw.githubusercontent.com/spacetelescope/notebooks/master/assets/stsci_pri_combo_mark_horizonal_white_bkgd.png" style="width: 200px;" /></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "roman-cal"
+        },
+        kernelOptions: {
+            name: "roman-cal",
+            path: "./notebooks/data_discovery_and_access"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'roman-cal'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../background_visualization_tool/RBVT.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Roman Background Visualization Tool (RBVT)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../grism_spectral_extraction/grism_spectral_extraction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Roman Spectroscopy: Grism Spectral Extraction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining terms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-mast-data">Accessing MAST Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enabling-cloud-access">Enabling Cloud Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-mast">Querying MAST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-files-directly-into-memory">Streaming files directly into memory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-from-the-roman-research-nexus-s3-bucket">Streaming from the Roman Research Nexus S3 Bucket</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-roman-i-sim-data">Opening Roman I-Sim Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-openuniverse-simulated-data">Opening OpenUniverse Simulated Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-files-not-recommended">Downloading Files (not recommended)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

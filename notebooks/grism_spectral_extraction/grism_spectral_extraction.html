@@ -1,0 +1,1226 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Roman Spectroscopy: Grism Spectral Extraction &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/grism_spectral_extraction/grism_spectral_extraction';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Roman Interactive Sensitivity Tool (RIST)" href="../rist/rist.html" />
+    <link rel="prev" title="Roman Research Nexus Data Discovery and Access in the Cloud" href="../data_discovery_and_access/data_discovery_and_access.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">STScI Roman Notebooks</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    roman_notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/grism_spectral_extraction/grism_spectral_extraction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Roman Spectroscopy: Grism Spectral Extraction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-setup-and-utility-functions">Initial Setup and Utility Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-grism-spectroscopy-data">Simulated Grism Spectroscopy Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-simulated-data">Loading the Simulated Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-quick-look-at-the-data">Initial Quick Look at the Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-the-direct-to-dispersed-mapping">Getting the Direct-to-Dispersed Mapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cutout-of-a-2-d-spectrum">Cutout of a 2-D Spectrum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-the-wavelength-array">Set up the Wavelength Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-extraction">Box Extraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-extraction">Optimal Extraction</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#masking-neighboring-sources-in-direct-cutouts">Masking Neighboring Sources in Direct Cutouts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-workflow-grism-image-to-extracted-1-d-spectrum">Full Workflow: Grism Image to Extracted 1-D Spectrum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-bright-stars">Examples of Bright Stars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-galaxies">Examples of Galaxies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-nearby-emission-line-galaxies">Examples of Nearby Emission Line Galaxies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-overlapping-spectra">Example of Overlapping Spectra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="roman-spectroscopy-grism-spectral-extraction">
+<h1>Roman Spectroscopy: Grism Spectral Extraction<a class="headerlink" href="#roman-spectroscopy-grism-spectral-extraction" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.io.fits</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">fits</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">rotate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">interp1d</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">Rectangle</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.nddata</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cutout2D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cycle</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.convolution</span><span class="w"> </span><span class="kn">import</span> <span class="n">convolve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.visualization</span><span class="w"> </span><span class="kn">import</span> <span class="n">simple_norm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">photutils.segmentation</span><span class="w"> </span><span class="kn">import</span> <span class="n">detect_sources</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this notebook, we demonstrate an example workflow one can follow to extract the grism spectra from Roman WFI images. We will use simulated grism data for this exercise and illustrate how to go from a full 2-D grism dispersed image to a 1-D spectrum for a source of interest.</p>
+<p><strong>Important Disclaimer:</strong> This workflow is vastly simplified for the purposes of demonstration. This does not represent the full functionality available from the <a class="reference external" href="https://roman.gsfc.nasa.gov/science/roses/GDPSforROSES.pdf">Grism/Prism Data Processing System (GDPS)</a>, which is the pipeline being developed for reducing Roman WFI spectral data. In the limited demonstration showcased here, we will be making several simplifying assumptions, which will be highlighted by <strong>Notes</strong> throughout the notebook.</p>
+<section id="initial-setup-and-utility-functions">
+<h3>Initial Setup and Utility Functions<a class="headerlink" href="#initial-setup-and-utility-functions" title="Link to this heading">#</a></h3>
+<p>Let’s begin by setting up a couple utility functions that will be used throughout the notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vmin_vmax</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">fac_neg</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">fac_pos</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a min-max value to scale images (when plotting)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">med</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">img</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">vmin</span> <span class="o">=</span> <span class="n">med</span> <span class="o">-</span> <span class="n">fac_neg</span> <span class="o">*</span> <span class="n">std</span>
+    <span class="n">vmax</span> <span class="o">=</span> <span class="n">med</span> <span class="o">+</span> <span class="n">fac_pos</span> <span class="o">*</span> <span class="n">std</span>
+    <span class="k">return</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cutout_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Uses the astropy Cutout2D to cutout a part of the image</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Cutout2D</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;partial&quot;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="simulated-grism-spectroscopy-data">
+<h4>Simulated Grism Spectroscopy Data<a class="headerlink" href="#simulated-grism-spectroscopy-data" title="Link to this heading">#</a></h4>
+<p>For this demonstration, we will use the simulated grism images from <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...928....1W">Wang et al. (2022, ApJ, 928, 1)</a>, developed as part of the Roman High Latitude Spectroscopic Survey (HLSS) Grism Simulation Products. Please refer to <a class="reference external" href="https://irsa.ipac.caltech.edu/data/theory/Roman/Wang2022a/">their IRSA page</a> for full details on the simulation. Briefly, these simulations cover an area of 4 sq. deg., across a redshift range of $0&lt;z&lt;3$. The simulation products have been designed to closely mimic future observations by incorporating survey parameters from the planned HLSS, such as detection limits, exposure times, roll angles, and dithering.</p>
+<p>For this exercise, we provide the direct and grism images for one of the Roman detectors (WFI01) in the ASDF data format for Roman, along with a source catalog.</p>
+</section>
+<section id="loading-the-simulated-data">
+<h4>Loading the Simulated Data<a class="headerlink" href="#loading-the-simulated-data" title="Link to this heading">#</a></h4>
+<p>Let’s load the relevant files:</p>
+<ul class="simple">
+<li><p>WFI direct image corresponding to the grism pointing to locate the on-sky source positions (ASDF format)</p></li>
+<li><p>WFI grism image with the slitless spectra (ASDF format)</p></li>
+<li><p>Input catalog for the simulated sources (FITS format)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s1">&#39;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/&#39;</span>
+
+<span class="c1"># Read in the direct image</span>
+<span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0007601002004013001_0001_wfi01_f158_cal.asdf&#39;</span>
+<span class="n">direct_asdf</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+<span class="n">direct_img</span> <span class="o">=</span> <span class="n">direct_asdf</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># Read in the grism image</span>
+<span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0007601002004013002_0001_wfi01_grism_cal.asdf&#39;</span>
+<span class="n">grism_asdf</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+<span class="n">grism_img</span> <span class="o">=</span> <span class="n">grism_asdf</span><span class="o">.</span><span class="n">data</span>
+<span class="n">grism_err</span> <span class="o">=</span> <span class="n">grism_asdf</span><span class="o">.</span><span class="n">err</span>
+
+<span class="c1"># Read in the catalog</span>
+<span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0007601002004013001_0001_catalog.fits&#39;</span>
+<span class="n">hdu</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="n">fsspec_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;anon&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">hdu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initial-quick-look-at-the-data">
+<h4>Initial Quick Look at the Data<a class="headerlink" href="#initial-quick-look-at-the-data" title="Link to this heading">#</a></h4>
+<p>Let’s first make a quick plot of the direct and dispersed images for visualization. We will also overlay the positions of the sources from the catalog.</p>
+<section id="getting-the-direct-to-dispersed-mapping">
+<h5>Getting the Direct-to-Dispersed Mapping<a class="headerlink" href="#getting-the-direct-to-dispersed-mapping" title="Link to this heading">#</a></h5>
+<p>We need to know the mapping between the source position in the direct image and the corresponding spectral trace in the dispersed image. This transformation is part of the Roman “optical model” and will be included in the Roman calibration files, along with utility tools. However, since these tools are still under development, here we provide the spectral trace reference positions and tilts in the catalog (see the <code class="docutils literal notranslate"><span class="pre">X_GRISM</span></code>, <code class="docutils literal notranslate"><span class="pre">Y_GRISM</span></code>, and <code class="docutils literal notranslate"><span class="pre">THETA_GRISM</span></code> columns).</p>
+<p><strong>NOTE</strong>: The reference position of the spectra we provide is defined at <strong>1.55 microns</strong>. We assume the wavelength dispersion of the Roman grism to be <strong>11 Angstroms per pixel</strong>. WHile the dispersion varies slightly over the wavelength range, we ignore the effects for simplicity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Setup the figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">### Plot the direct image</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">direct_img</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">direct_img</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span>
+    <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Direct Image&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+
+<span class="c1">### Plot the grism image</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">grism_img</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">grism_img</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span>
+    <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Dispersed (Grism) Image&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+
+<span class="c1">### Overlay the source positions in the direct image</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">entry</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="n">catalog</span><span class="p">[</span><span class="s2">&quot;mag_ROMAN_WFI_NIR_F146&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">]):</span> <span class="c1"># only show the bright objects</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span>
+        <span class="n">Circle</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;X_IMAGE&quot;</span><span class="p">],</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;Y_IMAGE&quot;</span><span class="p">]),</span>
+            <span class="n">radius</span><span class="o">=</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">3.5</span><span class="p">,</span>
+            <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+            <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
+            <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">bbox</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1200</span><span class="p">]</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;X_GRISM&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;Y_GRISM&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="o">*</span><span class="n">bbox</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;THETA_GRISM&quot;</span><span class="p">]</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">grism_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">grism_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fd0dcc6966a480d9ae5a8f029111ae8496b6427f1087dc0cc1e31a68d95df1e9.png" src="../../_images/fd0dcc6966a480d9ae5a8f029111ae8496b6427f1087dc0cc1e31a68d95df1e9.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="cutout-of-a-2-d-spectrum">
+<h2>Cutout of a 2-D Spectrum<a class="headerlink" href="#cutout-of-a-2-d-spectrum" title="Link to this heading">#</a></h2>
+<p>Let’s now pick an object and make a cutout of its 2-D spectrum. We will also rotate the spectra by its tilt (90 degrees) for visualization, which will make plotting them easier.</p>
+<p><strong>Note:</strong> The process of extracting a 2-D spectral cutout is highly simplified. The spectral traces typically require high-order rectification. For simplicity, we are skipping this step and only considering a rotational transformation. Also, please note that while <code class="docutils literal notranslate"><span class="pre">scipy.ndimage.rotate()</span></code> is convenient, it does not necessarily conserve flux, which is important for proper spectral measurements.</p>
+<p>First, we write a function to perform our 2D extraction since this will be utilized again later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_2D_spectrum</span><span class="p">(</span><span class="n">xpix</span><span class="p">,</span> <span class="n">ypix</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">size_spatial</span><span class="p">,</span> <span class="n">grism_img</span><span class="p">,</span> <span class="n">grism_err</span><span class="p">,</span> <span class="n">size_wavelength</span><span class="o">=</span><span class="mi">1200</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cutout a 2D spectrum at the desired position for a given size (spatial and spectral dimensions)</span>
+<span class="sd">    This assumes the spectra are aligned along the y-axis of the dispersed image</span>
+<span class="sd">    The recommended size in the wavelength dimension is 1200 px</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">### Define the extraction box</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="n">size_spatial</span><span class="p">,</span> <span class="n">size_wavelength</span><span class="p">]</span>
+
+    <span class="c1">### Use astropy&#39;s Cutout2D</span>
+    <span class="c1">### Fill value is set to 0 to avoid issues with rotate</span>
+    <span class="n">flux2D</span> <span class="o">=</span> <span class="n">cutout_image</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">grism_img</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="p">(</span><span class="n">xpix</span><span class="p">,</span> <span class="n">ypix</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ferr2D</span> <span class="o">=</span> <span class="n">cutout_image</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">grism_err</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="p">(</span><span class="n">xpix</span><span class="p">,</span> <span class="n">ypix</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1">### Rotate the vertial spectral just for plotting purposes</span>
+    <span class="n">flux2D</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">flux2D</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+    <span class="n">ferr2D</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">ferr2D</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s pick a bright star as our test object – e.g., ID# 197462 in the catalog.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Let&#39;s choose an object</span>
+<span class="n">entry</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="n">catalog</span><span class="p">[</span><span class="s2">&quot;SOURCE_ID&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">197462</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1">### Cutout the 2D spectrum</span>
+<span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span> <span class="o">=</span> <span class="n">extract_2D_spectrum</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;X_GRISM&quot;</span><span class="p">],</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;Y_GRISM&quot;</span><span class="p">],</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;THETA_GRISM&quot;</span><span class="p">],</span> <span class="n">size_spatial</span><span class="o">=</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="n">grism_img</span><span class="o">=</span><span class="n">grism_img</span><span class="p">,</span> <span class="n">grism_err</span><span class="o">=</span><span class="n">grism_err</span><span class="p">)</span>
+
+<span class="c1">### Also cutout a direct image stamp</span>
+<span class="n">stamp</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">cutout_image</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">direct_img</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;X_IMAGE&quot;</span><span class="p">],</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;Y_IMAGE&quot;</span><span class="p">]),</span> <span class="n">size</span><span class="o">=</span><span class="n">flux2D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">90</span><span class="p">)</span>
+
+<span class="c1">### Make a quick plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">stamp</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">stamp</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">flux2D</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">flux2D</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+    <span class="n">axis</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">axis</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2548e30976affc2d2af5c7f3b0530525852ab85ddcb8ac62ecd430bf2b5596f3.png" src="../../_images/2548e30976affc2d2af5c7f3b0530525852ab85ddcb8ac62ecd430bf2b5596f3.png" />
+</div>
+</div>
+<p>Now that we have a 2D cutout of the spectrum, we need to assign wavelength information.</p>
+<section id="set-up-the-wavelength-array">
+<h3>Set up the Wavelength Array<a class="headerlink" href="#set-up-the-wavelength-array" title="Link to this heading">#</a></h3>
+<p>Recall that the provided position for the spectral mapping traces to <strong>1.55 microns</strong> and the spectral dispersion for the Roman grism spectrum is <strong>11 Angstroms per pixel</strong> (approximately; see caveats above). With this information we can define a wavelength axis for the extracted spectrum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_wavelength_info</span><span class="p">(</span><span class="n">flux2D</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Setup spatial and wavelength coordinate arrays</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grism_dispersion</span> <span class="o">=</span> <span class="mf">0.0011</span> <span class="c1"># micron / px (approximately)</span>
+    <span class="n">grism_zeropoint</span> <span class="o">=</span> <span class="mf">1.55</span> <span class="c1"># micron</span>
+
+    <span class="n">idx2D</span><span class="p">,</span> <span class="n">idy2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="n">flux2D</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">idx2D</span> <span class="o">=</span> <span class="n">idx2D</span> <span class="o">-</span> <span class="n">flux2D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">idy2D</span> <span class="o">=</span> <span class="n">idy2D</span> <span class="o">-</span> <span class="n">flux2D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="n">wave2D</span> <span class="o">=</span> <span class="n">idy2D</span> <span class="o">*</span> <span class="n">grism_dispersion</span> <span class="o">+</span> <span class="n">grism_zeropoint</span>
+
+    <span class="k">return</span> <span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Make a quick plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">stamp</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">stamp</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">flux2D</span><span class="p">)</span>
+<span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span> <span class="o">=</span> <span class="n">get_wavelength_info</span><span class="p">(</span><span class="n">flux2D</span><span class="o">=</span><span class="n">flux2D</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">idx2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Observed Wavelength [$</span><span class="se">\\</span><span class="s2">mu$m]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04f6cc6c0ed9457b509dba159131745ac2244d9b37a3d3a5ef4a68681c087ba7.png" src="../../_images/04f6cc6c0ed9457b509dba159131745ac2244d9b37a3d3a5ef4a68681c087ba7.png" />
+</div>
+</div>
+<p>Now, we move to the 1-D spectral extraction.</p>
+</section>
+<section id="box-extraction">
+<h3>Box Extraction<a class="headerlink" href="#box-extraction" title="Link to this heading">#</a></h3>
+<p>The simplest and most straightforward way to extract a 1-D spectrum from our 2-D cutout is to use the “Box extraction” method, by defining a window around the trace and summing up the flux along the spatial dimension. The dimension of the box window has a significant impact on the extracted spectrum – it needs to be large enough to capture all the flux from the source, but not too large to include excessive amounts of noise which would degrade the quality of the 1-D spectrum. As an initial approach, we can define the size of the extraction box based on the size of the source measured from the direct image. We’ll use the semi-major axis length from the catalog, scaled by a scalar factor, to explore how the window size affects the extracted 1-D spectrum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_box_extraction</span><span class="p">(</span><span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span><span class="p">,</span> <span class="n">extract_size</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform a box extraction</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">idx2D</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">extract_size</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">wave1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">flux1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">flux2D</span><span class="p">[</span><span class="n">cond</span><span class="p">,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ferr1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">ferr2D</span><span class="p">[</span><span class="n">cond</span><span class="p">,</span> <span class="p">:]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="p">,</span> <span class="n">ferr1D</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use a range of box sizes for the 1D extraction and see how it performs for our target.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Plot the direct image stamp</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">stamp</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">stamp</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Plot the 2D spectrum</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">flux2D</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">idx2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="p">[</span><span class="n">label</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()]</span>
+
+<span class="n">color_cycle</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Set1</span><span class="o">.</span><span class="n">colors</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">factor</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color_cycle</span><span class="p">)</span>
+    <span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="p">,</span> <span class="n">ferr1D</span> <span class="o">=</span> <span class="n">do_box_extraction</span><span class="p">(</span><span class="n">idx2D</span><span class="o">=</span><span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span><span class="o">=</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="o">=</span><span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span><span class="o">=</span><span class="n">ferr2D</span><span class="p">,</span> <span class="n">extract_size</span><span class="o">=</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">factor</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">ferr1D</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">([</span><span class="o">-</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">factor</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">factor</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="o">*</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a6af2ae47f9f958197597e05ca44e13a05574a94496b41340acb9fa40a73e609.png" src="../../_images/a6af2ae47f9f958197597e05ca44e13a05574a94496b41340acb9fa40a73e609.png" />
+</div>
+</div>
+<p>As noted above, the size of the extraction box is crucial. If it is too small, it may miss flux from the true source; if it is too large, it may include excessive noise, reducing the overall quality of the resulting spectrum. Therefore, we turn to the optimal extraction method.</p>
+</section>
+<section id="optimal-extraction">
+<h3>Optimal Extraction<a class="headerlink" href="#optimal-extraction" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1986PASP...98..609H/abstract">Horne (1986, PASP, 98, 609)</a> provides an algorithm to optimally extract a 1-D spectrum. To run the optimal extraction, we need the source 1-D profile in the spatial dimension, that we can obtain from the WFI direct image.</p>
+<p>First, let’s write up a quick function to implement the Horne+86 algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_optimal_extraction</span><span class="p">(</span><span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span><span class="p">,</span> <span class="n">stamp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs optimal extraction following Horne+86</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Generate a 1D light profile for the source from the direct image</span>
+    <span class="n">stamp</span> <span class="o">=</span> <span class="n">stamp</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">stamp</span><span class="p">)</span>
+    <span class="n">prof1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">stamp</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">prof1D</span> <span class="o">=</span> <span class="n">prof1D</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">prof1D</span><span class="p">)</span>
+    <span class="n">prof2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">prof1D</span><span class="p">,</span> <span class="n">flux2D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">prof1D</span><span class="p">),</span> <span class="n">flux2D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Apply some basic masking</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">flux2D</span><span class="p">)</span> <span class="o">|</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">ferr2D</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">ferr2D</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">flux2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">flux2D</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+    <span class="n">ferr2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">ferr2D</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="c1"># Compute the relevant terms for the Horne+86 algorithm</span>
+    <span class="n">ivar2D</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">ferr2D</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">num2D</span> <span class="o">=</span> <span class="n">ivar2D</span> <span class="o">*</span> <span class="n">prof2D</span> <span class="o">*</span> <span class="n">flux2D</span>
+    <span class="n">den2D</span> <span class="o">=</span> <span class="n">ivar2D</span> <span class="o">*</span> <span class="n">prof2D</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="c1"># Compute the final wavelength and flux arrays</span>
+    <span class="n">wave1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">flux1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">num2D</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">den2D</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ferr1D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">den2D</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span> <span class="n">ferr1D</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s apply this optimal extraction to our target and compare the two extraction methods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Plot the direct image stamp</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">stamp</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">stamp</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Plot the 2D spectrum</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">flux2D</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">idx2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="p">[</span><span class="n">label</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()]</span>
+
+<span class="n">color_cycle</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Set1</span><span class="o">.</span><span class="n">colors</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">factor</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color_cycle</span><span class="p">)</span>
+    <span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="p">,</span> <span class="n">ferr1D</span> <span class="o">=</span> <span class="n">do_box_extraction</span><span class="p">(</span><span class="n">idx2D</span><span class="o">=</span><span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span><span class="o">=</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="o">=</span><span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span><span class="o">=</span><span class="n">ferr2D</span><span class="p">,</span> <span class="n">extract_size</span><span class="o">=</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">factor</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">ferr1D</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">([</span><span class="o">-</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">factor</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">factor</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="o">*</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="p">,</span> <span class="n">ferr1D</span> <span class="o">=</span> <span class="n">do_optimal_extraction</span><span class="p">(</span><span class="n">idx2D</span><span class="o">=</span><span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span><span class="o">=</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="o">=</span><span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span><span class="o">=</span><span class="n">ferr2D</span><span class="p">,</span> <span class="n">stamp</span><span class="o">=</span><span class="n">stamp</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">ferr1D</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b9ccd2bdebfab24ee8de0829037cc7e66505cd681fdbbe3bf36f7706e46e7c86.png" src="../../_images/b9ccd2bdebfab24ee8de0829037cc7e66505cd681fdbbe3bf36f7706e46e7c86.png" />
+</div>
+</div>
+<section id="masking-neighboring-sources-in-direct-cutouts">
+<h4>Masking Neighboring Sources in Direct Cutouts<a class="headerlink" href="#masking-neighboring-sources-in-direct-cutouts" title="Link to this heading">#</a></h4>
+<p>It is essential to properly mask neighboring sources before generating the 1-D light profile for the target. Failing to do so will result in an inaccurate 1-D spectrum. To address it, we can use a <code class="docutils literal notranslate"><span class="pre">photutils</span></code> source detection function on the stamp and apply it to mask out any other sources within the region.</p>
+<p>While our target does not require this step, it will be necessary for other sources discussed below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grism_img_thresh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">grism_img</span><span class="p">)</span>
+<span class="n">grism_img_skybkg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">grism_img</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mk_segmented_stamp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">skybkg</span><span class="o">=</span><span class="n">grism_img_skybkg</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="n">grism_img_thresh</span><span class="o">*</span><span class="mf">0.8</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">skybkg</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">skybkg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">thresh</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">thresh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="n">segm</span> <span class="o">=</span> <span class="n">detect_sources</span><span class="p">(</span><span class="n">data</span><span class="o">-</span><span class="n">skybkg</span><span class="p">,</span> <span class="n">thresh</span><span class="p">,</span> <span class="n">npixels</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="n">data_segm</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">segm</span><span class="o">.</span><span class="n">shape</span><span class="p">]</span>
+    <span class="n">data_segm</span><span class="p">[(</span><span class="n">segm</span><span class="o">!=</span><span class="n">segm</span><span class="p">[</span><span class="o">*</span><span class="n">idx</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">segm</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">data_segm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="full-workflow-grism-image-to-extracted-1-d-spectrum">
+<h3>Full Workflow: Grism Image to Extracted 1-D Spectrum<a class="headerlink" href="#full-workflow-grism-image-to-extracted-1-d-spectrum" title="Link to this heading">#</a></h3>
+<p>Now that we have demonstrated all the steps, let’s combine them into a single workflow that performs the full 1-D extraction and apply it multiple sources.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_full_extraction</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">direct_img</span><span class="p">,</span> <span class="n">grism_img</span><span class="p">,</span> <span class="n">grism_err</span><span class="p">,</span> <span class="n">size_factor</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">box_size_factor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs the full 1D spectral extraction workflow for a given object provided as a row from the catalog</span>
+<span class="sd">    Requires X_IMAGE, Y_IMAGE, A_IMAGE, X_GRISM, Y_GRISM columns from the catalog</span>
+<span class="sd">    Also requires the direct and grism images</span>
+<span class="sd">    Optionally produces plots</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Start by extracting the 2D spectrum</span>
+    <span class="n">size_spatial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">size_factor</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span> <span class="o">=</span> <span class="n">extract_2D_spectrum</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;X_GRISM&quot;</span><span class="p">],</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;Y_GRISM&quot;</span><span class="p">],</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;THETA_GRISM&quot;</span><span class="p">],</span> <span class="n">size_spatial</span><span class="o">=</span><span class="n">size_spatial</span><span class="p">,</span> <span class="n">grism_img</span><span class="o">=</span><span class="n">grism_img</span><span class="p">,</span> <span class="n">grism_err</span><span class="o">=</span><span class="n">grism_err</span><span class="p">)</span>
+
+    <span class="c1"># Generate a stamp for the source from the direct image and also mask other objects in the stamp</span>
+    <span class="n">stamp</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">cutout_image</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">direct_img</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;X_IMAGE&quot;</span><span class="p">],</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;Y_IMAGE&quot;</span><span class="p">]),</span> <span class="n">size</span><span class="o">=</span><span class="n">flux2D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">90</span><span class="p">)</span>
+    <span class="n">stamp_masked</span> <span class="o">=</span> <span class="n">mk_segmented_stamp</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">stamp</span><span class="p">)</span>
+
+    <span class="c1"># Generate the wavelength info</span>
+    <span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span> <span class="o">=</span> <span class="n">get_wavelength_info</span><span class="p">(</span><span class="n">flux2D</span><span class="o">=</span><span class="n">flux2D</span><span class="p">)</span>
+
+    <span class="c1"># Generate the 1D spectrum with optimal extraction</span>
+    <span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="p">,</span> <span class="n">ferr1D</span> <span class="o">=</span> <span class="n">do_optimal_extraction</span><span class="p">(</span><span class="n">idx2D</span><span class="o">=</span><span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span><span class="o">=</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="o">=</span><span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span><span class="o">=</span><span class="n">ferr2D</span><span class="p">,</span> <span class="n">stamp</span><span class="o">=</span><span class="n">stamp_masked</span><span class="p">)</span>
+
+    <span class="c1"># (optionally) Generate a plot to show of the spectrum and also box extraction results</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="c1"># Setup the subplots</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># Plot the direct image stamp</span>
+        <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">stamp_masked</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">stamp_masked</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># Plot the 2D spectrum</span>
+        <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">flux2D</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">flux2D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">flux2D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">4</span><span class="p">),</span> <span class="p">:])</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">idx2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">label</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()]</span>
+
+        <span class="c1"># Plot box extraction</span>
+        <span class="n">color_cycle</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Set1</span><span class="o">.</span><span class="n">colors</span><span class="p">)</span>
+        <span class="n">_flux1D_for_ylim</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">box_size_factor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">factor</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">box_size_factor</span><span class="p">):</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color_cycle</span><span class="p">)</span>
+                <span class="n">_wave1D</span><span class="p">,</span> <span class="n">_flux1D</span><span class="p">,</span> <span class="n">_ferr1D</span> <span class="o">=</span> <span class="n">do_box_extraction</span><span class="p">(</span><span class="n">idx2D</span><span class="o">=</span><span class="n">idx2D</span><span class="p">,</span> <span class="n">wave2D</span><span class="o">=</span><span class="n">wave2D</span><span class="p">,</span> <span class="n">flux2D</span><span class="o">=</span><span class="n">flux2D</span><span class="p">,</span> <span class="n">ferr2D</span><span class="o">=</span><span class="n">ferr2D</span><span class="p">,</span> <span class="n">extract_size</span><span class="o">=</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">factor</span><span class="p">)</span>
+                <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">_wave1D</span><span class="p">,</span> <span class="n">_flux1D</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">_ferr1D</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+                <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hlines</span><span class="p">([</span><span class="o">-</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">factor</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;A_IMAGE&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">factor</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="o">*</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+                <span class="n">_flux1D_for_ylim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_flux1D_for_ylim</span><span class="p">,</span> <span class="n">_flux1D</span><span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">wave1D</span><span class="o">-</span><span class="mf">1.5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">_flux1D</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)])</span>
+
+        <span class="c1"># Plot Optical extraction</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">wave1D</span><span class="p">,</span> <span class="n">flux1D</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">ferr1D</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">mew</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">())</span>
+
+        <span class="c1"># Plot decorations and axis limits</span>
+        <span class="n">flux1D_for_ylim</span> <span class="o">=</span> <span class="n">flux1D</span><span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">wave1D</span><span class="o">-</span><span class="mf">1.5</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">flux1D</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span>
+        <span class="n">flux1D_for_ylim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flux1D_for_ylim</span><span class="p">,</span> <span class="n">_flux1D_for_ylim</span><span class="p">)</span>
+        <span class="n">ylim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanpercentile</span><span class="p">(</span><span class="n">flux1D_for_ylim</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">1.3</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Flux [DN/s]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Wavelength [$</span><span class="se">\\</span><span class="s2">mu$m]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.995</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;ID#</span><span class="si">{</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;SOURCE_ID&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;stamp&quot;</span><span class="p">:</span> <span class="n">stamp</span><span class="p">,</span>
+            <span class="s2">&quot;flux2D&quot;</span><span class="p">:</span> <span class="n">flux2D</span><span class="p">,</span> <span class="s2">&quot;ferr2D&quot;</span><span class="p">:</span> <span class="n">ferr2D</span><span class="p">,</span> <span class="s2">&quot;idx2D&quot;</span><span class="p">:</span> <span class="n">idx2D</span><span class="p">,</span> <span class="s2">&quot;wave2D&quot;</span><span class="p">:</span> <span class="n">wave2D</span><span class="p">,</span>
+            <span class="s2">&quot;wave1D&quot;</span><span class="p">:</span> <span class="n">wave1D</span><span class="p">,</span> <span class="s2">&quot;flux1D&quot;</span><span class="p">:</span> <span class="n">flux1D</span><span class="p">,</span> <span class="s2">&quot;ferr1D&quot;</span><span class="p">:</span> <span class="n">ferr1D</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="examples-of-bright-stars">
+<h2>Examples of Bright Stars<a class="headerlink" href="#examples-of-bright-stars" title="Link to this heading">#</a></h2>
+<p>Let’s start with some examples of bright stars, IDs: 46656, 197387, 197396, 197413, 197418, 197462, 197484, 197503, 197585, 197590, 197592, 197594</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">star_IDs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">197387</span><span class="p">,</span> <span class="mi">197396</span><span class="p">,</span> <span class="mi">197413</span><span class="p">,</span> <span class="mi">197418</span><span class="p">,</span> <span class="mi">197462</span><span class="p">,</span> <span class="mi">197484</span><span class="p">,</span> <span class="mi">197503</span><span class="p">,</span> <span class="mi">197585</span><span class="p">,</span> <span class="mi">197590</span><span class="p">,</span> <span class="mi">197592</span><span class="p">,</span> <span class="mi">197594</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">star_ID</span> <span class="ow">in</span> <span class="n">star_IDs</span><span class="p">[::</span><span class="mi">3</span><span class="p">]:</span>   <span class="c1"># Only showing a subset; increase as needed</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="n">catalog</span><span class="p">[</span><span class="s2">&quot;SOURCE_ID&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">star_ID</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">do_full_extraction</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">direct_img</span><span class="p">,</span> <span class="n">grism_img</span><span class="p">,</span> <span class="n">grism_err</span><span class="p">,</span> <span class="n">box_size_factor</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/46ab10103d6375c5adfe7605b637363a4820cdcdb336ed8013f101fd0b02a4ae.png" src="../../_images/46ab10103d6375c5adfe7605b637363a4820cdcdb336ed8013f101fd0b02a4ae.png" />
+<img alt="../../_images/dc859a1ab0a832f6df4664697048024a348d9b23554058440c2ef082cbcbf3bd.png" src="../../_images/dc859a1ab0a832f6df4664697048024a348d9b23554058440c2ef082cbcbf3bd.png" />
+<img alt="../../_images/db00565aa1c6302166757e8dedf456a56da705cbc38b64e499cfdc2233cb1435.png" src="../../_images/db00565aa1c6302166757e8dedf456a56da705cbc38b64e499cfdc2233cb1435.png" />
+<img alt="../../_images/d99974de938aaa08ccf2416a0ea1ac67eddec937883a955329a930b7dbf44d87.png" src="../../_images/d99974de938aaa08ccf2416a0ea1ac67eddec937883a955329a930b7dbf44d87.png" />
+</div>
+</div>
+</section>
+<section id="examples-of-galaxies">
+<h2>Examples of Galaxies<a class="headerlink" href="#examples-of-galaxies" title="Link to this heading">#</a></h2>
+<p>Now let’s take a look at some galaxies. Here you can experiment with whichever objects you want from the source catalog. For demonstration purposes, we have provided a few select examples that highlight interesting spectral features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">galaxy_IDs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">19942</span><span class="p">,</span> <span class="mi">115897</span><span class="p">,</span> <span class="mi">83060</span><span class="p">,</span> <span class="mi">59378</span><span class="p">,</span> <span class="mi">14068</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">source_ID</span> <span class="ow">in</span> <span class="n">galaxy_IDs</span><span class="p">:</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="n">catalog</span><span class="p">[</span><span class="s2">&quot;SOURCE_ID&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">source_ID</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">do_full_extraction</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">direct_img</span><span class="p">,</span> <span class="n">grism_img</span><span class="p">,</span> <span class="n">grism_err</span><span class="p">,</span> <span class="n">size_factor</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">box_size_factor</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5b2b110012aa5d74ccf044697422da584c07e27dd86c1a51b757de3b1008c0f0.png" src="../../_images/5b2b110012aa5d74ccf044697422da584c07e27dd86c1a51b757de3b1008c0f0.png" />
+<img alt="../../_images/faf5d201ab888b490d5e7cd733754d466668c86b80042a8c0b38243921473d6a.png" src="../../_images/faf5d201ab888b490d5e7cd733754d466668c86b80042a8c0b38243921473d6a.png" />
+<img alt="../../_images/aefeaadd374998c63b532245d653b89dd484fbf791b8f03fa1c760c3c29a6c09.png" src="../../_images/aefeaadd374998c63b532245d653b89dd484fbf791b8f03fa1c760c3c29a6c09.png" />
+<img alt="../../_images/f86d0ffcc4ba9fb61f742cedb9044da49f8b0fe2cad137d854eb9c32886a6714.png" src="../../_images/f86d0ffcc4ba9fb61f742cedb9044da49f8b0fe2cad137d854eb9c32886a6714.png" />
+<img alt="../../_images/b1fc60da298b0e28eb8313e7f8e033d2119529f339397b4abeb78cbe8bceb027.png" src="../../_images/b1fc60da298b0e28eb8313e7f8e033d2119529f339397b4abeb78cbe8bceb027.png" />
+</div>
+</div>
+</section>
+<section id="examples-of-nearby-emission-line-galaxies">
+<h2>Examples of Nearby Emission Line Galaxies<a class="headerlink" href="#examples-of-nearby-emission-line-galaxies" title="Link to this heading">#</a></h2>
+<p>Here are a couple examples of emission line galaxies that are close enough to see the emission lines from the neighboring object in the extracted 2-D spectrum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pairs_IDs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">171608</span><span class="p">,</span> <span class="mi">19942</span><span class="p">,</span> <span class="mi">35048</span><span class="p">,</span> <span class="mi">147993</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">source_ID</span> <span class="ow">in</span> <span class="n">pairs_IDs</span><span class="p">:</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="n">catalog</span><span class="p">[</span><span class="s2">&quot;SOURCE_ID&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">source_ID</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">do_full_extraction</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">direct_img</span><span class="p">,</span> <span class="n">grism_img</span><span class="p">,</span> <span class="n">grism_err</span><span class="p">,</span> <span class="n">size_factor</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">box_size_factor</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d4cf30ec571648527816e1e4f298a031c3f089d438968d5ec9fbd31407638a6a.png" src="../../_images/d4cf30ec571648527816e1e4f298a031c3f089d438968d5ec9fbd31407638a6a.png" />
+<img alt="../../_images/5b2b110012aa5d74ccf044697422da584c07e27dd86c1a51b757de3b1008c0f0.png" src="../../_images/5b2b110012aa5d74ccf044697422da584c07e27dd86c1a51b757de3b1008c0f0.png" />
+<img alt="../../_images/570c989b3f4863546ff1c776babc0e846bd873f8a74b5bd21811548b2efde9c0.png" src="../../_images/570c989b3f4863546ff1c776babc0e846bd873f8a74b5bd21811548b2efde9c0.png" />
+<img alt="../../_images/8ba6c2c556b3cc2c42b3bc2135bf3b57f11917f6751b1d000ad427361f80a542.png" src="../../_images/8ba6c2c556b3cc2c42b3bc2135bf3b57f11917f6751b1d000ad427361f80a542.png" />
+</div>
+</div>
+</section>
+<section id="example-of-overlapping-spectra">
+<h2>Example of Overlapping Spectra<a class="headerlink" href="#example-of-overlapping-spectra" title="Link to this heading">#</a></h2>
+<p>Here is an example of two spectra, one from a star (ID#197738) and another from a bright, high-redshift emission line galaxy (ID#166231), that happen to overlap.</p>
+<p>In this case, it is imperative to perform a “decontamination” to accurately recover the true flux of the individual source. This is a non-trivial process and this functionality will be available in the Roman GDPS pipeline.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entry_str</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="n">catalog</span><span class="p">[</span><span class="s2">&quot;SOURCE_ID&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">197738</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">entry_gal</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="n">catalog</span><span class="p">[</span><span class="s2">&quot;SOURCE_ID&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">166231</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">stamp</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">cutout_image</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">direct_img</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="p">(</span><span class="n">entry_str</span><span class="p">[</span><span class="s2">&quot;X_IMAGE&quot;</span><span class="p">],</span> <span class="n">entry_str</span><span class="p">[</span><span class="s2">&quot;Y_IMAGE&quot;</span><span class="p">]),</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">flux2D</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">cutout_image</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">grism_img</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="p">(</span><span class="n">entry_str</span><span class="p">[</span><span class="s2">&quot;X_GRISM&quot;</span><span class="p">],</span> <span class="n">entry_str</span><span class="p">[</span><span class="s2">&quot;Y_GRISM&quot;</span><span class="p">]</span><span class="o">-</span><span class="mi">400</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span> <span class="n">entry_str</span><span class="p">[</span><span class="s2">&quot;THETA_GRISM&quot;</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mf">3.5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">stamp</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">stamp</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">stamp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stamp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">stamp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">entry_gal</span><span class="p">[</span><span class="s2">&quot;Y_IMAGE&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">entry_str</span><span class="p">[</span><span class="s2">&quot;Y_IMAGE&quot;</span><span class="p">]),</span>
+            <span class="n">stamp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">entry_gal</span><span class="p">[</span><span class="s2">&quot;X_IMAGE&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">entry_str</span><span class="p">[</span><span class="s2">&quot;X_IMAGE&quot;</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">flux2D</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">flux2D</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0076561253c23b687107f6cfd0028c9dcca0465c6d95c6a9076aa085e7bbd599.png" src="../../_images/0076561253c23b687107f6cfd0028c9dcca0465c6d95c6a9076aa085e7bbd599.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_full_extraction</span><span class="p">(</span><span class="n">entry_str</span><span class="p">,</span> <span class="n">direct_img</span><span class="p">,</span> <span class="n">grism_img</span><span class="p">,</span> <span class="n">grism_err</span><span class="p">,</span> <span class="n">size_factor</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">box_size_factor</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">do_full_extraction</span><span class="p">(</span><span class="n">entry_gal</span><span class="p">,</span> <span class="n">direct_img</span><span class="p">,</span> <span class="n">grism_img</span><span class="p">,</span> <span class="n">grism_err</span><span class="p">,</span> <span class="n">size_factor</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">box_size_factor</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/031b1b7b907548761269e193b3b26c3792f97781d8a7c701ab42709d64a2bc7c.png" src="../../_images/031b1b7b907548761269e193b3b26c3792f97781d8a7c701ab42709d64a2bc7c.png" />
+<img alt="../../_images/5750622b3151184d9975b0523e077358f7fec7f2307ee0bff869a5c49b9e89f6.png" src="../../_images/5750622b3151184d9975b0523e077358f7fec7f2307ee0bff869a5c49b9e89f6.png" />
+</div>
+</div>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://roman.gsfc.nasa.gov/science/roses/GDPSforROSES.pdf%5D">GDPS Presentation</a></p></li>
+</ul>
+</section>
+<section id="about-this-notebook">
+<h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Author:</strong> Vihang Mehta<br />
+<strong>Updated On:</strong> 2025-09-30</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "roman-cal"
+        },
+        kernelOptions: {
+            name: "roman-cal",
+            path: "./notebooks/grism_spectral_extraction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'roman-cal'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../data_discovery_and_access/data_discovery_and_access.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Roman Research Nexus Data Discovery and Access in the Cloud</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../rist/rist.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Roman Interactive Sensitivity Tool (RIST)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-setup-and-utility-functions">Initial Setup and Utility Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-grism-spectroscopy-data">Simulated Grism Spectroscopy Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-simulated-data">Loading the Simulated Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-quick-look-at-the-data">Initial Quick Look at the Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-the-direct-to-dispersed-mapping">Getting the Direct-to-Dispersed Mapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cutout-of-a-2-d-spectrum">Cutout of a 2-D Spectrum</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-the-wavelength-array">Set up the Wavelength Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-extraction">Box Extraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-extraction">Optimal Extraction</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#masking-neighboring-sources-in-direct-cutouts">Masking Neighboring Sources in Direct Cutouts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-workflow-grism-image-to-extracted-1-d-spectrum">Full Workflow: Grism Image to Extracted 1-D Spectrum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-bright-stars">Examples of Bright Stars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-galaxies">Examples of Galaxies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-nearby-emission-line-galaxies">Examples of Nearby Emission Line Galaxies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-overlapping-spectra">Example of Overlapping Spectra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
