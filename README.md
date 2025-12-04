@@ -10,30 +10,9 @@ Notebook tutorials are organized under the `content/notebooks/` directory. Each 
 
 Markdown documentation files are contained within the `markdown/` folder.
 
-## Local Installation (Not Recommended)
+## Local Installation
 
-The notebooks in this repository are designed to work on the Roman Research Nexus for the best user experience. Due to the size of Roman data, local use is not recommended for most users. However, we provide instructions for local installation below.
-
-The notebooks contained in this repository can be run locally with the correct environment setup. It is recommended to create a new environment (e.g., with [mamba](https://mamba.readthedocs.io/en/latest/index.html)) to run the tutorials. For example:
-```
-mamba create -n roman-notebooks python ipython jupyterlab
-```
-
-Each notebook folder includes a `requirements.txt` file with the necessary Python package versions listed. To install package dependencies from a `requirements.txt` file with `pip`, first navigate to a notebook folder and then use the following command:
-```
-pip install -r requirements.txt
-```
-
-Several notebooks use packages that require supplementary data to be installed (e.g., `stpsf` for generating Roman Wide Field Instrument point spread functions). In those instances, a Python script is called at the beginning of the notebook to check for these data dependencies, download the appropriate data files if they are not found, and instruct you on how to set the correct environment variables.
-
-Additionally, a correctly configured [Calibration Reference Data System](https://roman-crds.stsci.edu/static/users_guide/index.html) setup is required to simulate and/or calibrate Roman observations. Please set the environment variable below:
-```
-export CRDS_SERVER_URL = "https://roman-crds.stsci.edu"
-export CRDS_PATH = "/path/to/crds/cache/"
-```
-where `CRDS_PATH` points to your CRDS cache. If you do not have a cache already, the directory will be created the first time CRDS is used in the notebooks, but the path must still be set in advance.
-
-Note that any embedded, relative links to markdown files and other notebook tutorials may not work if the repository is cloned and modified or if files are selectively installed.
+The notebooks in this repository are designed to work on the Roman Research Nexus for the best user experience. Due to the size of Roman data, local use is not recommended for most users. However, we provide instructions for local installation below. For detailed instructions refer to the [**Working Localy**](markdown/local-run.md) instructions.
 
 ## Get Support
 
