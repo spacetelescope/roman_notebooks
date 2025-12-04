@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>roman_notebooks &#8212; STScI Roman Notebooks</title>
+    <title>Nancy Grace Roman Space Telescope Notebooks &#8212; STScI Roman Notebooks</title>
   
   
   
@@ -149,8 +149,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <script>document.write(`<img src="_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
   
-    <p class="title logo__title">STScI Roman Notebooks</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -170,7 +176,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    roman_notebooks
+                    Nancy Grace Roman Space Telescope Notebooks
                 </a>
             </li>
         </ul>
@@ -352,7 +358,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -363,11 +371,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>roman_notebooks</h1>
+    <h1>Nancy Grace Roman Space Telescope Notebooks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-organization">Repository Organization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-installation-not-recommended">Local Installation (Not Recommended)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-support">Get Support</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -377,8 +395,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="roman-notebooks">
-<h1>roman_notebooks<a class="headerlink" href="#roman-notebooks" title="Link to this heading">#</a></h1>
+  <section id="nancy-grace-roman-space-telescope-notebooks">
+<h1>Nancy Grace Roman Space Telescope Notebooks<a class="headerlink" href="#nancy-grace-roman-space-telescope-notebooks" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">roman_notebooks</span></code> repository contains several workflows and tutorials that demonstrate how to plan observations for, simulate images from, and access and analyze data from the <a class="reference external" href="https://roman.gsfc.nasa.gov/">Nancy Grace Roman Space Telescope</a> (Roman). Python Jupyter notebooks provide <a class="reference internal" href="#markdown/tutorials.md"><span class="xref myst"><strong>Tutorials</strong></span></a> on specific topics (e.g., how to run the science data pipeline to calibrate an exposure), while <a class="reference internal" href="#markdown/workflows.md"><span class="xref myst"><strong>Science Workflows</strong></span></a> combine multiple tutorials, along with documentation, to provide a guided end-to-end experience for a specific science use case.</p>
+<p>The notebooks in this repository are designed for the <a class="reference external" href="https://roman.science.stsci.edu">Roman Research Nexus</a>, a cloud-based science platform specifically designed for Roman users. With a <a class="reference external" href="https://proper.stsci.edu/proper/authentication/auth">MyST</a> account, users will be able to access the Nexus and learn how to work with Roman data in the cloud. The Nexus is currently under development and has limited user access, with public access planned for late 2025.</p>
+<section id="repository-organization">
+<h2>Repository Organization<a class="headerlink" href="#repository-organization" title="Link to this heading">#</a></h2>
+<p>Notebook tutorials are organized under the <code class="docutils literal notranslate"><span class="pre">content/notebooks/</span></code> directory. Each notebook is contained within a folder along with a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file and any other supporting files required to run the notebook.</p>
+<p>Markdown documentation files are contained within the <code class="docutils literal notranslate"><span class="pre">markdown/</span></code> folder.</p>
+</section>
+<section id="local-installation-not-recommended">
+<h2>Local Installation (Not Recommended)<a class="headerlink" href="#local-installation-not-recommended" title="Link to this heading">#</a></h2>
+<p>The notebooks in this repository are designed to work on the Roman Research Nexus for the best user experience. Due to the size of Roman data, local use is not recommended for most users. However, we provide instructions for local installation below.</p>
+<p>The notebooks contained in this repository can be run locally with the correct environment setup. It is recommended to create a new environment (e.g., with <a class="reference external" href="https://mamba.readthedocs.io/en/latest/index.html">mamba</a>) to run the tutorials. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">roman</span><span class="o">-</span><span class="n">notebooks</span> <span class="n">python</span> <span class="n">ipython</span> <span class="n">jupyterlab</span>
+</pre></div>
+</div>
+<p>Each notebook folder includes a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with the necessary Python package versions listed. To install package dependencies from a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, first navigate to a notebook folder and then use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Several notebooks use packages that require supplementary data to be installed (e.g., <code class="docutils literal notranslate"><span class="pre">stpsf</span></code> for generating Roman Wide Field Instrument point spread functions). In those instances, a Python script is called at the beginning of the notebook to check for these data dependencies, download the appropriate data files if they are not found, and instruct you on how to set the correct environment variables.</p>
+<p>Additionally, a correctly configured <a class="reference external" href="https://roman-crds.stsci.edu/static/users_guide/index.html">Calibration Reference Data System</a> setup is required to simulate and/or calibrate Roman observations. Please set the environment variable below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CRDS_SERVER_URL</span> <span class="o">=</span> <span class="s2">&quot;https://roman-crds.stsci.edu&quot;</span>
+<span class="n">export</span> <span class="n">CRDS_PATH</span> <span class="o">=</span> <span class="s2">&quot;/path/to/crds/cache/&quot;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">CRDS_PATH</span></code> points to your CRDS cache. If you do not have a cache already, the directory will be created the first time CRDS is used in the notebooks, but the path must still be set in advance.</p>
+<p>Note that any embedded, relative links to markdown files and other notebook tutorials may not work if the repository is cloned and modified or if files are selectively installed.</p>
+</section>
+<section id="get-support">
+<h2>Get Support<a class="headerlink" href="#get-support" title="Link to this heading">#</a></h2>
+<p>Please refer to the <a class="reference external" href="https://roman-docs.stsci.edu">Roman Documentation (RDox)</a> website for technical documentation about the Roman Space Telescope.</p>
+<p>If you need assistance, please submit a ticket through the <a class="reference external" href="https://romanhelp.stsci.edu">Roman Help Desk</a> portal. Once logged into the help desk, click on “Get Help with the Roman Space Telescope” and then select the “Roman Research Nexus” category and submit your ticket.</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -428,6 +478,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-organization">Repository Organization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-installation-not-recommended">Local Installation (Not Recommended)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-support">Get Support</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
