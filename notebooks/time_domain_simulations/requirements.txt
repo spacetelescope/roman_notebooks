@@ -4,8 +4,8 @@ matplotlib>=3.10.0
 asdf>=4.1.0
 asdf-astropy>=0.7.1
 galsim>=2.6.3
-roman_datamodels==0.27.0
-romancal==0.20.2
-romanisim==0.8.0
+roman_datamodels==0.28.1
+romancal==0.21.0
+romanisim==0.11.2
 pysiaf>=0.24.1
 sncosmo>=2.12.1
