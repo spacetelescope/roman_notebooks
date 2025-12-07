@@ -125,7 +125,14 @@ def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope
     # can be set programmatically.
     return result
             
- 
+def setup_env(result):
+    # Update environment variables (if necessary) and print reference data paths
+    print('Reference data paths set to:')
+    for k, v in result.items():
+        if not v['pre_installed']:
+            os.environ[k] = v['path']
+        print(f"\t{k} = {v['path']}")
+
 if __name__ == 'main':
     
     install_files()
