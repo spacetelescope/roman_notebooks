@@ -435,13 +435,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div style='background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 4px; padding: 15px; margin: 10px 0; border-left: 4px solid #f39c12;'>
-<h3 style='color: #856404; margin-top: 0;'>⚠️ EXECUTION WARNING</h3>
-<p style='color: #856404; margin-bottom: 0;'><strong>This notebook may not execute properly in the current environment.</strong></p>
-<p style='color: #856404; margin-bottom: 0;'>Some cells may have failed during automated testing. Please review the notebook content and test manually before use.</p>
-<p style='color: #856404; margin-bottom: 0; font-size: 0.9em;'><em>Generated during CI/CD pipeline - some outputs may be incomplete or missing.</em></p>
-</div>
-<section id="the-roman-interactive-sensitivity-tool-rist">
+  <section id="the-roman-interactive-sensitivity-tool-rist">
 <h1>The Roman Interactive Sensitivity Tool (RIST)<a class="headerlink" href="#the-roman-interactive-sensitivity-tool-rist" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="kernel-information-and-read-only-status">
@@ -486,7 +480,7 @@ Execute the cell below to start using RIST.</p>
     </style>
     <div>
         <a href="https://bokeh.org" target="_blank" class="bk-notebook-logo"></a>
-        <span id="b96746db-3d51-4fa8-980b-cd74e711e1da">Loading BokehJS ...</span>
+        <span id="eee960c6-47a1-4958-89e7-fe4505c2cab3">Loading BokehJS ...</span>
     </div>
 </div><script type="application/javascript">'use strict';
 (function(root) {
@@ -651,7 +645,7 @@ const JS_MIME_TYPE = 'application/javascript';
      "</div>"}};
 
   function display_loaded(error = null) {
-    const el = document.getElementById("b96746db-3d51-4fa8-980b-cd74e711e1da");
+    const el = document.getElementById("eee960c6-47a1-4958-89e7-fe4505c2cab3");
     if (el != null) {
       const html = (() => {
         if (typeof root.Bokeh === "undefined") {
@@ -785,7 +779,7 @@ function(Bokeh) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     } else if (force !== true) {
-      const cell = $(document.getElementById("b96746db-3d51-4fa8-980b-cd74e711e1da")).parents('.cell').data().cell;
+      const cell = $(document.getElementById("eee960c6-47a1-4958-89e7-fe4505c2cab3")).parents('.cell').data().cell;
       cell.output_area.append_execute_result(NB_LOAD_WARNING)
     }
   }
@@ -799,11 +793,11 @@ function(Bokeh) {
       run_inline_js();
     });
   }
-}(window));</script><div class="output text_html"><script id="f195bf81-a06d-4971-9695-1f411e7cf2fa">
+}(window));</script><div class="output text_html"><script id="e60e78d1-fa29-4042-a7e1-a6bb4b29d1bd">
   (function() {
     const xhr = new XMLHttpRequest()
     xhr.responseType = 'blob';
-    xhr.open('GET', "http://localhost:39245/autoload.js?bokeh-autoload-element=f195bf81-a06d-4971-9695-1f411e7cf2fa&bokeh-absolute-url=http://localhost:39245&resources=none", true);
+    xhr.open('GET', "http://localhost:44075/autoload.js?bokeh-autoload-element=e60e78d1-fa29-4042-a7e1-a6bb4b29d1bd&bokeh-absolute-url=http://localhost:44075&resources=none", true);
     xhr.withCredentials = false;
     xhr.onload = function (event) {
       const script = document.createElement('script');
