@@ -30,8 +30,12 @@ jobs:
       enable-execution: true
       enable-storage: true                      # Store outputs to gh-storage on PR
       enable-html-build: false                  # Don't build HTML docs on PR
+      crds-server-url: 'https://roman-crds-tvac.stsci.edu'
+      crds-context: 'roman_0027.pmap'
+      crds-path: '/tmp/crds_cache'
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
 
 
