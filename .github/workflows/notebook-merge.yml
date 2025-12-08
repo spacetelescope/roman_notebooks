@@ -30,9 +30,13 @@ jobs:
       enable-execution: true
       enable-storage: true                          # Store outputs to gh-storage
       enable-html-build: true                       # Build and deploy HTML docs
+      crds-server-url: 'https://roman-crds-tvac.stsci.edu'
+      crds-context: 'roman_0027.pmap'
+      crds-path: '/tmp/crds_cache'
       post-processing-script: 'scripts/jdaviz_image_replacement.sh'  # Adjust path as needed
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
 
 
