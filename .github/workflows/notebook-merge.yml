@@ -33,10 +33,12 @@ jobs:
       crds-server-url: 'https://roman-crds-tvac.stsci.edu'
       crds-context: 'roman_0027.pmap'
       crds-path: '/tmp/crds_cache'
+      pre-processing-script: 'shared/notebook_data_dependencies.py'
       post-processing-script: 'scripts/jdaviz_image_replacement.sh'  # Adjust path as needed
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
 
 
 
