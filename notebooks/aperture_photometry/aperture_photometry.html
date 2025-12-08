@@ -1,0 +1,1118 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Aperture Photometry &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/aperture_photometry/aperture_photometry';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Roman Background Visualization Tool (RBVT)" href="../background_visualization_tool/RBVT.html" />
+    <link rel="prev" title="Nancy Grace Roman Space Telescope Notebooks" href="../../README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/aperture_photometry/aperture_photometry.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/aperture_photometry/aperture_photometry.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Aperture Photometry</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-data">Tutorial Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-data">Image Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-catalog">Source Catalog</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forced-aperture-photometry">Forced Aperture Photometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correcting-for-pixel-area">Correcting for Pixel Area</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-apertures">Create Apertures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-visualization">Source Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aperture-photometry-with-photutils">Aperture Photometry with Photutils</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About This Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div style='background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 4px; padding: 15px; margin: 10px 0; border-left: 4px solid #f39c12;'>
+<h3 style='color: #856404; margin-top: 0;'>⚠️ EXECUTION WARNING</h3>
+<p style='color: #856404; margin-bottom: 0;'><strong>This notebook may not execute properly in the current environment.</strong></p>
+<p style='color: #856404; margin-bottom: 0;'>Some cells may have failed during automated testing. Please review the notebook content and test manually before use.</p>
+<p style='color: #856404; margin-bottom: 0; font-size: 0.9em;'><em>Generated during CI/CD pipeline - some outputs may be incomplete or missing.</em></p>
+</div>
+<section id="aperture-photometry">
+<h1>Aperture Photometry<a class="headerlink" href="#aperture-photometry" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>We are using standard libraries from the Numpy and Astropy stack.</p>
+<ul class="simple">
+<li><p><em>astropy</em></p></li>
+<li><p><em>numpy</em></p></li>
+<li><p><em>copy</em></p></li>
+<li><p><em>matplotlib</em></p></li>
+<li><p><em>photutils</em> is an Astropy-affiliated package for photometry</p></li>
+<li><p><em>roman_datamodels</em> opens and validates WFI data files</p></li>
+<li><p><em>asdf</em> opens WFI data files</p></li>
+<li><p><em>os</em> for checking if files exist</p></li>
+<li><p><em>s3fs</em> streams data from Simple Storage Service (S3) buckets on Amazon Web Services (AWS)</p></li>
+<li><p><em>stpsf</em> for retrieving the encircled energy profile of stars</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">SigmaClip</span><span class="p">,</span> <span class="n">sigma_clipped_stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">crds</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">photutils.aperture</span><span class="w"> </span><span class="kn">import</span> <span class="n">CircularAperture</span><span class="p">,</span> <span class="n">CircularAnnulus</span><span class="p">,</span> <span class="n">aperture_photometry</span><span class="p">,</span> <span class="n">ApertureStats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">stpsf</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This notebook explains how to perform <strong>forced aperture photometry</strong> (also known as <em>forced photometry</em> or <em>aperture photometry</em>) on Roman WFI images. Aperture photometry is useful for measuring the integrated fluxes for a set of specified source positions and aperture sizes. This technique is often valuable for extracting fluxes of known sources when it is impractical to fit for their positions and light distributions, or when simplicity and speed are high priorities. For example, aperture photometry can be used for:</p>
+<ul class="simple">
+<li><p><strong>Faint sources.</strong> If a source is too faint, then it can be difficult to fit for the source centroid, light profile, and flux.</p></li>
+<li><p><strong>Sources detected at other wavelengths.</strong> If a source is detected in a given bandpass, and the source size is expected to be the same across wavelengths, then it can be useful to define one aperture and measure the source fluxes across multiple filters.</p></li>
+<li><p><strong>Time-series evolution of sources.</strong> If a source brightness is decreasing over time, then we can use earlier observations obtained when the source was bright to specify an aperture and extract the flux in a time series.</p></li>
+</ul>
+<p>Here, we cover a simple example using the <code class="docutils literal notranslate"><span class="pre">photutils</span></code> package to extract fluxes from a catalog of known sources.</p>
+<p>Please note that the WFI calibration is currently measured from ground test data, and changes are expected after launch.</p>
+</section>
+<hr class="docutils" />
+<section id="tutorial-data">
+<h2>Tutorial Data<a class="headerlink" href="#tutorial-data" title="Link to this heading">#</a></h2>
+<section id="image-data">
+<h3>Image Data<a class="headerlink" href="#image-data" title="Link to this heading">#</a></h3>
+<p>In this tutorial, we use a Level 2 (L2; calibrated rate image) WFI data file that is the result of RomanCal processing of a Level 1 (L1; uncalibrated ramp cube) simulated file created with Roman I-Sim. If you have already worked through the tutorials “Simulating WFI Imaging Data with Roman I-Sim” and “Calibrating WFI Exposures with RomanCal,” then you may already have these files saved locally. If not, then these files are also stored in the Nexus S3 bucket. For more information on how to access these data, see the <a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html"><span class="std std-doc">Data Discovery and Access</span></a> tutorial.</p>
+<p>As a reminder, the file we are using is a L2 file meaning that the data were processed to flag and/or correct for detector-level effects (e.g., saturation, classic non-linearity, etc.), and that the ramp was fitted into a count rate image in units of Data Numbers (DN) per second.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Stream the files from the S3 bucket if they are not in local storage</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s1">&#39;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/&#39;</span>
+    <span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">data</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">err</span>
+<span class="n">dq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">dq</span><span class="p">)</span>
+<span class="n">meta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">meta</span>
+<span class="n">wcs</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">wcs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="source-catalog">
+<h3>Source Catalog<a class="headerlink" href="#source-catalog" title="Link to this heading">#</a></h3>
+<p>We also have access to a source catalog that was used to simulate the WFI image. It contains stars and galaxies, which are labeled as “PSF” and “SER” under the column <code class="docutils literal notranslate"><span class="pre">type</span></code>. Source fluxes are available in all WFI filters (F062, F087, F106, F129, F146, F158, F184, and F213) and are sampled from a lognormal distribution. Note that fluxes are all given in <em>maggies</em>, which are defined as ${\rm maggie} \equiv 10^{-0.4 m_{AB}}$, for an AB apparent magnitude $m_{AB}$.</p>
+<p>For galaxies, morphological parameters like <code class="docutils literal notranslate"><span class="pre">n</span></code> (Sersic index), <code class="docutils literal notranslate"><span class="pre">half_light_radius</span></code>, <code class="docutils literal notranslate"><span class="pre">pa</span></code> (position angle), and <code class="docutils literal notranslate"><span class="pre">ba</span></code> (axis ratio) are also provided in the catalog. These are sampled according to fiducial (and likely unrealistic) distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Stream the files from the S3 bucket if they are not in local storage</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;full_catalog.ecsv&#39;</span><span class="p">):</span>
+    <span class="n">cat</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;full_catalog.ecsv&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s1">&#39;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/&#39;</span>
+    <span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;full_catalog.ecsv&#39;</span>
+    <span class="n">cat</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.ecsv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also display the first five rows and all columns of the catalog:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=5</i>
+<table id="table140478608038160" class="table-striped table-bordered table-condensed">
+<thead><tr><th>ra</th><th>dec</th><th>type</th><th>n</th><th>half_light_radius</th><th>pa</th><th>ba</th><th>F062</th><th>F087</th><th>F106</th><th>F129</th><th>F146</th><th>F158</th><th>F184</th><th>F213</th></tr></thead>
+<thead><tr><th>float64</th><th>float64</th><th>str3</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
+<tr><td>271.6295510520961</td><td>-0.03965028067096237</td><td>SER</td><td>3.516215236599453</td><td>0.8056893348693848</td><td>252.7303924560547</td><td>0.7235707640647888</td><td>3.6905281053378758e-09</td><td>1.1479291295302119e-08</td><td>1.2472877841673835e-08</td><td>6.86679868522333e-09</td><td>1.4913801305027619e-09</td><td>1.0117606308313043e-08</td><td>4.943988773931096e-09</td><td>2.402744225804554e-09</td></tr>
+<tr><td>270.7539155586658</td><td>-1.175434326974954</td><td>SER</td><td>1.0399398592419549</td><td>0.946480393409729</td><td>336.08306884765625</td><td>0.4800519347190857</td><td>3.1115434673267828e-09</td><td>5.331648900153141e-09</td><td>9.049362148516593e-09</td><td>6.6658691899590394e-09</td><td>2.0099595321454444e-09</td><td>1.5802696040623232e-08</td><td>1.0280717610555712e-08</td><td>1.096286439405958e-08</td></tr>
+<tr><td>270.8648924331985</td><td>0.5861049874846664</td><td>SER</td><td>2.8206730415136585</td><td>1.3277175426483154</td><td>73.26484680175781</td><td>0.6938181519508362</td><td>1.3153379718744418e-08</td><td>6.075517422488019e-09</td><td>3.1850986292880634e-09</td><td>7.20732051817663e-09</td><td>6.512435035688213e-09</td><td>6.66888944067523e-09</td><td>4.776757656088648e-09</td><td>6.596417634341378e-09</td></tr>
+<tr><td>270.70544440611565</td><td>-0.1905627389524337</td><td>SER</td><td>1.2080757918109357</td><td>0.573934018611908</td><td>273.72601318359375</td><td>0.5772462487220764</td><td>3.2391787030405794e-09</td><td>1.9316861443741118e-09</td><td>3.5669256437387276e-09</td><td>1.699146068290247e-08</td><td>9.461913919039944e-09</td><td>7.503919152718197e-10</td><td>4.7414845383286774e-09</td><td>5.4636619672976394e-09</td></tr>
+<tr><td>271.0763272819082</td><td>0.28776831750222365</td><td>SER</td><td>2.7301807784747587</td><td>5.05323600769043</td><td>236.8221435546875</td><td>0.907397985458374</td><td>7.582467986821939e-08</td><td>7.082852704343168e-08</td><td>3.547680762494565e-07</td><td>2.0032227610045084e-07</td><td>2.793574651605013e-07</td><td>2.3345998556578706e-07</td><td>3.1447200399270514e-07</td><td>1.8613071972595208e-07</td></tr>
+</table></div></div></div>
+</div>
+<p>We can convert (RA, Dec) to (x, y) positions on the WFI01 detector. Note that several of these positions may be NaN (Not a Number) as they fall outside the bounding box of the WCS.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_cat</span><span class="p">,</span> <span class="n">y_cat</span> <span class="o">=</span> <span class="n">wcs</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">cat</span><span class="p">[</span><span class="s2">&quot;ra&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cat</span><span class="p">[</span><span class="s2">&quot;dec&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">cat</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_cat</span>
+<span class="n">cat</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_cat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It might be helpful to quantify the number of sources there are before we try to visualize them! We first create a mask of sources that actually fall on the detector, and then divide the remaining sources into stars and galaxies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">x_cat</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">y_cat</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of sources on detector: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">stars</span> <span class="o">=</span> <span class="n">cat</span><span class="p">[</span><span class="n">mask</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cat</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;PSF&quot;</span><span class="p">)]</span>
+<span class="n">galaxies</span> <span class="o">=</span> <span class="n">cat</span><span class="p">[</span><span class="n">mask</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cat</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;SER&quot;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of stars: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stars</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">Number of galaxies: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">galaxies</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of sources on detector: 1724
+Number of stars: 1579
+Number of galaxies: 145
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now plot the distribution of source fluxes using a histogram. We will plot the flux from the input catalog in units of AB magnitudes. Recall that the input catalog is in units of maggies. The transformation from maggies to AB magnitudes is given by:</p>
+<p>$m_{\mathrm{AB}} = -2.5 \times \log_{10}(f_{\mathrm{maggies}})$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stars</span><span class="p">[</span><span class="s1">&#39;abmag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">stars</span><span class="p">[</span><span class="s1">&#39;F106&#39;</span><span class="p">])</span>
+<span class="n">galaxies</span><span class="p">[</span><span class="s1">&#39;abmag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">galaxies</span><span class="p">[</span><span class="s1">&#39;F106&#39;</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">stars</span><span class="p">[</span><span class="s1">&#39;abmag&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stars&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">galaxies</span><span class="p">[</span><span class="s1">&#39;abmag&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Galaxies&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$m_{\mathrm{AB, F106}}$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Sources&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_inverted</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/754378193294f5d8c358e8a543cac6fd3de4ae0eec9938480ca8ca855cb794f5.png" src="../../_images/754378193294f5d8c358e8a543cac6fd3de4ae0eec9938480ca8ca855cb794f5.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="forced-aperture-photometry">
+<h2>Forced Aperture Photometry<a class="headerlink" href="#forced-aperture-photometry" title="Link to this heading">#</a></h2>
+<p>Forced aperture photometry uses predefined source positions to place apertures and measure the flux within them. We use the source catalog information provided above for this. If source positions are unavailable, you will need to perform source detection first to determine their locations (see <a class="reference internal" href="#Additional-Resources"><span class="xref myst">Additional Resources</span></a>).</p>
+<section id="correcting-for-pixel-area">
+<h3>Correcting for Pixel Area<a class="headerlink" href="#correcting-for-pixel-area" title="Link to this heading">#</a></h3>
+<p>First, we need to correct our data for geometric distortion, which causes pixels to have different areas projected on the sky. The WFI distortion is described by a 2-D polynomial, and the area of each pixel is given by the determinant of the Jacobian matrix of this polynomial. A reference file, called the Pixel Area Map (PAM), provides the area per pixel of each WFI detector normalized to the nominal pixel area. The nominal pixel area is the pixel area at the tangent point about which the distortion polynomial is defined.</p>
+<p>First, we can use the <code class="docutils literal notranslate"><span class="pre">crds</span></code> Python package to request the best pixel area map reference file that matches our observation. In this case, CRDS needs to know the instrument name (WFI), detector name (WFI01), and the start time of the exposure. We can pull all of this information out of the metadata of the L2 file. Note that we need to specify the start time as a string, so we use <code class="docutils literal notranslate"><span class="pre">meta.exposure.start_time.isot</span></code> to convert the <code class="docutils literal notranslate"><span class="pre">astropy.time.Time</span></code> object in the metadata to an ISOT string (i.e., it has the format YYYY-MM-DDTHH:MM:SS.SSS). We set the argument <code class="docutils literal notranslate"><span class="pre">ignore_cache=True</span></code> below to force CRDS to update the files in our local cache. If this cell is re-run, we can set <code class="docutils literal notranslate"><span class="pre">ignore_cache=False</span></code> as we are confident we have pulled the latest information from the CRDS server. We also specify that the observatory is “roman” and that we want the “area” reference file type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crds_result</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">getreferences</span><span class="p">({</span><span class="s1">&#39;ROMAN.META.INSTRUMENT.DETECTOR&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">detector</span><span class="p">,</span>
+                                  <span class="s1">&#39;ROMAN.META.INSTRUMENT.NAME&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                  <span class="s1">&#39;ROMAN.META.EXPOSURE.START_TIME&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">isot</span><span class="p">},</span> 
+                                 <span class="n">observatory</span><span class="o">=</span><span class="s1">&#39;roman&#39;</span><span class="p">,</span> <span class="n">reftypes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">],</span> <span class="n">ignore_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">crds_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_saturation_0003.rmap    2.4 K bytes  (1 / 17 files) (0 / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_refpix_0003.rmap    2.3 K bytes  (2 / 17 files) (2.4 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_readnoise_0003.rmap    2.7 K bytes  (3 / 17 files) (4.8 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_photom_0004.rmap    2.3 K bytes  (4 / 17 files) (7.4 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_matable_0001.rmap      588 bytes  (5 / 17 files) (9.8 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_mask_0003.rmap    2.3 K bytes  (6 / 17 files) (10.3 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_linearity_0002.rmap    2.4 K bytes  (7 / 17 files) (12.6 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_ipc_0002.rmap     2.3 K bytes  (8 / 17 files) (15.0 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_inverselinearity_0002.rmap    2.6 K bytes  (9 / 17 files) (17.3 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_gain_0003.rmap    2.3 K bytes  (10 / 17 files) (19.9 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_flat_0005.rmap    8.4 K bytes  (11 / 17 files) (22.1 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_epsf_0001.rmap      644 bytes  (12 / 17 files) (30.5 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_distortion_0002.rmap    3.6 K bytes  (13 / 17 files) (31.2 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_dark_0004.rmap   34.5 K bytes  (14 / 17 files) (34.8 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_area_0002.rmap    2.3 K bytes  (15 / 17 files) (69.2 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_wfi_0025.imap           978 bytes  (16 / 17 files) (71.5 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/mappings/roman/roman_0027.pmap               344 bytes  (17 / 17 files) (72.5 K / 72.8 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /tmp/crds_cache/references/roman/wfi/roman_wfi_area_0009.asdf   66.8 M bytes  (1 / 1 files) (0 / 66.8 M bytes)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;area&#39;: &#39;/tmp/crds_cache/references/roman/wfi/roman_wfi_area_0009.asdf&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that a dictionary is returned. The keys of the dictionary are the reference file types (e.g., “area”), and the values are the path to the correct file in your local CRDS cache. If the file is not in your cache, then the <code class="docutils literal notranslate"><span class="pre">crds.getreferences()</span></code> function will download the file to your local cache. At this time, CRDS does not support streaming reference files into memory from the CRDS server, but work is ongoing to adapt CRDS to cloud applications.</p>
+<p>Next, let’s take a look at the pixel area map that we now have:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pam</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">crds_result</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pam</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X science coordinate (pixels)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y science coordinate (pixels)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Pixel Area Map for </span><span class="si">{</span><span class="n">pam</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">detector</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c45db65dabdb021c9c1ed84b3c5e0e8daa991f4f04c4737fb4d1c20a8f366411.png" src="../../_images/c45db65dabdb021c9c1ed84b3c5e0e8daa991f4f04c4737fb4d1c20a8f366411.png" />
+</div>
+</div>
+<p>Now let’s multiply the science data and the uncertainty array by the PAM to adjust for the relative sizes of the pixels on the sky:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">*=</span> <span class="n">pam</span><span class="o">.</span><span class="n">data</span>
+<span class="n">err</span> <span class="o">*=</span> <span class="n">pam</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-apertures">
+<h3>Create Apertures<a class="headerlink" href="#create-apertures" title="Link to this heading">#</a></h3>
+<p>For simplicity, we will focus on the stars from this point. From the catalogs, we now know the positions of every star. We can define set aperture radii in units of pixels; we choose radii of 3 pixels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rad</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># aperture radius in pixels</span>
+
+<span class="n">star_positions</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">stars</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">stars</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)]</span>
+<span class="n">star_apertures</span> <span class="o">=</span> <span class="n">CircularAperture</span><span class="p">(</span><span class="n">positions</span><span class="o">=</span><span class="n">star_positions</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">rad</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s create annulus apertures with $r_{in} = 20$ pixels and $r_{out} = 25$ pixels to measure local sky background values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">star_bkg_apertures</span> <span class="o">=</span> <span class="n">CircularAnnulus</span><span class="p">(</span><span class="n">positions</span><span class="o">=</span><span class="n">star_positions</span><span class="p">,</span> <span class="n">r_in</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r_out</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="source-visualization">
+<h3>Source Visualization<a class="headerlink" href="#source-visualization" title="Link to this heading">#</a></h3>
+<p>Let’s plot our apertures on a subsection of the image to visually confirm that we have placed our apertures correctly. There may be a few small, fuzzy galaxies in the image that are not marked since we are focusing on stars. Similarly, there may be several small features that are detector imperfections that are also not marked, but those will be masked in the data quality array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="c1"># show the simulated image</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray_r&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot circles over bright galaxies and stars</span>
+<span class="n">star_apertures</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">)</span>
+<span class="n">star_bkg_apertures</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+
+<span class="c1"># zoom in on 1/16th of the image</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1536</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1536</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/474ccccff0ba70dc14bac2beab66242a4c6e3451b755cc61c32ca8b5af909624.png" src="../../_images/474ccccff0ba70dc14bac2beab66242a4c6e3451b755cc61c32ca8b5af909624.png" />
+</div>
+</div>
+</section>
+<section id="aperture-photometry-with-photutils">
+<h3>Aperture Photometry with Photutils<a class="headerlink" href="#aperture-photometry-with-photutils" title="Link to this heading">#</a></h3>
+<p>We can now perform aperture photometry on the selected sources. First we measure the photometry in a circular aperture on each source:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;xcentroid&#39;</span><span class="p">,</span> <span class="s1">&#39;ycentroid&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;sum_err&#39;</span><span class="p">)</span>
+<span class="n">star_phot</span> <span class="o">=</span> <span class="n">ApertureStats</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">star_apertures</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">err</span><span class="p">)</span>
+<span class="n">phot_tab</span> <span class="o">=</span> <span class="n">star_phot</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">phot_tab</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>QTable length=5</i>
+<table id="table140478455386256" class="table-striped table-bordered table-condensed">
+<thead><tr><th>id</th><th>xcentroid</th><th>ycentroid</th><th>sum</th><th>sum_err</th></tr></thead>
+<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
+<tr><td>1</td><td>4047.4972909152084</td><td>640.2953153966586</td><td>2642.681566657021</td><td>5.488672086430786</td></tr>
+<tr><td>2</td><td>3983.703847283155</td><td>878.6457742523635</td><td>107.33481975633413</td><td>1.3541310292849316</td></tr>
+<tr><td>3</td><td>4059.7051143442886</td><td>1198.8515033373212</td><td>191.72264716086423</td><td>1.645956120742491</td></tr>
+<tr><td>4</td><td>4066.514995718392</td><td>858.5475960110696</td><td>135.5474598448901</td><td>1.4682498573763318</td></tr>
+<tr><td>5</td><td>3976.6420803446194</td><td>716.3110121010073</td><td>410.5286433968259</td><td>2.2933240160979875</td></tr>
+</table></div></div></div>
+</div>
+<p>And now let’s do the same for the background annuli using the ApertureStats class. We will use the median of the pixels within the annulus as our estimate of the sky background <strong>per pixel</strong>. We will need to adjust this to the area of the star circular apertures (after accounting for the masked pixels).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;xcentroid&#39;</span><span class="p">,</span> <span class="s1">&#39;ycentroid&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">)</span>
+<span class="n">sigclip</span> <span class="o">=</span> <span class="n">SigmaClip</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">star_bkg</span> <span class="o">=</span> <span class="n">ApertureStats</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">star_bkg_apertures</span><span class="p">,</span> <span class="n">sigma_clip</span><span class="o">=</span><span class="n">sigclip</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">dq</span><span class="p">)</span>
+<span class="n">star_bkg</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">columns</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>QTable length=5</i>
+<table id="table140478451546448" class="table-striped table-bordered table-condensed">
+<thead><tr><th>id</th><th>xcentroid</th><th>ycentroid</th><th>median</th><th>std</th></tr></thead>
+<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
+<tr><td>1</td><td>4047.778004866061</td><td>640.7406369462507</td><td>0.6385717689990997</td><td>0.1630904260689358</td></tr>
+<tr><td>2</td><td>3983.420897141212</td><td>878.7913301338538</td><td>0.6235118508338928</td><td>0.16736493527375262</td></tr>
+<tr><td>3</td><td>4059.49997712442</td><td>1198.9231899294557</td><td>0.6514447331428528</td><td>0.163246024548572</td></tr>
+<tr><td>4</td><td>4063.877398350844</td><td>857.9297506879963</td><td>0.6254683434963226</td><td>0.1680694038503727</td></tr>
+<tr><td>5</td><td>3976.522889173548</td><td>716.1357280656073</td><td>0.6373860239982605</td><td>0.17689512336474497</td></tr>
+</table></div></div></div>
+</div>
+<p>For our next steps, we will need the nominal pixel area in steradians (sr) and the zeropoint in megaJanskys per steradian (MJy/sr), both of which can be retrieved from the L2 metadata. Note that the pre-launch zeropoint is based on the unit response of the throughput curve of the integrated optical system (i.e., including all of the mirror reflectivities, optical element transmission, and detector quantum efficiency). The zeropoint also includes a factor of the median measured gain of the detector. The pre-launch zeropoint uncertainty is based solely on the standard deviation of the measured gain. After launch, these values will be updated using on-orbit observations of spectrophotometric standard stars and the photometric touchstone fields.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zpt</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">photometry</span><span class="o">.</span><span class="n">conversion_megajanskys</span>
+<span class="n">pixel_area</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">photometry</span><span class="o">.</span><span class="n">pixel_area</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Zeropoint = </span><span class="si">{</span><span class="n">zpt</span><span class="si">}</span><span class="s1"> (MJy/sr) / (DN/s)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nominal pixel area = </span><span class="si">{</span><span class="n">pixel_area</span><span class="si">}</span><span class="s1"> sr&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zeropoint = 0.7417487930165987 (MJy/sr) / (DN/s)
+Nominal pixel area = 2.8083389953727505e-13 sr
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we subtract the sky background values from the source fluxes and propagate the uncertainty in the background into the total uncertainty:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flux_bkgsub</span> <span class="o">=</span> <span class="n">star_phot</span><span class="o">.</span><span class="n">sum</span> <span class="o">-</span> <span class="p">(</span><span class="n">star_bkg</span><span class="o">.</span><span class="n">median</span> <span class="o">*</span> <span class="n">star_apertures</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
+<span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;flux_jy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flux_bkgsub</span> <span class="o">*</span> <span class="n">zpt</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">*</span> <span class="n">pixel_area</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We also need to correct our fluxes for the fraction of the starlight that falls outside of the aperture. The amount of light within the aperture as a function of the total light within a hypothetical infinite aperture is called the encircled energy and can be either measured from the image data using a series of apertures or can be determined from STPSF. In the future, a reference file in CRDS will also provide this information. For now, let’s use STPSF:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wfi</span> <span class="o">=</span> <span class="n">stpsf</span><span class="o">.</span><span class="n">WFI</span><span class="p">()</span>
+<span class="n">wfi</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">optical_element</span>
+<span class="n">wfi</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;SCA</span><span class="si">{</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">detector</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2043.5</span><span class="p">,</span> <span class="mf">2043.5</span><span class="p">)</span>
+<span class="n">wfi_psf</span> <span class="o">=</span> <span class="n">wfi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">()</span>
+<span class="n">ee_func</span> <span class="o">=</span> <span class="n">stpsf</span><span class="o">.</span><span class="n">measure_ee</span><span class="p">(</span><span class="n">wfi_psf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also plot the encircled energy as a function of aperture radius:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stpsf</span><span class="o">.</span><span class="n">display_ee</span><span class="p">(</span><span class="n">wfi_psf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ea83c7272c5e9e47ada2891c1f0f3bd3fe7a0e0cac02f067ca8c025da2bdcb6e.png" src="../../_images/ea83c7272c5e9e47ada2891c1f0f3bd3fe7a0e0cac02f067ca8c025da2bdcb6e.png" />
+</div>
+</div>
+<p>With these settings, our encircled energy measurement is an average one for the whole detector, measured at the center of the detector, and for the default STPSF spectral energy distribution (SED), which is a 5700 K blackbody (similar to a G2V star). The variable <code class="docutils literal notranslate"><span class="pre">ee_func</span></code> above is a function that takes as its single argument the aperture radius in arcseconds and returns the percentage of the PSF contained within that aperture. The inverse of that encircled energy fraction is the correction factor that we must apply to our measurements. This is called the encircled energy correction or aperture correction. Let’s calculate that now for a circular aperture with a 3-pixel radius and assuming a pixel scale of 0.11 arcseconds per pixel (i.e., radius = 0.33 arcseconds):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ee_correction</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">ee_func</span><span class="p">(</span><span class="n">rad</span> <span class="o">*</span> <span class="mf">0.11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Encircled energy correction = </span><span class="si">{</span><span class="n">ee_correction</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Encircled energy correction = 1.215690698785258
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can apply the aperture correction to our flux, and then convert the flux in Jy to maggies and AB magnitudes. For any source with a flux in maggies less than 0, we will assign a value of NaN for the AB magnitude. Recall that maggies are defined such that 1 maggie is equal to the reference flux for the AB magnitude system, which is 3,631 Jy. Thus, to convert our measurements from Jankys to maggies, we divide our fluxes by 3,631 Jy. We will also mask out any sources that have a flux of less than or equal to zero as those will not convert to magnitudes. Such sources exist where the background flux was statistically higher than the measured source flux.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;flux_jy&#39;</span><span class="p">]</span> <span class="o">*=</span> <span class="n">ee_correction</span>
+<span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;flux_maggies&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;flux_jy&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">3631</span>
+
+<span class="c1"># Mask out things with flux &lt;= 0</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;flux_maggies&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+<span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;flux_maggies&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;flux_jy&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="c1"># Convert the flux to AB magnitudes</span>
+<span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;abmag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;flux_maggies&#39;</span><span class="p">])</span>
+
+<span class="n">phot_tab</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>QTable length=5</i>
+<table id="table140478451534896" class="table-striped table-bordered table-condensed">
+<thead><tr><th>id</th><th>xcentroid</th><th>ycentroid</th><th>sum</th><th>sum_err</th><th>flux_jy</th><th>flux_maggies</th><th>abmag</th></tr></thead>
+<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
+<tr><td>1</td><td>4047.4972909152084</td><td>640.2953153966586</td><td>2642.681566657021</td><td>5.488672086430786</td><td>0.0006646560488010038</td><td>1.8305041277912526e-07</td><td>16.843573218615585</td></tr>
+<tr><td>2</td><td>3983.703847283155</td><td>878.6457742523635</td><td>107.33481975633413</td><td>1.3541310292849316</td><td>2.2716856849064223e-05</td><td>6.25636377005349e-09</td><td>20.509195018982602</td></tr>
+<tr><td>3</td><td>4059.7051143442886</td><td>1198.8515033373212</td><td>191.72264716086423</td><td>1.645956120742491</td><td>4.3887087392912794e-05</td><td>1.2086777029169043e-08</td><td>19.79422372366485</td></tr>
+<tr><td>4</td><td>4066.514995718392</td><td>858.5475960110696</td><td>135.5474598448901</td><td>1.4682498573763318</td><td>2.9847370460652654e-05</td><td>8.220151600289907e-09</td><td>20.21280043225625</td></tr>
+<tr><td>5</td><td>3976.6420803446194</td><td>716.3110121010073</td><td>410.5286433968259</td><td>2.2933240160979875</td><td>9.939781893483308e-05</td><td>2.7374778004635938e-08</td><td>18.906623485105822</td></tr>
+</table></div></div></div>
+</div>
+<p>Let’s evaluate our results by plotting the difference between the simulated catalog and measured AB magnitudes. The blue points show the photometry of the stars, while the orange line shows the median offset between the input catalog and the measurements. The labeled uncertainty on the median is the standard deviation of the distribution. We also include a black line at an offset of 0 AB magnitudes as a reference.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="c1"># Compute the offset between the input catalogs (stars) and measured (phot_tab) AB magnitudes and plot them</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="n">stars</span><span class="p">[</span><span class="s1">&#39;abmag&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">phot_tab</span><span class="p">[</span><span class="s1">&#39;abmag&#39;</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">stars</span><span class="p">[</span><span class="s1">&#39;abmag&#39;</span><span class="p">],</span> <span class="n">offset</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Compute the median offset ignoring NaNs and plot the median and a reference line at 0</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">med</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">sigma_clipped_stats</span><span class="p">(</span><span class="n">offset</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">offset</span><span class="p">)],</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">med</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">fr</span><span class="s1">&#39;Median $\Delta m = </span><span class="si">{</span><span class="n">med</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">$ AB mag, Std. $\Delta m = </span><span class="si">{</span><span class="n">std</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">$ AB mag&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mf">1e4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Restrict the axis limits for visibility. You may need to change these if you alter the input</span>
+<span class="c1"># data for this tutorial.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mf">16.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Label the axes</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$m_{\mathrm{AB, input}}$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$m_{\mathrm{AB, input}} - m_{\mathrm{AB, measured}}$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Overplot a reference grid</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;photometry.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cf72300350156e5f4f14a3d0f602013701e4e9beb3c51bd6064de928d7751ec5.png" src="../../_images/cf72300350156e5f4f14a3d0f602013701e4e9beb3c51bd6064de928d7751ec5.png" />
+</div>
+</div>
+<p>Our measurements of stars in the image agree well with the input catalog fluxes at the level of approximately 0.9%. There could be several reasons why we see a small offset between the input and output magnitudes. First, we use a single value of the gain for our zeropoint, but we could do better and use a gain per pixel to convert the image from DN/s to photo-electrons per second and apply the zeropoint (with the gain removed). This would likely decrease the scatter in the plot. Secondly, we used a single aperture correction for the whole image based on the model of a star with an average SED and located at the center of the detector. A more detailed handling of the aperture correction may also decrease the scatter, and may also help bring the measurements into better alignment with the input catalog. Finally, a more careful treatment of other systematics (e.g., interpixel capacitance) may yield even better results.</p>
+<p>A similar exercise in photometry can be repeated for the galaxies in the input catalog, but care should be taken when selecting apertures for galaxies as fixed aperture sizes will correspond to different physical sizes at the distances of galaxies. Other choices for galaxy apertures include, e.g., Kron apertures or isophotal apertures.</p>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://photutils.readthedocs.io/en/stable/">Photutils documentation</a> has additional tutorials for detecting and fitting sources in images:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://photutils.readthedocs.io/en/stable/aperture.html">Aperture photometry</a></p></li>
+<li><p><a class="reference external" href="https://photutils.readthedocs.io/en/stable/background.html">Background estimation</a></p></li>
+<li><p><a class="reference external" href="https://photutils.readthedocs.io/en/stable/detection.html">Source detection</a></p></li>
+<li><p><a class="reference external" href="https://photutils.readthedocs.io/en/stable/psf.html">PSF photometry</a></p></li>
+</ul>
+</section>
+<section id="about-this-notebook">
+<h2>About This Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Author:</strong> John F. Wu, Tyler Desjardins<br />
+<strong>Updated On:</strong> 2025-09-30</p>
+<hr class="docutils" />
+<p><a class="reference internal" href="#top"><span class="xref myst">Top of Page</span></a>
+<a class="reference internal" href="https://raw.githubusercontent.com/spacetelescope/notebooks/master/assets/stsci_pri_combo_mark_horizonal_white_bkgd.png"><img alt="Space Telescope Logo" src="https://raw.githubusercontent.com/spacetelescope/notebooks/master/assets/stsci_pri_combo_mark_horizonal_white_bkgd.png" style="width: 200px;" /></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "roman-cal"
+        },
+        kernelOptions: {
+            name: "roman-cal",
+            path: "./notebooks/aperture_photometry"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'roman-cal'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Nancy Grace Roman Space Telescope Notebooks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../background_visualization_tool/RBVT.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Roman Background Visualization Tool (RBVT)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-data">Tutorial Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-data">Image Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-catalog">Source Catalog</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forced-aperture-photometry">Forced Aperture Photometry</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correcting-for-pixel-area">Correcting for Pixel Area</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-apertures">Create Apertures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-visualization">Source Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aperture-photometry-with-photutils">Aperture Photometry with Photutils</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About This Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
