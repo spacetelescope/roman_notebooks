@@ -65,13 +65,17 @@ jobs:
       enable-execution: false
       enable-storage: false
       enable-html-build: false
+      crds-server-url: 'https://roman-crds-tvac.stsci.edu'
+      crds-context: 'roman_0027.pmap'
+      crds-path: '/tmp/crds_cache'
+      pre-processing-script: 'shared/notebook_data_dependencies.py'
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
 
   execute-all:
     if: inputs.action_type == 'execute-all'  
-    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@pre-script
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
       execution-mode: 'on-demand'
       trigger-event: 'execute'
@@ -124,6 +128,7 @@ jobs:
       crds-server-url: 'https://roman-crds-tvac.stsci.edu'
       crds-context: 'roman_0027.pmap'
       crds-path: '/tmp/crds_cache'
+      pre-processing-script: 'shared/notebook_data_dependencies.py'
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -145,6 +150,7 @@ jobs:
       crds-server-url: 'https://roman-crds-tvac.stsci.edu'
       crds-context: 'roman_0027.pmap'
       crds-path: '/tmp/crds_cache'
+      pre-processing-script: 'shared/notebook_data_dependencies.py'
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -165,6 +171,7 @@ jobs:
       crds-server-url: 'https://roman-crds-tvac.stsci.edu'
       crds-context: 'roman_0027.pmap'
       crds-path: '/tmp/crds_cache'
+      pre-processing-script: 'shared/notebook_data_dependencies.py'
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -186,6 +193,7 @@ jobs:
       crds-server-url: 'https://roman-crds-tvac.stsci.edu'
       crds-context: 'roman_0027.pmap'
       crds-path: '/tmp/crds_cache'
+      pre-processing-script: 'shared/notebook_data_dependencies.py'
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -240,6 +248,7 @@ jobs:
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
 
 
 
