@@ -65,9 +65,6 @@ jobs:
       enable-execution: false
       enable-storage: false
       enable-html-build: false
-      crds-server-url: 'https://roman-crds-tvac.stsci.edu'
-      crds-context: 'roman_0027.pmap'
-      crds-path: '/tmp/crds_cache'
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -242,5 +239,6 @@ jobs:
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
 
 
