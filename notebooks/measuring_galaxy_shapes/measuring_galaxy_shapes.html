@@ -1,0 +1,1425 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Measuring Galaxy Shapes &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Roman Interactive Sensitivity Tool (RIST)" href="../rist/rist.html" />
+    <link rel="prev" title="Roman Spectroscopy: Grism Spectral Extraction" href="../grism_spectral_extraction/grism_spectral_extraction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Measuring Galaxy Shapes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining Terms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data">Loading Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-cutouts-and-retrieving-the-psf">Creating Cutouts and Retrieving the PSF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-the-source-moments">Estimating the Source Moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-sersic-profile-to-a-source">Fitting a Sérsic Profile to a Source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About This Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="measuring-galaxy-shapes">
+<h1>Measuring Galaxy Shapes<a class="headerlink" href="#measuring-galaxy-shapes" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Below we list the libraries we’ll be using in the tutorial:</p>
+<ul class="simple">
+<li><p><em>astropy.coordinates</em> to perform sky-to-detector coordinate transformations</p></li>
+<li><p><em>astropy.stats</em> to estimate the sky background level</p></li>
+<li><p><em>astropy.table</em> for manipulating tabular data</p></li>
+<li><p><em>astropy.units</em> for working with units</p></li>
+<li><p><em>astropy.visualization</em> for normalizing images for plotting</p></li>
+<li><p><em>coord</em> for working with angles</p></li>
+<li><p><em>matplotlib.pyplot</em> for plotting and visualizing data</p></li>
+<li><p><em>galsim</em> to measure source moments and generate Sérsic profiles</p></li>
+<li><p><em>numpy</em> for array manipulation and mathematical operations</p></li>
+<li><p><em>roman_datamodels</em> for opening WFI ASDF files</p></li>
+<li><p><em>asdf</em> for opening WFI ASDF files</p></li>
+<li><p><em>s3fs</em> for streaming simulated WFI images from an S3 bucket</p></li>
+<li><p><em>scipy.optimize</em> to fit our data</p></li>
+<li><p><em>synphot</em> for synthetic photometry</p></li>
+<li><p><em>stsynphot</em> to access WFI throughput information</p></li>
+<li><p><em>stpsf</em> to access WFI point spread functions</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkyCoord</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">sigma_clipped_stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.visualization</span><span class="w"> </span><span class="kn">import</span> <span class="n">simple_norm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">coord</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">galsim</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">galsim.roman</span><span class="w"> </span><span class="kn">import</span> <span class="n">collecting_area</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">synphot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">syn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">stsynphot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stsyn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">stpsf</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The main goal of this notebook is to illustrate a typical use case of Roman images: performing shape measurements of astronomical sources.</p>
+<p>We are going to perform two sets of measurements. First, we rely on <a class="reference external" href="https://galsim-developers.github.io/">GalSim</a> to perform ellipticity measurements. In particular, we use the
+<a class="reference external" href="https://galsim-developers.github.io/GalSim/_build/html/hsm.html">REGAUSS method in its HSM module</a> (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2003MNRAS.343..459H/abstract">Hirata &amp; Seljak 2003</a>, <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2005MNRAS.361.1287M/abstract">Mandelbaum et al. 2005</a>). Second, we fit a Sérsic model to a galaxy cutout.</p>
+<p>In this notebook, we will be building on previous tutorials. We recommend consulting the following tutorials prior to this one:</p>
+<ul class="simple">
+<li><p>Data Access and Discovery</p></li>
+<li><p>Working with ASDF</p></li>
+<li><p>Data Visualization</p></li>
+<li><p>STPSF</p></li>
+<li><p>Synphot</p></li>
+</ul>
+<section id="defining-terms">
+<h3>Defining Terms<a class="headerlink" href="#defining-terms" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>ASDF: Advanced Scientific Data Format — the data format for the Roman Wide Field Instrument</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="loading-data">
+<h2>Loading Data<a class="headerlink" href="#loading-data" title="Link to this heading">#</a></h2>
+<p>The first step of the analysis is to read the Roman WFI image data, which are stored in ASDF format. For this example, we start with a calibrated Level 2 (L2) simulated image created with <a class="reference external" href="https://romanisim.readthedocs.io">Roman I-Sim</a>. For more information about Roman’s data products check the <a class="reference internal" href="#roman-docs.stsci.edu"><span class="xref myst">Roman User Documentation</span></a>. We use <code class="docutils literal notranslate"><span class="pre">roman_datamodels</span></code> to open the simulated image, which we stream into memory from an S3 bucket:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open an image from an S3 bucket</span>
+<span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s1">&#39;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/&#39;</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">asdf_file_uri_l2</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span>
+    
+<span class="n">file</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri_l2</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To characterize the shape of our sources, we need to get cutouts of individual targets, and perform our measurements. We choose to use the input catalog from the simulation software to define our cutouts. In a more realistic scenario, we would run a source detection algorithm to identify the locations of the sources.</p>
+<p>We start by saving the image array in the <code class="docutils literal notranslate"><span class="pre">image</span></code> variable. Remember that the <code class="docutils literal notranslate"><span class="pre">.data</span></code> datablock in WFI ASDF files contains the data array, and this is an <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> object with values of data numbers (DN) per second (DN/s).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the data array as an numpy.ndarray object</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We read the input catalog using <code class="docutils literal notranslate"><span class="pre">astropy.table.Table()</span></code>. More details about the format of these catalogs are available <a class="reference external" href="https://romanisim.readthedocs.io/en/latest/romanisim/catalog.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open the catalog used for the simulation as an astropy.table.Table</span>
+<span class="n">cat_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;full_catalog.ecsv&#39;</span>
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cat_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.ecsv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As a quick sanity check we plot the positions of 1% of the objects:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a scatter plot of the positions of a subselection of catalog entries.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">][::</span><span class="mi">100</span><span class="p">],</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">][::</span><span class="mi">100</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;RA [deg]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Dec [deg]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b70d39dff2fda379c257a666db429d5fb9d8615ae0326bcba48beed197017ce0.png" src="../../_images/b70d39dff2fda379c257a666db429d5fb9d8615ae0326bcba48beed197017ce0.png" />
+</div>
+</div>
+</section>
+<section id="creating-cutouts-and-retrieving-the-psf">
+<h2>Creating Cutouts and Retrieving the PSF<a class="headerlink" href="#creating-cutouts-and-retrieving-the-psf" title="Link to this heading">#</a></h2>
+<p>The positions are in sky coordinates. In order to make the cutouts we need the pixel coordinates in the image. To do that transformation, we will use the generalized World Coordinate System (GWCS) object in the simulated file’s metadata.
+For more information about GWCS please check the documentation <a class="reference external" href="https://gwcs.readthedocs.io/">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the gwcs object from the ASDF file into a variable</span>
+<span class="n">wcs</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">wcs</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we use the GWCS object to transform from the catalog right ascension (RA) and declination (DEC) coordinates into pixel positions within the image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the catalog coordinates in a SkyCoord object and </span>
+<span class="c1"># convert to pixel positions.</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">wcs</span><span class="o">.</span><span class="n">world_to_pixel</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+
+<span class="c1"># Save the x and y coordinates in the catalog table for later.</span>
+<span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For illustrative purposes, we focus on relatively bright ($18 &lt; {m}_\mathrm{AB} &lt; 19$) galaxies (marked as type = SER in the catalog). First, we need to know the optical element used for the observation, which we can get from the file metadata:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">band</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">optical_element</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The simulated bandpass is </span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The simulated bandpass is F106
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s trim our catalog based on our magnitude cuts and selection of extended sources:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set magnitude limits.</span>
+<span class="n">mag_hi</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">mag_lo</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="c1"># Compute the AB magnitude of the F106 filter in the catalog.</span>
+<span class="n">mag_ab</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;F106&#39;</span><span class="p">])</span>
+
+<span class="c1"># Select sources within our magnitude limits and that are extended.</span>
+<span class="n">bright</span> <span class="o">=</span> <span class="p">(</span><span class="n">mag_ab</span> <span class="o">&gt;</span> <span class="n">mag_lo</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mag_ab</span> <span class="o">&lt;</span> <span class="n">mag_hi</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;SER&#39;</span><span class="p">)</span>
+
+<span class="c1"># The input catalog may contain sources that are not on the WFI detector.</span>
+<span class="c1"># Identify where sources are on the detector. The padding variable will</span>
+<span class="c1"># ensure that sources are not too close to the edge (and possibly cut off).</span>
+<span class="n">padding</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">inchip</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">padding</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">padding</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">padding</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">padding</span><span class="p">)</span>
+
+<span class="c1"># Our final selection is the intersection of these two lists of indices.</span>
+<span class="c1"># The variable gal_tab contains a subselection of the original catalog</span>
+<span class="c1"># that meets our selection criteria.</span>
+<span class="n">galaxies</span> <span class="o">=</span> <span class="p">(</span><span class="n">bright</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">inchip</span><span class="p">)</span>
+<span class="n">gal_tab</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="n">galaxies</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">galaxies</span><span class="p">),</span> <span class="s1">&#39;galaxies pass these selection criteria&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 galaxies pass these selection criteria
+</pre></div>
+</div>
+</div>
+</div>
+<p>Most morphological measurements require high-accuracy knowledge of the PSF. In the case of our simulated scene, we know that the PSF was generated via <code class="docutils literal notranslate"><span class="pre">stpsf</span></code>. For simplicity, we will be working with a single PSF, but users interested in high accuracy fits will likely want to generate a PSF at the pixel location of each of the sources being fit. See the <a class="reference internal" href="../stpsf/stpsf.html"><span class="std std-doc">STPSF tutorial</span></a> tutorial for more information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the WFI instrument object in STPSF, set the optical element, and generate a PSF.</span>
+<span class="n">wfi</span> <span class="o">=</span> <span class="n">stpsf</span><span class="o">.</span><span class="n">WFI</span><span class="p">()</span>
+<span class="n">wfi</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">band</span>
+<span class="n">psf</span> <span class="o">=</span> <span class="n">wfi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">fov_pixels</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+
+<span class="c1"># Generate a galsim image object of the simulated PSF. We specify the pixel scale for which</span>
+<span class="c1"># the WFI has 0.11 arcsecond pixels, and the PSF from STPSF is oversampled by a factor of 4.</span>
+<span class="c1"># Save the PSF as an interpolated image so we can convolve and deconvolve later on.</span>
+<span class="n">psf_img</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">psf</span><span class="p">[</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.11</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">psf_obj</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">InterpolatedImage</span><span class="p">(</span><span class="n">psf_img</span><span class="p">,</span> <span class="n">flux</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
+
+<span class="c1"># Show the simulated PSF.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">psf_img</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">simple_norm</span><span class="p">(</span><span class="n">psf_img</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">percent</span><span class="o">=</span><span class="mi">95</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bee970475d52b9f4d5a745170e8e271ca126c69183fd3a81dced87f9bbc2bb18.png" src="../../_images/bee970475d52b9f4d5a745170e8e271ca126c69183fd3a81dced87f9bbc2bb18.png" />
+</div>
+</div>
+<p>By default the PSF is generated for detector WFI01 at (x, y) = (2048, 2048) in the science coordinate system. See the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/coordinate-systems">RDox article on WFI coordinate systems</a> for more information.</p>
+<p>These attributes can be confirmed and modified via the <code class="docutils literal notranslate"><span class="pre">wfi.detector</span></code> and <code class="docutils literal notranslate"><span class="pre">wfi.detector_position</span></code> attributes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;STPSF detector = </span><span class="si">{</span><span class="n">wfi</span><span class="o">.</span><span class="n">detector</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;STPSF position = </span><span class="si">{</span><span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>STPSF detector = WFI01
+STPSF position = (2048, 2048)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, before creating a cutout, we need to estimate the sky background level, since the WFI L2 images are not background subtracted. For our example we’ll use the sigma-clipped median of the image. While this background estimate is simplistic, it is effective for our purpose.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the sigma-clipped median as an estimate of the sky background</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">med_bkg</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sigma_clipped_stats</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Median background = </span><span class="si">{</span><span class="n">med_bkg</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Median background = 0.66544 DN / s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s create a cutout of our galaxy by creating a small postage stamp centered on the x and y coordinates we previously computed from the input simulation catalog. We will adapt the size of the postage stamp to the half-light radius of the galaxy from the input simulation catalog.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a variable to index our table of galaxies. Changing this variable will</span>
+<span class="c1"># change the galaxy that we are fitting.</span>
+<span class="n">igal</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Get the dimensions of cutout based on the half-light radius. The scale variable</span>
+<span class="c1"># will set the multiples of the half-light radius used for the cutout. </span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c1"># Multiply the half-light radius in arcseconds by the scale factor, and then</span>
+<span class="c1"># divide by the pixel scale of 0.11 arcseconds per pixel to get the half-light</span>
+<span class="c1"># radius in units of pixels. Add 1 pixel for padding so that small galaxies have</span>
+<span class="c1"># a sufficiently sized cutout.</span>
+<span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;half_light_radius&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">/</span> <span class="mf">0.11</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Determine the x and y positions at the corners of our cutout.</span>
+<span class="n">xmin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">]</span> <span class="o">-</span> <span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">xmax</span> <span class="o">=</span> <span class="n">xmin</span> <span class="o">+</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">]</span> <span class="o">-</span> <span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">ymin</span> <span class="o">+</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># Make the cutout as a galsim Image object. Also subtract the sky background estimate,</span>
+<span class="c1"># and set the pixel scale.</span>
+<span class="n">cutout</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="n">ymin</span><span class="p">:</span><span class="n">ymax</span><span class="p">,</span> <span class="n">xmin</span><span class="p">:</span><span class="n">xmax</span><span class="p">]</span> <span class="o">-</span> <span class="n">med_bkg</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.11</span><span class="p">)</span>
+
+<span class="c1"># Display the cutout with and without the background subtraction.</span>
+<span class="c1"># Set the image normalization. To compare the cutout before and after</span>
+<span class="c1"># background subtraction, we manually set the limits.</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span> <span class="o">+</span> <span class="n">med_bkg</span><span class="p">,</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span> <span class="o">-</span><span class="n">med_bkg</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>
+
+<span class="c1"># Setup the plot area.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Original cutout (add the sky background back in)</span>
+<span class="n">cut</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span> <span class="o">+</span> <span class="n">med_bkg</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cutout&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X [pix]&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y [pix]&#39;</span><span class="p">)</span>
+
+<span class="c1"># Background-subtracted cutout</span>
+<span class="n">bkg_cut</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bkgrnd Sub&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X [pix]&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y [pix]&#39;</span><span class="p">)</span>
+
+<span class="c1"># Assign color bars. The color bars and normalization are the same</span>
+<span class="c1"># for both cutouts.</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;DN / s&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">bkg_cut</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;DN / s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">h_pad</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1f12dea8fa277e00f776404444daa4c0ddfa2c6f0b85aeeb5a966cca9cddc668.png" src="../../_images/1f12dea8fa277e00f776404444daa4c0ddfa2c6f0b85aeeb5a966cca9cddc668.png" />
+</div>
+</div>
+<p>As we can see, the background estimate seems to be reasonable. We could improve it by performing a local background estimate rather than using the whole image. For on-orbit observations, a 2-D local background model would likely provide the highest fidelity background estimate. Note that estimating the background should be treated with care, since it will affect the fitting results.</p>
+</section>
+<section id="estimating-the-source-moments">
+<h2>Estimating the Source Moments<a class="headerlink" href="#estimating-the-source-moments" title="Link to this heading">#</a></h2>
+<p>Now that we have our cutout saved as a <code class="docutils literal notranslate"><span class="pre">galsim.Image</span></code> object we can just use the <code class="docutils literal notranslate"><span class="pre">hsm</span></code> module to estimate the moments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shape</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">hsm</span><span class="o">.</span><span class="n">FindAdaptiveMom</span><span class="p">(</span><span class="n">cutout</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=61, ymin=1, ymax=61), moments_status=0, observed_shape=galsim.Shear((0.030699152091217177-0.039635425291356316j)), moments_sigma=8.121443748474121, moments_amp=539.923583984375, moments_centroid=galsim.PositionD(x=31.24049386502952, y=30.782722435327653), moments_rho4=2.3635924134158204, moments_n_iter=20)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">shape</span></code> variable contains the source moments estimated from the best-fit elliptical Gaussian. For example, we can see in the printed result that the <code class="docutils literal notranslate"><span class="pre">.observed_shape</span></code> attribute contains a <code class="docutils literal notranslate"><span class="pre">galsim.Shear</span></code> object. From that object, we can retrieve shape parameters such as the position angle (beta) and the minor-to-major axis ratio (q):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the position angle (beta) and wrap it to the range [0, 2pi) radians and convert to degrees</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">observed_shape</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">center</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">coord</span><span class="o">.</span><span class="n">degrees</span><span class="p">)</span><span class="o">.</span><span class="n">deg</span>
+
+<span class="c1"># Get the minor-to-major axis ratio (q)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">observed_shape</span><span class="o">.</span><span class="n">q</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;position angle: </span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> deg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;minor-to-major axis ratio: </span><span class="si">{</span><span class="n">q</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>position angle: 333.87958 deg
+minor-to-major axis ratio: 0.90452
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we have the PSF model we can also try to estimate the PSF-corrected galaxy shear:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shape2</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">hsm</span><span class="o">.</span><span class="n">EstimateShear</span><span class="p">(</span><span class="n">cutout</span><span class="p">,</span> <span class="n">psf_img</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">shape2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=61, ymin=1, ymax=61), moments_status=0, observed_shape=galsim.Shear((0.030699152091217177-0.039635425291356316j)), moments_sigma=7.47904634475708, moments_amp=638.07958984375, moments_rho4=2.3635924134158204, moments_n_iter=20, correction_status=0, corrected_e1=0.08097836375236511, corrected_e2=-0.06341058015823364, meas_type=&#39;e&#39;, corrected_shape_err=0.0, correction_method=&#39;REGAUSS&#39;, resolution_factor=0.9663776159286499, psf_sigma=1.3743653297424316, psf_shape=galsim.Shear((-0.014325833994391213+0.0008789983818878098j)))
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can once again extract information about the position angle and minor-to-major axis ratio as we did before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">shape2</span><span class="o">.</span><span class="n">observed_shape</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">center</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">coord</span><span class="o">.</span><span class="n">degrees</span><span class="p">)</span><span class="o">.</span><span class="n">deg</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">shape2</span><span class="o">.</span><span class="n">observed_shape</span><span class="o">.</span><span class="n">q</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;position angle: </span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> deg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;minor-to-major axis ratio: </span><span class="si">{</span><span class="n">q</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>position angle: 333.87958 deg
+minor-to-major axis ratio: 0.90452
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, we see that the values are the same with and without the PSF-correction.</p>
+</section>
+<section id="fitting-a-sersic-profile-to-a-source">
+<h2>Fitting a Sérsic Profile to a Source<a class="headerlink" href="#fitting-a-sersic-profile-to-a-source" title="Link to this heading">#</a></h2>
+<p>Another typical morphological analysis consists of fitting a source with a <a class="reference external" href="https://en.wikipedia.org/wiki/S%C3%A9rsic_profile">Sérsic profile</a> (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1963BAAA....6...41S/abstract">Sérsic 1963</a>). We are going to rely on the Sérsic implementation in the <code class="docutils literal notranslate"><span class="pre">galsim</span></code> package.</p>
+<p>In our example we will ignore the pixel mask (data quality array), but will use the error image.</p>
+<p>First, we need to convert our source flux units to photons / s / cm$^2$. The catalog fluxes are stored as maggies, which are linear flux units such that:</p>
+<p>$m_\mathrm{AB} = -2.5\times\log_{10}(f),$</p>
+<p>where $m_\mathrm{AB}$ is the AB magnitude and $f$ is the flux in maggies. As Roman I-Sim, which was used to generate the catalog and simulate the image, does not create sources with realistic colors, let’s make a simplifying assumption that our source has a spectral energy distribution (SED) that is flat in frequency space, at least over the bandpass of interest (F106). We will use the <code class="docutils literal notranslate"><span class="pre">synphot</span></code> package to synthetically observe the source spectrum, normalized to the AB magnitude from the catalog, and integrate over the bandpass:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the AB magnitude of the source.</span>
+<span class="n">abmag</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;F106&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">])</span>
+
+<span class="c1"># Create the spectrum and bandpass objects, and then observe the spectrum</span>
+<span class="c1"># through the bandpass.</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">SourceSpectrum</span><span class="p">(</span><span class="n">syn</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ConstFlux1D</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="n">abmag</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">ABmag</span><span class="p">)</span>
+<span class="n">band</span> <span class="o">=</span> <span class="n">stsyn</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="s1">&#39;roman,wfi,f106&#39;</span><span class="p">)</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">Observation</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span>
+
+<span class="c1"># Integrate over the bandpass. By default, calls to the obs variable, which</span>
+<span class="c1"># stores a synphot Observation object, will return units of photlam, which</span>
+<span class="c1"># is shorthand for photons / s / cm^2 / Angstrom. The binset attribute contains</span>
+<span class="c1"># the default wavelengths used in the Observation object, which have units of</span>
+<span class="c1"># Angstroms. Thus, the integral of the Observation over the wavelengths will</span>
+<span class="c1"># give units of photons / s / cm^2.</span>
+<span class="n">waves</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">binset</span>
+<span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">obs</span><span class="p">(</span><span class="n">waves</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">waves</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Source flux: </span><span class="si">{</span><span class="n">flux</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> photon / s / cm^2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Source flux: 0.04214 photon / s / cm^2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that we could have instead determined a scaling factor to apply to any input flux from the catalog by normalizing the spectrum to an amplitude of 1 maggie. Synphot does not allow us to use the <code class="docutils literal notranslate"><span class="pre">astropy.units.maggy</span></code> unit, but we can just as effectively use the definition of AB magnitudes to write this in units of Jankys:</p>
+<p>$m_\mathrm{AB} = -2.5 \times log_{10}(f_\mathrm{Jy}) + 8.90,$</p>
+<p>and thus when $m_\mathrm{AB} = 0$ mag, which is defined when $f = 1$ maggie, we find that $f_\mathrm{Jy} = 10^{(8.90 / 2.5)} \approx 3630.78055~\mathrm{Jy}$. Determining such a scaling factor would be useful if we wanted to perform our shape analysis at scale.</p>
+<p>Then we create our model as a callable function for later fitting. The variables are:</p>
+<ul class="simple">
+<li><p>n = Sérsic index</p></li>
+<li><p>hlr = half-light radius in arcseconds</p></li>
+<li><p>pa = position angle in degrees</p></li>
+<li><p>x0 = shift in x pixels to center of the source</p></li>
+<li><p>y0 = shift in y pixels to center of the source</p></li>
+<li><p>q = minor-to-major axis ratio</p></li>
+</ul>
+<p>We will set the gain and area options in the <code class="docutils literal notranslate"><span class="pre">drawImage()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">galsim.Sersic</span></code> object we create. This ensures that the model of our galaxy can return pixels with values like our observed image that has units of DN / s. We set the gain to 1.8, which is a reasonable value for a general WFI detector, and we use the obscured collecting area from the <code class="docutils literal notranslate"><span class="pre">galsim.roman</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sersic_mod</span><span class="p">(</span><span class="n">cutout</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">hlr</span><span class="p">,</span> <span class="n">influx</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">ser</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">Sersic</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">half_light_radius</span><span class="o">=</span><span class="n">hlr</span><span class="p">,</span> <span class="n">flux</span><span class="o">=</span><span class="n">influx</span><span class="p">)</span>
+    <span class="n">ser</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">shear</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">pa</span> <span class="o">*</span> <span class="n">galsim</span><span class="o">.</span><span class="n">degrees</span><span class="p">)</span>  <span class="c1"># change PA and axis ratio</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">PositionD</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y0</span><span class="p">)</span>  <span class="c1"># potentially shift a bit the profile</span>
+    <span class="n">ser</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">convolve</span><span class="o">.</span><span class="n">Convolve</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">psf_obj</span><span class="p">)</span>  <span class="c1"># add PSF</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">ImageD</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.11</span><span class="p">)</span>  
+    <span class="n">ser</span><span class="o">.</span><span class="n">drawImage</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">img</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.11</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="n">galsim</span><span class="o">.</span><span class="n">roman</span><span class="o">.</span><span class="n">collecting_area</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we initialize the model with the truth parameters. The Sérsic index, half-light radius, position angle, and minor-to-major axis ratio come from the input simulation catalog. The flux is the value computed above in the correct units of photons / s / cm$^2$. The x0 and y0 shifts are assumed to both be 0.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list of the truth paramters.</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">],</span> <span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;half_light_radius&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">],</span> <span class="n">flux</span><span class="p">,</span> <span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;pa&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">],</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;ba&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">]]</span>
+
+<span class="c1"># Create the model with our truth parameters</span>
+<span class="n">fid_model</span> <span class="o">=</span> <span class="n">sersic_mod</span><span class="p">(</span><span class="n">cutout</span><span class="p">,</span> <span class="o">*</span><span class="n">p0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that we used the syntax <code class="docutils literal notranslate"><span class="pre">*p0</span></code> above. This is the same as explicitly writing out <code class="docutils literal notranslate"><span class="pre">p0[0],</span> <span class="pre">p0[1],</span> <span class="pre">...,</span> <span class="pre">p0[6]</span></code> and is a convenient way in Python to unpack all of the values in a list in order as inputs to a function’s positional arguments.</p>
+<p>We also obtain the error array in the location of the cutout:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">err_img</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">err</span><span class="p">[</span><span class="n">ymin</span><span class="p">:</span><span class="n">ymax</span><span class="p">,</span> <span class="n">xmin</span><span class="p">:</span><span class="n">xmax</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we fit the model using <code class="docutils literal notranslate"><span class="pre">scipy.curve_fit()</span></code>. We add bounds to the parameter space in order avoid software issues and unphysical values — GalSim only supports $0.3 &lt; n &lt; 6.2$.</p>
+<p><strong>NOTE:</strong> If the following code cell produces an exception, you may have to adjust the bounds of the fit. This can happen, for example, if you changed any of the filtering we did above on the source catalog (e.g., a different magnitude range cut).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pout</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">sersic_mod</span><span class="p">,</span> <span class="n">cutout</span><span class="p">,</span> <span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">err_img</span><span class="p">,</span>
+          <span class="n">p0</span><span class="o">=</span><span class="n">p0</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">1e-11</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see the resulting best-fit parameters of the fit and compare to our initial input model parameters (the <code class="docutils literal notranslate"><span class="pre">p0</span></code> variable above):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;hlr&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">,</span> <span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Initial: </span><span class="si">{</span><span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Fitted: </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n:
+	Initial: 1.61296
+	Fitted: 1.59112
+hlr:
+	Initial: 1.63962
+	Fitted: 1.61616
+flux:
+	Initial: 0.04214
+	Fitted: 0.04006
+pa:
+	Initial: 303.75232
+	Fitted: 360.00000
+x0:
+	Initial: 0.00000
+	Fitted: 0.28059
+y0:
+	Initial: 0.00000
+	Fitted: -0.00547
+q:
+	Initial: 0.93859
+	Fitted: 0.94755
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comparing the input and best-fit parameters, we see good agreement.</p>
+<p>Let’s create an image of our best-fit model and visualize the original cutout, initial input model, best-fit output model, and fit residuals:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an image of the best-fit model and compute the fit residuals.</span>
+<span class="n">model_out</span> <span class="o">=</span> <span class="n">sersic_mod</span><span class="p">(</span><span class="n">cutout</span><span class="p">,</span> <span class="o">*</span><span class="n">pout</span><span class="p">)</span>
+<span class="n">residual</span> <span class="o">=</span> <span class="n">cutout</span><span class="o">.</span><span class="n">array</span> <span class="o">-</span> <span class="n">model_out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Plot the original cutout, initial input model, best-fit model, and fit residuals.</span>
+<span class="c1"># Plot all images with the same normalization for comparison. As we may have negative</span>
+<span class="c1"># residual values, we use a linear normalization.</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span> <span class="o">-</span><span class="n">med_bkg</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Original image</span>
+<span class="n">orig</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Image Cutout&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fiducial (initial input) model</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fid_model</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Init Model&#39;</span><span class="p">)</span>
+
+<span class="c1"># Best-fitting model</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">model_out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Best-Fit&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fit residuals</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Fit Residuals&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the colorbar</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Other plot settings to clean it up.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">h_pad</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2c23abc3463ff1a5fe95d28ace2de54849baaa2f17c0aac2bddd45851bbcb246.png" src="../../_images/2c23abc3463ff1a5fe95d28ace2de54849baaa2f17c0aac2bddd45851bbcb246.png" />
+</div>
+</div>
+<p>Our fit looks really good. Let’s take a quick look at the statistics of the fit residuals:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Residual median: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Residual std dev: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.00849 DN / s
+Residual std dev: 1.19272 DN / s
+</pre></div>
+</div>
+</div>
+</div>
+<p>We benefitted greatly from knowing a lot of these parameters from the simulated input catalog used to generate the image. What if we didn’t know these values so well? Would we have gotten such a good fit result? Let’s test that now by setting the fiducial model to something less certain and fit it again.</p>
+<p>We’ll set our <code class="docutils literal notranslate"><span class="pre">p1</span></code> variable to contain our new input parameters. Recall the input parameter order is Sérsic index, half-light radius in arcseconds, flux in photons / s / cm$^2$, position angle in degrees, x shift, y shift, and minor-to-major axis ratio. Let’s assume we can measure the flux well, and that we estimate the half-light radius to be approximately 4 WFI pixels, or 0.44 arcseconds. We’ll set the other values to uninformed guesses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.44</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+
+<span class="c1"># Create the model with our truth parameters</span>
+<span class="n">fid_model_new</span> <span class="o">=</span> <span class="n">sersic_mod</span><span class="p">(</span><span class="n">cutout</span><span class="p">,</span> <span class="o">*</span><span class="n">p1</span><span class="p">)</span>
+
+<span class="n">pout_new</span><span class="p">,</span> <span class="n">pcov_new</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">sersic_mod</span><span class="p">,</span> <span class="n">cutout</span><span class="p">,</span> <span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">err_img</span><span class="p">,</span>
+          <span class="n">p0</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">1e-11</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;hlr&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">,</span> <span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Catalog (p0): </span><span class="si">{</span><span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">New inputs (p1): </span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Old fit: </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">New fit: </span><span class="si">{</span><span class="n">pout_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n:
+	Catalog (p0): 1.61296
+	New inputs (p1): 1.00000
+
+	Old fit: 1.59112
+	New fit: 1.58818
+hlr:
+	Catalog (p0): 1.63962
+	New inputs (p1): 0.44000
+
+	Old fit: 1.61616
+	New fit: 1.61339
+flux:
+	Catalog (p0): 0.04214
+	New inputs (p1): 0.04214
+
+	Old fit: 0.04006
+	New fit: 0.04003
+pa:
+	Catalog (p0): 303.75232
+	New inputs (p1): 0.00000
+
+	Old fit: 360.00000
+	New fit: 28.20436
+x0:
+	Catalog (p0): 0.00000
+	New inputs (p1): 0.00000
+
+	Old fit: 0.28059
+	New fit: 0.28433
+y0:
+	Catalog (p0): 0.00000
+	New inputs (p1): 0.00000
+
+	Old fit: -0.00547
+	New fit: -0.00446
+q:
+	Catalog (p0): 0.93859
+	New inputs (p1): 0.50000
+
+	Old fit: 0.94755
+	New fit: 0.90761
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see, the best-fitting model is quite similar to the previous one with the exceptions of the flux, minor-to-major axis ratio, and the position angle. In fact, on closer examination, we can see that the position angle and minor-to-major axis ratio in our earlier fit is identical to the input values we obtained from the catalog.</p>
+<p>Let’s try again, but this time let’s use the shear estimate shape measurements we previously performed (recall that beta and q are the position angle and minor-to-major axis ratio, respectively, from the PSF-corrected shear estimate in the <code class="docutils literal notranslate"><span class="pre">shape2</span></code> variable above):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.44</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">q</span><span class="p">]</span>
+
+<span class="c1"># Create the model with our truth parameters</span>
+<span class="n">fid_model_new</span> <span class="o">=</span> <span class="n">sersic_mod</span><span class="p">(</span><span class="n">cutout</span><span class="p">,</span> <span class="o">*</span><span class="n">p1</span><span class="p">)</span>
+
+<span class="n">pout_new</span><span class="p">,</span> <span class="n">pcov_new</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">sersic_mod</span><span class="p">,</span> <span class="n">cutout</span><span class="p">,</span> <span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">err_img</span><span class="p">,</span>
+          <span class="n">p0</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">1e-11</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;hlr&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">,</span> <span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Catalog (p0): </span><span class="si">{</span><span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">New inputs (p1): </span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Old fit: </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">New fit: </span><span class="si">{</span><span class="n">pout_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n:
+	Catalog (p0): 1.61296
+	New inputs (p1): 1.00000
+
+	Old fit: 1.59112
+	New fit: 1.59121
+hlr:
+	Catalog (p0): 1.63962
+	New inputs (p1): 0.44000
+
+	Old fit: 1.61616
+	New fit: 1.61624
+flux:
+	Catalog (p0): 0.04214
+	New inputs (p1): 0.04214
+
+	Old fit: 0.04006
+	New fit: 0.04006
+pa:
+	Catalog (p0): 303.75232
+	New inputs (p1): 333.87958
+
+	Old fit: 360.00000
+	New fit: 360.00000
+x0:
+	Catalog (p0): 0.00000
+	New inputs (p1): 0.00000
+
+	Old fit: 0.28059
+	New fit: 0.28060
+y0:
+	Catalog (p0): 0.00000
+	New inputs (p1): 0.00000
+
+	Old fit: -0.00547
+	New fit: -0.00542
+q:
+	Catalog (p0): 0.93859
+	New inputs (p1): 0.90452
+
+	Old fit: 0.94755
+	New fit: 0.94750
+</pre></div>
+</div>
+</div>
+</div>
+<p>Much better! Now the best-fit flux agrees well with the catalog value. We also see that we got similar values of the other best-fit parameters other than the position angle and minor-to-major axis ratio. It seems that these two parameters are not well constrained by the data using the Sérsic model fit.</p>
+<p>For completeness, let’s also re-plot the cutout, models, and fit residuals with out new inputs and best fit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an image of the best-fit model and compute the fit residuals.</span>
+<span class="n">model_out_new</span> <span class="o">=</span> <span class="n">sersic_mod</span><span class="p">(</span><span class="n">cutout</span><span class="p">,</span> <span class="o">*</span><span class="n">pout_new</span><span class="p">)</span>
+<span class="n">residual_new</span> <span class="o">=</span> <span class="n">cutout</span><span class="o">.</span><span class="n">array</span> <span class="o">-</span> <span class="n">model_out_new</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># Plot the original cutout, initial input model, best-fit model, and fit residuals.</span>
+<span class="c1"># Plot all images with the same normalization for comparison. As we may have negative</span>
+<span class="c1"># residual values, we use a linear normalization.</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span> <span class="o">-</span><span class="n">med_bkg</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Original image</span>
+<span class="n">orig</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Image Cutout&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fiducial (initial input) model</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fid_model_new</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Init Model&#39;</span><span class="p">)</span>
+
+<span class="c1"># Best-fitting model</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">model_out_new</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Best-Fit&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fit residuals</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">residual_new</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Fit Residuals&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the colorbar</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Other plot settings to clean it up.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">h_pad</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e090697fa966267699b18e99ed1547456b4711a6574fb128d641f261fa323c2f.png" src="../../_images/e090697fa966267699b18e99ed1547456b4711a6574fb128d641f261fa323c2f.png" />
+</div>
+</div>
+<p>As we can see, the initial model is quite different from our previous one based on inputs from the catalog, but our best-fit model and residuals still look quite good. Finally, the statistics of our residuals:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Residual median: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">residual_new</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Residual std dev: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">residual_new</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.00848 DN / s
+Residual std dev: 1.19272 DN / s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comparing these values with our earlier fit, we find that the median and standard deviation of the residuals of both fits are identical to within four decimal places despite differences in the input and best-fit model parameters.</p>
+<p>From <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit()</span></code>, we also have the estimated approximate covariance information for each of the fitted parameters. From the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">documentation</a>, we can use that information to compute the 1-$\sigma$ uncertainties on the fitted parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">pcov</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">pcov</span></code> is the covariance of the fit (recall that <code class="docutils literal notranslate"><span class="pre">pout</span></code> is the fitted values above). Now we can print the fitted values with the uncertainties:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;hlr&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">,</span> <span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">perr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 1.59112 +/- 0.07520
+hlr = 1.61616 +/- 0.06867
+flux = 0.04006 +/- 0.00138
+pa = 360.00000 +/- 14.54118
+x0 = 0.28059 +/- 0.09748
+y0 = -0.00547 +/- 0.09273
+q = 0.94755 +/- 0.02643
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://roman-docs.stsci.edu/">Roman User Documentation (RDox)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/spacetelescope/roman_datamodels">Roman Notebooks</a></p></li>
+<li><p><a class="reference external" href="https://romanisim.readthedocs.io/">Roman I-Sim documentation</a></p></li>
+<li><p><a class="reference external" href="https://stpsf.readthedocs.io/">STPSF documentation</a></p></li>
+<li><p><a class="reference external" href="https://galsim-developers.github.io/GalSim/_build/html/hsm.html">GalSim HSM shape fitting documentation</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="about-this-notebook">
+<h2>About This Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Author:</strong> Javier Sánchez, Amethyst Barnes, Ami Choi, Tyler Desjardins<br />
+<strong>Updated On:</strong> 2025-12-09</p>
+<table width="100%" style="border:none; border-collapse:collapse;">
+  <tr style="border:none;">
+    <td style="border:none; width:180px; white-space:nowrap;">
+       <a href="#top" style="text-decoration:none; color:#0066cc;">↑ Top of page</a> 
+    </td>
+    <td style="border:none; text-align:center;">
+       <img src="../../roman_logo.png" width="50">
+    </td>
+    <td style="border:none; text-align:right;">
+       <img src="../../stsci_logo2.png" width="90">
+    </td>
+  </tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/measuring_galaxy_shapes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../grism_spectral_extraction/grism_spectral_extraction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Roman Spectroscopy: Grism Spectral Extraction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../rist/rist.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Roman Interactive Sensitivity Tool (RIST)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining Terms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data">Loading Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-cutouts-and-retrieving-the-psf">Creating Cutouts and Retrieving the PSF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-the-source-moments">Estimating the Source Moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-sersic-profile-to-a-source">Fitting a Sérsic Profile to a Source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About This Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

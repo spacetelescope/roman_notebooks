@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/working_with_asdf/working_with_asdf';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Simulating WFI Imaging Data with Roman I-Sim" href="../romanisim/romanisim.html" />
+    <link rel="prev" title="Roman WFI Synthetic Photometry with synphot" href="../synphot/synphot.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,8 +186,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">How to Open Roman Data Files (ASDF)</a></li>
 </ul>
 
@@ -839,7 +843,9 @@ Flag 65536 (affected pixels = 183; 0.00%)
 Flag 65537 (affected pixels = 2; 0.00%)
 1: DO_NOT_USE
 65536: NONLINEAR
-------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
 Flag 65539 (affected pixels = 2; 0.00%)
 1: DO_NOT_USE
 2: SATURATED
@@ -848,14 +854,14 @@ Flag 65539 (affected pixels = 2; 0.00%)
 Flag 65540 (affected pixels = 4; 0.00%)
 4: JUMP_DET
 65536: NONLINEAR
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
+------------
 Flag 66561 (affected pixels = 121; 0.00%)
 1: DO_NOT_USE
 1024: DEAD
 65536: NONLINEAR
-------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
 Flag 66563 (affected pixels = 5; 0.00%)
 1: DO_NOT_USE
 2: SATURATED
@@ -867,9 +873,7 @@ Flag 66565 (affected pixels = 21; 0.00%)
 4: JUMP_DET
 1024: DEAD
 65536: NONLINEAR
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
+------------
 Flag 73728 (affected pixels = 96; 0.00%)
 8192: LOW_QE
 65536: NONLINEAR
@@ -943,7 +947,9 @@ Flag 1122304 (affected pixels = 20; 0.00%)
 8192: LOW_QE
 65536: NONLINEAR
 1048576: NO_LIN_CORR
-------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
 Flag 1122305 (affected pixels = 8; 0.00%)
 1: DO_NOT_USE
 8192: LOW_QE
@@ -959,13 +965,13 @@ Flag 1123329 (affected pixels = 9; 0.00%)
 ------------
 Flag 33554432 (affected pixels = 1217; 0.01%)
 33554432: UNRELIABLE_FLAT
-------------
-Flag 33554433 (affected pixels = 16; 0.00%)
-1: DO_NOT_USE
-33554432: UNRELIABLE_FLAT
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
+Flag 33554433 (affected pixels = 16; 0.00%)
+1: DO_NOT_USE
+33554432: UNRELIABLE_FLAT
+------------
 Flag 33554436 (affected pixels = 135; 0.00%)
 4: JUMP_DET
 33554432: UNRELIABLE_FLAT
@@ -979,9 +985,7 @@ Flag 33555457 (affected pixels = 1067; 0.01%)
 1: DO_NOT_USE
 1024: DEAD
 33554432: UNRELIABLE_FLAT
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
+------------
 Flag 33555459 (affected pixels = 51; 0.00%)
 1: DO_NOT_USE
 2: SATURATED
@@ -1059,7 +1063,9 @@ Flag 33619972 (affected pixels = 20; 0.00%)
 4: JUMP_DET
 65536: NONLINEAR
 33554432: UNRELIABLE_FLAT
-------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
 Flag 33619973 (affected pixels = 7; 0.00%)
 1: DO_NOT_USE
 4: JUMP_DET
@@ -1078,7 +1084,9 @@ Flag 33620995 (affected pixels = 6; 0.00%)
 1024: DEAD
 65536: NONLINEAR
 33554432: UNRELIABLE_FLAT
-------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
 Flag 33620997 (affected pixels = 8; 0.00%)
 1: DO_NOT_USE
 4: JUMP_DET
@@ -1090,9 +1098,7 @@ Flag 33628160 (affected pixels = 20; 0.00%)
 8192: LOW_QE
 65536: NONLINEAR
 33554432: UNRELIABLE_FLAT
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
+------------
 Flag 33628161 (affected pixels = 3; 0.00%)
 1: DO_NOT_USE
 8192: LOW_QE
@@ -1111,9 +1117,7 @@ Flag 33628164 (affected pixels = 6; 0.00%)
 8192: LOW_QE
 65536: NONLINEAR
 33554432: UNRELIABLE_FLAT
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
+------------
 Flag 33628165 (affected pixels = 7; 0.00%)
 1: DO_NOT_USE
 4: JUMP_DET
@@ -1197,7 +1201,9 @@ Flag 34612225 (affected pixels = 1519; 0.01%)
 8192: LOW_QE
 1048576: NO_LIN_CORR
 33554432: UNRELIABLE_FLAT
-------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
 Flag 34612227 (affected pixels = 668; 0.00%)
 1: DO_NOT_USE
 2: SATURATED
@@ -1218,7 +1224,9 @@ Flag 34668544 (affected pixels = 34; 0.00%)
 65536: NONLINEAR
 1048576: NO_LIN_CORR
 33554432: UNRELIABLE_FLAT
-------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
 Flag 34668545 (affected pixels = 21; 0.00%)
 1: DO_NOT_USE
 65536: NONLINEAR
@@ -1239,9 +1247,7 @@ Flag 34669571 (affected pixels = 2298; 0.01%)
 65536: NONLINEAR
 1048576: NO_LIN_CORR
 33554432: UNRELIABLE_FLAT
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
+------------
 Flag 34676736 (affected pixels = 153; 0.00%)
 8192: LOW_QE
 65536: NONLINEAR
@@ -1262,9 +1268,7 @@ Flag 34676739 (affected pixels = 2; 0.00%)
 65536: NONLINEAR
 1048576: NO_LIN_CORR
 33554432: UNRELIABLE_FLAT
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------
+------------
 Flag 34677761 (affected pixels = 943; 0.01%)
 1: DO_NOT_USE
 1024: DEAD
@@ -2455,12 +2459,12 @@ Some nodes not shown.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../romanisim/romanisim.html"
+       href="../synphot/synphot.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Simulating WFI Imaging Data with Roman I-Sim</p>
+        <p class="prev-next-title">Roman WFI Synthetic Photometry with synphot</p>
       </div>
     </a>
 </div>

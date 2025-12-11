@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/romanisim/romanisim';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="How to Open Roman Data Files (ASDF)" href="../working_with_asdf/working_with_asdf.html" />
+    <link rel="next" title="STIPS Tutorial" href="../stips/stips.html" />
     <link rel="prev" title="The Roman Interactive Sensitivity Tool (RIST)" href="../rist/rist.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -187,8 +187,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 </ul>
 
@@ -487,14 +491,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Did not find stpsf data in environment, setting it up...
-	Downloading and uncompressing file...
-	Found 1 data URL(s) to download and install...
-	Working on file 1 out of 1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
-		export STPSF_PATH=&#39;/home/runner/refdata/stpsf-data&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found stpsf path /home/runner/refdata/stpsf-data
 Reference data paths set to:
 	STPSF_PATH = /home/runner/refdata/stpsf-data
 </pre></div>
@@ -591,7 +588,7 @@ Reference data paths set to:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:14 INFO     Query finished.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:39 INFO     Query finished.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: Query finished. [astroquery.utils.tap.core]
@@ -750,10 +747,10 @@ phot_rp_n_contaminated_transits   int16                                         
          ebpminrp_gspphot_lower float32           mag         Lower confidence level (16%) of reddening  $E(G_{\rm BP} - G_{\rm RP})$ from GSP-Phot Aeneas best library using BP/RP spectra 288418
          ebpminrp_gspphot_upper float32           mag         Upper confidence level (84%) of reddening  $E(G_{\rm BP} - G_{\rm RP})$ from GSP-Phot Aeneas best library using BP/RP spectra 288418
                 libname_gspphot  object               Name of library that achieves the highest mean log-posterior in MCMC samples and was used to derive GSP-Phot parameters in this table      0
-Jobid: 007fd559-d635-11f0-9f4e-bc97e148b76b-O
+Jobid: 82c0ac99-d6c9-11f0-9f4e-bc97e148b76b-O
 Phase: COMPLETED
 Owner: None
-Output file: async_20251211015917.vot
+Output file: async_20251211194222.vot
 Results: None
 </pre></div>
 </div>
@@ -802,29 +799,29 @@ Results: None
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=308578</i>
-<table id="table140539017760624" class="table-striped table-bordered table-condensed">
-<thead><tr><th>ra</th><th>dec</th><th>type</th><th>n</th><th>half_light_radius</th><th>pa</th><th>ba</th><th>F106</th><th>F087</th><th>F158</th><th>F184</th><th>F213</th><th>F062</th><th>F129</th><th>F146</th></tr></thead>
+<table id="table139913687354896" class="table-striped table-bordered table-condensed">
+<thead><tr><th>ra</th><th>dec</th><th>type</th><th>n</th><th>half_light_radius</th><th>pa</th><th>ba</th><th>F087</th><th>F158</th><th>F146</th><th>F129</th><th>F213</th><th>F184</th><th>F106</th><th>F062</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>str3</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>271.12256623811544</td><td>-1.1820752058916675</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>3.079301038356309e-08</td><td>3.079301038356309e-08</td><td>3.079301038356309e-08</td><td>3.079301038356309e-08</td><td>3.079301038356309e-08</td><td>3.079301038356309e-08</td><td>3.079301038356309e-08</td><td>3.079301038356309e-08</td></tr>
-<tr><td>271.07624929979545</td><td>-1.1889119779773505</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1.2595514490200894e-08</td><td>1.2595514490200894e-08</td><td>1.2595514490200894e-08</td><td>1.2595514490200894e-08</td><td>1.2595514490200894e-08</td><td>1.2595514490200894e-08</td><td>1.2595514490200894e-08</td><td>1.2595514490200894e-08</td></tr>
-<tr><td>271.07037703579505</td><td>-1.1868895976959661</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>5.068913217772333e-09</td><td>5.068913217772333e-09</td><td>5.068913217772333e-09</td><td>5.068913217772333e-09</td><td>5.068913217772333e-09</td><td>5.068913217772333e-09</td><td>5.068913217772333e-09</td><td>5.068913217772333e-09</td></tr>
-<tr><td>271.1011360199251</td><td>-1.1819644933869804</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>7.446602304507535e-08</td><td>7.446602304507535e-08</td><td>7.446602304507535e-08</td><td>7.446602304507535e-08</td><td>7.446602304507535e-08</td><td>7.446602304507535e-08</td><td>7.446602304507535e-08</td><td>7.446602304507535e-08</td></tr>
-<tr><td>271.1062876862371</td><td>-1.1849693586770516</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>6.975707420198788e-09</td><td>6.975707420198788e-09</td><td>6.975707420198788e-09</td><td>6.975707420198788e-09</td><td>6.975707420198788e-09</td><td>6.975707420198788e-09</td><td>6.975707420198788e-09</td><td>6.975707420198788e-09</td></tr>
-<tr><td>271.09124019764727</td><td>-1.1720269613674617</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>7.522956486137361e-09</td><td>7.522956486137361e-09</td><td>7.522956486137361e-09</td><td>7.522956486137361e-09</td><td>7.522956486137361e-09</td><td>7.522956486137361e-09</td><td>7.522956486137361e-09</td><td>7.522956486137361e-09</td></tr>
-<tr><td>271.0998422287016</td><td>-1.1702655154593578</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1.0216365392096818e-08</td><td>1.0216365392096818e-08</td><td>1.0216365392096818e-08</td><td>1.0216365392096818e-08</td><td>1.0216365392096818e-08</td><td>1.0216365392096818e-08</td><td>1.0216365392096818e-08</td><td>1.0216365392096818e-08</td></tr>
-<tr><td>271.09585692456886</td><td>-1.1630299651780616</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1.3102949873437336e-07</td><td>1.3102949873437336e-07</td><td>1.3102949873437336e-07</td><td>1.3102949873437336e-07</td><td>1.3102949873437336e-07</td><td>1.3102949873437336e-07</td><td>1.3102949873437336e-07</td><td>1.3102949873437336e-07</td></tr>
-<tr><td>271.1364640470983</td><td>-1.170440122775287</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1.1888697513236583e-08</td><td>1.1888697513236583e-08</td><td>1.1888697513236583e-08</td><td>1.1888697513236583e-08</td><td>1.1888697513236583e-08</td><td>1.1888697513236583e-08</td><td>1.1888697513236583e-08</td><td>1.1888697513236583e-08</td></tr>
+<tr><td>271.19129613484586</td><td>-1.1677613835078477</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>7.6987404386869e-09</td><td>7.6987404386869e-09</td><td>7.6987404386869e-09</td><td>7.6987404386869e-09</td><td>7.6987404386869e-09</td><td>7.6987404386869e-09</td><td>7.6987404386869e-09</td><td>7.6987404386869e-09</td></tr>
+<tr><td>271.09450738004523</td><td>-1.185891080497458</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>8.720800176983999e-09</td><td>8.720800176983999e-09</td><td>8.720800176983999e-09</td><td>8.720800176983999e-09</td><td>8.720800176983999e-09</td><td>8.720800176983999e-09</td><td>8.720800176983999e-09</td><td>8.720800176983999e-09</td></tr>
+<tr><td>271.1067045607792</td><td>-1.1705607386426884</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>3.9809668017158344e-08</td><td>3.9809668017158344e-08</td><td>3.9809668017158344e-08</td><td>3.9809668017158344e-08</td><td>3.9809668017158344e-08</td><td>3.9809668017158344e-08</td><td>3.9809668017158344e-08</td><td>3.9809668017158344e-08</td></tr>
+<tr><td>271.0875037421011</td><td>-1.1810658578077189</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>8.414217479850343e-09</td><td>8.414217479850343e-09</td><td>8.414217479850343e-09</td><td>8.414217479850343e-09</td><td>8.414217479850343e-09</td><td>8.414217479850343e-09</td><td>8.414217479850343e-09</td><td>8.414217479850343e-09</td></tr>
+<tr><td>271.0952940937574</td><td>-1.1764766665382813</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>2.951290105766723e-08</td><td>2.951290105766723e-08</td><td>2.951290105766723e-08</td><td>2.951290105766723e-08</td><td>2.951290105766723e-08</td><td>2.951290105766723e-08</td><td>2.951290105766723e-08</td><td>2.951290105766723e-08</td></tr>
+<tr><td>271.0958091400958</td><td>-1.17217366554771</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>3.644473751435503e-08</td><td>3.644473751435503e-08</td><td>3.644473751435503e-08</td><td>3.644473751435503e-08</td><td>3.644473751435503e-08</td><td>3.644473751435503e-08</td><td>3.644473751435503e-08</td><td>3.644473751435503e-08</td></tr>
+<tr><td>271.0929744751323</td><td>-1.1685017594340839</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>5.529973924709251e-08</td><td>5.529973924709251e-08</td><td>5.529973924709251e-08</td><td>5.529973924709251e-08</td><td>5.529973924709251e-08</td><td>5.529973924709251e-08</td><td>5.529973924709251e-08</td><td>5.529973924709251e-08</td></tr>
+<tr><td>271.0983758256309</td><td>-1.161585594182199</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1.2025314283427287e-08</td><td>1.2025314283427287e-08</td><td>1.2025314283427287e-08</td><td>1.2025314283427287e-08</td><td>1.2025314283427287e-08</td><td>1.2025314283427287e-08</td><td>1.2025314283427287e-08</td><td>1.2025314283427287e-08</td></tr>
+<tr><td>271.1471396728475</td><td>-1.1617762687469662</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>8.546476629428577e-09</td><td>8.546476629428577e-09</td><td>8.546476629428577e-09</td><td>8.546476629428577e-09</td><td>8.546476629428577e-09</td><td>8.546476629428577e-09</td><td>8.546476629428577e-09</td><td>8.546476629428577e-09</td></tr>
 <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>270.8982244442049</td><td>0.7833412579721568</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td></tr>
-<tr><td>270.891688653167</td><td>0.7905559632022983</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td></tr>
-<tr><td>270.84878920407095</td><td>0.7741962012724085</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td></tr>
-<tr><td>270.856438084778</td><td>0.7815989883789747</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td></tr>
-<tr><td>270.867042785166</td><td>0.7824470491562406</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td></tr>
-<tr><td>270.8445251583062</td><td>0.7783524071467798</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td></tr>
-<tr><td>270.84659357495093</td><td>0.7840969510678283</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td></tr>
-<tr><td>270.85045677120223</td><td>0.7824629817306872</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td></tr>
-<tr><td>270.87027439562826</td><td>0.7945387006712088</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td></tr>
-<tr><td>270.8349406570687</td><td>0.7926314576343849</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td></tr>
+<tr><td>270.85769202755245</td><td>0.773636140913735</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td></tr>
+<tr><td>270.8678714354956</td><td>0.7813771659605562</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td></tr>
+<tr><td>270.8810884457293</td><td>0.7918143514923536</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td></tr>
+<tr><td>270.92454702622655</td><td>0.7993537136787594</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td></tr>
+<tr><td>270.83084247667165</td><td>0.788319808618689</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td></tr>
+<tr><td>270.8567519994558</td><td>0.7790670197665834</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td></tr>
+<tr><td>270.8586204015057</td><td>0.7708144043522202</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td></tr>
+<tr><td>270.8727696686416</td><td>0.7881045599926982</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td></tr>
+<tr><td>270.85350681512693</td><td>0.789461511245047</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td></tr>
+<tr><td>270.9061584399961</td><td>0.7992513585093951</td><td>PSF</td><td>-1</td><td>-1</td><td>-1</td><td>-1</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td></tr>
 </table></div></div></div>
 </div>
 <p>Alternatively, we can generate a completely synthetic catalog of stars and galaxies using tools in Roman I-Sim (see parameters in the cell below). In this tutorial, we will simulate a galaxy catalog and merge it with the Gaia star catalog. This approach addresses the limitation of Gaia’s catalog, which includes only relatively bright sources, by adding galaxies. At the same time, real Gaia point sources are necessary for the Roman calibration pipeline to match images to Gaia astrometry.</p>
@@ -875,7 +872,7 @@ Results: None
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=338578</i>
-<table id="table140539032117936" class="table-striped table-bordered table-condensed">
+<table id="table139913701826896" class="table-striped table-bordered table-condensed">
 <thead><tr><th>ra</th><th>dec</th><th>type</th><th>n</th><th>half_light_radius</th><th>pa</th><th>ba</th><th>F062</th><th>F087</th><th>F106</th><th>F129</th><th>F146</th><th>F158</th><th>F184</th><th>F213</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>str3</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
 <tr><td>271.6295510520961</td><td>-0.03965028067096237</td><td>SER</td><td>3.516215236599453</td><td>0.8056893348693848</td><td>252.7303924560547</td><td>0.7235707640647888</td><td>3.6905281053378758e-09</td><td>1.1479291295302119e-08</td><td>1.2472877841673835e-08</td><td>6.86679868522333e-09</td><td>1.4913801305027619e-09</td><td>1.0117606308313043e-08</td><td>4.943988773931096e-09</td><td>2.402744225804554e-09</td></tr>
@@ -888,16 +885,16 @@ Results: None
 <tr><td>271.4612060810417</td><td>0.48981218301356017</td><td>SER</td><td>3.9307805517506704</td><td>0.30752477049827576</td><td>114.4226303100586</td><td>0.26505595445632935</td><td>6.278863207143104e-09</td><td>6.867115764919163e-10</td><td>1.5396568464609572e-09</td><td>1.934612026133209e-09</td><td>4.098307027078363e-09</td><td>1.5311047985022697e-09</td><td>4.907185768843192e-09</td><td>1.902641377782288e-09</td></tr>
 <tr><td>270.5213999343187</td><td>0.3768383558530194</td><td>SER</td><td>1.1385050100070848</td><td>0.8638880848884583</td><td>180.25221252441406</td><td>0.6406149864196777</td><td>2.1948302730834257e-07</td><td>1.7533350771259393e-08</td><td>2.676470600704306e-08</td><td>6.562089538419968e-08</td><td>2.8127658424637048e-08</td><td>1.7247877792669897e-08</td><td>1.6523750900887535e-07</td><td>2.2672709931725876e-08</td></tr>
 <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>270.8982244442049</td><td>0.7833412579721568</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td><td>8.301253507689698e-08</td></tr>
-<tr><td>270.891688653167</td><td>0.7905559632022983</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td><td>4.435160413544721e-08</td></tr>
-<tr><td>270.84878920407095</td><td>0.7741962012724085</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td><td>3.3556560147289275e-08</td></tr>
-<tr><td>270.856438084778</td><td>0.7815989883789747</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td><td>7.154661326816354e-09</td></tr>
-<tr><td>270.867042785166</td><td>0.7824470491562406</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td><td>5.272522389404903e-09</td></tr>
-<tr><td>270.8445251583062</td><td>0.7783524071467798</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td><td>6.219935170922937e-09</td></tr>
-<tr><td>270.84659357495093</td><td>0.7840969510678283</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td><td>7.617028551498317e-09</td></tr>
-<tr><td>270.85045677120223</td><td>0.7824629817306872</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td><td>5.548355452256315e-09</td></tr>
-<tr><td>270.87027439562826</td><td>0.7945387006712088</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td><td>1.0838427529662088e-08</td></tr>
-<tr><td>270.8349406570687</td><td>0.7926314576343849</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td><td>5.176431323599922e-09</td></tr>
+<tr><td>270.85769202755245</td><td>0.773636140913735</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td><td>8.986796115574053e-08</td></tr>
+<tr><td>270.8678714354956</td><td>0.7813771659605562</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td><td>2.9739923273900245e-08</td></tr>
+<tr><td>270.8810884457293</td><td>0.7918143514923536</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td><td>1.0099146401647886e-08</td></tr>
+<tr><td>270.92454702622655</td><td>0.7993537136787594</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td><td>6.088817097858871e-08</td></tr>
+<tr><td>270.83084247667165</td><td>0.788319808618689</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td><td>2.9773849683440578e-08</td></tr>
+<tr><td>270.8567519994558</td><td>0.7790670197665834</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td><td>1.2046944861879528e-08</td></tr>
+<tr><td>270.8586204015057</td><td>0.7708144043522202</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td><td>6.308154822102114e-09</td></tr>
+<tr><td>270.8727696686416</td><td>0.7881045599926982</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td><td>7.121531420844011e-09</td></tr>
+<tr><td>270.85350681512693</td><td>0.789461511245047</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td><td>3.9139177455632116e-08</td></tr>
+<tr><td>270.9061584399961</td><td>0.7992513585093951</td><td>PSF</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>-1.0</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td><td>1.1693905898571949e-07</td></tr>
 </table></div></div></div>
 </div>
 <p>We can see galaxies at the top of the stacked catalog (notice type == “SER” for Sersic and values of n (the Sersic index) are not -1, while stars have type == PSF).</p>
@@ -953,454 +950,454 @@ Results: None
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:18 INFO     Simulating filter F106...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:44 INFO     Simulating filter F106...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:18 INFO     NumExpr defaulting to 4 threads.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:44 INFO     NumExpr defaulting to 4 threads.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Computing wavelength weights using synthetic photometry for F106...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Computing wavelength weights using synthetic photometry for F106...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Creating optical system model:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Creating optical system model:
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Initialized OpticalSystem: Roman+WFI
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Initialized OpticalSystem: Roman+WFI
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Added pupil plane: Roman Entrance Pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Added pupil plane: Roman Entrance Pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Added coordinate inversion plane: OTE exit pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Added coordinate inversion plane: OTE exit pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO     Calculating PSF with 10 wavelengths
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO     Calculating PSF with 10 wavelengths
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:20 INFO      Propagating wavelength = 9.4555e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:49 INFO      Propagating wavelength = 9.4555e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:27 INFO      Propagating wavelength = 9.7265e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:56 INFO      Propagating wavelength = 9.7265e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:28 INFO      Propagating wavelength = 9.9975e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:57 INFO      Propagating wavelength = 9.9975e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:28 INFO      Propagating wavelength = 1.02685e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:57 INFO      Propagating wavelength = 1.02685e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:29 INFO      Propagating wavelength = 1.05395e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:58 INFO      Propagating wavelength = 1.05395e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:29 INFO      Propagating wavelength = 1.08105e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:58 INFO      Propagating wavelength = 1.08105e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:30 INFO      Propagating wavelength = 1.10815e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:59 INFO      Propagating wavelength = 1.10815e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:30 INFO      Propagating wavelength = 1.13525e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:47:59 INFO      Propagating wavelength = 1.13525e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:31 INFO      Propagating wavelength = 1.16235e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:00 INFO      Propagating wavelength = 1.16235e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:31 INFO      Propagating wavelength = 1.18945e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:00 INFO      Propagating wavelength = 1.18945e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO       Calculation completed in 11.209 s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO       Calculation completed in 11.315 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     PSF Calculation completed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     PSF Calculation completed.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Calculating jitter using gaussian
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Calculating jitter using gaussian
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO             resulting image peak drops to 0.946 of its previous value
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO             resulting image peak drops to 0.946 of its previous value
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO      Adding extension with image downsampled to detector pixel scale.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO      Adding extension with image downsampled to detector pixel scale.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Computing wavelength weights using synthetic photometry for F106...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Computing wavelength weights using synthetic photometry for F106...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Creating optical system model:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Creating optical system model:
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Initialized OpticalSystem: Roman+WFI
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Initialized OpticalSystem: Roman+WFI
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Added pupil plane: Roman Entrance Pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Added pupil plane: Roman Entrance Pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Added coordinate inversion plane: OTE exit pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Added coordinate inversion plane: OTE exit pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO     Calculating PSF with 10 wavelengths
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO     Calculating PSF with 10 wavelengths
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:32 INFO      Propagating wavelength = 9.4555e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:01 INFO      Propagating wavelength = 9.4555e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:33 INFO      Propagating wavelength = 9.7265e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:02 INFO      Propagating wavelength = 9.7265e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:33 INFO      Propagating wavelength = 9.9975e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:02 INFO      Propagating wavelength = 9.9975e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:34 INFO      Propagating wavelength = 1.02685e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:03 INFO      Propagating wavelength = 1.02685e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:34 INFO      Propagating wavelength = 1.05395e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:03 INFO      Propagating wavelength = 1.05395e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:35 INFO      Propagating wavelength = 1.08105e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:04 INFO      Propagating wavelength = 1.08105e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:35 INFO      Propagating wavelength = 1.10815e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:04 INFO      Propagating wavelength = 1.10815e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:36 INFO      Propagating wavelength = 1.13525e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:05 INFO      Propagating wavelength = 1.13525e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:36 INFO      Propagating wavelength = 1.16235e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:05 INFO      Propagating wavelength = 1.16235e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO      Propagating wavelength = 1.18945e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:06 INFO      Propagating wavelength = 1.18945e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO       Calculation completed in 5.028 s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:06 INFO       Calculation completed in 5.162 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO     PSF Calculation completed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     PSF Calculation completed.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO     Calculating jitter using gaussian
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Calculating jitter using gaussian
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO             resulting image peak drops to 0.946 of its previous value
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO             resulting image peak drops to 0.946 of its previous value
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO      Adding extension with image downsampled to detector pixel scale.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO      Adding extension with image downsampled to detector pixel scale.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:37 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Computing wavelength weights using synthetic photometry for F106...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Computing wavelength weights using synthetic photometry for F106...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Creating optical system model:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Creating optical system model:
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Initialized OpticalSystem: Roman+WFI
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Initialized OpticalSystem: Roman+WFI
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Added pupil plane: Roman Entrance Pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Added pupil plane: Roman Entrance Pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Added coordinate inversion plane: OTE exit pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Added coordinate inversion plane: OTE exit pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO     Calculating PSF with 10 wavelengths
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO     Calculating PSF with 10 wavelengths
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO      Propagating wavelength = 9.4555e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:07 INFO      Propagating wavelength = 9.4555e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:38 INFO      Propagating wavelength = 9.7265e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:08 INFO      Propagating wavelength = 9.7265e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:39 INFO      Propagating wavelength = 9.9975e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:08 INFO      Propagating wavelength = 9.9975e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:39 INFO      Propagating wavelength = 1.02685e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:09 INFO      Propagating wavelength = 1.02685e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:40 INFO      Propagating wavelength = 1.05395e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:09 INFO      Propagating wavelength = 1.05395e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:40 INFO      Propagating wavelength = 1.08105e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:10 INFO      Propagating wavelength = 1.08105e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:41 INFO      Propagating wavelength = 1.10815e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:10 INFO      Propagating wavelength = 1.10815e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:42 INFO      Propagating wavelength = 1.13525e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:11 INFO      Propagating wavelength = 1.13525e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:42 INFO      Propagating wavelength = 1.16235e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:11 INFO      Propagating wavelength = 1.16235e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO      Propagating wavelength = 1.18945e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO      Propagating wavelength = 1.18945e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO       Calculation completed in 5.036 s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO       Calculation completed in 5.201 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO     PSF Calculation completed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO     PSF Calculation completed.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO     Calculating jitter using gaussian
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO     Calculating jitter using gaussian
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO             resulting image peak drops to 0.946 of its previous value
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO             resulting image peak drops to 0.946 of its previous value
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO      Adding extension with image downsampled to detector pixel scale.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO      Adding extension with image downsampled to detector pixel scale.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:12 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:43 INFO     Computing wavelength weights using synthetic photometry for F106...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Computing wavelength weights using synthetic photometry for F106...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Creating optical system model:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Creating optical system model:
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Initialized OpticalSystem: Roman+WFI
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Initialized OpticalSystem: Roman+WFI
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Added pupil plane: Roman Entrance Pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Added pupil plane: Roman Entrance Pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Added coordinate inversion plane: OTE exit pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Added coordinate inversion plane: OTE exit pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO     Calculating PSF with 10 wavelengths
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO     Calculating PSF with 10 wavelengths
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO      Propagating wavelength = 9.4555e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO      Propagating wavelength = 9.4555e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:44 INFO      Propagating wavelength = 9.7265e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:13 INFO      Propagating wavelength = 9.7265e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:45 INFO      Propagating wavelength = 9.9975e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:14 INFO      Propagating wavelength = 9.9975e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:45 INFO      Propagating wavelength = 1.02685e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:15 INFO      Propagating wavelength = 1.02685e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:46 INFO      Propagating wavelength = 1.05395e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:15 INFO      Propagating wavelength = 1.05395e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:46 INFO      Propagating wavelength = 1.08105e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:16 INFO      Propagating wavelength = 1.08105e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:47 INFO      Propagating wavelength = 1.10815e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:16 INFO      Propagating wavelength = 1.10815e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:47 INFO      Propagating wavelength = 1.13525e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:17 INFO      Propagating wavelength = 1.13525e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:48 INFO      Propagating wavelength = 1.16235e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:17 INFO      Propagating wavelength = 1.16235e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:48 INFO      Propagating wavelength = 1.18945e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO      Propagating wavelength = 1.18945e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:49 INFO       Calculation completed in 5.031 s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO       Calculation completed in 5.114 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:49 INFO     PSF Calculation completed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO     PSF Calculation completed.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:49 INFO     Calculating jitter using gaussian
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO     Calculating jitter using gaussian
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:49 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:49 INFO             resulting image peak drops to 0.946 of its previous value
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO             resulting image peak drops to 0.946 of its previous value
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:49 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:49 INFO      Adding extension with image downsampled to detector pixel scale.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO      Adding extension with image downsampled to detector pixel scale.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:49 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:49 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:18 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:54 WARNING  max(flat) &gt; 1.1; this seems weird?!
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:23 WARNING  max(flat) &gt; 1.1; this seems weird?!
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:04:54 INFO     Adding 1745 sources to image...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:48:23 INFO     Adding 1745 sources to image...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:06:18 INFO     Rendered 1745 sources...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:49:48 INFO     Rendered 1745 sources...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:06:21 INFO     Apportioning electrons to resultants...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:49:51 INFO     Apportioning electrons to resultants...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:06:51 INFO     Adding IPC...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:21 INFO     Adding IPC...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:06:52 INFO     Adding read noise...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:22 INFO     Adding read noise...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:06:56 INFO     Fitting ramps.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:26 INFO     Fitting ramps.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:01 INFO     Simulation complete.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:32 INFO     Simulation complete.
 </pre></div>
 </div>
 </div>
@@ -1611,7 +1608,7 @@ Requirement already satisfied: msgpack&gt;=1.0.2 in /home/runner/micromamba/envs
 Requirement already satisfied: psutil&gt;=5.8.0 in /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages (from distributed==2025.11.0-&gt;dask[complete]) (7.1.3)
 Requirement already satisfied: sortedcontainers&gt;=2.0.5 in /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages (from distributed==2025.11.0-&gt;dask[complete]) (2.4.0)
 Requirement already satisfied: tblib&gt;=1.6.0 in /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages (from distributed==2025.11.0-&gt;dask[complete]) (3.2.2)
-Requirement already satisfied: tornado&gt;=6.2.0 in /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages (from distributed==2025.11.0-&gt;dask[complete]) (6.5.2)
+Requirement already satisfied: tornado&gt;=6.2.0 in /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages (from distributed==2025.11.0-&gt;dask[complete]) (6.5.3)
 Requirement already satisfied: urllib3&gt;=1.26.5 in /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages (from distributed==2025.11.0-&gt;dask[complete]) (2.6.1)
 Requirement already satisfied: zict&gt;=3.0.0 in /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages (from distributed==2025.11.0-&gt;dask[complete]) (3.0.0)
 Requirement already satisfied: contourpy&gt;=1.2 in /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages (from bokeh&gt;=3.1.0-&gt;dask[complete]) (1.3.3)
@@ -1872,7 +1869,7 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/micromamba/envs/ci-en
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=1</i>
-<table id="table140539418992800" class="table-striped table-bordered table-condensed">
+<table id="table139914097909040" class="table-striped table-bordered table-condensed">
 <thead><tr><th>ra</th><th>dec</th><th>type</th><th>F106</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>str3</th><th>float64</th></tr></thead>
 <tr><td>270.904026679121</td><td>-0.19579469786176076</td><td>PSF</td><td>2e-08</td></tr>
@@ -1900,118 +1897,118 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/micromamba/envs/ci-en
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:04 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:35 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:04 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:35 INFO     Using pupil mask &#39;F062&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:04 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:35 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     No source spectrum supplied, therefore defaulting to 5700 K blackbody
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Computing wavelength weights using synthetic photometry for F106...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Computing wavelength weights using synthetic photometry for F106...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Using pupil mask &#39;F106&#39; and detector &#39;WFI01&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     PSF calc using fov_arcsec = 5.000000, oversample = 4, number of wavelengths = 10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Creating optical system model:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Creating optical system model:
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Initialized OpticalSystem: Roman+WFI
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Initialized OpticalSystem: Roman+WFI
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Roman Entrance Pupil: Loaded amplitude transmission from /home/runner/refdata/stpsf-data/WFI/pupils/RST_WIM_Filter_F106_WFI01.fits.gz
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Roman Entrance Pupil: Loaded OPD from /home/runner/refdata/stpsf-data/upscaled_HST_OPD.fits
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Added pupil plane: Roman Entrance Pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Added pupil plane: Roman Entrance Pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Added coordinate inversion plane: OTE exit pupil
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Added coordinate inversion plane: OTE exit pupil
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Added pupil plane: Field Dependent Aberration (WFI01)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Added detector with pixelscale=0.1078577405 and oversampling=4: WFI detector
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO     Calculating PSF with 10 wavelengths
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO     Calculating PSF with 10 wavelengths
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:05 INFO      Propagating wavelength = 9.4555e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:36 INFO      Propagating wavelength = 9.4555e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:06 INFO      Propagating wavelength = 9.7265e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:37 INFO      Propagating wavelength = 9.7265e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:06 INFO      Propagating wavelength = 9.9975e-07 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:37 INFO      Propagating wavelength = 9.9975e-07 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:07 INFO      Propagating wavelength = 1.02685e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:38 INFO      Propagating wavelength = 1.02685e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:07 INFO      Propagating wavelength = 1.05395e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:38 INFO      Propagating wavelength = 1.05395e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:08 INFO      Propagating wavelength = 1.08105e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:39 INFO      Propagating wavelength = 1.08105e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:08 INFO      Propagating wavelength = 1.10815e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:39 INFO      Propagating wavelength = 1.10815e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:09 INFO      Propagating wavelength = 1.13525e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:40 INFO      Propagating wavelength = 1.13525e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:09 INFO      Propagating wavelength = 1.16235e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:40 INFO      Propagating wavelength = 1.16235e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO      Propagating wavelength = 1.18945e-06 m
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO      Propagating wavelength = 1.18945e-06 m
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO       Calculation completed in 5.013 s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO       Calculation completed in 5.180 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO     PSF Calculation completed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO     PSF Calculation completed.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO     Calculating jitter using gaussian
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO     Calculating jitter using gaussian
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO     Jitter: Convolving with Gaussian with sigma=0.012 arcsec
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO             resulting image peak drops to 0.946 of its previous value
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO             resulting image peak drops to 0.946 of its previous value
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO     Detector charge diffusion not applied because charge_diffusion_sigma option is 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO      Adding extension with image downsampled to detector pixel scale.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO      Adding extension with image downsampled to detector pixel scale.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO      Downsampling to detector pixel scale, by 4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:41 INFO      Downsampling to detector pixel scale, by 4
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO     Adding 1 sources to image...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:42 INFO     Adding 1 sources to image...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:10 INFO     Rendered 1 sources...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:42 INFO     Rendered 1 sources...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 02:07:11 INFO     Fitting ramps.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:50:42 INFO     Fitting ramps.
 </pre></div>
 </div>
 </div>
@@ -2111,11 +2108,11 @@ Requirement already satisfied: six&gt;=1.5 in /home/runner/micromamba/envs/ci-en
       </div>
     </a>
     <a class="right-next"
-       href="../working_with_asdf/working_with_asdf.html"
+       href="../stips/stips.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">How to Open Roman Data Files (ASDF)</p>
+        <p class="prev-next-title">STIPS Tutorial</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -1,0 +1,994 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Roman WFI Synthetic Photometry with synphot &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/synphot/synphot';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="How to Open Roman Data Files (ASDF)" href="../working_with_asdf/working_with_asdf.html" />
+    <link rel="prev" title="STPSF Tutorial" href="../stpsf/stpsf.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/synphot/synphot.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/synphot/synphot.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Roman WFI Synthetic Photometry with synphot</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information">Kernel Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-roman-research-nexus">On the Roman Research Nexus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data">Loading data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-run">Sample Run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-and-examples">Use Cases and Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-roman-wfi-filter-throughputs-and-information">Plot the Roman WFI Filter Throughputs and Information</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-wfi-throughputs-from-stpsf">Retrieving WFI Throughputs from STPSF</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-wfi-throughputs-from-stsynphot">Retrieving WFI Throughputs from stsynphot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-and-computing-bandpass-information">Plotting and Computing Bandpass Information</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-photometry-of-a-simulated-source">Synthetic Photometry of a Simulated Source</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="roman-wfi-synthetic-photometry-with-synphot">
+<h1>Roman WFI Synthetic Photometry with synphot<a class="headerlink" href="#roman-wfi-synthetic-photometry-with-synphot" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="kernel-information">
+<h2>Kernel Information<a class="headerlink" href="#kernel-information" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p><strong>Purpose</strong>:<br>
+In this tutorial, we will demonstrate how to use the Synthetic Photometry (<code class="docutils literal notranslate"><span class="pre">synphot</span></code>) and Synthetic Photometry for HST (<code class="docutils literal notranslate"><span class="pre">stsynphot</span></code>) software to estimate the brightness of both empirical and theoretical sources as they would be measured by the Roman Wide Field Instrument (WFI). Note that we will use terms such as transmission and throughput interchangeably throughout the tutorial, but what we mean is the unitless measurement efficiency as a function of wavelength (or frequency) for the detection of photons at the end of the optics chain between the Roman primary mirror and the WFI detectors including all components in between (e.g., secondary mirror, optical elements, etc.). For more information on <code class="docutils literal notranslate"><span class="pre">synphot</span></code> and <code class="docutils literal notranslate"><span class="pre">stsynphot</span></code> and its use with Roman data, please visit the <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/simulation-development-utilities/synphot-for-roman">RDox pages on synphot</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="reference-data">
+<h2>Reference Data<a class="headerlink" href="#reference-data" title="Link to this heading">#</a></h2>
+<p>The cell below will check to ensure ancillary reference files for <code class="docutils literal notranslate"><span class="pre">synphot</span></code> and <code class="docutils literal notranslate"><span class="pre">stpsf</span></code> packages are installed. If not, it will download the ancillary reference files and install them under your home directory (i.e., <code class="docutils literal notranslate"><span class="pre">${HOME}/refdata/</span></code>).</p>
+<section id="local-run-settings">
+<h3>Local Run Settings<a class="headerlink" href="#local-run-settings" title="Link to this heading">#</a></h3>
+<p>If you want to run the notebook in your local machine, refer to the information in the <a class="reference internal" href="../../markdown/local-run.html"><span class="std std-doc">local installation</span></a> instructions before proceeding with the notebook. The instructions provide important information about setting up your environment, installing dependnecies, and adding to your working directory scripts to help with the reference data installation.</p>
+<p>Depending on which (if any) reference data are missing, this cell may take several minutes to execute.</p>
+</section>
+<section id="on-the-roman-research-nexus">
+<h3>On the Roman Research Nexus<a class="headerlink" href="#on-the-roman-research-nexus" title="Link to this heading">#</a></h3>
+<p>If you are working on the Nexus, then the ancillary reference data are pre-installed and this cell will execute instantly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">notebook_data_dependencies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ndd</span>
+
+<span class="c1"># Download reference data (if necessary)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;synphot&#39;</span><span class="p">,</span> <span class="s1">&#39;stpsf&#39;</span><span class="p">])</span>
+<span class="n">ndd</span><span class="o">.</span><span class="n">setup_env</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found stpsf path /home/runner/refdata/stpsf-data
+Found synphot path /home/runner/refdata/grp/redcat/trds/
+Reference data paths set to:
+	STPSF_PATH = /home/runner/refdata/stpsf-data
+	PYSYN_CDBS = /home/runner/refdata/grp/redcat/trds/
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="loading-data">
+<h2>Loading data<a class="headerlink" href="#loading-data" title="Link to this heading">#</a></h2>
+<p>Models, simulations, and instrument’s data used in this notebook are loaded from Flexible Image Transport System (FITS) binary tables using functions within <code class="docutils literal notranslate"><span class="pre">stsynphot</span></code> and the simulated point spread functions pacakge for NASA’s James Webb Space Telescope (JWST) and Nancy Grace Roman Space Telescope <code class="docutils literal notranslate"><span class="pre">stpsf</span></code>. For more information on the software and its use with Roman data, please visit the <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman">RDox pages on STPSF</a>.</p>
+<p>On the Roman Research Nexus the ancillary reference data are pre-installed. If running localy the data will be downloaded in the Reference Data Installation section. Data may also be loaded as NumPy NDArray objects. Note that Roman WFI throughput information in <code class="docutils literal notranslate"><span class="pre">stsynphot</span></code> and <code class="docutils literal notranslate"><span class="pre">stpsf</span></code> produce identical results. JWST instrument throughputs are currently only available via stpsf.</p>
+<p><strong>IMPORTANT NOTE:</strong> Roman WFI throughputs from <code class="docutils literal notranslate"><span class="pre">stsynphot</span></code> and <code class="docutils literal notranslate"><span class="pre">stpsf</span></code> are currently for a single detector and combine the entire optical chain. Updates to the transmission information are expected as part of the ground testing campaign of both the WFI and the integrated observatory and eventually on-orbit commissioning. Newer throughput curves per detector (including, e.g., variations in average detector quantum efficiency) are available at the <a class="reference external" href="https://github.com/RomanSpaceTelescope/roman-technical-information/">Roman Technical Information Repository</a>, and will be made available in the future using WFI calibration reference files. Simulations using <a class="reference internal" href="../romanisim/romanisim.html"><span class="std std-doc">Roman I-Sim</span></a> use zeropoints per detector derived from the throughput curves in the technical information repository. You can use the throughput curves from the repository in the examples below by reading in the file and creating a <code class="docutils literal notranslate"><span class="pre">synphot.SpectralElement</span></code> object with an <code class="docutils literal notranslate"><span class="pre">astropy.models.Empirical1D</span></code> model.</p>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><em>os</em> for access to environment variables and file paths (previous cell)</p></li>
+<li><p><em>astropy.units</em> for unit specification and conversion</p></li>
+<li><p><em>matplotlib.pyplot</em> for plotting</p></li>
+<li><p><em>numpy</em> for data array creation and manipulation</p></li>
+<li><p><em>synphot</em> for synthetic photometry</p></li>
+<li><p><em>stsynphot</em> for access to HST, Roman, and other transmission curves</p></li>
+<li><p><em>stpsf</em> for access to Roman and JWST transmission curves (optional)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">synphot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">syn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">stsynphot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stsyn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">stpsf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="sample-run">
+<h3>Sample Run<a class="headerlink" href="#sample-run" title="Link to this heading">#</a></h3>
+<p>Let’s pretend we have a very simple bandpass that only has three samples in wavelength:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wavelength</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.1</span><span class="o">.</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]</span> <span class="n">microns</span>
+<span class="n">throughput</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We can create our <code class="docutils literal notranslate"><span class="pre">synphot.SpectralElement</span></code> object as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the bandpass information</span>
+<span class="n">wavelength</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span>
+<span class="n">throughput</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Create the bandass as a synphot.SpectralElement object</span>
+<span class="n">bandpass</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">SpectralElement</span><span class="p">(</span><span class="n">syn</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Empirical1D</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">lookup_table</span><span class="o">=</span><span class="n">throughput</span><span class="p">)</span>
+
+<span class="c1"># Evaluate the bandpass at 1.05 micron</span>
+<span class="n">bandpass</span><span class="p">(</span><span class="mf">1.05</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[0.375 \; \mathrm{}\]</div>
+</div>
+</div>
+<p>It is important to note that the curves in the Roman Technical Information Repository are <strong>effective area</strong> curves rather than unitless throughput. The only modification required to use effective area curves in the examples below is to set the collecting area of the telescope to 1 m<sup>2</sup> in any function that requires the collecting area (e.g., when computing instrumental count rate).</p>
+</section>
+</section>
+<section id="use-cases-and-examples">
+<h2>Use Cases and Examples<a class="headerlink" href="#use-cases-and-examples" title="Link to this heading">#</a></h2>
+<section id="plot-the-roman-wfi-filter-throughputs-and-information">
+<h3>Plot the Roman WFI Filter Throughputs and Information<a class="headerlink" href="#plot-the-roman-wfi-filter-throughputs-and-information" title="Link to this heading">#</a></h3>
+<p>There are two approaches to retrieving WFI throughput information. Here we will show both methods of loading the throughput information. All the remaining steps in the tutorial are independent from the specific loading method.</p>
+<section id="retrieving-wfi-throughputs-from-stpsf">
+<h4>Retrieving WFI Throughputs from STPSF<a class="headerlink" href="#retrieving-wfi-throughputs-from-stpsf" title="Link to this heading">#</a></h4>
+<p>To retrieve the optical element throughput information from <code class="docutils literal notranslate"><span class="pre">stpsf</span></code>, we set up the WFI object, and use the method <code class="docutils literal notranslate"><span class="pre">_get_synphot_bandpass</span></code>, which takes the optical element name as the only argument. In the example below, we load the throughput information for the F129 imaging filter. This new Python object behaves as a callable function that takes as input the wavelength or frequency of interest and returns the throughput at that wavelength or frequency.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the Roman WFI object and retrieve the throughput of a filter</span>
+<span class="n">roman</span> <span class="o">=</span> <span class="n">stpsf</span><span class="o">.</span><span class="n">WFI</span><span class="p">()</span>
+<span class="n">wfi_f129</span> <span class="o">=</span> <span class="n">roman</span><span class="o">.</span><span class="n">_get_synphot_bandpass</span><span class="p">(</span><span class="s1">&#39;F129&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wfi_f129</span><span class="p">(</span><span class="mf">1.29</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6693794055442986
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="retrieving-wfi-throughputs-from-stsynphot">
+<h4>Retrieving WFI Throughputs from stsynphot<a class="headerlink" href="#retrieving-wfi-throughputs-from-stsynphot" title="Link to this heading">#</a></h4>
+<p>If we want to retrieve the same information using <code class="docutils literal notranslate"><span class="pre">stsynphot</span></code>, which contains tools to load STScI-specific bandpass information from the Spectral Atlas Files for Synphot Software, we use the <code class="docutils literal notranslate"><span class="pre">synphot.band</span></code> class and give as input a string that contains the mission, instrument, and element name, e.g., “roman, wfi, f129”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the Roman WFI object and retrieve the throughput of a filter</span>
+<span class="n">wfi_f129</span> <span class="o">=</span> <span class="n">stsyn</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="s1">&#39;roman, wfi, f129&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wfi_f129</span><span class="p">(</span><span class="mf">1.29</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6448
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-and-computing-bandpass-information">
+<h4>Plotting and Computing Bandpass Information<a class="headerlink" href="#plotting-and-computing-bandpass-information" title="Link to this heading">#</a></h4>
+<p>Regardless of the method we chose to load the throughput data, we can then plot the throughput curves and compute some information about our bandpasses. The following code block will generate a plot of the WFI imaging filter throughputs (with the exception of the wide F146 filter, which has been omitted for clarity):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the Roman WFI object and make a list of the optical element names</span>
+<span class="n">roman_filter</span> <span class="o">=</span> <span class="s1">&#39;F062 F087 F106 F129 F158 F184 F213&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+ 
+<span class="c1"># Set up wavelengths from 0.4 to 2.5 microns in increments of 0.01 microns.</span>
+<span class="n">waves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span>
+ 
+<span class="c1"># Set up figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+ 
+<span class="c1"># For each optical element, plot the throughput in a different color</span>
+<span class="c1"># and shade the area below the curve.</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">roman_filter</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">roman_filter</span><span class="p">):</span>
+    <span class="n">band</span> <span class="o">=</span> <span class="n">stsyn</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;roman,wfi,</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">clean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">band</span><span class="p">(</span><span class="n">waves</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">waves</span><span class="p">[</span><span class="n">clean</span><span class="p">],</span> <span class="n">band</span><span class="p">(</span><span class="n">waves</span><span class="p">[</span><span class="n">clean</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">waves</span><span class="p">[</span><span class="n">clean</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">band</span><span class="p">(</span><span class="n">waves</span><span class="p">[</span><span class="n">clean</span><span class="p">])</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+ 
+<span class="c1"># Set plot axis labels, ranges, and add grid lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Wavelength ($\mu$m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Throughput&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b3e2db3fb5cdaee1dd5de0bb217a02943f7beebdfc5fa06df427241d0725ddba.png" src="../../_images/b3e2db3fb5cdaee1dd5de0bb217a02943f7beebdfc5fa06df427241d0725ddba.png" />
+</div>
+</div>
+<p>We can also get information about the bandpasses using the following methods on the bandpass objects in synphot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">band</span> <span class="o">=</span> <span class="n">stsyn</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="s1">&#39;roman, wfi, f129&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WFI F129:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Bandwidth: </span><span class="si">{</span><span class="n">band</span><span class="o">.</span><span class="n">photbw</span><span class="p">()</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Pivot wavelength: </span><span class="si">{</span><span class="n">band</span><span class="o">.</span><span class="n">pivot</span><span class="p">()</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">FWHM: </span><span class="si">{</span><span class="n">band</span><span class="o">.</span><span class="n">fwhm</span><span class="p">()</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WFI F129:
+	Bandwidth: 942.49697 Angstrom
+	Pivot wavelength: 12901.34508 Angstrom
+	FWHM: 2219.41077 Angstrom
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="synthetic-photometry-of-a-simulated-source">
+<h3>Synthetic Photometry of a Simulated Source<a class="headerlink" href="#synthetic-photometry-of-a-simulated-source" title="Link to this heading">#</a></h3>
+<p>Here we show how to perform synthetic photometry of a simulated source. For this example, we will use a star of spectral type M5III, and we will add additional extinction to the source spectrum using the Milky Way extinction law. We also normalize the spectrum to a particular Johnson V-band AB magnitude, but this could be normalized to any flux density or equivalent in any band (e.g., Hubble and JWST instruments, 2MASS, etc.).</p>
+<p>In our example, we will use a Phoenix model (Allard et al. 2009, 2007, 2012) for our star with an effective temperature of 3400 Kelvin, specific gravity of log(g)=1.5, and a metallicity of [M/H] = -0.5. We use the <code class="docutils literal notranslate"><span class="pre">grid_to_spec()</span></code> function to retrieve the correct model for these input parameters. The <code class="docutils literal notranslate"><span class="pre">grid_to_spec()</span></code> function supports the Kurucz (1993), Castelli &amp; Kurucz (2004), and Phoenix models. For more information, see the <a class="reference external" href="https://stsynphot.readthedocs.io/en/latest/stsynphot/appendixa.html">Catalogs and Spectral Atlases</a> appendix in the <code class="docutils literal notranslate"><span class="pre">stsynphot</span></code> documentation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve the spectrum of the star</span>
+<span class="n">star_spec</span> <span class="o">=</span> <span class="n">stsyn</span><span class="o">.</span><span class="n">grid_to_spec</span><span class="p">(</span><span class="s1">&#39;phoenix&#39;</span><span class="p">,</span> <span class="mi">3400</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<span class="c1"># Renormalize the spectrum to have a Johnson V-band magnitude of 22.5 ABmag</span>
+<span class="n">norm_spec</span> <span class="o">=</span> <span class="n">star_spec</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="mf">22.5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">ABmag</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="n">stsyn</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="s1">&#39;johnson, v&#39;</span><span class="p">))</span>
+ 
+<span class="c1"># Add extinction corresponding to E(B-V) = 2.3 using the Milky Way extinction law (Rv = 3.1)</span>
+<span class="n">extinction</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">ReddeningLaw</span><span class="o">.</span><span class="n">from_extinction_model</span><span class="p">(</span><span class="s1">&#39;mwavg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extinction_curve</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
+<span class="n">final_spec</span> <span class="o">=</span> <span class="n">norm_spec</span> <span class="o">*</span> <span class="n">extinction</span>
+ 
+<span class="c1"># Compute the flux density arrays</span>
+<span class="n">wavelengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span>
+<span class="n">norm_fluxes</span> <span class="o">=</span> <span class="n">norm_spec</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">,</span> <span class="n">flux_unit</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">Jy</span><span class="p">)</span>
+<span class="n">final_fluxes</span> <span class="o">=</span> <span class="n">final_spec</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">,</span> <span class="n">flux_unit</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">Jy</span><span class="p">)</span>
+ 
+<span class="c1"># Plot the spectra</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">,</span> <span class="n">norm_fluxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normalized Spectrum, V = 22.5 ABmag&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">,</span> <span class="n">final_fluxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Reddened Spectrum, E(B $-$ V) = 2.3&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Flux Density (Jy)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Wavelength ($\mu$m)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Wavelength ($\\mu$m)&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/d57481715de6d573ded3dd38c2262756a5765a02316bf0bd2c1314b49e413115.png" src="../../_images/d57481715de6d573ded3dd38c2262756a5765a02316bf0bd2c1314b49e413115.png" />
+</div>
+</div>
+<p>Now that we have our spectrum, we can “observe” it using the WFI:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the WFI F158 element</span>
+<span class="n">wfi_f158</span> <span class="o">=</span> <span class="n">stsyn</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="s1">&#39;roman, wfi, f158&#39;</span><span class="p">)</span>
+
+<span class="c1"># Observe the spectrum with the F158 bandpass</span>
+<span class="n">obs_spec</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">Observation</span><span class="p">(</span><span class="n">final_spec</span><span class="p">,</span> <span class="n">wfi_f158</span><span class="p">)</span>
+ 
+<span class="c1"># Print out the magnitudes, flux density, and count rate (electrons per second) of the observed source</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;M5III star, WFI F158:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="si">{</span><span class="n">obs_spec</span><span class="o">.</span><span class="n">effstim</span><span class="p">(</span><span class="n">syn</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">VEGAMAG</span><span class="p">,</span><span class="w"> </span><span class="n">vegaspec</span><span class="o">=</span><span class="n">syn</span><span class="o">.</span><span class="n">SourceSpectrum</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">syn</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">vega_file</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="si">{</span><span class="n">obs_spec</span><span class="o">.</span><span class="n">effstim</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">ABmag</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="si">{</span><span class="n">obs_spec</span><span class="o">.</span><span class="n">effstim</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">Jy</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="si">{</span><span class="n">obs_spec</span><span class="o">.</span><span class="n">countrate</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">2.4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="o">.</span><span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>M5III star, WFI F158:
+	18.511898427421443 mag(VEGA)
+	19.816370694994315 mag(AB)
+	4.299834322103441e-05 Jy
+	1964.8644086735662 ct / s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s suppose that we wish to estimate the brightness of a source with a spectral energy distribution that can be described with a power law with spectral index of $\alpha=-1$. We have access to a library of Astropy models that can be used to approximate the input spectrum. We will normalize our example to a flux density of 5 mJy at 1.5 $\mu m$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create spectrum model</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">SourceSpectrum</span><span class="p">(</span><span class="n">syn</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">PowerLawFlux1D</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mJy</span><span class="p">,</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s plot the spectrum and make sure that it looks correct:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a wavelength array from 0.6 to 2.5 microns in bins of 0.001 micron.</span>
+<span class="n">waves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span>
+
+<span class="c1"># Plot the model</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">waves</span><span class="p">,</span> <span class="n">source</span><span class="p">(</span><span class="n">waves</span><span class="p">,</span> <span class="n">flux_unit</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">Jy</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Flux Density (Jy)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Wavelength ($\mu$m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/465311f34d8c2f9678317dd884b3bd20e6cffc21e2d84196b87ec8f89e89eadf.png" src="../../_images/465311f34d8c2f9678317dd884b3bd20e6cffc21e2d84196b87ec8f89e89eadf.png" />
+</div>
+</div>
+<p>Let’s add another component to our spectrum to see how models can be combined. In this case, let’s add a Gaussian absorption line at 1.2 $\mu m$ with an amplitude of 2 mJy and a full-width half-maximum (FWHM) of 0.1 $\mu m$, and a Gaussian emission line at 1.5 $\mu m$ with an amplitude of 1 mJy and a FWHM of 0.01 $\mu m$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Gaussian emission lines</span>
+<span class="n">abs_line</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">SourceSpectrum</span><span class="p">(</span><span class="n">syn</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">GaussianFlux1D</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mJy</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">1.2</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span><span class="p">,</span> <span class="n">fwhm</span><span class="o">=</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span><span class="p">)</span>
+<span class="n">em_line</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">SourceSpectrum</span><span class="p">(</span><span class="n">syn</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">GaussianFlux1D</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">mJy</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span><span class="p">,</span> <span class="n">fwhm</span><span class="o">=</span><span class="mf">0.01</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span><span class="p">)</span>
+
+<span class="c1"># Add components together and plot the total model</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">source</span> <span class="o">-</span> <span class="n">abs_line</span> <span class="o">+</span> <span class="n">em_line</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">waves</span><span class="p">,</span> <span class="n">total</span><span class="p">(</span><span class="n">waves</span><span class="p">,</span> <span class="n">flux_unit</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">Jy</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Wavelength ($\mu m$)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Flux Density (Jy)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b22407756963a60c5e19d64a932508012673f3f1c784f7817bd9bd0dcb2938bc.png" src="../../_images/b22407756963a60c5e19d64a932508012673f3f1c784f7817bd9bd0dcb2938bc.png" />
+</div>
+</div>
+<p>Let’s observe this model spectrum and take a look at what it looks like after it passes through the optical chain by convolving the model with one of our transmission curves:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f129</span> <span class="o">=</span> <span class="n">stsyn</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="s1">&#39;roman,wfi,f129&#39;</span><span class="p">)</span>
+<span class="n">obs_model</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">Observation</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">f129</span><span class="p">)</span>
+
+<span class="c1"># Add components together and plot the total model</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">waves</span><span class="p">,</span> <span class="n">obs_model</span><span class="p">(</span><span class="n">waves</span><span class="p">,</span> <span class="n">flux_unit</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">Jy</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Wavelength ($\mu$m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Observed Flux Density (Jy)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Observed Flux Density (Jy)&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/1335594a9f8c8aa21141929d76765e4128dfc08bf6a44e5fd58749ac86abf7f4.png" src="../../_images/1335594a9f8c8aa21141929d76765e4128dfc08bf6a44e5fd58749ac86abf7f4.png" />
+</div>
+</div>
+<p>With our observation object, we can get the integrated flux just as we did before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">obs_model</span><span class="o">.</span><span class="n">effstim</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">Jy</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0036306919199092583 Jy
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://synphot.readthedocs.io/en/latest/">synphot API documentation</a></p></li>
+<li><p><a class="reference external" href="https://stsynphot.readthedocs.io/en/latest/">stsynphot API documentation</a></p></li>
+<li><p><a class="reference external" href="https://archive.stsci.edu/hlsp/reference-atlases">Reference Atlases</a></p></li>
+<li><p><a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/simulation-development-utilities/synphot-for-roman">RDox Synphot for Roman Article</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="about-this-notebook">
+<h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Author:</strong> Tyler Desjardins and Rosa Diaz<br>
+<strong>Updated On:</strong> 2025-10-29</p>
+<table width="100%" style="border:none; border-collapse:collapse;">
+  <tr style="border:none;">
+    <td style="border:none; width:180px; white-space:nowrap;">
+       <a href="#top" style="text-decoration:none; color:#0066cc;">↑ Top of page</a> 
+    </td>
+    <td style="border:none; text-align:center;">
+       <img src="../../roman_logo.png" width="50">
+    </td>
+    <td style="border:none; text-align:right;">
+       <img src="../../stsci_logo2.png" width="90">
+    </td>
+  </tr>
+</table>> </section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/synphot"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../stpsf/stpsf.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">STPSF Tutorial</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../working_with_asdf/working_with_asdf.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How to Open Roman Data Files (ASDF)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information">Kernel Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-roman-research-nexus">On the Roman Research Nexus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data">Loading data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-run">Sample Run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-and-examples">Use Cases and Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-roman-wfi-filter-throughputs-and-information">Plot the Roman WFI Filter Throughputs and Information</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-wfi-throughputs-from-stpsf">Retrieving WFI Throughputs from STPSF</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-wfi-throughputs-from-stsynphot">Retrieving WFI Throughputs from stsynphot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-and-computing-bandpass-information">Plotting and Computing Bandpass Information</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-photometry-of-a-simulated-source">Synthetic Photometry of a Simulated Source</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

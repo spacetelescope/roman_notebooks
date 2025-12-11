@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>STPSF Tutorial &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/stpsf/stpsf';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Roman WFI Synthetic Photometry with synphot" href="../synphot/synphot.html" />
+    <link rel="prev" title="STIPS Tutorial" href="../stips/stips.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/stpsf/stpsf.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/stpsf/stpsf.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>STPSF Tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-psf-generation">Quick PSF generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameters">Default parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-parameters">Custom parameters</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psf-profile-and-encircled-energy">PSF profile and encircled energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bulk-psf-generation">Bulk PSF generation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="stpsf-tutorial">
+<h1>STPSF Tutorial<a class="headerlink" href="#stpsf-tutorial" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>STPSF is a realistic point spread function (PSF) simulator developed by STScI that supports both Roman and the James Webb Space Telescope. For Roman’s Wide Field Imager (WFI), it uses the NASA Goddard Space Flight Center’s latest optical models, including field-dependent aberrations across the WFI focal plane. There is also an experimental module for Roman’s Coronagraph Instrument. For more information on the tool, please visit the <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman">RDox pages on STPSF for Roman</a>.</p>
+<p><strong>Note:</strong> STPSF was formerly called WebbPSF. For more information, see <a class="reference external" href="https://stpsf.readthedocs.io/en/latest/webbpsf_to_stpsf.html">Transitioning from WebbPSF to STPSF</a>.</p>
+<p>This tutorial provides an introduction to simulating Roman WFI PSFs and computing standard PSF properties like full width at half maximum (FWHM) and encircled energy (EE).</p>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><em>matplotlib</em> for plotting data</p></li>
+<li><p><em>astropy.units</em> for unit manipulation</p></li>
+<li><p><em>stpsf</em> for simulating Roman WFI PSFs</p></li>
+<li><p><em>numpy</em> for array calculations</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span><span class="p">,</span> <span class="n">rcParams</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogNorm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">stpsf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We also edit <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>’s interpolation setting to prevent any smoothing of pixel edges.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;image.interpolation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;nearest&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<section id="quick-psf-generation">
+<h3>Quick PSF generation<a class="headerlink" href="#quick-psf-generation" title="Link to this heading">#</a></h3>
+<section id="default-parameters">
+<h4>Default parameters<a class="headerlink" href="#default-parameters" title="Link to this heading">#</a></h4>
+<p>After selecting the proper instrument (Roman WFI), generating a PSF can be as short as a single line. In the cell below, we will use the <code class="docutils literal notranslate"><span class="pre">.calc_psf()</span></code> method to compute a WFI PSF using mostly default settings. The one argument we will change is to specify <code class="docutils literal notranslate"><span class="pre">nlambda=1</span></code>, which will create a monochromatic PSF evaluated at the average wavelength of the minimum and maximum of the bandpass (in this case, the default bandpass is F062). The minimum and maximum wavelengths of the bandpass are defined as 10% of the throughput. A polychromatic PSF may be simulated by setting <code class="docutils literal notranslate"><span class="pre">nlambda</span></code> &gt; 1, which will sample that number of wavelengths evenly spaced throughout the bandpass.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wfi</span> <span class="o">=</span> <span class="n">stpsf</span><span class="o">.</span><span class="n">roman</span><span class="o">.</span><span class="n">WFI</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">default_psf</span> <span class="o">=</span> <span class="n">wfi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nlambda</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/da41d5b93b1886deedf0604edb83582ed2e2c278e66ac0a630c73f496cf6ca8b.png" src="../../_images/da41d5b93b1886deedf0604edb83582ed2e2c278e66ac0a630c73f496cf6ca8b.png" />
+</div>
+</div>
+<p>As you can see above, the calculation was performed at one wavelength (0.6225 microns). Suppose we want to make a monochromatic PSF at some other wavelength, we can do that using the <code class="docutils literal notranslate"><span class="pre">monochromatic</span></code> argument, which should be set to the desired wavelength in units of meters. For example, we can use the pivot wavelength of the bandpass:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">wfi_f062</span> <span class="o">=</span> <span class="n">stpsf</span><span class="o">.</span><span class="n">roman</span><span class="o">.</span><span class="n">WFI</span><span class="p">()</span><span class="o">.</span><span class="n">_get_synphot_bandpass</span><span class="p">(</span><span class="s1">&#39;F062&#39;</span><span class="p">)</span>
+<span class="n">pivot_f062</span> <span class="o">=</span> <span class="n">wfi_f062</span><span class="o">.</span><span class="n">pivot</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="n">default_psf</span> <span class="o">=</span> <span class="n">wfi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">monochromatic</span><span class="o">=</span><span class="n">pivot_f062</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0b49a2ada8d14aeab2ad39e85da502df7c2f5b0d34dfb6a1b8c97c64c284ec8a.png" src="../../_images/0b49a2ada8d14aeab2ad39e85da502df7c2f5b0d34dfb6a1b8c97c64c284ec8a.png" />
+</div>
+</div>
+<p>The resulting object (in this case, the variable <code class="docutils literal notranslate"><span class="pre">default_psf</span></code>) contains a list of four FITS extensions containing idealized PSF images. <code class="docutils literal notranslate"><span class="pre">OVERSAMP</span></code> splits the detector’s original number of pixels by the oversampling factor specified upon creation of the PSFs (by default, 4) while <code class="docutils literal notranslate"><span class="pre">DET_SAMP</span></code> retains the native pixel sampling. Similarly, the <code class="docutils literal notranslate"><span class="pre">OVERDIST</span></code> and <code class="docutils literal notranslate"><span class="pre">DET_DIST</span></code> extensions represent the oversampled and native pixel sampling with distortion applied.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">default_psf</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Filename: (No file associated with this HDUList)
+No.    Name      Ver    Type      Cards   Dimensions   Format
+  0  OVERSAMP      1 PrimaryHDU      53   (184, 184)   float64   
+  1  DET_SAMP      1 ImageHDU        55   (46, 46)   float64   
+  2  OVERDIST      1 ImageHDU        54   (184, 184)   float64   
+  3  DET_DIST      1 ImageHDU        55   (46, 46)   float64   
+</pre></div>
+</div>
+</div>
+</div>
+<p>The package includes a helper function for visualizing each extension of an existing PSF. For example, if we want to examine the oversampled PSF from the simulation we generated above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stpsf</span><span class="o">.</span><span class="n">display_psf</span><span class="p">(</span><span class="n">default_psf</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cd0d03c90665748ca25c502b3f20fa7c05f05d428eff83922822f3cd3e2c5c68.png" src="../../_images/cd0d03c90665748ca25c502b3f20fa7c05f05d428eff83922822f3cd3e2c5c68.png" />
+</div>
+</div>
+<p>We can use any of the extensions in the <code class="docutils literal notranslate"><span class="pre">default_psf</span></code> variable that we created in the plotting routine demonstrated above. The PSF object also contains a method (<code class="docutils literal notranslate"><span class="pre">.writeto()</span></code>) for saving the PSF model to disk:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">default_psf</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s1">&#39;default_PSF.fits&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: VerifyWarning: Card is too long, comment will be truncated. [astropy.io.fits.card]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="custom-parameters">
+<h4>Custom parameters<a class="headerlink" href="#custom-parameters" title="Link to this heading">#</a></h4>
+<p>You can simulate custom PSFs by modifying instrument class attributes like the detector, filter, and others. All available attributes are described in the STPSF API documentation for the <a class="reference external" href="https://stpsf.readthedocs.io/en/latest/api/stpsf.WFI.html#stpsf.WFI">Roman WFI class</a> and its parent <a class="reference external" href="https://stpsf.readthedocs.io/en/latest/api/stpsf.SpaceTelescopeInstrument.html#stpsf.SpaceTelescopeInstrument">SpaceTelescopeInstrument class</a>.) Let’s first get a list of the available optical elements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wfi</span><span class="o">.</span><span class="n">filter_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[np.str_(&#39;F062&#39;),
+ np.str_(&#39;F087&#39;),
+ np.str_(&#39;F106&#39;),
+ np.str_(&#39;F129&#39;),
+ np.str_(&#39;F146&#39;),
+ np.str_(&#39;F158&#39;),
+ np.str_(&#39;F184&#39;),
+ np.str_(&#39;PRISM&#39;),
+ np.str_(&#39;F213&#39;),
+ np.str_(&#39;GRISM0&#39;),
+ np.str_(&#39;GRISM1&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>While the imaging filters have names that start with “F” (e.g., F158), the prism has the allcaps name “PRISM” and the grism has two options: “GRISM0” and “GRISM1”, which correspond to the zeroth and first orders, respectively. For more information on the WFI optical elements, see the <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments-home/wfi-imaging-mode-user-guide/wfi-design/wfi-optical-elements">WFI Optical Elements</a> article on RDox.</p>
+<p>Next, let’s simulate the PSF of the first-order grism spectrum. For this simulation, we will select the detector WFI14 and a position on the detector of (x, y) = (1024, 1024) in science coordinates. The detector names in STPSF are in the format SCAXX rather than WFIXX, so we will specify this as SCA14.</p>
+<p><strong>Note:</strong> The following cell is commented out as it takes a very long time to run. To run it, simply uncomment the lines and run the cell, and you may want to find something else to do while it runs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wfi</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="s1">&#39;GRISM1&#39;</span>
+<span class="n">wfi</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="s1">&#39;SCA14&#39;</span>
+<span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span> 
+<span class="n">custom_psf</span> <span class="o">=</span> <span class="n">wfi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">monochromatic</span><span class="o">=</span><span class="mf">1.2e-6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2db739a9204a23ad58f2dd1b4295dd5350ed972e2ebf18df2e4249ce422cb595.png" src="../../_images/2db739a9204a23ad58f2dd1b4295dd5350ed972e2ebf18df2e4249ce422cb595.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="psf-profile-and-encircled-energy">
+<h3>PSF profile and encircled energy<a class="headerlink" href="#psf-profile-and-encircled-energy" title="Link to this heading">#</a></h3>
+<p>Once you’ve simulated a PSF, STPSF offers a method that measures its profile, FWHM, and encircled energy. Let’s create a source spectrum of a star with spectral type G0V using the PHOENIX model library. Then, we will compute a polychromatic PSF in ten wavelength bins (given by the optional argument <code class="docutils literal notranslate"><span class="pre">nlambda</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">src</span> <span class="o">=</span> <span class="n">stpsf</span><span class="o">.</span><span class="n">specFromSpectralType</span><span class="p">(</span><span class="s1">&#39;G0V&#39;</span><span class="p">,</span> <span class="n">catalog</span><span class="o">=</span><span class="s1">&#39;phoenix&#39;</span><span class="p">)</span>
+<span class="n">poly_psf</span> <span class="o">=</span> <span class="n">wfi</span><span class="o">.</span><span class="n">calc_psf</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">src</span><span class="p">,</span> <span class="n">nlambda</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">stpsf</span><span class="o">.</span><span class="n">display_profiles</span><span class="p">(</span><span class="n">poly_psf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e0bffbbb98bfce99cdd011158fb1e51d8fc6e6444e2d6ca40451b60c812a15bc.png" src="../../_images/e0bffbbb98bfce99cdd011158fb1e51d8fc6e6444e2d6ca40451b60c812a15bc.png" />
+</div>
+</div>
+</section>
+<section id="bulk-psf-generation">
+<h3>Bulk PSF generation<a class="headerlink" href="#bulk-psf-generation" title="Link to this heading">#</a></h3>
+<p>To generate several individual PSFs in a grid, STPSF implements the <code class="docutils literal notranslate"><span class="pre">GriddedPSFModel</span></code> class from <code class="docutils literal notranslate"><span class="pre">photutils</span></code>. (Learn more about this use case in the <a class="reference external" href="https://stpsf.readthedocs.io/en/latest/psf_grids.html">STPSF documentation</a>.)</p>
+<p>As a toy example, below we generate a 3x3 grid of PSFs for a single WFI detector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wfi</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="s2">&quot;SCA07&quot;</span>
+<span class="n">wfi</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="s2">&quot;F158&quot;</span>
+<span class="n">wfi_grid</span> <span class="o">=</span> <span class="n">wfi</span><span class="o">.</span><span class="n">psf_grid</span><span class="p">(</span><span class="n">num_psfs</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">all_detectors</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running instrument: WFI, filter: F158
+  Running detector: WFI07
+    Position 1/9: (0, 0) pixels
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (28.9941222186931, 0.014184991300730587)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 1/9 centroid: (np.float64(201.09217677683284), np.float64(201.99659785742992))
+    Position 2/9: (0, 2048) pixels
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (27.992165511351654, 2048.013694797217)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 2/9 centroid: (np.float64(201.1156920991988), np.float64(202.05371442872885))
+    Position 3/9: (0, 4095) pixels
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 3/9 centroid: (np.float64(201.13927911215228), np.float64(202.10946192564887))
+    Position 4/9: (2048, 0) pixels
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 4/9 centroid: (np.float64(201.19176062580496), np.float64(202.0069346894154))
+    Position 5/9: (2048, 2048) pixels
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 5/9 centroid: (np.float64(201.19077998247153), np.float64(202.1182246373882))
+    Position 6/9: (2048, 4095) pixels
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 6/9 centroid: (np.float64(201.2469947193439), np.float64(202.17667513400622))
+    Position 7/9: (4095, 0) pixels
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 7/9 centroid: (np.float64(201.29308955252677), np.float64(202.01678300638105))
+    Position 8/9: (4095, 2048) pixels
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 8/9 centroid: (np.float64(201.32443223542134), np.float64(202.13170742478255))
+    Position 9/9: (4095, 4095) pixels
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 9/9 centroid: (np.float64(201.35583935199062), np.float64(202.24405439713556))
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, let’s use the <code class="docutils literal notranslate"><span class="pre">plot_grid()</span></code> method to display the PSF grid:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="o">=</span> <span class="n">wfi_grid</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bf7f03482008cfb7167a1c1519c701a818ed504987bf187bd2f7f217b44904d9.png" src="../../_images/bf7f03482008cfb7167a1c1519c701a818ed504987bf187bd2f7f217b44904d9.png" />
+</div>
+</div>
+<p>Next let’s look at the delta plot, which subtracts the mean from each PSF to show the variation across the detector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diffs</span> <span class="o">=</span> <span class="n">wfi_grid</span><span class="o">.</span><span class="n">plot_grid</span><span class="p">(</span><span class="n">deltas</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3e92d1e801d595ef0789486e406c8ba612da291b4c62ef623ce64a60018b1df2.png" src="../../_images/3e92d1e801d595ef0789486e406c8ba612da291b4c62ef623ce64a60018b1df2.png" />
+</div>
+</div>
+<p>With a PSF grid in hand, you can use a package like <code class="docutils literal notranslate"><span class="pre">photutils</span></code> to estimate PSFs at any given detector position by interpolation without the need to calculate each PSF individually. This is a major time-saver in source-heavy scientific use cases. We do this by using the <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code> method to determine the flux of any pixel relative to a PSF at any location. In the cell below, we will evaluate the flux per pixel around a PSF at position (X, Y) = (1000, 2000). We make a pixel grid around that position with 50 pixels on a side. We then pass each pixel position into the evaluate function and display the values that are returned for each pixel position. We have chosen to set the integrated flux of the PSF to a value of 1 in arbitrary units, which can then be conveniently scaled to the desired flux in other applications.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># pixels on a side</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="n">x0</span><span class="o">-</span><span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">:</span><span class="n">x0</span><span class="o">+</span><span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">y0</span><span class="o">-</span><span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">:</span><span class="n">y0</span><span class="o">+</span><span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># grid of pixel positions around PSF center</span>
+
+<span class="c1"># Evaluate the PSF</span>
+<span class="n">psf</span> <span class="o">=</span> <span class="n">wfi_grid</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">flux</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">x_0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">y_0</span><span class="o">=</span><span class="n">y0</span><span class="p">)</span>
+
+<span class="c1"># Display the PSF</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">psf</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">LogNorm</span><span class="p">(</span><span class="n">vmax</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc2ad8ae210&gt;
+</pre></div>
+</div>
+<img alt="../../_images/397f30f780d00ae0a507bea487701284e286bbb813d78f64fe236fe2c0f1509e.png" src="../../_images/397f30f780d00ae0a507bea487701284e286bbb813d78f64fe236fe2c0f1509e.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The Roman User Documentation’s <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman/overview-of-stpsf">“STPSF Overview”</a> page.</p></li>
+<li><p>The latest version of the <a class="reference external" href="https://stpsf.readthedocs.io/en/stable/index.html">STPSF documentation</a> on ReadTheDocs, which includes a specific page on the package’s <a class="reference external" href="https://stpsf.readthedocs.io/en/stable/roman.html">Roman instrument model</a>.</p></li>
+<li><p>The <a class="reference external" href="https://romanhelp.stsci.edu">Roman Help Desk</a>, an official outlet for user questions about STPSF.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="about-this-notebook">
+<h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Authors:</strong> Justin Otor, Eunkyu Han, Tyler Desjardins, Charles-Philippe Lajoie<br />
+<strong>Updated On:</strong> 2025-05-26</p>
+<table width="100%" style="border:none; border-collapse:collapse;">
+  <tr style="border:none;">
+    <td style="border:none; width:180px; white-space:nowrap;">
+       <a href="#top" style="text-decoration:none; color:#0066cc;">↑ Top of page</a> 
+    </td>
+    <td style="border:none; text-align:center;">
+       <img src="../../roman_logo.png" width="50">
+    </td>
+    <td style="border:none; text-align:right;">
+       <img src="../../stsci_logo2.png" width="90">
+    </td>
+  </tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "roman-cal"
+        },
+        kernelOptions: {
+            name: "roman-cal",
+            path: "./notebooks/stpsf"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'roman-cal'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../stips/stips.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">STIPS Tutorial</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../synphot/synphot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Roman WFI Synthetic Photometry with synphot</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-psf-generation">Quick PSF generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameters">Default parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-parameters">Custom parameters</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psf-profile-and-encircled-energy">PSF profile and encircled energy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bulk-psf-generation">Bulk PSF generation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

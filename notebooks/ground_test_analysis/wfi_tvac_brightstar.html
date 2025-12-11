@@ -1,0 +1,1694 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Diving Into WFI TVAC Bright Star Test Data &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/ground_test_analysis/wfi_tvac_brightstar';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/ground_test_analysis/wfi_tvac_brightstar.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Diving Into WFI TVAC Bright Star Test Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-data">Tutorial Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-the-data">Pull the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrate-the-data">Calibrate the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-super-bias-from-darks-diagnostic-only-not-applied">Optional: Super Bias from darks (diagnostic only — not applied)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-plots">Make  plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cutouts-around-the-bright-source">Cutouts around the bright source</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-flags-and-saturation">Data quality flags and saturation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pixel-level-diagnostics-saturation-and-relative-slope">Pixel-Level Diagnostics: Saturation and Relative Slope</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-visualizations-of-saturation-and-slope-deviations">Final visualizations of saturation and slope deviations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="diving-into-wfi-tvac-bright-star-test-data">
+<h1>Diving Into WFI TVAC Bright Star Test Data<a class="headerlink" href="#diving-into-wfi-tvac-bright-star-test-data" title="Link to this heading">#</a></h1>
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+<p><font color='red'>Note: In order for this notebook to run on the Nexus, please select the medium size server, as it requires &gt;26 GB of memory to stream and process the data files used here.</font></p>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Libraries used</p>
+<ul class="simple">
+<li><p><em>romancal</em> for running the processing pipeline</p></li>
+<li><p><em>roman_datamodels</em> for opening Roman WFI ASDF files</p></li>
+<li><p><em>asdf</em> for opening Roman WFI ASDF files</p></li>
+<li><p><em>os</em> for checking if files exist</p></li>
+<li><p><em>copy</em> for making copies of Python objects</p></li>
+<li><p><em>s3fs</em> for streaming files from an S3 bucket</p></li>
+</ul>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In Fall 2023 and Spring 2024, the Wide Field Instrument (WFI) underwent thermal vacuum (TVAC) at BAE Systems in Boulder, Colorado to collect performance and trending data in a flight-like environment. To learn more about TVAC, please visit the <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments-home/wfi-imaging-mode-user-guide/wfi-detectors/detector-performance/wfi-ground-testing-campaigns#WFIGroundTestingCampaigns-WFI_Testing">RDox pages on the WFI Ground Testing Campaigns</a>.</p>
+<p>As part of the TVAC campaign, the WFI Bright Star Saturation test was conducted to characterize how WFI Sensor Chip Assemblies (SCAs) respond to saturation from a wide range of bright, in-focus point sources, similar to those expected during Roman’s science surveys. A telescope simulator was used to project nine simulated point sources with magnitudes ranging from ~4 to ~18 mag through the F146 filter, onto a grid of locations on SCAs 4 and 11. Note that due to the characteristics of the telescope simulator and ground test setup, the acquired data do not reproduce the optics of the observatory.</p>
+<p>In this notebook we explore a subset of the point source data. We apply a non-complete set of calibrations with the Roman WFI science calibration pipeline RomanCal (Python package name <code class="docutils literal notranslate"><span class="pre">romancal</span></code>) and visualize the results.</p>
+</section>
+<section id="tutorial-data">
+<h2>Tutorial Data<a class="headerlink" href="#tutorial-data" title="Link to this heading">#</a></h2>
+<p>In this tutorial, we use L1 WFI test data files stored in the Nexus S3 bucket. See the <a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html"><span class="std std-doc">Data Discovery and Access</span></a> and <a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html"><span class="std std-doc">Exposure Pipeline</span></a> tutorials for more information on how to pull data and run Romancal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">convolve2d</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">roman_datamodels.dqflags</span><span class="w"> </span><span class="kn">import</span> <span class="n">pixel</span> <span class="k">as</span> <span class="n">dqflags</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">romancal.saturation</span><span class="w"> </span><span class="kn">import</span> <span class="n">SaturationStep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">roman_datamodels.datamodels</span><span class="w"> </span><span class="kn">import</span> <span class="n">SaturationRefModel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">romancal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">romancal.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExposurePipeline</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pull-the-data">
+<h2>Pull the data<a class="headerlink" href="#pull-the-data" title="Link to this heading">#</a></h2>
+<p>We will ingest data corresponding to:</p>
+<ul class="simple">
+<li><p>a magnitude 4 (approximately) point source imaged through F146 on SCA 11</p></li>
+<li><p>three subsequent darks.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Utility function to open a given asdf file</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">open_asdf_datamodel</span><span class="p">(</span><span class="n">asdf_uri</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">anon</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Open an ASDF file from S3 or locally and return a Roman datamodel</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">asdf_uri</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;s3://&quot;</span><span class="p">):</span>
+        <span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="n">anon</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_uri</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fb</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">asdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fb</span><span class="p">)</span> <span class="k">as</span> <span class="n">af</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">af</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">asdf_uri</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fb</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">asdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fb</span><span class="p">)</span> <span class="k">as</span> <span class="n">af</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">af</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below, we point to a particular “activity” which corresponds to a given type of data collection. Typically, an activity refers to a set of exposures with the same attributes like commanded flux, filter, location and is constrained by the test planning software used for these ground tests. Please refer to this <a class="reference internal" href="activity_table.html"><span class="std std-doc">table</span></a> to see the mapping between activities in the test and type of collected test data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is hard-coded</span>
+<span class="c1"># Another option is to run a search for the right activity/mag/SCA.</span>
+<span class="n">Mag</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">SCA</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">WFI_TAG</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;WFI</span><span class="si">{</span><span class="n">SCA</span><span class="si">:</span><span class="s1">02d</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s1">&#39;s3://stpubdata/roman/nexus/tvac/&#39;</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;OTP00651_BrightStar_TV2b_R1_MCEB/&#39;</span>
+
+<span class="c1"># Illuminated image</span>
+<span class="c1"># To find the full filename(s), you can perform a list command (`ls`) on the directory path that includes the activity number (e.g., `Activity_22`)</span>
+<span class="n">asdf_file_uri_illum</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Activity_22/TVAC2_TOHOTQUAL_WFISAT_20240506204523_</span><span class="si">{</span><span class="n">WFI_TAG</span><span class="si">}</span><span class="s1">_uncal.asdf&#39;</span>
+
+<span class="n">dm_illum</span> <span class="o">=</span> <span class="n">open_asdf_datamodel</span><span class="p">(</span><span class="n">asdf_file_uri_illum</span><span class="p">,</span> <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Final 3 dark exposures collected in this test</span>
+<span class="n">asdf_file_uri_d1</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Activity_40/TVAC2_TOHOTQUAL_WFISAT_20240506225304_</span><span class="si">{</span><span class="n">WFI_TAG</span><span class="si">}</span><span class="s1">_uncal.asdf&#39;</span>
+<span class="n">asdf_file_uri_d2</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Activity_40/TVAC2_TOHOTQUAL_WFISAT_20240506225611_</span><span class="si">{</span><span class="n">WFI_TAG</span><span class="si">}</span><span class="s1">_uncal.asdf&#39;</span>
+<span class="n">asdf_file_uri_d3</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Activity_40/TVAC2_TOHOTQUAL_WFISAT_20240506225917_</span><span class="si">{</span><span class="n">WFI_TAG</span><span class="si">}</span><span class="s1">_uncal.asdf&#39;</span>
+<span class="n">dm16</span> <span class="o">=</span> <span class="n">open_asdf_datamodel</span><span class="p">(</span><span class="n">asdf_file_uri_d1</span><span class="p">,</span> <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dm17</span> <span class="o">=</span> <span class="n">open_asdf_datamodel</span><span class="p">(</span><span class="n">asdf_file_uri_d2</span><span class="p">,</span> <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dm18</span> <span class="o">=</span> <span class="n">open_asdf_datamodel</span><span class="p">(</span><span class="n">asdf_file_uri_d3</span><span class="p">,</span> <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Close the files afterward</span>
+<span class="n">dm_illum</span><span class="o">.</span><span class="n">close</span><span class="p">();</span> <span class="n">dm16</span><span class="o">.</span><span class="n">close</span><span class="p">();</span> <span class="n">dm17</span><span class="o">.</span><span class="n">close</span><span class="p">();</span> <span class="n">dm18</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type of datamodel and info</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dm_illum</span><span class="p">))</span>
+<span class="n">dm_illum</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;roman_datamodels.datamodels._datamodels.TvacModel&#39;&gt;
+root (AsdfObject)
+├─asdf_library (Software)
+│ ├─author (str): The ASDF Developers
+│ ├─homepage (str): http://github.com/asdf-format/asdf
+│ ├─name (str): asdf
+│ └─version (str): 3.2.0
+├─history (dict)
+│ └─extensions (list)
+│   ├─[0] (ExtensionMetadata) ...
+│   ├─[1] (ExtensionMetadata) ...
+│   └─[2] (ExtensionMetadata) ...
+└─roman (Tvac) # Schema for the TVAC Test Data
+
+  ├─meta (dict) ...
+  ├─data (Quantity) # Science data, including the border reference pixels.
+  ├─amp33 (Quantity) # Amp 33 reference pixel data.
+  ├─amp33_reset_reads (Quantity) # Amp 33 reset reads performed before integration data.
+  ├─amp33_reference_read (Quantity) # Amp 33 reference reads that can be subtracted from the amp33 ramp data (truncated)
+  ├─guidewindow (Quantity) # Guide window data.
+  ├─reference_read (Quantity) # Reference read that can be subtracted from ramp, if present.
+  ├─reset_reads (Quantity) # Reset reads performed before the ramp integration, if present.
+  ├─hdf5_telemetry_attrs (dict) ...
+  └─input_meta (dict): {}
+Some nodes not shown.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calibrate-the-data">
+<h2>Calibrate the data<a class="headerlink" href="#calibrate-the-data" title="Link to this heading">#</a></h2>
+<p>We will run the illuminated data through Romancal. In particular we apply data quality initialization, saturation detection, reference pixel correction, and linearity. The rest of the steps are skipped. We do not process the darks in this way to save computing time and memory for this tutorial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put datamodels in a dictionary for utility</span>
+<span class="n">exps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;illum&quot;</span><span class="p">:</span> <span class="n">dm_illum</span><span class="p">,</span>
+    <span class="s2">&quot;exp16&quot;</span><span class="p">:</span> <span class="n">dm16</span><span class="p">,</span>
+    <span class="s2">&quot;exp17&quot;</span><span class="p">:</span> <span class="n">dm17</span><span class="p">,</span>
+    <span class="s2">&quot;exp18&quot;</span><span class="p">:</span> <span class="n">dm18</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Pipeline options</span>
+<span class="c1"># Add more to change defaults on other steps and can also add an output directory</span>
+<span class="n">pipe_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;save_results&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;steps&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;dark_current&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">&quot;rampfit&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">&quot;assign_wcs&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">&quot;flatfield&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">&quot;photom&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">&quot;source_catalog&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">&quot;tweakreg&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1"># Dictionary to save calibrated outputs</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">exps</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">ExposurePipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="n">pipe_kwargs</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
+        <span class="c1"># Close model if it does not need to be stored in memory</span>
+        <span class="c1"># f.close()</span>
+        <span class="c1"># Adding a break to only do the illuminated exposure to limit computing time and storage space</span>
+        <span class="k">break</span> 
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">] pipeline failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,958 - CRDS - ERROR -  Error determining best reference for &#39;pars-dqinitstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,959 - CRDS - ERROR -  Error determining best reference for &#39;pars-saturationstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,961 - CRDS - ERROR -  Error determining best reference for &#39;pars-refpixstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,962 - CRDS - ERROR -  Error determining best reference for &#39;pars-linearitystep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,963 - CRDS - ERROR -  Error determining best reference for &#39;pars-darkcurrentstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,964 - CRDS - ERROR -  Error determining best reference for &#39;pars-rampfitstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,965 - CRDS - ERROR -  Error determining best reference for &#39;pars-assignwcsstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,966 - CRDS - ERROR -  Error determining best reference for &#39;pars-flatfieldstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,967 - CRDS - ERROR -  Error determining best reference for &#39;pars-photomstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,968 - CRDS - ERROR -  Error determining best reference for &#39;pars-sourcecatalogstep&#39;  =   Unknown reference type &#39;pars-sourcecatalogstep&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,969 - CRDS - ERROR -  Error determining best reference for &#39;pars-tweakregstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,970 - CRDS - ERROR -  Error determining best reference for &#39;pars-exposurepipeline&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,977 - stpipe.ExposurePipeline - INFO - ExposurePipeline instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,978 - stpipe.ExposurePipeline.dq_init - INFO - DQInitStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,978 - stpipe.ExposurePipeline.saturation - INFO - SaturationStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,979 - stpipe.ExposurePipeline.refpix - INFO - RefPixStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,980 - stpipe.ExposurePipeline.linearity - INFO - LinearityStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,981 - stpipe.ExposurePipeline.dark_current - INFO - DarkCurrentStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,982 - stpipe.ExposurePipeline.rampfit - INFO - RampFitStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,983 - stpipe.ExposurePipeline.assign_wcs - INFO - AssignWcsStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,983 - stpipe.ExposurePipeline.flatfield - INFO - FlatFieldStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,984 - stpipe.ExposurePipeline.photom - INFO - PhotomStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,985 - stpipe.ExposurePipeline.source_catalog - INFO - SourceCatalogStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:20,986 - stpipe.ExposurePipeline.tweakreg - INFO - TweakRegStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:21,139 - stpipe.ExposurePipeline - INFO - Step ExposurePipeline running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7fa8b2810550&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:21,151 - stpipe.ExposurePipeline - INFO - Step ExposurePipeline parameters are:
+  pre_hooks: []
+  post_hooks: []
+  output_file: None
+  output_dir: None
+  output_ext: .asdf
+  output_use_model: False
+  output_use_index: True
+  save_results: False
+  skip: False
+  suffix: cal
+  search_output_file: True
+  input_dir: &#39;&#39;
+  save_l1_wcs: False
+  steps:
+    dq_init:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: False
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+    saturation:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: False
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+    refpix:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: False
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+      remove_offset: True
+      remove_trends: True
+      cosine_interpolate: True
+      fft_interpolate: True
+    linearity:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: False
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+    dark_current:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: True
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+      dark_output: None
+    rampfit:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: True
+      suffix: rampfit
+      search_output_file: True
+      input_dir: &#39;&#39;
+      algorithm: ols_cas22
+      save_opt: False
+      use_ramp_jump_detection: True
+      threshold_intercept: None
+      threshold_constant: None
+    assign_wcs:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: True
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+    flatfield:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: True
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+      include_var_flat: False
+    photom:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: True
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+    source_catalog:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: True
+      suffix: cat
+      search_output_file: True
+      input_dir: &#39;&#39;
+      bkg_boxsize: 1000
+      kernel_fwhm: 2.0
+      snr_threshold: 3.0
+      npixels: 25
+      deblend: False
+      fit_psf: True
+      forced_segmentation: &#39;&#39;
+    tweakreg:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: True
+      output_use_index: True
+      save_results: False
+      skip: True
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+      use_custom_catalogs: False
+      catalog_format: ascii.ecsv
+      catfile: &#39;&#39;
+      catalog_path: &#39;&#39;
+      enforce_user_order: False
+      expand_refcat: False
+      minobj: 15
+      searchrad: 2.0
+      use2dhist: True
+      separation: 1.0
+      tolerance: 0.7
+      fitgeometry: rshift
+      nclip: 3
+      sigma: 3.0
+      abs_refcat: GAIAREFCAT
+      save_abs_catalog: False
+      abs_minobj: 15
+      abs_searchrad: 6.0
+      abs_use2dhist: True
+      abs_separation: 1.0
+      abs_tolerance: 0.7
+      abs_fitgeometry: rshift
+      abs_nclip: 3
+      abs_sigma: 3.0
+      update_source_catalog_coordinates: False
+      save_l1_wcs: True
+      vo_timeout: 120.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:21,153 - stpipe.ExposurePipeline - INFO - Prefetching reference files for dataset: &#39;TVAC2_TOHOTQUAL_WFISAT_20240506204523_WFI11_uncal.asdf&#39; reftypes = [&#39;linearity&#39;, &#39;mask&#39;, &#39;refpix&#39;, &#39;saturation&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:21,155 - stpipe.ExposurePipeline - INFO - Prefetch for LINEARITY reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf&#39;.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:21,156 - stpipe.ExposurePipeline - INFO - Prefetch for MASK reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_mask_0023.asdf&#39;.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:21,156 - stpipe.ExposurePipeline - INFO - Prefetch for REFPIX reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_refpix_0007.asdf&#39;.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:21,156 - stpipe.ExposurePipeline - INFO - Prefetch for SATURATION reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf&#39;.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:21,157 - romancal.pipeline.exposure_pipeline - INFO - Starting Roman exposure calibration pipeline ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:21,301 - stpipe.ExposurePipeline.dq_init - INFO - Step dq_init running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7fa8b2810550&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:22,442 - romancal.dq_init.dq_init_step - INFO - Flagging rows from: -999999 to -999829 as affected by guide window read
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:22,529 - stpipe.ExposurePipeline.dq_init - INFO - Step dq_init done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:22,725 - stpipe.ExposurePipeline.saturation - INFO - Step saturation running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fa8b2757770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:22,729 - romancal.saturation.saturation_step - INFO - Using SATURATION reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:29,457 - stcal.saturation.saturation - INFO - Detected 93159 saturated pixels
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:29,912 - stcal.saturation.saturation - INFO - Detected 868 A/D floor pixels
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:29,938 - stpipe.ExposurePipeline.saturation - INFO - Step saturation done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:29:30,958 - stpipe.ExposurePipeline.refpix - INFO - Step refpix running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fa8b2757770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:00,563 - stpipe.ExposurePipeline.refpix - INFO - Step refpix done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:00,724 - stpipe.ExposurePipeline.linearity - INFO - Step linearity running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fa8b2757770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:00,729 - romancal.linearity.linearity_step - INFO - Using LINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:09,595 - stpipe.ExposurePipeline.linearity - INFO - Step linearity done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:09,799 - stpipe.ExposurePipeline.rampfit - INFO - Step rampfit running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fa8b2757770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:09,799 - stpipe.ExposurePipeline.rampfit - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,043 - stpipe.ExposurePipeline.dark_current - INFO - Step dark_current running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fa8b2757770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,043 - stpipe.ExposurePipeline.dark_current - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,270 - stpipe.ExposurePipeline.assign_wcs - INFO - Step assign_wcs running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fa8b2757770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,271 - stpipe.ExposurePipeline.assign_wcs - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,463 - stpipe.ExposurePipeline.flatfield - INFO - Step flatfield running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fa8b2757770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,464 - stpipe.ExposurePipeline.flatfield - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,614 - stpipe.ExposurePipeline.photom - INFO - Step photom running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fa8b2757770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,615 - stpipe.ExposurePipeline.photom - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,773 - stpipe.ExposurePipeline.source_catalog - INFO - Step source_catalog running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fa8b2757770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,774 - stpipe.ExposurePipeline.source_catalog - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,958 - stpipe.ExposurePipeline.tweakreg - INFO - Step tweakreg running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7fa8b27556a0&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,959 - stpipe.ExposurePipeline.tweakreg - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,960 - romancal.pipeline.exposure_pipeline - INFO - Roman exposure calibration pipeline ending...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-12-11 19:30:10,961 - stpipe.ExposurePipeline - INFO - Step ExposurePipeline done
+</pre></div>
+</div>
+</div>
+</div>
+<section id="optional-super-bias-from-darks-diagnostic-only-not-applied">
+<h3>Optional: Super Bias from darks (diagnostic only — not applied)<a class="headerlink" href="#optional-super-bias-from-darks-diagnostic-only-not-applied" title="Link to this heading">#</a></h3>
+<p>Data reductions usually include a step to compute and remove a superbias. This is a per-pixel intercept image typically obtained by fitting each pixel’s ramp with a linear function and taking the intercept. These intercepts can be combined across multiple dark exposures to increase the signal to noise. We do not apply it in this tutorial because the Improved Roman Reference Correction (IRRC) step applied earlier should remove the bias offsets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quick function over chunks to determine the per-pixel biases </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bias_intercept_from_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">chunk</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">out_dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute per-pixel intercept (bias) from a cube shaped (N, rows, cols),</span>
+<span class="sd">    fitting y(t) = a + b t across frames for each pixel, using chunks.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cube : np.ndarray</span>
+<span class="sd">        Array with shape (N, rows, cols).</span>
+<span class="sd">    drop_first : bool</span>
+<span class="sd">        If True, ignore frame 0 and fit frames 1..N-1.</span>
+<span class="sd">    chunk : (int, int)</span>
+<span class="sd">        Chunk size (rows, cols).</span>
+<span class="sd">    out_dtype : np.dtype</span>
+<span class="sd">        Output dtype for the bias image.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    B : np.ndarray</span>
+<span class="sd">        Bias image (rows, cols) as out_dtype.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>  <span class="c1"># (N, H, W)</span>
+    <span class="n">N_total</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">drop_first</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">N_total</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">size</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Need at least 2 frames (after dropping reset) to fit a line.&quot;</span><span class="p">)</span>
+
+    <span class="n">sum_t</span>  <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">sum_t2</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">den</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">sum_t2</span> <span class="o">-</span> <span class="n">sum_t</span> <span class="o">*</span> <span class="n">sum_t</span>
+    <span class="k">if</span> <span class="n">den</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Degenerate time vector; cannot fit.&quot;</span><span class="p">)</span>
+
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">out_dtype</span><span class="p">)</span>
+
+    <span class="n">rt</span><span class="p">,</span> <span class="n">ct</span> <span class="o">=</span> <span class="n">chunk</span>
+    <span class="k">for</span> <span class="n">r0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">rt</span><span class="p">):</span>
+        <span class="n">r1</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">r0</span> <span class="o">+</span> <span class="n">rt</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">ct</span><span class="p">):</span>
+            <span class="n">c1</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="n">c0</span> <span class="o">+</span> <span class="n">ct</span><span class="p">)</span>
+
+            <span class="c1"># Load tile across all frames (avoid Python loops); keep memory modest with float32</span>
+            <span class="n">arr</span> <span class="o">=</span> <span class="n">cube</span><span class="p">[</span><span class="n">start</span><span class="p">:,</span> <span class="n">r0</span><span class="p">:</span><span class="n">r1</span><span class="p">,</span> <span class="n">c0</span><span class="p">:</span><span class="n">c1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># (n, rt&#39;, ct&#39;)</span>
+
+            <span class="c1"># Accumulate sums (float64 math for accuracy)</span>
+            <span class="n">sY</span>  <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="c1"># Sum(Y)</span>
+            <span class="n">sTY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tensordot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1"># Sum(T * Y)</span>
+
+            <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">sTY</span> <span class="o">-</span> <span class="n">sum_t</span> <span class="o">*</span> <span class="n">sY</span><span class="p">)</span> <span class="o">/</span> <span class="n">den</span>                              <span class="c1"># b</span>
+            <span class="n">intercept</span> <span class="o">=</span> <span class="p">(</span><span class="n">sY</span> <span class="o">-</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">sum_t</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>                              <span class="c1"># a</span>
+
+            <span class="n">B</span><span class="p">[</span><span class="n">r0</span><span class="p">:</span><span class="n">r1</span><span class="p">,</span> <span class="n">c0</span><span class="p">:</span><span class="n">c1</span><span class="p">]</span> <span class="o">=</span> <span class="n">intercept</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">out_dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">B</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now compute the bias for each of the three dark exposures, stack them, and plot the resulting “superbias.” These darks were collected as the final three exposures of a series of 18 55-frame darks collected after the bright source images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B16</span> <span class="o">=</span> <span class="n">bias_intercept_from_cube</span><span class="p">(</span><span class="n">dm16</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">chunk</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">out_dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">B17</span> <span class="o">=</span> <span class="n">bias_intercept_from_cube</span><span class="p">(</span><span class="n">dm17</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">chunk</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">out_dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">B18</span> <span class="o">=</span> <span class="n">bias_intercept_from_cube</span><span class="p">(</span><span class="n">dm18</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">chunk</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">out_dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="c1"># Combine into a &quot;superbias&quot;</span>
+<span class="n">stack</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">B16</span><span class="p">,</span> <span class="n">B17</span><span class="p">,</span> <span class="n">B18</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>        <span class="c1"># (3, H, W)</span>
+<span class="n">B_median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">B_mean</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="c1"># Visualization of the superbias</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanpercentile</span><span class="p">(</span><span class="n">B_median</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">B_median</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bias (Median of FinalDark exp16–18)&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span> <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;DN (1–99</span><span class="si">% s</span><span class="s2">tretch)&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x [pix]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y [pix]&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e6c7443c29ac242a91b2c3115ac384d5d834ffbc42c65fad7eb2ba62103d7c45.png" src="../../_images/e6c7443c29ac242a91b2c3115ac384d5d834ffbc42c65fad7eb2ba62103d7c45.png" />
+</div>
+</div>
+<p>We can verify that the Romancal refpix step was indeed applied. If not, then we can subtract the superbias with</p>
+<p><code class="docutils literal notranslate"><span class="pre">dm_cube</span> <span class="pre">=</span> <span class="pre">np.float32(results[&quot;illum&quot;].data)</span> <span class="pre">-</span> <span class="pre">B_median[None,</span> <span class="pre">:,</span> <span class="pre">:]</span></code></p>
+<p>and continue to the next section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check to see if the refpix step was indeed completed. If so, then we do not need</span>
+<span class="c1"># to apply another bias.</span>
+<span class="n">cal</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;illum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="s2">&quot;cal_step&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The refpix step is&quot;</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cal</span><span class="p">,</span> <span class="s2">&quot;refpix&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The refpix step is COMPLETE
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="make-plots">
+<h2>Make  plots<a class="headerlink" href="#make-plots" title="Link to this heading">#</a></h2>
+<p>We will first look at the signal in three arbitary frames to see how the signal builds with time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dm_cube</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;illum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">54</span><span class="p">]</span>
+<span class="n">baseline_frame</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Compute per-frame differences and percentiles</span>
+<span class="n">diffs</span><span class="p">,</span> <span class="n">vmins</span><span class="p">,</span> <span class="n">vmaxs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">nframe</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">:</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">dm_cube</span><span class="p">[</span><span class="n">nframe</span><span class="p">]</span> <span class="o">-</span> <span class="n">dm_cube</span><span class="p">[</span><span class="n">baseline_frame</span><span class="p">]</span>
+    <span class="n">diffs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">vmin_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">vmax_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">98</span><span class="p">)</span>
+    <span class="n">vmins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vmin_i</span><span class="p">)</span>
+    <span class="n">vmaxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vmax_i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;frame </span><span class="si">{</span><span class="n">nframe</span><span class="si">}</span><span class="s2">: 2nd=</span><span class="si">{</span><span class="n">vmin_i</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">, 98th=</span><span class="si">{</span><span class="n">vmax_i</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">vmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">vmins</span><span class="p">)</span>
+<span class="n">vmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">vmaxs</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">axes</span><span class="p">]</span>
+
+<span class="n">im</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">nframe</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">diffs</span><span class="p">):</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;SCA </span><span class="si">{</span><span class="n">SCA</span><span class="si">}</span><span class="s2">, Mag </span><span class="si">{</span><span class="n">Mag</span><span class="si">}</span><span class="s2">, frames </span><span class="si">{</span><span class="n">nframe</span><span class="si">}</span><span class="s2">-1&quot;</span><span class="p">,</span>
+        <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x [pix]&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y [pix]&quot;</span><span class="p">)</span>
+
+<span class="c1"># Shared colorbar</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;DN&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 2: 2nd=-14.4, 98th=80.5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 27: 2nd=-1.38, 98th=1.99e+03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 54: 2nd=10, 98th=4.03e+03
+</pre></div>
+</div>
+<img alt="../../_images/bb46661450cf513e7f23b0365b5f7fdfb4351ec338378191a0284dd4f5955692.png" src="../../_images/bb46661450cf513e7f23b0365b5f7fdfb4351ec338378191a0284dd4f5955692.png" />
+</div>
+</div>
+<section id="cutouts-around-the-bright-source">
+<h3>Cutouts around the bright source<a class="headerlink" href="#cutouts-around-the-bright-source" title="Link to this heading">#</a></h3>
+<p>The rings you can see faintly in the leftmost image and increasing in signal going to the rightmost image come from the telescope simulator projector system and are not expected in flight. The dark core corresponds to pixels that saturate in the first frame of the ramp and is an artifact of the image processing.</p>
+<p>We will now take a closer look at a cutout around the bright source.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the cutout region</span>
+<span class="n">col_0</span><span class="o">=</span><span class="mi">1900</span>
+<span class="n">row_0</span><span class="o">=</span><span class="mi">1900</span>
+<span class="n">q1</span><span class="o">=</span><span class="mi">256</span>
+<span class="n">q2</span><span class="o">=</span><span class="mi">256</span>
+<span class="c1"># Get the cutouts for the raw and corrected data</span>
+<span class="n">raw_cube_cutout</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dm_illum</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">row_0</span><span class="o">-</span><span class="n">q1</span><span class="p">:</span><span class="n">row_0</span><span class="o">+</span><span class="n">q1</span><span class="p">,</span> <span class="n">col_0</span><span class="o">-</span><span class="n">q2</span><span class="p">:</span><span class="n">col_0</span><span class="o">+</span><span class="n">q2</span><span class="p">])</span>
+<span class="n">dm_cube_cutout</span> <span class="o">=</span> <span class="n">dm_cube</span><span class="p">[:,</span><span class="n">row_0</span><span class="o">-</span><span class="n">q1</span><span class="p">:</span><span class="n">row_0</span><span class="o">+</span><span class="n">q1</span><span class="p">,</span> <span class="n">col_0</span><span class="o">-</span><span class="n">q2</span><span class="p">:</span><span class="n">col_0</span><span class="o">+</span><span class="n">q2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="data-quality-flags-and-saturation">
+<h4>Data quality flags and saturation<a class="headerlink" href="#data-quality-flags-and-saturation" title="Link to this heading">#</a></h4>
+<p>One can use the MASK reference file to eliminate pixels with known issues. See the <a class="reference external" href="https://roman-pipeline.readthedocs.io/en/latest/roman/dq_init/reference_files.html">RDox pages on the data quality (DQ) flags</a> for more details and the correspondence between values and pixel issue.</p>
+<p>For example, if you want to set mask bits for bad pixels, saturated pixels, data affected by guide windows we could do the following to identify pixels that do have flags for those issues:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mask_bits</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">16</span>
+<span class="n">good</span> <span class="o">=</span> <span class="p">(</span><span class="n">pixeldq</span> <span class="o">&amp;</span> <span class="n">mask_bits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Here, we will take account of any flagged pixel. We can then visualize the cutouts and mark flagged pixels in white.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the pixel DQ flags for the cutout</span>
+<span class="n">pixeldq</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;illum&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pixeldq</span><span class="p">[</span><span class="n">row_0</span><span class="o">-</span><span class="n">q1</span><span class="p">:</span><span class="n">row_0</span><span class="o">+</span><span class="n">q1</span><span class="p">,</span> <span class="n">col_0</span><span class="o">-</span><span class="n">q2</span><span class="p">:</span><span class="n">col_0</span><span class="o">+</span><span class="n">q2</span><span class="p">]</span>
+<span class="n">bad</span> <span class="o">=</span> <span class="p">(</span><span class="n">pixeldq</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">good</span> <span class="o">=</span> <span class="o">~</span><span class="n">bad</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Good pixel count:         &quot;</span><span class="p">,</span> <span class="n">good</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">&quot;of&quot;</span><span class="p">,</span> <span class="n">pixeldq</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Good pixel count:          261650 of 262144
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do another set of plots for the cutouts and set the flagged pixels to white</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">cmap</span><span class="o">.</span><span class="n">set_bad</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+<span class="c1"># Compute diffs and per-frame percentiles over good pixels only</span>
+<span class="n">diffs_masked</span><span class="p">,</span> <span class="n">vmins</span><span class="p">,</span> <span class="n">vmaxs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">nframe</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">:</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">dm_cube_cutout</span><span class="p">[</span><span class="n">nframe</span><span class="p">]</span> <span class="o">-</span> <span class="n">dm_cube_cutout</span><span class="p">[</span><span class="n">baseline_frame</span><span class="p">]</span>
+    <span class="n">dm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">bad</span><span class="p">)</span>
+    <span class="n">diffs_masked</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dm</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">good</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">vmin_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">good</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">vmax_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">good</span><span class="p">],</span> <span class="mi">98</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># if everything is masked</span>
+        <span class="n">vmin_i</span><span class="p">,</span> <span class="n">vmax_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">vmins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vmin_i</span><span class="p">);</span> <span class="n">vmaxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vmax_i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;frame </span><span class="si">{</span><span class="n">nframe</span><span class="si">}</span><span class="s2">: 2nd=</span><span class="si">{</span><span class="n">vmin_i</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">, 98th=</span><span class="si">{</span><span class="n">vmax_i</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Shared limits across panels</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">vmins</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">vmaxs</span><span class="p">)</span>
+
+<span class="c1"># Plot side-by-side with one shared colorbar</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">axes</span><span class="p">]</span>
+
+<span class="n">im</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">nframe</span><span class="p">,</span> <span class="n">dm</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">diffs_masked</span><span class="p">):</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SCA </span><span class="si">{</span><span class="n">SCA</span><span class="si">}</span><span class="s2">, Mag </span><span class="si">{</span><span class="n">Mag</span><span class="si">}</span><span class="s2">, frames </span><span class="si">{</span><span class="n">nframe</span><span class="si">}</span><span class="s2">-1&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x [pix]&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y [pix]&quot;</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;DN&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 2: 2nd=0.48, 98th=4.58e+03
+frame 27: 2nd=171, 98th=5.11e+04
+frame 54: 2nd=351, 98th=5.59e+04
+</pre></div>
+</div>
+<img alt="../../_images/61e3d3d9ed053beef071164f08963274f3ff2ef70c9fe513ad5017d3f44502b3.png" src="../../_images/61e3d3d9ed053beef071164f08963274f3ff2ef70c9fe513ad5017d3f44502b3.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="pixel-level-diagnostics-saturation-and-relative-slope">
+<h2>Pixel-Level Diagnostics: Saturation and Relative Slope<a class="headerlink" href="#pixel-level-diagnostics-saturation-and-relative-slope" title="Link to this heading">#</a></h2>
+<p>In the following section, we will identify saturated (and neighboring) pixels using the per-pixel DN limits and then visualize how each frame’s instantaneous slope deviates from the average slope.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the saturation thresholds (DN) from the reference file</span>
+<span class="n">sat_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sat_path</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">SaturationRefModel</span><span class="p">(</span><span class="n">sat_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">satref</span><span class="p">:</span>
+    <span class="c1"># 4096 x 4096 array thresholds in DN</span>
+    <span class="n">sat_dn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">satref</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Functions to identify saturation</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_align_sat_dn</span><span class="p">(</span><span class="n">sat_dn</span><span class="p">,</span> <span class="n">frames_hw</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make sat_dn match the shape of the data cube</span>
+<span class="sd">    If sat_dn is 4096x4096 and frames are 4088x4088 (no ref pixels),</span>
+<span class="sd">    crop 4 pixels off each edge.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">frames_hw</span>
+    <span class="n">sh</span><span class="p">,</span> <span class="n">sw</span> <span class="o">=</span> <span class="n">sat_dn</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sh</span><span class="p">,</span> <span class="n">sw</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">sat_dn</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sh</span> <span class="o">-</span> <span class="n">H</span> <span class="o">==</span> <span class="mi">8</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">sw</span> <span class="o">-</span> <span class="n">W</span> <span class="o">==</span> <span class="mi">8</span><span class="p">):</span>
+        <span class="c1"># trim reference pixels: center-crop by 4 on each side</span>
+        <span class="k">return</span> <span class="n">sat_dn</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sat_dn shape </span><span class="si">{</span><span class="n">sat_dn</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> does not match frames </span><span class="si">{</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_saturation_mask_dn</span><span class="p">(</span><span class="n">frames_dn</span><span class="p">,</span> <span class="n">sat_dn</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DN-based saturation masks using a per-pixel DN threshold.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    frames_dn : (N, H, W) float/uint array</span>
+<span class="sd">        Non-destructive-read frames in DN.</span>
+<span class="sd">    sat_dn : (H, W) float array</span>
+<span class="sd">        Per-pixel saturation limits in DN. NaNs are treated as &#39;no check&#39; (never saturate).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    sat_mask        : (N, H, W) bool  -- pixels &gt;= sat_dn in each frame</span>
+<span class="sd">    nearby_sat_mask : (N, H, W) bool  -- 4-connected neighbors of saturated pixels (excluding the saturated ones)</span>
+<span class="sd">    new_sat_mask    : (N, H, W) bool  -- pixels that become saturated in current frame (unsat in prev)</span>
+<span class="sd">    diag_sat_mask   : (N, H, W) bool  -- diagonal neighbors (excluding sat + nearby)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">frames_dn</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;frames_dn must be (N,H,W)&quot;</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">frames_dn</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="c1"># Align and sanitize sat_dn</span>
+    <span class="n">sat_dn_use</span> <span class="o">=</span> <span class="n">_align_sat_dn</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">sat_dn</span><span class="p">),</span> <span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">))</span>
+    
+    <span class="c1"># Treat NaN thresholds as never saturating</span>
+    <span class="n">sat_dn_use</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">sat_dn_use</span><span class="p">),</span> <span class="n">sat_dn_use</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">frames_dn</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Core saturation check</span>
+    <span class="n">sat_mask</span> <span class="o">=</span> <span class="n">frames_dn</span> <span class="o">&gt;=</span> <span class="n">sat_dn_use</span>  <span class="c1"># (N,H,W) bool</span>
+
+    <span class="c1"># Neighborhood kernels (no center in 4-neighborhood kernel)</span>
+    <span class="n">kernel_4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">kernel_diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+    <span class="n">nearby_sat_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">diag_sat_mask</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">new_sat_mask</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="c1"># Convolve boolean as uint8 to count neighboring saturated pixels</span>
+        <span class="n">conv4</span>  <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">kernel_4</span><span class="p">,</span>  <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="n">fillvalue</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">convdg</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">kernel_diag</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="n">fillvalue</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+        <span class="c1"># neighbors that are not themselves saturated</span>
+        <span class="n">nearby_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">s</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">conv4</span>
+        <span class="c1"># diagonal neighbors that are neither saturated nor 4-neighbors</span>
+        <span class="n">diag_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>   <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">s</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">nearby_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;</span> <span class="n">convdg</span>
+
+        <span class="c1"># newly saturated in this frame (unsaturated previously)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">new_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">sat_mask</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">sat_mask</span><span class="p">,</span> <span class="n">nearby_sat_mask</span><span class="p">,</span> <span class="n">new_sat_mask</span><span class="p">,</span> <span class="n">diag_sat_mask</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_mean_debiased_difference_image_dn</span><span class="p">(</span><span class="n">frames_dn</span><span class="p">,</span> <span class="n">raw_frames_dn</span><span class="p">,</span> <span class="n">sat_dn</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the mean over time of frame-to-frame differences (DN) while excluding</span>
+<span class="sd">    saturated pixels and their 4-neighbors based on per-pixel DN limits.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    frames_dn     : (N,H,W) array in DN</span>
+<span class="sd">        Pre-processed frames (e.g., bias-subtracted) used to compute differences.</span>
+<span class="sd">    raw_frames_dn : (N,H,W) array in DN</span>
+<span class="sd">        Raw (or minimally processed) frames aligned with `frames_dn` used for saturation masking.</span>
+<span class="sd">    sat_dn        : (H,W) array in DN</span>
+<span class="sd">        Per-pixel saturation limits in DN.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mean_diff_frame : (H,W) float32 array</span>
+<span class="sd">        Mean of diffs along time, excluding saturated + nearby pixels.</span>
+<span class="sd">        NaN where no valid samples remain.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">frames_dn</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">raw_frames_dn</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;frames_dn and raw_frames_dn must align (N,H,W)&quot;</span>
+    <span class="c1"># Differences along time axis</span>
+    <span class="n">frame_diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">frames_dn</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># shape (N-1,H,W)</span>
+
+    <span class="c1"># Build masks from the raw data (DN)</span>
+    <span class="n">sat_mask</span><span class="p">,</span> <span class="n">nearby_mask</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_saturation_mask_dn</span><span class="p">(</span><span class="n">raw_frames_dn</span><span class="p">,</span> <span class="n">sat_dn</span><span class="p">)</span>
+    <span class="c1"># Align mask count with diffs (diffs start at frame 1)</span>
+    <span class="n">valid</span> <span class="o">=</span> <span class="o">~</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">|</span> <span class="n">nearby_mask</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>  <span class="c1"># (N-1,H,W) bool</span>
+
+    <span class="c1"># Weighted mean with binary weights; safe against zero-division</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">valid</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="n">frame_diffs</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">den</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="n">mean_diff_frame</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span>
+        <span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">,</span>
+        <span class="n">out</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">den</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+        <span class="n">where</span><span class="o">=</span><span class="n">den</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mean_diff_frame</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a cutout for the saturation array to match the earlier raw and calibrated cutouts</span>
+<span class="n">sat_dn_cutout</span> <span class="o">=</span> <span class="n">sat_dn</span><span class="p">[</span><span class="n">row_0</span><span class="o">-</span><span class="n">q1</span><span class="p">:</span><span class="n">row_0</span><span class="o">+</span><span class="n">q1</span><span class="p">,</span> <span class="n">col_0</span><span class="o">-</span><span class="n">q2</span><span class="p">:</span><span class="n">col_0</span><span class="o">+</span><span class="n">q2</span><span class="p">]</span>
+
+<span class="c1"># Calculate the Mean slope image</span>
+<span class="n">mean_slope_image</span> <span class="o">=</span> <span class="n">make_mean_debiased_difference_image_dn</span><span class="p">(</span><span class="n">dm_cube_cutout</span><span class="p">,</span> <span class="n">raw_cube_cutout</span><span class="p">,</span> <span class="n">sat_dn_cutout</span><span class="p">)</span>
+
+<span class="c1"># Get the 3D saturation mask</span>
+<span class="n">sat_mask</span><span class="p">,</span> <span class="n">nearby_sat_mask</span><span class="p">,</span> <span class="n">new_sat_mask</span><span class="p">,</span> <span class="n">diag_mask</span><span class="o">=</span> <span class="n">make_saturation_mask_dn</span><span class="p">(</span><span class="n">raw_cube_cutout</span><span class="p">,</span> <span class="n">sat_dn_cutout</span><span class="p">)</span>
+
+<span class="c1"># Get the difference images (AKA the instantaneous slope)</span>
+<span class="n">difference_images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">dm_cube_cutout</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>                                                 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="final-visualizations-of-saturation-and-slope-deviations">
+<h3>Final visualizations of saturation and slope deviations<a class="headerlink" href="#final-visualizations-of-saturation-and-slope-deviations" title="Link to this heading">#</a></h3>
+<p>For each of the three representative frames (the 3rd, the middle, and the last), we will plot the following:</p>
+<ul class="simple">
+<li><p><strong>Left</strong>: the raw image for that frame (scaled by $10^3$ for display).</p></li>
+<li><p><strong>Center</strong>: a relative slope map defined as (difference_images[i-1] / mean_diff) to highlight pixels whose per-frame change deviates from the average slope. Note that saturation and nonlinear effects can push values below 1.</p></li>
+<li><p><strong>Right</strong>: visualization of the combined mask encoding saturated/nearby/corrupted pixels via a weighted sum.
+We see trends in these plotted quantities as the exposure time progresses.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of frames</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dm_cube_cutout</span><span class="p">)</span>
+
+<span class="c1"># Choose three frames: first usable (2), middle, and last</span>
+<span class="n">frames_to_plot</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">({</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">),</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Plotting frames:&quot;</span><span class="p">,</span> <span class="n">frames_to_plot</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">frames_to_plot</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">N</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Left: current frame signal (rescale to ~same range as the original)</span>
+    <span class="n">cax1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dm_cube_cutout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e3</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno_r&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+    <span class="n">cbar1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Signal [$</span><span class="se">\\</span><span class="s1">times 10^3</span><span class="se">\\</span><span class="s1">, DN$]&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Center: difference / mean slope (robust to zeros/NaNs)</span>
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span>
+        <span class="n">difference_images</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="c1"># assumes difference_images is length N-1</span>
+        <span class="n">mean_slope_image</span><span class="p">,</span>
+        <span class="n">out</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">difference_images</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+        <span class="n">where</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">mean_slope_image</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mean_slope_image</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">cax2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ratio</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlBu&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.25</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+    <span class="n">cbar2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Frame Slope / Mean Slope&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Right: masks (saturated, nearby saturated, corrupted)</span>
+    <span class="n">cax3</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mf">3.</span> <span class="o">+</span> <span class="n">nearby_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="n">diag_mask</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma_r&#39;</span><span class="p">)</span>
+    <span class="n">cbar3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mask&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Titles &amp; annotation</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Image&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Difference / Mean Slope&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Saturated or Corrupted&#39;</span><span class="p">)</span>
+
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Frame </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;0.8&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Zoom window settings</span>
+    <span class="c1">#for ax in axes:</span>
+    <span class="c1">#    ax.set_xlim(6, 36)</span>
+    <span class="c1">#    ax.set_ylim(6, 36)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting frames: [2, 27, 54]
+</pre></div>
+</div>
+<img alt="../../_images/fcc485bf39666ec47e2b68e224e1da3820677d1d9104f25a566af6047809d237.png" src="../../_images/fcc485bf39666ec47e2b68e224e1da3820677d1d9104f25a566af6047809d237.png" />
+<img alt="../../_images/4fa12ee84af74e279df7488d30f1598081ac8e970c274637ea107fa592ed07ce.png" src="../../_images/4fa12ee84af74e279df7488d30f1598081ac8e970c274637ea107fa592ed07ce.png" />
+<img alt="../../_images/6538328c51b081ab2b565caf47e6cdd99ccadb95f5db86fb163ac0fadcd53619.png" src="../../_images/6538328c51b081ab2b565caf47e6cdd99ccadb95f5db86fb163ac0fadcd53619.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2024SPIE13092E..0SS/abstract">Schlieder et al. 2024</a></p></li>
+<li><p><a class="reference external" href="https://asd.gsfc.nasa.gov/roman/WFI_Bright_Star/TVAC2_Bright_star_saturation_summary_release.pdf">TVAC2 Bright Star Saturation Test Summary</a></p></li>
+<li><p><a class="reference external" href="https://roman-pipeline.readthedocs.io/en/latest/index.html">romancal</a></p></li>
+<li><p><a class="reference external" href="https://roman-docs.stsci.edu">Roman Documentation</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="about-this-notebook">
+<h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Author:</strong> Dana Louie, Robby Wilson, Ami Choi<br />
+<strong>Updated On:</strong> 2025-09-29</p>
+<table width="100%" style="border:none; border-collapse:collapse;">
+  <tr style="border:none;">
+    <td style="border:none; width:180px; white-space:nowrap;">
+       <a href="#top" style="text-decoration:none; color:#0066cc;">↑ Top of page</a> 
+    </td>
+    <td style="border:none; text-align:center;">
+       <img src="../../roman_logo.png" width="50">
+    </td>
+    <td style="border:none; text-align:right;">
+       <img src="../../stsci_logo2.png" width="90">
+    </td>
+  </tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "roman-cal"
+        },
+        kernelOptions: {
+            name: "roman-cal",
+            path: "./notebooks/ground_test_analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'roman-cal'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-data">Tutorial Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-the-data">Pull the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrate-the-data">Calibrate the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-super-bias-from-darks-diagnostic-only-not-applied">Optional: Super Bias from darks (diagnostic only — not applied)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-plots">Make  plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cutouts-around-the-bright-source">Cutouts around the bright source</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-flags-and-saturation">Data quality flags and saturation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pixel-level-diagnostics-saturation-and-relative-slope">Pixel-Level Diagnostics: Saturation and Relative Slope</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-visualizations-of-saturation-and-slope-deviations">Final visualizations of saturation and slope deviations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
