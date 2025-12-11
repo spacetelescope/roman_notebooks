@@ -22,9 +22,9 @@ def install_files(
         with open(dependencies, "r") as f:
             yf = yaml.safe_load(f)["install_files"]
     else:
-        req = requests.get(dependencies, allow_redirects=True)
-        req.raise_for_status()
-        yf = yaml.safe_load(req.content)["install_files"]
+        r = requests.get(dependencies, allow_redirects=True)
+        r.raise_for_status()
+        yf = yaml.safe_load(r.content)["install_files"]
 
     # Optionally limit to specific packages
     if packages:
@@ -64,7 +64,7 @@ def install_files(
             # Ensure directory exists
             os.makedirs(final_path, exist_ok=True)
 
-            # Download and extract each tarball
+            # Download and extract each tarball using streaming I/O
             urls = info.get("data_url", [])
             if verbose:
                 print(f"\tDownloading and uncompressing file...")
@@ -72,11 +72,15 @@ def install_files(
             for i, url in enumerate(urls, start=1):
                 if verbose:
                     print(f"\tWorking on file {i} out of {len(urls)}")
-                r = requests.get(url, allow_redirects=True)
-                r.raise_for_status()
                 file_name = url.rsplit("/", 1)[-1]
-                with open(file_name, "wb") as download_file:
-                    download_file.write(r.content)
+
+                with requests.get(url, stream=True) as resp:
+                    resp.raise_for_status()
+                    with open(file_name, "wb") as download_file:
+                        for chunk in resp.iter_content(chunk_size=8192):
+                            if chunk:
+                                download_file.write(chunk)
+
                 with tarfile.open(file_name) as tarball:
                     tarball.extractall(path=final_path)
                 os.remove(file_name)
