@@ -5,7 +5,7 @@ notebooks/data_visualization/data_visualization.ipynb:notebooks-test
 notebooks/exposure_pipeline/exposure_pipeline.ipynb:notebooks-test
 notebooks/footprint_visualization/footprint_visualization.ipynb:notebooks-test
 notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb:notebooks-test
-notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb:jwst-pipeline-notebooks-32gb
+notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb:jwst-pipeline-notebooks-64gb
 notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.ipynb:notebooks-test
 notebooks/mosaic_pipeline/mosaic_pipeline.ipynb:notebooks-test
 notebooks/pandeia/pandeia.ipynb:notebooks-test
