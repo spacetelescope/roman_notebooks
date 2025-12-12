@@ -1,0 +1,1526 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pandeia Tutorial &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/pandeia/pandeia';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Roman Interactive Sensitivity Tool (RIST)" href="../rist/rist.html" />
+    <link rel="prev" title="Measuring Galaxy Shapes" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pandeia Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pandeia/pandeia.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/pandeia/pandeia.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandeia Tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information">Kernel Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-roman-research-nexus">On the Roman Research Nexus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-a-scene-s-signal-to-noise-ratio">Calculate a Scene’s Signal-to-Noise Ratio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-magnitude-and-optimizing-exposures-for-roman-wfi-simulations">Calculating Magnitude and Optimizing Exposures for Roman WFI Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-calculating-the-magnitude-for-a-given-setup">Step 1: Calculating the Magnitude for a Given Setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-determining-optimal-number-of-exposures">Step 2: Determining Optimal Number of Exposures</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-the-spectral-energy-distribution">Modifying the Spectral Energy Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observing-ngc2506-g31-with-roman-wfi">Observing NGC2506-G31 with Roman WFI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-the-background">Modifying the Background</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#canned-backgrounds">Canned Backgrounds</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-backgrounds">Custom Backgrounds</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-input-json-from-the-web-etc-into-the-pandeia-engine">Importing input.json from the Web ETC into the Pandeia engine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pandeia-tutorial">
+<h1>Pandeia Tutorial<a class="headerlink" href="#pandeia-tutorial" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="kernel-information">
+<h2>Kernel Information<a class="headerlink" href="#kernel-information" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This notebook provides useful examples of common uses of <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> is a high-fidelity exposure time calculator developed by STScI to characterize optimal observing setups for user-created astronomical scenes. It supports the Roman Wide Field Instrument (WFI) as well as the James Webb Space Telescope’s full complement of instruments. For more information about its functionality with Roman, refer to the <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator/pandeia-for-roman/overview-of-pandeia">Overview of Pandeia</a> documentation.</p>
+<p>Due to the complexity of its simulations, <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> is best used on scenes that encompass ~5% of a single WFI detector. (To simulate larger areas, see the STIPS notebook tutorial.)</p>
+</section>
+<section id="reference-data">
+<h2>Reference Data<a class="headerlink" href="#reference-data" title="Link to this heading">#</a></h2>
+<p>The cell below will check to ensure ancillary reference files for <code class="docutils literal notranslate"><span class="pre">pandeia</span></code> package are installed. If not, it will download the ancillary reference files and install them under your home directory (i.e., <code class="docutils literal notranslate"><span class="pre">${HOME}/refdata/</span></code>).</p>
+<section id="local-run-settings">
+<h3>Local Run Settings<a class="headerlink" href="#local-run-settings" title="Link to this heading">#</a></h3>
+<p>If you want to run the notebook in your local machine, refer to the information in <a class="reference internal" href="../../markdown/local-run.html"><span class="std std-doc">local installation</span></a> instructions before proceeding with the notebook. The instructions provide inportant information about setting up your environment, installing dependnecies, and adding to your working directory scripts to help with the reference data installation.</p>
+<p>Depending on which (if any) reference data are missing, this cell may take several minutes to execute.</p>
+</section>
+<section id="on-the-roman-research-nexus">
+<h3>On the Roman Research Nexus<a class="headerlink" href="#on-the-roman-research-nexus" title="Link to this heading">#</a></h3>
+<p>If you are working on the Nexus, then the ancillary reference data are pre-installed and this cell will execute instantly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">notebook_data_dependencies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ndd</span>
+    <span class="n">local</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">local</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># If running locally Get the directory with the script</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">local</span><span class="p">:</span>
+    <span class="n">notebook_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+    <span class="n">shared_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">notebook_dir</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;shared&#39;</span><span class="p">,</span> <span class="s1">&#39;notebook_data_dependencies.py&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">shared_path</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading notebook_data_dependencies from shared location: </span><span class="si">{</span><span class="n">shared_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span><span class="s2">&quot;notebook_data_dependencies&quot;</span><span class="p">,</span> <span class="n">shared_path</span><span class="p">)</span>
+        <span class="n">ndd</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;notebook_data_dependencies&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ndd</span>  <span class="c1"># Optional: makes subsequent imports work</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">ndd</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Local install script not found at </span><span class="si">{</span><span class="n">shared_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">local</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running local data dependency installation...&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pandeia&#39;</span><span class="p">,</span> <span class="s1">&#39;synphot&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Update environment variables (if necessary) and print reference data paths</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reference data paths set to:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;pre_installed&#39;</span><span class="p">]:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running on RNN — data already available, skipping local install.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running on RNN — data already available, skipping local install.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>In here we limit our imports from <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> to the basic functions used in our calculations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">build_default_calc</span></code> to create a configuration dictionary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">perform_calculation</span></code> to perform a calculation with defined configuration dictionary</p></li>
+</ul>
+<p>We also use functions in the <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> library:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar</span></code> to help with optimizing signal-to-noise ratios (SNRs),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.interp1d</span></code> to calculate a desired target magnitude for a given observing setup.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pandeia.engine.calc_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_default_calc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandeia.engine.perform_calculation</span><span class="w"> </span><span class="kn">import</span> <span class="n">perform_calculation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize_scalar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rbt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textwrap</span><span class="w"> </span><span class="kn">import</span> <span class="n">wrap</span>
+
+<span class="c1"># General imports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We set <code class="docutils literal notranslate"><span class="pre">FILTER</span></code> as global variable before beginning since all examples make use of the same F129 imaging filter. Please note that a filter definition in <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> is case-sensitive and will only take lower-case letters for filter names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandeia&#39;s filter definitaion is case-sensitive and will only take lower-case letters for filter names </span>
+<span class="n">FILTER</span> <span class="o">=</span> <span class="s1">&#39;f129&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<section id="calculate-a-scene-s-signal-to-noise-ratio">
+<h3>Calculate a Scene’s Signal-to-Noise Ratio<a class="headerlink" href="#calculate-a-scene-s-signal-to-noise-ratio" title="Link to this heading">#</a></h3>
+<p>In this first example, we calculate the expected SNR for a point source with a flat spectral distribution (default target) normalized to 25 AB magnitudes. We place the source on Detector #1 (internally: WFI01) and take three exposures in band F129 with the multi-accumulation (MA) table “im_135_8”, with no truncation (139.1487 seconds of total exposure time). MA tables describe the sequence of individual reads that are combined into resultants and comprise the up-the-ramp sampling during a single exposure of the WFI detectors. For more information on the WFI detectors, please refer to the RDox documentation on <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments-home/wfi-imaging-mode-user-guide/wfi-design/description-of-wfi">WFI</a> and for the MA tables, please refer to the RDox documentation on <a class="reference external" href="https://roman-docs.stsci.edu/raug/astronomers-proposal-tool-apt/appendix/appendix-wfi-multiaccum-tables">MA tables</a>.</p>
+<p>We first create a default calculation using Pandeia’s built-in function <code class="docutils literal notranslate"><span class="pre">build_default_calc(&lt;telescope&gt;,</span> <span class="pre">&lt;instrument&gt;,</span> <span class="pre">&lt;mode&gt;)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a default calculation using Roman&#39;s WFI with an imaing mode</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">build_default_calc</span><span class="p">(</span><span class="s1">&#39;roman&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi&#39;</span><span class="p">,</span> <span class="s1">&#39;imaging&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a look at how the default calculation is set up.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the default calculation in a compact JSON view</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">calc</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+  &quot;background&quot;: &quot;hlwas-medium_field1&quot;,
+  &quot;background_level&quot;: &quot;medium&quot;,
+  &quot;calculation&quot;: {
+    &quot;effects&quot;: {
+      &quot;random_seed&quot;: null,
+      &quot;saturation&quot;: null
+    },
+    &quot;noise&quot;: {
+      &quot;crs&quot;: null,
+      &quot;dark&quot;: null,
+      &quot;excess&quot;: null,
+      &quot;ffnoise&quot;: null,
+      &quot;readnoise&quot;: null,
+      &quot;scatter&quot;: null
+    }
+  },
+  &quot;configuration&quot;: {
+    &quot;detector&quot;: {
+      &quot;ma_table_name&quot;: &quot;im_135_8&quot;,
+      &quot;nexp&quot;: 1,
+      &quot;nresultants&quot;: -1,
+      &quot;subarray&quot;: &quot;full&quot;
+    },
+    &quot;instrument&quot;: {
+      &quot;aperture&quot;: &quot;imaging&quot;,
+      &quot;detector&quot;: &quot;wfi01&quot;,
+      &quot;disperser&quot;: null,
+      &quot;filter&quot;: &quot;f158&quot;,
+      &quot;instrument&quot;: &quot;wfi&quot;,
+      &quot;mode&quot;: &quot;imaging&quot;
+    }
+  },
+  &quot;scene&quot;: [
+    {
+      &quot;position&quot;: {
+        &quot;orientation&quot;: 0.0,
+        &quot;x_offset&quot;: 0.0,
+        &quot;y_offset&quot;: 0.0
+      },
+      &quot;shape&quot;: {
+        &quot;geometry&quot;: &quot;point&quot;
+      },
+      &quot;spectrum&quot;: {
+        &quot;extinction&quot;: {
+          &quot;bandpass&quot;: &quot;j&quot;,
+          &quot;law&quot;: &quot;mw_rv_31&quot;,
+          &quot;unit&quot;: &quot;mag&quot;,
+          &quot;value&quot;: 0.0
+        },
+        &quot;extinction_first&quot;: true,
+        &quot;lines&quot;: [],
+        &quot;name&quot;: &quot;generic source&quot;,
+        &quot;normalization&quot;: {
+          &quot;norm_flux&quot;: 0.001,
+          &quot;norm_fluxunit&quot;: &quot;mjy&quot;,
+          &quot;norm_wave&quot;: 1.5749,
+          &quot;norm_waveunit&quot;: &quot;microns&quot;,
+          &quot;type&quot;: &quot;at_lambda&quot;
+        },
+        &quot;redshift&quot;: 0.0,
+        &quot;sed&quot;: {
+          &quot;sed_type&quot;: &quot;flat&quot;,
+          &quot;unit&quot;: &quot;fnu&quot;,
+          &quot;z&quot;: 0.0
+        }
+      }
+    }
+  ],
+  &quot;strategy&quot;: {
+    &quot;aperture_size&quot;: 0.2,
+    &quot;background_subtraction&quot;: true,
+    &quot;display_string&quot;: &quot;Imaging Aperture Photometry&quot;,
+    &quot;is_aperture_ee&quot;: false,
+    &quot;method&quot;: &quot;imagingapphot&quot;,
+    &quot;sky_annulus&quot;: [
+      0.4,
+      0.6
+    ],
+    &quot;target_source&quot;: &quot;1&quot;,
+    &quot;target_type&quot;: &quot;coords&quot;,
+    &quot;target_xy&quot;: [
+      0.0,
+      0.0
+    ],
+    &quot;units&quot;: &quot;arcsec&quot;
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">build_default_calc</span></code> created a scene with a single point source to observe with SCA01, F158 filter, “im_135_8” MA table, with no truncatation, and with a single exposure. With the WFI, an exposure refers to a single multi-accum sequence of the detector array at a single dither point in the dither pattern.</p>
+<p>Next, we define the observing setup and make some changes to the default setting. In this case, we will set up an observation with 3 exposures that is truncated after 6 resultants.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Editing the configuration file</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;instrument&#39;</span><span class="p">][</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FILTER</span>  <span class="c1"># Setting the filter to F129</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nexp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Taking three exposures of multi-accum sequence</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nresultants&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># Truncate after 6 resultant</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we change the normalization of the flux of the source to a flux density of 25 AB magnitudes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the normalization value</span>
+<span class="n">MAG</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_flux&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAG</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_fluxunit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;abmag&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we perform the signal to noise calculation using the built-in function <code class="docutils literal notranslate"><span class="pre">perform_calculation</span></code> in <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> and print the result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform the calculation</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+
+<span class="c1"># Extract the S/N vallue</span>
+<span class="n">sn</span> <span class="o">=</span> <span class="n">report</span><span class="p">[</span><span class="s1">&#39;scalar&#39;</span><span class="p">][</span><span class="s1">&#39;sn&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estimated S/N: </span><span class="si">{</span><span class="n">sn</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated S/N: 11.73
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that this step may generate a WARNING from synphot that the spectrum is extrapolated, which can be ignored.</p>
+<p>Running <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> for Roman may return a warning such as: <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">np.log(abs(val))</span> <span class="pre">&lt;</span> <span class="pre">-1*precision</span> <span class="pre">and</span> <span class="pre">val</span> <span class="pre">!=</span> <span class="pre">0.0</span></code>. This is related to a JWST-specific test for float precision, and can be ignored.</p>
+</section>
+<section id="calculating-magnitude-and-optimizing-exposures-for-roman-wfi-simulations">
+<h3>Calculating Magnitude and Optimizing Exposures for Roman WFI Simulations<a class="headerlink" href="#calculating-magnitude-and-optimizing-exposures-for-roman-wfi-simulations" title="Link to this heading">#</a></h3>
+<p>For the next example, we begin by determining the corresponding magnitude at a given signal-to-noise ratio (SNR) and setup parameters. Next, we extend this analysis to calculate the optimal number of exposures required to reach a target SNR for a given source flux.</p>
+<p>The following helper functions use <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> to simulate a range of scenes at different magnitudes in order to estimate the best magnitude for a specified SNR and a number of exposures. As above, we assume a point source with a flat spectrum, and the MA table is set to the “im_135_8” table but this time without any truncation.</p>
+<section id="step-1-calculating-the-magnitude-for-a-given-setup">
+<h4>Step 1: Calculating the Magnitude for a Given Setup<a class="headerlink" href="#step-1-calculating-the-magnitude-for-a-given-setup" title="Link to this heading">#</a></h4>
+<p>In the first step, we estimate the limiting magnitude for a point source at a given SNR. This involves iterating over a range of magnitudes, computing the SNR for each, and interpolating the results to determine the best magnitude for the specified SNR. The observing parameters include the number of exposures and a specified filter.</p>
+<p>Example Use Case:</p>
+<p>SNR = <span style="color:red">5</p></p>
+<p>Number of exposures = <span style="color:red">10</p></p>
+<p>Filter = <span style="color:red">F129</p></p>
+<p>The following helper functions use <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> to compute the star’s magnitude that yields the desired SNR.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_mag</span><span class="p">(</span><span class="n">filt</span><span class="p">,</span> <span class="n">nexp</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">30</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Method to compute the S/N from a range of magnitudes and a fixed number of exposures</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filt : str</span>
+<span class="sd">        Name of Roman WFI filter</span>
+<span class="sd">    nexp : int</span>
+<span class="sd">        Number of exposures</span>
+<span class="sd">    bracket : tuple</span>
+<span class="sd">        Range of magnitudes to test. default: (18, 30)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mag_range : float</span>
+<span class="sd">        An array of magnitudes used to compute the SNRs</span>
+<span class="sd">    computed_snrs: float</span>
+<span class="sd">        An array of computed SNRs from Pandeia calculations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Set up default Roman observation</span>
+    <span class="n">calc</span> <span class="o">=</span> <span class="n">build_default_calc</span><span class="p">(</span><span class="s1">&#39;roman&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi&#39;</span><span class="p">,</span> <span class="s1">&#39;imaging&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Modify defaults to place a source with an AB magnitude</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_fluxunit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;abmag&#39;</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_waveunit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;um&#39;</span>
+    
+    <span class="c1"># Set number of exposures and filter</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nexp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nexp</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;instrument&#39;</span><span class="p">][</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filt</span>
+
+    <span class="c1"># Create an array of magnitudes range of interest</span>
+    <span class="n">mag_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bracket</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bracket</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Create empty lists to save the computations</span>
+    <span class="n">computed_snrs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Compute the SNRs for a given magnitude</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mag_range</span><span class="p">)):</span>
+        <span class="n">mag</span> <span class="o">=</span> <span class="n">mag_range</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+        <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_flux&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mag</span>
+        <span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+        <span class="n">computed_snrs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">report</span><span class="p">[</span><span class="s1">&#39;scalar&#39;</span><span class="p">][</span><span class="s1">&#39;sn&#39;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">mag_range</span><span class="p">,</span> <span class="n">computed_snrs</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_mag2sn_</span><span class="p">(</span><span class="n">mag_range</span><span class="p">,</span> <span class="n">computed_snrs</span><span class="p">,</span> <span class="n">sntarget</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate a magnitude given a desired SNR by interpolating (computed_snrs, mag_range) from compute_mag</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mag_range: float</span>
+<span class="sd">        An array of magnitudes used in calculating a range of SNRs in compute_mag</span>
+<span class="sd">    computed_snrs: float</span>
+<span class="sd">        An array of computed SNR given the mag_range using Pandeia calculation object</span>
+<span class="sd">    sntarget: float</span>
+<span class="sd">        Required S/N</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">interpolator</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">computed_snrs</span><span class="p">,</span> <span class="n">mag_range</span><span class="p">)</span>
+    <span class="n">mag</span> <span class="o">=</span> <span class="n">interpolator</span><span class="p">(</span><span class="n">sntarget</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mag</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can estimate the magnitude of the star that in 10 exposures reaches an S/N = 5</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SN</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">NEXP</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Run minimizer function to estimate the magnitude given sn and nexp</span>
+<span class="n">mag_range</span><span class="p">,</span> <span class="n">computed_snrs</span> <span class="o">=</span> <span class="n">compute_mag</span><span class="p">(</span><span class="n">FILTER</span><span class="p">,</span> <span class="n">NEXP</span><span class="p">)</span>
+<span class="n">mag</span> <span class="o">=</span> <span class="n">_mag2sn_</span><span class="p">(</span><span class="n">mag_range</span><span class="p">,</span> <span class="n">computed_snrs</span><span class="p">,</span> <span class="n">SN</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estimated magnitude: </span><span class="si">{</span><span class="n">mag</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated magnitude: 26.76
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-determining-optimal-number-of-exposures">
+<h4>Step 2: Determining Optimal Number of Exposures<a class="headerlink" href="#step-2-determining-optimal-number-of-exposures" title="Link to this heading">#</a></h4>
+<p>With the magnitude determined, we then calculate the optimal number of exposures required to achieve a specified S/N for a known flux. This is done by simulating observations with varying numbers of exposures, identifying the minimum exposure count necessary to meet or exceed the target S/N. This ensures efficient use of telescope time while maintaining data quality.</p>
+<p>The following helper functions use <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> to simulate a range of scenes with different numbers of exposures in order to estimate the optimal observing time to reach the expected limiting magnitude for a source with a given flux. As above, we assume a point source with a flat spetrum, and the MA table is set to the “c2a_img_hlwas” table, truncated to 6 resultants.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_nexp2sn_</span><span class="p">(</span><span class="n">nexp</span><span class="p">,</span> <span class="n">calc</span><span class="p">,</span> <span class="n">sntarget</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Optimize a S/N ratio given a number of exposures. This is a helper function</span>
+<span class="sd">    used as an argument for scipy&#39;s minimize_scalar() as used in compute_mag().</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nexp : int</span>
+<span class="sd">        The number of exposures used in an iteration of minimize_scalar()</span>
+<span class="sd">    calc : </span>
+<span class="sd">        A Pandeia calculation object</span>
+<span class="sd">    sntarget : </span>
+<span class="sd">        Required S/N from the matching argument of compute_mag()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nexp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nexp</span><span class="p">)</span>
+    <span class="n">etc</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)[</span><span class="s1">&#39;scalar&#39;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">sntarget</span> <span class="o">-</span> <span class="n">etc</span><span class="p">[</span><span class="s1">&#39;sn&#39;</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_nexp</span><span class="p">(</span><span class="n">filt</span><span class="p">,</span> <span class="n">sn</span><span class="p">,</span> <span class="n">mag</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Method to compute the number of exposures from S/N and magnitude</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filt : str</span>
+<span class="sd">        Name of Roman WFI filter</span>
+<span class="sd">    sn : float</span>
+<span class="sd">        Required S/N</span>
+<span class="sd">    mag : float</span>
+<span class="sd">        AB Magnitude of source</span>
+<span class="sd">    bracket : tuple, default (1, 1000)</span>
+<span class="sd">        Range of magnitudes to test</span>
+<span class="sd">    xtold: float, default 0.1</span>
+<span class="sd">        Target tolerance for minimizer</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    nexp : float</span>
+<span class="sd">        Optimal number of exposures for specified S/N and magnitude</span>
+<span class="sd">    report: dict</span>
+<span class="sd">        Pandeia dictionary with optimal parameters</span>
+<span class="sd">    exptime: float</span>
+<span class="sd">        Exposure time for optimal observation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Set up default Roman observation</span>
+    <span class="n">calc</span> <span class="o">=</span> <span class="n">build_default_calc</span><span class="p">(</span><span class="s1">&#39;roman&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi&#39;</span><span class="p">,</span> <span class="s1">&#39;imaging&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Modify defaults to place a source with an AB magnitude</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_flux&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mag</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_fluxunit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;abmag&#39;</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_waveunit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;um&#39;</span>
+
+    <span class="c1"># Set filter</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;instrument&#39;</span><span class="p">][</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filt</span>
+
+    <span class="c1"># Check that the minimum of 1 exposure has a S/N lower than requested,</span>
+    <span class="c1"># otherwise there is no sense in attempting to minimize nexp.</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nexp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nresultants&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">report</span><span class="p">[</span><span class="s1">&#39;scalar&#39;</span><span class="p">][</span><span class="s1">&#39;sn&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">sn</span><span class="p">:</span>
+        <span class="n">nexp</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">minimize_scalar</span><span class="p">(</span><span class="n">_nexp2sn_</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="n">bracket</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bracket</span><span class="p">,</span>
+                              <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">calc</span><span class="p">,</span> <span class="n">sn</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;bounded&#39;</span><span class="p">,</span>
+                              <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xatol&#39;</span><span class="p">:</span> <span class="n">xtol</span><span class="p">})</span>
+
+        <span class="c1"># Take the optimization result and set it to nexp</span>
+        <span class="c1"># &#39;x&#39; is the solution array in the optimization result object</span>
+        <span class="c1"># For more details on the minimize_scalar function, refer to https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html</span>
+        <span class="n">nexp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+        <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nexp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nexp</span>
+        <span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+
+        <span class="c1"># this generally returns a S/N less than the required amount.</span>
+        <span class="c1"># let&#39;s ensure that we get *AT LEAST* the required S/N for 2 reasons:</span>
+        <span class="c1"># 1) better to err on the side of caution</span>
+        <span class="c1"># 2) make code consistent with the above if clause</span>
+        <span class="k">if</span> <span class="n">report</span><span class="p">[</span><span class="s1">&#39;scalar&#39;</span><span class="p">][</span><span class="s1">&#39;sn&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">sn</span><span class="p">:</span>
+            <span class="n">nexp</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="c1"># Re-calculate</span>
+            <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nexp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nexp</span>
+            <span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+
+    <span class="n">exptime</span> <span class="o">=</span> <span class="n">report</span><span class="p">[</span><span class="s1">&#39;scalar&#39;</span><span class="p">][</span><span class="s1">&#39;total_exposure_time&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">nexp</span><span class="p">,</span> <span class="n">report</span><span class="p">,</span> <span class="n">exptime</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For example, we can use the functions above to determine the optimal number of exposures to reach a SNR of 20 when observing a point source of magnitude 26.84 in the F129 band:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define S/N and Magnitude</span>
+<span class="n">SN</span> <span class="o">=</span> <span class="mf">20.</span>
+<span class="n">MAG</span> <span class="o">=</span> <span class="mf">26.84</span>
+
+<span class="c1"># Compute values</span>
+<span class="n">nexp</span><span class="p">,</span> <span class="n">etc</span><span class="p">,</span> <span class="n">exptime</span> <span class="o">=</span> <span class="n">compute_nexp</span><span class="p">(</span><span class="n">FILTER</span><span class="p">,</span> <span class="n">SN</span><span class="p">,</span> <span class="n">MAG</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;number of exposures: </span><span class="si">{</span><span class="n">nexp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;actual S/N reached: </span><span class="si">{</span><span class="n">etc</span><span class="p">[</span><span class="s2">&quot;scalar&quot;</span><span class="p">][</span><span class="s2">&quot;sn&quot;</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Exposure time: </span><span class="si">{</span><span class="n">exptime</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of exposures: 224
+actual S/N reached: 20.04
+Exposure time: 30460.92
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="modifying-the-spectral-energy-distribution">
+<h3>Modifying the Spectral Energy Distribution<a class="headerlink" href="#modifying-the-spectral-energy-distribution" title="Link to this heading">#</a></h3>
+<p>While previous examples assume a point source with a flat SED, <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> also offers the ability to use a a variety of different shapes and spectral inputs. In the example below, we calculate the SNR for an A0V star (Phoenix model) of magnitude 25 AB, observed in the F129 band, with 3 exposures of the default MA table (“im_135_8”, with no truncation). For more information on how to implement complex scenes with a variety of shapes and SEDs, please refer to the <a class="reference external" href="https://jwst-docs.stsci.edu/jwst-exposure-time-calculator-overview/jwst-etc-pandeia-engine-tutorial/pandeia-quickstart#PandeiaQuickstart-Samplecode">JWST Tutorials</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the default observation</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">build_default_calc</span><span class="p">(</span><span class="s1">&#39;roman&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi&#39;</span><span class="p">,</span> <span class="s1">&#39;imaging&#39;</span><span class="p">)</span>
+
+<span class="c1"># Update the observation parameters</span>
+<span class="n">NEXP</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nexp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">NEXP</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;instrument&#39;</span><span class="p">][</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FILTER</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the scene</span>
+<span class="n">MAG</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_flux&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAG</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_fluxunit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;abmag&#39;</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;sed&#39;</span><span class="p">][</span><span class="s1">&#39;sed_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;phoenix&#39;</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;sed&#39;</span><span class="p">][</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a0v&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print the results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+<span class="n">sn</span> <span class="o">=</span> <span class="n">report</span><span class="p">[</span><span class="s1">&#39;scalar&#39;</span><span class="p">][</span><span class="s1">&#39;sn&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estimated S/N: </span><span class="si">{</span><span class="n">sn</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated S/N: 16.12
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="observing-ngc2506-g31-with-roman-wfi">
+<h3>Observing NGC2506-G31 with Roman WFI<a class="headerlink" href="#observing-ngc2506-g31-with-roman-wfi" title="Link to this heading">#</a></h3>
+<p>In this example, we show a real science case using NGC2506-G31, a G1V standard star that is used as a cross-mission calibration standard for both JWST and HST observations. We would like to see if Roman can observe the same star and if so, with which observing setup. We are interested in placing the star on SCA11.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a default calculation using Roman&#39;s WFI with an imaing mode</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">build_default_calc</span><span class="p">(</span><span class="s1">&#39;roman&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi&#39;</span><span class="p">,</span> <span class="s1">&#39;imaging&#39;</span><span class="p">)</span>
+
+<span class="c1"># Update the observation parameters</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;instrument&#39;</span><span class="p">][</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FILTER</span>  <span class="c1"># Setting the filter to F129</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;instrument&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;wfi11&#39;</span>  <span class="c1"># Setting the detector fo WFI11</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nexp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Taking one exposure of multi-accum sequence</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;ma_table_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;im_135_8&#39;</span>  <span class="c1"># Using the default MA table</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nresultants&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># No truncation of the MA table</span>
+
+<span class="c1"># Setting up the source SED</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;sed&#39;</span><span class="p">][</span><span class="s1">&#39;sed_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;phoenix&#39;</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;sed&#39;</span><span class="p">][</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;g2v&#39;</span>  <span class="c1"># Using the closest spectral type available to G1V</span>
+
+<span class="c1"># Setting up the normalization parameters</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;photsys&#39;</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_flux&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">16.260</span>  <span class="c1"># K-band magnitude of the source</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;norm_fluxunit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;vegamag&#39;</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;scene&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;normalization&#39;</span><span class="p">][</span><span class="s1">&#39;bandpass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2mass,ks&#39;</span>
+
+<span class="c1"># Run the calculation</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the calculation ran, we would like to check to see if there are any warning messages from the report. You can access the warnings through the the “warnings” dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print warnings in a list</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warnings:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">report</span><span class="p">[</span><span class="s1">&#39;warnings&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">clean_key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;• </span><span class="si">{</span><span class="n">clean_key</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">    </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warnings:
+• Normalizephotsys Unsupported Norm Wave:
+    Unsupported configuration parameter, norm_wave, being passed to NormalizePhotsys.
+
+• Normalizephotsys Unsupported Norm Waveunit:
+    Unsupported configuration parameter, norm_waveunit, being passed to NormalizePhotsys.
+
+• Phoenix Unsupported Unit:
+    Unsupported configuration parameter, unit, being passed to Phoenix.
+
+• Partial Saturated:
+    Partial saturation:
+ There are 1 pixels saturated at the end of a ramp. Partial ramps may still be used in some cases.
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that there is a pixel that is partially saturated. If you are concerned that there is a partially saturated pixel, you can check the report to see what the maximum number of resultants is to avoid having the brighest pixel on the detector getting saturated. You can access this information through the “sat_nresultants” key within the “scalar” dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">[</span><span class="s1">&#39;scalar&#39;</span><span class="p">][</span><span class="s1">&#39;sat_nresultants&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check manually that it indeed is nresultant=5. The maximum nresultant for “im_135_8” MA table is 7 and we will calculate backward, from no truncation to incremented truncation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)):</span>
+    <span class="c1"># Check to see if there is any warning message about the saturation (both partial and full)</span>
+    <span class="c1"># Stop the loop if the saturation warning no longer exists</span>
+    <span class="c1"># Adding 1 for the resultant because python indexing starts with 0.</span>
+    <span class="n">resultant</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;configuration&#39;</span><span class="p">][</span><span class="s1">&#39;detector&#39;</span><span class="p">][</span><span class="s1">&#39;nresultants&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resultant</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+    <span class="n">partial</span> <span class="o">=</span> <span class="n">report</span><span class="p">[</span><span class="s1">&#39;warnings&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;partial_saturated&#39;</span><span class="p">)</span>
+    <span class="n">full</span> <span class="o">=</span> <span class="n">report</span><span class="p">[</span><span class="s1">&#39;warnings&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;full_saturated&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">partial</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">full</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">nresultant</span> <span class="o">=</span> <span class="n">resultant</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No saturation happens with resultant </span><span class="si">{</span><span class="n">nresultant</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No saturation happens with resultant 4
+</pre></div>
+</div>
+</div>
+</div>
+<p>The answer turns out to be 4.</p>
+<p>Although we know the actual coordinate of this star, <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> engine does not support a simulation at a specific location or time, as the engine comes with canned backgrounds at the locations that are representative locations for the footprints of three Core Community Surveys (see the <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments/wfi-imaging-mode-user-guide/observing-with-the-wfi-in-imaging-mode/considerations-of-backgrounds-for-roman-wfi-observations">Background Models in the Roman WFI ETC</a> section in RDox for more details).</p>
+<p>If you would like to see how the SNR changes with time at the specific location of this star, you have to use the web application of the ETC that is available at the <a class="reference internal" href="#roman.etc.stsci.edu"><span class="xref myst">Roman WFI ETC</span></a>.</p>
+</section>
+<section id="modifying-the-background">
+<h3>Modifying the Background<a class="headerlink" href="#modifying-the-background" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> defines the background using 2 values in the configuration dictionary: <code class="docutils literal notranslate"><span class="pre">background</span></code> and <code class="docutils literal notranslate"><span class="pre">background_level</span></code>. Combination of these two values determines whether a pre-computed background data (the canned background) or a user-supplied background data (custom background) is used. As of <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> version 2025.9, the default values used by the engine are <code class="docutils literal notranslate"><span class="pre">hlwas-medium_field1</span></code> for the background and <code class="docutils literal notranslate"><span class="pre">medium</span></code> for the background_level.</p>
+<section id="canned-backgrounds">
+<h4>Canned Backgrounds<a class="headerlink" href="#canned-backgrounds" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> engine is shipped with a set of pre-computed backgrounds that are generated by the Roman Backgrounds Tool (RBT) at various locations within the 3 Core Community Surveys (CCS). Please refer to the <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator/roman-interactive-sensitivity-tool">Pandeia Engine &amp; Roman Interactive Sensitivity Tool (RIST)</a> section “Tunable Parameters of RIST” for the details. The followings are valid values for the background configuration dictionaries:</p>
+<ul class="simple">
+<li><p>calc[‘background’]</p>
+<ul>
+<li><p>hlwas-medium_field1</p></li>
+<li><p>hlwas-medium_field2</p></li>
+<li><p>hlwas-wide_field1</p></li>
+<li><p>hlwas-wide_field2</p></li>
+<li><p>hlwas-wide_field3</p></li>
+<li><p>hlwas-wide_field4</p></li>
+<li><p>hltds</p></li>
+<li><p>gbtds_mid_5stripe</p></li>
+</ul>
+</li>
+<li><p>calc[‘background_level’]</p>
+<ul>
+<li><p>low</p></li>
+<li><p>medium (for hltds, only this background level is available)</p></li>
+<li><p>high</p></li>
+</ul>
+</li>
+</ul>
+<p>In the code below, we show how to set up the imaging observation and change the background and level to <code class="docutils literal notranslate"><span class="pre">hltds</span></code> and  <code class="docutils literal notranslate"><span class="pre">medium</span></code>, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get Default Parameters</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">build_default_calc</span><span class="p">(</span><span class="s1">&#39;roman&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi&#39;</span><span class="p">,</span> <span class="s1">&#39;imaging&#39;</span><span class="p">)</span>
+
+<span class="c1"># Update the background model to a different set</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;background&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hltds&#39;</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;background_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;medium&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="custom-backgrounds">
+<h4>Custom Backgrounds<a class="headerlink" href="#custom-backgrounds" title="Link to this heading">#</a></h4>
+<p>If you are interested in exploring the observing setup with background other than the pre-computed canned backgrounds, you can use the RBT (available on the Roman Research Nexus) to generate the background.</p>
+<p>Another option is to download a calculation from the <a class="reference external" href="https://roman.etc.stsci.edu/login.html">web ETC</a> (available as a tar file in the <em><strong>Downloads</strong></em> tab under the <em><strong>Reports</strong></em> pane) where you will find the ‘background.fits’ file to import from the engine. The custom background needs to be defined as a list containing the wavelength and flux arrays, denoted by square brackets, and set to the background. The <code class="docutils literal notranslate"><span class="pre">background_level</span></code> key will be ignored by the engine. The code below shows how to define the custom background in the engine using the background.fits file from the web ETC.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get Default Parameters</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">build_default_calc</span><span class="p">(</span><span class="s1">&#39;roman&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi&#39;</span><span class="p">,</span> <span class="s1">&#39;imaging&#39;</span><span class="p">)</span>
+
+<span class="c1"># Try to load a custom background from backgrounds.fits</span>
+<span class="n">custom_bg</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># will stay None if the file is not found</span>
+<span class="n">bg_file</span> <span class="o">=</span> <span class="s1">&#39;backgrounds.fits&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;backgrounds.fits&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdul</span><span class="p">:</span>
+        <span class="n">bg_wvl</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">]</span>
+        <span class="n">bg_flux</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;background&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Define the custom background</span>
+        <span class="n">custom_bg</span> <span class="o">=</span> <span class="p">[</span><span class="n">bg_wvl</span><span class="p">,</span> <span class="n">bg_flux</span><span class="p">]</span>
+
+    <span class="c1"># Attach the custom background to the calc dict</span>
+    <span class="n">calc</span><span class="p">[</span><span class="s1">&#39;background&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">custom_bg</span>
+
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File &#39;</span><span class="si">{</span><span class="n">bg_file</span><span class="si">}</span><span class="s2">&#39; not found – using default background.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error reading &#39;</span><span class="si">{</span><span class="n">bg_file</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> – using default background.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Perform the calculation (default background is used if custom_bg is None)</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File &#39;backgrounds.fits&#39; not found – using default background.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we show how to generate a custom background using the RBT and supply it to the engine. The code will simulate a background spectrum at a specific coordinate (RA = 34.5656 &amp; Dec = -52.6140, both in decimal degrees) and wavelength (0.6291 microns). Then you can choose the specific observable day to supply to the engine and save it if needed. Note that RBT considers 366 calendar days in a year with Day 0 corresponding to Jan 1. In this example, we will look at the first observable day in the year.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the coordinates</span>
+<span class="n">ra</span> <span class="o">=</span> <span class="mf">34.5656</span>  <span class="c1"># in degrees</span>
+<span class="n">dec</span> <span class="o">=</span> <span class="o">-</span><span class="mf">52.6140</span>  <span class="c1"># in degrees</span>
+<span class="n">wavelength</span> <span class="o">=</span> <span class="mf">0.6291</span>  <span class="c1"># in microns</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># A cut off value above the minimum background, to calculate number of good days.</span>
+
+<span class="c1"># Create the RBT instance</span>
+<span class="n">bg</span> <span class="o">=</span> <span class="n">rbt</span><span class="o">.</span><span class="n">background</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="n">threshold</span><span class="p">)</span>
+
+<span class="c1"># Look at the all available observable days</span>
+<span class="n">good_days</span> <span class="o">=</span> <span class="n">bg</span><span class="o">.</span><span class="n">bkg_data</span><span class="p">[</span><span class="s1">&#39;calendar&#39;</span><span class="p">]</span>
+
+<span class="c1"># Define the day to look at the background spectrum for the target</span>
+<span class="n">this_day</span> <span class="o">=</span> <span class="n">good_days</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Define the background spectrum</span>
+<span class="n">bg_wvl</span> <span class="o">=</span> <span class="n">bg</span><span class="o">.</span><span class="n">bkg_data</span><span class="p">[</span><span class="s1">&#39;wave_array&#39;</span><span class="p">]</span>
+<span class="n">bg_flux</span> <span class="o">=</span> <span class="n">bg</span><span class="o">.</span><span class="n">bkg_data</span><span class="p">[</span><span class="s1">&#39;total_bg&#39;</span><span class="p">][</span><span class="n">this_day</span><span class="p">]</span>
+
+<span class="c1"># Get Default Parameters</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">build_default_calc</span><span class="p">(</span><span class="s1">&#39;roman&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi&#39;</span><span class="p">,</span> <span class="s1">&#39;imaging&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the background configuration dictionary to the RBT-supplied background spectrum</span>
+<span class="n">calc</span><span class="p">[</span><span class="s1">&#39;background&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">bg_wvl</span><span class="p">,</span> <span class="n">bg_flux</span><span class="p">]</span>
+
+<span class="c1"># Save the background spectrum to a file if it exists</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">bg</span><span class="o">.</span><span class="n">write_background</span><span class="p">(</span><span class="n">thisday</span><span class="o">=</span><span class="n">this_day</span><span class="p">,</span> <span class="n">background_file</span><span class="o">=</span><span class="n">your_filename</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> No file name provided to save Background, continue with calculation ...&quot;</span><span class="p">)</span>
+
+<span class="c1"># Perform the calculation</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> No file name provided to save Background, continue with calculation ...
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="importing-input-json-from-the-web-etc-into-the-pandeia-engine">
+<h4>Importing input.json from the Web ETC into the Pandeia engine<a class="headerlink" href="#importing-input-json-from-the-web-etc-into-the-pandeia-engine" title="Link to this heading">#</a></h4>
+<p>For calculations that completed successfully, the Web ETC provides a downloadable tar file in the <em><strong>Downloads</strong></em> tab in the <em><strong>Reports</strong></em> pane that contains useful products for additional offline analysis. One of the files contains the input configurations for the calculation in a json file (input.json). In this example, we show how to read in the input.json file in Pandeia and re-run the calculation again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defining file wit ETC configuration</span>
+<span class="n">calculation</span> <span class="o">=</span> <span class="s2">&quot;input.json&quot;</span>
+
+<span class="c1"># load the JSON file if exists, ortherwise uses previous scene</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">calculation</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">calcfile</span><span class="p">:</span>
+        <span class="n">calc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">calcfile</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: File &#39;</span><span class="si">{</span><span class="n">calculation</span><span class="si">}</span><span class="s2">&#39; not found – using last defined scene in notebook.&quot;</span><span class="p">)</span>
+    <span class="n">calculation</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error reading &#39;</span><span class="si">{</span><span class="n">calculation</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> – using last defined scene in notebook.&quot;</span><span class="p">)</span>
+
+<span class="c1"># run the calculation</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+
+<span class="c1"># Extract the pretty-printed web report</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;web_report&#39;</span><span class="p">]</span>
+
+<span class="c1"># Formatted output</span>
+<span class="k">if</span> <span class="n">calculation</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">20</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1m RESULTS from ETC scene</span><span class="se">\033</span><span class="s2">[0m&quot;</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1m Default scene </span><span class="se">\033</span><span class="s2">[0m&quot;</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">report</span><span class="p">:</span>
+    <span class="c1"># ANSI Pretty-print the report categories and apply word wrapping</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1m&quot;</span> <span class="o">+</span> <span class="n">category</span><span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">category</span><span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">category</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="s2">&quot;value&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+            <span class="n">namelist</span> <span class="o">=</span> <span class="n">wrap</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span> <span class="n">subsequent_indent</span><span class="o">=</span><span class="s2">&quot;    &quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">&quot;indent&quot;</span> <span class="ow">in</span> <span class="n">item</span> <span class="ow">and</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;indent&quot;</span><span class="p">]:</span>
+                <span class="n">namelist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;    &quot;</span> <span class="o">+</span> <span class="n">namelist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">namelist</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">namelist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;36</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">namelist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;36</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;16</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1m WARNINGS </span><span class="se">\033</span><span class="s2">[0m&quot;</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;warnings&#39;</span><span class="p">]:</span>
+    <span class="c1"># ANSI Pretty-print the warnings and apply word wrapping</span>
+    <span class="n">warning_display</span> <span class="o">=</span> <span class="n">wrap</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;warnings&quot;</span><span class="p">][</span><span class="n">x</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">subsequent_indent</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">&lt;25</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">warning_display</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">warning_display</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">warning_display</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">25</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">warning_display</span><span class="p">[</span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: File &#39;input.json&#39; not found – using last defined scene in notebook.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------<span class=" -Color -Color-Bold"> Default scene </span>------------------------------
+<span class=" -Color -Color-Bold">Results</span>
+-------
+Extracted Signal-to-Noise Ratio                 16.84           
+Extracted Flux                                   5.64 e-/s      
+Standard Deviation of Extracted Flux             0.33 e-/s      
+Brightest Pixel Rate                             3.03 e-/s      
+Maximum Fraction of Saturation               4.22e-03           
+Maximum Number of Resultants Before 
+    Saturation                                   8    resultants
+
+<span class=" -Color -Color-Bold">Instrument and Detector</span>
+-----------------------
+Instrument Detector/Filter/Disperser wfi01, f158, n/a           
+Integration Duration                           139.15 s         
+Single Exposure Time                           139.15 s         
+Fraction of Time Spent Collecting   
+    Flux                                         1.00           
+Effective Exposure Time                        135.99 s         
+Science Time                                   135.99 s         
+Total time collecting photons                  139.15 s         
+Saturation Time                                139.15 s         
+
+<span class=" -Color -Color-Bold">Extraction Strategy Settings</span>
+----------------------------
+Radius of Extraction Aperture                    0.20 arcsec    
+Area of Extraction Aperture                     10.39 pixels    
+Effective Wavelength                             1.57 microns   
+Extraction Aperture Position             (0.00, 0.00) arcsec    
+
+<span class=" -Color -Color-Bold">Background</span>
+----------
+Input Background Surface Brightness              0.14 MJy/sr    
+Area of Background Measurement                  51.93 pixels    
+Total Sky Background Flux in        
+    Background Aperture                          4.06 e-/s      
+Total Flux in Background Aperture                4.12 e-/s      
+Fraction of Total Background due to 
+    Signal from Scene                        1.61e-02           
+Average Number of Cosmic Ray Events 
+    per Pixel per Ramp                       3.41e-03 events/pixel/read
+
+------------------------------<span class=" -Color -Color-Bold"> WARNINGS </span>------------------------------
+----------------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The Roman User Documentation’s <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/pandeia-for-roman">“Pandeia for Roman”</a> page and associated overview.</p></li>
+<li><p>Full API references for <a class="reference external" href="https://outerspace.stsci.edu/display/PEN/Pandeia+Engine+Input+API">Pandeia Engine inputs</a> and <a class="reference external" href="https://outerspace.stsci.edu/display/PEN/Pandeia+Engine+Output+API">Pandeia Engine outputs</a>.</p></li>
+<li><p>The <a class="reference external" href="https://roman-docs.stsci.edu/roman-help-desk-at-stsci">Roman Help Desk</a>, an official outlet for user questions about Pandeia.</p></li>
+<li><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-exposure-time-calculator-overview/jwst-etc-pandeia-engine-tutorial/pandeia-quickstart#PandeiaQuickstart-Samplecode">Pandeia JWST Tutorials</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="about-this-notebook">
+<h2>About this notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Author:</strong> Justin Otor, Eunkyu Han, Harish Khandrika, Rosa Diaz</p>
+<p><strong>Updated On:</strong> 2025-12-08</p>
+<table width="100%" style="border:none; border-collapse:collapse;">
+  <tr style="border:none;">
+    <td style="border:none; width:180px; white-space:nowrap;">
+       <a href="#top" style="text-decoration:none; color:#0066cc;">↑ Top of page</a> 
+    </td>
+    <td style="border:none; text-align:center;">
+       <img src="../../roman_logo.png" width="50">
+    </td>
+    <td style="border:none; text-align:right;">
+       <img src="../../stsci_logo2.png" width="90">
+    </td>
+  </tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/pandeia"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Measuring Galaxy Shapes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../rist/rist.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Roman Interactive Sensitivity Tool (RIST)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information">Kernel Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-roman-research-nexus">On the Roman Research Nexus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-a-scene-s-signal-to-noise-ratio">Calculate a Scene’s Signal-to-Noise Ratio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-magnitude-and-optimizing-exposures-for-roman-wfi-simulations">Calculating Magnitude and Optimizing Exposures for Roman WFI Simulations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-calculating-the-magnitude-for-a-given-setup">Step 1: Calculating the Magnitude for a Given Setup</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-determining-optimal-number-of-exposures">Step 2: Determining Optimal Number of Exposures</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-the-spectral-energy-distribution">Modifying the Spectral Energy Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observing-ngc2506-g31-with-roman-wfi">Observing NGC2506-G31 with Roman WFI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-the-background">Modifying the Background</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#canned-backgrounds">Canned Backgrounds</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-backgrounds">Custom Backgrounds</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-input-json-from-the-web-etc-into-the-pandeia-engine">Importing input.json from the Web ETC into the Pandeia engine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
