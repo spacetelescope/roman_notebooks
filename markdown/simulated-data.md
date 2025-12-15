@@ -65,3 +65,6 @@ Additional reference material is available on the [Roman WFI TVAC2 Bright Star S
 Simulated grism images from Wang et al. (2022, ApJ, 928, 1), developed as part of the Roman High Latitude Spectroscopic Survey (HLSS) Grism Simulation Products, are also available. For detailed information, please refer to the [documentation on IRSA](https://irsa.ipac.caltech.edu/data/theory/Roman/Wang2022a/). These simulations cover a total area of 4 square degrees and a redshift range of 0 < z < 3. The simulation products were designed to closely replicate future observations, incorporating survey parameters such as detection limits, exposure times, roll angles, and dithering strategies.
 
 For the [spectroscopic extraction tutorial](../notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb), one grism file and one direct imaging file generated from these simulations are provided.
+
+---
+*Last Updated: December 2025*
