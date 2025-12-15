@@ -1,6 +1,6 @@
 # Science Workflows
 
-Science Workflows in the Nexus organize related [Notebook Tutorials](./markdown/tutorials.md) into guided, end-to-end examples that show how individual tools and analysis steps connect into a broader scientific task. Each workflow provides a structured path through a specific use case, while the underlying tutorials remain available as standalone examples that users can adapt to their own projects.
+Science Workflows in the Nexus organize related [Notebook Tutorials](./tutorials.md) into guided, end-to-end examples that show how individual tools and analysis steps connect into a broader scientific task. Each workflow provides a structured path through a specific use case, while the underlying tutorials remain available as standalone examples that users can adapt to their own projects.
 
 Workflows are designed to help users explore Roman-style analysis patterns in the Early Access environment, using the software, data structures, and simulation tools available in the platform image.
 
@@ -19,4 +19,4 @@ Each workflow highlights a different aspect of the platform ecosystem—from gen
 Workflows are composed of individual [Notebook Tutorials](./tutorials.md), each focused on a specific tool or analysis step. Users may work through an entire workflow sequentially or use the tutorials independently, depending on their goals. If you would like to modify the material for a custom workflow, first copy it into your personal home directory or team home directory. 
 
 ---
-*Last Updated December 2025* 
+*Last Updated: December 2025* 
