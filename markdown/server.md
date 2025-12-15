@@ -58,3 +58,6 @@ Use named servers when you need separate workspaces—for example, testing a cle
 - **Named servers** for parallel or isolated environments
 
 For information on Real Time Collaboration Servers, please see the [Working on a Team Page](./markdown/teams.md).
+
+---
+*Last updated: December 2025*
