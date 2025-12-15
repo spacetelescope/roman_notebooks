@@ -58,7 +58,7 @@ The test sequence begins with an initial 4-frame exposure to verify that the com
 
 These products have been converted to Level 1 (L1) format and are available in the Open Data Bucket to provide an example of ground test data suitable for detector characterization prior to actual flight observations. The WFI TVAC Test Data Notebook demonstrates how to extract a subset of the data, process it using romancal, and analyze saturation effects and per-frame slope variations in the vicinity of bright sources. Note that these test data will differ from in-flight observations because the telescope simulator and experimental setup do not reproduce the true observatory optics.
 
-Additional reference material is available at https://asd.gsfc.nasa.gov/roman/WFI_Bright_Star/ and in Dana Louie et al. (in prep.).
+Additional reference material is available on the [Roman WFI TVAC2 Bright Star Saturation Test Data Mini-Release page](https://asd.gsfc.nasa.gov/roman/WFI_Bright_Star/) and in Dana Louie et al. (in prep.).
 
 ## Spectroscopy Data
 
