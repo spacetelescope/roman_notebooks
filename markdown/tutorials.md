@@ -17,7 +17,7 @@ The tutorials directory is synchronized with the latest reference versions when 
 ## All Notebooks
 Below is the current set of Notebook Tutorials available in the Nexus. Each tutorial can be run independently and may appear in one or more [Science Workflows](./workflows).
 
-**Data Access and Exploration**
+### Data Access and Exploration
 
 - [**Data Discovery and Access**](../notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
 
@@ -37,7 +37,7 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
   *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md), [WFI Data Analysis](./workflows/wfi-data-analysys.md)
 
-**WFI Data Simulation and Calibration Pipelines**
+### WFI Data Simulation and Calibration Pipelines
 
 - [**Roman I-sim**](../notebooks/romanisim/romanisim.ipynb)
   
@@ -63,7 +63,7 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
   *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
 
-**Measurements and Analysis Tools**
+### Measurements and Analysis Tools
 
 - [**Aperture Photometry**](../notebooks/aperture_photometry/aperture_photometry.ipynb) 
 
@@ -89,7 +89,7 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
   *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
 
-**Planning Utilities**
+### Planning Utilities
 - [**Pandeia**](../notebooks/pandeia/pandeia.ipynb)         
 
   Estimate the exposure parameters needed to reach a given SNR for simulated sources in a small area of one WFI detector.
