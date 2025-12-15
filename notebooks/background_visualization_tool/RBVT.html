@@ -473,13 +473,24 @@ document.write(`
 <section id="import">
 <h2>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
 <p>The Roman Background Visualization Tool (RBVT) is launched from within a Jupyter notebook using the <code class="docutils literal notranslate"><span class="pre">plot_rbt</span></code> module.</p>
-<p><strong>Note</strong>: If running within VS Code, Jupyter Notebook, or JupyterLab, set the WebSocket to conect to Bokeh before importing <code class="docutils literal notranslate"><span class="pre">plot_rist</span></code> by setting the environment variable:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import os
-os.environ[&#39;BOKEH_ALLOW_WS_ORIGIN&#39;] = &#39;*&#39;
+<p><strong>Note</strong>: If running within VS Code, Jupyter Notebook, or JupyterLab, set the WebSocket to conect to Bokeh before importing <code class="docutils literal notranslate"><span class="pre">plot_rist</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up Bokeh</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="k">if</span> <span class="s1">&#39;BOKEH_ALLOW_WS_ORIGIN&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;BOKEH_ALLOW_WS_ORIGIN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BOKEH_ALLOW_WS_ORIGIN set to *&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To begin, run the cell below:</p>
-<hr class="docutils" />
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BOKEH_ALLOW_WS_ORIGIN set to *
+</pre></div>
+</div>
+</div>
+</div>
+<p>To begin, run the cell below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rbvt</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_rbt</span>
@@ -509,7 +520,7 @@ os.environ[&#39;BOKEH_ALLOW_WS_ORIGIN&#39;] = &#39;*&#39;
     </style>
     <div>
         <a href="https://bokeh.org" target="_blank" class="bk-notebook-logo"></a>
-        <span id="ea1fe0e3-2cfe-4f54-8829-9dbd6c60299e">Loading BokehJS ...</span>
+        <span id="d14ef800-f9e2-4ade-917d-23fdc103a59f">Loading BokehJS ...</span>
     </div>
 </div><script type="application/javascript">'use strict';
 (function(root) {
@@ -674,7 +685,7 @@ const JS_MIME_TYPE = 'application/javascript';
      "</div>"}};
 
   function display_loaded(error = null) {
-    const el = document.getElementById("ea1fe0e3-2cfe-4f54-8829-9dbd6c60299e");
+    const el = document.getElementById("d14ef800-f9e2-4ade-917d-23fdc103a59f");
     if (el != null) {
       const html = (() => {
         if (typeof root.Bokeh === "undefined") {
@@ -808,7 +819,7 @@ function(Bokeh) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     } else if (force !== true) {
-      const cell = $(document.getElementById("ea1fe0e3-2cfe-4f54-8829-9dbd6c60299e")).parents('.cell').data().cell;
+      const cell = $(document.getElementById("d14ef800-f9e2-4ade-917d-23fdc103a59f")).parents('.cell').data().cell;
       cell.output_area.append_execute_result(NB_LOAD_WARNING)
     }
   }
@@ -822,11 +833,11 @@ function(Bokeh) {
       run_inline_js();
     });
   }
-}(window));</script><div class="output text_html"><script id="ad2e9f07-bf91-4981-821b-125e3b9731e2">
+}(window));</script><div class="output text_html"><script id="b0d22ea1-1bc9-4443-a922-7c7d09609645">
   (function() {
     const xhr = new XMLHttpRequest()
     xhr.responseType = 'blob';
-    xhr.open('GET', "http://localhost:40973/autoload.js?bokeh-autoload-element=ad2e9f07-bf91-4981-821b-125e3b9731e2&bokeh-absolute-url=http://localhost:40973&resources=none", true);
+    xhr.open('GET', "http://localhost:39939/autoload.js?bokeh-autoload-element=b0d22ea1-1bc9-4443-a922-7c7d09609645&bokeh-absolute-url=http://localhost:39939&resources=none", true);
     xhr.withCredentials = false;
     xhr.onload = function (event) {
       const script = document.createElement('script');
@@ -850,13 +861,13 @@ function(Bokeh) {
 </section>
 <section id="help">
 <h2>Help<a class="headerlink" href="#help" title="Link to this heading">#</a></h2>
-<p>For assistance with RBVT, please contact the Roman SOC Help Desk through https://stsci.service-now.com/roman</p>
+<p>For assistance with RBVT, please contact the <a class="reference external" href="https://stsci.service-now.com/roman">Roman SOC Help Desk</a></p>
 </section>
 <hr class="docutils" />
 <section id="about-this-notebook">
 <h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
-<p><strong>Author:</strong> Melissa Shahbandeh<br />
-<strong>Last Updated</strong>: 2025-11-05</p>
+<p><strong>Author:</strong> Melissa Shahbandeh &amp; R. Diaz</p>
+<p><strong>Last Updated</strong>: 2025-12-10</p>
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
