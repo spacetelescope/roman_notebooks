@@ -6,7 +6,7 @@ If you are new to JupyterLab, the **Welcome Tour** provides a helpful orientatio
 
 To create a new notebook, open a new tab. This will show the **Launcher** (see figure below), a panel where you can start notebooks, terminals, text files, and other tools available in your selected image. 
 
-<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/Launcher.png" alt="WFI Observation Planning Workflow" width="500" />
+<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/Launcher.png" alt="Launcher panel" width="500" />
 
 When you open a notebook for the first time, you may also see the **Notebook Tour**, which introduces the basic features of notebook editing and execution.
 
