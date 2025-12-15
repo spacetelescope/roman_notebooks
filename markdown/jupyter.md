@@ -1,16 +1,24 @@
-# Getting Started with Jupyter
+# Working in JupyterLab
 
-## The Basics: How do I use the interface?
-If you are new to Jupyter, we encourage you to take the **"Welcome Tour"**. This interactive tour provides a comprehensive walkthrough of the JupyterLab user interface. You can access the tour when prompted during your first login or later through the **help** menu. 
+When you launch a server in the Nexus, you are placed in a JupyterLab session. JupyterLab is the workspace where you can open notebooks, browse files, run code, use terminals, and access Roman tools directly in your browser.
 
-To learn more about Jupyter notebooks, start by opening a new blank notebook. In the main work area, open a new tab and select **"Notebook"** under any available kernel. You are now ready to begin the "Notebook Tour", which explains how to writ and run code in the notebook environment.
+If you are new to JupyterLab, the **Welcome Tour** provides a helpful orientation. It appears automatically the first time you log in, and you can reopen it anytime from the **Help menu**.
 
-For more information on the Jupyter interface, please see the ["Project Jupyter Documentation"](https://docs.jupyter.org/en/latest/) page.
+To create a new notebook, open a new tab. This will show the **Launcher** (see figure below), a panel where you can start notebooks, terminals, text files, and other tools available in your selected image. 
 
-## Changing to a Different Server
-To switch to a different server type (e.g. one with more CPU cores, or with different team access), you first need to shutdown your existing server. To do this, select <span style="font-variant:small-caps;">file › hub control panel</span> from the menu bar and then click the <span style="font-variant:small-caps;">stop my server</span> button. Then, you can click the <span style="font-variant:small-caps;">start my server</span> button to launch a server of your choice.
+<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/Launcher.png" alt="WFI Observation Planning Workflow" width="500" />
 
-Note: To conserve computational resources, please remember to shut down your server when you have finished your work.
+When you open a notebook for the first time, you may also see the **Notebook Tour**, which introduces the basic features of notebook editing and execution.
 
-## A Detailed Description: How does this work?
-Users curious about how Jupyter works, as well as the history and motivation behind computational notebooks, should start by reading the ["What is Jupyter?"](https://docs.jupyter.org/en/latest/what_is_jupyter.html) page.
+For more details on the interface, see the official [JupyterLab documentation](https://jupyterlab.readthedocs.io/en/latest/).
+
+## Common Actions in JupyterLab
+- **Open or edit files** by clicking them in the left sidebar.
+- **Create a new notebook** by opening a new tab and selecting **Notebook** from the Launcher.
+- **Run code** in a notebook cell using **Shift + Enter**.
+- **Restart the kernel** (the Python process running your code) using the circular arrow button in the top toolbar if needed.
+- **Open a terminal** from the Launcher to run command-line tools or manage files.
+- **Save your work** in your home or team directories — all files in these locations persist across sessions.
+
+---
+*Last updated: December 2025*
