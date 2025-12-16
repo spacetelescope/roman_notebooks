@@ -8,7 +8,7 @@ During Early Access, the Nexus provides simulated Roman datasets and tools that 
 
 <img src="../images/icons/jupyter.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Working in JupyterLab](../markdown/jupyter.md)
 
-<img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Managing Your Server](markdown/server.md)
+<img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Managing Your Server](../markdown/server.md)
 
 <img src="../images/icons/learning.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Roman Science Workflows](../markdown/workflows.md)
 
@@ -18,7 +18,7 @@ During Early Access, the Nexus provides simulated Roman datasets and tools that 
 
 <img src="../images/icons/team.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Working on a Team](../markdown/teams.md) - Includes information on Real Time Collaboration Servers!
 
-<img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Monitoring Credit Usage ](../markdown/credit-monitos.md)
+<img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Monitoring Credit Usage ](../markdown/credit_monitor.md)
 
 <img src="../images/icons/download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Installing extra software](../markdown/software.md)
 
