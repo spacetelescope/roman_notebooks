@@ -28,7 +28,7 @@ This science workflow is designed to support planning of Roman Wide Field Instru
 
 These tools are complementary and are often used iteratively to refine observing strategies. User documentation is available at the [Simulation Tools User Manual in RDox](https://roman-docs.stsci.edu/simulation-tools-handbook-home).
 
- <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-obs-planning.png" alt="WFI Observation Planning Workflow" width="500" />
+<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-obs-plan.jpg" alt="WFI Data Analysis Workflow" width="400" />
 
 ## Caveats and Limitations
 - This workflow primarily targets WFI imaging-mode planning. While some tools support spectroscopic configurations, comprehensive spectroscopic planning workflows will be expanded in future releases.
