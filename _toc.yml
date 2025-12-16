@@ -19,3 +19,4 @@ chapters:
 - file: notebooks/synphot/synphot
 - file: notebooks/time_domain_simulations/time_domain_simulations
 - file: notebooks/working_with_asdf/working_with_asdf
+- file: notebooks/ground_test_analysis/wfi_tvac_brightstar
