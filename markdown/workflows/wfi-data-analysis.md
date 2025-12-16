@@ -28,7 +28,7 @@ This science workflow guides users through the discovery and access of data whil
   
     This tutorial serves as a **placeholder** for a more comprehensive TVAC-focused workflow. A complete WFI TVAC science workflow, integrating additional ground-test datasets and analysis steps, is currently in development and will be released in a future update
 
-<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-data-analysis.jpg" alt="WFI Data Analysis Workflow" width="400" />
+<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-data-analysis.jpg" alt="WFI Data Analysis Workflow" width="600" />
 
 ## Caveat and limitations
 While the current workflow primarily focuses on WFI imaging investigations, it includes an introductory spectroscopic example and a ground-test analysis use case. Expanded spectroscopic and TVAC-focused content will be added in future releases.

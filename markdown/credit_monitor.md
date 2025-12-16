@@ -5,7 +5,7 @@ You can launch the dashboard from the **JupyterLab Launcher**.
 
 *Open the Launcher from the JupyterLab menu using **File → New Launcher***.
 
-<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/Launcher_CM.png" alt="Launcher panel" width="300" />
+<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/Launcher_CM.jpg" alt="Launcher panel" width="300" />
 
 
 The dashboard allows you to:
