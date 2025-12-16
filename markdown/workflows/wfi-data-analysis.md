@@ -1,6 +1,6 @@
 # RRN Science Workflows: WFI Data Analysis 
 
-This science workflow guides users through the discovery and access of data while working in the cloud, as well as the visualization and analysis of Roman WFI data products. The current workflow focuses primarily on simulated imaging data, with an introductory example using ground-test spectroscopic data.
+This science workflow guides users through the discovery and access of data while working in the cloud, as well as the visualization and analysis of Roman WFI data products. While the current workflow focuses primarily on simulated imaging data, it includes an introductory spectroscopic example and a ground-test analysis use case.
 
 ## Workflow Description
 
