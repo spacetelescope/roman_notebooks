@@ -25,7 +25,8 @@ This science workflow guides users through the simulation, processing, manipulat
 - [**Mosaic Pipeline**](../../content/notebooks/mosaic_pipeline/mosaic_pipeline.ipynb):
  Combine multiple exposure-level (L2) products into mosaic-level (L3) images using RomanCal. The mosaic pipeline aligns, distortion-corrects, and coadds individual detector exposures to produce deeper, wide-field images. To learn more about the overall mosaic level pipeline visit the [RDox documentation](https://roman-docs.stsci.edu/data-handbook-home/roman-stsci-data-pipelines/mosaic-level-pipeline).
 
-  <img width="400" alt="image" src="https://github.com/user-attachments/assets/99d0bd05-b0f3-428f-8193-f9dcd27132f0" />
+
+<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-data-sim.jpg" alt="WFI Data Analysis Workflow" width="400" />
 
 ## Caveats and limitations
 Caveats and Limitations
