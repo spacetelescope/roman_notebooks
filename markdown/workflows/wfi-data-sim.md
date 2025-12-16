@@ -16,15 +16,20 @@ This science workflow guides users through the simulation, processing, manipulat
   
 - [**Exposure Pipeline**](../../notebooks/exposure_pipeline/exposure_pipeline.ipynb):
   
-  Use RomanCal, the Roman calibration pipeline, to process raw (L1) data simulated with [Roman-I-Sim](https://romanisim.readthedocs.io/en/latest/) into exposure level products (L2). The exposure level pipeline contains the algorithms necessary to correct raw WFI data for instrumental effects, and
-collapses the data along the time axis into rate images suitable for scientific analysis. To learn more about the overall exposure level pipeline and its different steps visit the [RDox documentation](https://roman-docs.stsci.edu/data-handbook-home/roman-stsci-data-pipelines/exposure-level-pipeline).
+  Process Roman WFI raw (L1) data into exposure-level (L2) products using RomanCal, the Roman science calibration pipeline. This stage corrects instrumental effects and collapses ramp data into rate images suitable for scientific analysis. To learn more about the overall exposure level pipeline visit the [RDox documentation](https://roman-docs.stsci.edu/data-handbook-home/roman-stsci-data-pipelines/exposure-level-pipeline).
+ 
+- [**Data Visualization**](../../content/notebooks/data_visualization/data_visualization.ipynb): 
 
-- [Data Visualization](../../content/notebooks/data_visualization/data_visualization.ipynb): Visualize Roman WFI Exposure Level Products
-> Visualize your L2 exposure level products using Matplotlib and Imviz, a tool for visualizing and quickly analyzing 2D astronomical images. Imviz is based on the Jupyter platform and includes built-in Astropy functionality. For additional background information, consult [Imviz documentation on ReadTheDocs](https://jdaviz.readthedocs.io/en/latest/imviz/index.html).
-- [Mosaic Pipeline](../../content/notebooks/mosaic_pipeline/mosaic_pipeline.ipynb): Process Roman WFI Exposure Level Products into Mosaic Images
-> Use RomanCal, the Roman calibration pipeline, to process exposure level (L2) products into mosaic (L3) images. The mosaic pipeline is responsible for combining individual detector exposures into mosaics made up of multiple exposures. In this context, mosaic indicates a combination or stack of multiple exposures into a larger or deeper image. To learn more about the overall mosaic level pipeline and its different steps visit the [RDox documentation](https://roman-docs.stsci.edu/data-handbook-home/roman-stsci-data-pipelines/mosaic-level-pipeline).
+  Visualize Roman WFI exposure-level products using Matplotlib and Imviz. This step focuses on quick-look inspection and basic analysis of calibrated L2 images. Imviz is based on the Jupyter platform and includes built-in Astropy functionality. For additional background information, consult [Imviz documentation on ReadTheDocs](https://jdaviz.readthedocs.io/en/latest/imviz/index.html).
+
+- [**Mosaic Pipeline**](../../content/notebooks/mosaic_pipeline/mosaic_pipeline.ipynb):
+ Combine multiple exposure-level (L2) products into mosaic-level (L3) images using RomanCal. The mosaic pipeline aligns, distortion-corrects, and coadds individual detector exposures to produce deeper, wide-field images. To learn more about the overall mosaic level pipeline visit the [RDox documentation](https://roman-docs.stsci.edu/data-handbook-home/roman-stsci-data-pipelines/mosaic-level-pipeline).
 
   <img width="400" alt="image" src="https://github.com/user-attachments/assets/99d0bd05-b0f3-428f-8193-f9dcd27132f0" />
 
 ## Caveats and limitations
-While the current content focuses on the WFI imaging mode, more content on the WFI spectroscopic mode will be available in future releases.
+Caveats and Limitations
+- This workflow focuses primarily on **WFI imaging simulations**.
+- The fidelity of simulated products depends on the calibration reference files available at the time of simulation.
+- Processing steps and outputs may evolve as Roman calibration software and reference data mature.
+ 
