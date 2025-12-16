@@ -23,6 +23,7 @@ This science workflow guides users through the discovery and access of data whil
   * [**Roman cutouts**](../../notebooks/roman_cutouts/roman_cutouts.ipynb): Use the [Astrocut service](https://astrocut.readthedocs.io/en/latest/index.html#http://) to generate image cutouts from larger WFI images for focused analysis.
   * [**Grism Spectral Extraction**](../../notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb): Extract one-dimensional spectra from simulated Roman WFI slitless grism images.
 - [**WFI TVAC Bright Star Test Data (Early Access)**](../../notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb)
+  
   An additional analysis-level tutorial demonstrates exploratory analysis of WFI Bright Star Saturation test data obtained during the WFI thermal vacuum (TVAC) campaign. This notebook shows how to process a subset of Level 1 ground-test data using [RomanCal](https://github.com/spacetelescope/romancal) and examine saturation behavior and frame-level effects near bright sources.
   
     This tutorial serves as a **placeholder** for a more comprehensive TVAC-focused workflow. A complete WFI TVAC science workflow, integrating additional ground-test datasets and analysis steps, is currently in development and will be released in a future update
