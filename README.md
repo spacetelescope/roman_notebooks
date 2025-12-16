@@ -1,8 +1,11 @@
 # Nancy Grace Roman Space Telescope Notebooks
 
-The `roman_notebooks` repository contains several workflows and tutorials that demonstrate how to plan observations for, simulate images from, and access and analyze data from the [Nancy Grace Roman Space Telescope](https://roman.gsfc.nasa.gov/) (Roman). Python Jupyter notebooks provide [**Tutorials**](markdown/tutorials.md) on specific topics (e.g., how to run the science data pipeline to calibrate an exposure), while [**Science Workflows**](markdown/workflows.md) combine multiple tutorials, along with documentation, to provide a guided end-to-end experience for a specific science use case.
+The `roman_notebooks` repository contains several workflows and tutorials that demonstrate how to simulate images from, access, and analyze data from the [Nancy Grace Roman Space Telescope](https://roman.gsfc.nasa.gov/)
+ (Roman), as well as how to plan observations. Python Jupyter notebooks provide [**Tutorials**](markdown/tutorials.md)
+ on specific topics (e.g., how to run the science data pipeline to calibrate an exposure), while [**Science Workflows**](markdown/workflows.md) ombine multiple tutorials, along with documentation, to provide a guided, end-to-end experience for a specific science use case.
 
-The notebooks in this repository are designed for the [Roman Research Nexus](https://roman.science.stsci.edu), a cloud-based science platform specifically designed for Roman users. With a [MyST](https://proper.stsci.edu/proper/authentication/auth) account, users will be able to access the Nexus and learn how to work with Roman data in the cloud. The Nexus is currently under development and has limited user access, with public access planned for late 2025.
+The notebooks in this repository are designed for use with the [Roman Research Nexus](https://roman.science.stsci.edu), a cloud-based science platform developed for Roman users. With a [MyST](https://proper.stsci.edu/proper/authentication/auth)
+ account, users can access the Nexus and learn how to work with Roman data directly in the cloud. The Nexus is now entering an **Early Access phase**, during which users can explore core functionality while the platform continues to be actively developed and expanded.
 
 ## Repository Organization
 
