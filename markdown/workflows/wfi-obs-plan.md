@@ -1,9 +1,9 @@
 # RRN Science Workflows: WFI Observations Planning
-This workflow is designed for users aiming to plan WFI surveys and observations by taking into account a number of design elements.
+This science workflow is designed to support planning of Roman Wide Field Instrument (WFI) observations by combining exposure estimation, instrument characterization, and survey-level planning tools. Together, these components help users evaluate observing strategies, survey geometry, and observing conditions in support of Roman proposal development and early-stage analyses.
 
-
-## Workflow description
-- [RIST (Roman Interactive Sensitivity Tool)](../../content/notebooks/rist/rist.ipynb): Quick Characterization of Roman WFI Exposure Capabilities
+## Workflow Overview
+- [RIST (Roman Interactive Sensitivity Tool)](../../content/notebooks/rist/rist.ipynb)
+  
 > Get a quick idea of your exposure parameters using RIST. RIST helps users characterize the Signal-to-Noise Ratio (SNR) for one on-axis point source with a basic spectral shape (flat/A0V/M2V/G5V) and a given magnitude as a function of filter and exposure time. For more information, please refer to the [Roman Interactive Sensitivity Tool documentation in RDox](https://roman-docs.stsci.edu/simulation-tools-handbook-home/simulation-development-utilities/roman-interactive-sensitivity-tool).
 - [STPSF](../../content/notebooks/stpsf/stpsf.ipynb): Simulate Roman Point Spread Functions (PSFs)
 > Use STPSF to gain a detailed understanding of WFI PSFs. The tool simulates PSFs for various instrument configurations using a set of pre-computed Optical Path Difference (OPD) maps. It also includes field- and wavelength-dependent aberrations. Visit the [STPSF for Roman in RDox](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman) to learn more about the software.
