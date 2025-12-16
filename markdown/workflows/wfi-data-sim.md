@@ -14,15 +14,15 @@ This science workflow guides users through the simulation, processing, manipulat
 
   Explore Roman WFI data products stored in the [Advanced Scientific Data Format (ASDF)](https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/introduction-to-asdf). This step introduces the structure of Roman WFI ASDF files, including metadata, data arrays, and provenance information, and applies to both simulated and future flight-like data products. To learn more, visit the [RDox pages on Roman WFI data levels and products](https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/data-levels-and-products).
   
-- [**Exposure Pipeline**](../../notebooks/exposure_pipeline/exposure_pipeline.ipynb):
+- [**Exposure Pipeline**](../../notebooks/exposure_pipeline/exposure_pipeline.ipynb)
   
   Process Roman WFI raw (L1) data into exposure-level (L2) products using RomanCal, the Roman science calibration pipeline. This stage corrects instrumental effects and collapses ramp data into rate images suitable for scientific analysis. To learn more about the overall exposure level pipeline visit the [RDox documentation]([https://roman-docs.stsci.edu/data-handbook-home/roman-stsci-data-pipelines/exposure-level-pipeline](https://roman-docs.stsci.edu/data-handbook-home/roman-data-pipelines/exposure-level-pipeline)).
  
-- [**Data Visualization**](../../notebooks/data_visualization/data_visualization.ipynb): 
+- [**Data Visualization**](../../notebooks/data_visualization/data_visualization.ipynb)
 
   Visualize Roman WFI exposure-level products using Matplotlib and Imviz. This step focuses on quick-look inspection and basic analysis of calibrated L2 images. Imviz is based on the Jupyter platform and includes built-in Astropy functionality. For additional background information, consult [Imviz documentation on ReadTheDocs](https://jdaviz.readthedocs.io/en/latest/imviz/index.html).
 
-- [**Mosaic Pipeline**](../../notebooks/mosaic_pipeline/mosaic_pipeline.ipynb):
+- [**Mosaic Pipeline**](../../notebooks/mosaic_pipeline/mosaic_pipeline.ipynb)
 
   Combine multiple exposure-level (L2) products into mosaic-level (L3) images using RomanCal. The mosaic pipeline aligns, distortion-corrects, and coadds individual detector exposures to produce deeper, wide-field images. To learn more about the overall mosaic level pipeline visit the [RDox documentation](https://roman-docs.stsci.edu/data-handbook-home/roman-data-pipelines/mosaic-level-pipeline).
 
