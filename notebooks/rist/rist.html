@@ -448,7 +448,7 @@ document.write(`
 <hr class="docutils" />
 <section id="kernel-information-and-read-only-status">
 <h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>To run this notebook, please select the “Roman Research Nexus” kernel at the top right of your window.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
 </section>
 <section id="introduction">
@@ -504,7 +504,7 @@ document.write(`
     </style>
     <div>
         <a href="https://bokeh.org" target="_blank" class="bk-notebook-logo"></a>
-        <span id="a733d204-60df-421c-b57b-df2becc54dd6">Loading BokehJS ...</span>
+        <span id="d547081c-fd35-4971-88f4-e49bfc0c6fca">Loading BokehJS ...</span>
     </div>
 </div><script type="application/javascript">'use strict';
 (function(root) {
@@ -669,7 +669,7 @@ const JS_MIME_TYPE = 'application/javascript';
      "</div>"}};
 
   function display_loaded(error = null) {
-    const el = document.getElementById("a733d204-60df-421c-b57b-df2becc54dd6");
+    const el = document.getElementById("d547081c-fd35-4971-88f4-e49bfc0c6fca");
     if (el != null) {
       const html = (() => {
         if (typeof root.Bokeh === "undefined") {
@@ -803,7 +803,7 @@ function(Bokeh) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     } else if (force !== true) {
-      const cell = $(document.getElementById("a733d204-60df-421c-b57b-df2becc54dd6")).parents('.cell').data().cell;
+      const cell = $(document.getElementById("d547081c-fd35-4971-88f4-e49bfc0c6fca")).parents('.cell').data().cell;
       cell.output_area.append_execute_result(NB_LOAD_WARNING)
     }
   }
@@ -817,11 +817,11 @@ function(Bokeh) {
       run_inline_js();
     });
   }
-}(window));</script><div class="output text_html"><script id="d7ef4fa2-a615-4068-a007-d439cc0ef5f4">
+}(window));</script><div class="output text_html"><script id="b4f0f53d-0036-41b9-a591-0736265ef2e9">
   (function() {
     const xhr = new XMLHttpRequest()
     xhr.responseType = 'blob';
-    xhr.open('GET', "http://localhost:32823/autoload.js?bokeh-autoload-element=d7ef4fa2-a615-4068-a007-d439cc0ef5f4&bokeh-absolute-url=http://localhost:32823&resources=none", true);
+    xhr.open('GET', "http://localhost:42831/autoload.js?bokeh-autoload-element=b4f0f53d-0036-41b9-a591-0736265ef2e9&bokeh-absolute-url=http://localhost:42831&resources=none", true);
     xhr.withCredentials = false;
     xhr.onload = function (event) {
       const script = document.createElement('script');
