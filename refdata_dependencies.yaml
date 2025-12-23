@@ -50,6 +50,6 @@ install_files:
 # and install. For each variable, the name of the variable is given
 # followed by a value.
 other_variables:
-  CRDS_SERVER_URL: https://roman-crds-tvac.stsci.edu
-  CRDS_CONTEXT: roman_0027.pmap
+  CRDS_SERVER_URL: https://roman-crds.stsci.edu
+  CRDS_CONTEXT: roman_0041.pmap
   CRDS_PATH: ${HOME}/crds_cache    # Nexus CRDS caches are local for now

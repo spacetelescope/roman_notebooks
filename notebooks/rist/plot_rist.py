@@ -15,11 +15,9 @@ from bokeh.palettes import Sunset
 
 output_notebook()
 
-
 # To add or remove any parameter, edit the following functions:
 # lookup_grid, retrieve_grid_properties
 # create_widgets, update_data
-
 
 class plot_rist():
 
@@ -32,11 +30,10 @@ class plot_rist():
         # Initial setup with default inputs to initiate RIST plot
         self.master_grid, self.colors = self.load_grid()
 
-
         self.magnitude = 20
-        self.ymin = 1e-2        # Setting the y-axis min and max for plotting
+        self.ymin = 1e-2  # Setting the y-axis min and max for plotting
         self.ymax = 1e3
-        self.ma_table = 'im_120_8'#'im_135_8'
+        self.ma_table = 'im_120_8'  #'im_135_8'
         # self.nresultant = 5
         self.background = 'hlwas-medium_field1_medium'
         self.mag_system = 'abmag'
@@ -50,7 +47,6 @@ class plot_rist():
         self.layout_with_note = layout([
                                         [[self.widgets], [self.plot]]
                                         ], width=1400)
-
 
     def create_plot(self):
         '''
@@ -70,7 +66,6 @@ class plot_rist():
                       x_axis_type='log', y_axis_type='log',
                       tooltips=tooltips)
 
-    
         axis_formatter = BasicTickFormatter(power_limit_low=-4, power_limit_high=4)
         
         plot.title.text_font_size = '16pt'
@@ -110,7 +105,6 @@ class plot_rist():
 
         return plot
 
-    
     def create_widgets(self):
         '''
         Creates widgets for the bokeh plot
@@ -185,14 +179,10 @@ class plot_rist():
         label_magsys = Div(text='Input Magnitude Type')
         label_sedtype = Div(text='Spectrum Type')
         widgets = column(column(label_magsys, self.magsys_button_group), 
-                        column(label_sedtype, self.sed_type_button_group), 
-                        self.magnitude_slider, self.background_select, self.matable_select)
-                        # self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select)
-        
+                         column(label_sedtype, self.sed_type_button_group), 
+                         self.magnitude_slider, self.background_select, self.matable_select) # self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select        
 
         return widgets
-    
-    
 
     def update_data(self, attrname, old, new):
         '''
@@ -268,8 +258,7 @@ class plot_rist():
 
         # New # of resultant selection
         # self.nresultant_select.options = dynamic_nresultant_options
-        new_nresultant = dynamic_nresultant_options#self.nresultant_select.value
-
+        new_nresultant = dynamic_nresultant_options  # self.nresultant_select.value
 
         # Treat the magnitude system
         if self.magsys_button_group.active == 0:
@@ -287,25 +276,21 @@ class plot_rist():
         elif self.sed_type_button_group.active == 3:
             new_sedtype = 'phoenix_m5v'            
 
-
-
         # Assign the newly selected values
         self.ma_table = new_matable
         self.nresultant = new_nresultant
         self.background = new_background
 
-
         self.mag_system = new_magsys
-        self.sed_type =  new_sedtype
-
+        self.sed_type = new_sedtype
 
         # Search the grid that matches the selection
         lookup = self.lookup_grid()
         new_result = self.master_grid[lookup]
     
         # Generate the new data points
-        snr = new_result.interp(magnitude = new_magnitude) 
-        snr_saturated = new_result.interp(magnitude = new_magnitude) 
+        snr = new_result.interp(magnitude=new_magnitude) 
+        snr_saturated = new_result.interp(magnitude=new_magnitude) 
 
         # Treat the dim points first to avoid a confusion with how the saturated points are plotted
         # This is because the saturated points will be set to ymin * 1.1 in the next few lines
@@ -333,10 +318,7 @@ class plot_rist():
         self.source.data['snr'] = snr
         self.source.data['snr_saturated'] = snr_saturated     
 
-
-
     def load_grid(self):
-
         '''
         Loads the pre-computed Pandeia grid
 
@@ -358,8 +340,6 @@ class plot_rist():
 
         return master_grid, colors
 
-
-
     def lookup_grid(self):
         '''
         Searches the pre-computed grid to find the matching input request for (MA table, # of resultant, and background)
@@ -372,10 +352,7 @@ class plot_rist():
         # grid_name = self.ma_table + '_' + str(self.nresultant) + '_' + self.background + '_' + self.mag_system + '_' + self.sed_type
         grid_name = self.ma_table + '_'  + self.background + '_' + self.mag_system + '_' + self.sed_type
 
-
         lookup = np.where(grid_name == self.grid_properties)[0][0]
-
-       
 
         return lookup
 
@@ -404,7 +381,6 @@ class plot_rist():
 
         return source 
     
-
     def retrieve_grid_properties(self):
         '''
         Retrieves information for the loaded pre-computed Pandeia grid
@@ -428,7 +404,6 @@ class plot_rist():
 
         return grid_properties
 
-
     def modify_doc(doc):
         '''
         Packages the bokeh plot in the document
@@ -444,8 +419,6 @@ class plot_rist():
 
         return doc
     
-    
     handler = FunctionHandler(modify_doc)
     app = Application(handler)
     show(app)
-

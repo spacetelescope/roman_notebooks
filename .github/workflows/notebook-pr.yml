@@ -30,8 +30,17 @@ jobs:
       enable-execution: true
       enable-storage: true                      # Store outputs to gh-storage on PR
       enable-html-build: false                  # Don't build HTML docs on PR
+      crds-server-url: 'https://roman-crds.stsci.edu'
+      crds-context: 'roman_0041.pmap'
+      crds-path: '/home/runner/crds_cache'
+      pre-processing-script: 'shared/notebook_data_dependencies_rev1.py'
+      custom-runner-config: true
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
+
+
+
 
 
