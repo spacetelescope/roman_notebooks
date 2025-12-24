@@ -23,7 +23,7 @@ This science workflow is designed to support planning of Roman Wide Field Instru
   After exposure parameters are defined with Pandeia, additional tools can be used to assess survey geometry and observing conditions:
 
   - [**STIPS (Space Telescope Image Product Simulator)**](../../notebooks/stips/stips.ipynb) simulates realistic astronomical scenes over a full WFI field of view or multiple detectors, enabling validation of exposure choices in crowded or extended fields.
-  - [**Footprint Visualization Tool**](../../notebooks/footprint_tool/footprint_tool.ipynb) provides on-sky visualizations of APT program footprints and exposure coverage, supporting survey tiling and geometry evaluation.
+  - [**Footprint Visualization Tool**](../../notebooks/footprint_visualization/footprint_visualization.ipynb) provides on-sky visualizations of APT program footprints and exposure coverage, supporting survey tiling and geometry evaluation.
   - [**Roman Background Visualization Tool (RBVT)**](../../notebooks/background_visualization_tool/RBVT.ipynb) enables exploration of time-variable sky background components as a function of sky position and calendar date, supporting assessment of observing conditions and scheduling constraints.
 
 These tools are complementary and are often used iteratively to refine observing strategies. User documentation is available at the [Simulation Tools User Manual in RDox](https://roman-docs.stsci.edu/simulation-tools-handbook-home).
