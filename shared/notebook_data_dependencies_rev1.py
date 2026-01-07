@@ -7,7 +7,7 @@ import shutil
 import math
 import requests
 
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
@@ -127,16 +127,19 @@ def _head_info(session, url, timeout):
     # Prefer HEAD; fall back to GET range 0-0 if some servers dislike HEAD.
     try:
         r = session.head(url, allow_redirects=True, timeout=timeout)
-        # Some servers return 405 for HEAD. We'll handle below.
         if r.status_code < 400:
             return r.headers, r.status_code
     except requests.RequestException:
         pass
 
     try:
-        r = session.get(url, headers={"Range": "bytes=0-0"}, stream=True, allow_redirects=True, timeout=timeout)
-        if r.status_code in (200, 206):
-            return r.headers, r.status_code
+        r = session.get(
+            url,
+            headers={"Range": "bytes=0-0"},
+            stream=True,
+            allow_redirects=True,
+            timeout=timeout,
+        )
         return r.headers, r.status_code
     except requests.RequestException:
         return {}, 0
@@ -154,7 +157,6 @@ def _download_range_to_part(
     headers = {"Range": f"bytes={start}-{end}"}
     written = 0
     with session.get(url, headers=headers, stream=True, allow_redirects=True, timeout=timeout) as r:
-        # Expect 206 Partial Content if Range honored
         r.raise_for_status()
         with open(part_path, "wb") as f:
             for chunk in r.iter_content(chunk_size=chunk_size):
@@ -178,36 +180,33 @@ def download_parallel_with_progress(
 ):
     """
     Parallel download using Range requests.
-
     Streams each range to its own .part file on disk, then concatenates.
     If server doesn't support Range or content length is unknown, falls back to single stream.
     """
-    # Discover range support + size
-    headers, status = _head_info(session, url, timeout=timeout)
+    headers, _status = _head_info(session, url, timeout=timeout)
     accept_ranges = (headers.get("Accept-Ranges", "") or "").lower()
     total_str = headers.get("Content-Length", "")
     total = int(total_str) if total_str.isdigit() else None
 
-    # Box sometimes omits Accept-Ranges but still supports 206; we can still try.
     if not total or total < min_size_for_parallel:
         if verbose:
             why = "unknown Content-Length" if not total else f"file is small ({human_bytes(total)})"
             print(f"    Parallel download disabled ({why}); using single stream.", flush=True)
-        return download_with_progress(session, url, dest_path, verbose=verbose, timeout=timeout, chunk_size=chunk_size,
-                                     progress_every_sec=progress_every_sec)
+        return download_with_progress(
+            session, url, dest_path, verbose=verbose, timeout=timeout,
+            chunk_size=chunk_size, progress_every_sec=progress_every_sec
+        )
 
-    # Decide if we should attempt parallel
-    # If Accept-Ranges explicitly says "none", don't bother.
     if accept_ranges and "bytes" not in accept_ranges:
         if verbose:
             print("    Server does not advertise byte ranges; using single stream.", flush=True)
-        return download_with_progress(session, url, dest_path, verbose=verbose, timeout=timeout, chunk_size=chunk_size,
-                                     progress_every_sec=progress_every_sec)
+        return download_with_progress(
+            session, url, dest_path, verbose=verbose, timeout=timeout,
+            chunk_size=chunk_size, progress_every_sec=progress_every_sec
+        )
 
-    workers = max(1, int(workers))
-    workers = min(workers, 32)  # sanity cap
+    workers = max(1, min(int(workers), 32))
 
-    # Create part ranges
     part_size = int(math.ceil(total / workers))
     ranges = []
     for i in range(workers):
@@ -223,7 +222,6 @@ def download_parallel_with_progress(
 
     os.makedirs(os.path.dirname(dest_path) or ".", exist_ok=True)
 
-    # Clean up any stale parts
     part_paths = []
     for i, _, _ in ranges:
         p = f"{dest_path}.part{i:02d}"
@@ -231,7 +229,6 @@ def download_parallel_with_progress(
         safe_remove(p)
     safe_remove(dest_path)
 
-    # Progress tracking shared via file sizes (cheap + no shared memory needed)
     t0 = time.time()
     last_print = t0
 
@@ -244,7 +241,6 @@ def download_parallel_with_progress(
                 pass
         return s
 
-    # Launch ranged downloads
     errors = []
     with ThreadPoolExecutor(max_workers=len(ranges)) as ex:
         futs = []
@@ -252,7 +248,6 @@ def download_parallel_with_progress(
             part_path = f"{dest_path}.part{i:02d}"
             futs.append(ex.submit(_download_range_to_part, session, url, part_path, start, end, timeout, chunk_size))
 
-        # While futures are running, print periodic progress
         pending = set(futs)
         while pending:
             done_now = {f for f in pending if f.done()}
@@ -273,10 +268,8 @@ def download_parallel_with_progress(
                 )
                 last_print = now
 
-            # Brief sleep so we don't spin
             time.sleep(0.2)
 
-        # Collect exceptions
         for f in futs:
             try:
                 f.result()
@@ -284,15 +277,15 @@ def download_parallel_with_progress(
                 errors.append(e)
 
     if errors:
-        # Cleanup partials and fall back
         for p in part_paths:
             safe_remove(p)
         if verbose:
             print(f"    Parallel download failed ({errors[0]!r}); falling back to single stream.", flush=True)
-        return download_with_progress(session, url, dest_path, verbose=verbose, timeout=timeout, chunk_size=chunk_size,
-                                     progress_every_sec=progress_every_sec)
+        return download_with_progress(
+            session, url, dest_path, verbose=verbose, timeout=timeout,
+            chunk_size=chunk_size, progress_every_sec=progress_every_sec
+        )
 
-    # Stitch parts -> final file (streamed, no buffering)
     if verbose:
         print("    Stitching parts...", flush=True)
     with open(dest_path, "wb") as out:
@@ -312,24 +305,54 @@ def download_parallel_with_progress(
 
 
 # -------------------------
-# Extract logic
+# Extract logic (UPDATED)
 # -------------------------
 def extract_archive(path, dest, verbose=True):
+    """
+    Extract supported archives into `dest`.
+
+    Handles:
+      - .tar, .tar.gz, .tgz -> extracted directly via tarfile (includes gzip handling)
+      - .gz                 -> gunzip to a file, then:
+                               * if the result is a tar (even without .tar extension), extract it
+                               * otherwise leave the decompressed file in place
+    """
     if path.endswith((".tar", ".tar.gz", ".tgz")):
         if verbose:
             print(f"    Extracting tar archive: {path}", flush=True)
         with tarfile.open(path) as tar:
             tar.extractall(dest)
+        return
 
-    elif path.endswith(".gz"):
+    if path.endswith(".gz"):
         if verbose:
             print(f"    Extracting gzip file: {path}", flush=True)
+
+        os.makedirs(dest, exist_ok=True)
+
+        # 1) gunzip to a file (strip .gz)
         out_file = os.path.join(dest, os.path.basename(path[:-3]))
+        safe_remove(out_file)
         with gzip.open(path, "rb") as f_in, open(out_file, "wb") as f_out:
             shutil.copyfileobj(f_in, f_out)
 
-    else:
-        raise RuntimeError(f"Unknown archive format: {path}")
+        # 2) If the gunzipped result is a tar archive, extract it too.
+        #    This covers:
+        #      - out_file ends with .tar
+        #      - tar-without-extension (Box sometimes provides these)
+        try:
+            with tarfile.open(out_file) as tar:
+                if verbose:
+                    print(f"    Detected tar after gunzip, extracting: {out_file}", flush=True)
+                tar.extractall(dest)
+            safe_remove(out_file)  # remove the intermediate tar blob
+        except tarfile.TarError:
+            # Not a tar; keep the decompressed file as-is.
+            if verbose:
+                print(f"    Gunzipped to non-tar file: {out_file}", flush=True)
+        return
+
+    raise RuntimeError(f"Unknown archive format: {path}")
 
 
 # -------------------------
@@ -374,6 +397,7 @@ def install_files(
     for package, info in yf.items():
         envvar = info["environment_variable"]
 
+        # If env var already set (and not the sentinel), respect it
         try:
             current = os.environ[envvar]
             if current != "***unset***":
@@ -407,7 +431,6 @@ def install_files(
             safe_remove(tmp)
             safe_remove(final)
 
-            # Try parallel range download first; fall back inside if unsupported/fails
             download_parallel_with_progress(
                 session=session,
                 url=url,
@@ -423,6 +446,15 @@ def install_files(
 
         data_path = info["data_path"]
         full_path = os.path.join(env_path, data_path)
+
+        # Fail fast if the expected directory doesn't exist.
+        # This prevents "export STPSF_PATH=..." pointing to nowhere.
+        if not os.path.isdir(full_path):
+            raise RuntimeError(
+                f"{package}: expected directory not created: {full_path}\n"
+                f"Archive contents may not match YAML data_path ({data_path}). "
+                f"Check extraction logic or adjust data_path."
+            )
 
         if verbose:
             print(f"\tUpdate environment variable with the following:", flush=True)
@@ -463,4 +495,3 @@ if __name__ == "__main__":
         print("GITHUB_ENV not set; printing KEY=VALUE lines instead:", flush=True)
         for k, v in result.items():
             print(f"{k}={v['path']}", flush=True)
-
