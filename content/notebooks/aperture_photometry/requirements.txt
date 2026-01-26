@@ -1,5 +1,0 @@
-asdf
-astropy
-photutils
-roman_datamodels
-s3fs
