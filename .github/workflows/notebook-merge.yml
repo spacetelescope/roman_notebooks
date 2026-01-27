@@ -33,7 +33,7 @@ jobs:
       crds-server-url: 'https://roman-crds.stsci.edu'
       crds-context: 'roman_0041.pmap'
       crds-path: '/home/runner/crds_cache'
-      pre-processing-script: 'shared/notebook_data_dependencies_rev1.py'
+      pre-processing-script: 'shared/ci_data_dependencies.py'
       custom-runner-config: true
       post-processing-script: 'scripts/jdaviz_image_replacement.sh'  # Adjust path as needed
     secrets:
