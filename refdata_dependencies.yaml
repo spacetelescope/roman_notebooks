@@ -10,13 +10,20 @@
 # For Nexus setup, the install_path value can be overridden to point
 # to a shared data path (instead of $HOME).
 install_files:
-  pandeia:
-    version: 2025.9
+  pandeia_data:
+    version: 2026.1
     data_url: 
       - https://stsci.box.com/shared/static/0qjvuqwkurhx1xd13i63j760cosep9wh.gz
     environment_variable: pandeia_refdata
     install_path: ${HOME}/refdata/
-    data_path: pandeia_data-2025.9-roman
+    data_path: pandeia_data-2026.1-roman
+  pandeia_psf:
+    version: 2026.1
+    data_url: 
+      - https://stsci.box.com/shared/static/5qkyvr5steg2fo2zxbqj2jxcmbmz1c4w.gz
+    environment_variable: PSF_DIR
+    install_path: ${HOME}/refdata/
+    data_path: pandeia_psf-2026.1-roman
   stpsf:
     version: 2.1.0
     data_url:

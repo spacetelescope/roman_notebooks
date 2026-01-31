@@ -69,8 +69,8 @@ this cell should be run before the first code cell in the notebook. This is in p
 
 The other variables you might need to set are:
 
-- `pandeia_refdata` when using `pandeia`
--  `PYSYN_CDBS` when using `synphot`
+- `pandeia_refdata` and `PSF_DIR` when using `pandeia`
+- `PYSYN_CDBS` when using `synphot`
 - `stips_data` when using `stips`
 
 ### To force re-download:
