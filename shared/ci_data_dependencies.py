@@ -359,7 +359,7 @@ def extract_archive(path, dest, verbose=True):
 # Main installer
 # -------------------------
 def install_files(
-    dependencies="../../refdata_dependencies.yaml",
+    dependencies="../refdata_dependencies.yaml",
     verbose=True,
     packages=None,
     timeout=(10, 300),       # read timeout bumped for slow servers
