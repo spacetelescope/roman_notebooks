@@ -2,10 +2,10 @@ import os
 import requests
 import tarfile
 import yaml
+from pathlib import Path
 
 
-def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/refdata_dependencies.yaml',
-                     verbose=True, packages=None):
+def install_files(dependencies=None, verbose=True, packages=None):
     """
     PURPOSE
     -------
@@ -52,21 +52,29 @@ def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope
         path to which the variable should be set.
     """
     
+    # Looks for the data dependencies file in local repository
+    DEPENDENCIES_PATH = Path(__file__).parent.parent / "refdata_dependencies.yaml"
+
     # Check if dependencies is a local file. If not, retrieve it from the GitHub repo.
     # This allows us to not have to maintain a copy in every notebook folder.
-    if os.path.exists(dependencies):
-        with open(dependencies, 'r') as f:
-            yf = yaml.safe_load(f)['install_files']
+    if not dependencies:
+        dependencies = DEPENDENCIES_PATH
+        if os.path.exists(dependencies):
+            with open(dependencies, 'r') as f:
+                yf = yaml.safe_load(f)['install_files']
+        else:
+            dependencies = 'https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/refdata_dependencies.yaml'
+            req = requests.get(dependencies, allow_redirects=True)
+            yf = yaml.safe_load(req.content)['install_files']
     else:
-        req = requests.get(dependencies, allow_redirects=True)
-        yf = yaml.safe_load(req.content)['install_files']
-        
+        print("file with package data information not found")
+
     # If only installing certain packages, check that now and limit the dictionary to
     # just those package keys.
     if packages:
         if isinstance(packages, str):
             packages = packages.split(',')
-            
+
         keys = yf.keys()
         skips = [k  for k in keys if k not in packages]
         for s in skips:
@@ -87,17 +95,17 @@ def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope
         except KeyError:
             if verbose:
                 print(f"Did not find {package} data in environment, setting it up...")
-            
+
             # Get the path where the data should be installed. Resolve any environment variables.
             env_path = yf[package]['install_path']
             tmp_path = env_path.split('/')
             tmp_path = [home if '${HOME}' in tp else tp for tp in tmp_path]
             final_path = '/'.join(tmp_path)
-            
+
             # Check if path directory structure exists. If not, make it.
             if not os.path.isdir(final_path):
                 os.makedirs(final_path)
-            
+
             # Download the tarball from the URL in the YAML file and extract the files.
             tot_files = len(yf[package]['data_url'])
             if verbose:
@@ -114,17 +122,17 @@ def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope
                     members = tarball.getmembers()
                     tarball.extractall(path=final_path, members=members, filter=None)
                 os.remove(file_name)
-    
+
             # Messages to the user
             if verbose:
                 print(f"\tUpdate environment variable with the following:")
                 print(f"\t\texport {yf[package]['environment_variable']}='{os.path.join(final_path, yf[package]['data_path'])}'")
             result[envvar] = {'path': os.path.join(final_path, yf[package]['data_path']), 'pre_installed': False}
-            
+
     # Return the environment variables and paths to the user as a dictionary so that they
     # can be set programmatically.
     return result
-            
+
 def setup_env(result):
     # Update environment variables (if necessary) and print reference data paths
     print('Reference data paths set to:')
@@ -136,4 +144,3 @@ def setup_env(result):
 if __name__ == 'main':
     
     install_files()
-    
