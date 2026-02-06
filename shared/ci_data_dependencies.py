@@ -371,19 +371,15 @@ def install_files(
     # Load YAML
     if os.path.exists(dependencies):
         if verbose:
-            print(f"Loading dependencies YAML fron local directory: {dependencies}", flush=True,)
+            print(f"Loading dependencies YAML from local directory: {dependencies}", flush=True)
         with open(dependencies, "r") as f:
             yf = yaml.safe_load(f)["install_files"]
     else:
         if verbose:
-            print(f"Loading dependencies YAML from repository: {dependencies}", flush=True,)
+            print(f"Loading dependencies YAML from repository: {dependencies}", flush=True)
         dependencies = 'https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/refdata_dependencies.yaml'
         req = requests.get(dependencies, allow_redirects=True)
         yf = yaml.safe_load(req.content)['install_files']
-
-    r = session.get(dependencies, timeout=timeout, allow_redirects=True)
-    r.raise_for_status()
-    yf = yaml.safe_load(r.content)["install_files"]
 
     # Package filter
     if packages:
