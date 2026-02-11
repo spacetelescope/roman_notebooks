@@ -129,7 +129,7 @@ def install_files(dependencies=None, verbose=True, packages=None):
             with open(file_name, 'wb') as fh:
                 fh.write(req.content)
             with tarfile.open(file_name) as tarball:
-                tarball.extractall(path=env_path, filter=None)
+                tarball.extractall(path=env_path)
             os.remove(file_name)
 
         final_path = os.path.join(env_path, info['data_path'])
