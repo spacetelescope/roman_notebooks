@@ -175,7 +175,7 @@ def setup_env(result, dependencies=None, verbose=True):
             data = yaml.safe_load(f)
         home = os.environ.get('HOME', str(Path.home()))
         for k, v in data.get('other_variables', {}).items():
-            if k not in os.environ:
+            if not os.environ.get(k):  # treat empty string as unset
                 resolved = str(v).replace('${HOME}', home)
                 os.environ[k] = resolved
                 if verbose:
