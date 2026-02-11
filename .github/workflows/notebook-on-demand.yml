@@ -91,7 +91,7 @@ jobs:
       #crds-context: 'roman_0041.pmap'
       #crds-path: '/home/runner/crds_cache'
       #pre-processing-script: 'shared/ci_data_dependencies.py'
-      #custom-runner-config: true
+      custom-runner-config: true
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -254,6 +254,7 @@ jobs:
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
 
 
 
