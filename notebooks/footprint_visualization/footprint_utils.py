@@ -81,7 +81,7 @@ def build_single_exp_map_cen(ra_cen, dec_cen, pa, wgt, nside_cov=64, nside_spars
         and nside_sparse = nside_sparse.
     """
     map_in=hsp.HealSparseMap.make_empty(nside_cov, nside_sparse, np.float64)
-    att_here = attitude(0, 0, ra_cen, dec_cen, pa)
+    att_here = attitude(wfi_cen.V2Ref, wfi_cen.V3Ref, ra_cen, dec_cen, pa)
     ipix_pass = []
     for sensor in sensors:
         sensor.set_attitude_matrix(att_here)
@@ -170,7 +170,7 @@ def read_pointings_file(filename, reset_index=True):
                     if len(_list) == 13:
                         #print(step, obs, _list[0], _list[1], _list[2:])
                         df.loc[step, obs, _list[0], _list[1]] = np.array(_list[2:]).astype(np.float32)
-            elif (len(line) >55) & (len(line) < 80):
+            elif (len(line) > 55) & (len(line) < 80):
                 _list = line.split()
                 if len(_list) == 5:
                    if 'Index' not in _list:
