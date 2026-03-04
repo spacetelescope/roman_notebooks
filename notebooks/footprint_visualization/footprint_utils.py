@@ -294,7 +294,7 @@ def get_survey_maps_uri(survey_name, band, tier=None):
                 return f'./aux_data/map_{survey_name.upper()}-deep_{band.upper()}.hsp'
             else:
                 raise ValueError(f'The requested element {band.upper()} is not available \
-                                 for HLTDS-WIDE')
+                                 for HLTDS-DEEP')
         elif tier.upper() == 'ALL':
             if band.upper() in ['F087', 'F106', 'F129', 'F158', 'PRISM']:
                 return f'./aux_data/map_{survey_name.upper()}-deep+wide_{band.upper()}.hsp'
