@@ -282,13 +282,25 @@ def get_survey_maps_uri(survey_name, band, tier=None):
     elif survey_name.upper() == 'HLTDS':
         if tier is None:
             warnings.warn('No selected tier for HLTDS, returning sum of all tiers')
-        else:
-            warnings.warn('Tier separation not implemented currently for HLTDS, returning the sum of all tiers')
-        if band.upper() == 'F184':
-            return f'./aux_data/map_{survey_name.upper()}-deep_{band.upper()}.hsp'
-        elif band.upper() == 'F062':
-            return f'./aux_data/map_{survey_name.upper()}-wide_{band.upper()}.hsp'
-        elif band.upper() in ['PRISM', 'F158', 'F129', 'F106', 'F087']:
-            return f'./aux_data/map_{survey_name.upper()}-deep+wide_{band.upper()}.hsp'
-        else:
-            raise ValueError(f'The requested element {band.upper()} is not available for HLTDS')
+            tier = 'ALL'
+        elif tier.upper() == 'WIDE':
+            if band.upper() in ['F062', 'F087', 'F106', 'F129', 'F158', 'PRISM']:
+                return f'./aux_data/map_{survey_name.upper()}-wide_{band.upper()}.hsp'
+            else:
+                raise ValueError(f'The requested element {band.upper()} is not available \
+                                 for HLTDS-WIDE')
+        elif tier.upper() == 'DEEP':
+            if band.upper() in ['F087', 'F106', 'F129', 'F158', 'F184', 'PRISM']:
+                return f'./aux_data/map_{survey_name.upper()}-deep_{band.upper()}.hsp'
+            else:
+                raise ValueError(f'The requested element {band.upper()} is not available \
+                                 for HLTDS-WIDE')
+        elif tier.upper() == 'ALL':
+            if band.upper() in ['F087', 'F106', 'F129', 'F158', 'PRISM']:
+                return f'./aux_data/map_{survey_name.upper()}-deep+wide_{band.upper()}.hsp'
+            elif band.upper() == 'F062':
+                return './aux_data/map_HLTDS-wide_F062.hsp'
+            elif band.upper() == 'F184':
+                return f'./aux_data/map_{survey_name.upper()}-deep_{band.upper()}.hsp'
+            else:
+                raise ValueError(f'The requested element {band.upper()} is not available for HLTDS')
