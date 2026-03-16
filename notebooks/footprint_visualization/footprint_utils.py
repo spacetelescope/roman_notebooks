@@ -227,63 +227,60 @@ def get_survey_maps_uri(survey_name, band, tier=None):
     # when possible
     elif survey_name.upper() == 'HLWAS':
         if tier is None:
-            warnings.warn('No selected tier for the HLWAS, returning the sum of all tiers')
+            warnings.warn('No tier selected for HLWAS. Returning the sum of all tiers')
             tier = 'ALL'
-        else:
-            if tier.upper() not in allowed_hlwas_tier:
-                raise ValueError('The requested tier name is not available, please try ALL, DEEP, \
-                                  WIDE, MEDIUM, or ULTRA-DEEP')
+
+        if tier.upper() == 'WIDE':
+            if band.upper() != 'F158':
+                raise ValueError('HLWAS-WIDE only available for F158')
             else:
-                if tier.upper() == 'WIDE':
-                    if band.upper() != 'F158':
-                        raise ValueError('HLWAS-WIDE only available for F158')
-                    else:
-                        return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_{band.upper()}.hsp'
-                elif tier.upper() == 'MEDIUM':
-                    if band.upper() in ['F106', 'F129', 'F158']:
-                        return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_F158.hsp'
-                    elif band.upper() == 'GRISM':
-                        return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_GRISM.hsp'
-                    else:
-                        raise ValueError(f'The requested element {band.upper()} is not available \
-                                         for HLWAS-MEDIUM')
-                elif tier.upper() == 'DEEP':
-                    if band.upper() in ['F087', 'F106', 'F129', 'F158', 'F184', 'F213']:
-                        return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_F213.hsp'
-                    elif band.upper() == 'F146':
-                        return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_{band.upper()}.hsp'
-                    elif band.upper() == 'GRISM':
-                        return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_{band.upper()}.hsp'
-                    else:
-                        raise ValueError(f'The requested element {band.upper()} is not available \
-                                          for HLWAS-DEEP')
-                elif (tier.upper() == 'ULTRADEEP') or (tier.upper() == 'ULTRA-DEEP'):
-                    if tier == 'ULTRA-DEEP':
-                        tier = 'ULTRADEEP'
-                    if band.upper() in ['F106', 'F129', 'F158']:
-                        return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_F158.hsp'
-                    else:
-                        raise ValueError(f'The requested element {band.upper()} is not available \
-                                         for HLWAS-ULTRADEEP')
-                elif tier.upper() == 'ALL':
-                    if band.upper() in ['F087', 'F184', 'F213']:
-                        return f'./aux_data/map_HLWAS-deep_F213.hsp'
-                    elif band.upper() == 'F146':
-                        return f'./aux_data/map_HLWAS-deep_F146.hsp'
-                    elif band.upper() == 'F158':
-                        return f'./aux_data/map_HLWAS-all_F158.hsp'
-                    elif band.upper() == 'GRISM':
-                        return f'./aux_data/map_HLWAS-all_GRISM.hsp'
-                    elif band.upper() in ['F106', 'F129']:
-                        return f'./aux_data/map_HLWAS-all_F106.hsp'
-                    else:
-                        raise ValueError(f'The selected element {band} is not available for HLWAS')
+                return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_{band.upper()}.hsp'
+        elif tier.upper() == 'MEDIUM':
+            if band.upper() in ['F106', 'F129', 'F158']:
+                return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_F158.hsp'
+            elif band.upper() == 'GRISM':
+                return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_GRISM.hsp'
+            else:
+                raise ValueError(f'The requested element {band.upper()} is not available \
+                                 for HLWAS-MEDIUM')
+        elif tier.upper() == 'DEEP':
+            if band.upper() in ['F087', 'F106', 'F129', 'F158', 'F184', 'F213']:
+                return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_F213.hsp'
+            elif band.upper() == 'F146':
+                return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_{band.upper()}.hsp'
+            elif band.upper() == 'GRISM':
+                return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_{band.upper()}.hsp'
+            else:
+                raise ValueError(f'The requested element {band.upper()} is not available \
+                                  for HLWAS-DEEP')
+        elif (tier.upper() == 'ULTRADEEP') or (tier.upper() == 'ULTRA-DEEP'):
+            if tier == 'ULTRA-DEEP':
+                tier = 'ULTRADEEP'
+            if band.upper() in ['F106', 'F129', 'F158']:
+                return f'./aux_data/map_{survey_name.upper()}-{tier.lower()}_F158.hsp'
+            else:
+                raise ValueError(f'The requested element {band.upper()} is not available \
+                                 for HLWAS-ULTRADEEP')
+        elif tier.upper() == 'ALL':
+            if band.upper() in ['F087', 'F184', 'F213']:
+                return f'./aux_data/map_HLWAS-deep_F213.hsp'
+            elif band.upper() == 'F146':
+                return f'./aux_data/map_HLWAS-deep_F146.hsp'
+            elif band.upper() == 'F158':
+                return f'./aux_data/map_HLWAS-all_F158.hsp'
+            elif band.upper() == 'GRISM':
+                return f'./aux_data/map_HLWAS-all_GRISM.hsp'
+            elif band.upper() in ['F106', 'F129']:
+                return f'./aux_data/map_HLWAS-all_F106.hsp'
+            else:
+                raise ValueError(f'The selected element {band} is not available for HLWAS')
     
     elif survey_name.upper() == 'HLTDS':
         if tier is None:
-            warnings.warn('No selected tier for HLTDS, returning sum of all tiers')
+            warnings.warn('No tier selected for HLTDS. Returning the sum of all tiers')
             tier = 'ALL'
-        elif tier.upper() == 'WIDE':
+
+        if tier.upper() == 'WIDE':
             if band.upper() in ['F062', 'F087', 'F106', 'F129', 'F158', 'PRISM']:
                 return f'./aux_data/map_{survey_name.upper()}-wide_{band.upper()}.hsp'
             else:
