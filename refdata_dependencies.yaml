@@ -23,7 +23,7 @@ install_files:
       - https://stsci.box.com/shared/static/5qkyvr5steg2fo2zxbqj2jxcmbmz1c4w.gz
     environment_variable: PSF_DIR
     install_path: ${HOME}/refdata/
-    data_path: pandeia_psf-2026.1-roman
+    data_path: pandeia_psfs-2026.1-roman
   stpsf:
     version: 2.1.0
     data_url:
