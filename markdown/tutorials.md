@@ -122,7 +122,7 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
   
 - [**Footprint Visualization Tool**](../notebooks/footprint_visualization/footprint_visualization.ipynb)
   
-  Visualize the on-sky footprint of an APT program and generate optional exposure summaries or healsparse maps using footprint utilities.
+  Determine if astronomical source coordinates are within a survey footprint, visualize the on-sky footprint of an APT program, and generate optional exposure summaries or healsparse maps using footprint utilities.
 
   *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
   
