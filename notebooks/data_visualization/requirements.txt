@@ -6,3 +6,4 @@ gwcs>=1.0.3
 s3fs>=2025.5.1
 matplotlib>=3.10.0
 numpy>=2.2.3
+jdaviz>=4.5.2,<5.0
