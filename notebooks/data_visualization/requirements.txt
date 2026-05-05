@@ -1,5 +1,6 @@
 roman_datamodels>=0.30.0,<0.31
 rad>=0.30.0,<0.31
+asdf>=5.2.0
 astropy>=7.2.0
 asdf-astropy>=0.11.0
 gwcs>=1.0.3
