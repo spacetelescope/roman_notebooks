@@ -7,5 +7,5 @@ astropy>=7.2.0
 asdf-astropy>=0.11.0
 gwcs>=1.0.3
 s3fs>=2025.5.1
-crds>=13.1.13
-scipy>=1.15.2
+crds==13.1.15
+scipy>=1.17.1

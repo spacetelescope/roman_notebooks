@@ -2,4 +2,4 @@ stips>=2.2.2
 astropy>=7.2.0
 matplotlib>=3.10.0
 esutil>=0.6.16 # --no-cache-dir option recommended on pip install
-stsynphot>=1.4.0
+stsynphot>=1.5.1

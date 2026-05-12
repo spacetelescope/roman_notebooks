@@ -1,12 +1,13 @@
 romancal>=0.22.0,<0.23
 romanisim>=0.13.1,<0.14
 roman_datamodels>=0.30.0,<0.31
+crds==13.1.15
 rad>=0.30.0,<0.31
 asdf>=5.2.0
 astropy>=7.2.0
 asdf-astropy>=0.11.0
 gwcs>=1.0.3
-numpy>=2.2.3
+numpy>=2.4.4
 matplotlib>=3.10.0
 galsim>=2.6.3
 pysiaf>=0.24.1
