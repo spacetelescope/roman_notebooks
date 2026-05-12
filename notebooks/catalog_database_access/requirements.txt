@@ -1,4 +1,4 @@
-astropy >= 7.0.1
+astropy >= 7.2.0
 astroquery >= 0.4.11
 pyvo >= 1.8
 matplotlib>=3.10.0
