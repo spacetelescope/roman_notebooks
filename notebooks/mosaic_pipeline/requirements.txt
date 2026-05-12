@@ -7,8 +7,8 @@ astropy>=7.2.0
 asdf-astropy>=0.11.0
 gwcs>=1.0.3
 s3fs>=2025.5.1
-crds>=13.1.13
+crds==13.1.15
 photutils>=2.2.0
 matplotlib>=3.10.0
-numpy>=2.2.3
+numpy>=2.4.4
 stpsf>=2.1.0
