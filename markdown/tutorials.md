@@ -37,6 +37,12 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
   *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md), [WFI Data Analysis](./workflows/wfi-data-analysys.md)
 
+- [**Catalog Database Access**](../notebooks/cayalog_database_access/catalog_database_access.ipynb)  
+
+  Access and query a wide diversity of Roman catalogs from MAST databases.
+
+   *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
+   
 ### WFI Data Simulation and Calibration Pipelines
 
 - [**Roman I-sim**](../notebooks/romanisim/romanisim.ipynb)

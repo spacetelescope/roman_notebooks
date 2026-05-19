@@ -16,6 +16,10 @@ This science workflow guides users through the discovery and access of data whil
 
   Visualize Roman WFI exposure-level products using tools such as Matplotlib and Imviz to inspect image quality and explore basic features of the data. Imviz is based on the Jupyter platform and includes built-in Astropy functionality. For additional background information, consult [Imviz documentation on ReadTheDocs](https://jdaviz.readthedocs.io/en/latest/imviz/index.html).
   
+  - [**Catalog Database Access**](../notebooks/cayalog_database_access/catalog_database_access.ipynb)  
+
+  Access and query, from MAST databases, a wide diversity of Roman multiband photometric source catalogs from WFI imaging; spectral catalogs derived from WFI grism and prism spectroscopy; microlensing event variability and light curve catalogs; and Project Infrastructure team created catalogs, enabling efficient filtering and sample selection across both spatial location and miriad other properties.
+
 - **Analyze Roman WFI images**:
   Perform example analysis tasks on WFI images, including:
   * [**Aperture photometry**](../../notebooks/aperture_photometry/aperture_photometry.ipynb): Measure integrated fluxes using forced aperture photometry on simulated WFI images.
