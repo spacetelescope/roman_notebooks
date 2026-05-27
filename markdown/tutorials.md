@@ -45,6 +45,10 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
   *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
 
+- [**Catalog Database Access**](../notebooks/cayalog_database_access/catalog_database_access.ipynb)  
+
+  Access and query a wide diversity of Roman catalogs from MAST databases.gi
+
 - [**Exposure Pipeline**](../notebooks/exposure_pipeline/exposure_pipeline.ipynb)     
 
   Process Level 1 data with the Roman WFI science calibration pipeline, RomanCal, to produce Level 2 exposure-level data.
