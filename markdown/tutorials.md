@@ -19,6 +19,10 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
 ### Data Access and Exploration
 
+- [**Catalog Database Access**](../notebooks/cayalog_database_access/catalog_database_access.ipynb)  
+
+  Access and query a wide diversity of Roman catalogs from MAST databases.
+
 - [**Data Discovery and Access**](../notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
 
   Retrieve data from MAST or access simulated Roman data in the cloud archive ("S3 bucket").
@@ -44,10 +48,6 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
   Generate Level 1 and Level 2 WFI imaging products.
 
   *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
-
-- [**Catalog Database Access**](../notebooks/cayalog_database_access/catalog_database_access.ipynb)  
-
-  Access and query a wide diversity of Roman catalogs from MAST databases.gi
 
 - [**Exposure Pipeline**](../notebooks/exposure_pipeline/exposure_pipeline.ipynb)     
 

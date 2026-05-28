@@ -4,6 +4,10 @@ This science workflow guides users through the discovery and access of data whil
 
 ## Workflow Description
 
+- [**Catalog Database Access**](../notebooks/cayalog_database_access/catalog_database_access.ipynb)  
+
+   Access and query, from MAST databases, a wide diversity of Roman multiband photometric source catalogs from WFI imaging; spectral catalogs derived from WFI grism and prism spectroscopy; microlensing event variability and light curve catalogs; and Project Infrastructure team created catalogs, enabling efficient filtering and sample selection across both spatial location and miriad other properties
+
 - [**Data Discovery and Access**](../../notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
 
   Retrieve WFI simulated images from the cloud or access data from active missions (e.g. Hubble, TESS, and JWST) from MAST. Data are streamed directly into memory, removing the need for local downloads. Users can access datasets hosted by [STScI MAST](https://archive.stsci.edu/) or simulated Roman WFI data stored in the Nexus environment. To learn more, visit the [RDox pages on accessing Roman WFI data](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data).
@@ -15,10 +19,6 @@ This science workflow guides users through the discovery and access of data whil
 - [**Data Visualization**](../../notebooks/data_visualization/data_visualization.ipynb)
 
   Visualize Roman WFI exposure-level products using tools such as Matplotlib and Imviz to inspect image quality and explore basic features of the data. Imviz is based on the Jupyter platform and includes built-in Astropy functionality. For additional background information, consult [Imviz documentation on ReadTheDocs](https://jdaviz.readthedocs.io/en/latest/imviz/index.html).
-
-- [**Catalog Database Access**](../notebooks/cayalog_database_access/catalog_database_access.ipynb)  
-
-   Access and query, from MAST databases, a wide diversity of Roman multiband photometric source catalogs from WFI imaging; spectral catalogs derived from WFI grism and prism spectroscopy; microlensing event variability and light curve catalogs; and Project Infrastructure team created catalogs, enabling efficient filtering and sample selection across both spatial location and miriad other properties
   
 - **Analyze Roman WFI images**:
   Perform example analysis tasks on WFI images, including:
