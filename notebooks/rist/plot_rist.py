@@ -8,7 +8,7 @@ from bokeh.models import ColumnDataSource
 from bokeh.models.widgets import Slider, Select, Div, RadioButtonGroup
 from bokeh.models.annotations import Title
 from bokeh.layouts import column, row, layout
-from bokeh.io import show, output_notebook # enables plot interface in the Jupyter notebook
+from bokeh.io import show, output_notebook  # enables plot interface in the Jupyter notebook
 from bokeh.application import Application
 from bokeh.application.handlers import FunctionHandler
 from bokeh.palettes import Sunset
@@ -58,7 +58,7 @@ class plot_rist():
 
         '''       
         tooltips = [('Filter', '@desc'),
-                    ('SNR', '@snr{0.00}')]       
+                    ('SNR', '@snr{0.00}')]
 
         plot = figure(height=450, width=800, title='  ',
                       tools='crosshair,pan,reset,save,box_zoom,hover',
@@ -67,7 +67,7 @@ class plot_rist():
                       tooltips=tooltips)
 
         axis_formatter = BasicTickFormatter(power_limit_low=-4, power_limit_high=4)
-        
+
         plot.title.text_font_size = '16pt'
         plot.title.align = 'center'
         plot.xaxis.axis_label = 'Wavelength [micron]'
@@ -86,7 +86,7 @@ class plot_rist():
         # This takes whatever information that is in the 'source' that is defined above
         plot.scatter('wvl', 'snr', source=self.source, size=12, alpha=0.9, marker='circle',
                      fill_color='color', line_color='#b3b3cc',
-                     hover_color='#b3b3cc', hover_alpha=0.5, legend_field='desc') 
+                     hover_color='#b3b3cc', hover_alpha=0.5, legend_field='desc')
 
         plot.scatter('wvl', 'snr_saturated', source=self.source, size=12, alpha=0.9, marker='triangle',
                      fill_color='color', line_color='#b3b3cc',
@@ -112,17 +112,17 @@ class plot_rist():
         Returns:
         --------
         widgets: bokeh column layout that conatins the followings:
-                one slider for target magntidue, 
+                one slider for target magntidue,
                 3 drop-down selecters for background, MA table, and # of resultants
 
-        '''             
+        '''
         # Set up widgets
 
         # Choose a magnitude system
         self.magsys_button_group = RadioButtonGroup(labels=['AB Mag', 'Vega Mag'], active=0)
 
         # Magnitude slider
-        mags = np.array(self.master_grid[0].coords['magnitude']) # Using the first Xarray's attribute to set the coordinates
+        mags = np.array(self.master_grid[0].coords['magnitude'])  # Using the first Xarray's attribute to set the coordinates
         magnitude_slider_min = min(mags)
         magnitude_slider_max = max(mags)
 
@@ -141,7 +141,7 @@ class plot_rist():
         #                       'hlwas-wide_field3 & high','hlwas-wide_field3 & medium','hlwas-wide_field3 & low',
         #                       'hlwas-wide_field4 & high','hlwas-wide_field4 & medium','hlwas-wide_field4 & low',
         #                       'gbtds_mid_5stripe & high','gbtds_mid_5stripe & medium','gbtds_mid_5stripe & low',
-        #                       'hltds & medium']       
+        #                       'hltds & medium']
         background_options = ['hlwas-medium_field1',
                               'hlwas-medium_field2', 
                               'hlwas-wide_field1',
@@ -149,10 +149,10 @@ class plot_rist():
                               'hlwas-wide_field3',
                               'hlwas-wide_field4',
                               'gbtds_mid_5stripe',
-                              'hltds']     
+                              'hltds']
         # background_options = ['minzodi & benchmark']
         self.background_select = Select(title='Background', options=background_options, value='hlwas-medium_field1')
-        
+    
         # background_level_options = ['high', 'medium', 'low']
         # background_level_options = ['medium']
         # self.background_level_select = Select(title='Background Level', options=background_level_options, value='medium')
@@ -161,11 +161,11 @@ class plot_rist():
         matable_options = ['im_60_6_s', 'im_66_6', 'im_76_7_s', 'im_85_7', 'im_95_7', 'im_101_7', 'im_107_7',
                            'im_107_8_s', 'im_120_8', 'im_135_8', 'im_152_9', 'im_171_10', 'im_193_11', 'im_193_14_s',
                            'im_225_13', 'im_250_14', 'im_284_14', 'im_294_16', 'im_307_16', 'im_360_16', 'im_409_16',
-                           'im_420_16', 'im_460_16', 'im_500_16', 'im_550_16', 'im_600_16', 'im_650_16', 'im_700_16', 
+                           'im_420_16', 'im_460_16', 'im_500_16', 'im_550_16', 'im_600_16', 'im_650_16', 'im_700_16',
                            'im_750_16', 'im_800_16', 'im_900_16', 'im_950_16', 'im_1000_16']
         self.matable_select = Select(title='MA Table (obs mode_exp time_# of resultants)', options=matable_options, value='im_120_8')
-        
-        # nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6', '7', '8', '9', '10(Max)']    
+
+        # nresultant_options = ['2', '3', '4(Rec. Min)', '5', '6', '7', '8', '9', '10(Max)']
         # self.nresultant_select = Select(title='# of Resultant', options=nresultant_options, value= '5')
 
         # for w1 in [self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select]:
@@ -174,13 +174,13 @@ class plot_rist():
 
         for w2 in [self.magsys_button_group, self.sed_type_button_group]:
             w2.on_change('active', self.update_data)
-        
+
         # Set up layouts and add to document
         label_magsys = Div(text='Input Magnitude Type')
         label_sedtype = Div(text='Spectrum Type')
-        widgets = column(column(label_magsys, self.magsys_button_group), 
-                         column(label_sedtype, self.sed_type_button_group), 
-                         self.magnitude_slider, self.background_select, self.matable_select) # self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select        
+        widgets = column(column(label_magsys, self.magsys_button_group),
+                         column(label_sedtype, self.sed_type_button_group),
+                         self.magnitude_slider, self.background_select, self.matable_select)  # self.magnitude_slider, self.background_select, self.matable_select, self.nresultant_select
 
         return widgets
 
@@ -195,7 +195,7 @@ class plot_rist():
         old: old value
         new: new value to compute SNR
 
-        '''  
+        '''
 
         # New target magnitude selection
         new_magnitude = self.magnitude_slider.value
@@ -212,49 +212,49 @@ class plot_rist():
         # Now merge the background and level selection
         # Insert '_' to match the formatting
         if (self.background_select.value == 'hlwas-medium_field1'):
-            new_background = 'hlwas-medium_field1_medium'        
+            new_background = 'hlwas-medium_field1_medium'
         elif (self.background_select.value == 'hlwas-medium_field2'):
-            new_background = 'hlwas-medium_field2_medium'        
+            new_background = 'hlwas-medium_field2_medium'
         elif (self.background_select.value == 'hlwas-wide_field1'):
-            new_background = 'hlwas-wide_field1_medium'      
+            new_background = 'hlwas-wide_field1_medium'
         elif (self.background_select.value == 'hlwas-wide_field2'):
-            new_background = 'hlwas-wide_field2_medium'      
+            new_background = 'hlwas-wide_field2_medium'
         elif (self.background_select.value == 'hlwas-wide_field3'):
-            new_background = 'hlwas-wide_field3_medium'      
+            new_background = 'hlwas-wide_field3_medium'
         elif (self.background_select.value == 'hlwas-wide_field4'):
-            new_background = 'hlwas-wide_field4_medium'      
+            new_background = 'hlwas-wide_field4_medium'
         elif (self.background_select.value == 'gbtds_mid_5stripe'):
-            new_background = 'gbtds_mid_5stripe_medium'      
+            new_background = 'gbtds_mid_5stripe_medium'
         elif (self.background_select.value == 'hltds'):
-            new_background = 'hltds_medium'            
+            new_background = 'hltds_medium'
         else:
             new_background = self.background_select.value
-            
-        # New MA table selection    
+
+        # New MA table selection
         new_matable = self.matable_select.value
 
         # Update the nresultant select option based on the MA table selection
         # This is just to show the max resultant (not the truncation)
         if self.matable_select.value in ['im_60_6_s','im_66_6']:
-            dynamic_nresultant_options = '5'  
+            dynamic_nresultant_options = '5'
         elif self.matable_select.value in ['im_76_7_s', 'im_85_7', 'im_95_7', 'im_101_7', 'im_107_7']:
-            dynamic_nresultant_options = '6'        
+            dynamic_nresultant_options = '6'   
         elif self.matable_select.value in ['im_107_8_s', 'im_120_8', 'im_135_8']:
-            dynamic_nresultant_options = '7' 
+            dynamic_nresultant_options = '7'
         elif self.matable_select.value in ['im_152_9']:
-            dynamic_nresultant_options = '8' 
+            dynamic_nresultant_options = '8'
         elif self.matable_select.value in ['im_171_10']:
-            dynamic_nresultant_options = '9' 
+            dynamic_nresultant_options = '9'
         elif self.matable_select.value in ['im_193_11']:
             dynamic_nresultant_options = '10' 
         elif self.matable_select.value in ['im_225_13']:
-            dynamic_nresultant_options = '12' 
+            dynamic_nresultant_options = '12'
         elif self.matable_select.value in ['im_193_14_s', 'im_250_14', 'im_284_14']:
-            dynamic_nresultant_options = '13' 
-        elif self.matable_select.value in ['im_294_16', 'im_307_16', 'im_360_16', 'im_409_16', 'im_420_16', 
-                                           'im_460_16', 'im_500_16', 'im_550_16', 'im_600_16', 'im_650_16', 'im_700_16', 
+            dynamic_nresultant_options = '13'
+        elif self.matable_select.value in ['im_294_16', 'im_307_16', 'im_360_16', 'im_409_16', 'im_420_16',
+                                           'im_460_16', 'im_500_16', 'im_550_16', 'im_600_16', 'im_650_16', 'im_700_16',
                                            'im_750_16', 'im_800_16', 'im_900_16', 'im_950_16', 'im_1000_16']:
-            dynamic_nresultant_options = '15' 
+            dynamic_nresultant_options = '15'
 
         # New # of resultant selection
         # self.nresultant_select.options = dynamic_nresultant_options
@@ -274,7 +274,7 @@ class plot_rist():
         elif self.sed_type_button_group.active == 2:
             new_sedtype = 'phoenix_g2v'
         elif self.sed_type_button_group.active == 3:
-            new_sedtype = 'phoenix_m5v'            
+            new_sedtype = 'phoenix_m5v'   
 
         # Assign the newly selected values
         self.ma_table = new_matable
@@ -287,22 +287,22 @@ class plot_rist():
         # Search the grid that matches the selection
         lookup = self.lookup_grid()
         new_result = self.master_grid[lookup]
-    
+
         # Generate the new data points
-        snr = new_result.interp(magnitude=new_magnitude) 
-        snr_saturated = new_result.interp(magnitude=new_magnitude) 
+        snr = new_result.interp(magnitude=new_magnitude)
+        snr_saturated = new_result.interp(magnitude=new_magnitude)
 
         # Treat the dim points first to avoid a confusion with how the saturated points are plotted
         # This is because the saturated points will be set to ymin * 1.1 in the next few lines
-        # Some dim targets' SNRs are happened to be ymin * 1.1. so set them to any value 
+        # Some dim targets' SNRs are happened to be ymin * 1.1. so set them to any value
         # just above ymin*1.1 to be replaced to 0 later
-        # The value also has to be non 0 which is what Pandeia sets for the saturated sources from the calculation) 
+        # The value also has to be non 0 which is what Pandeia sets for the saturated sources from the calculation)
         # This treatment is for the snr_saturated array to make them not appear in the plot as 'saturated' points
-        snr_saturated = snr_saturated.where(snr_saturated != round(self.ymin*1.1, 3), round(self.ymin*1.11, 4))
-        
+        snr_saturated = snr_saturated.where(snr_saturated != round(self.ymin * 1.1, 3), round(self.ymin * 1.11, 4))
+
         # Also changing SNR = ymin because ymin * 1.1 and ymin are too close in the log space and
         # it still looks like it is a saturated point in the plot (turn to the triangle)
-        snr_saturated = snr_saturated.where(snr_saturated != round(self.ymin, 3), round(self.ymin*1.11, 4))
+        snr_saturated = snr_saturated.where(snr_saturated != round(self.ymin, 3), round(self.ymin * 1.11, 4))
 
         # Unfortunately, there are also SNR = 0 for the actual dim star..
         if new_magnitude > 26:
@@ -312,8 +312,8 @@ class plot_rist():
         # Create array of saturated points
         # Pandas dataframe's built-in where function 'keeps the original values where the condition is True and replaces them with 
         # NaN or another specified value where the condition is False.' 
-        snr_saturated = snr_saturated.where(snr_saturated != 0, round(self.ymin*1.1, 3))  # Look for where SNR = 0 and set it to ymin*1.1
-        snr_saturated = snr_saturated.where(snr_saturated <= round(self.ymin*1.1, 3), 0)  # Look for where 
+        snr_saturated = snr_saturated.where(snr_saturated != 0, round(self.ymin * 1.1, 3))  # Look for where SNR = 0 and set it to ymin*1.1
+        snr_saturated = snr_saturated.where(snr_saturated <= round(self.ymin * 1.1, 3), 0)  # Look for where 
 
         self.source.data['snr'] = snr
         self.source.data['snr_saturated'] = snr_saturated     
@@ -350,7 +350,7 @@ class plot_rist():
 
         '''
         # grid_name = self.ma_table + '_' + str(self.nresultant) + '_' + self.background + '_' + self.mag_system + '_' + self.sed_type
-        grid_name = self.ma_table + '_'  + self.background + '_' + self.mag_system + '_' + self.sed_type
+        grid_name = self.ma_table + '_' + self.background + '_' + self.mag_system + '_' + self.sed_type
 
         lookup = np.where(grid_name == self.grid_properties)[0][0]
 
@@ -367,20 +367,19 @@ class plot_rist():
                 MA table = hlwas_imaging
                 nresultant = 5
                 background = minzodi_benchmark
-
         '''
-     
+
         initial_lookup = self.lookup_grid()
-        initial_result = self.master_grid[initial_lookup].interp(magnitude = self.magnitude) 
-        initial_data = {'wvl': initial_result.attrs['central_wvl'], 'snr': initial_result.values, 
-                        'snr_saturated': np.zeros(len((initial_result.values))), 
+        initial_result = self.master_grid[initial_lookup].interp(magnitude=self.magnitude)
+        initial_data = {'wvl': initial_result.attrs['central_wvl'], 'snr': initial_result.values,
+                        'snr_saturated': np.zeros(len((initial_result.values))),
                         'color': self.colors, 'desc': initial_result.coords['filters'].values}
-        
+
         # create a ColumnDataSource by passing the dict
         source = ColumnDataSource(data=initial_data)
 
-        return source 
-    
+        return source
+
     def retrieve_grid_properties(self):
         '''
         Retrieves information for the loaded pre-computed Pandeia grid
@@ -388,13 +387,12 @@ class plot_rist():
         Returns:
         --------
         grid_properties: numpy array containing the information regarding MA table, # of resultants, and background
-
         '''
 
         # Get the grid properties
         grid_properties = []
         for gp, grid_property in enumerate(self.master_grid):
-            grid_properties.append(self.master_grid[gp].attrs['ma_table']['name'] + 
+            grid_properties.append(self.master_grid[gp].attrs['ma_table']['name'] +
                                    '_' + self.master_grid[gp].attrs['background'] + 
                                    '_' + self.master_grid[gp].attrs['mag_system'] + 
                                    '_' + self.master_grid[gp].attrs['sed_type'])
@@ -411,14 +409,14 @@ class plot_rist():
         Returns:
         --------
         doc: document contatining the bokeh plots and its neccessaries
+        '''
 
-        '''        
         layout_with_note = plot_rist().layout_with_note
         doc.add_root(row(layout_with_note, width=800))
         doc.title = "Roman Interactive Sensitivity Tool (RIST)"
 
         return doc
-    
+
     handler = FunctionHandler(modify_doc)
     app = Application(handler)
     show(app)

@@ -19,6 +19,10 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
 ### Data Access and Exploration
 
+- [**Catalog Database Access**](../notebooks/cayalog_database_access/catalog_database_access.ipynb)  
+
+  Access and query a wide diversity of Roman catalogs from MAST databases.
+
 - [**Data Discovery and Access**](../notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
 
   Retrieve data from MAST or access simulated Roman data in the cloud archive ("S3 bucket").
@@ -122,7 +126,7 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
   
 - [**Footprint Visualization Tool**](../notebooks/footprint_visualization/footprint_visualization.ipynb)
   
-  Visualize the on-sky footprint of an APT program and generate optional exposure summaries or healsparse maps using footprint utilities.
+  Determine if astronomical source coordinates are within a survey footprint, visualize the on-sky footprint of an APT program, and generate optional exposure summaries or healsparse maps using footprint utilities.
 
   *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
   
