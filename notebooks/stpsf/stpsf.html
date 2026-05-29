@@ -16,41 +16,44 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="STIPS Tutorial" href="../stips/stips.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
-    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -184,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
@@ -195,6 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
 
+
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
 </ul>
 
@@ -204,9 +195,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -367,7 +363,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -381,25 +377,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -453,7 +441,7 @@ document.write(`
 <hr class="docutils" />
 <section id="kernel-information-and-read-only-status">
 <h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
 </section>
 <section id="introduction">
@@ -508,7 +496,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/da41d5b93b1886deedf0604edb83582ed2e2c278e66ac0a630c73f496cf6ca8b.png" src="../../_images/da41d5b93b1886deedf0604edb83582ed2e2c278e66ac0a630c73f496cf6ca8b.png" />
+<img alt="../../_images/2b1eb3db40629745f1fe009ac2082db9ff42fbdf8209ad53993343e3a8937a47.png" src="../../_images/2b1eb3db40629745f1fe009ac2082db9ff42fbdf8209ad53993343e3a8937a47.png" />
 </div>
 </div>
 <p>As you can see above, the calculation was performed at one wavelength (0.6225 microns). Suppose we want to make a monochromatic PSF at some other wavelength, we can do that using the <code class="docutils literal notranslate"><span class="pre">monochromatic</span></code> argument, which should be set to the desired wavelength in units of meters. For example, we can use the pivot wavelength of the bandpass:</p>
@@ -522,7 +510,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b49a2ada8d14aeab2ad39e85da502df7c2f5b0d34dfb6a1b8c97c64c284ec8a.png" src="../../_images/0b49a2ada8d14aeab2ad39e85da502df7c2f5b0d34dfb6a1b8c97c64c284ec8a.png" />
+<img alt="../../_images/e3af2dd1cc0de5b03c9b706bcff215554197d7fe3beeca878754eaa4681862d2.png" src="../../_images/e3af2dd1cc0de5b03c9b706bcff215554197d7fe3beeca878754eaa4681862d2.png" />
 </div>
 </div>
 <p>The resulting object (in this case, the variable <code class="docutils literal notranslate"><span class="pre">default_psf</span></code>) contains a list of four FITS extensions containing idealized PSF images. <code class="docutils literal notranslate"><span class="pre">OVERSAMP</span></code> splits the detector’s original number of pixels by the oversampling factor specified upon creation of the PSFs (by default, 4) while <code class="docutils literal notranslate"><span class="pre">DET_SAMP</span></code> retains the native pixel sampling. Similarly, the <code class="docutils literal notranslate"><span class="pre">OVERDIST</span></code> and <code class="docutils literal notranslate"><span class="pre">DET_DIST</span></code> extensions represent the oversampled and native pixel sampling with distortion applied.</p>
@@ -551,7 +539,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cd0d03c90665748ca25c502b3f20fa7c05f05d428eff83922822f3cd3e2c5c68.png" src="../../_images/cd0d03c90665748ca25c502b3f20fa7c05f05d428eff83922822f3cd3e2c5c68.png" />
+<img alt="../../_images/939ec2cddeb225cdb99ffca27e2239a98cb79cdb8afd17e3fbf996a605a46a49.png" src="../../_images/939ec2cddeb225cdb99ffca27e2239a98cb79cdb8afd17e3fbf996a605a46a49.png" />
 </div>
 </div>
 <p>We can use any of the extensions in the <code class="docutils literal notranslate"><span class="pre">default_psf</span></code> variable that we created in the plotting routine demonstrated above. The PSF object also contains a method (<code class="docutils literal notranslate"><span class="pre">.writeto()</span></code>) for saving the PSF model to disk:</p>
@@ -608,7 +596,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2db739a9204a23ad58f2dd1b4295dd5350ed972e2ebf18df2e4249ce422cb595.png" src="../../_images/2db739a9204a23ad58f2dd1b4295dd5350ed972e2ebf18df2e4249ce422cb595.png" />
+<img alt="../../_images/3374d3a969c8019a73f048de070cee8b787ec8158d3f56be429cbbe9cda7596a.png" src="../../_images/3374d3a969c8019a73f048de070cee8b787ec8158d3f56be429cbbe9cda7596a.png" />
 </div>
 </div>
 </section>
@@ -627,7 +615,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e0bffbbb98bfce99cdd011158fb1e51d8fc6e6444e2d6ca40451b60c812a15bc.png" src="../../_images/e0bffbbb98bfce99cdd011158fb1e51d8fc6e6444e2d6ca40451b60c812a15bc.png" />
+<img alt="../../_images/39badf33b2c3ac17315aa6a817bcbb86a10e7c3ec76891ec2512d5992a420d8a.png" src="../../_images/39badf33b2c3ac17315aa6a817bcbb86a10e7c3ec76891ec2512d5992a420d8a.png" />
 </div>
 </div>
 </section>
@@ -747,15 +735,15 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 3/9 centroid: (np.float64(201.13927911215228), np.float64(202.10946192564887))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 3/9 centroid: (np.float64(201.13927911215225), np.float64(202.1094619256489))
     Position 4/9: (2048, 0) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 4/9 centroid: (np.float64(201.19176062580496), np.float64(202.0069346894154))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 4/9 centroid: (np.float64(201.1917606258049), np.float64(202.00693468941535))
     Position 5/9: (2048, 2048) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 5/9 centroid: (np.float64(201.19077998247153), np.float64(202.1182246373882))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 5/9 centroid: (np.float64(201.19077998247153), np.float64(202.11822463738824))
     Position 6/9: (2048, 4095) pixels
 </pre></div>
 </div>
@@ -793,7 +781,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
     Position 7/9: (4095, 0) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 7/9 centroid: (np.float64(201.29308955252677), np.float64(202.01678300638105))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 7/9 centroid: (np.float64(201.29308955252677), np.float64(202.01678300638108))
     Position 8/9: (4095, 2048) pixels
 </pre></div>
 </div>
@@ -831,7 +819,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 9/9 centroid: (np.float64(201.35583935199062), np.float64(202.24405439713556))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 9/9 centroid: (np.float64(201.3558393519906), np.float64(202.24405439713556))
 </pre></div>
 </div>
 </div>
@@ -844,7 +832,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bf7f03482008cfb7167a1c1519c701a818ed504987bf187bd2f7f217b44904d9.png" src="../../_images/bf7f03482008cfb7167a1c1519c701a818ed504987bf187bd2f7f217b44904d9.png" />
+<img alt="../../_images/92d633dcfde8a7ce5aed30098b99081011b3f85b8dad6cf6e1559c9987860636.png" src="../../_images/92d633dcfde8a7ce5aed30098b99081011b3f85b8dad6cf6e1559c9987860636.png" />
 </div>
 </div>
 <p>Next let’s look at the delta plot, which subtracts the mean from each PSF to show the variation across the detector:</p>
@@ -855,7 +843,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3e92d1e801d595ef0789486e406c8ba612da291b4c62ef623ce64a60018b1df2.png" src="../../_images/3e92d1e801d595ef0789486e406c8ba612da291b4c62ef623ce64a60018b1df2.png" />
+<img alt="../../_images/519540b5ccd0733e63b81cf7de90b10985dcc7e488eb13f6ef0d9adaadd59576.png" src="../../_images/519540b5ccd0733e63b81cf7de90b10985dcc7e488eb13f6ef0d9adaadd59576.png" />
 </div>
 </div>
 <p>With a PSF grid in hand, you can use a package like <code class="docutils literal notranslate"><span class="pre">photutils</span></code> to estimate PSFs at any given detector position by interpolation without the need to calculate each PSF individually. This is a major time-saver in source-heavy scientific use cases. We do this by using the <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code> method to determine the flux of any pixel relative to a PSF at any location. In the cell below, we will evaluate the flux per pixel around a PSF at position (X, Y) = (1000, 2000). We make a pixel grid around that position with 50 pixels on a side. We then pass each pixel position into the evaluate function and display the values that are returned for each pixel position. We have chosen to set the integrated flux of the PSF to a value of 1 in arbitrary units, which can then be conveniently scaled to the desired flux in other applications.</p>
@@ -875,10 +863,10 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc2ad8ae210&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fabe8acbb10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/397f30f780d00ae0a507bea487701284e286bbb813d78f64fe236fe2c0f1509e.png" src="../../_images/397f30f780d00ae0a507bea487701284e286bbb813d78f64fe236fe2c0f1509e.png" />
+<img alt="../../_images/ed814d1d49f78a72d33aea5f983cc76331f6f910bf37dce280df19f424870d3a.png" src="../../_images/ed814d1d49f78a72d33aea5f983cc76331f6f910bf37dce280df19f424870d3a.png" />
 </div>
 </div>
 </section>
@@ -899,13 +887,13 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
-       <a href="#top" style="text-decoration:none; color:#0066cc;">↑ Top of page</a> 
+       <a href="#top" style="text-decoration:none; color:#0066cc;"> Top of page</a>
     </td>
     <td style="border:none; text-align:center;">
-       <img src="../../roman_logo.png" width="50">
+        <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/roman_logo.png" alt="roman_logo" width="50px">
     </td>
     <td style="border:none; text-align:right;">
-       <img src="../../stsci_logo2.png" width="90">
+       <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/stsci_logo2.png" width="90">
     </td>
   </tr>
 </table></section>
@@ -966,14 +954,16 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
@@ -1014,7 +1004,7 @@ By STScI
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1038,8 +1028,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

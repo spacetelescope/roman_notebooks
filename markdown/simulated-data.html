@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Available Data &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'markdown/simulated-data';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <img src="../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandeia/pandeia.html">Pandeia Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fmarkdown/simulated-data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/markdown/simulated-data.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Available Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roman-i-sim-simulated-images"><a name="romanisim"></a>Roman I-Sim Simulated Images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-universe-roman-simulation"><a name="openuniverse"></a>Open Universe Roman simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bright-star-ground-test-images">Bright Star Ground Test Images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectroscopy-data">Spectroscopy Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="available-data">
+<h1>Available Data<a class="headerlink" href="#available-data" title="Link to this heading">#</a></h1>
+<p>There are currently several types of WFI imaging and spectroscopic products available for use with the Roman Research Nexus (RRN). These include:</p>
+<ul class="simple">
+<li><p><strong>Roman I-Sim simulated exposures</strong>, which include simulated detector-level calibration features;</p></li>
+<li><p><strong>The Open Universe Roman simulated preview data</strong>, converted to the Advanced Scientific Data Format (ASDF), including single exposures and, when available, truth catalogs for mock Roman Wide Area Survey (WAS) and Time Domain Survey (TDS) data;</p></li>
+<li><p><strong>Bright Star Ground Test Images</strong> from the WFI thermal vacuum (TVAC) campaign;</p></li>
+<li><p><strong>Simulated grism images</strong> developed for the spectroscopic component of the Roman High Latitude Wide Area Survey (HLWAS).</p></li>
+</ul>
+<p>An overview of these data products can be found below. All files are stored in the <strong>Open Data Bucket</strong>. See the <a class="reference internal" href="../notebooks/data_discovery_and_access/data_discovery_and_access.html"><span class="std std-doc">Cloud Data Access Notebook</span></a> for details on accessing these products.</p>
+<section id="roman-i-sim-simulated-images">
+<h2><a name="romanisim"></a>Roman I-Sim Simulated Images<a class="headerlink" href="#roman-i-sim-simulated-images" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/spacetelescope/romanisim">Roman I-Sim</a> generates Roman WFI imaging products by combining an input source catalog with simulated instrument and detector effects.</p>
+<p>The Roman I-Sim products have metadata and an organizational structure identical to what is expected for actual Roman data taken during operations. The products are stored in ASDF files and adhere to the released version of the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/data-levels-and-products">WFI science data product schema</a> installed on the RRN. In the example <a class="reference internal" href="#workflows.md"><span class="xref myst">Science Workflows</span></a> and <a class="reference internal" href="tutorials.html"><span class="std std-doc">Tutorials</span></a>, the input catalogs are provided as Enhanced Character-Separated Value (ECSV) files and combine stars from the Gaia source catalog with galaxies generated using the parametric source generation offered within the tool. The brightnesses of the Gaia stars are set to the Gaia r-band magnitude in all Roman filters (i.e., a flat spectral energy distribution), and the parametric source generation process does not use SED information to produce sources with realistic colors.</p>
+<p>Roman I-Sim products are created using reference files from the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files">Calibration Reference Data System</a> (CRDS). Therefore, the accuracy of the instrumental effects in the simulations is only as good as the reference files used to create them. The current suite contains preliminary versions of reference files based on ground testing, and it is expected to improve as characterization of the ground test data continues. Questions regarding calibration reference files should be sent to the <a class="reference external" href="https://stsci.service-now.com/roman">Roman Helpdesk at STScI</a>.</p>
+<p>The Roman I-Sim simulated products include four full-focal-plane exposures (18 detectors each) in a four-point box dither pattern near the globular cluster NGC 6535, centered at (RA, Dec) = (270.94, –0.2) deg, using the F106 optical element. The offset in the dither pattern is approximately half a detector in both X and Y directions to ensure complete filling of the gaps between detectors. The table below shows the dither pattern used for the simulation, where each offset represents the offset from the previous position. So, the zeroth position starts with offsets of 0.00 in both X and Y, and the first position is relative to the zeroth one, the second position is relative to the first, etc. Here is the pattern:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dither Step</p></th>
+<th class="head"><p>Offset X (arcsec)</p></th>
+<th class="head"><p>Offset Y (arcsec)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.00</p></td>
+<td><p>0.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.55</p></td>
+<td><p>200.55</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>200.55</p></td>
+<td><p>0.55</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0.55</p></td>
+<td><p>-200.55</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>From these four full-focal-plane exposures, a mosaic for detector 11 (WFI11) is also generated using each of the dither positions that cover the full extent of NGC 6535.</p>
+<p>New Roman I-Sim datasets that reproduce subsets of observations from the <a class="reference external" href="https://roman-docs.stsci.edu/roman-community-defined-surveys">Roman Community Defined Surveys</a> will be available in the RRN by the beginning of 2026.</p>
+</section>
+<section id="open-universe-roman-simulation">
+<h2><a name="openuniverse"></a>Open Universe Roman simulation<a class="headerlink" href="#open-universe-roman-simulation" title="Link to this heading">#</a></h2>
+<p>The Open Universe 2024 project aims to simulate overlapping images from surveys mimicking those that will be carried out by the Nancy Grace Roman Space Telescope and the Vera C. Rubin Observatory. These <a class="reference external" href="https://irsa.ipac.caltech.edu/data/theory/openuniverse2024/overview.html">data are publicly available</a> as FITS images and Parquet catalogs. As a demonstration of ASDF and the Nexus, Roman-specific images from this project are available on the RRN.</p>
+<p>Two main datasets are currently converted:</p>
+<ul class="simple">
+<li><p>Roman High Latitude Wide Area Survey single exposures in six photometric bands (F184, F158, F129, F213, F146, F106)</p></li>
+<li><p>Roman High Latitude Time Domain Survey in seven photometric bands (F184, F158, F129, F213, F062, F106, and F087)</p></li>
+</ul>
+<p>The data in the RRN consists of Roman images overlapping the LSST ELAIS-S1 Deep Drilling Field (DDF), simulating the <a class="reference external" href="https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-time-domain-survey">High Latitude Time Domain Survey</a>, the <a class="reference external" href="https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-wide-area-survey">High Latitude Wide Area Survey</a>, as well as a calibration deep field for the High Latitude Wide Area Survey.</p>
+<p>All data have been converted to ASDF format, which include, when available, the truth catalog with simulated sources overlapping the exposures. For simplicity, the ASDF files containing the simulated data follow a custom schema.</p>
+<p>The data is contained in the <code class="docutils literal notranslate"><span class="pre">roman</span></code> block, which includes the following sub-blocks:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Data block name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DATA</p></td>
+<td><p>4096 × 4096 pixel images containing the accumulated total counts after the exposure</p></td>
+</tr>
+<tr class="row-odd"><td><p>DQ</p></td>
+<td><p>4096 × 4096 pixel images with the data quality flags</p></td>
+</tr>
+<tr class="row-even"><td><p>META</p></td>
+<td><p>Metadata block</p></td>
+</tr>
+<tr class="row-odd"><td><p>CATALOGS</p></td>
+<td><p>Block containing the truth catalogs of the sources whose positions lie in the image of interest</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="bright-star-ground-test-images">
+<h2>Bright Star Ground Test Images<a class="headerlink" href="#bright-star-ground-test-images" title="Link to this heading">#</a></h2>
+<p>The Bright Star Saturation test was conducted as part of the Wide Field Instrument (WFI) thermal vacuum (TVAC) campaign to evaluate how the flight detectors behave when exposed to saturating light conditions. Nine in-focus point sources, with magnitudes spanning approximately 4 to 18 mag, were projected using a telescope simulator through the F146 filter onto grid positions across detectors 4 (WFI04) and 11 (WFI11).</p>
+<p>The test sequence begins with an initial 4-frame exposure to verify that the commanded flux and position match expectations. This is followed by a series of interleaved exposures: single point-source exposures with 55 read frames alternating with single exposures taken without illumination (but with the F146 filter remaining in place). The sequence concludes with 18 dark exposures of 55 frames each, taken with the dark element in place.</p>
+<p>These products have been converted to Level 1 (L1) format and are available in the Open Data Bucket to provide an example of ground test data suitable for detector characterization prior to actual flight observations. The WFI TVAC Test Data Notebook demonstrates how to extract a subset of the data, process it using romancal, and analyze saturation effects and per-frame slope variations in the vicinity of bright sources. Note that these test data will differ from in-flight observations because the telescope simulator and experimental setup do not reproduce the true observatory optics.</p>
+<p>Additional reference material is available on the <a class="reference external" href="https://asd.gsfc.nasa.gov/roman/WFI_Bright_Star/">Roman WFI TVAC2 Bright Star Saturation Test Data Mini-Release page</a> and in Dana Louie et al. (in prep.).</p>
+</section>
+<section id="spectroscopy-data">
+<h2>Spectroscopy Data<a class="headerlink" href="#spectroscopy-data" title="Link to this heading">#</a></h2>
+<p>Simulated grism images from Wang et al. (2022, ApJ, 928, 1), developed as part of the Roman High Latitude Spectroscopic Survey (HLSS) Grism Simulation Products, are also available. For detailed information, please refer to the <a class="reference external" href="https://irsa.ipac.caltech.edu/data/theory/Roman/Wang2022a/">documentation on IRSA</a>. These simulations cover a total area of 4 square degrees and a redshift range of 0 &lt; z &lt; 3. The simulation products were designed to closely replicate future observations, incorporating survey parameters such as detection limits, exposure times, roll angles, and dithering strategies.</p>
+<p>For the <a class="reference internal" href="../notebooks/grism_spectral_extraction/grism_spectral_extraction.html"><span class="std std-doc">spectroscopic extraction tutorial</span></a>, one grism file and one direct imaging file generated from these simulations are provided.</p>
+<hr class="docutils" />
+<p><em>Last Updated: December 2025</em></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./markdown"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roman-i-sim-simulated-images"><a name="romanisim"></a>Roman I-Sim Simulated Images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-universe-roman-simulation"><a name="openuniverse"></a>Open Universe Roman simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bright-star-ground-test-images">Bright Star Ground Test Images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectroscopy-data">Spectroscopy Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -16,41 +16,44 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="Roman WFI Synthetic Photometry with synphot" href="../synphot/synphot.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
-    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -184,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
@@ -195,6 +185,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Pandeia Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
 
+
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
 </ul>
 
@@ -204,9 +195,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -367,7 +363,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -381,25 +377,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -422,7 +410,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information">Kernel Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
@@ -448,6 +436,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-next">What is next</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this notebook</a></li>
 </ul>
             </nav>
@@ -463,9 +452,9 @@ document.write(`
   <section id="pandeia-tutorial">
 <h1>Pandeia Tutorial<a class="headerlink" href="#pandeia-tutorial" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
-<section id="kernel-information">
-<h2>Kernel Information<a class="headerlink" href="#kernel-information" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select the “Roman Calibration” kernel at the top right of your window.</p>
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
 </section>
 <section id="introduction">
@@ -493,12 +482,13 @@ document.write(`
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">notebook_data_dependencies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ndd</span>
-    <span class="n">local</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">local_script</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Set to true when script is available locally</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="n">local</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">local_script</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="c1"># If running locally Get the directory with the script</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">local</span><span class="p">:</span>
+<span class="c1"># If running locally and script not in working dir,</span>
+<span class="c1"># first get the directory with the script</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">local_script</span><span class="p">:</span>
     <span class="n">notebook_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
     <span class="n">shared_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span>
         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">notebook_dir</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;shared&#39;</span><span class="p">,</span> <span class="s1">&#39;notebook_data_dependencies.py&#39;</span><span class="p">)</span>
@@ -513,16 +503,28 @@ document.write(`
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Local install script not found at </span><span class="si">{</span><span class="n">shared_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">local</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running local data dependency installation...&quot;</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pandeia&#39;</span><span class="p">,</span> <span class="s1">&#39;synphot&#39;</span><span class="p">])</span>
+    <span class="c1"># If working locally we first need to get the data used by some packages.</span>
+    <span class="c1"># Here the environment variables for the reference data</span>
+    <span class="n">required</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;pandeia_refdata&quot;</span><span class="p">:</span> <span class="s2">&quot;pandeia_data&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PSF_DIR&quot;</span>        <span class="p">:</span> <span class="s2">&quot;pandeia_psf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PYSYN_CDBS&quot;</span>     <span class="p">:</span> <span class="s2">&quot;synphot&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
 
-    <span class="c1"># Update environment variables (if necessary) and print reference data paths</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reference data paths set to:&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;pre_installed&#39;</span><span class="p">]:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1"># Now let&#39;s retrieve the data for these packages</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">var</span><span class="p">,</span> <span class="n">pkg</span> <span class="ow">in</span> <span class="n">required</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running local data dependency installation for </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">pkg</span><span class="si">}</span><span class="s2">) …&quot;</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">|=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="n">pkg</span><span class="p">)</span>
+
+        <span class="c1"># Update environment variables (if necessary) and print reference data paths</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reference data paths set to:&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;pre_installed&#39;</span><span class="p">]:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running on RNN — data already available, skipping local install.&quot;</span><span class="p">)</span>
@@ -728,7 +730,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated S/N: 11.73
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated S/N: 11.49
 </pre></div>
 </div>
 </div>
@@ -831,7 +833,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated magnitude: 26.76
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated magnitude: 26.74
 </pre></div>
 </div>
 </div>
@@ -953,9 +955,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of exposures: 224
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of exposures: 235
 actual S/N reached: 20.04
-Exposure time: 30460.92
+Exposure time: 31956.76
 </pre></div>
 </div>
 </div>
@@ -1000,7 +1002,7 @@ Exposure time: 30460.92
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated S/N: 16.12
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated S/N: 15.80
 </pre></div>
 </div>
 </div>
@@ -1058,6 +1060,9 @@ Exposure time: 30460.92
 
 • Phoenix Unsupported Unit:
     Unsupported configuration parameter, unit, being passed to Phoenix.
+
+• No Api Check:
+    No API checking implemented for ImagingApPhot: &#39;ImagingApPhot&#39; object has no attribute &#39;aperture_percent&#39;
 
 • Partial Saturated:
     Partial saturation:
@@ -1161,10 +1166,10 @@ Exposure time: 30460.92
 
 <span class="c1"># Try to load a custom background from backgrounds.fits</span>
 <span class="n">custom_bg</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># will stay None if the file is not found</span>
-<span class="n">bg_file</span> <span class="o">=</span> <span class="s1">&#39;backgrounds.fits&#39;</span>
+<span class="n">bg_file</span> <span class="o">=</span> <span class="s1">&#39;your_directory/backgrounds.fits&#39;</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;backgrounds.fits&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdul</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">bg_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdul</span><span class="p">:</span>
         <span class="n">bg_wvl</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">]</span>
         <span class="n">bg_flux</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;background&#39;</span><span class="p">]</span>
 
@@ -1185,7 +1190,7 @@ Exposure time: 30460.92
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File &#39;backgrounds.fits&#39; not found – using default background.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File &#39;your_directory/backgrounds.fits&#39; not found – using default background.
 </pre></div>
 </div>
 </div>
@@ -1220,17 +1225,12 @@ Exposure time: 30460.92
 
 <span class="c1"># Save the background spectrum to a file if it exists</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">bg</span><span class="o">.</span><span class="n">write_background</span><span class="p">(</span><span class="n">thisday</span><span class="o">=</span><span class="n">this_day</span><span class="p">,</span> <span class="n">background_file</span><span class="o">=</span><span class="n">your_filename</span><span class="p">)</span>
+    <span class="n">bg</span><span class="o">.</span><span class="n">write_background</span><span class="p">(</span><span class="n">thisday</span><span class="o">=</span><span class="n">this_day</span><span class="p">,</span> <span class="n">background_file</span><span class="o">=</span><span class="s2">&quot;your_filename&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> No file name provided to save Background, continue with calculation ...&quot;</span><span class="p">)</span>
 
 <span class="c1"># Perform the calculation</span>
 <span class="n">report</span> <span class="o">=</span> <span class="n">perform_calculation</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> No file name provided to save Background, continue with calculation ...
 </pre></div>
 </div>
 </div>
@@ -1242,7 +1242,7 @@ Exposure time: 30460.92
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defining file wit ETC configuration</span>
-<span class="n">calculation</span> <span class="o">=</span> <span class="s2">&quot;input.json&quot;</span>
+<span class="n">calculation</span> <span class="o">=</span> <span class="s2">&quot;/your_dir/input.json&quot;</span>
 
 <span class="c1"># load the JSON file if exists, ortherwise uses previous scene</span>
 <span class="k">try</span><span class="p">:</span>
@@ -1296,17 +1296,17 @@ Exposure time: 30460.92
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: File &#39;input.json&#39; not found – using last defined scene in notebook.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning: File &#39;/your_dir/input.json&#39; not found – using last defined scene in notebook.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------<span class=" -Color -Color-Bold"> Default scene </span>------------------------------
 <span class=" -Color -Color-Bold">Results</span>
 -------
-Extracted Signal-to-Noise Ratio                 16.84           
-Extracted Flux                                   5.64 e-/s      
-Standard Deviation of Extracted Flux             0.33 e-/s      
-Brightest Pixel Rate                             3.03 e-/s      
-Maximum Fraction of Saturation               4.22e-03           
+Extracted Signal-to-Noise Ratio                 16.75           
+Extracted Flux                                   5.70 e-/s      
+Standard Deviation of Extracted Flux             0.34 e-/s      
+Brightest Pixel Rate                             2.54 e-/s      
+Maximum Fraction of Saturation               3.53e-03           
 Maximum Number of Resultants Before 
     Saturation                                   8    resultants
 
@@ -1334,14 +1334,17 @@ Extraction Aperture Position             (0.00, 0.00) arcsec
 Input Background Surface Brightness              0.14 MJy/sr    
 Area of Background Measurement                  51.93 pixels    
 Total Sky Background Flux in        
-    Background Aperture                          4.06 e-/s      
-Total Flux in Background Aperture                4.12 e-/s      
+    Background Aperture                          4.24 e-/s      
+Total Background Flux in Aperture                4.31 e-/s      
 Fraction of Total Background due to 
     Signal from Scene                        1.61e-02           
 Average Number of Cosmic Ray Events 
     per Pixel per Ramp                       3.41e-03 events/pixel/read
 
 ------------------------------<span class=" -Color -Color-Bold"> WARNINGS </span>------------------------------
+no_api_check             : No API checking implemented for
+                           ImagingApPhot: &#39;ImagingApPhot&#39; object has no
+                           attribute &#39;aperture_percent&#39;
 ----------------------------------------------------------------------
 </pre></div>
 </div>
@@ -1360,20 +1363,31 @@ Average Number of Cosmic Ray Events
 </ul>
 </section>
 <hr class="docutils" />
+<section id="what-is-next">
+<h2>What is next<a class="headerlink" href="#what-is-next" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Estimate the SNR for a variety of target brightnesses and filters using <a class="reference internal" href="../rist/rist.html"><span class="std std-doc">RIST</span></a> a simplified, interactive version of Pandeia.</p></li>
+<li><p>Estimate the brightness of sources observed with Roman WFI using <a class="reference internal" href="../synphot/synphot.html"><span class="std std-doc">Synphot</span></a>, the Synthetic photometry software.</p></li>
+<li><p>Generate WFI simulated Point Spread Functions using <a class="reference internal" href="../stpsf/stpsf.html"><span class="std std-doc">STPSF</span></a></p></li>
+<li><p>Explore and visualize time-variable Roman sky backgrounds (zodiacal, ISM, thermal) across wavelength, sky position, and calendar date to support observation planning using the <a class="reference internal" href="../background_visualization_tool/RBVT.html"><span class="std std-doc">Roman Background Visualization Tool (RBVT)</span></a>.</p></li>
+<li><p>Visualize the on-sky footprint of an APT program and generate optional exposure summaries or healsparse maps using the <a class="reference internal" href="../footprint_visualization/footprint_visualization.html"><span class="std std-doc">Footprint Visualization Tool</span></a>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
 <section id="about-this-notebook">
 <h2>About this notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
 <p><strong>Author:</strong> Justin Otor, Eunkyu Han, Harish Khandrika, Rosa Diaz</p>
-<p><strong>Updated On:</strong> 2025-12-08</p>
+<p><strong>Updated On:</strong> 2026-01-30</p>
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
-       <a href="#top" style="text-decoration:none; color:#0066cc;">↑ Top of page</a> 
+       <a href="#top" style="text-decoration:none; color:#0066cc;"> Top of page</a>
     </td>
     <td style="border:none; text-align:center;">
-       <img src="../../roman_logo.png" width="50">
+        <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/roman_logo.png" alt="roman_logo" width="50px">
     </td>
     <td style="border:none; text-align:right;">
-       <img src="../../stsci_logo2.png" width="90">
+       <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/stsci_logo2.png" width="90">
     </td>
   </tr>
 </table></section>
@@ -1388,16 +1402,16 @@ Average Number of Cosmic Ray Events
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "roman-cal"
         },
         kernelOptions: {
-            name: "python3",
+            name: "roman-cal",
             path: "./notebooks/pandeia"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'roman-cal'</script>
 
                 </article>
               
@@ -1434,16 +1448,18 @@ Average Number of Cosmic Ray Events
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information">Kernel Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
@@ -1469,6 +1485,7 @@ Average Number of Cosmic Ray Events
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-next">What is next</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this notebook</a></li>
 </ul>
   </nav></div>
@@ -1494,7 +1511,7 @@ By STScI
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1518,8 +1535,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

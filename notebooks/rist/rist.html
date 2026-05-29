@@ -16,41 +16,44 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="Roman Spectroscopy: Grism Spectral Extraction" href="../grism_spectral_extraction/grism_spectral_extraction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
-    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="STScI Roman Notebooks - Home"/>`);</script>
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -184,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
@@ -195,6 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
 
+
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
 </ul>
 
@@ -204,9 +195,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -367,7 +363,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -381,25 +377,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -448,32 +436,36 @@ document.write(`
 <hr class="docutils" />
 <section id="kernel-information-and-read-only-status">
 <h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select the “Roman Research Nexus” kernel at the top right of your window.</p>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
 </section>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>The Roman Interactive Sensitivity Tool (RIST) is a simulation tool designed to help users quickly explore the feasibility of observations for the Wide Field Instrument (WFI). RIST is a simplified version of <a class="reference external" href="https://www.stsci.edu/roman/science-planning-toolbox/pandeia">Pandeia</a> (the Exposure Time Calculator) – it uses a pre-computed grid of exposure time calculations with Pandeia that sample a set of exposure parameters and observing setups.</p>
-<p>RIST provides users an estimate of signal-to-noise ratio (SNR) based on their selections of source brightness, spectral energy distribution (SED) type, multi-accumulation (MA) tables, and number of resultants, while using a single on-axis point source with a default background of Pandeia. For the details of the background, see Notes below.</p>
+<p>Roman Interactive Sensitivity Tool (<a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator/roman-interactive-sensitivity-tool">RIST</a>) is a simulation tool designed to help users quickly explore the feasibility of observations for the Wide Field Instrument (WFI). RIST is a simplified version of the Exposure Time Calculator engine <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator/pandeia-for-roman"><code class="docutils literal notranslate"><span class="pre">Pandeia</span></code></a> – it uses a pre-computed grid of exposure time calculations with <code class="docutils literal notranslate"><span class="pre">Pandeia</span></code> that sample a set of exposure parameters and observing setups.</p>
+<p>RIST provides users an estimate of signal-to-noise ratio (SNR) based on their selections of source brightness, spectral energy distribution (SED) type, multi-accumulation (<a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument/observing-with-the-wfi/wfi-multiaccum-tables">MA</a>) tables, and backgrounds, while using a single on-axis point source. For the details of the selections, see Notes below.</p>
 </section>
 <section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
-<p><em>Pandeia</em> is the Exposure Time Calculator for Roman and is used to compute a grid that samples a set of parameter space. Pandeia uses the following modules:</p>
+<p>RIST depends on a number of modules to run. A comprehensive list of these modules and how they are utilized are listed below:</p>
 <ul class="simple">
+<li><p><em>NumPy</em> for numerical computing</p></li>
+<li><p><em>pandas</em> to read and load the pre-computed <em>pandeia</em> grid</p></li>
+<li><p><em>bokeh</em> for the interactive plotting</p></li>
+<li><p><em>xarray</em> to provide RIST an N-dimentional array as a structure of the pre-computed <em>pandeia</em> grid</p></li>
+<li><p><em>SciPy</em> to interpolate RIST’s <em>xarray</em> grid.</p></li>
+<li><p><em>Pandeia</em> is the Exposure Time Calculator for Roman and is used to compute a grid that samples a set of parameter space. Pandeia uses the following modules:</p>
+<ul>
 <li><p><em>astropy</em></p></li>
-<li><p>*photutils</p></li>
-<li><p>*synphot</p></li>
-<li><p>*stsynphot</p></li>
+<li><p><em>photutils</em></p></li>
+<li><p><em>synphot</em></p></li>
+<li><p><em>stsynphot</em></p></li>
 </ul>
-</section>
-<section id="import">
-<h2>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
-<p>RIST is designed to work within a Jupyter notebook cell with an import of the <code class="docutils literal notranslate"><span class="pre">plot_rist</span></code> module.</p>
-<p>If running within VS Code, Jupyter Notebook, or JupyterLab, set the WebSocket to conect to Bokeh before importing plot_rist.</p>
+</li>
+</ul>
+<p>Setting up variable to allow webview in local runs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up Bokeh</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="k">if</span> <span class="s1">&#39;BOKEH_ALLOW_WS_ORIGIN&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;BOKEH_ALLOW_WS_ORIGIN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BOKEH_ALLOW_WS_ORIGIN set to *&quot;</span><span class="p">)</span>
@@ -486,7 +478,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Now, execute the cell below to start using RIST.</p>
+</section>
+<section id="import">
+<h2>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
+<p>RIST is designed to work within a Jupyter notebook cell with an import of the <code class="docutils literal notranslate"><span class="pre">plot_rist</span></code> module.
+Execute the cell below to start using RIST.</p>
+<hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">plot_rist</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_rist</span>
@@ -504,7 +501,7 @@ document.write(`
     </style>
     <div>
         <a href="https://bokeh.org" target="_blank" class="bk-notebook-logo"></a>
-        <span id="d547081c-fd35-4971-88f4-e49bfc0c6fca">Loading BokehJS ...</span>
+        <span id="cf94f1c7-8dbf-45cb-84a9-ab740a547fad">Loading BokehJS ...</span>
     </div>
 </div><script type="application/javascript">'use strict';
 (function(root) {
@@ -669,7 +666,7 @@ const JS_MIME_TYPE = 'application/javascript';
      "</div>"}};
 
   function display_loaded(error = null) {
-    const el = document.getElementById("d547081c-fd35-4971-88f4-e49bfc0c6fca");
+    const el = document.getElementById("cf94f1c7-8dbf-45cb-84a9-ab740a547fad");
     if (el != null) {
       const html = (() => {
         if (typeof root.Bokeh === "undefined") {
@@ -777,7 +774,7 @@ const JS_MIME_TYPE = 'application/javascript';
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.8.1.min.js"];
+  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.9.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.9.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.9.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.9.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.9.0.min.js"];
   const css_urls = [];
 
   const inline_js = [    function(Bokeh) {
@@ -803,7 +800,7 @@ function(Bokeh) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     } else if (force !== true) {
-      const cell = $(document.getElementById("d547081c-fd35-4971-88f4-e49bfc0c6fca")).parents('.cell').data().cell;
+      const cell = $(document.getElementById("cf94f1c7-8dbf-45cb-84a9-ab740a547fad")).parents('.cell').data().cell;
       cell.output_area.append_execute_result(NB_LOAD_WARNING)
     }
   }
@@ -817,11 +814,11 @@ function(Bokeh) {
       run_inline_js();
     });
   }
-}(window));</script><div class="output text_html"><script id="b4f0f53d-0036-41b9-a591-0736265ef2e9">
+}(window));</script><div class="output text_html"><script id="b918e879-14c4-4396-8df0-0f72f3258b17">
   (function() {
     const xhr = new XMLHttpRequest()
     xhr.responseType = 'blob';
-    xhr.open('GET', "http://localhost:42831/autoload.js?bokeh-autoload-element=b4f0f53d-0036-41b9-a591-0736265ef2e9&bokeh-absolute-url=http://localhost:42831&resources=none", true);
+    xhr.open('GET', "http://localhost:35699/autoload.js?bokeh-autoload-element=b918e879-14c4-4396-8df0-0f72f3258b17&bokeh-absolute-url=http://localhost:35699&resources=none", true);
     xhr.withCredentials = false;
     xhr.onload = function (event) {
       const script = document.createElement('script');
@@ -838,35 +835,49 @@ function(Bokeh) {
 <h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>RIST assumes a point source target. For extended sources, please use Pandeia for more accurate results.</p></li>
-<li><p>All calculations were done for Detector 1 (SCA01). More information on the detectors can be found <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments-home/wfi-imaging-mode-user-guide/wfi-design/description-of-wfi">here</a>.</p></li>
-<li><p>The background was calculated using the <a class="reference external" href="https://jwst-docs.stsci.edu/jwst-other-tools/jwst-backgrounds-tool#gsc.tab=0">JWST Backgrounds Tool</a>.</p>
+<li><p>Among the 18 detectors of WFI, all calculations were done for WFI01. More information on the detectors can be found <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments-home/wfi-imaging-mode-user-guide/wfi-design/description-of-wfi">here</a>.</p></li>
+<li><p>RIST uses canned backgrounds that are pre-computed using the <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools/additional-simulation-tools/roman-background-visualization-tool">Roman Background Tool</a> at the locations that are representative of the 3 Core Community Surveys footprints. More information on the canned backgrounds can be found under <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument/observing-with-the-wfi/assessing-background-levels-for-wfi-observations#AssessingBackgroundLevelsforWFIObservations-PandeiaEngine&amp;amp;RomanInteractiveSensitivityTool(RIST)Pandeia-RIST">Pandeia Engine &amp; Roman Interactive Sensitivity Tool (RIST) </a> section in <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments/wfi-imaging-mode-user-guide/observing-with-the-wfi-in-imaging-mode/considerations-of-backgrounds-for-roman-wfi-observations">Assessing Background Levels for WFI Observations</a> for the details.</p>
 <ul>
-<li><p>The “minzodi” background option refers to a background at RA = 17:26:49 &amp; Dec = -73:20:03 (J2000). At this location, the zodiacal emission is 20% higher than the celestial minimum.</p></li>
-<li><p>The “benchmark” background refers to the background at the minzodi location on June 19, 2020.</p></li>
+<li><p>The background is set to the medium level for all locations.</p></li>
 </ul>
 </li>
-<li><p>Multi-accumulation (MA) tables describe the sequence of individual reads that are combined into resultants and that comprise the up-the-ramp sampling during a single exposure of the WFI detectors. The MA tables currently available in RIST are based on the RST-WFI-DESC-0110 Revision E, and are thoroughly documented on <a class="reference external" href="https://roman-docs.stsci.edu/raug/astronomers-proposal-tool-apt/appendix/appendix-wfi-multiaccum-tables">RDox</a>.</p></li>
+<li><p>Multi-accumulation (MA) tables describe the sequence of individual reads that are combined into resultants and that comprise the up-the-ramp simplaing during a single exposure of the WFI detectors. The MA tables currently available in RIST are based on the Roman Design Reference Mission, and are thoroughly documented on <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument/observing-with-the-wfi/wfi-multiaccum-tables">RDox</a>.</p>
+<ul>
+<li><p>MA table naming convention: <em><strong>obs mode_exp time_# of resultants</strong></em>. ‘_s’ at the end of the name indicates ‘sparse fields only’</p>
+<ul>
+<li><p>obs mode is either ‘im’ for the imaging or ‘sp’ for the spectroscopic mode (currently not supported by RIST), respectively.</p></li>
+<li><p>exp time is the effective exposure time in seconds</p></li>
+<li><p># of resultants is the number of samples up-the-ramp that will be downlinked from the telescope</p></li>
+</ul>
+</li>
+<li><p>As of the R2025.9 release, RIST no longer supports truncation of the MA tables, as it may result in undesirable effects on the data and observations (e.g. data volume for data downlink capabilities, and larger overheads due to telescope slew &amp; settle). If you need to explore shorter exposure times than what is available in RIST, you can still use the Pandeia engine to explore the MA table truncation options, but caution is needed when considering the truncation.</p></li>
+<li><p>More information about the MA tables can be found on the <a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument/observing-with-the-wfi/wfi-multiaccum-tables">WFI MultiAccum Tables RDox</a> page.</p></li>
+</ul>
+</li>
 <li><p>RIST uses the following abbreviations:</p>
 <ul>
-<li><p>IMG: Imaging mode</p></li>
+<li><p>IM: Imaging mode</p></li>
 <li><p>HLWAS: High Latitude Wide Area Survey</p></li>
+<li><p>HLTDS: High Latitude Time Domain Survey</p></li>
+<li><p>GBTDS: Galactic Bulge Time Domain Survey</p></li>
 </ul>
 </li>
 <li><p>The computed SNR values can be visualized by hovering the cursor over the points in the plot.</p></li>
 <li><p>Pandeia cannot calculate a SNR for saturated sources. In RIST, saturated points are set to zero and marked as triangles in the plot.</p></li>
 <li><p>The x-axis shows the central wavelength of each Roman filter.</p></li>
-<li><p>Once satisfied with the estimated SNRs, use the <a class="reference external" href="https://roman.etc.stsci.edu/">Roman WFI ETC</a> to further plan your WFI observations. Documentation on the Roman WFI ETC is available <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator">here</a>.</p></li>
+<li><p>Once you are satisfied with the estimated SNRs, you should use the <a class="reference external" href="https://roman.etc.stsci.edu/">Roman WFI ETC</a> to provide specific observing parameters for <a class="reference external" href="https://roman-docs.stsci.edu/raug">Roman APT</a>. Documentation on the Roman WFI ETC can be found <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator">here</a>.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="caveats">
 <h2>Caveats<a class="headerlink" href="#caveats" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Any limitations of Pandeia are also inherited by RIST. For details on the caveats of using Pandeia for Roman, please refer to the <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/pandeia-for-roman/caveats-for-using-pandeia-for-roman">RDox for Pandeia</a>.</p></li>
+<li><p>Any limitations that Pandeia bears are also interited by RIST. Please see <a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools/roman-wfi-exposure-time-calculator/pandeia-for-roman">RDox for Pandeia</a> for the details on caveats for using Pandeia for Roman.</p></li>
 <li><p>The current version does not handle the following features and the users need to use Pandeia for:</p>
 <ul>
 <li><p>Extended sources – all SNR computations are performed for a point source.</p></li>
 <li><p>The spectroscopic observing mode – future versions of RIST will support the WFI spectrocopic mode.</p></li>
+<li><p>Truncation of the MA tables.</p></li>
 </ul>
 </li>
 </ul>
@@ -874,10 +885,10 @@ function(Bokeh) {
 <section id="additional-resources">
 <h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator/roman-interactive-sensitivity-tool">RIST on RDox</a></p></li>
+<li><p><a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator/roman-interactive-sensitivity-tool">RIST Article on RDox</a></p></li>
 <li><p><a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments-home/wfi-imaging-mode-user-guide/introduction-to-wfi">Introduction to WFI</a></p></li>
-<li><p><a class="reference external" href="https://roman-docs.stsci.edu/raug/astronomers-proposal-tool-apt/appendix/appendix-wfi-multiaccum-tables">WFI MultiAccum Tables</a></p></li>
-<li><p><a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/roman-wfi-exposure-time-calculator/pandeia-for-roman">Pandeia for Roman on RDox</a></p></li>
+<li><p><a class="reference external" href="https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument/observing-with-the-wfi/wfi-multiaccum-tables">WFI MultiAccum Tables</a></p></li>
+<li><p><a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home/pandeia-for-roman">Pandeia for Roman on RDox</a></p></li>
 <li><p><a class="reference external" href="https://roman-docs.stsci.edu/simulation-tools-handbook-home">Other Roman Simulation Tools</a></p></li>
 </ul>
 </section>
@@ -885,28 +896,30 @@ function(Bokeh) {
 <h2>Software release<a class="headerlink" href="#software-release" title="Link to this heading">#</a></h2>
 <p>We expect to release an updated version of RIST pre-computed grid every time Pandeia updates its reference files for Roman. The current grid is generated using the following versions of Pandeia and its reference data:</p>
 <ul class="simple">
-<li><p>Pandeia_version: 2024.12</p></li>
-<li><p>Pandeia_refdata: 2024.12</p></li>
+<li><p>Pandeia Engine version: 2026.1</p></li>
+<li><p>Pandeia Refdata version: 2026.1</p></li>
+<li><p>Pandeia PSF version: 2026.1</p></li>
 </ul>
 </section>
 <section id="help">
 <h2>Help<a class="headerlink" href="#help" title="Link to this heading">#</a></h2>
-<p>For assistance with RIST, please contact the Roman SOC Help Desk through https://stsci.service-now.com/roman</p>
+<p>For assistance with RIST, please contact the <a class="reference external" href="https://stsci.service-now.com/roman">Roman SOC Help Desk</a>.</p>
 </section>
 <section id="about-this-notebook">
 <h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
 <p><strong>Author:</strong> Eunkyu Han<br />
-<strong>Last Updated</strong>: 2025-01-08</p>
+<strong>Last Updated</strong>: 2026 January</p>
+<hr class="docutils" />
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
-       <a href="#top" style="text-decoration:none; color:#0066cc;">↑ Top of page</a> 
+       <a href="#top" style="text-decoration:none; color:#0066cc;"> Top of page</a>
     </td>
     <td style="border:none; text-align:center;">
-       <img src="../../roman_logo.png" width="50">
+        <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/roman_logo.png" alt="roman_logo" width="50px">
     </td>
     <td style="border:none; text-align:right;">
-       <img src="../../stsci_logo2.png" width="90">
+       <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/stsci_logo2.png" width="90">
     </td>
   </tr>
 </table></section>
@@ -921,16 +934,16 @@ function(Bokeh) {
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "roman-cal"
         },
         kernelOptions: {
-            name: "python3",
+            name: "roman-cal",
             path: "./notebooks/rist"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'roman-cal'</script>
 
                 </article>
               
@@ -967,14 +980,16 @@ function(Bokeh) {
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
@@ -1010,7 +1025,7 @@ By STScI
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -1034,8 +1049,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

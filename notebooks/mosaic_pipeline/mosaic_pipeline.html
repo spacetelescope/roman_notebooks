@@ -1,0 +1,1237 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Making WFI Mosaics with RomanCal &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/mosaic_pipeline/mosaic_pipeline';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Diving Into WFI TVAC Bright Star Test Data" href="../ground_test_analysis/wfi_tvac_brightstar.html" />
+    <link rel="prev" title="Calibrating WFI Exposures with RomanCal" href="../exposure_pipeline/exposure_pipeline.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Making WFI Mosaics with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/mosaic_pipeline/mosaic_pipeline.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/mosaic_pipeline/mosaic_pipeline.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Making WFI Mosaics with RomanCal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-information">Server Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-data">Tutorial Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-wfi-mosaics">Making WFI Mosaics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-association-file">Generating the Association File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-mosaic-pipeline">Running the Mosaic Pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="making-wfi-mosaics-with-romancal">
+<h1>Making WFI Mosaics with RomanCal<a class="headerlink" href="#making-wfi-mosaics-with-romancal" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="server-information">
+<h2>Server Information<a class="headerlink" href="#server-information" title="Link to this heading">#</a></h2>
+<p>IMPORTANT: To run this tutorial, please make sure you are logged in the RRN with a medium server.</p>
+</section>
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Libraries used</p>
+<ul class="simple">
+<li><p><em>romancal</em> for creating association files and running the pipeline</p></li>
+<li><p><em>astropy.visualization</em> for creating image normalizations</p></li>
+<li><p><em>roman_datamodels</em> for opening Roman WFI ASDF files</p></li>
+<li><p><em>glob</em> for creating lists of files</p></li>
+<li><p><em>os</em> for checking if files exist</p></li>
+<li><p><em>json</em> for creating association files</p></li>
+<li><p><em>s3fs</em> for streaming files from an S3 bucket</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">romancal.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">MosaicPipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">romancal.associations</span><span class="w"> </span><span class="kn">import</span> <span class="n">asn_from_list</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.visualization</span><span class="w"> </span><span class="kn">import</span> <span class="n">simple_norm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The purpose of this notebook is to combine multiple Level 2 (L2; calibrated rate image) data products into a Level 3 (L3; distortion-corrected, co-added image) product. Details about the Roman data levels can be found <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/data-levels-and-products">here</a>. The pipeline for combining images is called the Mosaic Pipeline. Please review the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/roman-stsci-data-pipelines/mosaic-level-pipeline">RDox pages</a> for details. It consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Flux step:</strong> Transform instrumental units of data numbers per second (DN/s) into physical surface brightness units of megaJanskys per steradian (MJy/sr).</p></li>
+<li><p><strong>Skymatch step:</strong> Determine scaling factors necessary to match the flux levels in the overlapping sections of the input images. The images will be scaled by these factors later during the combination process.</p></li>
+<li><p><strong>Outlier detection step:</strong> Examine the input images to detect and flag outliers in the pixel values for a given sky position.</p></li>
+<li><p><strong>Resample step:</strong> Use the drizzle algorithm to combine the input data products. Reject outliers and other undesirable pixels based on data quality flags and oversample the pixels if indicated.</p></li>
+</ol>
+<p><strong>Note:</strong> L3 data products in the Roman Archive will be tessellated on the sky such that individual L3 files (“sky cells”) will be small with some overlap between adjacent cells. More information is available on the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/skymap-tessellation">RDox pages on sky tessellation</a>. In this tutorial, we will not utilize tessellation. The tutorial will be updated in the future to demonstrate the creation of both tessellated and non-tessellated products.</p>
+</section>
+<hr class="docutils" />
+<section id="tutorial-data">
+<h2>Tutorial Data<a class="headerlink" href="#tutorial-data" title="Link to this heading">#</a></h2>
+<p>In this tutorial, we use L2 WFI data files produced by RomanCal processing of L1 simulated files created with Roman I-Sim. If you have already worked through the tutorials <a class="reference internal" href="../romanisim/romanisim.html"><span class="std std-doc">Simulating WFI Imaging Data with Roman I-Sim</span></a> and <a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html"><span class="std std-doc">Calibrating WFI Exposures with RomanCal</span></a>, you may already have these files saved locally. If not, these files are also available in the Nexus S3 bucket. For more information on how to access these data, see the <a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html"><span class="std std-doc">Data Discovery and Access</span></a> tutorial.</p>
+<p>The L2 products used in this tutorial represent data from one WFI detector (WFI11) across four different pointings, each with small dithers. These dithers are optimized for gap-filling between detectors rather than for oversampling. Therefore, in this tutorial we will generate a mosaicked L3 product using the native pixel scale.</p>
+</section>
+<section id="making-wfi-mosaics">
+<h2>Making WFI Mosaics<a class="headerlink" href="#making-wfi-mosaics" title="Link to this heading">#</a></h2>
+<section id="generating-the-association-file">
+<h3>Generating the Association File<a class="headerlink" href="#generating-the-association-file" title="Link to this heading">#</a></h3>
+<p>Association table files (often abbreviated “association files” or “ASN files”) are JavaScript Object Notation (JSON) formatted files containing a list of the input products to be processed together, and the output products to be created. In the Mosaic Pipeline, association files specifically enumerate the input L2 products that are used to create a single L3 product. For more information, please visit the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/data-levels-and-products/associations">RDox pages on association files</a>.</p>
+<p>The association generator function <code class="docutils literal notranslate"><span class="pre">asn_from_list()</span></code> can be used to create a properly formatted JavaScript Object Notation (JSON) file for use with the Mosaic Pipeline. The code takes as input a list of L2 products and the name of the L3 output product. You can include either one or many L2 products as input. For use cases that do use a single input file, you can skip several pipeline steps (skymatch and outlier_detection).</p>
+<p>If you have not completed the previous <a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html"><span class="std std-doc">Exposure Pipeline</span></a> tutorial, then you can download the data products from the Nexus S3 bucket. The code cell below will check if you have the files saved on disk and, if not, it will retrieve them from the S3 bucket.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy the files from the S3 bucket if they are not in local storage</span>
+<span class="n">input_files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r0003201001001001004_0001_wfi11_f106_cal.asdf&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;r0003201001001001004_0002_wfi11_f106_cal.asdf&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;r0003201001001001004_0003_wfi11_f106_cal.asdf&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;r0003201001001001004_0004_wfi11_f106_cal.asdf&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">input_files</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.1/&quot;</span>
+        <span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="n">f</span>
+        <span class="n">fs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;./</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we can create the association JSON file using the <code class="docutils literal notranslate"><span class="pre">asn_from_list()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect our input files and make the L3 output filename</span>
+<span class="n">input_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;r0003*_????_wfi11_f106_cal.asdf&#39;</span><span class="p">)</span>
+<span class="n">product_name</span> <span class="o">=</span> <span class="s1">&#39;my_roman_mosaic&#39;</span>
+
+<span class="c1"># Create the ASN JSON object</span>
+<span class="n">asn</span> <span class="o">=</span> <span class="n">asn_from_list</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">([(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;science&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">input_files</span><span class="p">],</span> 
+                                  <span class="n">product_name</span><span class="o">=</span><span class="n">product_name</span><span class="p">,</span> 
+                                  <span class="n">with_exptype</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s take a look at the JSON object we just created. It should contain a listing of each of our input files as well as the output product name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">asn</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;asn_type&quot;: &quot;None&quot;,
+    &quot;asn_rule&quot;: &quot;DMS_ELPP_Base&quot;,
+    &quot;version_id&quot;: null,
+    &quot;code_version&quot;: &quot;0.22.0&quot;,
+    &quot;target&quot;: &quot;&quot;,
+    &quot;degraded_status&quot;: &quot;No known degraded exposures in association.&quot;,
+    &quot;program&quot;: &quot;noprogram&quot;,
+    &quot;data_release_id&quot;: &quot;p&quot;,
+    &quot;constraints&quot;: &quot;No constraints&quot;,
+    &quot;asn_id&quot;: &quot;a3001&quot;,
+    &quot;asn_pool&quot;: &quot;none&quot;,
+    &quot;skycell_wcs_info&quot;: &quot;none&quot;,
+    &quot;products&quot;: [
+        {
+            &quot;name&quot;: &quot;my_roman_mosaic&quot;,
+            &quot;members&quot;: [
+                {
+                    &quot;expname&quot;: &quot;r0003201001001001004_0001_wfi11_f106_cal.asdf&quot;,
+                    &quot;exptype&quot;: &quot;science&quot;
+                },
+                {
+                    &quot;expname&quot;: &quot;r0003201001001001004_0002_wfi11_f106_cal.asdf&quot;,
+                    &quot;exptype&quot;: &quot;science&quot;
+                },
+                {
+                    &quot;expname&quot;: &quot;r0003201001001001004_0003_wfi11_f106_cal.asdf&quot;,
+                    &quot;exptype&quot;: &quot;science&quot;
+                },
+                {
+                    &quot;expname&quot;: &quot;r0003201001001001004_0004_wfi11_f106_cal.asdf&quot;,
+                    &quot;exptype&quot;: &quot;science&quot;
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also save the ASN file to disk:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the ASN file to disk</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">serialized</span> <span class="o">=</span> <span class="n">asn</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my_roman_mosaic_asn.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">serialized</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="running-the-mosaic-pipeline">
+<h3>Running the Mosaic Pipeline<a class="headerlink" href="#running-the-mosaic-pipeline" title="Link to this heading">#</a></h3>
+<p>Next we run the Mosaic Pipeline using the <code class="docutils literal notranslate"><span class="pre">MosaicPipeline</span></code> class. As with the L1 to L2 Exposure Pipeline, there are many optional arguments to customize the behavior of the pipeline. At this time, we will not delve into these optional parameters. The simulated input files are based on a simple gap-filling dither pattern rather than sub-pixel dithering optimized for the point spread function(PSF). As a result, we use the default native sampling of the WFI detectors. In the future, additional details may be provided to explore optimizing the Mosaic Pipeline output.</p>
+<p>If we had only a single input image, this is where we would skip the skymatch and outlier detection steps by passing the optional argument <code class="docutils literal notranslate"><span class="pre">steps={'skymatch':</span> <span class="pre">{'skip':</span> <span class="pre">True},</span> <span class="pre">'outlier_detection':</span> <span class="pre">{'skip':</span> <span class="pre">True}}</span></code>. For now, we will skip the source catalog step that would normally make the single-band source catalog and segmentation map, which are Level 4 (L4; high-level extracted information) files.</p>
+<p><strong>Note:</strong> The following cell will take several minutes to complete.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">MosaicPipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;my_roman_mosaic_asn.json&#39;</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">resample_on_skycell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                             <span class="n">steps</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;source_catalog&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;skip&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,968 - CRDS - ERROR -  Error determining best reference for &#39;pars-fluxstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,970 - CRDS - ERROR -  Error determining best reference for &#39;pars-skymatchstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,971 - CRDS - ERROR -  Error determining best reference for &#39;pars-outlierdetectionstep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,972 - CRDS - ERROR -  Error determining best reference for &#39;pars-resamplestep&#39;  =   No match found.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,973 - CRDS - ERROR -  Error determining best reference for &#39;pars-sourcecatalogstep&#39;  =   Unknown reference type &#39;pars-sourcecatalogstep&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,974 - CRDS - ERROR -  Error determining best reference for &#39;pars-mosaicpipeline&#39;  =   Unknown reference type &#39;pars-mosaicpipeline&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,979 - stpipe.step - INFO - MosaicPipeline instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,980 - stpipe.step - INFO - FluxStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,981 - stpipe.step - INFO - SkyMatchStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,982 - stpipe.step - INFO - OutlierDetectionStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,983 - stpipe.step - INFO - ResampleStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:12,985 - stpipe.step - INFO - SourceCatalogStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:13,159 - stpipe.step - INFO - Step MosaicPipeline running with args (&#39;my_roman_mosaic_asn.json&#39;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:13,167 - stpipe.step - INFO - Step MosaicPipeline parameters are:
+  pre_hooks: []
+  post_hooks: []
+  output_file: None
+  output_dir: None
+  output_ext: .asdf
+  output_use_model: False
+  output_use_index: True
+  save_results: True
+  skip: False
+  suffix: None
+  search_output_file: True
+  input_dir: &#39;&#39;
+  update_version: False
+  on_disk: False
+  resample_on_skycell: False
+  steps:
+    flux:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: False
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+      update_version: False
+    skymatch:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: False
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+      update_version: False
+      skymethod: match
+      match_down: True
+      subtract: False
+      stepsize: None
+      skystat: mode
+      dqbits: ~DO_NOT_USE+NON_SCIENCE
+      lower: None
+      upper: None
+      nclip: 5
+      lsigma: 4.0
+      usigma: 4.0
+      binwidth: 0.1
+    outlier_detection:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: False
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+      update_version: False
+      weight_type: ivm
+      pixfrac: 1.0
+      kernel: square
+      fillval: NaN
+      maskpt: 0.7
+      snr: 5.0 4.0
+      scale: 1.2 0.7
+      backg: 0.0
+      save_intermediate_results: False
+      resample_data: True
+      resample_on_skycell: True
+      good_bits: ~DO_NOT_USE+NON_SCIENCE
+      in_memory: True
+      pixmap_stepsize: 10.0
+      pixmap_order: 3
+    resample:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: False
+      suffix: None
+      search_output_file: True
+      input_dir: &#39;&#39;
+      update_version: False
+      pixfrac: 1.0
+      kernel: square
+      fillval: NAN
+      weight_type: ivm
+      output_shape: None
+      crpix: None
+      crval: None
+      rotation: None
+      pixel_scale_ratio: 1.0
+      pixel_scale: None
+      output_wcs: &#39;&#39;
+      resample_on_skycell: True
+      in_memory: True
+      good_bits: ~DO_NOT_USE+NON_SCIENCE
+      include_var_flat: False
+      propagate_dq: False
+      pixmap_stepsize: 10.0
+      pixmap_order: 3
+    source_catalog:
+      pre_hooks: []
+      post_hooks: []
+      output_file: None
+      output_dir: None
+      output_ext: .asdf
+      output_use_model: False
+      output_use_index: True
+      save_results: False
+      skip: True
+      suffix: cat
+      search_output_file: True
+      input_dir: &#39;&#39;
+      update_version: False
+      bkg_boxsize: 1000
+      kernel_fwhm: 2.0
+      snr_threshold: 3.0
+      npixels: 25
+      deblend: False
+      fit_psf: True
+      forced_segmentation: &#39;&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:13,168 - romancal.pipeline.mosaic_pipeline - INFO - Starting Roman mosaic level calibration pipeline ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:13,373 - stpipe.step - INFO - Step flux running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f377d0ffed0&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,271 - stpipe.step - INFO - Step flux done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,445 - stpipe.step - INFO - Step skymatch running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f377d0ffed0&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,717 - stcal.skymatch.skymatch - INFO -  
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,718 - stcal.skymatch.skymatch - INFO - ***** stcal.skymatch.skymatch.skymatch() started on 2026-05-29 15:22:15.717569
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,718 - stcal.skymatch.skymatch - INFO -  
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,718 - stcal.skymatch.skymatch - INFO - Sky computation method: &#39;match&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,719 - stcal.skymatch.skymatch - INFO - Sky matching direction: DOWN
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,720 - stcal.skymatch.skymatch - INFO - Sky subtraction from image data: OFF
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,720 - stcal.skymatch.skymatch - INFO -  
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:15,721 - stcal.skymatch.skymatch - INFO - ----  Computing differences in sky values in overlapping regions.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,546 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0001_wfi11_f106_cal.asdf. Sky background: 0.00340952
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,547 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0002_wfi11_f106_cal.asdf. Sky background: 0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,547 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0003_wfi11_f106_cal.asdf. Sky background: 0.00231594
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,548 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0004_wfi11_f106_cal.asdf. Sky background: 0.00439232
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,548 - stcal.skymatch.skymatch - INFO -  
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,548 - stcal.skymatch.skymatch - INFO - ***** stcal.skymatch.skymatch.skymatch() ended on 2026-05-29 15:22:18.548592
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,549 - stcal.skymatch.skymatch - INFO - ***** stcal.skymatch.skymatch.skymatch() TOTAL RUN TIME: 0:00:02.831023
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,549 - stcal.skymatch.skymatch - INFO -  
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,553 - stpipe.step - INFO - Step skymatch done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,738 - stpipe.step - INFO - Step outlier_detection running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f377d0ffed0&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,770 - stcal.resample.resample - INFO - Output pixel scale: 0.10772630117450682 arcsec.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,771 - stcal.resample.resample - INFO - Driz parameter kernel: square
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,771 - stcal.resample.resample - INFO - Driz parameter pixfrac: 1.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,771 - stcal.resample.resample - INFO - Driz parameter fillval: NaN
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,772 - stcal.resample.resample - INFO - Driz parameter weight_type: ivm
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,772 - stcal.resample.resample - INFO - Evaluating the full pixel map every 10.0 pixels
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:18,773 - stcal.resample.resample - INFO - Interpolating the rest with order 3 bivariate splines
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:19,418 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:22,279 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:25,176 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:28,063 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:30,349 - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  271.070347920 -0.419189523 271.070346866 -0.222320204 270.869256760 -0.222319306 270.869253946 -0.419188624
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:57,231 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:58,382 - romancal.outlier_detection.utils - INFO - 3598 pixels marked as outliers
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:22:58,936 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:00,103 - romancal.outlier_detection.utils - INFO - 3799 pixels marked as outliers
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:00,656 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:01,807 - romancal.outlier_detection.utils - INFO - 3629 pixels marked as outliers
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:02,360 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,510 - romancal.outlier_detection.utils - INFO - 3237 pixels marked as outliers
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,514 - stpipe.step - INFO - Step outlier_detection done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,701 - stpipe.step - INFO - Step resample running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f377d0ffed0&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,732 - stcal.resample.resample - INFO - Output pixel scale: 0.10772630117450682 arcsec.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,733 - stcal.resample.resample - INFO - Driz parameter kernel: square
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,733 - stcal.resample.resample - INFO - Driz parameter pixfrac: 1.0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,734 - stcal.resample.resample - INFO - Driz parameter fillval: NAN
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,734 - stcal.resample.resample - INFO - Driz parameter weight_type: ivm
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,735 - stcal.resample.resample - INFO - Evaluating the full pixel map every 10.0 pixels
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:03,735 - stcal.resample.resample - INFO - Interpolating the rest with order 3 bivariate splines
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:04,401 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:08,999 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:09,011 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/stcal/resample/resample.py:1259: RuntimeWarning: invalid value encountered in sqrt
+  data=np.sqrt(variance),
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:11,261 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:15,041 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:19,561 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:19,572 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/stcal/resample/resample.py:1259: RuntimeWarning: invalid value encountered in sqrt
+  data=np.sqrt(variance),
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:21,797 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:25,578 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:30,140 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:30,153 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/stcal/resample/resample.py:1259: RuntimeWarning: invalid value encountered in sqrt
+  data=np.sqrt(variance),
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:32,381 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:36,236 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:40,756 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:40,768 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/stcal/resample/resample.py:1259: RuntimeWarning: invalid value encountered in sqrt
+  data=np.sqrt(variance),
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:43,029 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:46,694 - romancal.resample.resample - INFO - Mean, max exposure times: 116.8, 265.6
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:46,718 - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  271.070347920 -0.419189523 271.070346866 -0.222320204 270.869256760 -0.222319306 270.869253946 -0.419188624
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:46,728 - stpipe.step - INFO - Step resample done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:46,920 - stpipe.step - INFO - Step source_catalog running with args (&lt;roman_datamodels.datamodels._datamodels.MosaicModel object at 0x7f377cc84770&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:46,921 - stpipe.step - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:50,099 - stpipe.step - INFO - Saved model in my_roman_mosaic_coadd.asdf
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-05-29 15:23:50,100 - stpipe.step - INFO - Step MosaicPipeline done
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s open the mosaic file we’ve created and take a look at what’s inside:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mos_file</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;my_roman_mosaic_coadd.asdf&#39;</span><span class="p">)</span>
+<span class="n">mos_file</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root (AsdfObject)
+├─asdf_library (Software)
+│ ├─author (str): The ASDF Developers
+│ ├─homepage (str): http://github.com/asdf-format/asdf
+│ ├─name (str): asdf
+│ └─version (str): 5.3.0
+├─history (AsdfDictNode)
+│ └─extensions (AsdfListNode)
+│   ├─0 (ExtensionMetadata) ...
+│   ├─1 (ExtensionMetadata) ...
+│   ├─2 (ExtensionMetadata) ...
+│   ├─3 (ExtensionMetadata) ...
+│   ├─4 (ExtensionMetadata) ...
+│   └─3 not shown
+└─roman (WfiMosaic) # The schema for WFI Level 3 mosaics.
+  ├─meta (AsdfDictNode) # Common Level 3 Metadata ...
+  ├─data (NDArrayType) # Science Data (MJy / steradian) ...
+  ├─context (NDArrayType) # Context Data ...
+  ├─err (NDArrayType) # Error Data (MJy / steradian) ...
+  ├─weight (NDArrayType) # Weight Data ...
+  ├─var_poisson (NDArrayType) # Poisson Variability (MJy^2 / steradian^2) ...
+  ├─var_rnoise (NDArrayType) # Read Noise Variance (MJy^2 / steradian^2 ...
+  └─individual_image_cal_logs (AsdfListNode) ...
+Some nodes not shown.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">mos_file</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;asinh&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">3.5</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mos_file</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f377c71a900&gt;
+</pre></div>
+</div>
+<img alt="../../_images/dcbfd2f0b342f9e8d0084a17a263107d78b38f9011d12c17d9cfbd76f8ea62b0.png" src="../../_images/dcbfd2f0b342f9e8d0084a17a263107d78b38f9011d12c17d9cfbd76f8ea62b0.png" />
+</div>
+</div>
+<p>An L3 file contains several extensions that may be of interest:</p>
+<ul class="simple">
+<li><p>data: The mosiac image in units of MegaJanskys per steradian</p></li>
+<li><p>context: An image showing the input images that contributed to each output pixel</p></li>
+<li><p>err: The error image</p></li>
+<li><p>weight: A weight map showing the relative coverage on the sky from the input images and how they contributed to the final mosaic</p></li>
+</ul>
+<p>For more information on the how arrays are computed by the drizzle algorithm, we suggest consulting the <a class="reference external" href="https://www.stsci.edu/files/live/sites/www/files/home/scientific-community/software/drizzlepac/_documents/drizzlepac-handbook.pdf">DrizzlePac Handbook</a>. While the DrizzlePac Handbook is written for HST, many of the same terms and principles apply to Roman as the underlying algorithm is the same.</p>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://roman-pipeline.readthedocs.io/en/latest/index.html">RomanCal Documentation</a></p></li>
+<li><p><a class="reference external" href="https://roman-docs.stsci.edu">Roman Documentation</a></p></li>
+<li><p><a class="reference external" href="https://www.stsci.edu/files/live/sites/www/files/home/scientific-community/software/drizzlepac/_documents/drizzlepac-handbook.pdf">DrizzlePac Handbook</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="about-this-notebook">
+<h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Author:</strong> Tyler Desjardins<br />
+<strong>Updated On:</strong> 2026-04-17</p>
+<table width="100%" style="border:none; border-collapse:collapse;">
+  <tr style="border:none;">
+    <td style="border:none; width:180px; white-space:nowrap;">
+       <a href="#top" style="text-decoration:none; color:#0066cc;"> Top of page</a>
+    </td>
+    <td style="border:none; text-align:center;">
+        <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/roman_logo.png" alt="roman_logo" width="50px">
+    </td>
+    <td style="border:none; text-align:right;">
+       <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/stsci_logo2.png" width="90">
+    </td>
+  </tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "roman-cal"
+        },
+        kernelOptions: {
+            name: "roman-cal",
+            path: "./notebooks/mosaic_pipeline"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'roman-cal'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../exposure_pipeline/exposure_pipeline.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Calibrating WFI Exposures with RomanCal</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../ground_test_analysis/wfi_tvac_brightstar.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Diving Into WFI TVAC Bright Star Test Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-information">Server Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-data">Tutorial Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-wfi-mosaics">Making WFI Mosaics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-association-file">Generating the Association File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-mosaic-pipeline">Running the Mosaic Pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

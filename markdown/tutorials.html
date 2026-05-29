@@ -1,0 +1,630 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Notebook Tutorials &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'markdown/tutorials';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <img src="../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandeia/pandeia.html">Pandeia Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fmarkdown/tutorials.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/markdown/tutorials.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Notebook Tutorials</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-the-notebook-tutorials">How to Use the Notebook Tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-caveat-read-only-notebooks-and-git-sync">A Caveat: Read-Only Notebooks and Git Sync</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#all-notebooks">All Notebooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-and-exploration">Data Access and Exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wfi-data-simulation-and-calibration-pipelines">WFI Data Simulation and Calibration Pipelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-and-analysis-tools">Measurements and Analysis Tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-utilities">Planning Utilities</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="notebook-tutorials">
+<h1>Notebook Tutorials<a class="headerlink" href="#notebook-tutorials" title="Link to this heading">#</a></h1>
+<p>Notebook Tutorials are short, self-contained examples presented as Jupyter notebooks that demonstrate a specific analysis task or tool in the Nexus environment. Each tutorial focuses on one component—such as data access, visualization, or simulation utilities—and can be run on its own or as part of a <a class="reference internal" href="#./workflows.md"><span class="xref myst">Science Workflow</span></a>.</p>
+<p>Although the current content primarily focuses on WFI imaging mode, more material on spectroscopic products will be available in future releases.</p>
+<section id="how-to-use-the-notebook-tutorials">
+<h2>How to Use the Notebook Tutorials<a class="headerlink" href="#how-to-use-the-notebook-tutorials" title="Link to this heading">#</a></h2>
+<p>Tutorials are designed to be run interactively. Users may work through them directly or copy them into their personal or team spaces to modify and extend. Tutorials can be used independently or as components within a larger <a class="reference internal" href="#./workflows.md"><span class="xref myst">workflow</span></a>.</p>
+<p>When you finish a tutorial, close the notebook and return to the Launcher or File Browser. Stopping your server when you are done working helps avoid unnecessary compute usage.</p>
+</section>
+<section id="a-caveat-read-only-notebooks-and-git-sync">
+<h2>A Caveat: Read-Only Notebooks and Git Sync<a class="headerlink" href="#a-caveat-read-only-notebooks-and-git-sync" title="Link to this heading">#</a></h2>
+<p>All tutorials in the shared <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code> directory are read-only. To edit or adapt a tutorial, make a copy in your personal or team directory before making changes.</p>
+<p>The tutorials directory is synchronized with the latest reference versions when you log in. To preserve your own edits, store your working copies outside the tutorials directory—for example, in <code class="docutils literal notranslate"><span class="pre">~/nexus-user-space/</span></code> or in a team space.</p>
+</section>
+<section id="all-notebooks">
+<h2>All Notebooks<a class="headerlink" href="#all-notebooks" title="Link to this heading">#</a></h2>
+<p>Below is the current set of Notebook Tutorials available in the Nexus. Each tutorial can be run independently and may appear in one or more <a class="reference internal" href="#./workflows"><span class="xref myst">Science Workflows</span></a>.</p>
+<section id="data-access-and-exploration">
+<h3>Data Access and Exploration<a class="headerlink" href="#data-access-and-exploration" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><a class="reference internal" href="#../notebooks/cayalog_database_access/catalog_database_access.ipynb"><span class="xref myst"><strong>Catalog Database Access</strong></span></a></p>
+<p>Access and query a wide diversity of Roman catalogs from MAST databases.</p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/data_discovery_and_access/data_discovery_and_access.html"><span class="std std-doc"><strong>Data Discovery and Access</strong></span></a></p>
+<p>Retrieve data from MAST or access simulated Roman data in the cloud archive (“S3 bucket”).</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-analysys.md"><span class="xref myst">WFI Data Analysis</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/working_with_asdf/working_with_asdf.html"><span class="std std-doc"><strong>Working with ASDF</strong></span></a></p>
+<p>Open ASDF files with roman_datamodels, access metadata, manipulate arrays, and save changes to disk.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-sim.md"><span class="xref myst">WFI Data Simulation</span></a>, <a class="reference internal" href="#./workflows/wfi-data-analysys.md"><span class="xref myst">WFI Data Analysis</span></a></p>
+</li>
+<li><p><a class="reference internal" href="#../notebooks/data_visualization/data_visualization.ipynb"><span class="xref myst"><strong>Data Visualization</strong></span></a></p>
+<p>Visualize and explore Roman WFI images.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-sim.md"><span class="xref myst">WFI Data Simulation</span></a>, <a class="reference internal" href="#./workflows/wfi-data-analysys.md"><span class="xref myst">WFI Data Analysis</span></a></p>
+</li>
+</ul>
+</section>
+<section id="wfi-data-simulation-and-calibration-pipelines">
+<h3>WFI Data Simulation and Calibration Pipelines<a class="headerlink" href="#wfi-data-simulation-and-calibration-pipelines" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><a class="reference internal" href="../notebooks/romanisim/romanisim.html"><span class="std std-doc"><strong>Roman I-sim</strong></span></a></p>
+<p>Generate Level 1 and Level 2 WFI imaging products.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-sim.md"><span class="xref myst">WFI Data Simulation</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/exposure_pipeline/exposure_pipeline.html"><span class="std std-doc"><strong>Exposure Pipeline</strong></span></a></p>
+<p>Process Level 1 data with the Roman WFI science calibration pipeline, RomanCal, to produce Level 2 exposure-level data.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-sim.md"><span class="xref myst">WFI Data Simulation</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/mosaic_pipeline/mosaic_pipeline.html"><span class="std std-doc"><strong>Mosaic Pipeline</strong></span></a></p>
+<p>Combine multiple Level 2 data products into a Level 3 distortion-corrected and co-added image using the Roman WFI science calibration pipeline, RomanCal.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-sim.md"><span class="xref myst">WFI Data Simulation</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/ground_test_analysis/wfi_tvac_brightstar.html"><span class="std std-doc"><strong>WFI TVAC Bright Star Data</strong></span></a></p>
+<p>Process and explore WFI Bright Star Saturation Test data from the TVAC campaign using RomanCal, and visualize the resulting calibrated products.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-analysys.md"><span class="xref myst">WFI Data Analysis</span></a></p>
+</li>
+</ul>
+</section>
+<section id="measurements-and-analysis-tools">
+<h3>Measurements and Analysis Tools<a class="headerlink" href="#measurements-and-analysis-tools" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><a class="reference internal" href="../notebooks/aperture_photometry/aperture_photometry.html"><span class="std std-doc"><strong>Aperture Photometry</strong></span></a></p>
+<p>Perform forced aperture photometry on a simulated WFI image.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-analysys.md"><span class="xref myst">WFI Data Analysis</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.html"><span class="std std-doc"><strong>Galaxy Shapes</strong></span></a></p>
+<p>Perform shape measurements of galaxies on a simulated WFI image.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-analysys.md"><span class="xref myst">WFI Data Analysis</span></a></p>
+</li>
+<li><p><a class="reference internal" href="#../notebooks/roman_cutouts/roman_cutouts.ipynb"><span class="xref myst"><strong>Roman Cutouts</strong></span></a></p>
+<p>Generate cutouts from a Roman WFI image.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-analysys.md"><span class="xref myst">WFI Data Analysis</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/grism_spectral_extraction/grism_spectral_extraction.html"><span class="std std-doc"><strong>Grism Spectral Extraction</strong></span></a></p>
+<p>Extract 1-D spectra from a simulated Roman WFI 2-D slitless spectral image.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="#./workflows/wfi-data-analysys.md"><span class="xref myst">WFI Data Analysis</span></a></p>
+</li>
+</ul>
+</section>
+<section id="planning-utilities">
+<h3>Planning Utilities<a class="headerlink" href="#planning-utilities" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><a class="reference internal" href="../notebooks/pandeia/pandeia.html"><span class="std std-doc"><strong>Pandeia</strong></span></a></p>
+<p>Estimate the exposure parameters needed to reach a given SNR for simulated sources in a small area of one WFI detector.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="workflows/wfi-obs-plan.html"><span class="std std-doc">WFI Observations Planning</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/rist/rist.html"><span class="std std-doc"><strong>RIST</strong></span></a></p>
+<p>Roman Interactive Sensitivity Tool. Simplified, interactive version of Pandeia. Estimate the SNR for a variety of target brightnesses and filters.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="workflows/wfi-obs-plan.html"><span class="std std-doc">WFI Observations Planning</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/stips/stips.html"><span class="std std-doc"><strong>STIPS</strong></span></a></p>
+<p>Simulate large astronomical scenes with the WFI full field-of-view.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="workflows/wfi-obs-plan.html"><span class="std std-doc">WFI Observations Planning</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/synphot/synphot.html"><span class="std std-doc"><strong>Synphot</strong></span></a></p>
+<p>Synthetic photometry software; estimate the brightness of sources observed with Roman WFI.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="workflows/wfi-obs-plan.html"><span class="std std-doc">WFI Observations Planning</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/stpsf/stpsf.html"><span class="std std-doc"><strong>STPSF</strong></span></a></p>
+<p>Generate WFI simulated Point Spread Functions using STPSF.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="workflows/wfi-obs-plan.html"><span class="std std-doc">WFI Observations Planning</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/footprint_visualization/footprint_visualization.html"><span class="std std-doc"><strong>Footprint Visualization Tool</strong></span></a></p>
+<p>Determine if astronomical source coordinates are within a survey footprint, visualize the on-sky footprint of an APT program, and generate optional exposure summaries or healsparse maps using footprint utilities.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="workflows/wfi-obs-plan.html"><span class="std std-doc">WFI Observations Planning</span></a></p>
+</li>
+<li><p><a class="reference internal" href="../notebooks/background_visualization_tool/RBVT.html"><span class="std std-doc"><strong>Roman Background Visualization Tool (RBVT)</strong></span></a></p>
+<p>Explore and visualize time-variable Roman sky backgrounds (zodiacal, ISM, thermal) across wavelength, sky position, and calendar date to support observation planning.</p>
+<p><em>Science Workflow(s)</em>: <a class="reference internal" href="workflows/wfi-obs-plan.html"><span class="std std-doc">WFI Observations Planning</span></a></p>
+</li>
+</ul>
+<hr class="docutils" />
+<p><em>Last Updated: December 2025</em></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./markdown"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-the-notebook-tutorials">How to Use the Notebook Tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-caveat-read-only-notebooks-and-git-sync">A Caveat: Read-Only Notebooks and Git Sync</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#all-notebooks">All Notebooks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-and-exploration">Data Access and Exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wfi-data-simulation-and-calibration-pipelines">WFI Data Simulation and Calibration Pipelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-and-analysis-tools">Measurements and Analysis Tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planning-utilities">Planning Utilities</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
