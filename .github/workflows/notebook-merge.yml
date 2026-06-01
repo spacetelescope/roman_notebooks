@@ -31,7 +31,7 @@ jobs:
       enable-storage: true                          # Store outputs to gh-storage
       enable-html-build: true                       # Build and deploy HTML docs
       crds-server-url: 'https://roman-crds.stsci.edu'
-      crds-context: 'roman_0041.pmap'
+      crds-context: 'roman_0048.pmap'
       crds-path: '/home/runner/crds_cache'
       pre-processing-script: 'shared/ci_data_dependencies.py'
       custom-runner-config: true
