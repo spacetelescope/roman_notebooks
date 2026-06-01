@@ -1,11 +1,23 @@
 import os
 import requests
 import tarfile
+import tempfile
 import yaml
-from pathlib import Path
 
 
-def install_files(dependencies=None, verbose=True, packages=None):
+def _load_yaml(dependencies):
+    """Load a YAML file from a local path or URL."""
+    if os.path.exists(dependencies):
+        with open(dependencies, 'r') as f:
+            return yaml.safe_load(f)
+    else:
+        req = requests.get(dependencies, allow_redirects=True, timeout=(10, 60))
+        req.raise_for_status()
+        return yaml.safe_load(req.content)
+
+
+def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope/roman_notebooks/main/refdata_dependencies.yaml',
+                     verbose=True, packages=None):
     """
     PURPOSE
     -------
@@ -52,36 +64,23 @@ def install_files(dependencies=None, verbose=True, packages=None):
         path to which the variable should be set.
     """
     
-    # Looks for the data dependencies file in local repository
-    DEPENDENCIES_PATH = Path(__file__).parent.parent / "refdata_dependencies.yaml"
-
     # Check if dependencies is a local file. If not, retrieve it from the GitHub repo.
     # This allows us to not have to maintain a copy in every notebook folder.
-    if not dependencies:
-        dependencies = DEPENDENCIES_PATH
-        if os.path.exists(dependencies):
-            with open(dependencies, 'r') as f:
-                yf = yaml.safe_load(f)['install_files']
-        else:
-            dependencies = 'https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/refdata_dependencies.yaml'
-            req = requests.get(dependencies, allow_redirects=True)
-            yf = yaml.safe_load(req.content)['install_files']
-    else:
-        print("file with package data information not found")
-
+    yf = _load_yaml(dependencies)['install_files']
+        
     # If only installing certain packages, check that now and limit the dictionary to
     # just those package keys.
     if packages:
         if isinstance(packages, str):
             packages = packages.split(',')
-
+            
         keys = yf.keys()
         skips = [k  for k in keys if k not in packages]
         for s in skips:
             _ = yf.pop(s)
 
     # Loop over packages defined in the dependencies dictionary.
-    home = os.environ['HOME']
+    home = os.environ.get('HOME', os.path.expanduser('~'))
     result = {}
     for package in yf.keys():
         envvar = yf[package]['environment_variable']
@@ -95,17 +94,17 @@ def install_files(dependencies=None, verbose=True, packages=None):
         except KeyError:
             if verbose:
                 print(f"Did not find {package} data in environment, setting it up...")
-
+            
             # Get the path where the data should be installed. Resolve any environment variables.
             env_path = yf[package]['install_path']
             tmp_path = env_path.split('/')
             tmp_path = [home if '${HOME}' in tp else tp for tp in tmp_path]
             final_path = '/'.join(tmp_path)
-
+            
             # Check if path directory structure exists. If not, make it.
             if not os.path.isdir(final_path):
                 os.makedirs(final_path)
-
+            
             # Download the tarball from the URL in the YAML file and extract the files.
             tot_files = len(yf[package]['data_url'])
             if verbose:
@@ -114,33 +113,53 @@ def install_files(dependencies=None, verbose=True, packages=None):
             for i, url in enumerate(yf[package]['data_url']):
                 if verbose:
                     print(f"\tWorking on file {i+1} out of {tot_files}")
-                req = requests.get(url, allow_redirects=True)
-                file_name = url.split('/')[-1]
-                with open(file_name, 'wb') as download_file:
-                    download_file.write(req.content)
-                with tarfile.open(file_name) as tarball:
-                    members = tarball.getmembers()
-                    tarball.extractall(path=final_path, members=members, filter=None)
-                os.remove(file_name)
-
+                req = requests.get(url, allow_redirects=True, stream=True, timeout=(10, 300))
+                req.raise_for_status()
+                with tempfile.NamedTemporaryFile(dir=final_path, suffix='.tar.gz', delete=False) as tmp:
+                    tmp_name = tmp.name
+                    for chunk in req.iter_content(chunk_size=8192):
+                        tmp.write(chunk)
+                try:
+                    with tarfile.open(tmp_name) as tarball:
+                        tarball.extractall(path=final_path, filter='data')
+                finally:
+                    os.remove(tmp_name)
+    
             # Messages to the user
             if verbose:
                 print(f"\tUpdate environment variable with the following:")
                 print(f"\t\texport {yf[package]['environment_variable']}='{os.path.join(final_path, yf[package]['data_path'])}'")
             result[envvar] = {'path': os.path.join(final_path, yf[package]['data_path']), 'pre_installed': False}
-
+            
     # Return the environment variables and paths to the user as a dictionary so that they
     # can be set programmatically.
     return result
-
-def setup_env(result):
-    # Update environment variables (if necessary) and print reference data paths
+            
+def setup_env(result,
+              dependencies='https://raw.githubusercontent.com/spacetelescope/roman_notebooks/main/refdata_dependencies.yaml',
+              verbose=True):
+    # Apply install_files results (existing behaviour)
     print('Reference data paths set to:')
     for k, v in result.items():
         if not v['pre_installed']:
             os.environ[k] = v['path']
         print(f"\t{k} = {v['path']}")
 
+    # Also apply other_variables from the YAML (CRDS vars, etc.)
+    yf = _load_yaml(dependencies)
+    other = yf.get('other_variables', {})
+    home = os.environ.get('HOME', os.path.expanduser('~'))
+    for key, value in other.items():
+        value = str(value).replace('${HOME}', home)
+        if not os.environ.get(key):  # treat missing or empty string the same
+            os.environ[key] = value
+            if verbose:
+                print(f"\t{key} = {value}")
+        elif verbose:
+            print(f"\t{key} = {os.environ[key]} (pre-set, not overwritten)")
+
+
 if __name__ == 'main':
-    
+
     install_files()
+    
