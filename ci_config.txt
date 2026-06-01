@@ -11,7 +11,7 @@ notebooks/mosaic_pipeline/mosaic_pipeline.ipynb:jwst-pipeline-notebooks-16gb
 notebooks/pandeia/pandeia.ipynb:jwst-pipeline-notebooks-16gb
 notebooks/rist/rist.ipynb:jwst-pipeline-notebooks-16gb
 notebooks/roman_cutouts/roman_cutouts.ipynb:jwst-pipeline-notebooks-16gb
-notebooks/romanisim/romanisim.ipynb:jwst-pipeline-notebooks-16gb
+notebooks/romanisim/romanisim.ipynb:jwst-pipeline-notebooks-32gb
 notebooks/stips/stips.ipynb:jwst-pipeline-notebooks-16gb
 notebooks/stpsf/stpsf.ipynb:jwst-pipeline-notebooks-16gb
 notebooks/synphot/synphot.ipynb:jwst-pipeline-notebooks-16gb
