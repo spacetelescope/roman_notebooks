@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Roman Research Nexus Catalog Database access &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/catalog_database_access/catalog_database_access';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/catalog_database_access/catalog_database_access.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/catalog_database_access/catalog_database_access.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Roman Research Nexus Catalog Database access</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining terms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-roman-catalogs">Accessing Roman Catalogs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-information-about-roman-catalogs">Obtaining information about Roman Catalogs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-roman-catalogs-using-astroquery">Querying Roman Catalogs using <code class="docutils literal notranslate"><span class="pre">astroquery</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-roman-catalogs-using-mast-s-tap-service-using-pyvo">Querying Roman Catalogs using MAST’s TAP service using <code class="docutils literal notranslate"><span class="pre">pyvo</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-rrn-notebooks">Other RRN notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mast-notebooks">MAST notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-resources">Other resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citations-and-acknowledgements">Citations and acknowledgements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="roman-research-nexus-catalog-database-access">
+<h1>Roman Research Nexus Catalog Database access<a class="headerlink" href="#roman-research-nexus-catalog-database-access" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This notebook demonstrates how to access and query Roman catalogs held at the <a class="reference external" href="https://archive.stsci.edu/">Mikulski Archive for Space Telescopes (MAST)</a>, through (1) <a class="reference external" href="https://astroquery.readthedocs.io/en/latest/index.html">astroquery</a> as well as (2) advanced query patterns using <a class="reference external" href="http://www.ivoa.net/documents/latest/ADQL.html">Astronomical Data Query Language (ADQL)</a> queries via a <a class="reference external" href="http://www.ivoa.net/documents/TAP/">Table Access Protocol (TAP)</a> service at MAST.</p>
+<p>MAST will provide access to a range of Roman catalog products
+(such as <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products#WFIDataLevelsandProducts-Level4">multiband photometric source catalogs</a> as detected from WFI imaging;
+<a class="reference external" href="https://roman-docs.ipac.caltech.edu/data-handbook/roman-wfi-data-pipelines/roman-wide-field-spectroscopy-pipelines/science-data-pipelines">spectral catalogs</a> derived from WFI grism and prism spectroscopy;
+<a class="reference external" href="https://roman-docs.ipac.caltech.edu/data-handbook/roman-wfi-data-pipelines/galactic-bulge-survey-pipelines#GalacticBulgeSurveyPipelines-SummaryofDataProducts">microlensing event variability and light curve catalogs</a>;
+and <a class="reference external" href="https://assets.science.nasa.gov/content/dam/science/missions/rst/science/Roman_PIT_Data_Products_User_Documentation_18feb2026.pdf">Project Infrastructure team created catalogs</a>).
+This notebook demonstrates methods of querying these catalogs from MAST databases, enabling efficient filtering and sample selection across both spatial location and miriad other properties.</p>
+<section id="defining-terms">
+<h3>Defining terms<a class="headerlink" href="#defining-terms" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><em>SQL</em>: Structured Query Language, a programming language used for relational databases.</p></li>
+<li><p><a class="reference external" href="http://www.ivoa.net/documents/latest/ADQL.html"><em>ADQL</em></a>: Astronomical Data Query Language, a SQL-like programming language that includes functionality for spatial searches.</p></li>
+<li><p><a class="reference external" href="http://www.ivoa.net/documents/TAP/"><em>TAP</em></a>: Table Access Protocol, an International Virtual Observatory standard for providing programmatic access to catalogs.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Here we import the required packages for our catalog database access examples including:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://astroquery.readthedocs.io/en/latest/mast/mast_catalog.html"><em>astroquery.mast Catalogs</em></a> for accessing and querying Roman catalogs</p></li>
+<li><p><a class="reference external" href="https://pyvo.readthedocs.io/"><em>pyvo</em></a> for accessing and querying catalogs via MAST’s TAP service (Table Access Protocol)</p></li>
+<li><p><a class="reference external" href="https://docs.astropy.org/en/stable/coordinates/skycoord.html"><em>astropy.coordinates SkyCoord</em></a> for defining sky coordinates</p></li>
+<li><p><a class="reference external" href="https://docs.astropy.org/en/stable/units/index.html"><em>astropy.units</em></a> to specify angular units</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/api/pyplot_summary.html"><em>matplotlib.pyplot</em></a> for simple data visualization</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/"><em>numpy</em></a> for array comparisons</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.mast</span><span class="w"> </span><span class="kn">import</span> <span class="n">Catalogs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyvo</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">vo</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkyCoord</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="accessing-roman-catalogs">
+<h2>Accessing Roman Catalogs<a class="headerlink" href="#accessing-roman-catalogs" title="Link to this heading">#</a></h2>
+<p>In this section, we will demonstrate how to obtain information about the catalog schemas (covering descriptions of tables, as well as column units, datatypes, and descriptions), and then methods of connecting to and querying Roman catalogs.</p>
+<section id="obtaining-information-about-roman-catalogs">
+<h3>Obtaining information about Roman Catalogs<a class="headerlink" href="#obtaining-information-about-roman-catalogs" title="Link to this heading">#</a></h3>
+<p>Roman catalogs are <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products#WFIDataLevelsandProducts-Level4-ExtractedDataLevel4">Level 4 (L4) extracted products</a>, and are produced by multiple Roman data pipelines. For full details about the data processing and detailed contents of Roman catalogs, please see <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/roman-wfi-data-pipelines">RDox</a>.</p>
+<p>In the future, user-contributed catalogs (L5) are anticipated to be made available through similar methods; these will be documented separately.</p>
+</section>
+<section id="querying-roman-catalogs-using-astroquery">
+<h3>Querying Roman Catalogs using <code class="docutils literal notranslate"><span class="pre">astroquery</span></code><a class="headerlink" href="#querying-roman-catalogs-using-astroquery" title="Link to this heading">#</a></h3>
+<p>To begin, we will query Roman catalogs using <code class="docutils literal notranslate"><span class="pre">astroquery</span></code>.</p>
+<p>For demonstration purposes (as Roman catalogs are not yet available), our example will query the PanSTARRS DR2 catalog near NGC 6535.
+This PanSTARRS example provides an overview of the access methods that will be available for Roman catalogs (<code class="docutils literal notranslate"><span class="pre">astroquery</span></code>, and <code class="docutils literal notranslate"><span class="pre">ADQL/TAP</span></code> below). In particular, both PanSTARRS and Roman (will) have large numbers of rows, which requires database queries for access; it is infeasible to load the full tables into memory for analysis.</p>
+<p>In addition to a cone search, we will also filter to select only bright, blue stars.
+The specific selection criteria we will apply are:</p>
+<ul class="simple">
+<li><p>Located within 1.5 arcminutes of the NGC 6535</p></li>
+<li><p>Are point sources (not extended objects)</p></li>
+<li><p>Detected flux in the $g$, $i$, $y$ bands (quality cuts)</p></li>
+<li><p>Have $i$ band magnitudes brighter than 18</p></li>
+<li><p>Have $g-y$ colors less than 0.8  (the bluest, reddest filters for PanSTARRS)</p></li>
+</ul>
+<p>Though the specifics of the PanSTARRS and forthcoming Roman catalogs differ (in terms of filters, specific columns stemming from different processing pipelines, etc.), similar queries combining spatial, point vs. resolved source, and multiband color/magnitude criteria will be possible with Roman WFI multiband catalogs.</p>
+<p>Based on the <code class="docutils literal notranslate"><span class="pre">astroquery.mast</span></code> PanSTARRS <a class="reference external" href="https://catalogs.mast.stsci.edu/docs/panstarrs.html">catalog information</a> and the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a>,
+we will use the <code class="docutils literal notranslate"><span class="pre">MeanObject</span></code> catalog provided by <code class="docutils literal notranslate"><span class="pre">astroquery.mast</span></code>. This table provides relevant photometric information in the columns <code class="docutils literal notranslate"><span class="pre">gMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">iMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">yMeanPSFMag</span></code> (magnitudes optimized for point sources), and <code class="docutils literal notranslate"><span class="pre">iMeanKronMag</span></code> (used to distinguish between point and resolved sources), as well as position information (<code class="docutils literal notranslate"><span class="pre">raMean</span></code>, <code class="docutils literal notranslate"><span class="pre">decMean</span></code>).</p>
+<p>Also, with <code class="docutils literal notranslate"><span class="pre">astroquery</span></code>, we can directly filter for some of these constraints. However, we will need to post-process the returned results to apply other constraints.</p>
+<p>We first obtain the sky coordinates for NGC 6535.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resolve the position of NGC 6535</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s2">&quot;NGC 6535&quot;</span><span class="p">)</span>
+<span class="n">c0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;SkyCoord (ICRS): (ra, dec) in deg
+    (270.96045833, -0.29763889)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then extract photometric and position data (by selecting specific columns to return) for all objects
+in the <code class="docutils literal notranslate"><span class="pre">MeanObject</span></code> catalog that are within a 1.5 arcminute radius around NGC 6535.
+We also include constraints to limit the results to only objects with measured magnitudes for <code class="docutils literal notranslate"><span class="pre">gMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">iMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">yMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">iMeanKronMag</span></code>.</p>
+<p>Next we apply post-processing constraints to refine our sample.</p>
+<p>As we are interested only in stars, we compare the Kron and PSF magnitudes in the $i$ band. Stars (point sources) typically have <code class="docutils literal notranslate"><span class="pre">iMeanPSFMAG-iMeanKronMag</span> <span class="pre">&lt;=</span> <span class="pre">0.05</span></code> (as shown in the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812369/How+to+separate+stars+and+galaxies#Howtoseparatestarsandgalaxies-PSF-Kron">PanSTARRS documentation</a>).</p>
+<p>Lastly, we apply the color and magnitude cuts, and then display the table with our final sample.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query MAST for matching observations in </span>
+<span class="c1"># the PanSTARRS DR2 Mean catalog</span>
+<span class="n">results_aq</span> <span class="o">=</span> <span class="n">Catalogs</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span>
+    <span class="n">catalog</span><span class="o">=</span><span class="s2">&quot;Panstarrs&quot;</span><span class="p">,</span>
+    <span class="n">data_release</span><span class="o">=</span><span class="s2">&quot;dr2&quot;</span><span class="p">,</span>
+    <span class="n">table</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+    <span class="n">coordinates</span><span class="o">=</span><span class="n">c0</span><span class="p">,</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcmin</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;objID&quot;</span><span class="p">,</span> <span class="s2">&quot;raMean&quot;</span><span class="p">,</span><span class="s2">&quot;decMean&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;gMeanPSFMag&quot;</span><span class="p">,</span><span class="s2">&quot;iMeanPSFMag&quot;</span><span class="p">,</span><span class="s2">&quot;yMeanPSFMag&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;iMeanKronMag&quot;</span><span class="p">],</span>    <span class="c1"># List of columns to return</span>
+    <span class="n">gMeanPSFMag</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;gt&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">999</span><span class="p">)],</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">iMeanPSFMag</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;gt&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">999</span><span class="p">)],</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">yMeanPSFMag</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;gt&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">999</span><span class="p">)],</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">iMeanKronMag</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;gt&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">999</span><span class="p">)],</span>  <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+<span class="p">)</span>
+
+<span class="c1"># Post-process cuts:</span>
+<span class="c1"># 1. Distinguish stars from extended objects using</span>
+<span class="c1">#    difference of PSF, Kron magnitudes</span>
+<span class="n">results_aq</span> <span class="o">=</span> <span class="n">results_aq</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;iMeanPSFMag&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;iMeanKronMag&#39;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mf">0.05</span>
+<span class="p">]</span>
+
+<span class="c1"># 2. Apply color, magnitude cuts</span>
+<span class="c1"># Copy original catalog for reference:</span>
+<span class="n">results_aq_all</span> <span class="o">=</span> <span class="n">results_aq</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">results_aq</span> <span class="o">=</span> <span class="n">results_aq</span><span class="p">[</span>
+    <span class="p">((</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;gMeanPSFMag&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;yMeanPSFMag&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.8</span><span class="p">)</span> 
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;iMeanPSFMag&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># Final sample selection</span>
+<span class="n">results_aq</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table masked=True length=11</i>
+<table id="table140121800880160" class="table-striped table-bordered table-condensed">
+<thead><tr><th>objID</th><th>raMean</th><th>decMean</th><th>gMeanPSFMag</th><th>iMeanPSFMag</th><th>yMeanPSFMag</th><th>iMeanKronMag</th></tr></thead>
+<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
+<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.441299438476562</td><td>16.227399826049805</td><td>16.039400100708008</td><td>16.18600082397461</td></tr>
+<tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.256999969482422</td><td>16.015300750732422</td><td>15.856499671936035</td><td>16.000900268554688</td></tr>
+<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.464500427246094</td><td>16.194299697875977</td><td>16.032499313354492</td><td>16.24020004272461</td></tr>
+<tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.447200775146484</td><td>17.333200454711914</td><td>17.336599349975586</td><td>17.46820068359375</td></tr>
+<tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.654499053955078</td><td>16.470300674438477</td><td>16.359500885009766</td><td>16.436100006103516</td></tr>
+<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.36639976501465</td><td>16.102699279785156</td><td>15.92140007019043</td><td>16.158100128173828</td></tr>
+<tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.076499938964844</td><td>16.768299102783203</td><td>16.63520050048828</td><td>16.750900268554688</td></tr>
+<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.925399780273438</td><td>16.762800216674805</td><td>16.702299118041992</td><td>16.884599685668945</td></tr>
+<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.86199951171875</td><td>16.69300079345703</td><td>16.6112003326416</td><td>16.781299591064453</td></tr>
+<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.11750030517578</td><td>16.989999771118164</td><td>16.94890022277832</td><td>17.06839942932129</td></tr>
+<tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.10580062866211</td><td>15.742500305175781</td><td>15.529999732971191</td><td>15.738699913024902</td></tr>
+</table></div></div></div>
+</div>
+<p>We visualize our results by plotting a $g-y$ vs $i$ color-magnitude diagram.</p>
+<p>The selected bright, blue stars are shown as large red points, while all stars within 1.5 arcminutes of NGC 6535 are shown in gray for comparison.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Stars meeting the color/magnitude cuts</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;gMeanPSFMag&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;yMeanPSFMag&#39;</span><span class="p">],</span>
+    <span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;iMeanPSFMag&#39;</span><span class="p">],</span> 
+    <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bright blue stars&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot the full set of stars for comparison</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">results_aq_all</span><span class="p">[</span><span class="s1">&#39;gMeanPSFMag&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">results_aq_all</span><span class="p">[</span><span class="s1">&#39;yMeanPSFMag&#39;</span><span class="p">],</span>
+    <span class="n">results_aq_all</span><span class="p">[</span><span class="s1">&#39;iMeanPSFMag&#39;</span><span class="p">],</span> 
+    <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;All stars in region&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;g-y, PSF Mag&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;i, PSF Mag&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># Invert for correct magnitude order</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(21.140229082107545, 12.911569738388062)
+</pre></div>
+</div>
+<img alt="../../_images/2167e4d8a72371796762df6d13d65332b4220e1c6074e19023f14cb280aa421a.png" src="../../_images/2167e4d8a72371796762df6d13d65332b4220e1c6074e19023f14cb280aa421a.png" />
+</div>
+</div>
+</section>
+<section id="querying-roman-catalogs-using-mast-s-tap-service-using-pyvo">
+<h3>Querying Roman Catalogs using MAST’s TAP service using <code class="docutils literal notranslate"><span class="pre">pyvo</span></code><a class="headerlink" href="#querying-roman-catalogs-using-mast-s-tap-service-using-pyvo" title="Link to this heading">#</a></h3>
+<p>It is also possible to access Roman catalogs via a TAP service at MAST, by submitting queries written in <a class="reference external" href="http://www.ivoa.net/documents/latest/ADQL.html">ADQL</a>. A benefit of constructing queries in the SQL-like language ADQL is that we can specify advanced query patterns, such as comparison constraints and derived constraints (i.e., as needed to apply the star/resolved and color criteria in this example), directly in the query. This makes it possible get the sample of interest in one query, avoiding a two step process where we load a larger sample into memory and then perform final cuts in our notebook.</p>
+<p>For this second demonstration, we will apply the same selection criteria as above to select bright, blue stars near NGC 6535 from the PanSTARRS DR2 catalog.</p>
+<p>First, we connect to the MAST PanSTARRS DR2 TAP service.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use `pyvo` to connect to the MAST PanSTARRS TAP service:</span>
+<span class="n">TAP_service</span> <span class="o">=</span> <span class="n">vo</span><span class="o">.</span><span class="n">dal</span><span class="o">.</span><span class="n">TAPService</span><span class="p">(</span>
+    <span class="s2">&quot;https://mast.stsci.edu/vo-tap/api/v0.1/mast_catalogs/&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, we will access the mean object catalog (<code class="docutils literal notranslate"><span class="pre">mean_object</span></code> here; see the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a>), which contains all the columns we will need.</p>
+<p>Note that it is possible to use the TAP service to directly access catalog/table
+schemas, which describe the tables and columns.
+An example of this is provided here, commented out as we have pre-identified
+the relevent columns from the documentation</p>
+<p>An overview description of methods, capabilities, and
+maximum result set sizes is available via:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TAP_service</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Additionally, the <code class="docutils literal notranslate"><span class="pre">pyvo</span></code> TAPService class objects contain
+metadata information about the full catalog schema, including tables and columns.
+It’s possible to iterate through the tables and print column names
+as in this code snippet (here, only printing columns for the <code class="docutils literal notranslate"><span class="pre">mean_object</span></code> table).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TAP_tables</span> <span class="o">=</span> <span class="n">TAP_service</span><span class="o">.</span><span class="n">tables</span>
+<span class="k">for</span> <span class="n">tablename</span> <span class="ow">in</span> <span class="n">TAP_tables</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="c1"># This can be refined by table name to print columns only for subsets of tables.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">tablename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;ps1_dr2.mean_object&quot;</span><span class="p">)):</span>  <span class="c1"># Include only PS1 tables </span>
+        <span class="c1">####</span>
+        <span class="c1"># The table descriptions only include an overview, so this also prints the column names</span>
+        <span class="n">TAP_tables</span><span class="p">[</span><span class="n">tablename</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sorted</span><span class="p">([</span><span class="n">k</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">TAP_tables</span><span class="p">[</span><span class="n">tablename</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">])))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We now construct our query, including the color/magnitude constraints and
+star/extended object separation. As an overview, our query is constructed as follows.</p>
+<p>We specify the table, <code class="docutils literal notranslate"><span class="pre">mean_object</span></code>, with the “FROM” statement.
+The subset of columns to be returned (<code class="docutils literal notranslate"><span class="pre">objid</span></code>, <code class="docutils literal notranslate"><span class="pre">ramean</span></code>, <code class="docutils literal notranslate"><span class="pre">decmean</span></code>, <code class="docutils literal notranslate"><span class="pre">gmeanpsfmag</span></code>, <code class="docutils literal notranslate"><span class="pre">imeanpsfmag</span></code>, <code class="docutils literal notranslate"><span class="pre">ymeanpsfmag</span></code>, <code class="docutils literal notranslate"><span class="pre">imeankronmag</span></code>) are specified with the “SELECT” statement.
+We then specify the query constraints in the “WHERE” statement, with multiple constraints linked using “AND”.
+This includes:</p>
+<ul class="simple">
+<li><p>the cone search (as in the “CONTAINS(…)” clause; note that for ADQL, the radius must be expressed in degrees),</p></li>
+<li><p>requiring the $g$, $i$, $y$ mean PSF magnitudes and $i$ mean Kron magnitude to be present (cutting objects that have any of these values missing),</p></li>
+<li><p>the PanSTARRS-specific cut to select stars (<code class="docutils literal notranslate"><span class="pre">imeanpsfmag</span> <span class="pre">-</span> <span class="pre">imeankronmag</span> <span class="pre">&lt;=</span> <span class="pre">0.05</span></code>), and</p></li>
+<li><p>the $g-y$ color and $i$ magnitude cuts.</p></li>
+</ul>
+<p>We then submit this query to the TAP service, and retrieve and display the table with the query results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query MAST for matching observations in </span>
+<span class="c1"># the PanSTARRS DR2 mean catalog</span>
+
+<span class="c1"># Note: ADQL comments are preceded by &quot;--&quot;</span>
+<span class="n">adql_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT objid, ramean, decmean, </span>
+<span class="s2">    gmeanpsfmag, imeanpsfmag, ymeanpsfmag, </span>
+<span class="s2">    imeankronmag</span>
+<span class="s2">FROM mean_object</span>
+<span class="s2">WHERE CONTAINS(</span>
+<span class="s2">    POINT(&#39;ICRS&#39;, ramean, decmean),</span>
+<span class="s2">    CIRCLE(&#39;ICRS&#39;,</span><span class="si">{</span><span class="n">c0</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">deg</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">c0</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">deg</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="p">(</span><span class="mf">1.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcmin</span><span class="p">)</span><span class="o">.</span><span class="n">to_value</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span><span class="si">}</span><span class="s2">)          </span>
+<span class="s2">)=1                                       -- 1.5 arcmin around NGC 6535</span>
+<span class="s2">AND gmeanpsfmag &gt; -999                    -- mag &gt; -999; missing magnitudes are -999</span>
+<span class="s2">AND imeanpsfmag &gt; -999                    -- mag &gt; -999; missing magnitudes are -999</span>
+<span class="s2">AND ymeanpsfmag &gt; -999                    -- mag &gt; -999; missing magnitudes are -999</span>
+<span class="s2">AND imeankronmag &gt; -999                   -- mag &gt; -999; missing magnitudes are -999</span>
+<span class="s2">AND (imeanpsfmag - imeankronmag) &lt;= 0.05  -- distinguish stars from extended objects</span>
+<span class="s2">AND (gmeanpsfmag-ymeanpsfmag) &lt; 0.8       -- color cut</span>
+<span class="s2">AND imeanpsfmag &lt; 18                      -- magnitude cut</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Submit query to the MAST TAP service:</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">TAP_service</span><span class="o">.</span><span class="n">run_async</span><span class="p">(</span><span class="n">adql_query</span><span class="p">)</span>
+
+<span class="c1"># Retrieve results:</span>
+<span class="n">results_tap</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span>
+
+<span class="c1"># Final sample selection</span>
+<span class="n">results_tap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/pyvo/dal/query.py:404: DALOverflowWarning: Results truncated due to server limits. Consider setting a maxrec value.
+  warn(&quot;Results truncated due to server limits. Consider &quot;
+</pre></div>
+</div>
+<div class="output text_html"><div><i>Table length=11</i>
+<table id="table140121800006640" class="table-striped table-bordered table-condensed">
+<thead><tr><th>objid</th><th>ramean</th><th>decmean</th><th>gmeanpsfmag</th><th>imeanpsfmag</th><th>ymeanpsfmag</th><th>imeankronmag</th></tr></thead>
+<thead><tr><th></th><th>deg</th><th>deg</th><th>mag</th><th>mag</th><th>mag</th><th>mag</th></tr></thead>
+<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
+<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
+<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
+<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
+<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
+<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
+<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
+<tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.257</td><td>16.0153</td><td>15.8565</td><td>16.0009</td></tr>
+<tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.1058</td><td>15.7425</td><td>15.53</td><td>15.7387</td></tr>
+<tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.0765</td><td>16.7683</td><td>16.6352</td><td>16.7509</td></tr>
+<tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.4472</td><td>17.3332</td><td>17.3366</td><td>17.4682</td></tr>
+<tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.6545</td><td>16.4703</td><td>16.3595</td><td>16.4361</td></tr>
+</table></div></div></div>
+</div>
+<p>By leveraging the advanced usage patterns possible with AQDL, this single TAP query returns the same results as our two-step <code class="docutils literal notranslate"><span class="pre">astroquery</span></code> example where we first queried and then applied the final cuts.</p>
+<p>(For this simple example, applying such cuts in memory are not prohibitive, but for cases where the selected sample may be large, performing all cuts server-side can be much more performant.)</p>
+<p>We confirm that both methods yield the same set of objects by sorting the two result tables by object ID, and checking that all object IDs are the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort both by objid</span>
+<span class="n">results_aq</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;objID&#39;</span><span class="p">)</span>
+<span class="n">results_tap</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;objid&#39;</span><span class="p">)</span>
+<span class="c1"># Check the ID lists are the same:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;objID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">results_tap</span><span class="p">[</span><span class="s1">&#39;objid&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<p>Additional information can be found at the following links:</p>
+<section id="other-rrn-notebooks">
+<h3>Other RRN notebooks<a class="headerlink" href="#other-rrn-notebooks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html"><span class="std std-doc">Data Discovery and Access:</span></a> The next step in this workflow, covering how to search for and access (particularly cloud streaming access) of file-based Roman products.</p></li>
+</ul>
+</section>
+<section id="mast-notebooks">
+<h3>MAST notebooks<a class="headerlink" href="#mast-notebooks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://spacetelescope.github.io/mast_notebooks/notebooks/PanSTARRS/PS1_DR2_TAP/PS1_DR2_TAP.html">MAST Table Access Protocol PanSTARRS 1 DR2 Demo</a>, providing a more in-depth tutorial about constructing ADQL queries and using MAST TAP services.</p></li>
+</ul>
+</section>
+<section id="other-resources">
+<h3>Other resources<a class="headerlink" href="#other-resources" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products#WFIDataLevelsandProducts-Level4-ExtractedDataLevel4">RDox Level 4 Product Documentation</a>, including catalog products.</p></li>
+<li><p><a class="reference external" href="https://astroquery.readthedocs.io/en/latest/mast/mast_catalog.html"><code class="docutils literal notranslate"><span class="pre">astroquery.mast.Catalogs</span></code> search documentation</a></p></li>
+<li><p><a class="reference external" href="https://pyvo.readthedocs.io/en/latest/index.html">Documentation for <code class="docutils literal notranslate"><span class="pre">pyvo</span></code></a>, a package to retrieve astronomical data available from archives that support standard IVOA virtual observatory service protocols.</p></li>
+<li><p><a class="reference external" href="http://www.ivoa.net/documents/latest/ADQL.html">Documentation on ADQL</a>, covering the specifications of this IVOA standard for querying astronomical data in tabular format, with geometric search support.</p></li>
+<li><p><a class="reference external" href="http://www.ivoa.net/documents/TAP/">Documentation on TAP</a>, the IVOA standard for RESTful web service access to tabular data.</p></li>
+<li><p><a class="reference external" href="https://mast.stsci.edu/vo-tap">Full list of TAP services at MAST</a></p></li>
+</ul>
+</section>
+<section id="citations-and-acknowledgements">
+<h3>Citations and acknowledgements<a class="headerlink" href="#citations-and-acknowledgements" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.astropy.org/acknowledging.html">Citing <code class="docutils literal notranslate"><span class="pre">astropy</span></code></a></p></li>
+<li><p><a class="reference external" href="https://archive.stsci.edu/publishing/mission-acknowledgements#section-895d38a0-86b3-4143-b521-6cc3312701f9">Acknowledging PanSTARRS</a></p></li>
+<li><p><a class="reference external" href="https://archive.stsci.edu/gsc/mast_data_use.html">Acknowledging MAST</a></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="about-this-notebook">
+<h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p>The information about TAP access is based on the TIKE MAST PanSTARRS DR2 TAP notebook by Rick White &amp; Theresa Dower, with edits from T. Dutkiewicz.</p>
+<p><strong>Author:</strong>  Sedona Price<br />
+<strong>Updated On:</strong> 2026-04-08</p>
+<table width="100%" style="border:none; border-collapse:collapse;">
+  <tr style="border:none;">
+    <td style="border:none; width:180px; white-space:nowrap;">
+       <a href="#top" style="text-decoration:none; color:#0066cc;"> Top of page</a>
+    </td>
+    <td style="border:none; text-align:center;">
+        <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/roman_logo.png" alt="roman_logo" width="50px">
+    </td>
+    <td style="border:none; text-align:right;">
+       <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/stsci_logo2.png" width="90">
+    </td>
+  </tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "roman-cal"
+        },
+        kernelOptions: {
+            name: "roman-cal",
+            path: "./notebooks/catalog_database_access"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'roman-cal'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining terms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-roman-catalogs">Accessing Roman Catalogs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-information-about-roman-catalogs">Obtaining information about Roman Catalogs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-roman-catalogs-using-astroquery">Querying Roman Catalogs using <code class="docutils literal notranslate"><span class="pre">astroquery</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-roman-catalogs-using-mast-s-tap-service-using-pyvo">Querying Roman Catalogs using MAST’s TAP service using <code class="docutils literal notranslate"><span class="pre">pyvo</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-rrn-notebooks">Other RRN notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mast-notebooks">MAST notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-resources">Other resources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citations-and-acknowledgements">Citations and acknowledgements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
