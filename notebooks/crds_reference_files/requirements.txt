@@ -1,0 +1,7 @@
+roman_datamodels>= 1,0,<1.1 
+astropy>=7.2.0,<9
+asdf-astropy>=0.11.0
+gwcs>=1.0.3,<2
+crds==13.1.15
+matplotlib>=3.10.s90
+numpy>=2.4.4
