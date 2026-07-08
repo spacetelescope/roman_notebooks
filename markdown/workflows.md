@@ -6,12 +6,12 @@ Workflows are designed to help users explore Roman-style analysis patterns in th
 
 ## WFI Workflows (Early Access)
 
-The Early Access release currently includes fiyr WFI-focused Science Workflows: 
+The Early Access release currently includes four WFI-focused Science Workflows: 
 
 - [WFI Data Simulation](./workflows/wfi-data-sim.md)
 - [WFI Data Analysis](./workflows/wfi-data-analysis.md)
 - [WFI Observation Planning](./workflows/wfi-obs-plan.md)
-- [CRDS Reference File Exploration](./crds-refernce-files.md)
+- [CRDS Reference File Exploration](./workflows/crds-reference-files.md)
 
 Together, these workflows demonstrate how Roman tools can be used for pipeline-level data simulation, exploratory analysis of simulated WFI products and calibration reference data within the Nexus environment and proposal planning. 
 

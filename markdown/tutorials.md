@@ -19,7 +19,7 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
 ### Data Access and Exploration
 
-- [**Catalog Database Access**](../notebooks/cayalog_database_access/catalog_database_access.ipynb)  
+- [**Catalog Database Access**](../notebooks/catalog_database_access/catalog_database_access.ipynb)  
 
   Access and query a wide diversity of Roman catalogs from MAST databases.
 
@@ -61,13 +61,14 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
   *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
 
-  -[**CRDS Reference Files**](../notebooks/crds_reference_files/)
+- [**CRDS Reference Files**](../notebooks/crds_reference_files/README.md)
 
     - Understand the structure, content, and usage of Calibration Reference Data System. 
     - Learn How to get reference files from CRDS
-    - Explore each major reference file type in detail
+    - Explore each major reference file type in detail.
+      
   
-  *Reference Files Workflow*: [**CRDS Reference Files Exploration**](../notebooks/crds_reference_files.md)
+  *Reference Files Workflow*: [**CRDS Reference Files Exploration**](./workflows/crds-reference-files.md)
   
 - [**WFI TVAC Bright Star Data**](../notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb)
    
