@@ -1,4 +1,4 @@
-# CRDS Reference Files Exploration
+# CRDS Reference Files
 
 This science workflow guides users through understanding the structure, content, and
 usage of Calibration Reference Data System (CRDS) reference files for the Roman Wide

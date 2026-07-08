@@ -60,6 +60,14 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
   Combine multiple Level 2 data products into a Level 3 distortion-corrected and co-added image using the Roman WFI science calibration pipeline, RomanCal.
 
   *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
+
+  -[**CRDS Reference Files**](../notebooks/crds_reference_files/)
+
+    - Understand the structure, content, and usage of Calibration Reference Data System. 
+    - Learn How to get reference files from CRDS
+    - Explore each major reference file type in detail
+  
+  *Reference Files Workflow*: [**CRDS Reference Files Exploration**](../notebooks/crds_reference_files.md)
   
 - [**WFI TVAC Bright Star Data**](../notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb)
    
