@@ -28,7 +28,7 @@ These tutorial notebooks will teach the process by which one can access, filter,
 
 - [**Footprint Visualization**](../../notebooks/footprint_visualization/footprint_visualization.ipynb)
 
-Good, now you have the tools to work with the nexus, lets explore the kinds of science and analysis that one can accomplish with Roman. In this notebook you will learn about the various survey's that the Roman Space telescope will complete during its mission. Furthermore, you will be able to utilize the visualizations of the survey footprints to see if, when, and how an astronomical source may be observed by Roman. With this final tutorial in the workflow, take the step to your own citizen science and find the sources you want to use all the tools you just learned to explore.
+  Good, now you have the tools to work with the nexus, lets explore the kinds of science and analysis that one can accomplish with Roman. In this notebook you will learn about the various survey's that the Roman Space telescope will complete during its mission. Furthermore, you will be able to utilize the visualizations of the survey footprints to see if, when, and how an astronomical source may be observed by Roman. With this final tutorial in the workflow, take the step to your own citizen science and find the sources you want to use all the tools you just learned to explore.
 
   
 
