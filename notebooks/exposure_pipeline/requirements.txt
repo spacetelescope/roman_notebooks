@@ -9,5 +9,5 @@ gwcs>=1.0.3,<2
 s3fs>=2026.4.0
 crds>=13.1.15
 photutils>=3.0.0,<4
-matplotlib>=3.10.9
+matplotlib>=3.9
 numpy>=2.4.4

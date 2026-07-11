@@ -1,6 +1,6 @@
 numpy>=2.4.4
-pandas>=3.0.2
+pandas>=3.0.3
 bokeh>=3.9.0
 scipy>=1.17.1
 xarray>=2026.4.0
-healpy>=1.18.1
+healpy>=1.19.1
