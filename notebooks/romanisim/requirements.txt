@@ -9,7 +9,7 @@ asdf-astropy>=0.11.0
 gwcs>=1.0.3,<2
 astroquery>=0.4.11
 galsim>=2.8.4
-matplotlib>=3.10.9
+matplotlib>=3.9
 numpy>=2.4.4
 s3fs>=2026.4.0
 dask[complete]
