@@ -1,0 +1,53 @@
+name: Semver auto patch bump
+
+# Tags every merge/push to main with the next SemVer patch (vX.Y.PATCH+1).
+# These are plain git tags only — no GitHub Release is attached, so the
+# "Cut release" workflow can later generate notes spanning all of them.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+# Serialize with the release workflow so two runs never race on tags.
+concurrency:
+  group: version-tagging
+  cancel-in-progress: false
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0      # full history + all tags must be visible
+          fetch-tags: true
+
+      - name: Compute next patch version
+        id: ver
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Highest existing SemVer tag (v-prefixed only; CalVer tags are ignored).
+          latest="$(git tag -l 'v*.*.*' | sort -V | tail -n1)"
+          [ -z "$latest" ] && latest="v0.0.0"
+
+          core="${latest#v}"
+          IFS='.' read -r major minor patch <<< "$core"
+          patch=$((patch + 1))
+          next="v${major}.${minor}.${patch}"
+
+          echo "next=$next" >> "$GITHUB_OUTPUT"
+          echo "Bumping ${latest} -> ${next}"
+
+      - name: Tag the merge
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "${{ steps.ver.outputs.next }}"
+          git push origin "${{ steps.ver.outputs.next }}"
