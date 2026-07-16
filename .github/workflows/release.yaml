@@ -1,0 +1,386 @@
+name: Cut release
+
+# Manual release. Product owners pick "major" or "minor" from a dropdown.
+#
+# Bumps the internal SemVer accordingly, pushes both a SemVer tag
+# (canonical, for CI) and a CalVer tag (product-facing), then creates
+# a GitHub Release titled with the CalVer and auto-generated notes.
+#
+# SemVer is monotonic and never resets:
+#
+#   minor: v1.2.0 -> v1.3.0
+#   major: v1.2.0 -> v2.0.0
+#
+# CalVer uses YEAR.MAJOR.MINOR and resets each calendar year:
+#
+#   minor: 2026.1.0 -> 2026.1.1
+#   major: 2026.1.7 -> 2026.2.0
+#
+# The first release of a new calendar year is always YEAR.1.0.
+#
+# The SemVer and CalVer numbers diverge over time by design.
+# Both tags point to the same release commit.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: "Which part of the version to bump"
+        type: choice
+        required: true
+        default: minor
+        options:
+          - minor
+          - major
+
+permissions:
+  contents: write
+  id-token: write
+
+env:
+  RELEASE_DISPLAY_NAME: "Roman Notebooks"
+
+concurrency:
+  group: version-tagging
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Compute next version
+        id: ver
+        shell: bash
+        env:
+          RELEASE_TYPE: ${{ inputs.release_type }}
+        run: |
+          set -euo pipefail
+
+          echo "Selected release type: '$RELEASE_TYPE'"
+          echo "Workflow ref:          '$GITHUB_REF'"
+          echo "Workflow SHA:          '$GITHUB_SHA'"
+
+          case "$RELEASE_TYPE" in
+            major|minor)
+              ;;
+            *)
+              echo "::error::Unknown release type: '$RELEASE_TYPE'"
+              exit 1
+              ;;
+          esac
+
+          # Ensure all remote tags are available before calculating versions.
+          git fetch origin --force --tags
+
+          echo ""
+          echo "Existing SemVer tags:"
+          git tag --list 'v*' | sort -V || true
+
+          echo ""
+          echo "Existing CalVer tags:"
+          git tag --list '[0-9]*' | sort -V || true
+
+          # ------------------------------------------------------------
+          # SemVer: canonical, monotonic, never resets
+          #
+          # minor: v1.2.0 -> v1.3.0
+          # major: v1.2.0 -> v2.0.0
+          # ------------------------------------------------------------
+
+          latest_semver="$(
+            git tag --list 'v*.*.*' \
+              | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' \
+              | sort -V \
+              | tail -n1 \
+              || true
+          )"
+
+          if [ -z "$latest_semver" ]; then
+            latest_semver="v0.0.0"
+          fi
+
+          semver_core="${latest_semver#v}"
+          IFS='.' read -r s_major s_minor s_patch <<< "$semver_core"
+
+          case "$RELEASE_TYPE" in
+            major)
+              s_major=$((s_major + 1))
+              s_minor=0
+              s_patch=0
+              ;;
+            minor)
+              s_minor=$((s_minor + 1))
+              s_patch=0
+              ;;
+          esac
+
+          semver="v${s_major}.${s_minor}.${s_patch}"
+
+          # ------------------------------------------------------------
+          # CalVer: YEAR.MAJOR.MINOR
+          #
+          # minor: 2026.1.0 -> 2026.1.1
+          # major: 2026.1.7 -> 2026.2.0
+          #
+          # The first release of a new year is always YEAR.1.0.
+          # ------------------------------------------------------------
+
+          year="$(date -u +%Y)"
+
+          latest_calver="$(
+            git tag --list "${year}.*.*" \
+              | grep -E "^${year}\.[0-9]+\.[0-9]+$" \
+              | sort -V \
+              | tail -n1 \
+              || true
+          )"
+
+          if [ -z "$latest_calver" ]; then
+            echo ""
+            echo "No existing CalVer tag found for ${year}."
+            echo "Initializing the new year at ${year}.1.0."
+
+            c_major=1
+            c_minor=0
+          else
+            IFS='.' read -r tag_year old_c_major old_c_minor \
+              <<< "$latest_calver"
+
+            c_major="$old_c_major"
+            c_minor="$old_c_minor"
+
+            case "$RELEASE_TYPE" in
+              major)
+                c_major=$((c_major + 1))
+                c_minor=0
+                ;;
+              minor)
+                c_minor=$((c_minor + 1))
+                ;;
+            esac
+
+            # Guard against a minor release accidentally changing
+            # the CalVer major component.
+            if [ "$RELEASE_TYPE" = "minor" ]; then
+              expected_major="$old_c_major"
+              expected_minor=$((old_c_minor + 1))
+
+              if [ "$c_major" -ne "$expected_major" ]; then
+                echo "::error::A minor release unexpectedly changed the CalVer major component."
+                echo "::error::Previous: $latest_calver"
+                echo "::error::Computed: ${year}.${c_major}.${c_minor}"
+                exit 1
+              fi
+
+              if [ "$c_minor" -ne "$expected_minor" ]; then
+                echo "::error::A minor release did not increment the CalVer minor component correctly."
+                echo "::error::Expected: ${year}.${expected_major}.${expected_minor}"
+                echo "::error::Computed: ${year}.${c_major}.${c_minor}"
+                exit 1
+              fi
+            fi
+
+            # Guard against a major release producing anything other
+            # than the next major component followed by .0.
+            if [ "$RELEASE_TYPE" = "major" ]; then
+              expected_major=$((old_c_major + 1))
+
+              if [ "$c_major" -ne "$expected_major" ]; then
+                echo "::error::A major release did not increment the CalVer major component correctly."
+                exit 1
+              fi
+
+              if [ "$c_minor" -ne 0 ]; then
+                echo "::error::A major release did not reset the CalVer minor component to zero."
+                exit 1
+              fi
+            fi
+          fi
+
+          calver="${year}.${c_major}.${c_minor}"
+
+          # Prevent overwriting existing version tags.
+          if git rev-parse "$semver" >/dev/null 2>&1; then
+            echo "::error::SemVer tag already exists: $semver"
+            exit 1
+          fi
+
+          if git rev-parse "$calver" >/dev/null 2>&1; then
+            echo "::error::CalVer tag already exists: $calver"
+            exit 1
+          fi
+
+          echo "semver=$semver" >> "$GITHUB_OUTPUT"
+          echo "calver=$calver" >> "$GITHUB_OUTPUT"
+
+          echo ""
+          echo "Release calculation:"
+          echo "  Type:   $RELEASE_TYPE"
+          echo "  SemVer: $latest_semver -> $semver"
+          echo "  CalVer: ${latest_calver:-none} -> $calver"
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
+
+      - name: Bump roman-dataref-test version and pin requirements
+        shell: bash
+        env:
+          CALVER: ${{ steps.ver.outputs.calver }}
+        run: |
+          set -euo pipefail
+
+          sed -i \
+            "s/^version = .*/version = \"$CALVER\"/" \
+            pyproject.toml
+
+          while IFS= read -r -d '' requirements_file; do
+            sed -i \
+              "s|roman-dataref-test[^[:space:]]*|roman-dataref-test==$CALVER|g" \
+              "$requirements_file"
+          done < <(
+            find notebooks \
+              -type f \
+              -name requirements.txt \
+              -print0
+          )
+
+          echo "Updated pyproject.toml to version $CALVER"
+          echo ""
+          echo "Updated requirements references:"
+
+          grep -R \
+            --include='requirements.txt' \
+            -n \
+            "roman-dataref-test" \
+            notebooks \
+            || true
+
+      - name: Commit version bump
+        shell: bash
+        env:
+          CALVER: ${{ steps.ver.outputs.calver }}
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add pyproject.toml notebooks
+
+          if git diff --cached --quiet; then
+            current_version="$(sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml | head -n1)"
+            echo "::error::The version bump did not produce any file changes."
+            echo "::error::Computed CALVER: ${CALVER}"
+            echo "::error::Current pyproject.toml version: ${current_version:-unknown}"
+            echo "::error::If this is the first CalVer release for a new package name, create and push a bootstrap tag matching the current version (for example: git tag ${CALVER} && git push origin ${CALVER}), then rerun with release_type=minor."
+            exit 1
+          fi
+
+          git commit \
+            -m "Bump roman-dataref-test to ${CALVER}"
+
+      - name: Push version commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git push origin HEAD:main
+
+      - name: Build package
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python -m pip install --upgrade pip build
+          python -m build
+
+          echo ""
+          echo "Built distribution files:"
+          ls -lah dist/
+
+      # - name: Publish to PyPI
+      #   uses: pypa/gh-action-pypi-publish@release/v1
+      #   with:
+      #     password: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Publish package step disabled
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "PyPI publish is temporarily disabled in this workflow."
+
+      - name: Create and push tags
+        shell: bash
+        env:
+          SEMVER: ${{ steps.ver.outputs.semver }}
+          CALVER: ${{ steps.ver.outputs.calver }}
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git tag "$SEMVER"
+          git tag "$CALVER"
+
+          git push origin \
+            "refs/tags/$SEMVER" \
+            "refs/tags/$CALVER"
+
+      - name: Create GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CALVER: ${{ steps.ver.outputs.calver }}
+        run: |
+          set -euo pipefail
+
+          display_name="${RELEASE_DISPLAY_NAME:-}"
+
+          if [ -z "$display_name" ]; then
+            raw="${GITHUB_REPOSITORY##*/}"
+
+            display_name="$(
+              printf '%s' "$raw" \
+                | tr '-_' '  ' \
+                | awk '{
+                    for (i = 1; i <= NF; i++) {
+                      $i = toupper(substr($i, 1, 1)) substr($i, 2)
+                    }
+                  } 1'
+            )"
+          fi
+
+          gh release create "$CALVER" \
+            --title "${display_name} - ${CALVER}" \
+            --generate-notes \
+            --verify-tag \
+            --latest
+
+#      - name: Summary
+#        shell: bash
+#        env:
+#          RELEASE_TYPE: ${{ inputs.release_type }}
+#          CALVER: ${{ steps.ver.outputs.calver }}
+#          SEMVER: ${{ steps.ver.outputs.semver }}
+#        run: |
+#          {
+#            echo "### Release cut :rocket:"
+#            echo ""
+#            echo "| | |"
+#            echo "|---|---|"
+#            echo "| Type | \`$RELEASE_TYPE\` |"
+#            echo "| CalVer product version | \`$CALVER\` |"
+#            echo "| SemVer internal version | \`$SEMVER\` |"
+#            echo "| Commit | \`$GITHUB_SHA\` |"
+#          } >> "$GITHUB_STEP_SUMMARY"
