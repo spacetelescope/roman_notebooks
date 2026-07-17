@@ -8,6 +8,7 @@ Workflows are designed to help users explore Roman-style analysis patterns in th
 
 The Early Access release currently includes four WFI-focused Science Workflows: 
 
+- [Quickstart Workflow](./workflows/Intro_Workflow.md)
 - [WFI Data Simulation](./workflows/wfi-data-sim.md)
 - [WFI Data Analysis](./workflows/wfi-data-analysis.md)
 - [WFI Observation Planning](./workflows/wfi-obs-plan.md)
