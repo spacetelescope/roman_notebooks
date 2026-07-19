@@ -16,7 +16,7 @@ def _load_yaml(dependencies):
         return yaml.safe_load(req.content)
 
 
-def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope/roman_notebooks/2026.2.x/refdata_dependencies.yaml',
+def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope/roman_notebooks/main/refdata_dependencies.yaml',
                      verbose=True, packages=None):
     """
     PURPOSE
@@ -136,7 +136,7 @@ def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope
     return result
             
 def setup_env(result,
-              dependencies='https://raw.githubusercontent.com/spacetelescope/roman_notebooks/2026.2.x/refdata_dependencies.yaml',
+              dependencies='https://raw.githubusercontent.com/spacetelescope/roman_notebooks/main/refdata_dependencies.yaml',
               verbose=True):
     # Apply install_files results (existing behaviour)
     print('Reference data paths set to:')
