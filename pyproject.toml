@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "roman-dataref-test"
+version = "2026.1.1"
+description = "Reference data installer helper for Roman notebooks"
+readme = "README.md"
+requires-python = ">=3.9"
+license-files = []
+dependencies = [
+    "requests",
+    "pyyaml",
+]
+
+[tool.setuptools]
+py-modules = ["notebook_data_dependencies"]
+
+[tool.setuptools.package-dir]
+"" = "shared"
