@@ -17,9 +17,8 @@ on:
       - '*.css'
       - '*.js'
 
-      
 jobs:
-  notebook-ci:    
+  notebook-ci:
     uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
       execution-mode: 'pr'
@@ -31,11 +30,14 @@ jobs:
       enable-execution: true
       enable-storage: true                      # Store outputs to gh-storage on PR
       enable-html-build: false                  # Don't build HTML docs on PR
-      custom-runner-config: true  # Enable ci_config.txt lookup
+      crds-server-url: 'https://roman-crds.stsci.edu'
+      crds-context: 'roman_0048.pmap'
+      crds-path: '/home/runner/crds_cache'
+      pre-processing-script: 'shared/ci_data_dependencies.py'
+      custom-runner-config: true
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
-
 
 
 
