@@ -52,46 +52,79 @@ on:
         default: false
 
 jobs:
+
+  resolve-crds:
+    runs-on: ubuntu-latest
+    outputs:
+      crds_server_url: ${{ steps.export.outputs.crds_server_url }}
+      crds_context: ${{ steps.export.outputs.crds_context }}
+      crds_path: ${{ steps.export.outputs.crds_path }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.13
+
+      - name: Install local roman-dataref-test and export CRDS vars
+        id: export
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+          python - <<'PY'
+          import os
+          import notebook_data_dependencies as ndd
+          ndd.setup_env({}, verbose=False)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+            f.write(f"crds_server_url={os.environ.get('CRDS_SERVER_URL','')}\n")
+            f.write(f"crds_context={os.environ.get('CRDS_CONTEXT','')}\n")
+            f.write(f"crds_path={os.environ.get('CRDS_PATH','')}\n")
+          PY
+          
+
   validate-all:
     if: inputs.action_type == 'validate-all'
-    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
+    needs: resolve-crds
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
-      execution-mode: 'on-demand'
-      trigger-event: 'validate'
-      python-version: ${{ inputs.python_version }}
-      conda-environment: ${{ inputs.conda_environment }}
+      execution-mode: 'pr'
+      python-version: '3.13'                    # Adjust as needed
+      # conda-environment: 'hstcal'             # Uncomment and adjust for custom conda env
+      # custom-requirements: 'custom-reqs.txt'  # Uncomment for custom requirements
       enable-validation: true
       enable-security: false
       enable-execution: false
-      enable-storage: false
-      enable-html-build: false
-      crds-server-url: 'https://roman-crds.stsci.edu'
-      crds-context: 'roman_0048.pmap'
-      crds-path: '/home/runner/crds_cache'
-      pre-processing-script: 'shared/ci_data_dependencies.py'
-      custom-runner-config: true
+      enable-storage: false                      # Store outputs to gh-storage on PR
+      enable-html-build: false                  # Don't build HTML docs on PR
+      custom-runner-config: true  # Enable ci_config.txt lookup
+      crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
+      crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
+      crds-path: ${{ needs.resolve-crds.outputs.crds_path }}
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
 
   execute-all:
     if: inputs.action_type == 'execute-all'  
+    needs: resolve-crds
     uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
-      execution-mode: 'on-demand'
-      trigger-event: 'execute'
-      python-version: ${{ inputs.python_version }}
-      conda-environment: ${{ inputs.conda_environment }}
+      execution-mode: 'pr'
+      python-version: '3.13'                    # Adjust as needed
+      # conda-environment: 'hstcal'             # Uncomment and adjust for custom conda env
+      # custom-requirements: 'custom-reqs.txt'  # Uncomment for custom requirements
       enable-validation: false
       enable-security: false
       enable-execution: true
-      enable-storage: false
-      enable-html-build: false
-      crds-server-url: 'https://roman-crds.stsci.edu'
-      crds-context: 'roman_0048.pmap'
-      crds-path: '/home/runner/crds_cache'
-      pre-processing-script: 'shared/ci_data_dependencies.py'
-      custom-runner-config: true
+      enable-storage: false                      # Store outputs to gh-storage on PR
+      enable-html-build: false                  # Don't build HTML docs on PR
+      custom-runner-config: true  # Enable ci_config.txt lookup
+      crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
+      crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
+      crds-path: ${{ needs.resolve-crds.outputs.crds_path }}
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -254,7 +287,6 @@ jobs:
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
-
 
 
 
