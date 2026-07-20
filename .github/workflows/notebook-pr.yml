@@ -3,6 +3,8 @@
 
 name: Notebook CI - Pull Request
 
+env:
+  JDAVIZ_SKIP_DISPLAY: "true"  # prevents nbval timeouts with jdaviz in sidecar
 on:
   pull_request:
     branches: [ main ]
