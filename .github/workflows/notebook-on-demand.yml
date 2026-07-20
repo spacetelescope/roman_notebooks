@@ -51,6 +51,10 @@ on:
         type: boolean
         default: false
 
+
+env:
+  JDAVIZ_SKIP_DISPLAY: "true"  # prevents nbval timeouts with jdaviz in sidecar
+  
 jobs:
 
   resolve-crds:
