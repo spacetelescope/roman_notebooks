@@ -1,165 +1,256 @@
 import os
-import requests
+from pathlib import Path
 import tarfile
 import tempfile
+
+import requests
 import yaml
 
 
-def _load_yaml(dependencies):
-    """Load a YAML file from a local path or URL."""
-    if os.path.exists(dependencies):
-        with open(dependencies, 'r') as f:
-            return yaml.safe_load(f)
-    else:
-        req = requests.get(dependencies, allow_redirects=True, timeout=(10, 60))
-        req.raise_for_status()
-        return yaml.safe_load(req.content)
+_MANIFEST_NAME = "refdata_dependencies.yaml"
+_MANIFEST_ENV_VAR = "ROMAN_REFDATA_MANIFEST"
 
 
-def install_files(dependencies='https://raw.githubusercontent.com/spacetelescope/roman_notebooks/main/refdata_dependencies.yaml',
-                     verbose=True, packages=None):
+def _resolve_dependencies(dependencies=None):
     """
-    PURPOSE
-    -------
-    Retrieve ancillary reference data files needed for specific Python packages:
-        - pandeia
-        - STIPS
-        - STPSF
-        - synphot
-    
-    This code checks for each package that the appropriate environment variable exists 
-    and, if not, it downloads the reference data to the path indicated in the YAML 
-    instructions and returns instructions to the user for how to set the variables.
-    
-    INPUTS
-    ------
-    dependencies (str): A URL or local path to the YAML definition file for the data 
-    dependencies. The code will first check for the existence of the file locally, and 
-    if it does not exist then it will assume the input is a URL. The default is the URL 
-    of the file on the roman_notebooks GitHub repository. The YAML file should have the 
-    following format:
-            
-        package_name:  # Name of the package
-            version:  # Package version number for documentation
-            data_url:  # URL for each tarball to pull (can provide multiple, e.g., synphot)
-                - URL_1
-                ...
-                - URL_N
-            environment_variable:  # Environment variable to check or set up (e.g., PYSYN_CDBS)
-            install_path:  # Parent directory under which to install the reference data
-            data_path:  # Name of the folder that the reference data exists in
-                
-        The variable data_path is appended to install_path to give the final path to the reference
-        data in the file system.
+    Resolve the reference-data manifest used by the checked-out repository.
 
-    verbose (bool): Print messages to the standard out. Default is False.
-    
-    packages (None, list, str): List of packages for which to install reference data. This can
-    be a list of string package names, a comma separated string of package names, or None. If None, 
-    then install package reference data for all packages in the dependencies file. Default None.
-        
-    RETURNS
-    -------
-    results (dict): A dictionary for each environment variable with the value equal to the final
-        path to which the variable should be set.
+    Resolution order:
+    1. An explicitly supplied local path or URL.
+    2. The ROMAN_REFDATA_MANIFEST environment variable.
+    3. refdata_dependencies.yaml beside the checked-out repository.
+    4. refdata_dependencies.yaml in the current working directory.
+
+    Mutable GitHub branches such as ``main`` are deliberately not used as a
+    fallback because their manifest may not match the checked-out release.
     """
-    
-    # Check if dependencies is a local file. If not, retrieve it from the GitHub repo.
-    # This allows us to not have to maintain a copy in every notebook folder.
-    yf = _load_yaml(dependencies)['install_files']
-        
-    # If only installing certain packages, check that now and limit the dictionary to
-    # just those package keys.
+    if dependencies:
+        return str(dependencies)
+
+    override = os.environ.get(_MANIFEST_ENV_VAR)
+    if override:
+        return override
+
+    module_path = Path(__file__).resolve()
+    candidates = [
+        module_path.parent.parent / _MANIFEST_NAME,
+        Path.cwd() / _MANIFEST_NAME,
+    ]
+
+    for candidate in candidates:
+        if candidate.is_file():
+            return str(candidate)
+
+    checked = "\n".join(f"  - {candidate}" for candidate in candidates)
+    raise FileNotFoundError(
+        f"Could not locate {_MANIFEST_NAME}.\n"
+        f"Checked:\n{checked}\n"
+        f"Set {_MANIFEST_ENV_VAR} to an explicit local path or URL if the "
+        "manifest is stored elsewhere."
+    )
+
+
+def _load_yaml(dependencies=None):
+    """Load the dependency manifest from a local path or URL."""
+    dependencies = _resolve_dependencies(dependencies)
+
+    if os.path.isfile(dependencies):
+        with open(dependencies, "r", encoding="utf-8") as manifest:
+            return yaml.safe_load(manifest)
+
+    if dependencies.startswith(("http://", "https://")):
+        response = requests.get(
+            dependencies,
+            allow_redirects=True,
+            timeout=(10, 60),
+        )
+        response.raise_for_status()
+        return yaml.safe_load(response.content)
+
+    raise FileNotFoundError(
+        f"Dependency manifest does not exist: {dependencies}"
+    )
+
+
+def install_files(dependencies=None, verbose=True, packages=None):
+    """
+    Retrieve ancillary reference-data files needed by notebook packages.
+
+    Parameters
+    ----------
+    dependencies : str or pathlib.Path, optional
+        A local path or URL for the dependency manifest. When omitted, the
+        manifest belonging to the checked-out repository is used.
+
+        An explicit manifest can also be supplied through the
+        ROMAN_REFDATA_MANIFEST environment variable.
+
+    verbose : bool, optional
+        Print installation messages.
+
+    packages : None, list, or str, optional
+        Packages for which reference data should be installed. This may be a
+        list of package names, a comma-separated string, or None. When None,
+        data for every package in the manifest is installed.
+
+    Returns
+    -------
+    dict
+        Environment-variable names mapped to their installed paths and
+        whether those paths were already configured.
+    """
+    manifest = _load_yaml(dependencies)
+    install_definitions = manifest["install_files"]
+
     if packages:
         if isinstance(packages, str):
-            packages = packages.split(',')
-            
-        keys = yf.keys()
-        skips = [k  for k in keys if k not in packages]
-        for s in skips:
-            _ = yf.pop(s)
+            packages = [
+                package.strip()
+                for package in packages.split(",")
+                if package.strip()
+            ]
 
-    # Loop over packages defined in the dependencies dictionary.
-    home = os.environ.get('HOME', os.path.expanduser('~'))
+        install_definitions = {
+            package: definition
+            for package, definition in install_definitions.items()
+            if package in packages
+        }
+
+    home = os.environ.get("HOME", os.path.expanduser("~"))
     result = {}
-    for package in yf.keys():
-        envvar = yf[package]['environment_variable']
-        try:
-            test = os.environ[envvar]
-            if test == '***unset***':
-                raise KeyError('UNSET PATH')
+
+    for package, definition in install_definitions.items():
+        envvar = definition["environment_variable"]
+        existing_path = os.environ.get(envvar)
+
+        if existing_path and existing_path != "***unset***":
             if verbose:
-                print(f"Found {package} path {os.environ[envvar]}")
-            result[envvar] = {'path': os.environ[envvar], 'pre_installed': True}
-        except KeyError:
+                print(f"Found {package} path {existing_path}")
+
+            result[envvar] = {
+                "path": existing_path,
+                "pre_installed": True,
+            }
+            continue
+
+        if verbose:
+            print(
+                f"Did not find {package} data in environment, "
+                "setting it up..."
+            )
+
+        install_path = str(definition["install_path"]).replace(
+            "${HOME}",
+            home,
+        )
+        os.makedirs(install_path, exist_ok=True)
+
+        data_urls = definition["data_url"]
+        if isinstance(data_urls, str):
+            data_urls = [data_urls]
+
+        total_files = len(data_urls)
+
+        if verbose:
+            print("\tDownloading and uncompressing file...")
+            print(
+                f"\tFound {total_files} data URL(s) to download "
+                "and install..."
+            )
+
+        for index, url in enumerate(data_urls, start=1):
             if verbose:
-                print(f"Did not find {package} data in environment, setting it up...")
-            
-            # Get the path where the data should be installed. Resolve any environment variables.
-            env_path = yf[package]['install_path']
-            tmp_path = env_path.split('/')
-            tmp_path = [home if '${HOME}' in tp else tp for tp in tmp_path]
-            final_path = '/'.join(tmp_path)
-            
-            # Check if path directory structure exists. If not, make it.
-            if not os.path.isdir(final_path):
-                os.makedirs(final_path)
-            
-            # Download the tarball from the URL in the YAML file and extract the files.
-            tot_files = len(yf[package]['data_url'])
-            if verbose:
-                print(f"\tDownloading and uncompressing file...")
-                print(f"\tFound {tot_files} data URL(s) to download and install...")
-            for i, url in enumerate(yf[package]['data_url']):
-                if verbose:
-                    print(f"\tWorking on file {i+1} out of {tot_files}")
-                req = requests.get(url, allow_redirects=True, stream=True, timeout=(10, 300))
-                req.raise_for_status()
-                with tempfile.NamedTemporaryFile(dir=final_path, suffix='.tar.gz', delete=False) as tmp:
-                    tmp_name = tmp.name
-                    for chunk in req.iter_content(chunk_size=8192):
-                        tmp.write(chunk)
-                try:
-                    with tarfile.open(tmp_name) as tarball:
-                        tarball.extractall(path=final_path, filter='data')
-                finally:
-                    os.remove(tmp_name)
-    
-            # Messages to the user
-            if verbose:
-                print(f"\tUpdate environment variable with the following:")
-                print(f"\t\texport {yf[package]['environment_variable']}='{os.path.join(final_path, yf[package]['data_path'])}'")
-            result[envvar] = {'path': os.path.join(final_path, yf[package]['data_path']), 'pre_installed': False}
-            
-    # Return the environment variables and paths to the user as a dictionary so that they
-    # can be set programmatically.
+                print(f"\tWorking on file {index} out of {total_files}")
+
+            response = requests.get(
+                url,
+                allow_redirects=True,
+                stream=True,
+                timeout=(10, 300),
+            )
+            response.raise_for_status()
+
+            with tempfile.NamedTemporaryFile(
+                dir=install_path,
+                suffix=".tar.gz",
+                delete=False,
+            ) as temporary_file:
+                temporary_name = temporary_file.name
+
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        temporary_file.write(chunk)
+
+            try:
+                with tarfile.open(temporary_name) as tarball:
+                    tarball.extractall(
+                        path=install_path,
+                        filter="data",
+                    )
+            finally:
+                os.remove(temporary_name)
+
+        data_path = os.path.join(
+            install_path,
+            definition["data_path"],
+        )
+
+        if verbose:
+            print("\tUpdate environment variable with the following:")
+            print(f"\t\texport {envvar}='{data_path}'")
+
+        result[envvar] = {
+            "path": data_path,
+            "pre_installed": False,
+        }
+
     return result
-            
-def setup_env(result,
-              dependencies='https://raw.githubusercontent.com/spacetelescope/roman_notebooks/main/refdata_dependencies.yaml',
-              verbose=True):
-    # Apply install_files results (existing behaviour)
-    print('Reference data paths set to:')
-    for k, v in result.items():
-        if not v['pre_installed']:
-            os.environ[k] = v['path']
-        print(f"\t{k} = {v['path']}")
 
-    # Also apply other_variables from the YAML (CRDS vars, etc.)
-    yf = _load_yaml(dependencies)
-    other = yf.get('other_variables', {})
-    home = os.environ.get('HOME', os.path.expanduser('~'))
-    for key, value in other.items():
-        value = str(value).replace('${HOME}', home)
-        if not os.environ.get(key):  # treat missing or empty string the same
-            os.environ[key] = value
+
+def setup_env(result, dependencies=None, verbose=True):
+    """
+    Apply installed reference-data paths and other manifest variables.
+
+    Parameters
+    ----------
+    result : dict
+        The dictionary returned by install_files().
+
+    dependencies : str or pathlib.Path, optional
+        A local path or URL for the dependency manifest. When omitted, the
+        manifest belonging to the checked-out repository is used.
+
+    verbose : bool, optional
+        Print the environment variables being configured.
+    """
+    print("Reference data paths set to:")
+
+    for key, value in result.items():
+        if not value["pre_installed"]:
+            os.environ[key] = value["path"]
+
+        print(f"\t{key} = {value['path']}")
+
+    manifest = _load_yaml(dependencies)
+    other_variables = manifest.get("other_variables", {})
+    home = os.environ.get("HOME", os.path.expanduser("~"))
+
+    for key, value in other_variables.items():
+        resolved_value = str(value).replace("${HOME}", home)
+        existing_value = os.environ.get(key)
+
+        if not existing_value:
+            os.environ[key] = resolved_value
+
             if verbose:
-                print(f"\t{key} = {value}")
+                print(f"\t{key} = {resolved_value}")
         elif verbose:
-            print(f"\t{key} = {os.environ[key]} (pre-set, not overwritten)")
+            print(
+                f"\t{key} = {existing_value} "
+                "(pre-set, not overwritten)"
+            )
 
 
-if __name__ == 'main':
-
-    install_files()
-    
+if __name__ == "__main__":
+    installation_result = install_files()
+    setup_env(installation_result)
