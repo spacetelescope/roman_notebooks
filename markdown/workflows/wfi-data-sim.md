@@ -18,13 +18,21 @@ This science workflow guides users through the simulation, processing, manipulat
   
   Process Roman WFI raw (L1) data into exposure-level (L2) products using RomanCal, the Roman science calibration pipeline. This stage corrects instrumental effects and collapses ramp data into rate images suitable for scientific analysis. To learn more about the overall exposure level pipeline visit the [RDox documentation]([https://roman-docs.stsci.edu/data-handbook-home/roman-stsci-data-pipelines/exposure-level-pipeline](https://roman-docs.stsci.edu/data-handbook-home/roman-data-pipelines/exposure-level-pipeline)).
  
-- [**Data Visualization**](../../notebooks/data_visualization/data_visualization.ipynb)
+- **Data Visualization**
 
-  Visualize Roman WFI exposure-level products using Matplotlib and Imviz. This step focuses on quick-look inspection and basic analysis of calibrated L2 images. Imviz is based on the Jupyter platform and includes built-in Astropy functionality. For additional background information, consult [Imviz documentation on ReadTheDocs](https://jdaviz.readthedocs.io/en/latest/imviz/index.html).
+  Visualize Roman WFI exposure-level products using Matplotlib and Jdaviz. This step focuses on quick-look inspection and basic analysis of calibrated L2 images. Imviz is based on the Jupyter platform and includes built-in Astropy functionality. For additional background information, consult [Jdaviz documentation on ReadTheDocs](https://jdaviz.readthedocs.io/en/latest/imviz/index.html).
+
+   - [Using Matplotlib](../../notebooks/data_visualization/data_visualization.ipynb)
+   - [Using JDaviz](../../notebooks/data_visualization/jdaaviz_data_visualization.ipynb)
 
 - [**Mosaic Pipeline**](../../notebooks/mosaic_pipeline/mosaic_pipeline.ipynb)
 
   Combine multiple exposure-level (L2) products into mosaic-level (L3) images using RomanCal. The mosaic pipeline aligns, distortion-corrects, and coadds individual detector exposures to produce deeper, wide-field images. To learn more about the overall mosaic level pipeline visit the [RDox documentation](https://roman-docs.stsci.edu/data-handbook-home/roman-data-pipelines/mosaic-level-pipeline).
+
+- [**Core Community Survey**](../../notebooks/ccs_simulations/ccs_simulations.ipynb)
+
+Explore a suite of simulated data products based on downscaled versions of the Roman Core Community Survey (CCS) programs. These simulated products were created to test the SOC data pipelines and provide sufficient scientific fidelity. These simulations do not necessarily include everything that may be observed on-orbit. Specifically, the simulations *do not include time-variable sources.* More details on what is included in the simulations are provided in the descriptions of each simulation set.
+ 
 
 <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-data-sim.jpg" alt="WFI Data Analysis Workflow" width="250" />
 
