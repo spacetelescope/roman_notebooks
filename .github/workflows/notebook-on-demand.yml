@@ -51,6 +51,7 @@ on:
         type: boolean
         default: false
 
+
 env:
   JDAVIZ_SKIP_DISPLAY: "true"  # prevents nbval timeouts with jdaviz in sidecar
   
@@ -93,8 +94,7 @@ jobs:
     needs: resolve-crds
     uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
-      execution-mode: 'on-demand'
-      trigger-event: 'validate'
+      execution-mode: 'pr'
       python-version: '3.13'                    # Adjust as needed
       # conda-environment: 'hstcal'             # Uncomment and adjust for custom conda env
       # custom-requirements: 'custom-reqs.txt'  # Uncomment for custom requirements
@@ -116,8 +116,7 @@ jobs:
     needs: resolve-crds
     uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
-      execution-mode: 'on-demand'
-      trigger-event: 'execute'
+      execution-mode: 'pr'
       python-version: '3.13'                    # Adjust as needed
       # conda-environment: 'hstcal'             # Uncomment and adjust for custom conda env
       # custom-requirements: 'custom-reqs.txt'  # Uncomment for custom requirements
@@ -152,6 +151,7 @@ jobs:
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
 
   validate-single:
+    needs: resolve-crds
     if: inputs.action_type == 'validate-single'
     uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
@@ -165,16 +165,16 @@ jobs:
       enable-execution: false
       enable-storage: false
       enable-html-build: false
-      crds-server-url: 'https://roman-crds.stsci.edu'
-      crds-context: 'roman_0048.pmap'
-      crds-path: '/home/runner/crds_cache'
-      pre-processing-script: 'shared/ci_data_dependencies.py'
-      custom-runner-config: true
+      custom-runner-config: true  # Enable ci_config.txt lookup
+      crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
+      crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
+      crds-path: ${{ needs.resolve-crds.outputs.crds_path }}
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
 
   execute-single:
+    needs: resolve-crds
     if: inputs.action_type == 'execute-single'
     uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
@@ -188,16 +188,16 @@ jobs:
       enable-execution: true
       enable-storage: false
       enable-html-build: false
-      crds-server-url: 'https://roman-crds.stsci.edu'
-      crds-context: 'roman_0048.pmap'
-      crds-path: '/home/runner/crds_cache'
-      pre-processing-script: 'shared/ci_data_dependencies.py'
-      custom-runner-config: true
+      custom-runner-config: true  # Enable ci_config.txt lookup
+      crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
+      crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
+      crds-path: ${{ needs.resolve-crds.outputs.crds_path }}
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
 
   full-pipeline-all:
+    needs: resolve-crds
     if: inputs.action_type == 'full-pipeline-all'
     uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
@@ -210,16 +210,16 @@ jobs:
       enable-execution: true
       enable-storage: true
       enable-html-build: true
-      crds-server-url: 'https://roman-crds.stsci.edu'
-      crds-context: 'roman_0048.pmap'
-      crds-path: '/home/runner/crds_cache'
-      pre-processing-script: 'shared/ci_data_dependencies.py'
-      custom-runner-config: true
+      custom-runner-config: true  # Enable ci_config.txt lookup
+      crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
+      crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
+      crds-path: ${{ needs.resolve-crds.outputs.crds_path }}
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
 
   full-pipeline-single:
+    needs: resolve-crds
     if: inputs.action_type == 'full-pipeline-single'
     uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
@@ -233,11 +233,10 @@ jobs:
       enable-execution: true
       enable-storage: true
       enable-html-build: true
-      crds-server-url: 'https://roman-crds.stsci.edu'
-      crds-context: 'roman_0048.pmap'
-      crds-path: '/home/runner/crds_cache'
-      pre-processing-script: 'shared/ci_data_dependencies.py'
-      custom-runner-config: true
+      custom-runner-config: true  # Enable ci_config.txt lookup
+      crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
+      crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
+      crds-path: ${{ needs.resolve-crds.outputs.crds_path }}
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
