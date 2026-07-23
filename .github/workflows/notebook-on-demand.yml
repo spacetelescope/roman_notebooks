@@ -104,6 +104,7 @@ jobs:
       enable-execution: false
       enable-storage: false                      # Store outputs to gh-storage on PR
       enable-html-build: false                  # Don't build HTML docs on PR
+      enable-a11y-nb-check: false
       custom-runner-config: true  # Enable ci_config.txt lookup
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
@@ -126,6 +127,7 @@ jobs:
       enable-execution: true
       enable-storage: false                      # Store outputs to gh-storage on PR
       enable-html-build: false                  # Don't build HTML docs on PR
+      enable-a11y-nb-check: false
       custom-runner-config: true  # Enable ci_config.txt lookup
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
@@ -147,6 +149,7 @@ jobs:
       enable-execution: false
       enable-storage: false
       enable-html-build: false
+      enable-a11y-nb-check: false
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
