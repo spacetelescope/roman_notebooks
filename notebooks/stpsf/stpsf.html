@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,6 +61,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/stpsf/stpsf';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Roman WFI Synthetic Photometry with synphot" href="../synphot/synphot.html" />
@@ -68,20 +69,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -107,7 +114,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -171,6 +222,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -409,7 +461,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
@@ -423,6 +475,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bulk-psf-generation">Bulk PSF generation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">What’s Next</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
 </ul>
@@ -461,11 +514,68 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">notebook_data_dependencies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ndd</span>
+
+<span class="c1"># Download reference data if necessary</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stpsf&#39;</span><span class="p">,</span> <span class="s1">&#39;synphot&#39;</span><span class="p">])</span>
+<span class="n">ndd</span><span class="o">.</span><span class="n">setup_env</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span><span class="p">,</span> <span class="n">rcParams</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogNorm</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">stpsf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Did not find stpsf data in environment, setting it up...
+	Downloading and uncompressing file...
+	Found 1 data URL(s) to download and install...
+	Working on file 1 out of 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
+		export STPSF_PATH=&#39;/home/runner/refdata/stpsf-data&#39;
+Did not find synphot data in environment, setting it up...
+	Downloading and uncompressing file...
+	Found 9 data URL(s) to download and install...
+	Working on file 1 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 2 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 3 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 4 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 5 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 6 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 7 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 8 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 9 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
+		export PYSYN_CDBS=&#39;/home/runner/refdata/grp/redcat/trds/&#39;
+Reference data paths set to:
+	STPSF_PATH = /home/runner/refdata/stpsf-data
+	PYSYN_CDBS = /home/runner/refdata/grp/redcat/trds/
+	CRDS_SERVER_URL = https://roman-crds.stsci.edu (pre-set, not overwritten)
+	CRDS_CONTEXT = roman-edit (pre-set, not overwritten)
+	CRDS_OBSERVATORY = roman
+	CRDS_PATH = /home/runner/crds_cache (pre-set, not overwritten)
 </pre></div>
 </div>
 </div>
@@ -496,7 +606,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2b1eb3db40629745f1fe009ac2082db9ff42fbdf8209ad53993343e3a8937a47.png" src="../../_images/2b1eb3db40629745f1fe009ac2082db9ff42fbdf8209ad53993343e3a8937a47.png" />
+<img alt="../../_images/f9db2d0a2b0477bdd0ad2734908b9a1c59efae8039c07608a764c0cae755eaf4.png" src="../../_images/f9db2d0a2b0477bdd0ad2734908b9a1c59efae8039c07608a764c0cae755eaf4.png" />
 </div>
 </div>
 <p>As you can see above, the calculation was performed at one wavelength (0.6225 microns). Suppose we want to make a monochromatic PSF at some other wavelength, we can do that using the <code class="docutils literal notranslate"><span class="pre">monochromatic</span></code> argument, which should be set to the desired wavelength in units of meters. For example, we can use the pivot wavelength of the bandpass:</p>
@@ -510,7 +620,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e3af2dd1cc0de5b03c9b706bcff215554197d7fe3beeca878754eaa4681862d2.png" src="../../_images/e3af2dd1cc0de5b03c9b706bcff215554197d7fe3beeca878754eaa4681862d2.png" />
+<img alt="../../_images/fe93344320e82d918e4a2069778a1ac7bd88b0c6a0552e0ea90f12472eea7b9a.png" src="../../_images/fe93344320e82d918e4a2069778a1ac7bd88b0c6a0552e0ea90f12472eea7b9a.png" />
 </div>
 </div>
 <p>The resulting object (in this case, the variable <code class="docutils literal notranslate"><span class="pre">default_psf</span></code>) contains a list of four FITS extensions containing idealized PSF images. <code class="docutils literal notranslate"><span class="pre">OVERSAMP</span></code> splits the detector’s original number of pixels by the oversampling factor specified upon creation of the PSFs (by default, 4) while <code class="docutils literal notranslate"><span class="pre">DET_SAMP</span></code> retains the native pixel sampling. Similarly, the <code class="docutils literal notranslate"><span class="pre">OVERDIST</span></code> and <code class="docutils literal notranslate"><span class="pre">DET_DIST</span></code> extensions represent the oversampled and native pixel sampling with distortion applied.</p>
@@ -539,7 +649,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/939ec2cddeb225cdb99ffca27e2239a98cb79cdb8afd17e3fbf996a605a46a49.png" src="../../_images/939ec2cddeb225cdb99ffca27e2239a98cb79cdb8afd17e3fbf996a605a46a49.png" />
+<img alt="../../_images/ea6c1af3a3354fdc039e926a35c988b1cb02bd068b6bebf5d7168893f6c2ef39.png" src="../../_images/ea6c1af3a3354fdc039e926a35c988b1cb02bd068b6bebf5d7168893f6c2ef39.png" />
 </div>
 </div>
 <p>We can use any of the extensions in the <code class="docutils literal notranslate"><span class="pre">default_psf</span></code> variable that we created in the plotting routine demonstrated above. The PSF object also contains a method (<code class="docutils literal notranslate"><span class="pre">.writeto()</span></code>) for saving the PSF model to disk:</p>
@@ -596,7 +706,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3374d3a969c8019a73f048de070cee8b787ec8158d3f56be429cbbe9cda7596a.png" src="../../_images/3374d3a969c8019a73f048de070cee8b787ec8158d3f56be429cbbe9cda7596a.png" />
+<img alt="../../_images/1076f0beee557fdd0a5c2e4c63172f9790a8ca01a481ca04daa32f65fb533e1b.png" src="../../_images/1076f0beee557fdd0a5c2e4c63172f9790a8ca01a481ca04daa32f65fb533e1b.png" />
 </div>
 </div>
 </section>
@@ -615,7 +725,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/39badf33b2c3ac17315aa6a817bcbb86a10e7c3ec76891ec2512d5992a420d8a.png" src="../../_images/39badf33b2c3ac17315aa6a817bcbb86a10e7c3ec76891ec2512d5992a420d8a.png" />
+<img alt="../../_images/b63c44f696c64cb4530ead81329a68cb873188a2b1bb664f3c9508dba91ec0fb.png" src="../../_images/b63c44f696c64cb4530ead81329a68cb873188a2b1bb664f3c9508dba91ec0fb.png" />
 </div>
 </div>
 </section>
@@ -739,11 +849,11 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
     Position 4/9: (2048, 0) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 4/9 centroid: (np.float64(201.1917606258049), np.float64(202.00693468941535))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 4/9 centroid: (np.float64(201.1917606258049), np.float64(202.00693468941537))
     Position 5/9: (2048, 2048) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 5/9 centroid: (np.float64(201.19077998247153), np.float64(202.11822463738824))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 5/9 centroid: (np.float64(201.19077998247155), np.float64(202.11822463738827))
     Position 6/9: (2048, 4095) pixels
 </pre></div>
 </div>
@@ -777,11 +887,11 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.004527894336, 4076.4944958472947)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 6/9 centroid: (np.float64(201.2469947193439), np.float64(202.17667513400622))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 6/9 centroid: (np.float64(201.2469947193439), np.float64(202.17667513400625))
     Position 7/9: (4095, 0) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 7/9 centroid: (np.float64(201.29308955252677), np.float64(202.01678300638108))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 7/9 centroid: (np.float64(201.2930895525268), np.float64(202.01678300638108))
     Position 8/9: (4095, 2048) pixels
 </pre></div>
 </div>
@@ -819,7 +929,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.0044053456836, 4076.9953521911784)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 9/9 centroid: (np.float64(201.3558393519906), np.float64(202.24405439713556))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 9/9 centroid: (np.float64(201.3558393519906), np.float64(202.24405439713559))
 </pre></div>
 </div>
 </div>
@@ -832,7 +942,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/92d633dcfde8a7ce5aed30098b99081011b3f85b8dad6cf6e1559c9987860636.png" src="../../_images/92d633dcfde8a7ce5aed30098b99081011b3f85b8dad6cf6e1559c9987860636.png" />
+<img alt="../../_images/6b0554ea77a9cf330059ee0921a9cc11375e948712e273a809a348c23bc5ae84.png" src="../../_images/6b0554ea77a9cf330059ee0921a9cc11375e948712e273a809a348c23bc5ae84.png" />
 </div>
 </div>
 <p>Next let’s look at the delta plot, which subtracts the mean from each PSF to show the variation across the detector:</p>
@@ -843,7 +953,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/519540b5ccd0733e63b81cf7de90b10985dcc7e488eb13f6ef0d9adaadd59576.png" src="../../_images/519540b5ccd0733e63b81cf7de90b10985dcc7e488eb13f6ef0d9adaadd59576.png" />
+<img alt="../../_images/235919ca66a77dca18e64557770f0fc64f929308dd8f8e5d006d80d4e09cf8a4.png" src="../../_images/235919ca66a77dca18e64557770f0fc64f929308dd8f8e5d006d80d4e09cf8a4.png" />
 </div>
 </div>
 <p>With a PSF grid in hand, you can use a package like <code class="docutils literal notranslate"><span class="pre">photutils</span></code> to estimate PSFs at any given detector position by interpolation without the need to calculate each PSF individually. This is a major time-saver in source-heavy scientific use cases. We do this by using the <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code> method to determine the flux of any pixel relative to a PSF at any location. In the cell below, we will evaluate the flux per pixel around a PSF at position (X, Y) = (1000, 2000). We make a pixel grid around that position with 50 pixels on a side. We then pass each pixel position into the evaluate function and display the values that are returned for each pixel position. We have chosen to set the integrated flux of the PSF to a value of 1 in arbitrary units, which can then be conveniently scaled to the desired flux in other applications.</p>
@@ -863,13 +973,23 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc0c4e13b10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f6c3529d730&gt;
 </pre></div>
 </div>
-<img alt="../../_images/ed814d1d49f78a72d33aea5f983cc76331f6f910bf37dce280df19f424870d3a.png" src="../../_images/ed814d1d49f78a72d33aea5f983cc76331f6f910bf37dce280df19f424870d3a.png" />
+<img alt="../../_images/ed64460d12219772f8133322783b2deca3551c8abcaaa7f036f36a2adb4d86a6.png" src="../../_images/ed64460d12219772f8133322783b2deca3551c8abcaaa7f036f36a2adb4d86a6.png" />
 </div>
 </div>
 </section>
+</section>
+<section id="what-s-next">
+<h2>What’s Next<a class="headerlink" href="#what-s-next" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Learn to estimate observed fluxes for spectral energy distributions in the <a class="reference internal" href="../synphot/synphot.html"><span class="std std-doc">Synphot Notebook</span></a>.</p></li>
+<li><p>Use the <a class="reference internal" href="../pandeia/pandeia.html"><span class="std std-doc">Pandeia Notebook</span></a> to quantitatively define exposure parameters required to achieve science goals.</p></li>
+<li><p>Simulate realistic astronomical scenes over a full WFI field of view or multiple detectors in the <a class="reference internal" href="../stips/stips.html"><span class="std std-doc">STIPS Notebook</span></a>.</p></li>
+<li><p>Determine if astronomical source coordinates are within a survey footprint, as well as on-sky visualizations, with the <a class="reference internal" href="../footprint_visualization/footprint_visualization.html"><span class="std std-doc">Footprint Visualization Tool Notebook</span></a>.</p></li>
+<li><p>Explore time-variable sky background components as a function of sky position and calendar date with the <a class="reference internal" href="../background_visualization_tool/RBVT.html"><span class="std std-doc">Roman Background Visualization Tool Notebook</span></a>.</p></li>
+</ul>
 </section>
 <section id="additional-resources">
 <h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
@@ -883,7 +1003,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <section id="about-this-notebook">
 <h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
 <p><strong>Authors:</strong> Justin Otor, Eunkyu Han, Tyler Desjardins, Charles-Philippe Lajoie<br />
-<strong>Updated On:</strong> 2025-05-26</p>
+<strong>Update Overview:</strong> 2026-07-24, Added What’s Next section.</p>
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
@@ -908,16 +1028,16 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "roman-cal"
+            mode: "python"
         },
         kernelOptions: {
-            name: "roman-cal",
+            name: "python3",
             path: "./notebooks/stpsf"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'roman-cal'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -964,7 +1084,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
@@ -978,6 +1098,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bulk-psf-generation">Bulk PSF generation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">What’s Next</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
 </ul>
@@ -1028,8 +1149,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

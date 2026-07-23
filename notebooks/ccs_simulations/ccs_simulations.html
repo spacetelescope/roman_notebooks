@@ -1,0 +1,2528 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Core Community Survey Simulations &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/ccs_simulations/ccs_simulations';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/ccs_simulations/ccs_simulations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/ccs_simulations/ccs_simulations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Core Community Survey Simulations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#galactic-bulge-time-domain-survey-gbtds">Galactic Bulge Time-Domain Survey (GBTDS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-program-design">Simulation Program Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-catalog">Input Catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-settings-and-caveats">Simulation Settings and Caveats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-products">Simulated Products</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-organization-on-s3">Data Organization on S3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-latitude-wide-area-survey-hlwas">High-Latitude Wide-Area Survey (HLWAS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Simulation Program Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Input Catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Simulation Settings and Caveats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Simulated Products</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Data Organization on S3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-and-examples">Data Access and Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-in-the-simulation">Searching for Data in the Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cone-searches">Cone Searches</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#time-search">Time Search</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-search">Metadata Search</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-search-putting-it-all-together">Compound Search (Putting it All Together)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-other-file-types">Retrieving Other File Types</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-and-opening-input-catalogs">Finding and Opening Input Catalogs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-data-products-into-memory">Streaming Data Products into Memory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-soc-catalog-products">Accessing SOC Catalog Products</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#making-gbtds-l4-products">Making GBTDS L4 Products</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correcting-gbtds-simulation-wcs">Correcting GBTDS Simulation WCS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">What’s Next</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="core-community-survey-simulations">
+<h1>Core Community Survey Simulations<a class="headerlink" href="#core-community-survey-simulations" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The Roman Science Operations Center (SOC) has created a suite of simulated data products based on downscaled versions of the Roman Core Community Survey (CCS) programs. The goal of these simulated products was primarily to test the SOC data pipelines and, potentially, other mission pipelines at a scale similar to that expected during science operations. As such, these simulations provide sufficient scientific fidelity to test the SOC pipelines and do not necessarily include everything that may be observed on-orbit. Specifically, the simulations <strong>do not include time-variable sources.</strong> More details on what is included in the simulations are provided in the descriptions of each simulation set below.</p>
+<p>Note that we have only simulated the three CCS programs, and even then, only subsets of these programs. We have neither included the Galactic Plane Survey (GPS), which, despite being community-defined, is not a CCS program, nor any General Astrophysics Survey (GAS) example programs in the simulations.</p>
+<p>These simulated data products were generated by creating Level 1 (L1) uncalibrated ramps with Roman I-Sim, and then processing those L1 products through the Exposure Level Pipeline to produce Level 2 (L2) calibrated rate images. For the High-Latitude Wide-Area Survey (HLWAS), the L2 products were further processed with the Mosaic Pipeline to create Level 3 (L3) co-added mosaic images.</p>
+<p>In this tutorial, in addition to documentation about the simulations, we provide manifest files of the simulation products stored on AWS S3 and show how to perform searches (i.e., cone searches, metadata searches) and retrieve the data from AWS S3.</p>
+<p>In this tutorial, you will:</p>
+<ul class="simple">
+<li><p>Learn how to search for and retrieve SOC simulated data products for the High-Latitude Wide-Area and Galactic Bulge Time-Domain Surveys</p></li>
+<li><p>Access input catalogs for the simulations</p></li>
+<li><p>Work with simulated products including visualizations and catalog data</p></li>
+<li><p>Correct the Galactic Bulge simulation WCS</p></li>
+</ul>
+<p><strong>If you want to skip the simulation descriptions and other information,</strong> you can also go directly to <a class="reference internal" href="#data_access"><span class="xref myst">Data Access and Examples</span></a>.</p>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><em>astropy.coordinates</em> - For celestial coordinate operations.</p></li>
+<li><p><em>astropy_healpix</em> - For working with HEALPixels.</p></li>
+<li><p><em>astropy.io</em> - For accessing FITS tables.</p></li>
+<li><p><em>astropy.table</em> - For reading manifest files.</p></li>
+<li><p><em>astropy.time</em> - For working with time objects.</p></li>
+<li><p><em>astropy.visualization</em> - For normalizing images for display.</p></li>
+<li><p><em>astropy.units</em> - For unit operations.</p></li>
+<li><p><em>fix_gbtds_wcs</em> - For updating GBTDS simulation World Coordinate System objects.</p></li>
+<li><p><em>healpy</em> - For working with HEALPixels.</p></li>
+<li><p><em>matplotlib.pyplot</em> - For plotting images.</p></li>
+<li><p><em>numpy</em> - For array operations.</p></li>
+<li><p><em>os</em> - For working with paths.</p></li>
+<li><p><em>romancal.step</em> - For access Roman science data pipeline processing steps.</p></li>
+<li><p><em>roman_datamodels</em> - For opening Roman WFI data products.</p></li>
+<li><p><em>s3fs</em> - For connecting to an AWS S3 bucket and streaming files into memory.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkyCoord</span><span class="p">,</span> <span class="n">Galactic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy_healpix</span><span class="w"> </span><span class="kn">import</span> <span class="n">HEALPix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.time</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span><span class="p">,</span> <span class="n">TimeDelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.visualization</span><span class="w"> </span><span class="kn">import</span> <span class="n">simple_norm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fix_gbtds_wcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">update_wcs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">healpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">romancal.step</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="galactic-bulge-time-domain-survey-gbtds">
+<h2>Galactic Bulge Time-Domain Survey (GBTDS)<a class="headerlink" href="#galactic-bulge-time-domain-survey-gbtds" title="Link to this heading">#</a></h2>
+<section id="simulation-program-design">
+<h3>Simulation Program Design<a class="headerlink" href="#simulation-program-design" title="Link to this heading">#</a></h3>
+<p>The GBTDS simulation was designed primarily to test SOC data processing performance requirements at the scale expected to support on-orbit GBTDS observations. To this end, we simulated approximately one week (7.8 days) of typical GBTDS observations, i.e.:</p>
+<ol class="arabic simple">
+<li><p>F146 observations every ~12.1 minutes;</p></li>
+<li><p>F087 and F213 observations every ~12 hours;</p></li>
+<li><p>and a series of snapshot observations in F062, F106, F219, F158, and F184.</p></li>
+</ol>
+<p>The simulation APT program was designed to mimic the on-orbit implementation of the GBTDS at the time the simulations were run (approximately February 2026). This includes standard subpixel dither patterns for the snapshot observations (i.e., the subpixel patterns were selected from the options in APT) and custom subpixel dither patterns using mosaic patterns for the timeseries observations. The footprint of the GBTDS simulation is shown in Figure 1 below:</p>
+<center>
+    <div style="width: 70%">
+        <img src="gbtds_footprint.png" width="80%" height="auto"> </ br>
+        <b>Figure 1:</b> Footprint of the GBTDS Simulation. Each color shown corresponds to a single pointing of the WFI. The GBTDS simulation uses the fall season mosaic pattern with six fields: five in a strip along the Galactic plane and a single field overlapping the Galactic Center. The axes show Galactic coordinates (longitude on the X-axis and latitude on the Y-axis) in units of degrees.
+    </div>
+</center>
+</section>
+<section id="input-catalog">
+<h3>Input Catalog<a class="headerlink" href="#input-catalog" title="Link to this heading">#</a></h3>
+<p>The input catalog for the GBTDS simulation was created using the population synthesis code <a class="reference external" href="https://synthpop.readthedocs.io/en/latest/">Synthpop</a> (version 1.0.4; <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025AJ....169..317K/abstract">Klüter et al. 2025</a>). Note that we simulated only point sources and no extended sources for the GBTDS simulation, though it is expected there will be extended sources visible in the real GBTDS data. We used <a class="reference external" href="https://stev.oapd.inaf.it/cgi-bin/cmd">PARSEC</a> isochrones updated to the March 2024 Roman WFI filter throughput curves. For each imaging filter, we averaged the throughput curves from each of the 18 WFI detectors into an average filter throughput curve to reduce the complexity of the simulation inputs, i.e., rather than different input catalogs per detector each containing all sources, a single input catalog could be used for sources on any detector. We set the limiting magnitude of the population synthesis to be $m_{\mathrm{F146}} = 26.4$ AB magnitudes, which corresponds to a signal-to-noise ratio S/N = 1 in a single exposure.</p>
+<p>The input catalog was broken down into HEALPixels (<a class="reference external" href="https://iopscience.iop.org/article/10.1086/427976/pdf">Górski et al. 2004</a>) with $n_{\mathrm{side}} = 512$ and saved as FITS tables for input into Roman I-Sim. With a value of $n_{\mathrm{side}} = 512$, HEALPixels are approximately the same size (6.9 arcminutes on a side) to individual WFI detectors (7.5 arcminutes on a side). Note that to conform to Roman I-Sim expectations, the HEALPixels were defined in Galactic Coordinates using the NESTED ordering scheme, with filenames of the input catalogs like <code class="docutils literal notranslate"><span class="pre">{HEALPixel_ID}-cat.fits</span></code>. We generated input catalogs for all HEALPixels that partially touched a WFI detector using the pointing information from the APT program of the simulation, and, to be sure there was contiguous coverage of the simulation footprint, we grew the list of HEALPixels by one in all directions. Figure 2 shows the number of sources per HEALPixel in the GBTDS simulation:</p>
+<center>
+    <div style="width: 70%">
+        <img src="gbtds_healpix_count.png" width="80%" height="auto"> </ br>
+        <b>Figure 2:</b> Number of simulated point sources per HEALPixel in the GBTDS simulation footprint. The axes are the same as in Figure 1. The colorbar uses a log scale such that the numbers correspond to log<sub>10</sub><i>(N)</i>, where <i>N</i> is the number of point sources in a HEALPixel tile. The HEALPixels use an <i>n</i><sub>side</sub> value of 512. The axes show Galactic coordinates (longitude on the X-axis and latitude on the Y-axis) in units of degrees.
+    </div>
+</center><br />
+<p>The number of sources ranged from 3.5 – 13.2 million stars per HEALPixel. In addition to creating a realistic mix of spectral types and luminosity classes within the GBTDS footprint, the simulation also included dust reddening and extinction, as well as star clustering. Several artifacts are present in the input catalog, such as large-scale (~100-pixel) features related to the dust map resolution and simple assumptions used by Synthpop; however, these are not expected to affect pipeline testing and are likely only cosmetic.</p>
+<p><a id="gbtds_caveats"></a></p>
+</section>
+<section id="simulation-settings-and-caveats">
+<h3>Simulation Settings and Caveats<a class="headerlink" href="#simulation-settings-and-caveats" title="Link to this heading">#</a></h3>
+<p>The GBTDS simulation used the following major package versions in the SOC Data Management Subsystem (DMS) High-Level Processing Partition (HLPP) TEST environment:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Package Name</p></th>
+<th class="head text-right"><p>Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>romanisim</p></td>
+<td class="text-right"><p>0.12.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>romancal</p></td>
+<td class="text-right"><p>0.22.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>roman_datamodels</p></td>
+<td class="text-right"><p>0.29.1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>rad</p></td>
+<td class="text-right"><p>0.29.1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The Calibration Reference Data System (CRDS) context was set to <code class="docutils literal notranslate"><span class="pre">roman_0043.pmap</span></code>.</p>
+<p>Note that the quality of the reference files impacts the quality of the simulated data. At the time the simulation was run, the reference files were still being updated and were largely based on older ground-based test data, or in some cases they were placeholders (such as the dark rate).</p>
+<p>Roman I-Sim version 0.12.0 was released to improve the performance of point source simulations and did not simulate dark decay, integral non-linearity (INL), or WFI18 high-amplitude transient effects, which were identified in WFI thermal vacuum (TVAC) data. However, RomanCal version 0.22.0, which is required to process L1 products generated by Roman I-Sim 0.12.0, does include corrections for dark decay, INL, and the WFI18 transient effects. Therefore, the simulated GBTDS Level 2 (L2) calibrated rate images are <em><strong>overcorrected</strong></em> for these effects. To summarize the impacts:</p>
+<ol class="arabic simple">
+<li><p>Dark decay produces an exponential decline in the number of counts, with an amplitude of 0.1 – 0.7 DN, over the first several reads (approximately 20 – 35 seconds) of a WFI ramp. The exact amplitude and duration are unique to each WFI detector. See <a class="reference external" href="https://www.stsci.edu/files/live/sites/www/files/home/roman/documentation/technical-documentation/_documents/Roman-STScI-000814.pdf">Betti et al. (2025)</a> for more information.</p></li>
+<li><p>INL is a readout-channel-dependent effect that produces a time-dependent pedestal offset. This creates vertical striping effects visible in the rate images, particularly in sky-dominated scenes. The amplitude of the effect is ~10 DN. See <a class="reference external" href="https://www.stsci.edu/files/live/sites/www/files/home/roman/documentation/technical-documentation/_documents/Roman-STScI%e2%80%93000866.pdf">Brandt &amp; Thushara (2025)</a> for more information.</p></li>
+<li><p>The WFI18 high-amplitude transient is only observed in the WFI18 detector. In the first read of a ramp, WFI18 exhibits a vertical gradient of counts, the absolute value of which decreases in the direction away from the slow readout register. The gradient is best represented as the sum of two exponential functions, with an amplitude of ~100 DN. See <a class="reference external" href="https://www.stsci.edu/files/live/sites/www/files/home/roman/documentation/technical-documentation/_documents/Roman-STScI-000867.pdf">Brandt (2025)</a> for more information.</p></li>
+</ol>
+<div class="alert alert-warning" style="color:black; background-color:#FFF1AD; border-color:orange;">
+    <b>Warning:</b> After creation of the L2 products, an important issue with the World Coordinate System (WCS) was discovered. An example fix is provided below in [Correcting GBTDS Simulation WCS](). After <i>Gaia</i> alignment, the GBTDS WCS randomly drifts by up to a couple tens of arcseconds. It is not clear at present if this is because of the crowded nature of the scene (and thus potential mismatches with the <i>Gaia</i> astrometric catalog), the lack of real <i>Gaia</i> stars in the simulation, a combination of these two issues, or another cause. Investigations are underway to prevent this from happening to the executed GBTDS program (and any other crowded fields) on-sky and will be tested during the commissioning period after launch.
+</div>
+</section>
+<section id="simulated-products">
+<h3>Simulated Products<a class="headerlink" href="#simulated-products" title="Link to this heading">#</a></h3>
+<center>
+    <div style="width: 70%">
+        <img src="gbtds_color.png" width="60%" height="auto"> </ br>
+        <b>Figure 3:</b> A three-color image of a single WFI detector in the GBTDS simulation.
+    </div>
+</center><br />
+<p>For more information about SOC data products, please see the RDox article <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products">WFI Data Levels and Products</a>. For the GBTDS simulation, the SOC has produced L1 and L2 data products, which include:</p>
+<ul class="simple">
+<li><p>Uncalibrated L1 ramp cubes in units of DN (<code class="docutils literal notranslate"><span class="pre">*_uncal.asdf</span></code>)</p></li>
+<li><p>Calibrated L2 rate images in units of DN/s (<code class="docutils literal notranslate"><span class="pre">_cal.asdf</span></code>)</p></li>
+<li><p>Preview and thumbnail images of L2 products in PNG format (<code class="docutils literal notranslate"><span class="pre">_preview.png</span></code> and <code class="docutils literal notranslate"><span class="pre">*_thumb.png</span></code>, respectively)</p></li>
+<li><p>L1 updated WCS based on L2 <em>Gaia</em> alignment (<code class="docutils literal notranslate"><span class="pre">*_wcs.asdf</span></code>)</p></li>
+</ul>
+<p>On-sky GBTDS products generated by the SOC and available via MAST will also include parquet source catalog files for each individual exposure and an associated segmentation map. These products were not stored on AWS S3 after the GBTDS simulation run, however we have provided instructions below in <a class="reference internal" href="#making_catalogs"><span class="xref myst">Making GBTDS L4 Products</span></a> for creating these files yourself from the L2 files on S3, and have provided a small sample of a few files for those interested in example files.</p>
+<p>The SOC does not plan to produce Level 3 (L3) mosaic products or any data release (DR) products for the GBTDS; rather, these products will be produced by the SSC and will likewise be available via MAST. Note that the L4 products produced by the SOC are not optimized at-present for crowded fields and will therefore be incomplete. Prompt L4 source catalogs derived from L2 products are primarily intended to be used as part of the alignment of data products with the <i>Gaia</i> astrometric catalog, and while in some cases they may be useful for science, that is not their primary intended purpose.</p>
+</section>
+<section id="data-organization-on-s3">
+<h3>Data Organization on S3<a class="headerlink" href="#data-organization-on-s3" title="Link to this heading">#</a></h3>
+<p>GBTDS L1 and L2 science data products are available via the STScI AWS Open Data Bucket S3 bucket located at <code class="docutils literal notranslate"><span class="pre">s3://stpubdata/roman/nexus/soc_simulations/r00340/</span></code>. The string <code class="docutils literal notranslate"><span class="pre">r00340</span></code> in the URI refers to the program ID of the simulation, i.e., program ID 340. There are subdirectories <code class="docutils literal notranslate"><span class="pre">l1/</span></code> and <code class="docutils literal notranslate"><span class="pre">l2/</span></code> for L1 and L2 data products, respectively. Please see the <a class="reference internal" href="#data_access"><span class="xref myst">Data Access Example</span></a> below for instructions on how to stream the files into memory on the Nexus.</p>
+</section>
+</section>
+<section id="high-latitude-wide-area-survey-hlwas">
+<h2>High-Latitude Wide-Area Survey (HLWAS)<a class="headerlink" href="#high-latitude-wide-area-survey-hlwas" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Simulation Program Design<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The SOC HLWAS simulation is designed primarily to provide a realistic representation of the tiered survey design, dither pattern, and depth expected form the on-orbit HLWAS observations, yielding data products suitable for testing SOC data release processing and nominal non-GBTDS data processing rates. To accomplish this, we have simulated approximately 6 square degrees of the HLWAS, comprising the Wide, Medium, Deep, and Ultra-Deep Tiers, using the APT program’s survey design as of February 2026.</p>
+<p>The simulation is somewhat simplified compare to the expected on-orbit execution in two important ways:</p>
+<ol class="arabic simple">
+<li><p>We chose to co-locate all of the tiers on the sky, which reduces slew times.</p></li>
+<li><p>We run all exposures consecutively in the simulation, whereas the on-orbit execution will include pauses for calibrations and non-HLWAS science observations.</p></li>
+</ol>
+<p>The SOC simulations only encompass the WFI imaging mode and do not include simulations of the grism observations. Figure 3 below shows the footprint of the HLWAS simulation.</p>
+<center>
+    <div style="width: 70%">
+        <img src="hlwas_footprint.png" width="80%" height="auto"> </ br>
+        <b>Figure 4:</b> Footprint of the HLWAS Simulation. This shows only the first exposure per visit in one pass of the HLWAS and does not show the dither patterns or multiple passes overlaid. Each color corresponds to one pointing of the WFI. The axes show Celestial coordinates (right ascension on the X-axis and declination on the Y-axis) in units of degrees.
+    </div>
+</center>
+</section>
+<section id="id2">
+<h3>Input Catalog<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>The input catalog for the HLWAS simulation is the same as that used for the OpenUnivers2024 simulation (<a class="reference external" href="https://ui.adsabs.harvard.edu/abs/arXiv:2501.05632">OpenUniverse et al. 2025</a>). We updated the catalog to use the latest WFI photometric bandpass information available as of March 2024, which is located in the <a class="reference external" href="https://github.com/RomanSpaceTelescope/roman-technical-information/">Roman Technical Information</a> respository. As we do not know <i>a priori</i> which detector any particular source will land on during input catalog creation, we used an average bandpass, which was the arithmetic mean of the 18 WFI detector bandpasses.</p>
+<p>Also note that Roman I-Sim expects galaxies to be represented as single Sérsic profiles; however, OpenUniverse represents galaxies as double Sérsic profiles to better model the bulge and disk components. We handled this by inputting two single Sérsic models at each OpenUniverse galaxy position with the same position angle.</p>
+<p>The final input catalog for the HLWAS simulation includes:</p>
+<ul class="simple">
+<li><p>OpenUniverse galaxies</p></li>
+<li><p>OpenUniverse Milky Way faint stars</p></li>
+<li><p><i>Gaia</i> Data Release 2 (DR2) stars</p></li>
+</ul>
+<p>Time variable transients were not included in the images simulated by the SOC.</p>
+</section>
+<section id="id3">
+<h3>Simulation Settings and Caveats<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>The HLWAS simulation used the following major package versions in the SOC Data Management Subsystem (DMS) High-Level Processing Partition (HLPP) TEST environment:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Package Name</p></th>
+<th class="head text-right"><p>Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>romanisim</p></td>
+<td class="text-right"><p>0.13.1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>romancal</p></td>
+<td class="text-right"><p>0.23.0.dev3+g382e89284</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>roman_datamodels</p></td>
+<td class="text-right"><p>0.30.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>rad</p></td>
+<td class="text-right"><p>0.30.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Additionally, prompt L3 products (and their associated L4 products) were made in the SOC I&amp;T environment.</p>
+<p>The CRDS context was set to <code class="docutils literal notranslate"><span class="pre">roman_0046.pmap</span></code>.</p>
+<p>The effects discussed in the GBTDS simulation are now simulated and corrected for in the HLWAS simulated data. However, as mentioned with the GBTDS, the quality of the reference files impacts the quality of the simulated data. At the time the simulation was run, the reference files were still being updated and effects like INL were still present in the reference files themselves. Additionally, the reference files were based on older ground-based test data, or in some cases they were placeholders (such as the dark rate).</p>
+</section>
+<section id="id4">
+<h3>Simulated Products<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>For more information about SOC data products, please see the RDox article <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products">WFI Data Levels and Products</a>. For the HLWAS simulation, the SOC has produced L1, L2, L3, and L4 data products, which include:</p>
+<ul class="simple">
+<li><p>Uncalibrated L1 ramp cubes in units of DN (<code class="docutils literal notranslate"><span class="pre">*_uncal.asdf</span></code>)</p></li>
+<li><p>Calibrated L2 rate images in units of DN/s (<code class="docutils literal notranslate"><span class="pre">_cal.asdf</span></code>)</p></li>
+<li><p>Preview and thumbnail images of L2 and L3 products in PNG format (<code class="docutils literal notranslate"><span class="pre">_preview.png</span></code> and <code class="docutils literal notranslate"><span class="pre">*_thumb.png</span></code>, respectively)</p></li>
+<li><p>L1 updated WCS based on L2 <em>Gaia</em> alignment (<code class="docutils literal notranslate"><span class="pre">*_wcs.asdf</span></code>)</p></li>
+<li><p>Co-added L3 mosaic images in units of MJy/sr (<code class="docutils literal notranslate"><span class="pre">_coadd.asdf</span></code>)</p></li>
+<li><p>L4 source catalogs made from both L2 and L3 inputs (<code class="docutils literal notranslate"><span class="pre">_cat.parquet</span></code>)</p></li>
+<li><p>L4 segmentation maps made from both L2 and L3 inputs (<code class="docutils literal notranslate"><span class="pre">_segm.asdf</span></code>)</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Data Organization on S3<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>HLWAS science data products are available via the STScI AWS Open Data Bucket S3 bucket located at <code class="docutils literal notranslate"><span class="pre">s3://stpubdata/roman/nexus/soc_simulations/r00342/</span></code>. The string <code class="docutils literal notranslate"><span class="pre">r00342</span></code> in the URI refers to the program ID of the simulation, i.e., program ID 342. There are subdirectories <code class="docutils literal notranslate"><span class="pre">l1/</span></code>, <code class="docutils literal notranslate"><span class="pre">l2/</span></code>, <code class="docutils literal notranslate"><span class="pre">l3/</span></code>, and <code class="docutils literal notranslate"><span class="pre">l4/</span></code> for L1, L2, L3, and L4 data products, respectively. Under the <code class="docutils literal notranslate"><span class="pre">l4/</span></code> directory, there are additional subdirectories for different product types and different inputs to the L4 processing:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">l2_segmentation_map/</span></code> - Segmentation maps made from L2 files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l2_source_catalog/</span></code> - Source catalogs made from L2 files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l3_segmentation_map/</span></code> - Segmentation maps made from L3 files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l3_source_catalog/</span></code> - Source catalogs made from L3 files</p></li>
+</ul>
+<p>Please see the <a class="reference internal" href="#data_access"><span class="xref myst">Data Access Example</span></a> below for instructions on how to stream the files into memory on the Nexus.</p>
+<p><a id="data_access"></a></p>
+</section>
+</section>
+<section id="data-access-and-examples">
+<h2>Data Access and Examples<a class="headerlink" href="#data-access-and-examples" title="Link to this heading">#</a></h2>
+<p>All the SOC simulation data is available via AWS S3 and can be streamed directly into memory without the need to copy files to local storage. More information on file streaming and, if necessary, copying files locally can be found in the <a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html"><span class="std std-doc">Data Discovery and Access</span></a> tutorial.</p>
+<div class="alert alert-warning" style="color:black; background-color:#ADE3FF; border-color:blue;">
+    <b>Note:</b> You may see warnings when reading the simulated ASDF files due to the files being created with older versions of SOC Python packages. These warnings are benign and can be safely ignored.
+</div>
+<section id="searching-for-data-in-the-simulation">
+<h3>Searching for Data in the Simulation<a class="headerlink" href="#searching-for-data-in-the-simulation" title="Link to this heading">#</a></h3>
+<p>The simulated GBTDS and HLWAS files are available via the STScI AWS S3 Open Data Bucket at <code class="docutils literal notranslate"><span class="pre">s3://stpubdata/roman/nexus/soc_simulations/</span></code> with subdirectories for each simulation program (<code class="docutils literal notranslate"><span class="pre">r00340</span></code> and <code class="docutils literal notranslate"><span class="pre">r00342</span></code> for GBTDS and HLWAS, respectively). Files are organized in subdirectories according to data product level (e.g., <code class="docutils literal notranslate"><span class="pre">l1/</span></code>, <code class="docutils literal notranslate"><span class="pre">l2/</span></code>, etc.) beneath the program directories.</p>
+<p>Manifest files in the form of Enhanced Comma-Separated Values (or ECSV) files have been provided that include common metadata that users may be interested in searching over. The <a class="reference external" href="https://docs.astropy.org/en/stable/io/ascii/ecsv.html">ECSV format</a> is an astropy-supported, human-readable form for storing tabular data. These files are meant as a replacement for searching for data via the MAST website or using <code class="docutils literal notranslate"><span class="pre">astroquery</span></code>, as these data have not been ingested into the MAST database. The on-sky GBTDS and HLWAS data will be searchable using standard tools.</p>
+<p>The manifest files for the GBTDS and HLWAS are slightly different from each other, so let’s take a look at what is in each of them first. The files for the L1 and L2 data products are called <code class="docutils literal notranslate"><span class="pre">hlwas_manifest.ecsv</span></code> and <code class="docutils literal notranslate"><span class="pre">gbtds_manifest.ecsv</span></code>. For L3 products, there is also the <code class="docutils literal notranslate"><span class="pre">hlwas_manifest_l3.ecsv</span></code> file. Let’s start by looking at the GBTDS manifest (note that for display purposes, we have limited the length of the tables returned in several of the following cells):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gbtds_manifest</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;gbtds_manifest.ecsv&#39;</span><span class="p">)</span>
+<span class="n">gbtds_manifest</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=5</i>
+<table id="table139887619881392" class="table-striped table-bordered table-condensed">
+<thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>wfi_pa</th><th>detector_ra</th><th>detector_dec</th><th>detector</th><th>optical_element</th><th>start_time</th><th>end_time</th><th>ma_table_id</th><th>exptime</th><th>pass</th><th>segment</th><th>observation</th><th>visit</th><th>exposure</th><th>l1_s3_uri</th><th>l2_s3_uri</th></tr></thead>
+<thead><tr><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str5</th><th>str4</th><th>str23</th><th>str23</th><th>str7</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>str100</th><th>str98</th></tr></thead>
+<tr><td>268.536419</td><td>-28.539441</td><td>90.46325045085938</td><td>268.11703729056586</td><td>-28.493460496328897</td><td>WFI09</td><td>F146</td><td>2027-10-07T01:23:41.000</td><td>2027-10-07T01:24:47.412</td><td>SCI1002</td><td>66.41188</td><td>4</td><td>1</td><td>25</td><td>17</td><td>1</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l1/r0034001004001025017_0001_wfi09_f146_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l2/r0034001004001025017_0001_wfi09_f146_cal.asdf</td></tr>
+<tr><td>268.536419</td><td>-28.539441</td><td>90.46325045085938</td><td>268.62345470431995</td><td>-28.54325724446787</td><td>WFI10</td><td>F146</td><td>2027-10-07T01:23:41.000</td><td>2027-10-07T01:24:47.412</td><td>SCI1002</td><td>66.41188</td><td>4</td><td>1</td><td>25</td><td>17</td><td>1</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l1/r0034001004001025017_0001_wfi10_f146_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l2/r0034001004001025017_0001_wfi10_f146_cal.asdf</td></tr>
+<tr><td>268.536419</td><td>-28.539441</td><td>90.46325045085938</td><td>268.5386277436867</td><td>-28.669287699140966</td><td>WFI11</td><td>F146</td><td>2027-10-07T01:23:41.000</td><td>2027-10-07T01:24:47.412</td><td>SCI1002</td><td>66.41188</td><td>4</td><td>1</td><td>25</td><td>17</td><td>1</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l1/r0034001004001025017_0001_wfi11_f146_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l2/r0034001004001025017_0001_wfi11_f146_cal.asdf</td></tr>
+<tr><td>268.536419</td><td>-28.539441</td><td>90.46325045085938</td><td>268.46251237089393</td><td>-28.781912869029355</td><td>WFI12</td><td>F146</td><td>2027-10-07T01:23:41.000</td><td>2027-10-07T01:24:47.412</td><td>SCI1002</td><td>66.41188</td><td>4</td><td>1</td><td>25</td><td>17</td><td>1</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l1/r0034001004001025017_0001_wfi12_f146_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l2/r0034001004001025017_0001_wfi12_f146_cal.asdf</td></tr>
+<tr><td>268.536419</td><td>-28.539441</td><td>90.46325045085938</td><td>268.7722043115358</td><td>-28.58882204389884</td><td>WFI13</td><td>F146</td><td>2027-10-07T01:23:41.000</td><td>2027-10-07T01:24:47.412</td><td>SCI1002</td><td>66.41188</td><td>4</td><td>1</td><td>25</td><td>17</td><td>1</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l1/r0034001004001025017_0001_wfi13_f146_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l2/r0034001004001025017_0001_wfi13_f146_cal.asdf</td></tr>
+</table></div></div></div>
+</div>
+<p>We can also examine the column names without having to scroll:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Column names for GBTDS: </span><span class="si">{</span><span class="n">gbtds_manifest</span><span class="o">.</span><span class="n">columns</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Column names for GBTDS: &lt;TableColumns names=(&#39;wfi_ra&#39;,&#39;wfi_dec&#39;,&#39;wfi_pa&#39;,&#39;detector_ra&#39;,&#39;detector_dec&#39;,&#39;detector&#39;,&#39;optical_element&#39;,&#39;start_time&#39;,&#39;end_time&#39;,&#39;ma_table_id&#39;,&#39;exptime&#39;,&#39;pass&#39;,&#39;segment&#39;,&#39;observation&#39;,&#39;visit&#39;,&#39;exposure&#39;,&#39;l1_s3_uri&#39;,&#39;l2_s3_uri&#39;)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we check the number of entries in the table. Each entry corresponds to one dataset. Each exposure contains 18 datasets for L1 and L2 because each detector is stored as a separate dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>88038
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see there are 88,038 rows in the table, which means there are 88,038 datasets of L1 and L2 science data products for the GBTDS simulation. This corresponds to 4,891 WFI exposures.</p>
+<p>And next we examine the HLWAS manifest:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hlwas_manifest</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;hlwas_manifest.ecsv&#39;</span><span class="p">)</span>
+<span class="n">hlwas_manifest</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=5</i>
+<table id="table139889239377152" class="table-striped table-bordered table-condensed">
+<thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>wfi_pa</th><th>detector_ra</th><th>detector_dec</th><th>detector</th><th>optical_element</th><th>start_time</th><th>end_time</th><th>ma_table_id</th><th>exptime</th><th>pass</th><th>segment</th><th>observation</th><th>visit</th><th>exposure</th><th>l1_s3_uri</th><th>l2_s3_uri</th></tr></thead>
+<thead><tr><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str5</th><th>str4</th><th>str23</th><th>str23</th><th>str7</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>str100</th><th>str98</th></tr></thead>
+<tr><td>8.096021</td><td>-43.708709</td><td>0.40705870754605994</td><td>8.493435848846008</td><td>-43.639085407254484</td><td>WFI15</td><td>F129</td><td>2027-07-13T12:59:05.000</td><td>2027-07-13T13:03:59.110</td><td>SCI1018</td><td>294.10974</td><td>10</td><td>1</td><td>5</td><td>7</td><td>3</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l1/r0034201010001005007_0003_wfi15_f129_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201010001005007_0003_wfi15_f129_cal.asdf</td></tr>
+<tr><td>8.096021</td><td>-43.708709</td><td>0.40705870754605994</td><td>8.176113989684378</td><td>-43.351063056910796</td><td>WFI16</td><td>F129</td><td>2027-07-13T12:59:05.000</td><td>2027-07-13T13:03:59.110</td><td>SCI1018</td><td>294.10974</td><td>10</td><td>1</td><td>5</td><td>7</td><td>3</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l1/r0034201010001005007_0003_wfi16_f129_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201010001005007_0003_wfi16_f129_cal.asdf</td></tr>
+<tr><td>8.096021</td><td>-43.708709</td><td>0.40705870754605994</td><td>8.352270597712408</td><td>-43.42424897282728</td><td>WFI17</td><td>F129</td><td>2027-07-13T12:59:05.000</td><td>2027-07-13T13:03:59.110</td><td>SCI1018</td><td>294.10974</td><td>10</td><td>1</td><td>5</td><td>7</td><td>3</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l1/r0034201010001005007_0003_wfi17_f129_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201010001005007_0003_wfi17_f129_cal.asdf</td></tr>
+<tr><td>8.096021</td><td>-43.708709</td><td>0.40705870754605994</td><td>8.50795044599109</td><td>-43.48760128008559</td><td>WFI18</td><td>F129</td><td>2027-07-13T12:59:05.000</td><td>2027-07-13T13:03:59.110</td><td>SCI1018</td><td>294.10974</td><td>10</td><td>1</td><td>5</td><td>7</td><td>3</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l1/r0034201010001005007_0003_wfi18_f129_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201010001005007_0003_wfi18_f129_cal.asdf</td></tr>
+<tr><td>8.272501</td><td>-43.69404</td><td>0.40685003174550194</td><td>8.182759214809003</td><td>-43.73511443610071</td><td>WFI01</td><td>F129</td><td>2027-07-13T13:05:25.000</td><td>2027-07-13T13:10:19.110</td><td>SCI1018</td><td>294.10974</td><td>10</td><td>1</td><td>5</td><td>8</td><td>1</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l1/r0034201010001005008_0001_wfi01_f129_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201010001005008_0001_wfi01_f129_cal.asdf</td></tr>
+</table></div></div></div>
+</div>
+<p>and the list of column names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Column names for HLWAS: </span><span class="si">{</span><span class="n">hlwas_manifest</span><span class="o">.</span><span class="n">columns</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Column names for HLWAS: &lt;TableColumns names=(&#39;wfi_ra&#39;,&#39;wfi_dec&#39;,&#39;wfi_pa&#39;,&#39;detector_ra&#39;,&#39;detector_dec&#39;,&#39;detector&#39;,&#39;optical_element&#39;,&#39;start_time&#39;,&#39;end_time&#39;,&#39;ma_table_id&#39;,&#39;exptime&#39;,&#39;pass&#39;,&#39;segment&#39;,&#39;observation&#39;,&#39;visit&#39;,&#39;exposure&#39;,&#39;l1_s3_uri&#39;,&#39;l2_s3_uri&#39;)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see how many entries there are in the HLWAS table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">hlwas_manifest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68040
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are 68,040 datasets in the HLWAS simulation, composing 3,780 WFI exposures.</p>
+<p>Briefly, let’s define the column names in the manifest files:</p>
+<ul class="simple">
+<li><p><strong>wfi_ra</strong> and <strong>wfi_dec</strong>: The right ascension and declination of the WFI center (i.e., the target position for the focal plane) in degrees. These correspond to <code class="docutils literal notranslate"><span class="pre">meta.pointing.target_ra</span></code> and <code class="docutils literal notranslate"><span class="pre">target_dec</span></code> in the ASDF files.</p></li>
+<li><p><strong>wfi_pa</strong>: The position angle of the V3 axis with respect to Celestial North, increasing to the East, in units of degrees. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.pointing.pa_v3</span></code> in the ASDF files.</p></li>
+<li><p><strong>detector_ra</strong> and <strong>detector_dec</strong>: The right ascension and declination of the detector center in degrees. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.wcs_info.ra_ref</span></code> and <code class="docutils literal notranslate"><span class="pre">dec_ref</span></code> in the ASDF files.</p></li>
+<li><p><strong>detector</strong>: The WFI detector name. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.instrument.detector</span></code> in the ASDF files.</p></li>
+<li><p><strong>optical_element</strong>: The name of the WFI optical element. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.instrument.optical_element</span></code> in the ASDF files.</p></li>
+<li><p><strong>start_time</strong>: The simulated start time of the exposure. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.exposure.start_time</span></code> in the ASDF files.</p></li>
+<li><p><strong>end_time</strong>: The simulated end time of the exposure. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.exposure.end_time</span></code> in the ASDF files.</p></li>
+<li><p><strong>ma_table_id</strong>: The identifier of the multi-accumulation table used for the exposure. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.exposure.ma_table_id</span></code> in the ASDF files.</p></li>
+<li><p><strong>exptime</strong>: The exposure time in seconds. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.exposure.exposure_time</span></code> in the ASDF files.</p></li>
+<li><p><strong>pass</strong>: The programmatic pass number. See the RDox <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products#WFIDataLevelsandProducts-Table-L1L2-ComponentsTableofL1andL2RootNameComponents">WFI Data Levels and Products</a> article for more information.</p></li>
+<li><p><strong>segment</strong>: The programmatic segment number. See the RDox <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products#WFIDataLevelsandProducts-Table-L1L2-ComponentsTableofL1andL2RootNameComponents">WFI Data Levels and Products</a> article for more information.</p></li>
+<li><p><strong>observation</strong>: The programmatic observation number. See the RDox <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products#WFIDataLevelsandProducts-Table-L1L2-ComponentsTableofL1andL2RootNameComponents">WFI Data Levels and Products</a> article for more information.</p></li>
+<li><p><strong>visit</strong>: The programmatic visit number. See the RDox <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products#WFIDataLevelsandProducts-Table-L1L2-ComponentsTableofL1andL2RootNameComponents">WFI Data Levels and Products</a> article for more information.</p></li>
+<li><p><strong>exposure</strong>: The programmatic exposure number. See the RDox <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products#WFIDataLevelsandProducts-Table-L1L2-ComponentsTableofL1andL2RootNameComponents">WFI Data Levels and Products</a> article for more information.</p></li>
+<li><p><strong>l1_s3_uri</strong>: The S3 URI for the primary L1 science data product.</p></li>
+<li><p><strong>l2_s3_uri</strong>: The S3 URI for the primary L2 science data product.</p></li>
+</ul>
+<p>There is also a file called <code class="docutils literal notranslate"><span class="pre">hlwas_coadd_manifest.ecsv</span></code>, which contains a different set of columns for the Level 3 (L3) mosaic co-added data products for the HLWAS simulation. Let’s take a look at that now:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hlwas_coadd_manifest</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;hlwas_coadd_manifest.ecsv&#39;</span><span class="p">)</span>
+<span class="n">hlwas_coadd_manifest</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=5</i>
+<table id="table139889238457856" class="table-striped table-bordered table-condensed">
+<thead><tr><th>skycell_ra</th><th>skycell_dec</th><th>skycell_name</th><th>grouping</th><th>exptime</th><th>max_exptime</th><th>optical_element</th><th>l3_s3_uri</th></tr></thead>
+<thead><tr><th>float64</th><th>float64</th><th>str12</th><th>str15</th><th>float64</th><th>float64</th><th>str4</th><th>str106</th></tr></thead>
+<tr><td>8.975205942985813</td><td>-43.26800876245513</td><td>010m42x30y36</td><td>v01001001004017</td><td>732.3993542471724</td><td>882.3294067382812</td><td>F146</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l3/r00342_p_v01001001004017_010m42x30y36_f146_coadd.asdf</td></tr>
+<tr><td>9.075841684845507</td><td>-43.26920037831668</td><td>010m42x30y37</td><td>v01001001004017</td><td>580.6951878954015</td><td>882.3294067382812</td><td>F146</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l3/r00342_p_v01001001004017_010m42x30y37_f146_coadd.asdf</td></tr>
+<tr><td>9.176485503959354</td><td>-43.270303817567495</td><td>010m42x30y38</td><td>v01001001004017</td><td>471.4548931902129</td><td>588.2196044921875</td><td>F146</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l3/r00342_p_v01001001004017_010m42x30y38_f146_coadd.asdf</td></tr>
+<tr><td>9.277136780151029</td><td>-43.27131905916499</td><td>010m42x30y39</td><td>v01001001004017</td><td>424.8626975492617</td><td>588.2196044921875</td><td>F146</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l3/r00342_p_v01001001004017_010m42x30y39_f146_coadd.asdf</td></tr>
+<tr><td>9.37779489296817</td><td>-43.272246083745735</td><td>010m42x30y40</td><td>v01001001004017</td><td>294.109741213317</td><td>294.1098327636719</td><td>F146</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l3/r00342_p_v01001001004017_010m42x30y40_f146_coadd.asdf</td></tr>
+</table></div></div></div>
+</div>
+<p>We can likewise print a list of the column names in the L3 manifest table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Column names for HLWAS L3 products: </span><span class="si">{</span><span class="n">hlwas_coadd_manifest</span><span class="o">.</span><span class="n">columns</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Column names for HLWAS L3 products: &lt;TableColumns names=(&#39;skycell_ra&#39;,&#39;skycell_dec&#39;,&#39;skycell_name&#39;,&#39;grouping&#39;,&#39;exptime&#39;,&#39;max_exptime&#39;,&#39;optical_element&#39;,&#39;l3_s3_uri&#39;)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the number of HLWAS L3 products is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">hlwas_coadd_manifest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>184784
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are 184,784 L3 products for the HLWAS simulation. This is many more than the L1 and L2 files that were simulated because the L3 products are tessellated on the Celestial sphere into regions called “skycells,” each of which is roughly the size of a WFI detector projected on the sky. The skycell tessellation is pre-defined and does not change based on the positions of the observations on the sky, therefore some skycells may be completely filled while others are only partially filled. See the RDox article on the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products/skymap-tessellation">Skymap Tessellation</a> for more information on skycells. Also note that the same skycell name may appear multiple times in the manifest because the prompt data products are made on a per-visit basis; therefore, different visits may overlap the same skycell but produce different products. For more information, see the RDox article on <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products/prompt-products">Prompt Products</a>.</p>
+<p>Like we did for the other manifest files, let’s define each of the columns in the L3 product manifest:</p>
+<ul class="simple">
+<li><p><strong>skycell_ra</strong> and <strong>skycell_dec</strong>: The right ascension and declination of the skycell center. These correspond to <code class="docutils literal notranslate"><span class="pre">meta.wcsinfo.ra</span></code> and <code class="docutils literal notranslate"><span class="pre">meta.wcsinfo.dec</span></code> in the ASDF files.</p></li>
+<li><p><strong>skycell_name</strong>: The name of the skycell. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.wcsinfo.skycell_name</span></code> in the ASDF files.</p></li>
+<li><p><strong>grouping</strong>: The visit identifier for which data were combined to make the L3 product. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.observation.exposure_grouping</span></code> in the ASDF files.</p></li>
+<li><p><strong>exptime</strong>: The mean exposure time of all pixels in the L3 product that had non-zero exposure time. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.coadd_info.exposure_time</span></code> in the ASDF files.</p></li>
+<li><p><strong>max_exptime</strong>: The maximum exposure time of all pixels in the L3 product. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.coadd_info.max_exposure_time</span></code> in the ASDF files.</p></li>
+<li><p><strong>optical_element</strong>: The name of the WFI optical element. This corresponds to <code class="docutils literal notranslate"><span class="pre">meta.instrument.optical_element</span></code> in the ASDF files.</p></li>
+<li><p><strong>l3_s3_uri</strong>: The S3 URI for the primary L3 science data product.</p></li>
+</ul>
+<section id="cone-searches">
+<h4>Cone Searches<a class="headerlink" href="#cone-searches" title="Link to this heading">#</a></h4>
+<p>One of the most common searches in astronomy is the cone search, or searching for data that match a Celestial coordinate within some search radius. Here, we show how to perform a cone search of the HLWAS using a chosen coordinate and radius. Let’s look for where the separation between the target position and the center of the detector, which is listed in the manifest file, is less than the search radius. This is accomplished using the <code class="docutils literal notranslate"><span class="pre">astropy.coordinates.SkyCoord()</span></code> class and its method <code class="docutils literal notranslate"><span class="pre">.separation()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radius</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="mf">8.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span> <span class="o">-</span><span class="mf">43.7</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+
+<span class="c1"># Make SkyCoord objects out of all entries in the manifest</span>
+<span class="n">manifest_coords</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;detector_ra&#39;</span><span class="p">],</span> <span class="n">dec</span><span class="o">=</span><span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;detector_dec&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+
+<span class="c1"># Compute separations</span>
+<span class="n">separation</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">separation</span><span class="p">(</span><span class="n">manifest_coords</span><span class="p">)</span>
+
+<span class="c1"># Add the separation back to the table so we can see it in the results</span>
+<span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;separation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">separation</span>
+
+<span class="c1"># Find indices where separation is less than or equal to the search radius, index the table, and print it</span>
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">hlwas_manifest</span><span class="p">[</span><span class="n">separation</span> <span class="o">&lt;=</span> <span class="n">radius</span><span class="p">]</span>
+<span class="n">search_result</span><span class="p">[</span><span class="s1">&#39;wfi_ra&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi_dec&#39;</span><span class="p">,</span> <span class="s1">&#39;separation&#39;</span><span class="p">,</span> <span class="s1">&#39;l2_s3_uri&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=5</i>
+<table id="table139887621194576" class="table-striped table-bordered table-condensed">
+<thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>separation</th><th>l2_s3_uri</th></tr></thead>
+<thead><tr><th></th><th></th><th>deg</th><th></th></tr></thead>
+<thead><tr><th>float64</th><th>float64</th><th>float64</th><th>str98</th></tr></thead>
+<tr><td>8.272501</td><td>-43.69404</td><td>0.06936005782721892</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201010001005008_0001_wfi01_f129_cal.asdf</td></tr>
+<tr><td>7.791669</td><td>-43.487619</td><td>0.05797800780789059</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201007001002007_0001_wfi03_f129_cal.asdf</td></tr>
+<tr><td>7.90922</td><td>-43.573291</td><td>0.07701656814204463</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201007001002007_0002_wfi02_f129_cal.asdf</td></tr>
+<tr><td>7.90922</td><td>-43.573291</td><td>0.06466385215631794</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201007001002007_0002_wfi03_f129_cal.asdf</td></tr>
+<tr><td>8.096021</td><td>-43.708709</td><td>0.08406989144757161</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201007001002007_0003_wfi01_f129_cal.asdf</td></tr>
+</table></div></div></div>
+</div>
+</section>
+<section id="time-search">
+<h4>Time Search<a class="headerlink" href="#time-search" title="Link to this heading">#</a></h4>
+<p>Next, let’s look at an example of searching based on the start time of an observation. We can use <code class="docutils literal notranslate"><span class="pre">astropy.time.Time()</span></code> objects for this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s set up two time limits to search between, separated in this example by 12 hours:</span>
+<span class="n">no_earlier_than</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;2027-07-10T00:00:00&#39;</span><span class="p">)</span>
+<span class="n">no_later_than</span> <span class="o">=</span> <span class="n">no_earlier_than</span> <span class="o">+</span> <span class="n">TimeDelta</span><span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+
+<span class="c1"># Make Time objects out of the start_time column in the manifest table</span>
+<span class="n">manifest_times</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">])</span>
+
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">hlwas_manifest</span><span class="p">[(</span><span class="n">manifest_times</span> <span class="o">&gt;</span> <span class="n">no_earlier_than</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">manifest_times</span> <span class="o">&lt;</span> <span class="n">no_later_than</span><span class="p">)]</span>
+<span class="n">search_result</span><span class="p">[</span><span class="s1">&#39;l2_s3_uri&#39;</span><span class="p">,</span> <span class="s1">&#39;start_time&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=5</i>
+<table id="table139887002717888" class="table-striped table-bordered table-condensed">
+<thead><tr><th>l2_s3_uri</th><th>start_time</th></tr></thead>
+<thead><tr><th>str98</th><th>str23</th></tr></thead>
+<tr><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002018_0003_wfi01_f129_cal.asdf</td><td>2027-07-10T10:48:02.000</td></tr>
+<tr><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002018_0003_wfi02_f129_cal.asdf</td><td>2027-07-10T10:48:02.000</td></tr>
+<tr><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002018_0003_wfi03_f129_cal.asdf</td><td>2027-07-10T10:48:02.000</td></tr>
+<tr><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002018_0003_wfi04_f129_cal.asdf</td><td>2027-07-10T10:48:02.000</td></tr>
+<tr><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002018_0003_wfi05_f129_cal.asdf</td><td>2027-07-10T10:48:02.000</td></tr>
+</table></div></div></div>
+</div>
+</section>
+<section id="metadata-search">
+<h4>Metadata Search<a class="headerlink" href="#metadata-search" title="Link to this heading">#</a></h4>
+<p>We can similarly search for data based on specific metadata fields, such as optical element or detector name. Let’s look at a simple example below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First make a cut on optical elements in a list of options</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;optical_element&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;F106&#39;</span><span class="p">,</span> <span class="s1">&#39;F158&#39;</span><span class="p">])</span>
+
+<span class="c1">## Alternatively, we can reject entries based on a value using the ~ operator</span>
+<span class="c1">#mask = ~np.isin(gbtds_manifest[&#39;optical_element&#39;], &#39;F146&#39;)</span>
+
+<span class="c1"># Next, combine the existing mask with one based on detector name using </span>
+<span class="c1"># the &amp; (logical and) operator</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;detector&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;WFI13&#39;</span><span class="p">)</span>
+
+<span class="c1"># Index the manifest with the mask and display the results</span>
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">hlwas_manifest</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">search_result</span><span class="p">[</span><span class="s1">&#39;wfi_ra&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi_dec&#39;</span><span class="p">,</span> <span class="s1">&#39;exptime&#39;</span><span class="p">,</span> <span class="s1">&#39;detector&#39;</span><span class="p">,</span> <span class="s1">&#39;optical_element&#39;</span><span class="p">,</span> <span class="s1">&#39;l2_s3_uri&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=5</i>
+<table id="table139887002730320" class="table-striped table-bordered table-condensed">
+<thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>exptime</th><th>detector</th><th>optical_element</th><th>l2_s3_uri</th></tr></thead>
+<thead><tr><th>float64</th><th>float64</th><th>float64</th><th>str5</th><th>str4</th><th>str98</th></tr></thead>
+<tr><td>9.365006</td><td>-44.185182</td><td>294.10974</td><td>WFI13</td><td>F158</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201003001005010_0002_wfi13_f158_cal.asdf</td></tr>
+<tr><td>9.557039</td><td>-44.318244</td><td>294.10974</td><td>WFI13</td><td>F158</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201003001005010_0003_wfi13_f158_cal.asdf</td></tr>
+<tr><td>9.734949</td><td>-44.301339</td><td>294.10974</td><td>WFI13</td><td>F158</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201003001005011_0001_wfi13_f158_cal.asdf</td></tr>
+<tr><td>9.856898</td><td>-44.385017</td><td>294.10974</td><td>WFI13</td><td>F158</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201003001005011_0002_wfi13_f158_cal.asdf</td></tr>
+<tr><td>10.05068</td><td>-44.517223</td><td>294.10974</td><td>WFI13</td><td>F158</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201003001005011_0003_wfi13_f158_cal.asdf</td></tr>
+</table></div></div></div>
+</div>
+</section>
+<section id="compound-search-putting-it-all-together">
+<h4>Compound Search (Putting it All Together)<a class="headerlink" href="#compound-search-putting-it-all-together" title="Link to this heading">#</a></h4>
+<p>From the search example above, we can see how to combine two simple selectors into a single search result. Let’s expand on that here and put it all together now. Let’s make a search using a cone that selects on a particular optical element and a certain time range.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radius</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="mf">8.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span> <span class="o">-</span><span class="mf">43.7</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+
+<span class="c1"># Make SkyCoord objects out of all entries in the manifest</span>
+<span class="n">manifest_coords</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;detector_ra&#39;</span><span class="p">],</span> <span class="n">dec</span><span class="o">=</span><span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;detector_dec&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+
+<span class="c1"># Compute separations</span>
+<span class="n">separation</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">separation</span><span class="p">(</span><span class="n">manifest_coords</span><span class="p">)</span>
+
+<span class="c1"># Add the separation back to the table so we can see it in the results</span>
+<span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;separation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">separation</span>
+
+<span class="c1"># Find indices where separation is less than or equal to the search radius and create the initial mask</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">separation</span> <span class="o">&lt;=</span> <span class="n">radius</span>
+
+<span class="c1"># Search based on time</span>
+<span class="n">no_earlier_than</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;2027-07-10T00:00:00&#39;</span><span class="p">)</span>
+<span class="n">no_later_than</span> <span class="o">=</span> <span class="n">no_earlier_than</span> <span class="o">+</span> <span class="n">TimeDelta</span><span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+
+<span class="c1"># Make Time objects out of the start_time column in the manifest table and update the mask</span>
+<span class="n">manifest_times</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">])</span>
+
+<span class="n">mask</span> <span class="o">&amp;=</span> <span class="p">(</span><span class="n">manifest_times</span> <span class="o">&gt;</span> <span class="n">no_earlier_than</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">manifest_times</span> <span class="o">&lt;</span> <span class="n">no_later_than</span><span class="p">)</span>
+
+<span class="c1"># Search based on optical element</span>
+<span class="n">mask</span> <span class="o">&amp;=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">hlwas_manifest</span><span class="p">[</span><span class="s1">&#39;optical_element&#39;</span><span class="p">],</span> <span class="s1">&#39;F129&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mask the manifest table to create the search results</span>
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">hlwas_manifest</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+<span class="c1"># Sort the results by the detector number and display the results</span>
+<span class="n">search_result</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;detector&#39;</span><span class="p">)</span>
+<span class="n">search_result</span><span class="p">[</span><span class="s1">&#39;wfi_ra&#39;</span><span class="p">,</span> <span class="s1">&#39;wfi_dec&#39;</span><span class="p">,</span> <span class="s1">&#39;separation&#39;</span><span class="p">,</span> <span class="s1">&#39;start_time&#39;</span><span class="p">,</span> <span class="s1">&#39;optical_element&#39;</span><span class="p">,</span> <span class="s1">&#39;detector&#39;</span><span class="p">,</span> <span class="s1">&#39;l2_s3_uri&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=6</i>
+<table id="table139887621636016" class="table-striped table-bordered table-condensed">
+<thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>separation</th><th>start_time</th><th>optical_element</th><th>detector</th><th>l2_s3_uri</th></tr></thead>
+<thead><tr><th></th><th></th><th>deg</th><th></th><th></th><th></th><th></th></tr></thead>
+<thead><tr><th>float64</th><th>float64</th><th>float64</th><th>str23</th><th>str4</th><th>str5</th><th>str98</th></tr></thead>
+<tr><td>8.096021</td><td>-43.708709</td><td>0.08406988982238127</td><td>2027-07-10T07:38:50.000</td><td>F129</td><td>WFI01</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002007_0003_wfi01_f129_cal.asdf</td></tr>
+<tr><td>8.272501</td><td>-43.69404</td><td>0.06936005597220445</td><td>2027-07-10T07:45:10.000</td><td>F129</td><td>WFI01</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002008_0001_wfi01_f129_cal.asdf</td></tr>
+<tr><td>7.90922</td><td>-43.573291</td><td>0.07701656983667732</td><td>2027-07-10T07:33:24.000</td><td>F129</td><td>WFI02</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002007_0002_wfi02_f129_cal.asdf</td></tr>
+<tr><td>7.791669</td><td>-43.487619</td><td>0.057978013041444856</td><td>2027-07-10T07:27:58.000</td><td>F129</td><td>WFI03</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002007_0001_wfi03_f129_cal.asdf</td></tr>
+<tr><td>7.90922</td><td>-43.573291</td><td>0.06466384689433219</td><td>2027-07-10T07:33:24.000</td><td>F129</td><td>WFI03</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002007_0002_wfi03_f129_cal.asdf</td></tr>
+<tr><td>8.096021</td><td>-43.708709</td><td>0.06778446946322882</td><td>2027-07-10T07:38:50.000</td><td>F129</td><td>WFI10</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002007_0003_wfi10_f129_cal.asdf</td></tr>
+</table></div></div></div>
+</div>
+</section>
+<section id="retrieving-other-file-types">
+<h4>Retrieving Other File Types<a class="headerlink" href="#retrieving-other-file-types" title="Link to this heading">#</a></h4>
+<p>As mentioned above, there are other files besides L1, L2, and L3 ASDF files available, but the manifest files only list the ASDF files in the S3 bucket. If we want to retrieve, for example, a preview image of an observation, we can do so. Let’s retrieve the preview image for the first entry in the HLWAS manifest. The preview image is stored with the L2 products in the <code class="docutils literal notranslate"><span class="pre">l2/</span></code> directory. First, let’s take a look in the directory just to see the types of files in there.</p>
+<p><strong>Note:</strong> The first time you run this cell, it will take a few moments to execute due to the large number of files in the directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/*.*&#39;</span><span class="p">)</span>
+<span class="n">file_list</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi01_f087_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi01_f087_preview.png&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi01_f087_thumb.png&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi01_f087_wcs.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi02_f087_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi02_f087_preview.png&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi02_f087_thumb.png&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi02_f087_wcs.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi03_f087_cal.asdf&#39;,
+ &#39;stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201001001001001_0001_wfi03_f087_preview.png&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can see that preview images are in the same directory as the L2 files, and we see the file name of a preview image is the same as the L2 ASDF file, except that the <code class="docutils literal notranslate"><span class="pre">_uncal.asdf</span></code> portion is replaced by <code class="docutils literal notranslate"><span class="pre">_preview.png</span></code>. If we want to download this preview file (it’s small), we can use the <code class="docutils literal notranslate"><span class="pre">get()</span></code> method on our S3 file system:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prev_img</span> <span class="o">=</span> <span class="n">hlwas_manifest</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;l2_s3_uri&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_cal.asdf&#39;</span><span class="p">,</span> <span class="s1">&#39;_preview.png&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prev_img</span><span class="p">,</span> <span class="s1">&#39;./&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now you have a copy of the preview PNG file for the first entry in the HLWAS manifest in your local working directory.</p>
+</section>
+<section id="finding-and-opening-input-catalogs">
+<h4>Finding and Opening Input Catalogs<a class="headerlink" href="#finding-and-opening-input-catalogs" title="Link to this heading">#</a></h4>
+<p>The input catalogs for the simulations are available on S3 as well, and are located in <code class="docutils literal notranslate"><span class="pre">s3://stpubdata/roman/nexus/soc_simulations/input_files/</span></code>. As mentioned above, these files are FITS tables with file names like <code class="docutils literal notranslate"><span class="pre">cat-{HEALPIX_ID}.fits</span></code>, where <code class="docutils literal notranslate"><span class="pre">HEALPIX_ID</span></code> is the HEALPixel identifier using the NESTED scheme, Galactic coordinates, and a value of $n_{\mathrm{side}}=512$. We can find which catalog matches a given right ascension and declination as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ra</span> <span class="o">=</span> <span class="mf">8.272</span>
+<span class="n">dec</span> <span class="o">=</span> <span class="o">-</span><span class="mf">43.69</span>
+<span class="n">nside</span> <span class="o">=</span> <span class="mi">512</span>
+
+<span class="n">cdt</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="n">hpix_id</span> <span class="o">=</span> <span class="n">hpy</span><span class="o">.</span><span class="n">pixelfunc</span><span class="o">.</span><span class="n">ang2pix</span><span class="p">(</span><span class="n">nside</span><span class="p">,</span> <span class="n">cdt</span><span class="o">.</span><span class="n">galactic</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">cdt</span><span class="o">.</span><span class="n">galactic</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> 
+                                <span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lonlat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Catalog filename: cat-</span><span class="si">{</span><span class="n">hpix_id</span><span class="si">}</span><span class="s1">.fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Catalog filename: cat-2896871.fits
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also search in a cone for all the HEALPixels that are near a position:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ra</span> <span class="o">=</span> <span class="mf">8.272</span>
+<span class="n">dec</span> <span class="o">=</span> <span class="o">-</span><span class="mf">43.69</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="mf">3.5</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">arcmin</span>
+<span class="n">nside</span> <span class="o">=</span> <span class="mi">512</span>
+
+<span class="n">hp_def</span> <span class="o">=</span> <span class="n">HEALPix</span><span class="p">(</span><span class="n">nside</span><span class="o">=</span><span class="n">nside</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;nested&#39;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="n">Galactic</span><span class="p">())</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="n">pixels</span> <span class="o">=</span> <span class="n">hp_def</span><span class="o">.</span><span class="n">cone_search_skycoord</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Catalog filename(s):&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">cat-</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">.fits&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">pixels</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Catalog filename(s):
+	cat-2896871.fits
+	cat-2896877.fits
+	cat-2896876.fits
+	cat-2896870.fits
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try opening a file now:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_cat</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;s3://stpubdata/roman/nexus/soc_simulations/input_catalogs/cat-</span><span class="si">{</span><span class="n">pixels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">.fits&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Opening file </span><span class="si">{</span><span class="n">input_cat</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">input_cat</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">hdu</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">hdu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">tab</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening file s3://stpubdata/roman/nexus/soc_simulations/input_catalogs/cat-2896871.fits
+</pre></div>
+</div>
+<div class="output text_html"><div><i>Table length=5</i>
+<table id="table139887425937408" class="table-striped table-bordered table-condensed">
+<thead><tr><th>ra</th><th>dec</th><th>type</th><th>n</th><th>half_light_radius</th><th>pa</th><th>ba</th><th>F062</th><th>F087</th><th>F106</th><th>F129</th><th>F158</th><th>F184</th><th>F146</th><th>F213</th><th>source_id</th></tr></thead>
+<thead><tr><th>float64</th><th>float64</th><th>str3</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th></tr></thead>
+<tr><td>8.224220976849999</td><td>-43.62374634609125</td><td>SER</td><td>4.0</td><td>0.026187511160969734</td><td>-7837.499406084476</td><td>0.9190793699396409</td><td>2.1236773461804743e-12</td><td>2.020929656711365e-12</td><td>1.863445016467042e-12</td><td>1.995959368127208e-12</td><td>2.708228921234155e-12</td><td>3.399810313307699e-12</td><td>2.4363423274935717e-12</td><td>2.716980394487369e-12</td><td>13394</td></tr>
+<tr><td>8.12870686153875</td><td>-43.663766004482376</td><td>SER</td><td>4.0</td><td>0.010077240876853466</td><td>-5154.611189993071</td><td>0.7193447649864891</td><td>1.4026057793148564e-13</td><td>1.9556201065225572e-13</td><td>2.2173348187621008e-13</td><td>2.418323225394541e-13</td><td>2.820296453591315e-13</td><td>2.7807182833787273e-13</td><td>2.537585965770371e-13</td><td>2.7820900687163867e-13</td><td>5446</td></tr>
+<tr><td>8.19519473750487</td><td>-43.626276962339126</td><td>SER</td><td>4.0</td><td>0.09673465043306351</td><td>-6956.022187718848</td><td>0.821923808567977</td><td>6.547901163029782e-11</td><td>1.393469373694886e-10</td><td>1.4303133401699342e-10</td><td>1.5927258641809342e-10</td><td>1.7906103789232046e-10</td><td>2.0947801958682704e-10</td><td>1.7014872675066124e-10</td><td>2.0410305520511426e-10</td><td>2710</td></tr>
+<tr><td>8.175733657501679</td><td>-43.68909118014679</td><td>SER</td><td>1.0</td><td>0.10428127646446228</td><td>-7857.801977111852</td><td>0.5460179802841661</td><td>6.444456853964825e-13</td><td>6.535874495076984e-13</td><td>6.226385191380599e-13</td><td>6.891574137748901e-13</td><td>1.154292210317327e-12</td><td>1.288658269867927e-12</td><td>9.100055332016841e-13</td><td>1.1794349077137504e-12</td><td>13633</td></tr>
+<tr><td>8.160269062727435</td><td>-43.673439699538704</td><td>SER</td><td>1.0</td><td>0.17273321747779846</td><td>-9994.422427102492</td><td>0.44787324165438347</td><td>6.19198624434728e-11</td><td>6.60679910567196e-11</td><td>8.649399792518726e-11</td><td>1.2332441938626987e-10</td><td>1.2397951462704404e-10</td><td>1.4639956246935887e-10</td><td>1.1643664711942407e-10</td><td>1.350346117824068e-10</td><td>16309</td></tr>
+</table></div></div></div>
+</div>
+<p>Note that you will need to be careful and check that the file actually exists as well. Just because the <code class="docutils literal notranslate"><span class="pre">healpy</span></code> or <code class="docutils literal notranslate"><span class="pre">astropy-healpix</span></code> functions return a HEALPixel ID does not mean that there is a corresponding input catalog for that HEALPixel.</p>
+</section>
+</section>
+<section id="streaming-data-products-into-memory">
+<h3>Streaming Data Products into Memory<a class="headerlink" href="#streaming-data-products-into-memory" title="Link to this heading">#</a></h3>
+<p>Let’s next look at how to stream an ASDF file into memory and display it assuming that we know the S3 URI of the file in which we are interested (this can be easily pulled out of the search results from the above examples). There was an example of streaming a FITS file into memory above when reading the input catalogs for the simulations, and this is quite similar to that example. In this case, we will use a L2 file from the GBTDS simulation, and we will plot the full image as well as a small 200 x 200 pixel region to see detail. Note that if you are not familiar with Roman ASDF files, there is a <a class="reference internal" href="../working_with_asdf/working_with_asdf.html"><span class="std std-doc">Working With ASDF</span></a> tutorial available.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## If we know the name in advance, let&#39;s use it:</span>
+<span class="c1">#root_path = &#39;s3://stpubdata/roman/nexus/soc_simulations/r00340/l2/&#39;</span>
+<span class="c1">#asdf_file = &#39;r0034001002001001025_0001_wfi10_f146_cal.asdf&#39;</span>
+<span class="c1">#s3_uri = os.path.join(root_path, asdf_file)</span>
+
+<span class="c1"># Otherwise, let&#39;s search for a file and pull the S3 URI from the results:</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">[</span><span class="s1">&#39;detector&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;WFI10&#39;</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">&amp;=</span> <span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">[</span><span class="s1">&#39;pass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">&amp;=</span> <span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">[</span><span class="s1">&#39;visit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">gbtds_manifest</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">s3_uri</span> <span class="o">=</span> <span class="n">search_result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;l2_s3_uri&#39;</span><span class="p">]</span>
+
+<span class="c1"># Set up an S3 file system and stream the file into memory,</span>
+<span class="c1"># then plot the image and a zoomed in 200x200 pixel area as well.</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">s3_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dm</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Normalization range chosen arbitrarily to show detail</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+    
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Science X (pixels)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Science Y (pixels)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Full Frame&#39;</span><span class="p">)</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="mi">200</span><span class="p">,</span> <span class="p">:</span><span class="mi">200</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Science X (pixels)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Science Y (pixels)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;200 x 200 Pixel Zoom (lower left corner)&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0&#39; (from package roman_datamodels==0.30.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
+</pre></div>
+</div>
+<img alt="../../_images/685048d120c322fa81debd9ddddb2358df5af028c99676dd82b356672a5a555f.png" src="../../_images/685048d120c322fa81debd9ddddb2358df5af028c99676dd82b356672a5a555f.png" />
+</div>
+</div>
+<p>Let’s also take a look at a HLWAS L3 product. Let’s simply pull the first entry in the manifest file and plot it. We also plot the context image showing the overlapping of the input L2 products that were used to make this particular L3 mosaic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up an S3 file system and stream the file into memory.</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">first_l3</span> <span class="o">=</span> <span class="n">hlwas_coadd_manifest</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">first_l3</span><span class="p">[</span><span class="s1">&#39;l3_s3_uri&#39;</span><span class="p">],</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dm</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Normalization chosen arbitrarily to show detail</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;asinh&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X (pixels)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y (pixels)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Skycell </span><span class="si">{</span><span class="n">first_l3</span><span class="p">[</span><span class="s1">&#39;skycell_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s1">, Visit </span><span class="si">{</span><span class="n">first_l3</span><span class="p">[</span><span class="s1">&#39;grouping&#39;</span><span class="p">]</span><span class="si">}</span><span class="s1">, Filter </span><span class="si">{</span><span class="n">first_l3</span><span class="p">[</span><span class="s1">&#39;optical_element&#39;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Also plot the context image</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Context Image&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d7b90baaae176a9b15aab29d6be8c6f6f2fe283feeebca8b92dbbf2c62c6ab9e.png" src="../../_images/d7b90baaae176a9b15aab29d6be8c6f6f2fe283feeebca8b92dbbf2c62c6ab9e.png" />
+</div>
+</div>
+</section>
+<section id="accessing-soc-catalog-products">
+<h3>Accessing SOC Catalog Products<a class="headerlink" href="#accessing-soc-catalog-products" title="Link to this heading">#</a></h3>
+<p>We can also stream SOC catalog products in Apache parquet format into memory and work with them. Here we show how to read such a file from S3 using the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we know the name in advance, let&#39;s use it:</span>
+<span class="n">root_path</span> <span class="o">=</span> <span class="s1">&#39;s3://stpubdata/roman/nexus/soc_simulations/r00342/l4/l2_source_catalog/&#39;</span>
+<span class="n">asdf_file</span> <span class="o">=</span> <span class="s1">&#39;r0034201008001002018_0003_wfi01_f129_cat.parquet&#39;</span>
+<span class="n">s3_uri</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_path</span><span class="p">,</span> <span class="n">asdf_file</span><span class="p">)</span>
+
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">s3_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>flagged_spatial_id</th>
+      <th>x_centroid</th>
+      <th>y_centroid</th>
+      <th>x_centroid_err</th>
+      <th>y_centroid_err</th>
+      <th>x_centroid_win</th>
+      <th>y_centroid_win</th>
+      <th>x_centroid_win_err</th>
+      <th>y_centroid_win_err</th>
+      <th>...</th>
+      <th>segment_flux</th>
+      <th>segment_flux_err</th>
+      <th>kron_flux</th>
+      <th>kron_flux_err</th>
+      <th>kron_abmag</th>
+      <th>kron_abmag_err</th>
+      <th>warning_flags</th>
+      <th>image_flags</th>
+      <th>psf_flags</th>
+      <th>psf_gof</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1171.879639</td>
+      <td>8.583213</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1171.355957</td>
+      <td>6.750168</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>109583.820312</td>
+      <td>247.241699</td>
+      <td>114146.960938</td>
+      <td>328.392365</td>
+      <td>18.756340</td>
+      <td>0.003119</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>616.170959</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1796.517212</td>
+      <td>1.019734</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1796.444092</td>
+      <td>1.330332</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1381.295654</td>
+      <td>34.470608</td>
+      <td>2469.452148</td>
+      <td>63.939434</td>
+      <td>22.918499</td>
+      <td>0.027754</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>9.129353</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0</td>
+      <td>2722.085693</td>
+      <td>11.600082</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2722.333496</td>
+      <td>11.210129</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>11532.273438</td>
+      <td>95.553864</td>
+      <td>15076.641602</td>
+      <td>136.923355</td>
+      <td>20.954239</td>
+      <td>0.009816</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>44.048351</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0</td>
+      <td>2997.037354</td>
+      <td>1.657626</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2997.014648</td>
+      <td>1.408106</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>47921.171875</td>
+      <td>140.328445</td>
+      <td>47113.273438</td>
+      <td>135.252762</td>
+      <td>19.717142</td>
+      <td>0.003112</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>35.861645</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3282.787109</td>
+      <td>14.380600</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3283.447754</td>
+      <td>15.157268</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>188017.468750</td>
+      <td>286.744812</td>
+      <td>177074.203125</td>
+      <td>269.748138</td>
+      <td>18.279612</td>
+      <td>0.001653</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>96.097458</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>882</th>
+      <td>883</td>
+      <td>0</td>
+      <td>515.874939</td>
+      <td>4076.204590</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>515.922058</td>
+      <td>4075.927490</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>11988.755859</td>
+      <td>87.199913</td>
+      <td>39277.421875</td>
+      <td>170.181732</td>
+      <td>19.914642</td>
+      <td>0.004694</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>68.978767</td>
+    </tr>
+    <tr>
+      <th>883</th>
+      <td>884</td>
+      <td>0</td>
+      <td>1515.296509</td>
+      <td>4073.138428</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1514.821777</td>
+      <td>4072.904297</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>2207.150879</td>
+      <td>41.507526</td>
+      <td>4204.393555</td>
+      <td>83.066017</td>
+      <td>22.340740</td>
+      <td>0.021242</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.989530</td>
+    </tr>
+    <tr>
+      <th>884</th>
+      <td>885</td>
+      <td>0</td>
+      <td>2709.964600</td>
+      <td>4083.320801</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2710.583496</td>
+      <td>4085.151367</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>66861.992188</td>
+      <td>215.760956</td>
+      <td>70010.250000</td>
+      <td>355.911682</td>
+      <td>19.287096</td>
+      <td>0.005506</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>413.956390</td>
+    </tr>
+    <tr>
+      <th>885</th>
+      <td>886</td>
+      <td>0</td>
+      <td>586.556641</td>
+      <td>4077.184326</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>586.800415</td>
+      <td>4076.963867</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>4069.494873</td>
+      <td>52.973125</td>
+      <td>13389.339844</td>
+      <td>109.439728</td>
+      <td>21.083103</td>
+      <td>0.008838</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>13.092576</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>887</td>
+      <td>0</td>
+      <td>1044.571533</td>
+      <td>4081.254639</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1044.233887</td>
+      <td>4081.301758</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>15964.102539</td>
+      <td>99.545219</td>
+      <td>23878.134766</td>
+      <td>132.826340</td>
+      <td>20.454998</td>
+      <td>0.006023</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>75.884621</td>
+    </tr>
+  </tbody>
+</table>
+<p>887 rows × 73 columns</p>
+</div></div></div>
+</div>
+<p>We can also read in the file with the <code class="docutils literal notranslate"><span class="pre">pyarrow</span></code> package:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we know the name in advance, let&#39;s use it:</span>
+<span class="n">root_path</span> <span class="o">=</span> <span class="s1">&#39;s3://stpubdata/roman/nexus/soc_simulations/r00342/l4/l2_source_catalog/&#39;</span>
+<span class="n">asdf_file</span> <span class="o">=</span> <span class="s1">&#39;r0034201008001002018_0003_wfi01_f129_cat.parquet&#39;</span>
+<span class="n">s3_uri</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_path</span><span class="p">,</span> <span class="n">asdf_file</span><span class="p">)</span>
+
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">s3_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">cat</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">parquet</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">cat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pyarrow.Table
+label: int32
+flagged_spatial_id: int64
+x_centroid: float
+y_centroid: float
+x_centroid_err: float
+y_centroid_err: float
+x_centroid_win: float
+y_centroid_win: float
+x_centroid_win_err: float
+y_centroid_win_err: float
+x_psf: float
+x_psf_err: float
+y_psf: float
+y_psf_err: float
+ra: double
+dec: double
+ra_centroid: double
+dec_centroid: double
+ra_centroid_err: float
+dec_centroid_err: float
+ra_centroid_win: double
+dec_centroid_win: double
+ra_centroid_win_err: float
+dec_centroid_win_err: float
+ra_psf: double
+dec_psf: double
+ra_psf_err: float
+dec_psf_err: float
+bbox_xmin: int32
+bbox_xmax: int32
+bbox_ymin: int32
+bbox_ymax: int32
+segment_area: float
+semimajor: float
+semiminor: float
+fwhm: float
+ellipticity: float
+orientation_pix: float
+orientation_sky: float
+cxx: float
+cxy: float
+cyy: float
+kron_radius: float
+nn_label: int32
+nn_distance: float
+sharpness: float
+roundness1: float
+is_extended: bool
+fluxfrac_radius_50: float
+aper_bkg_flux: float
+aper_bkg_flux_err: float
+aper01_flux: float
+aper01_flux_err: float
+aper02_flux: float
+aper02_flux_err: float
+aper04_flux: float
+aper04_flux_err: float
+aper08_flux: float
+aper08_flux_err: float
+aper16_flux: float
+aper16_flux_err: float
+psf_flux: float
+psf_flux_err: float
+segment_flux: float
+segment_flux_err: float
+kron_flux: float
+kron_flux_err: float
+kron_abmag: float
+kron_abmag_err: float
+warning_flags: int32
+image_flags: int32
+psf_flags: int32
+psf_gof: float
+----
+label: [[1,2,3,4,5,...,883,884,885,886,887]]
+flagged_spatial_id: [[0,0,0,0,0,...,0,0,0,0,0]]
+x_centroid: [[1171.8796,1796.5172,2722.0857,2997.0374,3282.787,...,515.87494,1515.2965,2709.9646,586.55664,1044.5715]]
+y_centroid: [[8.583213,1.0197338,11.600082,1.6576262,14.3806,...,4076.2046,4073.1384,4083.3208,4077.1843,4081.2546]]
+x_centroid_err: [[0,0,0,0,0,...,0,0,0,0,0]]
+y_centroid_err: [[0,0,0,0,0,...,0,0,0,0,0]]
+x_centroid_win: [[1171.356,1796.4441,2722.3335,2997.0146,3283.4478,...,515.92206,1514.8218,2710.5835,586.8004,1044.2339]]
+y_centroid_win: [[6.7501683,1.3303317,11.210129,1.4081062,15.157268,...,4075.9275,4072.9043,4085.1514,4076.9639,4081.3018]]
+x_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
+y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
+...
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the <code class="docutils literal notranslate"><span class="pre">pyarrow</span></code> package, we also have access to the metadata in the parquet file. Note that the metadata is flattened and returned as a dictionary with the keys as binary strings. For example, to access the <code class="docutils literal notranslate"><span class="pre">meta.exposure.start_time</span></code> value in the metadata, we need to use a string prefixed with the letter <code class="docutils literal notranslate"><span class="pre">b</span></code> as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cat</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="sa">b</span><span class="s1">&#39;roman.meta.exposure.start_time&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;2027-07-10T10:48:02.000&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also mark, e.g., all of the galaxies in an image that were detected in the source catalog. Let’s take a look at an HLWAS L3 image and its catalog to do this. Note there are interactive tools, such as JDaviz, which also have this capability, but for consistency we will do this with matplotlib here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up an S3 file system and stream the file into memory.</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">first_l3</span> <span class="o">=</span> <span class="n">hlwas_coadd_manifest</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">first_l3</span><span class="p">[</span><span class="s1">&#39;l3_s3_uri&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;l3/&#39;</span><span class="p">,</span> <span class="s1">&#39;l4/l3_source_catalog/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_coadd.asdf&#39;</span><span class="p">,</span> <span class="s1">&#39;_cat.parquet&#39;</span><span class="p">)</span>
+
+<span class="c1"># First open the catalog file and make a copy in memory.</span>
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">catalog</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Next open the image and plot the data array</span>
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">first_l3</span><span class="p">[</span><span class="s1">&#39;l3_s3_uri&#39;</span><span class="p">],</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dm</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Normalization chosen arbitrarily to show detail</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;asinh&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray_r&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X (pixels)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y (pixels)&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Identify galaxies from the is_extended column in the catalog</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">is_extended</span> <span class="o">==</span> <span class="kc">True</span><span class="p">]</span>
+
+    <span class="c1"># Overplot galaxies on the image</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x_centroid</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">y_centroid</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Show a subsection of the image</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">4500</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">4500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0&#39; (from package roman_datamodels==0.30.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
+</pre></div>
+</div>
+<img alt="../../_images/adb643b7d8642628e91ef1bba4652b04e91839091f1586b9ff8577c08e643ad4.png" src="../../_images/adb643b7d8642628e91ef1bba4652b04e91839091f1586b9ff8577c08e643ad4.png" />
+</div>
+</div>
+<p>As you can see, in the catalogs from this version of <code class="docutils literal notranslate"><span class="pre">romancal</span></code>, some bright stars have also been identified as extended sources. Improvements have been made to source classification since the simulated data products were created, so you may try making your own catalogs with a more recent version of <code class="docutils literal notranslate"><span class="pre">romancal</span></code>. See <a class="reference internal" href="#making_catalogs"><span class="xref myst">Making GBTDS L4 Products</span></a> below for an example.</p>
+<p><a id='making_catalogs'></a></p>
+<section id="making-gbtds-l4-products">
+<h4>Making GBTDS L4 Products<a class="headerlink" href="#making-gbtds-l4-products" title="Link to this heading">#</a></h4>
+<p>Note that L4 SOC products are not widely available for the GBTDS simulation. However, we can make them from the L2 files using <code class="docutils literal notranslate"><span class="pre">romancal</span></code>, which we do in the cell below.</p>
+<p><strong>Note:</strong> the following cell will take several minutes to execute. This will produce two files in your current working directory: 1) a source catalog <code class="docutils literal notranslate"><span class="pre">*_cat.parquet</span></code> file, and 2) a segmentation map <code class="docutils literal notranslate"><span class="pre">*_segm.asdf</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## If we know the name in advance, let&#39;s use it:</span>
+<span class="c1">#root_path = &#39;s3://stpubdata/roman/nexus/soc_simulations/r00340/l2/&#39;</span>
+<span class="c1">#asdf_file = &#39;r0034001002001001025_0001_wfi10_f146_cal.asdf&#39;</span>
+<span class="c1">#s3_uri = os.path.join(root_path, asdf_file)</span>
+
+<span class="c1"># Otherwise, let&#39;s search for a file and pull the S3 URI from the results:</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">[</span><span class="s1">&#39;detector&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;WFI10&#39;</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">&amp;=</span> <span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">[</span><span class="s1">&#39;pass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">&amp;=</span> <span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">[</span><span class="s1">&#39;visit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">gbtds_manifest</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">s3_uri</span> <span class="o">=</span> <span class="n">search_result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;l2_s3_uri&#39;</span><span class="p">]</span>
+
+<span class="c1"># Set up an S3 file system and stream the file into memory</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">s3_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dm</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">romancal</span><span class="o">.</span><span class="n">step</span><span class="o">.</span><span class="n">SourceCatalogStep</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span> <span class="n">update_version</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0&#39; (from package roman_datamodels==0.30.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:25,602 - stpipe.step - INFO - SourceCatalogStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:26,121 - stpipe.step - INFO - Step SourceCatalogStep running with args (&lt;roman_datamodels.datamodels._datamodels.ImageModel object at 0x7f3a027477e0&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:26,123 - stpipe.step - INFO - Step SourceCatalogStep parameters are:
+  pre_hooks: []
+  post_hooks: []
+  output_file: None
+  output_dir: None
+  output_ext: .asdf
+  output_use_model: False
+  output_use_index: True
+  save_results: False
+  skip: False
+  suffix: cat
+  search_output_file: True
+  input_dir: &#39;&#39;
+  update_version: True
+  bkg_boxsize: 1000
+  kernel_fwhm: 2.0
+  snr_threshold: 3.0
+  npixels: 25
+  deblend: False
+  fit_psf: True
+  forced_segmentation: &#39;&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:29,659 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/romancal/datamodels/fileio.py:69: MigrationWarning: Migration is adding keyword hga_move to the exposure block and arbitrarily setting it to False.
+  result = update_model_version(dataset)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:29,663 - romancal.source_catalog.source_catalog_step - INFO - Using ePSF reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_epsf_0190.asdf
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:29,680 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File &#39;file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_epsf_0190.asdf&#39;was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.0.0&#39; (from package roman_datamodels==0.27.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:32,427 - romancal.source_catalog.psf - INFO - Performed jitter convolution.  Image kernel: (8, 8, 0) Reference kernel: (0, 0, 0)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:32,653 - romancal.source_catalog.source_catalog_step - INFO - Calculating and subtracting background
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:35,773 - romancal.source_catalog._background - INFO - Background could not be estimated in meshes. Using the entire unmasked array for background estimation: bkg_boxsize=(4088, 4088).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:35,788 - romancal.source_catalog.source_catalog_step - INFO - Creating detection image
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:36,574 - romancal.source_catalog.source_catalog_step - INFO - Detecting sources
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:37,312 - romancal.source_catalog._detection - INFO - Detected 38067 sources
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:37,313 - romancal.source_catalog.source_catalog_step - INFO - Creating ee_fractions model
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:37,336 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File &#39;file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_apcorr_0027.asdf&#39;was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0&#39; (from package roman_datamodels==0.30.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:37,403 - romancal.source_catalog.source_catalog_step - INFO - Creating source catalog
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:37,449 - romancal.source_catalog._source_catalog - INFO - Calculating segment properties
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:16,311 - romancal.source_catalog._source_catalog - INFO - Calculating aperture photometry
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:52,557 - romancal.source_catalog._source_catalog - INFO - Calculating DAOFind properties
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:53,504 - romancal.source_catalog._source_catalog - INFO - Calculating nearest neighbor properties
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:53,543 - romancal.source_catalog._source_catalog - INFO - Calculating PSF photometry
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:53,544 - romancal.source_catalog.psf - INFO - Integrating over the native pixel scale.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:01,547 - romancal.source_catalog._source_catalog - WARNING - meta.wcsinfo missing skycell_name/pixel_scale_ref; flagged_spatial_id will be zero.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:02,147 - stpipe.step - INFO - Saved model in r0034001002001015025_0001_wfi10_f146_segm.asdf
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:02,718 - stpipe.step - INFO - Saved model in r0034001002001015025_0001_wfi10_f146_cat.parquet
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:03,291 - romancal.stpipe.core - INFO - Results used CRDS context: roman_0058.pmap
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:03,292 - stpipe.step - INFO - Step SourceCatalogStep done
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s open the catalog file and take a look:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gbtds_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">search_result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;l2_s3_uri&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_cal.asdf&#39;</span><span class="p">,</span> <span class="s1">&#39;_cat.parquet&#39;</span><span class="p">))</span>
+<span class="n">gbtds_cat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>flagged_spatial_id</th>
+      <th>x_centroid</th>
+      <th>y_centroid</th>
+      <th>x_centroid_err</th>
+      <th>y_centroid_err</th>
+      <th>x_centroid_win</th>
+      <th>y_centroid_win</th>
+      <th>x_centroid_win_err</th>
+      <th>y_centroid_win_err</th>
+      <th>...</th>
+      <th>segment_flux_err</th>
+      <th>kron_flux</th>
+      <th>kron_flux_err</th>
+      <th>kron_abmag</th>
+      <th>kron_abmag_err</th>
+      <th>warning_flags</th>
+      <th>image_flags</th>
+      <th>psf_flags</th>
+      <th>psf_gof</th>
+      <th>dust_ebv</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>20.724205</td>
+      <td>1.759928</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>20.875845</td>
+      <td>1.314916</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1598.632202</td>
+      <td>7.674439e+05</td>
+      <td>1596.995361</td>
+      <td>16.687384</td>
+      <td>0.002257</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1376.645508</td>
+      <td>1.321356</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0</td>
+      <td>41.073574</td>
+      <td>3.210489</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>40.324703</td>
+      <td>3.037090</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>310.052734</td>
+      <td>1.503112e+05</td>
+      <td>461.452667</td>
+      <td>18.457521</td>
+      <td>0.003328</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1393.673584</td>
+      <td>1.322209</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0</td>
+      <td>167.017059</td>
+      <td>2.159441</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>167.039474</td>
+      <td>2.111706</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1149.919922</td>
+      <td>4.945273e+05</td>
+      <td>1153.872803</td>
+      <td>17.164524</td>
+      <td>0.002530</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1005.412354</td>
+      <td>1.327222</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0</td>
+      <td>198.063843</td>
+      <td>0.899025</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>198.017502</td>
+      <td>0.145077</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1297.992432</td>
+      <td>5.368336e+05</td>
+      <td>1298.069702</td>
+      <td>17.075401</td>
+      <td>0.002622</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3567.332275</td>
+      <td>1.328343</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>210.065674</td>
+      <td>2.709198</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>210.583160</td>
+      <td>2.146039</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1990.789062</td>
+      <td>1.253287e+06</td>
+      <td>1992.381104</td>
+      <td>16.154873</td>
+      <td>0.001725</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5437.518066</td>
+      <td>1.328740</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>38062</th>
+      <td>38063</td>
+      <td>0</td>
+      <td>2481.352295</td>
+      <td>4085.832764</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2481.105957</td>
+      <td>4086.499268</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>2314.165283</td>
+      <td>1.282857e+06</td>
+      <td>2313.438965</td>
+      <td>16.129555</td>
+      <td>0.001956</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1510.198120</td>
+      <td>1.367353</td>
+    </tr>
+    <tr>
+      <th>38063</th>
+      <td>38064</td>
+      <td>0</td>
+      <td>3533.310547</td>
+      <td>4085.869629</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3534.827148</td>
+      <td>4086.044922</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>443.522064</td>
+      <td>4.386967e+05</td>
+      <td>616.066895</td>
+      <td>17.294590</td>
+      <td>0.001524</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>9117.288086</td>
+      <td>1.474364</td>
+    </tr>
+    <tr>
+      <th>38064</th>
+      <td>38065</td>
+      <td>0</td>
+      <td>3653.106689</td>
+      <td>4085.205566</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3652.826416</td>
+      <td>4085.217285</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>251.165894</td>
+      <td>1.635395e+05</td>
+      <td>423.409882</td>
+      <td>18.365944</td>
+      <td>0.002807</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5233.841309</td>
+      <td>1.485824</td>
+    </tr>
+    <tr>
+      <th>38065</th>
+      <td>38066</td>
+      <td>0</td>
+      <td>3854.058594</td>
+      <td>4085.332275</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3854.059326</td>
+      <td>4085.684082</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1670.910034</td>
+      <td>8.348259e+05</td>
+      <td>1672.681519</td>
+      <td>16.596010</td>
+      <td>0.002173</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1822.084839</td>
+      <td>1.503953</td>
+    </tr>
+    <tr>
+      <th>38066</th>
+      <td>38067</td>
+      <td>0</td>
+      <td>1530.357300</td>
+      <td>4085.633057</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1529.999146</td>
+      <td>4085.708008</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>296.650665</td>
+      <td>2.193033e+05</td>
+      <td>469.560425</td>
+      <td>18.047388</td>
+      <td>0.002322</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5113.699707</td>
+      <td>1.293415</td>
+    </tr>
+  </tbody>
+</table>
+<p>38067 rows × 74 columns</p>
+</div></div></div>
+</div>
+<p>We can see that the catalog in this example detected 38,067 sources, which is much fewer than the number of sources actually in the image (usually several million stars per detector). This is because the <code class="docutils literal notranslate"><span class="pre">romancal</span></code> source cataloging code is not designed for crowded fields at present.</p>
+<p><a id="correcting_gbtds"></a></p>
+</section>
+</section>
+<section id="correcting-gbtds-simulation-wcs">
+<h3>Correcting GBTDS Simulation WCS<a class="headerlink" href="#correcting-gbtds-simulation-wcs" title="Link to this heading">#</a></h3>
+<p>As mentioned in <a class="reference internal" href="#gbtds_caveats"><span class="xref myst">Simulation Settings and Caveats</span></a> section of the GBTDS description above, the GBTDS L2 WCS is incorrect in the files on S3. Since Roman I-Sim simulates images with perfect pointings, we can recover the correct WCS by retrieving the information from the corresponding L1 file, updating the metadata of the L2 datamodel in memory, and re-running the Assign WCS step of the Exposure Level Pipeline (ELP) to re-generate the <code class="docutils literal notranslate"><span class="pre">gwcs</span></code> object in the datamodel. We have provided a script (in <code class="docutils literal notranslate"><span class="pre">fix_gbtds_wcs.py</span></code>) for quickly reading the corresponding L1 file metadata and doing this operation for you:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## If we know the name in advance, let&#39;s use it:</span>
+<span class="c1">#root_path = &#39;s3://stpubdata/roman/nexus/soc_simulations/r00340/l2/&#39;</span>
+<span class="c1">#asdf_file = &#39;r0034001002001001025_0001_wfi10_f146_cal.asdf&#39;</span>
+<span class="c1">#s3_uri = os.path.join(root_path, asdf_file)</span>
+
+<span class="c1"># Otherwise, let&#39;s search for a file and pull the S3 URI from the results:</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">[</span><span class="s1">&#39;detector&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;WFI10&#39;</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">&amp;=</span> <span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">[</span><span class="s1">&#39;pass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">&amp;=</span> <span class="p">(</span><span class="n">gbtds_manifest</span><span class="p">[</span><span class="s1">&#39;visit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">search_result</span> <span class="o">=</span> <span class="n">gbtds_manifest</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">s3_uri</span> <span class="o">=</span> <span class="n">search_result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;l2_s3_uri&#39;</span><span class="p">]</span>
+
+<span class="c1">## Provide an S3 URI as input to read the file and update it in memory:</span>
+<span class="c1"># dm_update = update_wcs(os.path.join(root_path, asdf_file))</span>
+
+<span class="c1">## Open a file on disk and update it in memory:</span>
+<span class="c1"># dm_update = update_wcs(asdf_file)</span>
+
+<span class="c1"># Stream the file into memory first, then update in-place.</span>
+<span class="c1"># (to optionally save a copy to local storage, uncomment the update_dm.save() line)</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">s3_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dm</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">update_dm</span> <span class="o">=</span> <span class="n">update_wcs</span><span class="p">(</span><span class="n">dm</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+    <span class="c1"># update_dm.save(f&quot;{asdf_file.replace(&#39;_cal.asdf&#39;, &#39;_fixwcs_cal.asdf&#39;)}&quot;)</span>
+
+<span class="c1"># Compute the sky position at the center of the detector</span>
+<span class="n">old</span> <span class="o">=</span> <span class="n">dm</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">wcs</span><span class="p">(</span><span class="mf">2043.5</span><span class="p">,</span> <span class="mf">2043.5</span><span class="p">)</span>
+<span class="n">new</span> <span class="o">=</span> <span class="n">update_dm</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">wcs</span><span class="p">(</span><span class="mf">2043.5</span><span class="p">,</span> <span class="mf">2043.5</span><span class="p">)</span>
+
+<span class="c1"># Print the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Wrong coordinates = (</span><span class="si">{</span><span class="n">old</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">old</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Corrected coordinates = (</span><span class="si">{</span><span class="n">new</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make SkyCoord objects of the old and new celestial positions and </span>
+<span class="c1"># compute the separation</span>
+<span class="n">old_cdt</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="o">*</span><span class="n">old</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="n">new_cdt</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="o">*</span><span class="n">new</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Separation = </span><span class="si">{</span><span class="n">old_cdt</span><span class="o">.</span><span class="n">separation</span><span class="p">(</span><span class="n">new_cdt</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0&#39; (from package roman_datamodels==0.30.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:06,229 - stpipe.step - INFO - AssignWcsStep instance created.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:06,794 - stpipe.step - INFO - Step AssignWcsStep running with args (&lt;roman_datamodels.datamodels._datamodels.ImageModel object at 0x7f3a021f1ee0&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:06,796 - stpipe.step - INFO - Step AssignWcsStep parameters are:
+  pre_hooks: []
+  post_hooks: []
+  output_file: None
+  output_dir: None
+  output_ext: .asdf
+  output_use_model: False
+  output_use_index: True
+  save_results: False
+  skip: False
+  suffix: None
+  search_output_file: True
+  input_dir: &#39;&#39;
+  update_version: False
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:06,796 - romancal.assign_wcs.assign_wcs_step - INFO - reftype, distortion
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:06,799 - romancal.assign_wcs.assign_wcs_step - INFO - Using reference files: {&#39;distortion&#39;: &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_distortion_0001.asdf&#39;} for assign_wcs
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:06,857 - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  267.717554764 -30.004495689 267.790241511 -29.898981041 267.665309326 -29.835437207 267.593145595 -29.941290701
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:06,858 - romancal.assign_wcs.assign_wcs - INFO - S_REGION VALUES: POLYGON ICRS  267.717554764 -30.004495689 267.790241511 -29.898981041 267.665309326 -29.835437207 267.593145595 -29.941290701
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:06,858 - romancal.assign_wcs.assign_wcs - INFO - Update S_REGION to POLYGON ICRS  267.717554764 -30.004495689 267.790241511 -29.898981041 267.665309326 -29.835437207 267.593145595 -29.941290701
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:08,633 - romancal.stpipe.core - INFO - Results used CRDS context: roman_0058.pmap
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:54:08,634 - stpipe.step - INFO - Step AssignWcsStep done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wrong coordinates = (267.69055, -29.92081)
+Corrected coordinates = (267.69142, -29.92037)
+Separation = 3.143 arcsec
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="what-s-next">
+<h2>What’s Next<a class="headerlink" href="#what-s-next" title="Link to this heading">#</a></h2>
+<p>TBD</p>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://romanhelp.stsci.edu">Roman Help Desk</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="about-this-notebook">
+<h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Authors:</strong> Tyler Desjardins<br />
+<strong>Update Overview:</strong> 2026-07-13, First created.</p>
+<table width="100%" style="border:none; border-collapse:collapse;">
+  <tr style="border:none;">
+    <td style="border:none; width:180px; white-space:nowrap;">
+       <a href="#top" style="text-decoration:none; color:#0066cc;"> Top of page</a>
+    </td>
+    <td style="border:none; text-align:center;">
+        <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/roman_logo.png" alt="roman_logo" width="50px">
+    </td>
+    <td style="border:none; text-align:right;">
+       <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/stsci_logo2.png" width="90">
+    </td>
+  </tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/ccs_simulations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#galactic-bulge-time-domain-survey-gbtds">Galactic Bulge Time-Domain Survey (GBTDS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-program-design">Simulation Program Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-catalog">Input Catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-settings-and-caveats">Simulation Settings and Caveats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulated-products">Simulated Products</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-organization-on-s3">Data Organization on S3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#high-latitude-wide-area-survey-hlwas">High-Latitude Wide-Area Survey (HLWAS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Simulation Program Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Input Catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Simulation Settings and Caveats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Simulated Products</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Data Organization on S3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-and-examples">Data Access and Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-data-in-the-simulation">Searching for Data in the Simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cone-searches">Cone Searches</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#time-search">Time Search</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-search">Metadata Search</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-search-putting-it-all-together">Compound Search (Putting it All Together)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-other-file-types">Retrieving Other File Types</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-and-opening-input-catalogs">Finding and Opening Input Catalogs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-data-products-into-memory">Streaming Data Products into Memory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-soc-catalog-products">Accessing SOC Catalog Products</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#making-gbtds-l4-products">Making GBTDS L4 Products</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correcting-gbtds-simulation-wcs">Correcting GBTDS Simulation WCS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-s-next">What’s Next</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

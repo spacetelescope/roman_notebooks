@@ -1,0 +1,1011 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Understanding CRDS and How to Select Calibration Reference Files &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/crds_reference_files/crds_reference_files';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/crds_reference_files/crds_reference_files.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/crds_reference_files/crds_reference_files.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Understanding CRDS and How to Select Calibration Reference Files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-calibration-reference-data-system-crds">The Calibration Reference Data System (CRDS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-reference-files">Retrieving Reference Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crds-mapping-files">CRDS Mapping Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-file-by-name">Download a File by Name</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-next">What is Next</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="understanding-crds-and-how-to-select-calibration-reference-files">
+<h1>Understanding CRDS and How to Select Calibration Reference Files<a class="headerlink" href="#understanding-crds-and-how-to-select-calibration-reference-files" title="Link to this heading">#</a></h1>
+<section id="kernel-information-and-read-only-status">
+<h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.2”.</p>
+<p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This notebook will help you understand how the Calibration Reference Data System (<a class="reference external" href="https://roman-crds.stsci.edu/static/users_guide/overview.html">CRDS</a>) works, how the Roman Calibration Pipeline interacts with this subsystem to get the best reference files for your data, and how to retrieve these files directly from <code class="docutils literal notranslate"><span class="pre">CRDS</span></code></p>
+<section id="local-run-settings">
+<h3>Local Run Settings<a class="headerlink" href="#local-run-settings" title="Link to this heading">#</a></h3>
+<p>If you want to run the notebook in your local machine, refer to the information in <a class="reference internal" href="../../markdown/local-run.html"><span class="std std-doc">local installation</span></a> instructions before proceeding with the notebook. The instructions provide important information about setting up your environment and installing dependencies.</p>
+</section>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<p>Libraries used:</p>
+<ul class="simple">
+<li><p><em>os</em> for operating system functions</p></li>
+<li><p><em>copy</em> for making copies of Python objects</p></li>
+<li><p><em>crds</em> for access to calibration reference files</p></li>
+<li><p><em>numpy</em> for array manipulation</p></li>
+<li><p><em>roman_datamodels</em> for opening Roman WFI ASDF files</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
+<span class="c1">#import s3fs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-calibration-reference-data-system-crds">
+<h3>The Calibration Reference Data System (CRDS)<a class="headerlink" href="#the-calibration-reference-data-system-crds" title="Link to this heading">#</a></h3>
+<p>The Roman Calibration Pipeline (<code class="docutils literal notranslate"><span class="pre">RomanCal</span></code>), uses calibration reference and parameter files from the <a class="reference external" href="https://roman-crds.stsci.edu/static/users_guide/overview.html">CRDS</a>. These reference files, developed and validated by STScI’s Science Operations Center, are continually updated as new WFI data become available. CRDS assigns the most appropriate reference file for each calibration step using metadata keywords and file-specific matching criteria. To use the best-available reference files for an observation, no action is needed as <code class="docutils literal notranslate"><span class="pre">RomanCal</span></code> will query for the best reference files for each calibration step in the pipeline.</p>
+<p>To do this independently we will use the <strong><a class="reference external" href="https://roman-crds.stsci.edu/static/users_guide/index.html"><code class="docutils literal notranslate"><span class="pre">crds</span></code></a></strong> Python application programming interface (API); however, the <a class="reference external" href="https://roman-crds.stsci.edu"><strong>CRDS</strong> webserver</a> can also be accessed to browse calibration reference files in a tabular interface. Note that there are multiple CRDS servers, though most users will interact with the Operations (OPS) instance. Please be sure to navigate to the correct webserver for the instance in which you are interested.</p>
+<p>For more details, see the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files">RDox page on CRDS for Roman WFI</a> and the <a class="reference external" href="https://jwst-crds.stsci.edu/static/users_guide/web_site_use.html">CRDS documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">crds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check your environment. If running the notebook in Nexus, these CRDS environment variables would be already configured. If running locally and not currently set up, don’t worry, we will select the CRDS context later in the notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CRDS_SERVER_URL:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CRDS_CONTEXT:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CRDS_CONTEXT&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CRDS_PATH:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CRDS_OBSERVATORY:|&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CRDS_OBSERVATORY&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS_SERVER_URL: https://roman-crds.stsci.edu
+CRDS_CONTEXT: roman-edit
+CRDS_PATH: /home/runner/crds_cache
+CRDS_OBSERVATORY:| None
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="retrieving-reference-files">
+<h3>Retrieving Reference Files<a class="headerlink" href="#retrieving-reference-files" title="Link to this heading">#</a></h3>
+<p>As you run the exposure or mosaic pipeline, the most up-to-date reference files will be automatically selected for each step. However, if you would like to use a specific reference file, these can be retrieved through the <code class="docutils literal notranslate"><span class="pre">crds</span></code> Python API and stored localy to be used later in a particular calibraton step  (more on that later). Let’s begin with how to access reference files from CRDS.</p>
+<p>First, let’s begin with how to access reference files from CRDS. For that we will use the <code class="docutils literal notranslate"><span class="pre">crds.getrecommendations()</span></code> function. This function returns a dictionary with the basenames of the reference files that match the criteria that you supply. In this case, the files are not downloaded.</p>
+<p>In this function, the selection criteria are specified in a dictionary of key-value pairs, where eacb Roman WFI metadata keyword in the dictionary is all-caps and always begins with “ROMAN.META.”. The remaining parts of the string correspond to the metadata keyword locations in the science data file schema. To lear more about Science Products Schemas refer to the <a class="reference external" href="https://rad.readthedocs.io/en/latest/schemas.html">Roman Atribute Dictionary</a>.</p>
+<p>Different reference file types require different combinations of science metadata to match to the reference files. In general, all reference file types will require the instrument name (“INSTRUMENT.NAME”) and start time (“EXPOSURE.START_TIME”). Most file types require the detector name (“INSTRUMENT.DETECTOR”), and some file types require the exposure type (“EXPOSURE.TYPE”) or optical element (“INSTRUMENT.OPTICAL_ELEMENT”).</p>
+<p>For example, for the mask and flat files, the required keywords are:</p>
+<ul class="simple">
+<li><p>mask</p>
+<ul>
+<li><p>ROMAN.META.INSTRUMENT.NAME</p></li>
+<li><p>ROMAN.META.INSTRUMENT.DETECTOR</p></li>
+<li><p>ROMAN.META.EXPOSURE.START_TIME</p></li>
+</ul>
+</li>
+<li><p>flat</p>
+<ul>
+<li><p>ROMAN.META.INSTRUMENT.NAME</p></li>
+<li><p>ROMAN.META.INSTRUMENT.DETECTOR</p></li>
+<li><p>ROMAN.META.INSTRUMENT.OPTICAL_ELEMENT</p></li>
+<li><p>ROMAN.META.EXPOSURE.START_TIME</p></li>
+</ul>
+</li>
+</ul>
+<p>These keywords may be combined into a single dictionary to find multiple reference file types using <code class="docutils literal notranslate"><span class="pre">crds.getreferences()</span></code>. This function returns full local paths and downloads or caches if missing. For example, if you would like to find the name of the dark and flat reference files used by the pipeline, and download them, you could run the following example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ROMAN.META.INSTRUMENT.NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;WFI&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROMAN.META.INSTRUMENT.DETECTOR&#39;</span><span class="p">:</span> <span class="s1">&#39;WFI01&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROMAN.META.INSTRUMENT.OPTICAL_ELEMENT&#39;</span><span class="p">:</span> <span class="s1">&#39;F158&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROMAN.META.EXPOSURE.START_TIME&#39;</span><span class="p">:</span> <span class="s1">&#39;2026-01-01 00:00:00&#39;</span>
+       <span class="p">}</span>
+
+<span class="n">ref_files</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">getrecommendations</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">reftypes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mask&#39;</span><span class="p">,</span> <span class="s1">&#39;flat&#39;</span><span class="p">],</span> <span class="n">observatory</span><span class="o">=</span><span class="s1">&#39;roman&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ref_files</span></code> variable now contains a dictionary for each of the reference file types you requested (MASK and FLAT). These are the reference files that correspond to a science observation taken at midnight UTC on January 1, 2026 in the WFI imaging mode with optical element F158 and detector WFI01. Let’s take a look at the names of the files CRDS returned:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mask&#39;: &#39;roman_wfi_mask_0030.asdf&#39;, &#39;flat&#39;: &#39;roman_wfi_flat_0166.asdf&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">crds.getreferences()</span></code> to accomplish the same thing; however, <code class="docutils literal notranslate"><span class="pre">getreferences()</span></code> goes one step further beyond <code class="docutils literal notranslate"><span class="pre">getrecommendations()</span></code> and will download the reference files if they are not already in your local cache. Using the same example as above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ROMAN.META.INSTRUMENT.NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;WFI&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROMAN.META.INSTRUMENT.DETECTOR&#39;</span><span class="p">:</span> <span class="s1">&#39;WFI01&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROMAN.META.INSTRUMENT.OPTICAL_ELEMENT&#39;</span><span class="p">:</span> <span class="s1">&#39;F158&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ROMAN.META.EXPOSURE.START_TIME&#39;</span><span class="p">:</span> <span class="s1">&#39;2026-01-01 00:00:00&#39;</span>
+       <span class="p">}</span>
+
+<span class="n">ref_files</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">getreferences</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">reftypes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mask&#39;</span><span class="p">,</span> <span class="s1">&#39;flat&#39;</span><span class="p">],</span> <span class="n">observatory</span><span class="o">=</span><span class="s1">&#39;roman&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And once again we can examine the output of <code class="docutils literal notranslate"><span class="pre">ref_files</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ref_files</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mask&#39;: &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_mask_0030.asdf&#39;,
+ &#39;flat&#39;: &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_flat_0166.asdf&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>This time, <code class="docutils literal notranslate"><span class="pre">ref_files</span></code> contains the path to the file in the local cache (controlled by the <code class="docutils literal notranslate"><span class="pre">CRDS_PATH</span></code> environment variable) since we did not simply ask for the file name but also checked if the file was in our cache, and if it was not then we downloaded it.</p>
+</section>
+<section id="crds-mapping-files">
+<h3>CRDS Mapping Files<a class="headerlink" href="#crds-mapping-files" title="Link to this heading">#</a></h3>
+<p>CRDS organizes the reference files using mapping files: the PMAP file, the IMAP files, and tje RMAP files. The first and most important mapping file is the PMAP file (commonly referred to as the CRDS context). This file is set by the the <code class="docutils literal notranslate"><span class="pre">CRDS_CONTEXT</span></code> environment variable. It provides a way to identify to the full set of reference files that each step of the <code class="docutils literal notranslate"><span class="pre">RomanCal</span></code> pipeline will use at a given time. By using the reference files tied to the same PMAP, you ensure compatibility between reference files.</p>
+<p>If not already set, we can select a particular context with the following command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_CONTEXT&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;roman_0055.pmap&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check again our environment variables</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS server location: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS context file: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CRDS_CONTEXT&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS server location: https://roman-crds.stsci.edu
+CRDS context file: roman_0055.pmap
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the PMAP was correctly set.</p>
+<p>The IMAP is the second tier of mapping files. It contains the full set of reference types applicable to a giver instrument and available for use by <code class="docutils literal notranslate"><span class="pre">RomanCal</span></code>. For WFI, a particular version of the IMAP provides a list of all the reference file types used by <code class="docutils literal notranslate"><span class="pre">RomanCal</span></code> to calibrate that instrument, along with the RMAP versions part of the selected context.</p>
+<p>The RMAP is the third tier of mapping files. It provides the full list of reference files active with a given context, along with the selection parameters for that particular reference file type, which matches them to science observations. An RMAP includes the versions of the reference file that is part of that context.</p>
+<p>From the user point of view, only the PMAP or context file needs to be set. Note, however, that the context is also CRDS server-dependent and is set by the environment variable <code class="docutils literal notranslate"><span class="pre">CRDS_SERVER_URL</span></code>.</p>
+<p>Let’s explore the set of maping associated with our selected context.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmap</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">get_default_context</span><span class="p">(</span><span class="s2">&quot;roman&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current pmap:&quot;</span><span class="p">,</span> <span class="n">pmap</span><span class="p">)</span>
+
+<span class="c1"># Use the correct method for your version</span>
+<span class="n">ctx</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">get_symbolic_mapping</span><span class="p">(</span><span class="n">pmap</span><span class="p">)</span>
+
+<span class="n">maps</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">mapping_names</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total mappings: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">maps</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">First 20 mappings:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">maps</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Current pmap: roman_0058.pmap
+
+Total mappings: 30
+
+First 20 mappings:
+roman_0058.pmap
+roman_wfi_0056.imap
+roman_wfi_absflux_0001.rmap
+roman_wfi_abvegaoffset_0002.rmap
+roman_wfi_apcorr_0003.rmap
+roman_wfi_area_0002.rmap
+roman_wfi_dark_0011.rmap
+roman_wfi_darkdecaysignal_0002.rmap
+roman_wfi_detectorstatus_0002.rmap
+roman_wfi_distortion_0002.rmap
+roman_wfi_dustmap_0003.rmap
+roman_wfi_epsf_0004.rmap
+roman_wfi_etc_0002.rmap
+roman_wfi_flat_0006.rmap
+roman_wfi_gain_0003.rmap
+roman_wfi_integralnonlinearity_0002.rmap
+roman_wfi_inverselinearity_0005.rmap
+roman_wfi_ipc_0003.rmap
+roman_wfi_linearity_0005.rmap
+roman_wfi_mask_0003.rmap
+</pre></div>
+</div>
+</div>
+</div>
+<p>For more information on the mapping rules, see the <a class="reference external" href="https://roman-crds.stsci.edu/static/users_guide/rmap_syntax.html">readthedocs documentation</a>.</p>
+<p>Now let’s isolate the names of the MASK files in the associated RMAP.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">maps</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;mask&#39;</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span>
+        <span class="n">mask_rmap</span> <span class="o">=</span> <span class="n">m</span> 
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="n">masks</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">rmap</span><span class="o">.</span><span class="n">load_mapping</span><span class="p">(</span><span class="n">mask_rmap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have loaded up the list of MASK files in the applicable RMAP, let’s take a look at it using the <code class="docutils literal notranslate"><span class="pre">todict()</span></code> method to turn it into a dictionary we can more easily visualize:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">masks</span><span class="o">.</span><span class="n">todict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;header&#39;: {&#39;classes&#39;: (&#39;Match&#39;, &#39;UseAfter&#39;),
+  &#39;derived_from&#39;: &#39;roman_wfi_mask_0002.rmap&#39;,
+  &#39;file_ext&#39;: &#39;.asdf&#39;,
+  &#39;filekind&#39;: &#39;mask&#39;,
+  &#39;filetype&#39;: &#39;mask&#39;,
+  &#39;instrument&#39;: &#39;wfi&#39;,
+  &#39;ld_tpn&#39;: &#39;wfi_mask.tpn&#39;,
+  &#39;mapping&#39;: &#39;reference&#39;,
+  &#39;name&#39;: &#39;roman_wfi_mask_0003.rmap&#39;,
+  &#39;observatory&#39;: &#39;roman&#39;,
+  &#39;parkey&#39;: ((&#39;ROMAN.META.INSTRUMENT.DETECTOR&#39;,),
+   (&#39;ROMAN.META.EXPOSURE.START_TIME&#39;,)),
+  &#39;sha1sum&#39;: &#39;47d1c37517e5e40cd13240f9ca432cf644b3994a&#39;,
+  &#39;suffix&#39;: &#39;mask&#39;,
+  &#39;text_descr&#39;: &#39;bad pixel mask&#39;,
+  &#39;tpn&#39;: &#39;wfi_mask.tpn&#39;},
+ &#39;text_descr&#39;: &#39;Bad Pixel Mask&#39;,
+ &#39;parameters&#39;: (&#39;ROMAN.META.INSTRUMENT.DETECTOR&#39;, &#39;USEAFTER&#39;, &#39;REFERENCE&#39;),
+ &#39;selections&#39;: [(&#39;WFI01&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0030.asdf&#39;),
+  (&#39;WFI02&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0029.asdf&#39;),
+  (&#39;WFI03&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0026.asdf&#39;),
+  (&#39;WFI04&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0022.asdf&#39;),
+  (&#39;WFI05&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0021.asdf&#39;),
+  (&#39;WFI06&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0024.asdf&#39;),
+  (&#39;WFI07&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0032.asdf&#39;),
+  (&#39;WFI08&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0034.asdf&#39;),
+  (&#39;WFI09&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0020.asdf&#39;),
+  (&#39;WFI10&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0028.asdf&#39;),
+  (&#39;WFI11&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0023.asdf&#39;),
+  (&#39;WFI12&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0035.asdf&#39;),
+  (&#39;WFI13&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0036.asdf&#39;),
+  (&#39;WFI14&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0025.asdf&#39;),
+  (&#39;WFI15&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0033.asdf&#39;),
+  (&#39;WFI16&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0027.asdf&#39;),
+  (&#39;WFI17&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0019.asdf&#39;),
+  (&#39;WFI18&#39;, &#39;2023-01-01 00:00:00&#39;, &#39;roman_wfi_mask_0031.asdf&#39;)]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see, the <code class="docutils literal notranslate"><span class="pre">parkey</span></code> key in the RMAP tells us the matching criteria unique to this reference file type from the dictionary we created when we used <code class="docutils literal notranslate"><span class="pre">crds.getrecommendations()</span></code> and <code class="docutils literal notranslate"><span class="pre">crds.getreferences()</span></code>. Also notice that the <code class="docutils literal notranslate"><span class="pre">parameters</span></code> field tells us the column names for the <code class="docutils literal notranslate"><span class="pre">selections</span></code> part of the dictionary. In this case, we see they include:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;ROMAN.META.INSTRUMENT.DETECTOR&quot;
+&quot;USEAFTER&quot;
+&quot;REFERENCE&quot;.     
+</pre></div>
+</div>
+<p>The REFERENCE column is simply the name of the reference file that matches those critiera. The USEAFTER date is the date after which a file should be used for a science observation.
+CRDS will match the file with the closest <strong>preceding</strong> USEAFTER date to the science observation date (given by “ROMAN.META.EXPOSURE.START_TIME”).</p>
+</section>
+<section id="download-a-file-by-name">
+<h3>Download a File by Name<a class="headerlink" href="#download-a-file-by-name" title="Link to this heading">#</a></h3>
+<p>If you know the specific reference file name and would like to download it directly from the CRDS on-premise server, you can call it via a command line option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crds</span> <span class="n">sync</span> <span class="o">--</span><span class="n">files</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">dir</span><span class="o">=&lt;</span><span class="n">pathname</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;filename&gt;</span></code> is the name of the reference file (e.g. “roman_wfi_mask_0022.asdf”) and <code class="docutils literal notranslate"><span class="pre">&lt;pathname&gt;</span></code> is the location where the file will be saved. <strong>Note:</strong> in the future, Roman reference files will also be available via an AWS S3 bucket, and these instructions will be updated to describe how to access them there.</p>
+<p>To run this in a Jupyter notebook, we write out the command as a string and pass it to the command line script code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;crds.sync --files </span><span class="si">{</span><span class="n">ref_files</span><span class="p">[</span><span class="s1">&#39;mask&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">sync</span><span class="o">.</span><span class="n">SyncScript</span><span class="p">(</span><span class="n">cmd</span><span class="p">)()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Syncing explicitly listed files.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  0 errors
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  0 warnings
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  1 infos
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, nothing happened since we had already previously downloaded this file into our cache using <code class="docutils literal notranslate"><span class="pre">crds.getreferences()</span></code>. But if you know the file name of a reference file that you want to retrieve from CRDS without using the matching criteria, the cell above would download the file to your cache. Simply replace <code class="docutils literal notranslate"><span class="pre">{ref_files['mask']}</span></code> in the <code class="docutils literal notranslate"><span class="pre">cmd</span></code> string with the name of the ASDF file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ref_files</span><span class="p">[</span><span class="s1">&#39;mask&#39;</span><span class="p">])</span>
+<span class="n">mask</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root (AsdfObject)
+├─asdf_library (Software)
+│ ├─author (str): The ASDF Developers
+│ ├─homepage (str): http://github.com/asdf-format/asdf
+│ ├─name (str): asdf
+│ └─version (str): 3.3.0
+├─history (AsdfDictNode)
+│ └─extensions (AsdfListNode)
+│   ├─0 (ExtensionMetadata) ...
+│   ├─1 (ExtensionMetadata) ...
+│   └─2 (ExtensionMetadata) ...
+└─roman (MaskRef) # Mask Reference File Schema
+  ├─meta (AsdfDictNode) # Common Reference File Metadata Properties
+  │ ├─author (str): RFP # Author
+  │ ├─description (str): Initial bad pixel masks for DQInit step in romancal.  Masks from NASA/GSFC # Description
+  │ ├─instrument (AsdfDictNode) ...
+  │ ├─origin (Origin): STSCI # Institution / Organization Name
+  │ ├─pedigree (str): GROUND # Pedigree
+  │ ├─reftype (str): MASK
+  │ ├─telescope (Telescope): ROMAN # Telescope Name
+  │ └─useafter (Time): 2023-01-01 00:00:00.000 # Use After Date
+  └─dq (NDArrayType) # Mask Data Quality Array ...
+Some nodes not shown.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="what-is-next">
+<h2>What is Next<a class="headerlink" href="#what-is-next" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand and Explore the <a class="reference internal" href="area_reffile.html"><span class="std std-doc">Area Pixels Mask</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="bad_pixels_mask_reffile.html"><span class="std std-doc">Bad Pixels Mask</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="dark_reffile.html"><span class="std std-doc">Dark</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="flat_reffile.html"><span class="std std-doc">Flat Field</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="distortion_reffile.html"><span class="std std-doc">Distortion</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="gain_reffile.html"><span class="std std-doc">Gain</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="linearity_reffile.html"><span class="std std-doc">Linearity</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="photom_reffile.html"><span class="std std-doc">Photom</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="psf_reffile.html"><span class="std std-doc">PSF/ePSF</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="readnoise_reffile.html"><span class="std std-doc">Readnoise</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="reference_pixel_reffile.html"><span class="std std-doc">Reference Pixels</span></a> reference file.</p></li>
+<li><p>Understand and Explore the <a class="reference internal" href="saturation_reffile.html"><span class="std std-doc">Saturation</span></a> reference file.</p></li>
+</ul>
+</section>
+<section id="about-this-notebook">
+<h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
+<p><strong>Author:</strong> R. Diaz, T. Desjardins.</p>
+<p><strong>Updated On:</strong> 2026-07-02</p>
+<table width="100%" style="border:none; border-collapse:collapse;">
+  <tr style="border:none;">
+    <td style="border:none; width:180px; white-space:nowrap;">
+       <a href="#top" style="text-decoration:none; color:#0066cc;"> Top of page</a>
+    </td>
+    <td style="border:none; text-align:center;">
+        <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/roman_logo.png" alt="roman_logo" width="50px">
+    </td>
+    <td style="border:none; text-align:right;">
+       <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/stsci_logo2.png" width="90">
+    </td>
+  </tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/crds_reference_files"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-calibration-reference-data-system-crds">The Calibration Reference Data System (CRDS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieving-reference-files">Retrieving Reference Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crds-mapping-files">CRDS Mapping Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-file-by-name">Download a File by Name</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-next">What is Next</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About this Notebook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

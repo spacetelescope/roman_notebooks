@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,6 +61,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/aperture_photometry/aperture_photometry';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Measuring Galaxy Shapes" href="../measuring_galaxy_shapes/measuring_galaxy_shapes.html" />
@@ -68,20 +69,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -107,7 +114,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -171,6 +222,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -409,7 +461,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
@@ -448,7 +500,7 @@
 <hr class="docutils" />
 <section id="kernel-information-and-read-only-status">
 <h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.2”.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
 </section>
 <section id="introduction">
@@ -479,46 +531,29 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">notebook_data_dependencies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ndd</span>
-    <span class="n">local</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="n">local</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">notebook_data_dependencies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ndd</span>
 
-<span class="c1"># If running locally Get the directory with the script</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">local</span><span class="p">:</span>
-    <span class="n">notebook_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-    <span class="n">shared_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">notebook_dir</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;shared&#39;</span><span class="p">,</span> <span class="s1">&#39;notebook_data_dependencies.py&#39;</span><span class="p">)</span>
-    <span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">shared_path</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading notebook_data_dependencies from shared location: </span><span class="si">{</span><span class="n">shared_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span><span class="s2">&quot;notebook_data_dependencies&quot;</span><span class="p">,</span> <span class="n">shared_path</span><span class="p">)</span>
-        <span class="n">ndd</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;notebook_data_dependencies&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ndd</span>  <span class="c1"># Optional: makes subsequent imports work</span>
-        <span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">ndd</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Local install script not found at </span><span class="si">{</span><span class="n">shared_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="ow">not</span> <span class="n">local</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running local data dependency installation...&quot;</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stpsf&#39;</span><span class="p">])</span>
-
-    <span class="c1"># Update environment variables (if necessary) and print reference data paths</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reference data paths set to:&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;pre_installed&#39;</span><span class="p">]:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running on RNN — data already available, skipping local install.&quot;</span><span class="p">)</span>
+<span class="c1"># Download reference data (if necessary)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stpsf&#39;</span><span class="p">])</span>
+<span class="n">ndd</span><span class="o">.</span><span class="n">setup_env</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running on RNN — data already available, skipping local install.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Did not find stpsf data in environment, setting it up...
+	Downloading and uncompressing file...
+	Found 1 data URL(s) to download and install...
+	Working on file 1 out of 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
+		export STPSF_PATH=&#39;/home/runner/refdata/stpsf-data&#39;
+Reference data paths set to:
+	STPSF_PATH = /home/runner/refdata/stpsf-data
+	CRDS_SERVER_URL = https://roman-crds.stsci.edu (pre-set, not overwritten)
+	CRDS_CONTEXT = roman-edit (pre-set, not overwritten)
+	CRDS_OBSERVATORY = roman
+	CRDS_PATH = /home/runner/crds_cache (pre-set, not overwritten)
 </pre></div>
 </div>
 </div>
@@ -542,7 +577,9 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">SigmaClip</span><span class="p">,</span> <span class="n">sigma_clipped_stats</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">asdf</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">crds</span>
@@ -570,10 +607,11 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stream the files from the S3 bucket if they are not in local storage</span>
 
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fund the data in disk&#39;</span><span class="p">)</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.1/&quot;</span>
+    <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.2/&quot;</span>
     <span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
 
@@ -599,7 +637,7 @@
     <span class="n">cat</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;full_catalog.ecsv&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.1/&quot;</span>
+    <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.2/&quot;</span>
     <span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;full_catalog.ecsv&#39;</span>
     <span class="n">cat</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.ecsv&#39;</span><span class="p">)</span>
 </pre></div>
@@ -615,7 +653,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table139774051326608" class="table-striped table-bordered table-condensed">
+<table id="table140237693730736" class="table-striped table-bordered table-condensed">
 <thead><tr><th>ra</th><th>dec</th><th>type</th><th>n</th><th>half_light_radius</th><th>pa</th><th>ba</th><th>F062</th><th>F087</th><th>F106</th><th>F129</th><th>F146</th><th>F158</th><th>F184</th><th>F213</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>str3</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
 <tr><td>271.86797231182135</td><td>-0.10060992664038153</td><td>SER</td><td>3.064821092346019</td><td>0.22179590165615082</td><td>328.8581237792969</td><td>0.6489765644073486</td><td>4.62805687106993e-08</td><td>1.1826716495022538e-08</td><td>1.9471634971068852e-08</td><td>3.299811979218248e-09</td><td>3.051070152082502e-08</td><td>6.060460133738843e-09</td><td>7.480496577727536e-08</td><td>8.626697933777905e-08</td></tr>
@@ -682,7 +720,7 @@ Number of galaxies: 45
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5a957476adc91892d3352c4e7be5544101bed3fb1b92620fbc5963cab04ff3f7.png" src="../../_images/5a957476adc91892d3352c4e7be5544101bed3fb1b92620fbc5963cab04ff3f7.png" />
+<img alt="../../_images/de69c3c5b5a89d1ce7b174dd2f4415ff705b050d6a724a67148bc437d6ded344.png" src="../../_images/de69c3c5b5a89d1ce7b174dd2f4415ff705b050d6a724a67148bc437d6ded344.png" />
 </div>
 </div>
 </section>
@@ -706,142 +744,100 @@ Number of galaxies: 45
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_specpsf_0001.rmap      572 bytes  (1 / 46 files) (0 / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Syncing 30 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_skycells_0002.rmap      712 bytes  (2 / 46 files) (572 / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_specpsf_0001.rmap      572 bytes  (1 / 30 files) (0 / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_sflat_0001.rmap      548 bytes  (3 / 46 files) (1.3 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_skycells_0002.rmap      712 bytes  (2 / 30 files) (572 / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_saturation_0003.rmap    2.4 K bytes  (4 / 46 files) (1.8 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_sflat_0001.rmap      548 bytes  (3 / 30 files) (1.3 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_relflux_0001.rmap      555 bytes  (5 / 46 files) (4.3 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_saturation_0003.rmap    2.4 K bytes  (4 / 30 files) (1.8 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_refpix_0003.rmap    2.3 K bytes  (6 / 46 files) (4.8 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_relflux_0001.rmap      555 bytes  (5 / 30 files) (4.3 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_readnoise_0005.rmap    3.2 K bytes  (7 / 46 files) (7.1 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_refpix_0003.rmap    2.3 K bytes  (6 / 30 files) (4.8 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_photom_0004.rmap    2.3 K bytes  (8 / 46 files) (10.4 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_readnoise_0006.rmap    3.4 K bytes  (7 / 30 files) (7.1 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-tweakregstep_0001.rmap      568 bytes  (9 / 46 files) (12.7 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_photom_0004.rmap    2.3 K bytes  (8 / 30 files) (10.5 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-sourcedetectionstep_0001.rmap      643 bytes  (10 / 46 files) (13.3 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_optmodel_0001.rmap      586 bytes  (9 / 30 files) (12.9 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-skymatchstep_0001.rmap      568 bytes  (11 / 46 files) (13.9 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_matable_0004.rmap      690 bytes  (10 / 30 files) (13.4 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-saturationstep_0001.rmap      580 bytes  (12 / 46 files) (14.5 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_mask_0003.rmap    2.3 K bytes  (11 / 30 files) (14.1 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-resamplestep_0001.rmap      568 bytes  (13 / 46 files) (15.1 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_linearity_0005.rmap    2.4 K bytes  (12 / 30 files) (16.4 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-refpixstep_0001.rmap      556 bytes  (14 / 46 files) (15.6 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_ipc_0003.rmap    3.3 K bytes  (13 / 30 files) (18.8 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-rampfitstep_0001.rmap      574 bytes  (15 / 46 files) (16.2 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_inverselinearity_0005.rmap    2.6 K bytes  (14 / 30 files) (22.1 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-photomstep_0001.rmap      556 bytes  (16 / 46 files) (16.8 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_integralnonlinearity_0002.rmap    2.8 K bytes  (15 / 30 files) (24.7 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-outlierdetectionstep_0001.rmap      649 bytes  (17 / 46 files) (17.3 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_gain_0003.rmap    2.3 K bytes  (16 / 30 files) (27.5 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-linearitystep_0001.rmap      574 bytes  (18 / 46 files) (18.0 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_flat_0006.rmap    8.5 K bytes  (17 / 30 files) (29.7 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-jumpstep_0001.rmap      712 bytes  (19 / 46 files) (18.5 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_etc_0002.rmap    2.3 K bytes  (18 / 30 files) (38.2 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-highlevelpipeline_0001.rmap      807 bytes  (20 / 46 files) (19.2 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_epsf_0004.rmap   16.3 K bytes  (19 / 30 files) (40.5 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-fluxstep_0001.rmap      544 bytes  (21 / 46 files) (20.1 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dustmap_0003.rmap      855 bytes  (20 / 30 files) (56.8 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-flatfieldstep_0001.rmap      574 bytes  (22 / 46 files) (20.6 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_distortion_0002.rmap    3.6 K bytes  (21 / 30 files) (57.7 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-exposurepipeline_0001.rmap      800 bytes  (23 / 46 files) (21.2 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_detectorstatus_0002.rmap      773 bytes  (22 / 30 files) (61.2 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-dqinitstep_0001.rmap      556 bytes  (24 / 46 files) (22.0 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_darkdecaysignal_0002.rmap      783 bytes  (23 / 30 files) (62.0 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-darkcurrentstep_0001.rmap      586 bytes  (25 / 46 files) (22.5 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dark_0011.rmap    4.4 K bytes  (24 / 30 files) (62.8 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_pars-assignwcsstep_0001.rmap      574 bytes  (26 / 46 files) (23.1 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_area_0002.rmap    2.3 K bytes  (25 / 30 files) (67.2 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_optmodel_0001.rmap      586 bytes  (27 / 46 files) (23.7 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_apcorr_0003.rmap    2.3 K bytes  (26 / 30 files) (69.5 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_matable_0004.rmap      690 bytes  (28 / 46 files) (24.3 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_abvegaoffset_0002.rmap    2.5 K bytes  (27 / 30 files) (71.8 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_mask_0003.rmap    2.3 K bytes  (29 / 46 files) (25.0 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_absflux_0001.rmap      555 bytes  (28 / 30 files) (74.3 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_linearity_0005.rmap    2.4 K bytes  (30 / 46 files) (27.2 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_0056.imap    2.4 K bytes  (29 / 30 files) (74.8 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_ipc_0002.rmap    2.3 K bytes  (31 / 46 files) (29.6 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_0058.pmap       344 bytes  (30 / 30 files) (77.3 K / 77.6 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_inverselinearity_0005.rmap    2.6 K bytes  (32 / 46 files) (31.9 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_integralnonlinearity_0002.rmap    2.8 K bytes  (33 / 46 files) (34.5 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_gain_0003.rmap    2.3 K bytes  (34 / 46 files) (37.2 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_flat_0006.rmap    8.5 K bytes  (35 / 46 files) (39.5 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_epsf_0004.rmap   16.3 K bytes  (36 / 46 files) (48.0 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_distortion_0002.rmap    3.6 K bytes  (37 / 46 files) (64.3 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_detectorstatus_0002.rmap      773 bytes  (38 / 46 files) (67.9 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_darkdecaysignal_0002.rmap      783 bytes  (39 / 46 files) (68.7 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dark_0007.rmap    5.0 K bytes  (40 / 46 files) (69.4 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_area_0002.rmap    2.3 K bytes  (41 / 46 files) (74.4 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_apcorr_0002.rmap    2.3 K bytes  (42 / 46 files) (76.7 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_abvegaoffset_0002.rmap    2.5 K bytes  (43 / 46 files) (79.0 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_absflux_0001.rmap      555 bytes  (44 / 46 files) (81.5 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_0046.imap    2.8 K bytes  (45 / 46 files) (82.0 K / 85.2 K bytes)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_0048.pmap       344 bytes  (46 / 46 files) (84.8 K / 85.2 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Syncing 1 files
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_area_0009.asdf   66.8 M bytes  (1 / 1 files) (0 / 66.8 M bytes)
@@ -868,7 +864,7 @@ Number of galaxies: 45
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/77e7471b2bfc0f6518ff283273598eef9fd1cfde160223fdc608c22379435d6c.png" src="../../_images/77e7471b2bfc0f6518ff283273598eef9fd1cfde160223fdc608c22379435d6c.png" />
+<img alt="../../_images/ed51fde53338b08aa9a64c3f18e1882ba5e7a69da3e1001e8cafa7361c993671.png" src="../../_images/ed51fde53338b08aa9a64c3f18e1882ba5e7a69da3e1001e8cafa7361c993671.png" />
 </div>
 </div>
 <p>Now let’s multiply the science data and the uncertainty array by the PAM to adjust for the relative sizes of the pixels on the sky:</p>
@@ -927,7 +923,7 @@ Number of galaxies: 45
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6e3b1e79aca6defb3d36a9a5aafff872ac60f40ff002c46f3f7049c0b021dd2c.png" src="../../_images/6e3b1e79aca6defb3d36a9a5aafff872ac60f40ff002c46f3f7049c0b021dd2c.png" />
+<img alt="../../_images/aaa45c207f14217c99c00e56b521bf6b5e5617836c248494ea77eb7ce8e746ae.png" src="../../_images/aaa45c207f14217c99c00e56b521bf6b5e5617836c248494ea77eb7ce8e746ae.png" />
 </div>
 </div>
 </section>
@@ -945,14 +941,14 @@ Number of galaxies: 45
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>DeprecatedColumnQTable length=5</i>
-<table id="table139774015125328" class="table-striped table-bordered table-condensed">
+<table id="table140237976498112" class="table-striped table-bordered table-condensed">
 <thead><tr><th>id</th><th>x_centroid</th><th>y_centroid</th><th>sum</th><th>sum_err</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>1</td><td>299.30130963839207</td><td>200.04539044374192</td><td>94.46176698451444</td><td>0.9310428154412079</td></tr>
-<tr><td>2</td><td>769.1455544945527</td><td>479.317213665038</td><td>216.1609512821858</td><td>1.3684675179074945</td></tr>
-<tr><td>3</td><td>558.7744751943006</td><td>890.0104406589746</td><td>1187.262056211167</td><td>3.061650548955765</td></tr>
-<tr><td>4</td><td>413.02902020756727</td><td>977.2997081371448</td><td>100.33992457087656</td><td>0.9523495358272647</td></tr>
-<tr><td>5</td><td>3917.2614669687637</td><td>645.8002567067556</td><td>299.7637349359973</td><td>1.5440558713537358</td></tr>
+<tr><td>1</td><td>299.2918990007377</td><td>200.01385869057165</td><td>93.15156360458118</td><td>0.9795044304992904</td></tr>
+<tr><td>2</td><td>769.137195732875</td><td>479.3358629148345</td><td>214.97871186682193</td><td>1.4078775623571826</td></tr>
+<tr><td>3</td><td>558.7728133255321</td><td>890.0096270261713</td><td>1187.516109136574</td><td>3.0867980558127948</td></tr>
+<tr><td>4</td><td>413.0263444469903</td><td>977.3072933131702</td><td>101.36069426140901</td><td>1.0115252137379351</td></tr>
+<tr><td>5</td><td>3917.260379175791</td><td>645.8045289007548</td><td>300.04630757304034</td><td>1.579485627790679</td></tr>
 </table></div></div></div>
 </div>
 <p>And now let’s do the same for the background annuli using the <code class="docutils literal notranslate"><span class="pre">ApertureStats</span></code> class. We will use the median of the pixels within the annulus as our estimate of the sky background <strong>per pixel</strong>. We will need to adjust this to the area of the star circular apertures (after accounting for the masked pixels).</p>
@@ -967,14 +963,14 @@ Number of galaxies: 45
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>DeprecatedColumnQTable length=5</i>
-<table id="table139775617804768" class="table-striped table-bordered table-condensed">
+<table id="table140238178747264" class="table-striped table-bordered table-condensed">
 <thead><tr><th>id</th><th>x_centroid</th><th>y_centroid</th><th>median</th><th>std</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>1</td><td>299.2416572433737</td><td>200.0903494531656</td><td>0.6288256049156189</td><td>0.10343699486958466</td></tr>
-<tr><td>2</td><td>769.4351345511598</td><td>479.43028926396164</td><td>0.6430003046989441</td><td>0.09963524012799724</td></tr>
-<tr><td>3</td><td>558.637863196531</td><td>890.2979122683962</td><td>0.6485169529914856</td><td>0.10328562447791924</td></tr>
-<tr><td>4</td><td>412.99063966995453</td><td>977.3362930205076</td><td>0.6365874707698822</td><td>0.0973095857162452</td></tr>
-<tr><td>5</td><td>3917.341685407484</td><td>645.871934124809</td><td>0.6383647322654724</td><td>0.09429081473560151</td></tr>
+<tr><td>1</td><td>299.023356399483</td><td>199.94985394280843</td><td>0.6497014164924622</td><td>0.10189336602850492</td></tr>
+<tr><td>2</td><td>769.1542654535756</td><td>479.3589223227563</td><td>0.6544390320777893</td><td>0.09823855286010719</td></tr>
+<tr><td>3</td><td>558.8926195049543</td><td>889.9923550570775</td><td>0.6507735252380371</td><td>0.10005851073687577</td></tr>
+<tr><td>4</td><td>413.13794260056886</td><td>977.4975334663685</td><td>0.639561116695404</td><td>0.09786630907682563</td></tr>
+<tr><td>5</td><td>3917.1917083279286</td><td>645.6512163051801</td><td>0.6516505181789398</td><td>0.10560546130275489</td></tr>
 </table></div></div></div>
 </div>
 <p>For our next steps, we will need the nominal pixel area in steradians (sr) and the zeropoint in megaJanskys per steradian (MJy/sr), both of which can be retrieved from the L2 metadata. Note that the pre-launch zeropoint is based on the unit response of the throughput curve of the integrated optical system (i.e., including all of the mirror reflectivities, optical element transmission, and detector quantum efficiency). The zeropoint also includes a factor of the median measured gain of the detector. The pre-launch zeropoint uncertainty is based solely on the standard deviation of the measured gain. After launch, these values will be updated using on-orbit observations of spectrophotometric standard stars and the photometric touchstone fields.</p>
@@ -1025,7 +1021,7 @@ Nominal pixel area = 2.8083389953727505e-13 sr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/21dd69b916bf5861de187662a61b7b3b35225b2965d38a276e7853503acf4422.png" src="../../_images/21dd69b916bf5861de187662a61b7b3b35225b2965d38a276e7853503acf4422.png" />
+<img alt="../../_images/981571182318ef05d41a312822855aeb24db6da60e86cad916f33b828007e018.png" src="../../_images/981571182318ef05d41a312822855aeb24db6da60e86cad916f33b828007e018.png" />
 </div>
 </div>
 <p>With these settings, our encircled energy measurement is an average for the whole detector, measured at the center of the detector, and for the default STPSF spectral energy distribution (SED), which is a 5700 K blackbody (similar to a G2V star). The variable <code class="docutils literal notranslate"><span class="pre">ee_func</span></code> above is a function that takes as its single argument the aperture radius in arcseconds and returns the percentage of the PSF contained within that aperture. The inverse of that encircled energy fraction is the correction factor that we must apply to our measurements. This is called the encircled energy correction or aperture correction. Let’s calculate that now for a circular aperture with a 3-pixel radius and assuming a pixel scale of 0.11 arcseconds per pixel (i.e., radius = 0.33 arcseconds):</p>
@@ -1037,7 +1033,7 @@ Nominal pixel area = 2.8083389953727505e-13 sr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Encircled energy correction = 1.215690698785258
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Encircled energy correction = 1.215617258804174
 </pre></div>
 </div>
 </div>
@@ -1062,14 +1058,14 @@ Nominal pixel area = 2.8083389953727505e-13 sr
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>DeprecatedColumnQTable length=5</i>
-<table id="table139773889184432" class="table-striped table-bordered table-condensed">
+<table id="table140237976406208" class="table-striped table-bordered table-condensed">
 <thead><tr><th>id</th><th>x_centroid</th><th>y_centroid</th><th>sum</th><th>sum_err</th><th>flux_jy</th><th>flux_maggies</th><th>abmag</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>1</td><td>299.30130963839207</td><td>200.04539044374192</td><td>94.46176698451444</td><td>0.9310428154412079</td><td>1.941885897146695e-05</td><td>5.348074627228573e-09</td><td>20.679506353016794</td></tr>
-<tr><td>2</td><td>769.1455544945527</td><td>479.317213665038</td><td>216.1609512821858</td><td>1.3684675179074945</td><td>5.013626650701406e-05</td><td>1.3807839853212354e-08</td><td>19.64968564663979</td></tr>
-<tr><td>3</td><td>558.7744751943006</td><td>890.0104406589746</td><td>1187.262056211167</td><td>3.061650548955765</td><td>0.00029601680657858384</td><td>8.152487099382645e-08</td><td>17.721774699388842</td></tr>
-<tr><td>4</td><td>413.02902020756727</td><td>977.2997081371448</td><td>100.33992457087656</td><td>0.9523495358272647</td><td>2.0851857801302633e-05</td><td>5.742731424208932e-09</td><td>20.602203735769105</td></tr>
-<tr><td>5</td><td>3917.2614669687637</td><td>645.8002567067556</td><td>299.7637349359973</td><td>1.5440558713537358</td><td>7.134088874642174e-05</td><td>1.9647724799345012e-08</td><td>19.26671933387008</td></tr>
+<tr><td>1</td><td>299.2918990007377</td><td>200.01385869057165</td><td>93.15156360458118</td><td>0.9795044304992904</td><td>1.8936447358943865e-05</td><td>5.215215466522684e-09</td><td>20.706819359997382</td></tr>
+<tr><td>2</td><td>769.137195732875</td><td>479.3358629148345</td><td>214.97871186682193</td><td>1.4078775623571826</td><td>4.975196949377915e-05</td><td>1.370200206383342e-08</td><td>19.65803992850499</td></tr>
+<tr><td>3</td><td>558.7728133255321</td><td>890.0096270261713</td><td>1187.516109136574</td><td>3.0867980558127948</td><td>0.000296047099824412</td><td>8.153321394227816e-08</td><td>17.721663594917082</td></tr>
+<tr><td>4</td><td>413.0263444469903</td><td>977.3072933131702</td><td>101.36069426140901</td><td>1.0115252137379351</td><td>2.108779010192727e-05</td><td>5.807708648286221e-09</td><td>20.58998794685779</td></tr>
+<tr><td>5</td><td>3917.260379175791</td><td>645.8045289007548</td><td>300.04630757304034</td><td>1.579485627790679</td><td>7.131301052712744e-05</td><td>1.9640046964232288e-08</td><td>19.26714369510453</td></tr>
 </table></div></div></div>
 </div>
 <p>Let’s evaluate our results by plotting the difference between the simulated catalog and measured AB magnitudes. The blue points show the photometry of the stars, while the orange line shows the median offset between the input catalog and the measurements. The labeled uncertainty on the median is the standard deviation of the distribution. We also include a black line at an offset of 0 AB magnitudes as a reference.</p>
@@ -1103,7 +1099,7 @@ Nominal pixel area = 2.8083389953727505e-13 sr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2b8f91c46fc5abbfb66c28f7c2819772f8c1929dd12eeaf3bef5113fcf7ec059.png" src="../../_images/2b8f91c46fc5abbfb66c28f7c2819772f8c1929dd12eeaf3bef5113fcf7ec059.png" />
+<img alt="../../_images/3f8fa5bdf33bcc3148ba3a4405c68b5468fb533f02099e54faf284f3e3662429.png" src="../../_images/3f8fa5bdf33bcc3148ba3a4405c68b5468fb533f02099e54faf284f3e3662429.png" />
 </div>
 </div>
 <p>Our measurements of stars in the image agree well with the input catalog fluxes at the level of approximately 0.9%. There could be several reasons why we see a small offset between the input and output magnitudes. First, we use a single value of the gain for our zeropoint, but we could do better and use a gain per pixel to convert the image from DN/s to photo-electrons per second and apply the zeropoint (with the gain removed). This would likely decrease the scatter in the plot. Secondly, we used a single aperture correction for the whole image based on the model of a star with an average SED and located at the center of the detector. A more detailed handling of the aperture correction may also decrease the scatter, and may also help bring the measurements into better alignment with the input catalog. Finally, a more careful treatment of other systematics (e.g., interpixel capacitance) may yield even better results.</p>
@@ -1123,8 +1119,8 @@ Nominal pixel area = 2.8083389953727505e-13 sr
 </section>
 <section id="about-this-notebook">
 <h2>About This Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
-<p><strong>Author:</strong> John F. Wu, Tyler Desjardins<br />
-<strong>Updated On:</strong> 2025-12-24</p>
+<p><strong>Author:</strong> John F. Wu, Tyler Desjardins, Rosa Diaz<br />
+<strong>Updated On:</strong> 2026-07-09</p>
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
@@ -1149,16 +1145,16 @@ Nominal pixel area = 2.8083389953727505e-13 sr
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "roman-cal"
+            mode: "roman_cal"
         },
         kernelOptions: {
-            name: "roman-cal",
+            name: "roman_cal",
             path: "./notebooks/aperture_photometry"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'roman-cal'</script>
+    <script>kernelName = 'roman_cal'</script>
 
                 </article>
               
@@ -1205,7 +1201,7 @@ Nominal pixel area = 2.8083389953727505e-13 sr
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
@@ -1276,8 +1272,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

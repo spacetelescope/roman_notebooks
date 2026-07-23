@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,6 +61,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Roman Spectroscopy: Grism Spectral Extraction" href="../grism_spectral_extraction/grism_spectral_extraction.html" />
@@ -68,20 +69,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -107,7 +114,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -171,6 +222,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -409,8 +461,13 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-roman-research-nexus">On the Roman Research Nexus</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining Terms</a></li>
@@ -420,8 +477,10 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-cutouts-and-retrieving-the-psf">Creating Cutouts and Retrieving the PSF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-the-source-moments">Estimating the Source Moments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-sersic-profile-to-a-source">Fitting a Sérsic Profile to a Source</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About This Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About This Notebook</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -438,8 +497,87 @@
 <hr class="docutils" />
 <section id="kernel-information-and-read-only-status">
 <h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.2”.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
+</section>
+<section id="reference-data">
+<h2>Reference Data<a class="headerlink" href="#reference-data" title="Link to this heading">#</a></h2>
+<p>The cell below will check to ensure ancillary reference files for <code class="docutils literal notranslate"><span class="pre">stpsf</span> <span class="pre">and</span> <span class="pre">synphot</span></code> package are installed. If not, it will download the ancillary reference files and install them under your home directory (i.e., <code class="docutils literal notranslate"><span class="pre">${HOME}/refdata/</span></code>).</p>
+<section id="local-run-settings">
+<h3>Local Run Settings<a class="headerlink" href="#local-run-settings" title="Link to this heading">#</a></h3>
+<p>If you want to run the notebook in your local machine, refer to the information in <a class="reference internal" href="../../markdown/local-run.html"><span class="std std-doc">local installation</span></a> instructions before proceeding with the notebook. The instructions provide inportant information about setting up your environment, installing dependnecies, and adding to your working directory scripts to help with the reference data installation.</p>
+<p>Depending on which (if any) reference data are missing, this cell may take several minutes to execute.</p>
+</section>
+<section id="on-the-roman-research-nexus">
+<h3>On the Roman Research Nexus<a class="headerlink" href="#on-the-roman-research-nexus" title="Link to this heading">#</a></h3>
+<p>If you are working on the Nexus, then the ancillary reference data are pre-installed and this cell will execute instantly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib.util</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">notebook_data_dependencies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ndd</span>
+
+<span class="c1"># Download reference data (if necessary)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stpsf&#39;</span><span class="p">,</span><span class="s1">&#39;synphot&#39;</span><span class="p">])</span>
+<span class="n">ndd</span><span class="o">.</span><span class="n">setup_env</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Did not find stpsf data in environment, setting it up...
+	Downloading and uncompressing file...
+	Found 1 data URL(s) to download and install...
+	Working on file 1 out of 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
+		export STPSF_PATH=&#39;/home/runner/refdata/stpsf-data&#39;
+Did not find synphot data in environment, setting it up...
+	Downloading and uncompressing file...
+	Found 9 data URL(s) to download and install...
+	Working on file 1 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 2 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 3 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 4 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 5 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 6 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 7 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 8 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 9 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
+		export PYSYN_CDBS=&#39;/home/runner/refdata/grp/redcat/trds/&#39;
+Reference data paths set to:
+	STPSF_PATH = /home/runner/refdata/stpsf-data
+	PYSYN_CDBS = /home/runner/refdata/grp/redcat/trds/
+	CRDS_SERVER_URL = https://roman-crds.stsci.edu (pre-set, not overwritten)
+	CRDS_CONTEXT = roman-edit (pre-set, not overwritten)
+	CRDS_OBSERVATORY = roman
+	CRDS_PATH = /home/runner/crds_cache (pre-set, not overwritten)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
@@ -458,13 +596,14 @@
 <li><p><em>asdf</em> for opening WFI ASDF files</p></li>
 <li><p><em>s3fs</em> for streaming simulated WFI images from an S3 bucket</p></li>
 <li><p><em>scipy.optimize</em> to fit our data</p></li>
-<li><p><em>synphot</em> for synthetic photometry</p></li>
 <li><p><em>stsynphot</em> to access WFI throughput information</p></li>
+<li><p><em>synphot</em> for synthetic photometry</p></li>
 <li><p><em>stpsf</em> to access WFI point spread functions</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkyCoord</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkyCoord</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">sigma_clipped_stats</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
@@ -514,12 +653,15 @@
 <p>The first step of the analysis is to read the Roman WFI image data, which are stored in ASDF format. For this example, we start with a calibrated Level 2 (L2) simulated image created with <a class="reference external" href="https://romanisim.readthedocs.io">Roman I-Sim</a>. For more information about Roman’s data products check the <a class="reference internal" href="#roman-docs.stsci.edu"><span class="xref myst">Roman User Documentation</span></a>. We use <code class="docutils literal notranslate"><span class="pre">roman_datamodels</span></code> to open the simulated image, which we stream into memory from an S3 bucket:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open an image from an S3 bucket</span>
-<span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.1/&quot;</span>
-<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">asdf_file_uri_l2</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open an image from an S3 bucket or from disk</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span><span class="p">):</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.2/&quot;</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">asdf_file_uri_l2</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span>
 
-<span class="n">file</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri_l2</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri_l2</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -538,8 +680,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open the catalog used for the simulation as an astropy.table.Table</span>
-<span class="n">cat_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;full_catalog.ecsv&#39;</span>
-<span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cat_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.ecsv&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;full_catalog.ecsv&#39;</span><span class="p">):</span>
+    <span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;full_catalog.ecsv&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="n">cat_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;full_catalog.ecsv&#39;</span>    
+    <span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cat_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.ecsv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -555,7 +701,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/467bd288a396feb8cf07184a6ee2a479ff9e5ea474442a800f6685ca78417798.png" src="../../_images/467bd288a396feb8cf07184a6ee2a479ff9e5ea474442a800f6685ca78417798.png" />
+<img alt="../../_images/ef35b01d77575b45432f101c30cd398cd4232397bb228ddd4c9aa30ad0e12e70.png" src="../../_images/ef35b01d77575b45432f101c30cd398cd4232397bb228ddd4c9aa30ad0e12e70.png" />
 </div>
 </div>
 </section>
@@ -655,7 +801,7 @@ For more information about GWCS please check the documentation <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/813a65e6954a84cc79aa68712f01d7c050286d65781b482464b6c4e11fce2366.png" src="../../_images/813a65e6954a84cc79aa68712f01d7c050286d65781b482464b6c4e11fce2366.png" />
+<img alt="../../_images/c38672cfeb7070064fd2ca40c81245b2cf0d5e36eb276db06da2d3ec06a3170a.png" src="../../_images/c38672cfeb7070064fd2ca40c81245b2cf0d5e36eb276db06da2d3ec06a3170a.png" />
 </div>
 </div>
 <p>By default the PSF is generated for detector WFI01 at (x, y) = (2048, 2048) in the science coordinate system. See the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/coordinate-systems">RDox article on WFI coordinate systems</a> for more information.</p>
@@ -687,7 +833,7 @@ STPSF position = (2048, 2048)
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: Input data contains invalid values (NaNs or infs), which were automatically clipped. [astropy.stats.sigma_clipping]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Median background = 0.64950 DN / s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Median background = 0.65099 DN / s
 </pre></div>
 </div>
 </div>
@@ -748,7 +894,7 @@ STPSF position = (2048, 2048)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f767f58f7cee39fc82aef05a9a6fa3ea22d319f0824186ce2e8b6cc9b22dcc05.png" src="../../_images/f767f58f7cee39fc82aef05a9a6fa3ea22d319f0824186ce2e8b6cc9b22dcc05.png" />
+<img alt="../../_images/5c25e4e635e6c25faa0f584d144c808a1a8f3a0d6ae4a8e9c30bd0d3ff5ead20.png" src="../../_images/5c25e4e635e6c25faa0f584d144c808a1a8f3a0d6ae4a8e9c30bd0d3ff5ead20.png" />
 </div>
 </div>
 <p>As we can see, the background estimate seems to be reasonable. We could improve it by performing a local background estimate rather than using the whole image. For on-orbit observations, a 2-D local background model would likely provide the highest fidelity background estimate. Note that estimating the background should be treated with care, since it will affect the fitting results.</p>
@@ -764,7 +910,7 @@ STPSF position = (2048, 2048)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=18, ymin=1, ymax=18), moments_status=0, observed_shape=galsim.Shear((0.09933477950572558-0.03053354150546929j)), moments_sigma=1.826614499092102, moments_amp=309.0162658691406, moments_centroid=galsim.PositionD(x=9.191695515836647, y=9.430674394082965), moments_rho4=2.55024438339353, moments_n_iter=31)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=18, ymin=1, ymax=18), moments_status=0, observed_shape=galsim.Shear((0.10212971528807052-0.02985731420879724j)), moments_sigma=1.793772578239441, moments_amp=309.64935302734375, moments_centroid=galsim.PositionD(x=9.224154875482256, y=9.446971534169876), moments_rho4=2.5441320171732604, moments_n_iter=30)
 </pre></div>
 </div>
 </div>
@@ -784,8 +930,8 @@ STPSF position = (2048, 2048)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>position angle: 351.45680 deg
-minor-to-major axis ratio: 0.81172
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>position angle: 351.85194 deg
+minor-to-major axis ratio: 0.80766
 </pre></div>
 </div>
 </div>
@@ -799,7 +945,7 @@ minor-to-major axis ratio: 0.81172
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=18, ymin=1, ymax=18), moments_status=0, observed_shape=galsim.Shear((0.09933477950572558-0.03053354150546929j)), moments_sigma=1.758097529411316, moments_amp=394.0334167480469, moments_rho4=2.55024438339353, moments_n_iter=31, correction_status=0, corrected_e1=0.9877660870552063, corrected_e2=-0.27160143852233887, meas_type=&#39;e&#39;, corrected_shape_err=0.0, correction_method=&#39;REGAUSS&#39;, resolution_factor=0.40010181069374084, psf_sigma=1.3743653297424316, psf_shape=galsim.Shear((-0.014325833994391213+0.0008789983818878098j)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=18, ymin=1, ymax=18), moments_status=0, observed_shape=galsim.Shear((0.10212971528807052-0.02985731420879724j)), moments_sigma=1.7330114841461182, moments_amp=393.8943176269531, moments_rho4=2.5441320171732604, moments_n_iter=30, correction_status=0, corrected_e1=1.1321930885314941, corrected_e2=-0.30008557438850403, meas_type=&#39;e&#39;, corrected_shape_err=0.0, correction_method=&#39;REGAUSS&#39;, resolution_factor=0.38316264748573303, psf_sigma=1.3743653297424316, psf_shape=galsim.Shear((-0.014325833994391213+0.0008789983818878098j)))
 </pre></div>
 </div>
 </div>
@@ -815,8 +961,8 @@ minor-to-major axis ratio: 0.81172
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>position angle: 351.45680 deg
-minor-to-major axis ratio: 0.81172
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>position angle: 351.85194 deg
+minor-to-major axis ratio: 0.80766
 </pre></div>
 </div>
 </div>
@@ -935,25 +1081,25 @@ minor-to-major axis ratio: 0.81172
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n:
 	Initial: 2.79877
-	Fitted: 2.72352
+	Fitted: 2.72732
 hlr:
 	Initial: 0.44776
-	Fitted: 0.44472
+	Fitted: 0.43058
 flux:
 	Initial: 0.03482
-	Fitted: 0.03087
+	Fitted: 0.03071
 pa:
 	Initial: 261.97015
-	Fitted: 351.33329
+	Fitted: 172.24804
 x0:
 	Initial: 0.00000
-	Fitted: -0.30151
+	Fitted: -0.28364
 y0:
 	Initial: 0.00000
-	Fitted: -0.00093
+	Fitted: 0.01207
 q:
 	Initial: 0.70971
-	Fitted: 0.73369
+	Fitted: 0.73468
 </pre></div>
 </div>
 </div>
@@ -1000,7 +1146,7 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dce5afc5fd27dd4772832e72d186c42388405445bb5ed24caa021523a07c6e00.png" src="../../_images/dce5afc5fd27dd4772832e72d186c42388405445bb5ed24caa021523a07c6e00.png" />
+<img alt="../../_images/222063ba59e9f592ea7c555df134902570f8182ad753a74d5ec91b9bbe4b7401.png" src="../../_images/222063ba59e9f592ea7c555df134902570f8182ad753a74d5ec91b9bbe4b7401.png" />
 </div>
 </div>
 <p>Our fit looks really good. Let’s take a quick look at the statistics of the fit residuals:</p>
@@ -1012,8 +1158,8 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.00564 DN / s
-Residual std dev: 0.16844 DN / s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.00192 DN / s
+Residual std dev: 0.15022 DN / s
 </pre></div>
 </div>
 </div>
@@ -1047,44 +1193,44 @@ Residual std dev: 0.16844 DN / s
 	Catalog (p0): 2.79877
 	New inputs (p1): 1.00000
 
-	Old fit: 2.72352
-	New fit: 2.72614
+	Old fit: 2.72732
+	New fit: 2.72778
 hlr:
 	Catalog (p0): 0.44776
 	New inputs (p1): 0.44000
 
-	Old fit: 0.44472
-	New fit: 0.44452
+	Old fit: 0.43058
+	New fit: 0.43063
 flux:
 	Catalog (p0): 0.03482
 	New inputs (p1): 0.03482
 
-	Old fit: 0.03087
-	New fit: 0.03082
+	Old fit: 0.03071
+	New fit: 0.03069
 pa:
 	Catalog (p0): 261.97015
 	New inputs (p1): 0.00000
 
-	Old fit: 351.33329
+	Old fit: 172.24804
 	New fit: 0.00000
 x0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: -0.30151
-	New fit: -0.30162
+	Old fit: -0.28364
+	New fit: -0.28517
 y0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: -0.00093
-	New fit: -0.00058
+	Old fit: 0.01207
+	New fit: 0.01282
 q:
 	Catalog (p0): 0.70971
 	New inputs (p1): 0.50000
 
-	Old fit: 0.73369
-	New fit: 0.74447
+	Old fit: 0.73468
+	New fit: 0.74352
 </pre></div>
 </div>
 </div>
@@ -1118,44 +1264,44 @@ q:
 	Catalog (p0): 2.79877
 	New inputs (p1): 1.00000
 
-	Old fit: 2.72352
-	New fit: 2.72352
+	Old fit: 2.72732
+	New fit: 2.72732
 hlr:
 	Catalog (p0): 0.44776
 	New inputs (p1): 0.44000
 
-	Old fit: 0.44472
-	New fit: 0.44472
+	Old fit: 0.43058
+	New fit: 0.43058
 flux:
 	Catalog (p0): 0.03482
 	New inputs (p1): 0.03482
 
-	Old fit: 0.03087
-	New fit: 0.03087
+	Old fit: 0.03071
+	New fit: 0.03071
 pa:
 	Catalog (p0): 261.97015
-	New inputs (p1): 351.45680
+	New inputs (p1): 351.85194
 
-	Old fit: 351.33329
-	New fit: 351.33329
+	Old fit: 172.24804
+	New fit: 352.24804
 x0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: -0.30151
-	New fit: -0.30151
+	Old fit: -0.28364
+	New fit: -0.28364
 y0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: -0.00093
-	New fit: -0.00093
+	Old fit: 0.01207
+	New fit: 0.01207
 q:
 	Catalog (p0): 0.70971
-	New inputs (p1): 0.81172
+	New inputs (p1): 0.80766
 
-	Old fit: 0.73369
-	New fit: 0.73369
+	Old fit: 0.73468
+	New fit: 0.73468
 </pre></div>
 </div>
 </div>
@@ -1202,7 +1348,7 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4b07b97b2f11775a8469e88461790887ce75ba79f0a3b80bfc71fc6ab13583d2.png" src="../../_images/4b07b97b2f11775a8469e88461790887ce75ba79f0a3b80bfc71fc6ab13583d2.png" />
+<img alt="../../_images/b1af9160b38979b2ce13309645b0add34a6b232fbc0f1ead9cf4ba837bf0a332.png" src="../../_images/b1af9160b38979b2ce13309645b0add34a6b232fbc0f1ead9cf4ba837bf0a332.png" />
 </div>
 </div>
 <p>As we can see, the initial model is quite different from our previous one based on inputs from the catalog, but our best-fit model and residuals still look quite good. Finally, the statistics of our residuals:</p>
@@ -1214,8 +1360,8 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.00564 DN / s
-Residual std dev: 0.16844 DN / s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.00192 DN / s
+Residual std dev: 0.15022 DN / s
 </pre></div>
 </div>
 </div>
@@ -1240,13 +1386,13 @@ Residual std dev: 0.16844 DN / s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 2.72352 +/- 0.09147
-hlr = 0.44472 +/- 0.01274
-flux = 0.03087 +/- 0.00053
-pa = 351.33329 +/- 1.19606
-x0 = -0.30151 +/- 0.01477
-y0 = -0.00093 +/- 0.01156
-q = 0.73369 +/- 0.01004
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 2.72732 +/- 0.08497
+hlr = 0.43058 +/- 0.01144
+flux = 0.03071 +/- 0.00049
+pa = 172.24804 +/- 1.13138
+x0 = -0.28364 +/- 0.01311
+y0 = 0.01207 +/- 0.01035
+q = 0.73468 +/- 0.00939
 </pre></div>
 </div>
 </div>
@@ -1261,12 +1407,11 @@ q = 0.73369 +/- 0.01004
 <li><p><a class="reference external" href="https://stpsf.readthedocs.io/">STPSF documentation</a></p></li>
 <li><p><a class="reference external" href="https://galsim-developers.github.io/GalSim/_build/html/hsm.html">GalSim HSM shape fitting documentation</a></p></li>
 </ul>
-</section>
 <hr class="docutils" />
 <section id="about-this-notebook">
-<h2>About This Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
-<p><strong>Author:</strong> Javier Sánchez, Amethyst Barnes, Ami Choi, Tyler Desjardins<br />
-<strong>Updated On:</strong> 2025-12-09</p>
+<h3>About This Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h3>
+<p><strong>Author:</strong> Javier Sánchez, Amethyst Barnes, Ami Choi, Tyler Desjardins, Rosa Diaz<br />
+<strong>Updated On:</strong> 2026-07-09</p>
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
@@ -1281,6 +1426,7 @@ q = 0.73369 +/- 0.01004
   </tr>
 </table></section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1291,16 +1437,16 @@ q = 0.73369 +/- 0.01004
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "roman-cal"
+            mode: "roman_cal"
         },
         kernelOptions: {
-            name: "roman-cal",
+            name: "roman_cal",
             path: "./notebooks/measuring_galaxy_shapes"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'roman-cal'</script>
+    <script>kernelName = 'roman_cal'</script>
 
                 </article>
               
@@ -1347,8 +1493,13 @@ q = 0.73369 +/- 0.01004
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-the-roman-research-nexus">On the Roman Research Nexus</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining Terms</a></li>
@@ -1358,8 +1509,10 @@ q = 0.73369 +/- 0.01004
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-cutouts-and-retrieving-the-psf">Creating Cutouts and Retrieving the PSF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-the-source-moments">Estimating the Source Moments</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-sersic-profile-to-a-source">Fitting a Sérsic Profile to a Source</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About This Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-notebook">About This Notebook</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -1408,8 +1561,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

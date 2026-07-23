@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,6 +61,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/ground_test_analysis/wfi_tvac_brightstar';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Aperture Photometry" href="../aperture_photometry/aperture_photometry.html" />
@@ -68,20 +69,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -107,7 +114,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -171,6 +222,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -409,7 +461,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-information">Server Information</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
@@ -452,7 +504,7 @@
 </section>
 <section id="kernel-information-and-read-only-status">
 <h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.2”.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
 </section>
 <section id="imports">
@@ -641,94 +693,52 @@ Some nodes not shown.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,370 - CRDS - ERROR -  Error determining best reference for &#39;pars-dqinitstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,856 - stpipe.step - INFO - ExposurePipeline instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,371 - CRDS - ERROR -  Error determining best reference for &#39;pars-saturationstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,857 - stpipe.step - INFO - DQInitStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,372 - CRDS - ERROR -  Error determining best reference for &#39;pars-refpixstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,858 - stpipe.step - INFO - SaturationStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,373 - CRDS - ERROR -  Error determining best reference for &#39;pars-darkdecaystep&#39;  =   Unknown reference type &#39;pars-darkdecaystep&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,859 - stpipe.step - INFO - RefPixStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,374 - CRDS - ERROR -  Error determining best reference for &#39;pars-wfi18transientstep&#39;  =   Unknown reference type &#39;pars-wfi18transientstep&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,860 - stpipe.step - INFO - DarkDecayStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,375 - CRDS - ERROR -  Error determining best reference for &#39;pars-linearitystep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,861 - stpipe.step - INFO - WFI18TransientStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,376 - CRDS - ERROR -  Error determining best reference for &#39;pars-darkcurrentstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,862 - stpipe.step - INFO - LinearityStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,377 - CRDS - ERROR -  Error determining best reference for &#39;pars-rampfitstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,863 - stpipe.step - INFO - DarkCurrentStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,378 - CRDS - ERROR -  Error determining best reference for &#39;pars-assignwcsstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,864 - stpipe.step - INFO - RampFitStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,379 - CRDS - ERROR -  Error determining best reference for &#39;pars-flatfieldstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,865 - stpipe.step - INFO - AssignWcsStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,380 - CRDS - ERROR -  Error determining best reference for &#39;pars-photomstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,866 - stpipe.step - INFO - FlatFieldStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,381 - CRDS - ERROR -  Error determining best reference for &#39;pars-sourcecatalogstep&#39;  =   Unknown reference type &#39;pars-sourcecatalogstep&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,867 - stpipe.step - INFO - PhotomStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,382 - CRDS - ERROR -  Error determining best reference for &#39;pars-tweakregstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,867 - stpipe.step - INFO - SourceCatalogStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,383 - CRDS - ERROR -  Error determining best reference for &#39;pars-exposurepipeline&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:34,869 - stpipe.step - INFO - TweakRegStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,390 - stpipe.step - INFO - ExposurePipeline instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,016 - stpipe.step - INFO - Step ExposurePipeline running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7f21103050d0&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,391 - stpipe.step - INFO - DQInitStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,392 - stpipe.step - INFO - SaturationStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,393 - stpipe.step - INFO - RefPixStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,393 - stpipe.step - INFO - DarkDecayStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,394 - stpipe.step - INFO - WFI18TransientStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,394 - stpipe.step - INFO - LinearityStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,395 - stpipe.step - INFO - DarkCurrentStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,396 - stpipe.step - INFO - RampFitStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,397 - stpipe.step - INFO - AssignWcsStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,397 - stpipe.step - INFO - FlatFieldStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,398 - stpipe.step - INFO - PhotomStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,398 - stpipe.step - INFO - SourceCatalogStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,400 - stpipe.step - INFO - TweakRegStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,603 - stpipe.step - INFO - Step ExposurePipeline running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7f783eb12480&gt;,).
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,616 - stpipe.step - INFO - Step ExposurePipeline parameters are:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,031 - stpipe.step - INFO - Step ExposurePipeline parameters are:
   pre_hooks: []
   post_hooks: []
   output_file: None
@@ -742,6 +752,7 @@ Some nodes not shown.
   search_output_file: True
   input_dir: &#39;&#39;
   update_version: False
+  on_disk: False
   steps:
     dq_init:
       pre_hooks: []
@@ -757,6 +768,7 @@ Some nodes not shown.
       search_output_file: True
       input_dir: &#39;&#39;
       update_version: False
+      expand_gw_flagging: 0
     saturation:
       pre_hooks: []
       post_hooks: []
@@ -771,6 +783,8 @@ Some nodes not shown.
       search_output_file: True
       input_dir: &#39;&#39;
       update_version: False
+      n_pix_grow_sat: 0
+      backup: 0
     refpix:
       pre_hooks: []
       post_hooks: []
@@ -846,7 +860,6 @@ Some nodes not shown.
       search_output_file: True
       input_dir: &#39;&#39;
       update_version: False
-      dark_output: None
     rampfit:
       pre_hooks: []
       post_hooks: []
@@ -862,6 +875,7 @@ Some nodes not shown.
       input_dir: &#39;&#39;
       update_version: False
       algorithm: likely
+      rejection_threshold: 4.5
       use_ramp_jump_detection: True
       threshold_intercept: None
       threshold_constant: None
@@ -953,170 +967,184 @@ Some nodes not shown.
       search_output_file: True
       input_dir: &#39;&#39;
       update_version: False
-      use_custom_catalogs: False
       catalog_format: ascii.ecsv
-      catfile: &#39;&#39;
       catalog_path: &#39;&#39;
       enforce_user_order: False
       expand_refcat: False
-      minobj: 15
+      minobj: 10
       searchrad: 2.0
       use2dhist: True
       separation: 1.0
       tolerance: 0.7
-      fitgeometry: rshift
+      fitgeometry: general
       nclip: 3
       sigma: 3.0
       abs_refcat: GAIADR3_S3
       save_abs_catalog: False
-      abs_minobj: 15
+      abs_minobj: 10
       abs_searchrad: 6.0
       abs_use2dhist: True
       abs_separation: 1.0
       abs_tolerance: 0.7
-      abs_fitgeometry: rshift
+      abs_fitgeometry: general
       abs_nclip: 3
       abs_sigma: 3.0
       update_source_catalog_coordinates: False
       vo_timeout: 1200.0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,618 - stpipe.pipeline - INFO - Prefetching reference files for dataset: &#39;TVAC2_TOHOTQUAL_WFISAT_20240506204523_WFI11_uncal.asdf&#39; reftypes = [&#39;darkdecaysignal&#39;, &#39;integralnonlinearity&#39;, &#39;inverselinearity&#39;, &#39;linearity&#39;, &#39;mask&#39;, &#39;refpix&#39;, &#39;saturation&#39;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,033 - stpipe.pipeline - INFO - Prefetching reference files for dataset: &#39;TVAC2_TOHOTQUAL_WFISAT_20240506204523_WFI11_uncal.asdf&#39; reftypes = [&#39;darkdecaysignal&#39;, &#39;integralnonlinearity&#39;, &#39;inverselinearity&#39;, &#39;linearity&#39;, &#39;mask&#39;, &#39;refpix&#39;, &#39;saturation&#39;]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,620 - stpipe.pipeline - INFO - Prefetch for DARKDECAYSIGNAL reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,035 - stpipe.pipeline - INFO - Prefetch for DARKDECAYSIGNAL reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,621 - stpipe.pipeline - INFO - Prefetch for INTEGRALNONLINEARITY reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,036 - stpipe.pipeline - INFO - Prefetch for INTEGRALNONLINEARITY reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,621 - stpipe.pipeline - INFO - Prefetch for INVERSELINEARITY reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,036 - stpipe.pipeline - INFO - Prefetch for INVERSELINEARITY reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,621 - stpipe.pipeline - INFO - Prefetch for LINEARITY reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,037 - stpipe.pipeline - INFO - Prefetch for LINEARITY reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,622 - stpipe.pipeline - INFO - Prefetch for MASK reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_mask_0023.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,037 - stpipe.pipeline - INFO - Prefetch for MASK reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_mask_0023.asdf&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,622 - stpipe.pipeline - INFO - Prefetch for REFPIX reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_refpix_0007.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,037 - stpipe.pipeline - INFO - Prefetch for REFPIX reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_refpix_0007.asdf&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,622 - stpipe.pipeline - INFO - Prefetch for SATURATION reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,038 - stpipe.pipeline - INFO - Prefetch for SATURATION reference file is &#39;/home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf&#39;.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,622 - romancal.pipeline.exposure_pipeline - INFO - Starting Roman exposure calibration pipeline ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,038 - romancal.pipeline.exposure_pipeline - INFO - Starting Roman exposure calibration pipeline ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:48,823 - stpipe.step - INFO - Step dq_init running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7f783eb12480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,172 - stpipe.step - INFO - Step dq_init running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7f21103050d0&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:49,599 - romancal.dq_init.dq_init_step - INFO - Flagging rows from: -999999 to -999999 as affected by guide window read
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:35,976 - romancal.dq_init.dq_initialization - INFO - Invalid guide window location: -999999, -999999, -999999, -999999
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:49,648 - stpipe.step - INFO - Step dq_init done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:36,175 - stpipe.step - INFO - Step dq_init done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:49,849 - stpipe.step - INFO - Step saturation running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:36,320 - stpipe.step - INFO - Step saturation running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:49,852 - romancal.saturation.saturation_step - INFO - Using SATURATION reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:36,325 - romancal.saturation.saturation_step - INFO - Using SATURATION reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:54,878 - stcal.saturation.saturation - INFO - Detected 93159 saturated pixels
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:41,260 - stcal.saturation.saturation - INFO - Detected 93159 saturated pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:55,169 - stcal.saturation.saturation - INFO - Detected 868 A/D floor pixels
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:41,573 - stcal.saturation.saturation - INFO - Detected 868 A/D floor pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:55,183 - stpipe.step - INFO - Step saturation done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:41,587 - stpipe.step - INFO - Step saturation done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:44:55,571 - stpipe.step - INFO - Step refpix running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:45:41,933 - stpipe.step - INFO - Step refpix running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:23,306 - stpipe.step - INFO - Step refpix done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:04,322 - stpipe.step - INFO - Step refpix done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:23,512 - stpipe.step - INFO - Step dark_decay running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:04,471 - stpipe.step - INFO - Step dark_decay running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:23,516 - romancal.dark_decay.dark_decay_step - INFO - Using DARKDECAYSIGNAL reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:04,475 - romancal.dark_decay.dark_decay_step - INFO - Using DARKDECAYSIGNAL reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:34,672 - stpipe.step - INFO - Step dark_decay done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:04,485 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File &#39;file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf&#39;was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0&#39; (from package roman_datamodels==0.27.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:34,882 - stpipe.step - INFO - Step wfi18_transient running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,371 - stpipe.step - INFO - Step dark_decay done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:34,884 - stpipe.step - INFO - Step wfi18_transient done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,518 - stpipe.step - INFO - Step wfi18_transient running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:35,085 - stpipe.step - INFO - Step linearity running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,520 - stpipe.step - INFO - Step wfi18_transient done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:35,094 - romancal.linearity.linearity_step - INFO - Using LINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,651 - stpipe.step - INFO - Step linearity running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:35,094 - romancal.linearity.linearity_step - INFO - Using INVERSELINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,660 - romancal.linearity.linearity_step - INFO - Using LINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:45:35,095 - romancal.linearity.linearity_step - INFO - Using INTEGRALNONLINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,661 - romancal.linearity.linearity_step - INFO - Using INVERSELINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:35,244 - romancal.linearity.linearity_step - WARNING - Flagged 130 spurious values outside remotely plausible range.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,661 - romancal.linearity.linearity_step - INFO - Using INTEGRALNONLINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:35,254 - stpipe.step - INFO - Step linearity done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,686 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File &#39;file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf&#39;was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0&#39; (from package roman_datamodels==0.27.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:35,466 - stpipe.step - INFO - Step rampfit running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,708 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File &#39;file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf&#39;was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.0.0&#39; (from package roman_datamodels==0.27.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:35,467 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:46:15,723 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/asdf/_asdf.py:274: AsdfPackageVersionWarning: File &#39;file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf&#39;was created with extension URI &#39;asdf://stsci.edu/datamodels/roman/extensions/static-1.0.0&#39; (from package roman_datamodels==0.27.0), which is not currently installed
+  warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:35,658 - stpipe.step - INFO - Step dark_current running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:50,547 - romancal.linearity.linearity_step - WARNING - Flagged 130 spurious values outside remotely plausible range.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:35,659 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:50,556 - stpipe.step - INFO - Step linearity done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:35,851 - stpipe.step - INFO - Step assign_wcs running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:50,703 - stpipe.step - INFO - Step rampfit running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:35,852 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:50,704 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,045 - stpipe.step - INFO - Step flatfield running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:50,838 - stpipe.step - INFO - Step dark_current running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,045 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:50,838 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,231 - stpipe.step - INFO - Step photom running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:50,969 - stpipe.step - INFO - Step assign_wcs running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,231 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:50,970 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,420 - stpipe.step - INFO - Step source_catalog running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f783eb2e480&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,101 - stpipe.step - INFO - Step photom running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,420 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,101 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,610 - stpipe.step - INFO - Step tweakreg running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f783e5dd160&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,232 - stpipe.step - INFO - Step flatfield running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,611 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,233 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,612 - romancal.pipeline.exposure_pipeline - INFO - Roman exposure calibration pipeline ending...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,364 - stpipe.step - INFO - Step source_catalog running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f210990b290&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:47:36,613 - stpipe.step - INFO - Step ExposurePipeline done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,364 - stpipe.step - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,496 - stpipe.step - INFO - Step tweakreg running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f2109b61070&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,496 - stpipe.step - INFO - Step skipped.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,498 - romancal.pipeline.exposure_pipeline - INFO - Roman exposure calibration pipeline ending...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:47:51,499 - stpipe.step - INFO - Step ExposurePipeline done
 </pre></div>
 </div>
 </div>
@@ -1212,7 +1240,7 @@ Some nodes not shown.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d0ac349d74b5a92ecf48515f0c7a7fe67fb5108e61171d6ca8c1dda69a07b49d.png" src="../../_images/d0ac349d74b5a92ecf48515f0c7a7fe67fb5108e61171d6ca8c1dda69a07b49d.png" />
+<img alt="../../_images/8ecfc143db700b1d97c7dcd179cb1d900564e129b484f0a84b05157acde1aeb1.png" src="../../_images/8ecfc143db700b1d97c7dcd179cb1d900564e129b484f0a84b05157acde1aeb1.png" />
 </div>
 </div>
 <p>We can verify that the Romancal refpix step was indeed applied. If not, then we can subtract the superbias with</p>
@@ -1282,15 +1310,13 @@ Some nodes not shown.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 2: 2nd=-14.3, 98th=80.5
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 27: 2nd=-1.06, 98th=2e+03
+frame 27: 2nd=-1.06, 98th=2e+03
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 54: 2nd=10.4, 98th=4.03e+03
 </pre></div>
 </div>
-<img alt="../../_images/8e0b1196a9cf35491cc90423686f5fc1011662265577c409bebcad52a6fa64d1.png" src="../../_images/8e0b1196a9cf35491cc90423686f5fc1011662265577c409bebcad52a6fa64d1.png" />
+<img alt="../../_images/1e988bbee1db200fcd376ce0bc934e66ea06e4b512ce3c33beaaf5a9a0a435b4.png" src="../../_images/1e988bbee1db200fcd376ce0bc934e66ea06e4b512ce3c33beaaf5a9a0a435b4.png" />
 </div>
 </div>
 <section id="cutouts-around-the-bright-source">
@@ -1384,7 +1410,7 @@ frame 27: 2nd=171, 98th=5.11e+04
 frame 54: 2nd=352, 98th=5.59e+04
 </pre></div>
 </div>
-<img alt="../../_images/50a2120e54330db394a839ac727edfc88089fa9f1795c52eff0df87a3adea90a.png" src="../../_images/50a2120e54330db394a839ac727edfc88089fa9f1795c52eff0df87a3adea90a.png" />
+<img alt="../../_images/4511fbad312ca78c0fbce799ac65cd0764c09a7f74e2e9854108791b62c68206.png" src="../../_images/4511fbad312ca78c0fbce799ac65cd0764c09a7f74e2e9854108791b62c68206.png" />
 </div>
 </div>
 </section>
@@ -1620,9 +1646,9 @@ We see trends in these plotted quantities as the exposure time progresses.</p></
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting frames: [2, 27, 54]
 </pre></div>
 </div>
-<img alt="../../_images/cd0d09fe2a8f35caf4a06ad1f298a19a2d8bcb30c7e881a3548d50ef7f33e431.png" src="../../_images/cd0d09fe2a8f35caf4a06ad1f298a19a2d8bcb30c7e881a3548d50ef7f33e431.png" />
-<img alt="../../_images/56525daf18365fa515d74ab2cec82fcc8251925318aa98f9684d3fa8b6af87eb.png" src="../../_images/56525daf18365fa515d74ab2cec82fcc8251925318aa98f9684d3fa8b6af87eb.png" />
-<img alt="../../_images/1609bd57d46d7d3eecfac51646870d64099430f80462f93db35e9c3cf90579b7.png" src="../../_images/1609bd57d46d7d3eecfac51646870d64099430f80462f93db35e9c3cf90579b7.png" />
+<img alt="../../_images/29198f7a6032f375c3699de6e02c7df891406b62e6e9997d11c459b33d891131.png" src="../../_images/29198f7a6032f375c3699de6e02c7df891406b62e6e9997d11c459b33d891131.png" />
+<img alt="../../_images/f046407812d2776b49c54701bce9101200141500f5de63e00916f611c0c1e44e.png" src="../../_images/f046407812d2776b49c54701bce9101200141500f5de63e00916f611c0c1e44e.png" />
+<img alt="../../_images/9823db7ba4e91ff4cd3642675ab7b1ba1e48099faa60c934ef0117303d58648a.png" src="../../_images/9823db7ba4e91ff4cd3642675ab7b1ba1e48099faa60c934ef0117303d58648a.png" />
 </div>
 </div>
 </section>
@@ -1665,16 +1691,16 @@ We see trends in these plotted quantities as the exposure time progresses.</p></
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "roman-cal"
+            mode: "roman_cal"
         },
         kernelOptions: {
-            name: "roman-cal",
+            name: "roman_cal",
             path: "./notebooks/ground_test_analysis"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'roman-cal'</script>
+    <script>kernelName = 'roman_cal'</script>
 
                 </article>
               
@@ -1721,7 +1747,7 @@ We see trends in these plotted quantities as the exposure time progresses.</p></
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-information">Server Information</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
@@ -1793,8 +1819,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

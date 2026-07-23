@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,6 +61,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/mosaic_pipeline/mosaic_pipeline';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Diving Into WFI TVAC Bright Star Test Data" href="../ground_test_analysis/wfi_tvac_brightstar.html" />
@@ -68,20 +69,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -107,7 +114,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -171,6 +222,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Making WFI Mosaics with RomanCal</a></li>
@@ -409,7 +461,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-information">Server Information</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
@@ -442,7 +494,7 @@
 </section>
 <section id="kernel-information-and-read-only-status">
 <h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.2”.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
 </section>
 <section id="imports">
@@ -457,6 +509,14 @@
 <li><p><em>json</em> for creating association files</p></li>
 <li><p><em>s3fs</em> for streaming files from an S3 bucket</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_CONTEXT&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;roman_0055.pmap&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
@@ -508,7 +568,7 @@
 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">input_files</span><span class="p">:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
         <span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.1/&quot;</span>
+        <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.2/&quot;</span>
         <span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="n">f</span>
         <span class="n">fs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">asdf_file_uri</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;./</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
@@ -533,7 +593,8 @@
 <p>Now let’s take a look at the JSON object we just created. It should contain a listing of each of our input files as well as the output product name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">asn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># imnspecting the association</span>
+<span class="n">asn</span>
 </pre></div>
 </div>
 </div>
@@ -542,7 +603,7 @@
     &quot;asn_type&quot;: &quot;None&quot;,
     &quot;asn_rule&quot;: &quot;DMS_ELPP_Base&quot;,
     &quot;version_id&quot;: null,
-    &quot;code_version&quot;: &quot;0.22.0&quot;,
+    &quot;code_version&quot;: &quot;1.0.1&quot;,
     &quot;target&quot;: &quot;&quot;,
     &quot;degraded_status&quot;: &quot;No known degraded exposures in association.&quot;,
     &quot;program&quot;: &quot;noprogram&quot;,
@@ -556,11 +617,7 @@
             &quot;name&quot;: &quot;my_roman_mosaic&quot;,
             &quot;members&quot;: [
                 {
-                    &quot;expname&quot;: &quot;r0003201001001001004_0001_wfi11_f106_cal.asdf&quot;,
-                    &quot;exptype&quot;: &quot;science&quot;
-                },
-                {
-                    &quot;expname&quot;: &quot;r0003201001001001004_0002_wfi11_f106_cal.asdf&quot;,
+                    &quot;expname&quot;: &quot;r0003201001001001004_0004_wfi11_f106_cal.asdf&quot;,
                     &quot;exptype&quot;: &quot;science&quot;
                 },
                 {
@@ -568,7 +625,11 @@
                     &quot;exptype&quot;: &quot;science&quot;
                 },
                 {
-                    &quot;expname&quot;: &quot;r0003201001001001004_0004_wfi11_f106_cal.asdf&quot;,
+                    &quot;expname&quot;: &quot;r0003201001001001004_0002_wfi11_f106_cal.asdf&quot;,
+                    &quot;exptype&quot;: &quot;science&quot;
+                },
+                {
+                    &quot;expname&quot;: &quot;r0003201001001001004_0001_wfi11_f106_cal.asdf&quot;,
                     &quot;exptype&quot;: &quot;science&quot;
                 }
             ]
@@ -604,46 +665,31 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,211 - CRDS - ERROR -  Error determining best reference for &#39;pars-fluxstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,142 - CRDS - ERROR -  Error determining best reference for &#39;pars-mosaicpipeline&#39;  =   Unknown reference type &#39;pars-mosaicpipeline&#39;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,212 - CRDS - ERROR -  Error determining best reference for &#39;pars-skymatchstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,146 - stpipe.step - INFO - MosaicPipeline instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,214 - CRDS - ERROR -  Error determining best reference for &#39;pars-outlierdetectionstep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,147 - stpipe.step - INFO - FluxStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,215 - CRDS - ERROR -  Error determining best reference for &#39;pars-resamplestep&#39;  =   No match found.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,148 - stpipe.step - INFO - SkyMatchStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,217 - CRDS - ERROR -  Error determining best reference for &#39;pars-sourcecatalogstep&#39;  =   Unknown reference type &#39;pars-sourcecatalogstep&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,149 - stpipe.step - INFO - OutlierDetectionStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,218 - CRDS - ERROR -  Error determining best reference for &#39;pars-mosaicpipeline&#39;  =   Unknown reference type &#39;pars-mosaicpipeline&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,150 - stpipe.step - INFO - ResampleStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,223 - stpipe.step - INFO - MosaicPipeline instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,151 - stpipe.step - INFO - SourceCatalogStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,223 - stpipe.step - INFO - FluxStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,243 - stpipe.step - INFO - Step MosaicPipeline running with args (&#39;my_roman_mosaic_asn.json&#39;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,225 - stpipe.step - INFO - SkyMatchStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,226 - stpipe.step - INFO - OutlierDetectionStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,228 - stpipe.step - INFO - ResampleStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,229 - stpipe.step - INFO - SourceCatalogStep instance created.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,398 - stpipe.step - INFO - Step MosaicPipeline running with args (&#39;my_roman_mosaic_asn.json&#39;,).
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,407 - stpipe.step - INFO - Step MosaicPipeline parameters are:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,249 - stpipe.step - INFO - Step MosaicPipeline parameters are:
   pre_hooks: []
   post_hooks: []
   output_file: None
@@ -693,7 +739,7 @@
       subtract: False
       stepsize: None
       skystat: mode
-      dqbits: ~DO_NOT_USE+NON_SCIENCE
+      dqbits: ~DO_NOT_USE
       lower: None
       upper: None
       nclip: 5
@@ -725,7 +771,7 @@
       save_intermediate_results: False
       resample_data: True
       resample_on_skycell: True
-      good_bits: ~DO_NOT_USE+NON_SCIENCE
+      good_bits: ~DO_NOT_USE
       in_memory: True
       pixmap_stepsize: 10.0
       pixmap_order: 3
@@ -756,10 +802,10 @@
       output_wcs: &#39;&#39;
       resample_on_skycell: True
       in_memory: True
-      good_bits: ~DO_NOT_USE+NON_SCIENCE
+      good_bits: ~DO_NOT_USE
       include_var_flat: False
       propagate_dq: False
-      pixmap_stepsize: 10.0
+      pixmap_stepsize: 10
       pixmap_order: 3
     source_catalog:
       pre_hooks: []
@@ -784,230 +830,234 @@
       forced_segmentation: &#39;&#39;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,407 - romancal.pipeline.mosaic_pipeline - INFO - Starting Roman mosaic level calibration pipeline ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,249 - romancal.pipeline.mosaic_pipeline - INFO - Starting Roman mosaic level calibration pipeline ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:13,606 - stpipe.step - INFO - Step flux running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7ffb7da0bed0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:11,343 - stpipe.step - INFO - Step flux running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f3f4f7eea50&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,422 - stpipe.step - INFO - Step flux done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,564 - stpipe.step - INFO - Step flux done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,593 - stpipe.step - INFO - Step skymatch running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7ffb7da0bed0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,660 - stpipe.step - INFO - Step skymatch running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f3f4f7eea50&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,885 - stcal.skymatch.skymatch - INFO -  
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,888 - stcal.skymatch.skymatch - INFO -  
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,886 - stcal.skymatch.skymatch - INFO - ***** stcal.skymatch.skymatch.skymatch() started on 2026-06-01 19:35:15.885733
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,889 - stcal.skymatch.skymatch - INFO - ***** stcal.skymatch.skymatch.skymatch() started on 2026-07-22 21:38:15.888462
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,887 - stcal.skymatch.skymatch - INFO -  
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,889 - stcal.skymatch.skymatch - INFO -  
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,887 - stcal.skymatch.skymatch - INFO - Sky computation method: &#39;match&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,889 - stcal.skymatch.skymatch - INFO - Sky computation method: &#39;match&#39;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,887 - stcal.skymatch.skymatch - INFO - Sky matching direction: DOWN
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,890 - stcal.skymatch.skymatch - INFO - Sky matching direction: DOWN
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,888 - stcal.skymatch.skymatch - INFO - Sky subtraction from image data: OFF
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,890 - stcal.skymatch.skymatch - INFO - Sky subtraction from image data: OFF
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,888 - stcal.skymatch.skymatch - INFO -  
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,890 - stcal.skymatch.skymatch - INFO -  
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:15,890 - stcal.skymatch.skymatch - INFO - ----  Computing differences in sky values in overlapping regions.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:15,890 - stcal.skymatch.skymatch - INFO - ----  Computing differences in sky values in overlapping regions.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,575 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0001_wfi11_f106_cal.asdf. Sky background: 0.00340952
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:18,391 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0004_wfi11_f106_cal.asdf. Sky background: 0.00267824
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,575 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0002_wfi11_f106_cal.asdf. Sky background: 0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:18,392 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0003_wfi11_f106_cal.asdf. Sky background: 0.00424058
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,576 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0003_wfi11_f106_cal.asdf. Sky background: 0.00231594
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:18,392 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0002_wfi11_f106_cal.asdf. Sky background: 0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,576 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0004_wfi11_f106_cal.asdf. Sky background: 0.00439232
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:18,393 - stcal.skymatch.skymatch - INFO -    *  Image ID=r0003201001001001004_0001_wfi11_f106_cal.asdf. Sky background: 0.00185808
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,577 - stcal.skymatch.skymatch - INFO -  
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:18,393 - stcal.skymatch.skymatch - INFO -  
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,577 - stcal.skymatch.skymatch - INFO - ***** stcal.skymatch.skymatch.skymatch() ended on 2026-06-01 19:35:18.577092
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:18,393 - stcal.skymatch.skymatch - INFO - ***** stcal.skymatch.skymatch.skymatch() ended on 2026-07-22 21:38:18.393262
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,578 - stcal.skymatch.skymatch - INFO - ***** stcal.skymatch.skymatch.skymatch() TOTAL RUN TIME: 0:00:02.691359
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:18,393 - stcal.skymatch.skymatch - INFO - ***** stcal.skymatch.skymatch.skymatch() TOTAL RUN TIME: 0:00:02.504800
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,578 - stcal.skymatch.skymatch - INFO -  
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:18,394 - stcal.skymatch.skymatch - INFO -  
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,582 - stpipe.step - INFO - Step skymatch done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:20,977 - stpipe.step - INFO - Step skymatch done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,759 - stpipe.step - INFO - Step outlier_detection running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7ffb7da0bed0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:21,079 - stpipe.step - INFO - Step outlier_detection running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f3f4f7eea50&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,796 - stcal.resample.resample - INFO - Output pixel scale: 0.10772630117450682 arcsec.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:21,105 - stcal.resample.resample - INFO - Output pixel scale: 0.10772651959674717 arcsec.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,796 - stcal.resample.resample - INFO - Driz parameter kernel: square
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:21,106 - stcal.resample.resample - INFO - Driz parameter kernel: square
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,797 - stcal.resample.resample - INFO - Driz parameter pixfrac: 1.0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:21,106 - stcal.resample.resample - INFO - Driz parameter pixfrac: 1.0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,797 - stcal.resample.resample - INFO - Driz parameter fillval: NaN
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:21,106 - stcal.resample.resample - INFO - Driz parameter fillval: NaN
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,798 - stcal.resample.resample - INFO - Driz parameter weight_type: ivm
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:21,107 - stcal.resample.resample - INFO - Driz parameter weight_type: ivm
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,798 - stcal.resample.resample - INFO - Evaluating the full pixel map every 10.0 pixels
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:21,107 - stcal.resample.resample - INFO - Evaluating the full pixel map every 10.0 pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:18,798 - stcal.resample.resample - INFO - Interpolating the rest with order 3 bivariate splines
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:21,107 - stcal.resample.resample - INFO - Interpolating the rest with order 3 bivariate splines
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:19,463 - stcal.resample.resample - INFO - Resampling science and variance data
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:21,733 - stcal.resample.resample - INFO - Resampling science and variance data
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:22,313 - stcal.resample.resample - INFO - Resampling science and variance data
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:24,086 - stcal.resample.resample - INFO - Resampling science and variance data
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:25,171 - stcal.resample.resample - INFO - Resampling science and variance data
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:26,363 - stcal.resample.resample - INFO - Resampling science and variance data
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:27,997 - stcal.resample.resample - INFO - Resampling science and variance data
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:28,716 - stcal.resample.resample - INFO - Resampling science and variance data
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:30,173 - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  271.070347920 -0.419189523 271.070346866 -0.222320204 270.869256760 -0.222319306 270.869253946 -0.419188624
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:30,455 - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  271.070348387 -0.419189841 271.070347136 -0.222320124 270.869256622 -0.222319426 270.869254005 -0.419189144
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:57,378 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:51,073 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:58,487 - romancal.outlier_detection.utils - INFO - 3598 pixels marked as outliers
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:51,793 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/stcal/outlier_detection/utils.py:203: RuntimeWarning: overflow encountered in multiply
+  threshold1 = scale1 * blot_deriv + snr1 * err_data
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:35:59,073 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:52,089 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/stcal/outlier_detection/utils.py:212: RuntimeWarning: overflow encountered in multiply
+  threshold2 = scale2 * blot_deriv + snr2 * err_data
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:00,205 - romancal.outlier_detection.utils - INFO - 3799 pixels marked as outliers
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:52,144 - romancal.outlier_detection.outlier_detection - INFO - 1366 pixels marked as outliers
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:00,784 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:52,664 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:01,910 - romancal.outlier_detection.utils - INFO - 3629 pixels marked as outliers
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:53,740 - romancal.outlier_detection.outlier_detection - INFO - 1714 pixels marked as outliers
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:02,489 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:54,297 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,609 - romancal.outlier_detection.utils - INFO - 3237 pixels marked as outliers
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:55,372 - romancal.outlier_detection.outlier_detection - INFO - 1749 pixels marked as outliers
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,616 - stpipe.step - INFO - Step outlier_detection done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:55,892 - stcal.outlier_detection.utils - INFO - Blotting (4088, 4088) &lt;-- (6579, 6720)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,800 - stpipe.step - INFO - Step resample running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7ffb7da0bed0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:56,948 - romancal.outlier_detection.outlier_detection - INFO - 1628 pixels marked as outliers
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,837 - stcal.resample.resample - INFO - Output pixel scale: 0.10772630117450682 arcsec.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:59,456 - stpipe.step - INFO - Step outlier_detection done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,837 - stcal.resample.resample - INFO - Driz parameter kernel: square
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:59,568 - stpipe.step - INFO - Step resample running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f3f4f7eea50&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,838 - stcal.resample.resample - INFO - Driz parameter pixfrac: 1.0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:59,594 - stcal.resample.resample - INFO - Output pixel scale: 0.10772651959674717 arcsec.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,838 - stcal.resample.resample - INFO - Driz parameter fillval: NAN
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:59,594 - stcal.resample.resample - INFO - Driz parameter kernel: square
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,838 - stcal.resample.resample - INFO - Driz parameter weight_type: ivm
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:59,595 - stcal.resample.resample - INFO - Driz parameter pixfrac: 1.0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,839 - stcal.resample.resample - INFO - Evaluating the full pixel map every 10.0 pixels
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:59,595 - stcal.resample.resample - INFO - Driz parameter fillval: NAN
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:03,839 - stcal.resample.resample - INFO - Interpolating the rest with order 3 bivariate splines
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:59,595 - stcal.resample.resample - INFO - Driz parameter weight_type: ivm
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:04,547 - stcal.resample.resample - INFO - Resampling science and variance data
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:59,595 - stcal.resample.resample - INFO - Evaluating the full pixel map every 10 pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:09,071 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:38:59,596 - stcal.resample.resample - INFO - Interpolating the rest with order 3 bivariate splines
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:09,084 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/stcal/resample/resample.py:1259: RuntimeWarning: invalid value encountered in sqrt
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:00,259 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:03,867 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:03,882 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/stcal/resample/resample.py:1266: RuntimeWarning: invalid value encountered in sqrt
   data=np.sqrt(variance),
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:11,287 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:05,568 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:15,102 - stcal.resample.resample - INFO - Resampling science and variance data
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:09,182 - stcal.resample.resample - INFO - Resampling science and variance data
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:19,576 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:12,713 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:19,589 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/stcal/resample/resample.py:1259: RuntimeWarning: invalid value encountered in sqrt
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:12,728 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/stcal/resample/resample.py:1266: RuntimeWarning: invalid value encountered in sqrt
   data=np.sqrt(variance),
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:21,882 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:14,469 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:25,751 - stcal.resample.resample - INFO - Resampling science and variance data
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:18,046 - stcal.resample.resample - INFO - Resampling science and variance data
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:30,203 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:21,552 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:30,216 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/stcal/resample/resample.py:1259: RuntimeWarning: invalid value encountered in sqrt
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:23,254 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:26,816 - stcal.resample.resample - INFO - Resampling science and variance data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:30,317 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:30,332 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.12/site-packages/stcal/resample/resample.py:1266: RuntimeWarning: invalid value encountered in sqrt
   data=np.sqrt(variance),
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:32,429 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:32,028 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:36,346 - stcal.resample.resample - INFO - Resampling science and variance data
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:35,769 - romancal.resample.resample - INFO - Mean, max exposure times: 116.8, 265.6
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:40,787 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:35,842 - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  271.070348387 -0.419189841 271.070347136 -0.222320124 270.869256622 -0.222319426 270.869254005 -0.419189144
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:40,800 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/stcal/resample/resample.py:1259: RuntimeWarning: invalid value encountered in sqrt
-  data=np.sqrt(variance),
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:37,181 - stpipe.step - INFO - Step resample done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:43,001 - stcal.resample.resample - INFO - Drizzling (4088, 4088) --&gt; (6579, 6720)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:37,309 - stpipe.step - INFO - Step source_catalog running with args (&lt;roman_datamodels.datamodels._datamodels.MosaicModel object at 0x7f3f4ec2a570&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:46,673 - romancal.resample.resample - INFO - Mean, max exposure times: 116.8, 265.6
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:37,310 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:46,701 - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  271.070347920 -0.419189523 271.070346866 -0.222320204 270.869256760 -0.222319306 270.869253946 -0.419188624
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:45,461 - stpipe.step - INFO - Saved model in my_roman_mosaic_coadd.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:46,713 - stpipe.step - INFO - Step resample done
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:46,899 - stpipe.step - INFO - Step source_catalog running with args (&lt;roman_datamodels.datamodels._datamodels.MosaicModel object at 0x7ffb7d58ed90&gt;,).
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:46,900 - stpipe.step - INFO - Step skipped.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:49,759 - stpipe.step - INFO - Saved model in my_roman_mosaic_coadd.asdf
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-06-01 19:36:49,760 - stpipe.step - INFO - Step MosaicPipeline done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-22 21:39:45,462 - stpipe.step - INFO - Step MosaicPipeline done
 </pre></div>
 </div>
 </div>
@@ -1026,7 +1076,7 @@
 │ ├─author (str): The ASDF Developers
 │ ├─homepage (str): http://github.com/asdf-format/asdf
 │ ├─name (str): asdf
-│ └─version (str): 5.3.0
+│ └─version (str): 5.3.1
 ├─history (AsdfDictNode)
 │ └─extensions (AsdfListNode)
 │   ├─0 (ExtensionMetadata) ...
@@ -1058,10 +1108,10 @@ Some nodes not shown.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ffb7c116900&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f3f4ecfdb50&gt;
 </pre></div>
 </div>
-<img alt="../../_images/dcbfd2f0b342f9e8d0084a17a263107d78b38f9011d12c17d9cfbd76f8ea62b0.png" src="../../_images/dcbfd2f0b342f9e8d0084a17a263107d78b38f9011d12c17d9cfbd76f8ea62b0.png" />
+<img alt="../../_images/9d1ef1824f3bffab418a7022ff33de0ab68d1a4eb4a876bff3b00c4803f60ccf.png" src="../../_images/9d1ef1824f3bffab418a7022ff33de0ab68d1a4eb4a876bff3b00c4803f60ccf.png" />
 </div>
 </div>
 <p>An L3 file contains several extensions that may be of interest:</p>
@@ -1086,7 +1136,7 @@ Some nodes not shown.
 <section id="about-this-notebook">
 <h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
 <p><strong>Author:</strong> Tyler Desjardins<br />
-<strong>Updated On:</strong> 2026-04-17</p>
+<strong>Updated On:</strong> 2026-07-09</p>
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
@@ -1111,16 +1161,16 @@ Some nodes not shown.
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "roman-cal"
+            mode: "roman_cal"
         },
         kernelOptions: {
-            name: "roman-cal",
+            name: "roman_cal",
             path: "./notebooks/mosaic_pipeline"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'roman-cal'</script>
+    <script>kernelName = 'roman_cal'</script>
 
                 </article>
               
@@ -1167,7 +1217,7 @@ Some nodes not shown.
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-information">Server Information</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
@@ -1228,8 +1278,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

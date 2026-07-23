@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,6 +61,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/grism_spectral_extraction/grism_spectral_extraction';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="The Roman Interactive Sensitivity Tool (RIST)" href="../rist/rist.html" />
@@ -68,20 +69,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -107,7 +114,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -171,6 +222,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -409,7 +461,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
@@ -456,7 +508,7 @@
 <hr class="docutils" />
 <section id="kernel-information-and-read-only-status">
 <h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.2”.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
 </section>
 <section id="imports">
@@ -529,7 +581,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.1/&quot;</span>
+<span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.2/&quot;</span>
 
 <span class="c1"># Read in the direct image</span>
 <span class="n">asdf_file_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0007601002004013001_0001_wfi01_f158_cal.asdf&#39;</span>
@@ -572,7 +624,7 @@
     <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span>
     <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Direct Image&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Direct Image&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 
 <span class="c1">### Plot the grism image</span>
 <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">get_vmin_vmax</span><span class="p">(</span><span class="n">grism_img</span><span class="p">)</span>
@@ -583,7 +635,7 @@
     <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">,</span>
     <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Dispersed (Grism) Image&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Dispersed (Grism) Image&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 
 <span class="c1">### Overlay the source positions in the direct image</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">entry</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="n">catalog</span><span class="p">[</span><span class="s2">&quot;mag_ROMAN_WFI_NIR_F146&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">]):</span> <span class="c1"># only show the bright objects</span>
@@ -605,7 +657,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d8ef247bcd983f6832c91e928759f14669e27215e2516ebc15d0b7177c44ced0.png" src="../../_images/d8ef247bcd983f6832c91e928759f14669e27215e2516ebc15d0b7177c44ced0.png" />
+<img alt="../../_images/dad5985cdde7c1d846644f782cac8ba5c92d104078c75076d95eda74b909a1ec.png" src="../../_images/dad5985cdde7c1d846644f782cac8ba5c92d104078c75076d95eda74b909a1ec.png" />
 </div>
 </div>
 </section>
@@ -670,7 +722,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cc97521f8ab53bd8e41ce8ce1cace7b5251524985a4b0850c1ea6fafc4e9d3a7.png" src="../../_images/cc97521f8ab53bd8e41ce8ce1cace7b5251524985a4b0850c1ea6fafc4e9d3a7.png" />
+<img alt="../../_images/9b62363fdc0f13743a77101d2da2e7353a47f603d9f575d269d1b2bd77d1574a.png" src="../../_images/9b62363fdc0f13743a77101d2da2e7353a47f603d9f575d269d1b2bd77d1574a.png" />
 </div>
 </div>
 <p>Now that we have a 2D cutout of the spectrum, we need to assign wavelength information.</p>
@@ -718,7 +770,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7e27d529497d6ed1a99d7149fec3cda307b7c368a94a7ea51931c266da7ce891.png" src="../../_images/7e27d529497d6ed1a99d7149fec3cda307b7c368a94a7ea51931c266da7ce891.png" />
+<img alt="../../_images/c8f8d4b64b5f1d76782aba1bfac92082ecc1acb2533dd5272e2e1536176cdc31.png" src="../../_images/c8f8d4b64b5f1d76782aba1bfac92082ecc1acb2533dd5272e2e1536176cdc31.png" />
 </div>
 </div>
 <p>Now, we move to the 1-D spectral extraction.</p>
@@ -773,7 +825,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/097067188593a1a9a98ae788d442876c7f9a96e85e498667850b5a477e63d88e.png" src="../../_images/097067188593a1a9a98ae788d442876c7f9a96e85e498667850b5a477e63d88e.png" />
+<img alt="../../_images/14f558c54cf616821fba8d7a767965ecd34d9106c4c3d1b069038a18aef90663.png" src="../../_images/14f558c54cf616821fba8d7a767965ecd34d9106c4c3d1b069038a18aef90663.png" />
 </div>
 </div>
 <p>As noted above, the size of the extraction box is crucial. If it is too small, it may miss flux from the true source; if it is too large, it may include excessive noise, reducing the overall quality of the resulting spectrum. Therefore, we turn to the optimal extraction method.</p>
@@ -849,7 +901,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5dba0c788ee594fc643c139268b10e08e4bdda1cb08f05928bb4404a50152875.png" src="../../_images/5dba0c788ee594fc643c139268b10e08e4bdda1cb08f05928bb4404a50152875.png" />
+<img alt="../../_images/134a7fec33e9dd038affef14869a436e1bbffa2aac5a8479e5b075b3d79e9deb.png" src="../../_images/134a7fec33e9dd038affef14869a436e1bbffa2aac5a8479e5b075b3d79e9deb.png" />
 </div>
 </div>
 <section id="masking-neighboring-sources-in-direct-cutouts">
@@ -868,7 +920,7 @@
     <span class="k">if</span> <span class="n">thresh</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">thresh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 
-    <span class="n">segm</span> <span class="o">=</span> <span class="n">detect_sources</span><span class="p">(</span><span class="n">data</span><span class="o">-</span><span class="n">skybkg</span><span class="p">,</span> <span class="n">thresh</span><span class="p">,</span> <span class="n">npixels</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">segm</span> <span class="o">=</span> <span class="n">detect_sources</span><span class="p">(</span><span class="n">data</span><span class="o">-</span><span class="n">skybkg</span><span class="p">,</span> <span class="n">thresh</span><span class="p">,</span> <span class="n">n_pixels</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 
     <span class="n">data_segm</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">segm</span><span class="o">.</span><span class="n">shape</span><span class="p">]</span>
@@ -972,18 +1024,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-</pre></div>
-</div>
-<img alt="../../_images/ff17d4fc87c5d48e980b6b9d7dfc794419bf8ec1f219867c8592b928aca38036.png" src="../../_images/ff17d4fc87c5d48e980b6b9d7dfc794419bf8ec1f219867c8592b928aca38036.png" />
-<img alt="../../_images/a9e53504ffda0342f05b1611289caa586e10024f63761e0690eaa414cdaba4ef.png" src="../../_images/a9e53504ffda0342f05b1611289caa586e10024f63761e0690eaa414cdaba4ef.png" />
-<img alt="../../_images/23832ff20d3880cf92e7a2f3ac207b42c8ab98760f64913a65c0949fa5f64cdb.png" src="../../_images/23832ff20d3880cf92e7a2f3ac207b42c8ab98760f64913a65c0949fa5f64cdb.png" />
-<img alt="../../_images/f0f4a0110a1525425d9be5fd801fad6d755012cb693d017143f5d305840f4d8c.png" src="../../_images/f0f4a0110a1525425d9be5fd801fad6d755012cb693d017143f5d305840f4d8c.png" />
+<img alt="../../_images/6e831d34d17120e14f084ad729638d24935e83ce347f643f602d412b816c58fd.png" src="../../_images/6e831d34d17120e14f084ad729638d24935e83ce347f643f602d412b816c58fd.png" />
+<img alt="../../_images/d70d1f17e48996f6732ab5d04533e08b4098fffc66c836c060dfcf086c7ad3fb.png" src="../../_images/d70d1f17e48996f6732ab5d04533e08b4098fffc66c836c060dfcf086c7ad3fb.png" />
+<img alt="../../_images/52aba03de96bac8829b5886000547fdaf912241d861b1e2cb88a7af1dcb5d13f.png" src="../../_images/52aba03de96bac8829b5886000547fdaf912241d861b1e2cb88a7af1dcb5d13f.png" />
+<img alt="../../_images/16701971300c7b59462e6d2bd81d684ca110dbe475a2ab1c593fdd8ff8c37786.png" src="../../_images/16701971300c7b59462e6d2bd81d684ca110dbe475a2ab1c593fdd8ff8c37786.png" />
 </div>
 </div>
 </section>
@@ -1000,22 +1044,11 @@ WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-</pre></div>
-</div>
-<img alt="../../_images/2163cb80465acefde740aeab1a338311302661d00910fa92d8ab848aedaf9976.png" src="../../_images/2163cb80465acefde740aeab1a338311302661d00910fa92d8ab848aedaf9976.png" />
-<img alt="../../_images/8b86a7f93a30e16ea9e967bea0920efc6a9ca3df43654090309e7eec30476640.png" src="../../_images/8b86a7f93a30e16ea9e967bea0920efc6a9ca3df43654090309e7eec30476640.png" />
-<img alt="../../_images/a1fc78342db67a7593e45b8fe41891cbe78425159f0c0c98fa58ccd63b512560.png" src="../../_images/a1fc78342db67a7593e45b8fe41891cbe78425159f0c0c98fa58ccd63b512560.png" />
-<img alt="../../_images/56baa799de403ccd5bc64bfed16241a31be90e013b72a036da23c3fe698d0f50.png" src="../../_images/56baa799de403ccd5bc64bfed16241a31be90e013b72a036da23c3fe698d0f50.png" />
-<img alt="../../_images/ffd8fb77cd755ca12acabae1ad7735160388664f79074cd6a9a566f7e67b7a10.png" src="../../_images/ffd8fb77cd755ca12acabae1ad7735160388664f79074cd6a9a566f7e67b7a10.png" />
+<img alt="../../_images/4c115ae2083c7ea3e134486e7a60d1ae49053ea8d9009c443603c3700ef625a0.png" src="../../_images/4c115ae2083c7ea3e134486e7a60d1ae49053ea8d9009c443603c3700ef625a0.png" />
+<img alt="../../_images/3476b1d68aadc28b794a78c856c549a49de2686f05fa506dba4265a0c40d7557.png" src="../../_images/3476b1d68aadc28b794a78c856c549a49de2686f05fa506dba4265a0c40d7557.png" />
+<img alt="../../_images/3c95b73bff17481d07cc6cff03a0d8ce5c0a3aa6839079e9a696585b70257606.png" src="../../_images/3c95b73bff17481d07cc6cff03a0d8ce5c0a3aa6839079e9a696585b70257606.png" />
+<img alt="../../_images/ec3c9019731bc85fbf6c49f302d49f8290c71f458d1474fe7aa0eae428a798bf.png" src="../../_images/ec3c9019731bc85fbf6c49f302d49f8290c71f458d1474fe7aa0eae428a798bf.png" />
+<img alt="../../_images/fe06ca8974741e7f28ebf9c22f51163d3a28c38afe3c9e22d4c2b078ca9fad35.png" src="../../_images/fe06ca8974741e7f28ebf9c22f51163d3a28c38afe3c9e22d4c2b078ca9fad35.png" />
 </div>
 </div>
 </section>
@@ -1032,18 +1065,10 @@ WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-</pre></div>
-</div>
-<img alt="../../_images/51abacf0d4c35fc60a19c71d8b3fa8201d127ff55dfdfa7e241f82701b9129c8.png" src="../../_images/51abacf0d4c35fc60a19c71d8b3fa8201d127ff55dfdfa7e241f82701b9129c8.png" />
-<img alt="../../_images/2163cb80465acefde740aeab1a338311302661d00910fa92d8ab848aedaf9976.png" src="../../_images/2163cb80465acefde740aeab1a338311302661d00910fa92d8ab848aedaf9976.png" />
-<img alt="../../_images/164d19bae4d4fd94bc4a66f7d7b1d449c8b93681e78ef70456974f038183da61.png" src="../../_images/164d19bae4d4fd94bc4a66f7d7b1d449c8b93681e78ef70456974f038183da61.png" />
-<img alt="../../_images/1779e1090f818aa419fefb129679d2d28984aaf34fe73bd979b746de6aecc202.png" src="../../_images/1779e1090f818aa419fefb129679d2d28984aaf34fe73bd979b746de6aecc202.png" />
+<img alt="../../_images/f78cafa43041c831f5b397eded06780a9761b29d9903772a5103a7d7cfb92b19.png" src="../../_images/f78cafa43041c831f5b397eded06780a9761b29d9903772a5103a7d7cfb92b19.png" />
+<img alt="../../_images/4c115ae2083c7ea3e134486e7a60d1ae49053ea8d9009c443603c3700ef625a0.png" src="../../_images/4c115ae2083c7ea3e134486e7a60d1ae49053ea8d9009c443603c3700ef625a0.png" />
+<img alt="../../_images/a6105b19e0bf9853464ece25d883e99ed3b0981b550df60cf03c07a28219c752.png" src="../../_images/a6105b19e0bf9853464ece25d883e99ed3b0981b550df60cf03c07a28219c752.png" />
+<img alt="../../_images/f6e58e51db7ee408ebb96e89c49eaa0a262eb9a85344ca926b70c4b0a585154f.png" src="../../_images/f6e58e51db7ee408ebb96e89c49eaa0a262eb9a85344ca926b70c4b0a585154f.png" />
 </div>
 </div>
 </section>
@@ -1077,7 +1102,7 @@ WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/96779b93a52ca8b653f7ec3514420089d24d0c871c9c8c712046f31f0bf7cf23.png" src="../../_images/96779b93a52ca8b653f7ec3514420089d24d0c871c9c8c712046f31f0bf7cf23.png" />
+<img alt="../../_images/a9442a6f8864c1a20b2134b7220fd15233d3e6a271e3ae77382256fa20848bde.png" src="../../_images/a9442a6f8864c1a20b2134b7220fd15233d3e6a271e3ae77382256fa20848bde.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1088,14 +1113,8 @@ WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 3.0 and will be removed in version 4.0. Use argument &#39;n_pixels&#39; instead. [warnings]
-</pre></div>
-</div>
-<img alt="../../_images/e9c09c811a03de295e9aef5fee40bb52792073bd2568f50cbad702aaf71785eb.png" src="../../_images/e9c09c811a03de295e9aef5fee40bb52792073bd2568f50cbad702aaf71785eb.png" />
-<img alt="../../_images/581c1342164f7de400df50995c0b191534586ac830f396a7676e578cba17dcd3.png" src="../../_images/581c1342164f7de400df50995c0b191534586ac830f396a7676e578cba17dcd3.png" />
+<img alt="../../_images/b2bf6c5a627e03554c2291a6bc595e71e09118830e193657fbd1c8e1d019f033.png" src="../../_images/b2bf6c5a627e03554c2291a6bc595e71e09118830e193657fbd1c8e1d019f033.png" />
+<img alt="../../_images/4fe1860fc8e5b3abe05dc4f92685b9e6a5cbe7795a76bf95176e229b6a124b84.png" src="../../_images/4fe1860fc8e5b3abe05dc4f92685b9e6a5cbe7795a76bf95176e229b6a124b84.png" />
 </div>
 </div>
 </section>
@@ -1134,16 +1153,16 @@ WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "roman-cal"
+            mode: "roman_cal"
         },
         kernelOptions: {
-            name: "roman-cal",
+            name: "roman_cal",
             path: "./notebooks/grism_spectral_extraction"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'roman-cal'</script>
+    <script>kernelName = 'roman_cal'</script>
 
                 </article>
               
@@ -1190,7 +1209,7 @@ WARNING: AstropyDeprecationWarning: &#39;npixels&#39; was deprecated in version 
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
@@ -1269,8 +1288,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

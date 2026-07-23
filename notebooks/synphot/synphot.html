@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -62,6 +62,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/synphot/synphot';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Pandeia Tutorial" href="../pandeia/pandeia.html" />
@@ -69,20 +70,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -108,7 +115,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -172,6 +223,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -410,7 +462,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
@@ -486,13 +538,52 @@ In this tutorial, we will demonstrate how to use the Synthetic Photometry (<code
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found stpsf path /home/runner/refdata/stpsf-data
-Found synphot path /home/runner/refdata/grp/redcat/trds/
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Did not find stpsf data in environment, setting it up...
+	Downloading and uncompressing file...
+	Found 1 data URL(s) to download and install...
+	Working on file 1 out of 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
+		export STPSF_PATH=&#39;/home/runner/refdata/stpsf-data&#39;
+Did not find synphot data in environment, setting it up...
+	Downloading and uncompressing file...
+	Found 9 data URL(s) to download and install...
+	Working on file 1 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 2 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 3 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 4 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 5 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 6 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 7 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 8 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Working on file 9 out of 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
+		export PYSYN_CDBS=&#39;/home/runner/refdata/grp/redcat/trds/&#39;
 Reference data paths set to:
 	STPSF_PATH = /home/runner/refdata/stpsf-data
 	PYSYN_CDBS = /home/runner/refdata/grp/redcat/trds/
 	CRDS_SERVER_URL = https://roman-crds.stsci.edu (pre-set, not overwritten)
-	CRDS_CONTEXT = roman_0048.pmap (pre-set, not overwritten)
+	CRDS_CONTEXT = roman-edit (pre-set, not overwritten)
+	CRDS_OBSERVATORY = roman
 	CRDS_PATH = /home/runner/crds_cache (pre-set, not overwritten)
 </pre></div>
 </div>
@@ -637,7 +728,7 @@ Reference data paths set to:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/16203245d4beabc3eedef1e1a6da24bac365babeccd21396abb7e10951bae61e.png" src="../../_images/16203245d4beabc3eedef1e1a6da24bac365babeccd21396abb7e10951bae61e.png" />
+<img alt="../../_images/93c247936bf0bfc86adb8293af42eaf01d0eb20e51c2f09ed00ad0c0db59da19.png" src="../../_images/93c247936bf0bfc86adb8293af42eaf01d0eb20e51c2f09ed00ad0c0db59da19.png" />
 </div>
 </div>
 <p>We can also get information about the bandpasses using the following methods on the bandpass objects in synphot:</p>
@@ -697,7 +788,7 @@ Reference data paths set to:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Wavelength ($\\mu$m)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/094432efb945c47ebbd13225439fa9246993b5c24ebc3df41671a34cd3b8e063.png" src="../../_images/094432efb945c47ebbd13225439fa9246993b5c24ebc3df41671a34cd3b8e063.png" />
+<img alt="../../_images/67c220b722e6592ee9d8010f2dacf69f1542faedf603d4e6c27e66b3b95eafe4.png" src="../../_images/67c220b722e6592ee9d8010f2dacf69f1542faedf603d4e6c27e66b3b95eafe4.png" />
 </div>
 </div>
 <p>Now that we have our spectrum, we can “observe” it using the WFI:</p>
@@ -753,7 +844,7 @@ Reference data paths set to:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6eaeb7e159957480aa8073c654fe60d9b3b9d12c5731b203c3710bd38b774a92.png" src="../../_images/6eaeb7e159957480aa8073c654fe60d9b3b9d12c5731b203c3710bd38b774a92.png" />
+<img alt="../../_images/7941871199a89c8f0f8d5eeb53f3abfe77323a079aa82c4c3f1368763de3ea9c.png" src="../../_images/7941871199a89c8f0f8d5eeb53f3abfe77323a079aa82c4c3f1368763de3ea9c.png" />
 </div>
 </div>
 <p>Let’s add another component to our spectrum to see how models can be combined. In this case, let’s add a Gaussian absorption line at 1.2 $\mu m$ with an amplitude of 2 mJy and a full-width half-maximum (FWHM) of 0.1 $\mu m$, and a Gaussian emission line at 1.5 $\mu m$ with an amplitude of 1 mJy and a FWHM of 0.01 $\mu m$.</p>
@@ -774,7 +865,7 @@ Reference data paths set to:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/79d21f40c194e43f4bdd5ad0bf3190d48b8bb319e7210db09c78ccdd86db33ca.png" src="../../_images/79d21f40c194e43f4bdd5ad0bf3190d48b8bb319e7210db09c78ccdd86db33ca.png" />
+<img alt="../../_images/ab06838b5f367aa6d711cc21bf7bbff4bd04de1972965d5522f62ee57fe5eb07.png" src="../../_images/ab06838b5f367aa6d711cc21bf7bbff4bd04de1972965d5522f62ee57fe5eb07.png" />
 </div>
 </div>
 <p>Let’s observe this model spectrum and take a look at what it looks like after it passes through the optical chain by convolving the model with one of our transmission curves:</p>
@@ -795,7 +886,7 @@ Reference data paths set to:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Observed Flux Density (Jy)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/3bc6244173d63da6069154c6432f7f8806d75f396338f438efe769dbde28bc42.png" src="../../_images/3bc6244173d63da6069154c6432f7f8806d75f396338f438efe769dbde28bc42.png" />
+<img alt="../../_images/99458ef168b67f5c1c5123ad7a3290db6c76c59c34b534361f48a432d2aa74f9.png" src="../../_images/99458ef168b67f5c1c5123ad7a3290db6c76c59c34b534361f48a432d2aa74f9.png" />
 </div>
 </div>
 <p>With our observation object, we can get the integrated flux just as we did before:</p>
@@ -851,16 +942,16 @@ Reference data paths set to:
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "roman-cal"
+            mode: "roman_cal"
         },
         kernelOptions: {
-            name: "roman-cal",
+            name: "roman_cal",
             path: "./notebooks/synphot"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'roman-cal'</script>
+    <script>kernelName = 'roman_cal'</script>
 
                 </article>
               
@@ -907,7 +998,7 @@ Reference data paths set to:
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
@@ -980,8 +1071,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
