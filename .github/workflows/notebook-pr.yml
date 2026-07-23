@@ -65,6 +65,7 @@ jobs:
       enable-execution: true
       enable-storage: true                      # Store outputs to gh-storage on PR
       enable-html-build: false                  # Don't build HTML docs on PR
+      enable-a11y-nb-check: true
       custom-runner-config: true  # Enable ci_config.txt lookup
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
