@@ -1,8 +1,8 @@
-roman_datamodels>=0.30.0,<0.31
-rad>=0.30.0,<0.31
-asdf>=5.2.0
-astropy >= 7.2.0
-astroquery >= 0.4.11
-boto3 >= 1.37.3
-s3fs >= 2025.5.1
+roman_datamodels>=1.0,<1.1
+rad>=1.0,<1.1
+asdf>=5.3.0,<6
+astropy>=7.2.0,<9
+astroquery>=0.4.11
+boto3>=1.43.0
+s3fs>=2026.4.0
 
