@@ -21,6 +21,7 @@ on:
           - 'full-pipeline-single'
           - 'build-html-only'
           - 'deprecate-notebook'
+          - 'notebook-accessibility-scan-single'
         default: 'validate-all'
       
       single_notebook:
@@ -103,6 +104,7 @@ jobs:
       enable-execution: false
       enable-storage: false                      # Store outputs to gh-storage on PR
       enable-html-build: false                  # Don't build HTML docs on PR
+      enable-a11y-nb-check: false
       custom-runner-config: true  # Enable ci_config.txt lookup
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
@@ -125,6 +127,7 @@ jobs:
       enable-execution: true
       enable-storage: false                      # Store outputs to gh-storage on PR
       enable-html-build: false                  # Don't build HTML docs on PR
+      enable-a11y-nb-check: false
       custom-runner-config: true  # Enable ci_config.txt lookup
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
@@ -146,6 +149,7 @@ jobs:
       enable-execution: false
       enable-storage: false
       enable-html-build: false
+      enable-a11y-nb-check: false
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -165,6 +169,7 @@ jobs:
       enable-execution: false
       enable-storage: false
       enable-html-build: false
+      enable-a11y-nb-check: false
       custom-runner-config: true  # Enable ci_config.txt lookup
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
@@ -188,6 +193,7 @@ jobs:
       enable-execution: true
       enable-storage: false
       enable-html-build: false
+      enable-a11y-nb-check: false
       custom-runner-config: true  # Enable ci_config.txt lookup
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
@@ -210,6 +216,7 @@ jobs:
       enable-execution: true
       enable-storage: true
       enable-html-build: true
+      enable-a11y-nb-check: true
       custom-runner-config: true  # Enable ci_config.txt lookup
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
@@ -233,6 +240,7 @@ jobs:
       enable-execution: true
       enable-storage: true
       enable-html-build: true
+      enable-a11y-nb-check: true
       custom-runner-config: true  # Enable ci_config.txt lookup
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
@@ -253,6 +261,7 @@ jobs:
       enable-execution: false
       enable-storage: false
       enable-html-build: true
+      enable-a11y-nb-check: false
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -271,6 +280,7 @@ jobs:
       enable-execution: false
       enable-storage: false
       enable-html-build: false
+      enable-a11y-nb-check: false
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
@@ -288,10 +298,28 @@ jobs:
       enable-execution: true
       enable-storage: false  # Skip storage for performance testing
       enable-html-build: false
+      enable-a11y-nb-check: false
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
 
+  notebook-accessibility-scan-single:
+    if: inputs.action_type == 'notebook-accessibility-scan-single'
+    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'a11y-nb-check'
+      single-notebook: ${{ inputs.single_notebook }}
+      python-version: ${{ inputs.python_version }}
+      enable-validation: false
+      enable-security: false
+      enable-execution: false
+      enable-storage: false
+      enable-html-build: false
+      enable-a11y-nb-check: true
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
 
 
 
