@@ -1,9 +1,9 @@
-asdf>=5.2.0
+asdf>=5.3.0,<6
 asdf-astropy>=0.11.0
 astrocut>=1.2.0
-astropy>=7.2.0
-matplotlib>=3.10.0
+astropy>=7.2.0,<9
+matplotlib>=3.9
 numpy>=2.4.4
-s3fs>=2025.5.1
-roman_datamodels>=0.30.0,<0.31
+s3fs>=2026.4.0
+roman_datamodels>=1.0,<1.1
 lz4>=4.4.5

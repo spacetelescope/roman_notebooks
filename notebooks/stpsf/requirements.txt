@@ -1,5 +1,5 @@
-astropy>=7.2.0
+astropy>=7.2.0,<9
 stpsf>=2.1.0
-matplotlib>=3.10.0
+matplotlib>=3.9
 numpy>=2.4.4
 stsynphot>=1.5.1

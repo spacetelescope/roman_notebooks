@@ -1,6 +1,6 @@
-astropy>=7.2.0
-matplotlib>=3.10.0
+astropy>=7.2.0,<9
+matplotlib>=3.9
 requests>=2.32.5
-synphot>=1.5.0
+synphot>=1.7.0
 stsynphot>=1.5.1
 stpsf>=2.1.0
