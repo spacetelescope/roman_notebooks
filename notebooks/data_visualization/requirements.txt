@@ -7,3 +7,5 @@ s3fs>=2026.4.0
 jdaviz>=5.0
 matplotlib>=3.9
 numpy>=2.4.4
+mast-aladin==0.0.3
+mast-table==0.0.2
