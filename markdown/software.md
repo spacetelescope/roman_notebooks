@@ -39,23 +39,25 @@ Creating an environment specification (requirements.txt) file is recommended weh
 
 The [Conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-environments-with-conda-export) on exporting environments for sharing purposes gives a simple example of a requirements txt file. We show bellow an example of a `requirements.txt` file
 
+```
    romancal>=1.0.1
    roman_datamodels>=1.0.0
    rad>=1.0.0
    git+https://github.com/astropy/astroquery.git@refs/pull/3593/head
    fsspec[s3]
    matplotlib
+```
 
 In the example specification above, there are several important things to note:
 - Operators (e.g., >, >=, ==, <, and <=) can be used to specify package versions. Generally, packages should be specified as flexibly as possible to allow the package solver to find a solution and avoid dependency collisions. If you know you must have exactly a specific version of a package, then use the double equals sign (==) operator. If you do not specify an operator, the most recent package version possible, after accounting for dependencies and other requirements, will be used.
-- One package (`astroquery`) is specified using the command. In this example, this will install the version of `astroquery1 from a [GitHub pull request](https://github.com/astropy/astroquery/pull/3593)
-(installing from the pull request is necessary to access Roman data via S3 until this change is merged and released). Morepull request information on installing via `git` is available in the [pip documentation](https://pip.pypa.io/en/stable/topics/vcs-support/)
-- The `fsspec` package is specified using `[s3]`. This defines extra instructions from the package maintainer. Not all packages have extras like this, but some do (e.g., `dask[complete]`). Check the documentation for the package if there are extras you need to specify, but in most casesdask[complete] you will already be aware of these. Use of the `[s3]` option with `fsspec` installs additional tools for working with AWS S3 buckets.
+- One package (`astroquery`) is specified using the command. In this example, this will install the version of `astroquery` from a [GitHub pull request](https://github.com/astropy/astroquery/pull/3593)
+(installing from the pull request is necessary to access Roman data via S3 until this change is merged and released). More pull request information on installing via `git` is available in the [pip documentation](https://pip.pypa.io/en/stable/topics/vcs-support/)
+- The `fsspec` package is specified using `[s3]`. This defines extra instructions from the package maintainer. Not all packages have extras like this, but some do (e.g., `dask[complete]`). Check the documentation for the package if there are extras you need to specify, but in most casesd you will already be aware of these. Use of the `[s3]` option with `fsspec` installs additional tools for working with AWS S3 buckets.
 
 ### 2. Creating a Conda Environment
 
-[!NOTE]
-Installing new environments on the Nexus may take up to 20 minutes to complete. Updating packages within an existing environment is much faster.
+**!NOTE!**
+*Installing new environments on the Nexus may take up to 20 minutes to complete. Updating packages within an existing environment is much faster.*
 
 Use the `kernel-create` command to generate an environment for your software. You can select your desired Python version and choose a name for the environment.
 
