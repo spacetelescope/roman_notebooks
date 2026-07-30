@@ -28,13 +28,13 @@ inside the default environment will not create a persistent installation; it wil
 As part of the Roman Research Nexus (RRN), you can use helper commands to create and manage software environments. Follow the steps below to set up your own environments and install packages.
 
 
-### 0. Listing Environments
+### 1. Listing Environments
 
 To list environments, including those you have installed manually, run:
 
 `kernel-list`
 
-### 1. Making a requirments.txt file
+### 2. Making a requirments.txt file
 Creating an environment specification (requirements.txt) file is recommended wehen setting up a new computing environment on the RRN.
 
 The [Conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-environments-with-conda-export) on exporting environments for sharing purposes gives a simple example of a requirements txt file. We show bellow an example of a `requirements.txt` file
@@ -54,7 +54,7 @@ In the example specification above, there are several important things to note:
 (installing from the pull request is necessary to access Roman data via S3 until this change is merged and released). More pull request information on installing via `git` is available in the [pip documentation](https://pip.pypa.io/en/stable/topics/vcs-support/)
 - The `fsspec` package is specified using `[s3]`. This defines extra instructions from the package maintainer. Not all packages have extras like this, but some do (e.g., `dask[complete]`). Check the documentation for the package if there are extras you need to specify, but in most casesd you will already be aware of these. Use of the `[s3]` option with `fsspec` installs additional tools for working with AWS S3 buckets.
 
-### 2. Creating a Conda Environment
+### 3. Creating a Conda Environment
 
 **!NOTE!**
 *Installing new environments on the Nexus may take up to 20 minutes to complete. Updating packages within an existing environment is much faster.*
@@ -69,11 +69,37 @@ The *environment name* is used in terminal commands, while *lab-display-name* is
 
 `kernel-create wfi-lc 3.12 "WFI Lightcurves"`
 
-Alternatively, `<python-version>` may be replaced with a path to a YAML file. The YAML file will then be used to build the environment. See step 4 to learn how to export a YAML file from an existing environment.
+Alternatively, `<python-version>` may be replaced with a path to a YAML file. The YAML file will then be used to build the environment. In this case the command would be:
+
+`kernel-create wfi-lc ./environment.yml "WFI Lightcurves"`
+
+In the enviroment file you will add python version. Here an example:
+
+```
+   name: wfi-lc   # optional
+   channels:
+       - conda-forge
+   dependencies:
+       - python=3.13
+```
+If using a YAML file we recommend to add `pip`, `ipython`, `ipykernel`, and `uv` to the `dependencies`. This will look as follows:
+
+```
+   name: wfi-lc
+   channels:
+       - conda-forge
+   dependencies:
+       - python=3.13
+       - pip
+       - ipykernel    # needed for a proper Jupyter kernel    
+       - ipython              
+       - uv      
+```
+These packages and their use are described in step 5 bellow. 
 
 Once the environment is created, proceed to the next step.
 
-### 3. Activating an Environment
+### 4. Activating an Environment
 
 To install software, you must first activate the environment. Use the *environment name*, not the display name.
 
@@ -83,19 +109,20 @@ Continuing the example above, activation would be:
 
 With the environment activated, you can install software.
 
-### 4. Install base tools
+### 5. Install base tools
 
-We first stall three tools needed for package managment and supporty interactive Python session. The command:
+If not already installed with the `environment.yml` file, then first install three tools needed for package managment and supporty interactive Python session. The command:
 
 `conda install --yes pip ipython uv`
 
-installs:
+These packages will be used later:
 - pip for package management
 - ipython for interactive Python sessions
-- uv a extremely fast,  `Rust`-based package management tool for use together with `pip`. 
+- uv a extremely fast, `Rust`-based package management tool for use together with `pip`. 
+
 Installation of `uv` is optional and can be skipped. The argument `--yes` answers any prompts with "yes" and removes the need for user interaction with the  installation process.
 
-### 5. Installing Software
+### 6. Installing Software
 
 Once an environment is activated, you can install your packages included in your `requirements.txt` with file with:
 
@@ -111,7 +138,9 @@ if using `uv`, or
 
 `pip install lightkurve`
 
-### 6. Switching to a Different Environment
+See step 8 to learn how to export a YAML file from an existing environment.
+
+### 7. Switching to a Different Environment
 
 Similar to the code block above, you can activate another defined environment using the `kernel source-activate` command and inputting the name of the environment. For example, upon logging into the Nexus, you may be in a different environment such as `roman_cal`. To instead activate the `wfi-lc` environment, use the following command:
 
@@ -119,7 +148,7 @@ Similar to the code block above, you can activate another defined environment us
 
 When using Jupyter notebooks, all kernels you have defined will be available regardless of the command line environment.
 
-### 7. Exporting an Environment
+### 8. Exporting an Environment
 To export an environment for later use (e.g., after modifying the default installation), use the `kernel-export` command:
 
 `kernel-export <environment-name> <output-file-name.yaml>`
@@ -130,7 +159,7 @@ For example:
 
 To create an environment using this YAML file, replace the Python version in step 2 with a path to the YAML file.
 
-### 8. Deleting an Environment
+### 9. Deleting an Environment
 
 To remove an environment you no longer want, use:
 
