@@ -30,7 +30,7 @@ This workflow has preselected tutorial notebooks which are best suited for peopl
 
   Now, let's explore the kinds of science Roman will do. In this notebook, you will learn about the various surveys that the Roman Space Telescope will complete during its mission. Furthermore, you will be able to visualize Roman survey footprints on the sky to determine whether, when, and how Roman may observe an astronomical source. With this final tutorial in the workflow, take the step towards your own science and explore with these sources and tools yourself.
 
-  
+  <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/intro_workflow.jpg" alt="Introductory Nexus Workflow" width="250" />
 
 ## Caveats and Limitations
 - This workflow is primarily for individuals who do not have advanced degrees in astronomy, providing a curated selection of tutorials utilized by professional astronomers, and additionally providing explanations of concepts when possible to make certain ideas more accessible.
