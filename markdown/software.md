@@ -27,7 +27,6 @@ inside the default environment will not create a persistent installation; it wil
 
 As part of the Roman Research Nexus (RRN), you can use helper commands to create and manage software environments. Follow the steps below to set up your own environments and install packages.
 
-
 ### 1. Listing Environments
 
 To list environments, including those you have installed manually, run:
@@ -56,8 +55,10 @@ In the example specification above, there are several important things to note:
 
 ### 3. Creating a Conda Environment
 
-**!NOTE!**
-*Installing new environments on the Nexus may take up to 20 minutes to complete. Updating packages within an existing environment is much faster.*
+<div class="alert alert-warning" style="color:black; background-color:#ADE3FF; border-color:blue;">
+    <b>Note:</b> Installing new environments on the Nexus may take up to 20 minutes to complete. Updating packages within an existing environment is much faster.
+</div><BR>
+
 
 Use the `kernel-create` command to generate an environment for your software. You can select your desired Python version and choose a name for the environment.
 
@@ -118,7 +119,7 @@ If not already installed with the `environment.yml` file, then first install thr
 These packages will be used later:
 - pip for package management
 - ipython for interactive Python sessions
-- uv a extremely fast, `Rust`-based package management tool for use together with `pip`. 
+- uv an extremely fast, Rust-based package management tool for use together with `pip`. 
 
 Installation of `uv` is optional and can be skipped. The argument `--yes` answers any prompts with "yes" and removes the need for user interaction with the  installation process.
 
