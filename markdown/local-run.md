@@ -39,7 +39,7 @@ where `CRDS_PATH` points to your CRDS cache. If you do not have a cache already,
 
  For convenience, we have included the script `notebook_data_dependencies.py` which does this for you.This script is in the notebook folder or in the *repo-root/shared/* folder.
 
- If downloading only the content of a folder, you need to add the following environmen variable before running your notebook.
+ If only downloading the content of a folder, you need to add the following environment variable before running your notebook.
 
  ```
  export ROMAN_REFDATA_MANIFEST https://raw.githubusercontent.com/spacetelescope/roman_notebooks/main/refdata_dependencies.yaml
