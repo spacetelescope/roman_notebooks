@@ -37,7 +37,16 @@ where `CRDS_PATH` points to your CRDS cache. If you do not have a cache already,
 
  Some notebooks use packages like **STPSF**, **Pandeia**, **STIPS**, and **Synphot** requiring data files that are distributed separately and that are expected to follow a certain directory structure under the root directory.
 
- For convenience, we have included the script `notebook_data_dependencies.py` which does this for you. The script is located in the directory *repo-root/shared/*. You can copy this script to your notebook folder or leave it in the *repo-root/shared/* directory.
+ For convenience, we have included the script `notebook_data_dependencies.py` which does this for you.This script is in the notebook folder or in the *repo-root/shared/* folder.
+
+ If downloading only the content of a folder, you need to add the following environmen variable before running your notebook.
+
+ ```
+ export ROMAN_REFDATA_MANIFEST https://raw.githubusercontent.com/spacetelescope/roman_notebooks/main/refdata_dependencies.yaml
+ ```
+
+This will point to the configuration file for the data files.
+
 
 ### How it works:
 
