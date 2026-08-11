@@ -146,4 +146,4 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
   *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
 
 ---
-*Last Updated: December 2025* 
+*Last Updated: July 2026* 
