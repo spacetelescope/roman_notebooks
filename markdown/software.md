@@ -1,7 +1,7 @@
 # Installing Extra Software
 As part of the Research Nexus, STScI provides some pre-installed software. However, you can also install your own software.
 
-**Note:** Any commands shown on this page must be entered into a terminal window. To open a new terminal window, select **File → New Terminal** from the JupyterLab menu bar.
+**Note:** Any commands shown on this page must be entered into a terminal window. To open a new terminal window, select **File → New → Terminal** from the JupyterLab menu bar.
 
 ## What software is pre-installed?
 To view a full list of pre-installed software, run:
@@ -14,16 +14,19 @@ Since this list is lengthy, you can check the version of a specific package usin
 
 For example: 
 
-`conda list astropy`
-`conda list numpy`
+```
+   conda list astropy
+   conda list numpy
+```
 
 If you believe a package should be included by default, you can submit a request to the [Roman Help Desk](https://stsci.service-now.com/roman).
 
 ## How do I install and manage my own software?
-When working in the Nexus, it is essential to create dedicated software environments. Running:
+When working in the Nexus, it is essential to create dedicated software environments. Running 
+
 `pip install <package>` 
 
-inside the default environment will not create a persistent installation; it will instead create a temporary environment that is deleted when you next log in.
+inside the default environment will not create a persistent installation; it will instead create a temporary environment that is deleted when you next log in. Therefore, creating a dedicated environment is the recommended way to install and manage any additional software or packages you need.
 
 As part of the Roman Research Nexus (RRN), you can use helper commands to create and manage software environments. Follow the steps below to set up your own environments and install packages.
 
@@ -33,10 +36,11 @@ To list environments, including those you have installed manually, run:
 
 `kernel-list`
 
-### 2. Making a requirments.txt file
-Creating an environment specification (requirements.txt) file is recommended wehen setting up a new computing environment on the RRN.
+### 2. Creating an Environment Specification File
 
-The [Conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-environments-with-conda-export) on exporting environments for sharing purposes gives a simple example of a requirements txt file. We show bellow an example of a `requirements.txt` file
+When setting up a new computing environment on the RRN, it is strongly recommended to create an environment specification file (`requirements.txt`). Doing so makes your environment reproducible, simplifies software installation, and allows you to easily recreate or share the environment with collaborators.
+
+The [Conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-environments-with-conda-export) provides examples of environment specifications for sharing software environments. Below is an example of a `requirements.txt` file:
 
 ```
    romancal>=1.0.1
@@ -45,13 +49,31 @@ The [Conda documentation](https://docs.conda.io/projects/conda/en/latest/user-gu
    git+https://github.com/astropy/astroquery.git@refs/pull/3593/head
    fsspec[s3]
    matplotlib
+  
 ```
 
-In the example specification above, there are several important things to note:
-- Operators (e.g., >, >=, ==, <, and <=) can be used to specify package versions. Generally, packages should be specified as flexibly as possible to allow the package solver to find a solution and avoid dependency collisions. If you know you must have exactly a specific version of a package, then use the double equals sign (==) operator. If you do not specify an operator, the most recent package version possible, after accounting for dependencies and other requirements, will be used.
-- One package (`astroquery`) is specified using the command. In this example, this will install the version of `astroquery` from a [GitHub pull request](https://github.com/astropy/astroquery/pull/3593)
-(installing from the pull request is necessary to access Roman data via S3 until this change is merged and released). More pull request information on installing via `git` is available in the [pip documentation](https://pip.pypa.io/en/stable/topics/vcs-support/)
-- The `fsspec` package is specified using `[s3]`. This defines extra instructions from the package maintainer. Not all packages have extras like this, but some do (e.g., `dask[complete]`). Check the documentation for the package if there are extras you need to specify, but in most casesd you will already be aware of these. Use of the `[s3]` option with `fsspec` installs additional tools for working with AWS S3 buckets.
+In the example above, there are several important concepts to understand:
+
+1.	Version constraints
+
+    Package versions can be specified using operators such as >, >=, ==, <, and <=. In general, it is best to specify versions as flexibly as possible so that the package solver can find compatible dependencies and avoid version conflicts. If a specific version is required, use the equality operator (==). If no version constraint is provided, the package manager will install the latest compatible version available.
+
+2. Installing directly from a Git repository
+
+    The astroquery package is installed directly from a GitHub source using:
+
+    `git+https://github.com/astropy/astroquery.git@refs/pull/3593/head`
+
+
+    In this example, the package is installed from a GitHub pull request rather than an official release. This approach can be useful when a required feature or bug fix has not yet been incorporated into a published release. More information about installing packages from Git repositories is available in the the [pip documentation on VCS support](https://pip.pypa.io/en/stable/topics/vcs-support/).
+
+3.	Package extras
+
+    The package `fsspec[s3]` uses the optional s3 extra. Extras allow package maintainers to define additional dependencies needed for specific functionality. For example, installing `fsspec[s3]` includes tools required for working with AWS S3 storage. Not all packages provide extras, but when they do, they are typically documented by the package maintainers. Another common example is:
+
+    `dask[complete]`
+  
+    which installs additional dependencies that enable the full set of Dask features.
 
 ### 3. Creating a Conda Environment
 
@@ -70,11 +92,13 @@ The *environment name* is used in terminal commands, while *lab-display-name* is
 
 `kernel-create wfi-lc 3.12 "WFI Lightcurves"`
 
-Alternatively, `<python-version>` may be replaced with a path to a YAML file. The YAML file will then be used to build the environment. In this case the command would be:
+After the environment is created, you can activate it and install any additional packages as described in the following steps. This is the simplest approach when starting with a small number of packages.
+
+Alternatively, if you already know which packages your environment requires, you can define them in a YAML file and create the environment with those packages installed from the start. In this case, `<python-version>` is replaced with the path to a YAML file.
 
 `kernel-create wfi-lc ./environment.yml "WFI Lightcurves"`
 
-In the enviroment file you will add python version. Here an example:
+In the environment file, you specify the Python version and any packages that should be installed when the environment is created. Here is a simple example:
 
 ```
    name: wfi-lc   # optional
@@ -83,7 +107,7 @@ In the enviroment file you will add python version. Here an example:
    dependencies:
        - python=3.13
 ```
-If using a YAML file we recommend to add `pip`, `ipython`, `ipykernel`, and `uv` to the `dependencies`. This will look as follows:
+If using a YAML file, we recommend adding `pip`, `ipython`, `ipykernel`, and `uv` to the `dependencies` list. The resulting file would look as follows:
 
 ```
    name: wfi-lc
@@ -96,7 +120,7 @@ If using a YAML file we recommend to add `pip`, `ipython`, `ipykernel`, and `uv`
        - ipython              
        - uv      
 ```
-These packages and their use are described in step 5 bellow. 
+These packages and their use are described in step 5 below. 
 
 Once the environment is created, proceed to the next step.
 
@@ -112,28 +136,29 @@ With the environment activated, you can install software.
 
 ### 5. Install base tools
 
-If not already installed with the `environment.yml` file, then first install three tools needed for package managment and supporty interactive Python session. The command:
+If these packages were not already installed through the `environment.yml` file, first install the tools needed for package management and interactive Python sessions. The command:
 
 `conda install --yes pip ipython uv`
 
 These packages will be used later:
 - pip for package management
 - ipython for interactive Python sessions
+- ipykernel for running a proper Jupyter
 - uv an extremely fast, Rust-based package management tool for use together with `pip`. 
 
 Installation of `uv` is optional and can be skipped. The argument `--yes` answers any prompts with "yes" and removes the need for user interaction with the  installation process.
 
 ### 6. Installing Software
 
-Once an environment is activated, you can install your packages included in your `requirements.txt` with file with:
+Once an environment is activated, you can install the packages listed in your `requirements.txt` file with:
 
 `uv pip install -r requirements.txt ` 
 
-if using `uv`, or 
+if using `uv`, or
 
 `pip install -r requirements.txt`
  
- if using the usual `pip`. Make sure that the `requirements.txt` file is in the current working directory.
+ if using standard `pip`. Make sure that the `requirements.txt` file is in the current working directory.
  
  You can also install individual packages using simple `pip` as usual. For example:
 
@@ -143,9 +168,10 @@ See step 8 to learn how to export a YAML file from an existing environment.
 
 ### 7. Switching to a Different Environment
 
-Similar to the code block above, you can activate another defined environment using the `kernel source-activate` command and inputting the name of the environment. For example, upon logging into the Nexus, you may be in a different environment such as `roman_cal`. To instead activate the `wfi-lc` environment, use the following command:
+You can switch to another environment using the source `kernel-activate` command and the environment name.
+For example, upon logging into the Nexus, you may be in a different environment such as `roman_cal`. To instead activate the `wfi-lc` environment, use the following command:
 
-`source kernel-activate wfi-lc1`
+`source kernel-activate wfi-lc`
 
 When using Jupyter notebooks, all kernels you have defined will be available regardless of the command line environment.
 
@@ -158,7 +184,7 @@ For example:
 
 `kernel-export wfi-lc wfi-lc-specs.yaml`
 
-To create an environment using this YAML file, replace the Python version in step 2 with a path to the YAML file.
+To create an environment from this YAML file, replace the Python version argument in Step 3 with the path to the YAML file.
 
 ### 9. Deleting an Environment
 
@@ -175,4 +201,4 @@ Example:
 This is supported. Use `kernel-create-venv` in place of `kernel-create` in step 1, and you will get a [**Python Virtual Environment**](https://docs.python.org/3/library/venv.html) instead.
 
 ---
-*Last Updated: Jul 29, 2026*
+*Last Updated: August 11, 2026*

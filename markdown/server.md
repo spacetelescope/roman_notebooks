@@ -20,7 +20,7 @@ To stop your server:
 Stopping is recommended when you are done working or when you need to relaunch your session with a different image or server type.
 
 ## Automatic Shutdown After Idle Time
-To conserve shared compute resources, servers are automatically shut down after **1 hour of inactivity**.
+To conserve shared compute resources, servers are automatically shut down after **3 hours of inactivity**.
 
 A server is considered idle when there is no active user interaction (for example, no notebook execution or terminal activity). When the idle limit is reached, the server is stopped and the session ends.
 
@@ -60,4 +60,4 @@ Use named servers when you need separate workspaces—for example, testing a cle
 For information on Real Time Collaboration Servers, please see the [Working on a Team Page](./teams.md).
 
 ---
-*Last updated: December 2025*
+*Last updated: Agust 2026*

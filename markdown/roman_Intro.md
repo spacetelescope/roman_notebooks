@@ -13,3 +13,6 @@ Welcome to the Nancy Grace Roman Space Telescope!
 - [Roman Documentation (RDox)](https://roman-docs.stsci.edu/)
 - [Roman's Mission](https://science.nasa.gov/mission/roman-space-telescope/)
 - [Roman Space Telescope](https://www.stsci.edu/roman)
+
+---
+*Last updated: July 2026*
