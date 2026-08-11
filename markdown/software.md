@@ -120,7 +120,7 @@ If using a YAML file, we recommend adding `pip`, `ipython`, `ipykernel`, and `uv
        - ipython              
        - uv      
 ```
-These packages and their use are described in step 5 bellow. 
+These packages and their use are described in step 5 below. 
 
 Once the environment is created, proceed to the next step.
 
