@@ -97,3 +97,6 @@ os.environ.pop('STPSF_PATH', None)
 ```
 
 Depending on which (if any) reference data are missing, this cell may take several minutes to execute.
+
+---
+*Last Updated: August 2026*

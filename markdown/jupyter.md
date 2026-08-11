@@ -21,4 +21,4 @@ For more details on the interface, see the official [JupyterLab documentation](h
 - **Save your work** in your home or team directories — all files in these locations persist across sessions.
 
 ---
-*Last updated: December 2025*
+*Last updated: August 2026*
