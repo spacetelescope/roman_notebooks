@@ -37,7 +37,7 @@ Explore a suite of simulated data products based on downscaled versions of the R
 <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-data-sim.jpg" alt="WFI Data Analysis Workflow" width="250" />
 
 ## Caveats and limitations
-Caveats and Limitations
+
 - This workflow focuses primarily on **WFI imaging simulations**.
 - The fidelity of simulated products depends on the calibration reference files available at the time of simulation.
 - Processing steps and outputs may evolve as Roman calibration software and reference data mature.
