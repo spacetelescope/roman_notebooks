@@ -31,17 +31,16 @@ This science workflow guides users through the simulation, processing, manipulat
 
 - [**Core Community Survey**](../../notebooks/ccs_simulations/ccs_simulations.ipynb)
 
-Explore a suite of simulated data products based on downscaled versions of the Roman Core Community Survey (CCS) programs. These simulated products were created to test the SOC data pipelines and provide sufficient scientific fidelity. These simulations do not necessarily include everything that may be observed on-orbit. Specifically, the simulations *do not include time-variable sources.* More details on what is included in the simulations are provided in the descriptions of each simulation set.
- 
+  Explore a suite of simulated data products based on downscaled versions of the Roman Core Community Survey (CCS) programs. These simulated products were created to test the SOC data pipelines and provide sufficient scientific fidelity. These simulations do not necessarily include everything that may be observed on-orbit. Specifically, the simulations *do not include time-variable sources.* More details on what is included in the simulations are provided in the descriptions of each simulation set.
 
 <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-data-sim.jpg" alt="WFI Data Analysis Workflow" width="250" />
 
-## Caveats and limitations
+## Caveats and Limitations
 
 - This workflow focuses primarily on **WFI imaging simulations**.
 - The fidelity of simulated products depends on the calibration reference files available at the time of simulation.
 - Processing steps and outputs may evolve as Roman calibration software and reference data mature.
 
 ---
-*Last Updated: December 2025*
+*Last Updated: August 2026*
  
