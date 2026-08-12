@@ -1,4 +1,4 @@
-# RRN Science Workflows: Time Domain 
+# RRN Science Workflows: Time Domain
 
 This science workflow guides users through simulating and analyzing cosmic objects that vary over time. While the current workflow focuses primarily on supernovae, the methods described can be applied to other transients and variable sources.
 
@@ -6,7 +6,7 @@ This science workflow guides users through simulating and analyzing cosmic objec
 
 * [**Time Domain Simulations**](../../notebooks/time_domain_simulations/time_domain_simulations.ipynb): 
 
-Simulate a time series of Roman WFI images of a variable/transient source (for example a Type Ia supernova) with the Roman Instrument Simulator (I-Sim). Generate a model light curve (via sncosmo), place the transient and its host galaxy into the simulated images, produce calibrated Level-2 products, and visualize the evolving brightness across epochs.
+Simulate a time series of Roman WFI images of a variable/transient source (for example, a Type Ia supernova) with the Roman Instrument Simulator (I-Sim). Generate a model light curve (via sncosmo), place the transient and its host galaxy into the simulated images, produce calibrated Level-2 products, and visualize the evolving brightness across epochs.
 
 
 * [**Time Domain Analysis**](../../notebooks/time_domain_analysis/time_domain_analysis.ipynb): 
