@@ -2,8 +2,8 @@
 
 There are currently several types of WFI imaging and spectroscopic products available for use with the Roman Research Nexus (RRN). These include:
 - **Small Roman I-Sim simulated exposures** of a globular star cluster, which include simulated detector-level calibration features of;
-- **Simulated Core Community Survey (CCS) exposures** of the High-Latitude Wide-Area Survey (HLWAS) and Galactic Bulge Time-Domain Survey (GBTDS) also made with Roman I-Sim;
-- **The Open Universe Roman simulated preview data**, converted to the Advanced Scientific Data Format (ASDF), including single exposures and, when available, truth catalogs for mock Roman Wide Area Survey (WAS) and Time Domain Survey (TDS) data;
+- **Simulated Core Community Survey (CCS) exposures** of the [High-Latitude Wide-Area Survey (HLWAS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-wide-area-survey) and [Galactic Bulge Time-Domain Survey (GBTDS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/galactic-bulge-time-domain-survey) also made with Roman I-Sim;
+- **The Open Universe Roman simulated preview data**, converted to the [Advanced Scientific Data Format (ASDF)](https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products/asdf-format-information), including single exposures and, when available, truth catalogs for mock Roman Wide Area Survey (WAS) and Time Domain Survey (TDS) data;
 - **Bright Star Ground Test Images** from the WFI thermal vacuum (TVAC) campaign;
 - **Simulated grism images** developed for the spectroscopic component of the HLWAS.
 
@@ -37,7 +37,7 @@ The CCS simulation set includes two primary survey programs:
 - **Galactic Bulge Time-Domain Survey (GBTDS)**, designed to represent the scale and cadence of a high-volume time-domain observing program;
 - **High-Latitude Wide-Area Survey (HLWAS)**, designed to represent the tiered survey design, depth, and dither patterns expected for Roman wide-area imaging.
 
-These products are stored in the **Open Data Bucket** and can be accessed directly from AWS S3. Supporting manifest files in ECSV format are provided to simplify searching by sky position, time range, detector, filter, and other metadata fields.
+These products are stored in the **Open Data Bucket** and can be accessed directly from AWS S3. A [notebook tutorial](../notebooks/ccs_simulations/ccs_simulations.ipynb) and supporting manifest files in ECSV format are provided to simplify searching by sky position, time range, detector, filter, and other metadata fields.
 
 ### Galactic Bulge Time-Domain Survey (GBTDS)
 
@@ -84,7 +84,7 @@ All CCS simulation data are available via the STScI AWS Open Data Bucket and can
 - detector and filter filtering,
 - and compound searches combining multiple criteria.
 
-The notebook also demonstrates how to:
+The [CCS Simulations notebook](../notebooks/ccs_simulations/ccs_simulations.ipynb) also demonstrates how to:
 - identify preview images and other auxiliary files in the S3 directories;
 - locate and open input catalogs stored as FITS tables;
 - stream ASDF data products into memory;
@@ -125,7 +125,7 @@ The Bright Star Saturation test was conducted as part of the Wide Field Instrume
 
 The test sequence begins with an initial 4-frame exposure to verify that the commanded flux and position match expectations. This is followed by a series of interleaved exposures: single point-source exposures with 55 read frames alternating with single exposures taken without illumination (but with the F146 filter remaining in place). The sequence concludes with 18 dark exposures of 55 frames each, taken with the dark element in place.
 
-These products have been converted to Level 1 (L1) format and are available in the Open Data Bucket to provide an example of ground test data suitable for detector characterization prior to actual flight observations. The WFI TVAC Test Data Notebook demonstrates how to extract a subset of the data, process it using romancal, and analyze saturation effects and per-frame slope variations in the vicinity of bright sources. Note that these test data will differ from in-flight observations because the telescope simulator and experimental setup do not reproduce the true observatory optics.
+These products have been converted to Level 1 (L1) format and are available in the Open Data Bucket to provide an example of ground test data suitable for detector characterization prior to actual flight observations. [The WFI TVAC Test Data Notebook](../notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb) demonstrates how to extract a subset of the data, process it using romancal, and analyze saturation effects and per-frame slope variations in the vicinity of bright sources. Note that these test data will differ from in-flight observations because the telescope simulator and experimental setup do not reproduce the true observatory optics.
 
 Additional reference material is available on the [Roman WFI TVAC2 Bright Star Saturation Test Data Mini-Release page](https://asd.gsfc.nasa.gov/roman/WFI_Bright_Star/) and in Dana Louie et al. (in prep.).
 
@@ -136,4 +136,4 @@ Simulated grism images from Wang et al. (2022, ApJ, 928, 1), developed as part o
 For the [spectroscopic extraction tutorial](../notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb), one grism file and one direct imaging file generated from these simulations are provided.
 
 ---
-*Last Updated: December 2025*
+*Last Updated: August 2026*
