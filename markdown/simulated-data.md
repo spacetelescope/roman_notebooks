@@ -1,7 +1,7 @@
 # Available Data
 
 There are currently several types of WFI imaging and spectroscopic products available for use with the Roman Research Nexus (RRN). These include:
-- **Small Roman I-Sim simulated exposures** of a globular star cluster, which include simulated detector-level calibration features of;
+- **Small Roman I-Sim simulated exposures** of a globular star cluster, which include simulated detector-level calibration features;
 - **Simulated Core Community Survey (CCS) exposures** of the [High-Latitude Wide-Area Survey (HLWAS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-wide-area-survey) and [Galactic Bulge Time-Domain Survey (GBTDS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/galactic-bulge-time-domain-survey) also made with Roman I-Sim;
 - **The Open Universe Roman simulated preview data**, converted to the [Advanced Scientific Data Format (ASDF)](https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products/asdf-format-information), including single exposures and, when available, truth catalogs for mock Roman Wide Area Survey (WAS) and Time Domain Survey (TDS) data;
 - **Bright Star Ground Test Images** from the WFI thermal vacuum (TVAC) campaign;
