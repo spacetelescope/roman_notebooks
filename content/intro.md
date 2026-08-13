@@ -20,7 +20,9 @@ During Early Access, the Nexus provides simulated Roman datasets and tools that 
 
 <img src="../images/icons/question_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Monitoring Credit Usage ](../markdown/credit_monitor.md)
 
-<img src="../images/icons/download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Installing extra software](../markdown/software.md)
+<img src="../images/icons/download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Installing Extra Software](../markdown/software.md)
+
+<img src="../images/icons/lightbulb.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Tips and Tricks](../markdown/tipstricks.md)
 
 <img src="../images/icons/book.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Roman Space Telescope Documentation Home](https://roman-docs.stsci.edu/)
 
