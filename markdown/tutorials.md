@@ -7,12 +7,10 @@ Although the current content primarily focuses on WFI imaging mode, more materia
 ## How to Use the Notebook Tutorials
 Tutorials are designed to be run interactively. Users may work through them directly or copy them into their personal or team spaces to modify and extend. Tutorials can be used independently or as components within a larger [workflow](./workflows.md).
 
-When you finish a tutorial, close the notebook and return to the Launcher or File Browser. Stopping your server when you are done working helps avoid unnecessary compute usage.
+When you finish a tutorial, close the notebook and return to the Launcher or File Browser. Closing the notebook or browser will not stop your server. Follow the instructions in the Server documentation to find out [how to stop your server](./server.md). Stopping your server when you are done working helps avoid unnecessary compute usage.
 
 ## A Caveat: Read-Only Notebooks and Git Sync
-All tutorials in the shared `notebooks/` directory are read-only. To edit or adapt a tutorial, make a copy in your personal or team directory before making changes.
-
-The tutorials directory is synchronized with the latest reference versions when you log in. To preserve your own edits, store your working copies outside the tutorials directory—for example, in `~/nexus-user-space/` or in a team space.
+All tutorials in the shared `notebooks/` directory are read-only. The tutorials directory is synchronized with the latest reference versions when you log in. To edit or adapt a tutorial and to preserve your own edits, store your working copies outside the tutorials directory. Make a copy in your personal or team directory before making changes. For example, in `~/nexus-user-space/` or in a team space.
 
 ## All Notebooks
 Below is the current set of Notebook Tutorials available in the Nexus. Each tutorial can be run independently and may appear in one or more [Science Workflows](./workflows).
