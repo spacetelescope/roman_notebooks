@@ -61,6 +61,13 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
 
   *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
 
+- [**CCS Simulations**](../notebooks/ccs_simulations/ccs_simulations.ipynb)
+
+  Explore simulated data products from scaled-down versions of the Roman High-Latitude Wide-Area Survey (HLWAS) and Galactic Bulge Time-Domain Survey (GBTDS) Core Community Survey (CCS) programs.
+
+  *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
+
+
 - [**CRDS Reference Files**](../notebooks/crds_reference_files/README.md)
 
     - Understand the structure, content, and usage of Calibration Reference Data System. 
@@ -68,7 +75,13 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
     - Explore each major reference file type in detail.
       
   
-  *Reference Files Workflow*: [**CRDS Reference Files Exploration**](./workflows/crds-reference-files.md)
+  *Science Workflow(s)*: [CRDS Reference Files Exploration](./workflows/crds-reference-files.md)
+
+- [**Time Domain Simulations**](../notebooks/time_domain_simulations/time_domain_simulations.ipynb)
+
+  Create simulations of time series observations of a Type Ia supernova explosion on top of a static scene, and make cutouts of the time-varying source.
+
+  *Science Workflow(s)*: [Time Domain](./workflows/time-domain.md)
   
 - [**WFI TVAC Bright Star Data**](../notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb)
    
@@ -95,6 +108,12 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
   Generate cutouts from a Roman WFI image.
 
   *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
+
+- [**Time Domain Analysis**](../notebooks/time_domain_analysis/time_domain_analysis.ipynb)
+
+  Perform aperture and PSF photometry of a Type Ia supernova in a sequence of time-series observation cutouts, create a light curve, and fit the light curve to estimate properties of the time-variable source.
+
+  *Science Workflow(s)*: [Time Domain](./workflows/time-domain.md)
   
 - [**Grism Spectral Extraction**](../notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb) 
 
@@ -146,4 +165,4 @@ Below is the current set of Notebook Tutorials available in the Nexus. Each tuto
   *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
 
 ---
-*Last Updated: July 2026* 
+*Last Updated: August 2026* 
