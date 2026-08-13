@@ -35,8 +35,8 @@ The Nexus is intended for anyone working with—or preparing to work with—Roma
 ## What You Can Do in the Nexus
 The Nexus brings together the core components needed for Roman science:
 
-- **Configurable compute options**, from small exploratory servers to larger CPU- or memory-optimized setups
-- **Roman software and tools** in an STScI-curated environment
+- [**Configurable compute options**](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus), from small exploratory servers to larger CPU- or memory-optimized setups
+- [**Roman software and tools**](https://spacetelescope.github.io/roman_notebooks/README.html) in an STScI-curated environment
 - [**Notebook tutorials**](../markdown/tutorials.md) introducing specific tools or concepts
 - [**Science workflows**](../markdown/workflows.md) illustrating representative end-to-end use cases
 - [**Simulated datasets**](../markdown/simulated-data.md) for exploring data structures and testing workflows
@@ -63,4 +63,4 @@ Additional background and reference materials are available through:
 If you have questions or suggestions, please contact the [Roman Help Desk](https://stsci.service-now.com/roman). Feedback from Early Access users helps guide future improvements to the Nexus.
 
 ---
-*Last Updated: December 2025*
+*Last Updated: August 2026*
