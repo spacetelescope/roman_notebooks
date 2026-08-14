@@ -1,70 +1,74 @@
-# CRDS Reference Files
+# RRN Science Workflows: WFI Reference File Exploration
 
-This science workflow guides users through understanding the structure, content, and
-usage of Calibration Reference Data System (CRDS) reference files for the Roman Wide
-Field Instrument (WFI).
+This science workflow introduces the Calibration Reference Data System (CRDS) reference files used to calibrate Roman Wide Field Instrument (WFI) data. It guides users through retrieving recommended files, inspecting their common structure with `roman_datamodels`, and exploring the contents of specific reference-file types.
 
-The notebooks in this workflow are designed as standalone tutorials but can
-be followed sequentially for a complete introduction to how reference files are
-retrieved, inspected, and visualized.
+The introductory notebook should be completed first. The remaining notebooks are standalone tutorials that users can select according to the calibration products relevant to their work.
 
 ## Workflow Overview
 
-### General CRDS Introduction
+1. [**CRDS Reference Files**](../../notebooks/crds_reference_files/crds_reference_files.ipynb)
 
-- [crds_reference_files.ipynb](../../notebooks/crds_reference_files/crds_reference_files.ipynb)
+   Learn how CRDS matches and delivers reference files, retrieves recommendations with `crds.getrecommendations()`, and locates files with `crds.getreferences()`. The notebook also introduces CRDS mapping files and demonstrates how to download a reference file by name.
 
-   - Learn what CRDS is, how reference files are matched and delivered, and how to use `crds.getreferences()` and `crds.getrecommendations()`.
+2. **Retrieve, inspect, and explore individual reference-file types**
 
-### Reference File Inspection Fundamentals
+   Choose from the tutorials below according to the calibration products relevant to your work. Each tutorial retrieves its reference file through CRDS, opens it with `roman_datamodels`, uses the `.info()` method to inspect its metadata and data structure, and then explores content specific to that reference-file type. The groups organize the tutorials by the role each file plays in calibration; they are categories for this workflow rather than official CRDS classifications.
 
-- [crds_reference_files.ipynb](../../crds_reference_files/crds_reference_files.ipynb) (first part) + individual reference file notebooks
+### Foundational Reference Files
 
-Understand the common structure of Roman reference files using `roman_datamodels` and the `.info()` method.
+These reference files identify unusable pixels and characterize fundamental detector corrections:
 
-### Individual Reference File Notebooks
+| Reference File | Purpose | Notebook |
+| --- | --- | --- |
+| **MASK** (Bad Pixel Mask) | Identify bad pixels using data-quality flags and bitwise flag operations. | [Bad Pixel Mask](../../notebooks/crds_reference_files/bad_pixels_mask_reffile.ipynb) |
+| **DARK** | Examine pixel-by-pixel and frame-by-frame dark-current values for detector readout modes. | [Dark](../../notebooks/crds_reference_files/dark_reffile.ipynb) |
+| **SATURATION** | Inspect per-pixel saturation thresholds and associated data-quality flags. | [Saturation](../../notebooks/crds_reference_files/saturation_reffile.ipynb) |
+| **FLAT** | Explore pixel-to-pixel sensitivity corrections across the detector. | [Flat](../../notebooks/crds_reference_files/flat_reffile.ipynb) |
 
-Explore each major reference file type in detail:
+### Detector Characterization
 
-| Reference File | Purpose | Key Concepts Covered | Notebook |
-|----------------|---------|----------------------|----------|
-| **MASK** (Bad Pixel Mask) | DQ flags and bad pixel identification | `dq` array, bitwise flags, flagged pixel statistics | [bad_pixels_mask_reffile.ipynb](../../notebooks/crds_reference_files/bad_pixels_mask_reffile.ipynb) |
-| **DARK** | Dark current correction | Pixel-by-pixel and frame-by-frame dark current values per detector readout mode | [dark_reffile.ipynb](../../notebooks/crds_reference_files/dark_reffile.ipynb) |
-| **SATURATION** | Saturation thresholds | Per-pixel thresholds, flag handling | [saturation_reffile.ipynb](../../notebooks/crds_reference_files/saturation_reffile.ipynb) |
-| **REFPIX** | Reference pixel correction | Frequency-dependent coefficients (`alpha`, `gamma`, `zeta`) | [reference_pixel_reffile.ipynb](../../notebooks/crds_reference_files/reference_pixel_reffile.ipynb) |
-| **DISTORTION** | Astrometric distortion model | Astropy `CompoundModel`, grid evaluation, vector fields | [distortion_reffile.ipynb](../../notebooks/crds_reference_files/distortion_reffile.ipynb) |
-| **PHOTOM** | Photometric calibration | conversion factors for putting pixel values into physical units | [photom_reffile.ipynb](../../notebooks/crds_reference_files/photom_reffile.ipynb) |
-| **GAIN** | DN to electrons conversion | Per-pixel gain maps, amplifier structure | [gain_reffile.ipynb](../../notebooks/crds_reference_files/gain_reffile.ipynb) |
-| **READNOISE** | Read noise characterization | Per-pixel read noise maps | [readnoise_reffile.ipynb](../../notebooks/crds_reference_files/readnoise_reffile.ipynb) |
-| **AREA** | Pixel solid angle | Pixel area maps in steradians | [area_reffile.ipyn](../../notebooks/crds_reference_files/area_reffile.ipynb) |
-| **PSF / ePSF** | Empirical point spread function | Multi-dimensional ePSF stamps, extended PSF | [psf_reffile.ipynb](../../notebooks/crds_reference_files/psf_reffile.ipynb) |
-| **LINEARITY** family | Non-linearity correction | `LINEARITY`, `INVERSELINEARITY`, `INTEGRALNONLINEARITY` (per-amplifier lookup tables) | [linearity_reffile.ipynb](../../notebooks/crds_reference_files/linearity_reffile.ipynb) |
+These products characterize detector response, noise, pixel area, and geometric distortion:
 
+| Reference File | Purpose | Notebook |
+| --- | --- | --- |
+| **GAIN** | Inspect per-pixel gain maps used to convert data numbers (DN) to electrons. | [Gain](../../notebooks/crds_reference_files/gain_reffile.ipynb) |
+| **READNOISE** | Examine per-pixel read-noise estimates. | [Read Noise](../../notebooks/crds_reference_files/readnoise_reffile.ipynb) |
+| **AREA** | Explore pixel-area maps that describe pixel solid angles. | [Pixel Area](../../notebooks/crds_reference_files/area_reffile.ipynb) |
+| **DISTORTION** | Evaluate the astrometric distortion model and its coordinate transformations. | [Distortion](../../notebooks/crds_reference_files/distortion_reffile.ipynb) |
 
-## Suggested Learning Path
+### Linearity Reference Files
 
-1. Start with the general **CRDS Reference Files** notebook.
-3. Go through the individual reference file notebooks in roughly this order:
-   - MASK -> DARK -> SATURATION -> FLAT (foundational)
-   - GAIN -> READNOISE -> AREA -> DISTORTION (detector characterization)
-   - LINEARITY family (important for flux accuracy)
-   - PHOTO (photometric calibration)
-   - REFPIX, PSF/ePSF (more specialized)
-4. Return to the general CRDS notebook as needed for context.
+| Reference File | Purpose | Notebook |
+| --- | --- | --- |
+| **LINEARITY family** | Explore `LINEARITY`, `INVERSELINEARITY`, and `INTEGRALNONLINEARITY` products used to characterize and correct nonlinear detector response. | [Linearity](../../notebooks/crds_reference_files/linearity_reffile.ipynb) |
 
+### Photometric Calibration
 
-<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/crds_workflow.jpg" alt="CRDS Workflow" width="250" />
+| Reference File | Purpose | Notebook |
+| --- | --- | --- |
+| **PHOTOM** | Inspect conversion factors used to place measured count rates into calibrated physical units. | [Photometric Calibration](../../notebooks/crds_reference_files/photom_reffile.ipynb) |
 
+### Reference Pixel and PSF Reference Files
 
-## How to Use This Workflow
+Explore reference-pixel correction coefficients, point-spread-function (PSF) models, and empirical point-spread-function (ePSF) data:
 
-- Work through the notebooks sequentially for a comprehensive understanding.
-- Use individual notebooks independently when you need to inspect a specific reference file.
-- All notebooks follow a consistent structure
+| Reference File | Purpose | Notebook |
+| --- | --- | --- |
+| **REFPIX** | Examine frequency-dependent coefficients used for reference-pixel correction. | [Reference Pixel](../../notebooks/crds_reference_files/reference_pixel_reffile.ipynb) |
+| **PSF/ePSF** | Explore extended PSF models and multidimensional ePSF stamps. | [PSF/ePSF](../../notebooks/crds_reference_files/psf_reffile.ipynb) |
 
-## Related Workflows
+## Related Resources
 
-- **WFI Data Simulation** — Uses many of these reference files via Roman-I-Sim and CRDS.
-- **WFI Data Analysis** — Uses calibrated data products that depend on these reference files.
-- **Exposure Pipeline** tutorial — Shows where these reference files are actually applied in `romancal`.
+- [**CRDS for Roman Reference Files**](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) provides additional background on obtaining and using Roman calibration reference files.
+- [**WFI Data Simulation**](./wfi-data-sim.md) uses CRDS reference files to model instrumental effects in Roman I-sim products.
+- [**WFI Data Analysis**](./wfi-data-analysis.md) works with calibrated products whose accuracy depends on the applicable reference files.
+- [**Exposure Pipeline**](../../notebooks/exposure_pipeline/exposure_pipeline.ipynb) demonstrates where RomanCal applies reference files while processing Level 1 data into Level 2 products.
 
+## Caveats and Limitations
+
+- Reference files and CRDS recommendations may change as WFI characterization and calibration mature.
+- The notebooks demonstrate the reference files available for the Early Access environment and may not represent the complete set of products used during Roman science operations.
+- Reference-file recommendations depend on the CRDS context and dataset metadata used for a query.
+
+---
+*Last Updated: August 2026*
