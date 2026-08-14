@@ -1,50 +1,50 @@
 # Available Data
 
 There are currently several types of WFI imaging and spectroscopic products available for use with the Roman Research Nexus (RRN). These include:
-- **Small Roman I-Sim simulated exposures** of a globular star cluster, which include simulated detector-level calibration features;
-- **Simulated Core Community Survey (CCS) exposures** of the [High-Latitude Wide-Area Survey (HLWAS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-wide-area-survey) and [Galactic Bulge Time-Domain Survey (GBTDS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/galactic-bulge-time-domain-survey) also made with Roman I-Sim;
-- **The [Open Universe](https://ui.adsabs.harvard.edu/abs/2024ipac.data.I569O/abstract) Roman simulated preview data**, converted to the [Advanced Scientific Data Format (ASDF)](https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products/asdf-format-information), including single exposures and, when available, truth catalogs for mock Roman Wide Area Survey (WAS) and Time Domain Survey (TDS) data;
+- **Small Roman I-sim simulated exposures** of a globular star cluster, which include simulated detector-level calibration features;
+- **Simulated Core Community Survey (CCS) exposures** of the [High-Latitude Wide-Area Survey (HLWAS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-wide-area-survey) and [Galactic Bulge Time-Domain Survey (GBTDS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/galactic-bulge-time-domain-survey) also made with Roman I-sim;
+- **The** [**OpenUniverse**](https://ui.adsabs.harvard.edu/abs/2024ipac.data.I569O/abstract) **Roman simulated preview data**, converted to the [Advanced Scientific Data Format (ASDF)](https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products/asdf-format-information), including single exposures and, when available, truth catalogs for mock Roman High-Latitude Wide-Area Survey (HLWAS) and High-Latitude Time-Domain Survey (HLTDS) data;
 - **Bright Star Ground Test Images** from the WFI thermal vacuum (TVAC) campaign;
 - **Simulated grism images** developed for the spectroscopic component of the HLWAS.
 
 An overview of these data products can be found below. All files are stored in the **Open Data Bucket**. See the [Cloud Data Access Notebook](../notebooks/data_discovery_and_access/data_discovery_and_access.ipynb) for details on accessing these products.
 
-## <a name="romanisim"></a>Roman I-Sim Simulated Images
+## Roman I-sim Simulated Images
 
-[Roman I-Sim](https://github.com/spacetelescope/romanisim) generates Roman WFI imaging products by combining an input source catalog with simulated instrument and detector effects.
+[Roman I-sim](https://github.com/spacetelescope/romanisim) generates Roman WFI imaging products by combining an input source catalog with simulated instrument and detector effects.
 
-The Roman I-Sim products have metadata and an organizational structure identical to what is expected for actual Roman data taken during operations. The products are stored in ASDF files and adhere to the released version of the [WFI science data product schema](https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/data-levels-and-products) installed on the RRN. In the example [Science Workflows](workflows.md) and [Tutorials](tutorials.md), the input catalogs are provided as Enhanced Character-Separated Value (ECSV) files and combine stars from the Gaia source catalog with galaxies generated using the parametric source generation offered within the tool. The brightnesses of the Gaia stars are set to the Gaia r-band magnitude in all Roman filters (i.e., a flat spectral energy distribution), and the parametric source generation process does not use SED information to produce sources with realistic colors.
+The Roman I-sim products have metadata and an organizational structure identical to what is expected for actual Roman data taken during operations. The products are stored in ASDF files and adhere to the released version of the [WFI science data product schema](https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/data-levels-and-products) installed on the RRN. In the example [Science Workflows](workflows.md) and [Tutorials](tutorials.md), the input catalogs are provided as Enhanced Character-Separated Value (ECSV) files and combine stars from the Gaia source catalog with galaxies generated using the parametric source generation offered within the tool. The brightnesses of the Gaia stars are set to the Gaia r-band magnitude in all Roman filters (i.e., a flat spectral energy distribution), and the parametric source generation process does not use SED information to produce sources with realistic colors.
 
-Roman I-Sim products are created using reference files from the [Calibration Reference Data System](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (CRDS). Therefore, the accuracy of the instrumental effects in the simulations is only as good as the reference files used to create them. The current suite contains preliminary versions of reference files based on ground testing, and it is expected to improve as characterization of the ground test data continues. Questions regarding calibration reference files should be sent to the [Roman Helpdesk at STScI](https://stsci.service-now.com/roman).
+Roman I-sim products are created using reference files from the [Calibration Reference Data System](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) (CRDS). Therefore, the accuracy of the instrumental effects in the simulations is only as good as the reference files used to create them. The current suite contains preliminary versions of reference files based on ground testing, and it is expected to improve as characterization of the ground test data continues. Questions regarding calibration reference files should be sent to the [Roman Helpdesk at STScI](https://stsci.service-now.com/roman).
 
-The Roman I-Sim simulated products include four full-focal-plane exposures (18 detectors each) in a four-point box dither pattern near the globular cluster NGC 6535, centered at (RA, Dec) = (270.94, –0.2) deg, using the F106 optical element. The offset in the dither pattern is approximately half a detector in both X and Y directions to ensure complete filling of the gaps between detectors. The table below shows the dither pattern used for the simulation, where each offset represents the offset from the previous position. So, the zeroth position starts with offsets of 0.00 in both X and Y, and the first position is relative to the zeroth one, the second position is relative to the first, etc. Here is the pattern:
+The Roman I-sim simulated products include four full-focal-plane exposures (18 detectors each) in a four-point box dither pattern near the globular cluster NGC 6535, centered at (RA, Dec) = (270.94, –0.2) deg, using the F106 optical element. The offset in the dither pattern is approximately half a detector in both X and Y directions to ensure complete filling of the gaps between detectors. The table below shows the dither pattern used for the simulation, where each offset represents the offset from the previous position. So, the zeroth position starts with offsets of 0.00 in both X and Y, and the first position is relative to the zeroth one, the second position is relative to the first, etc. Here is the pattern:
 
 
 | Dither Step | Offset X (arcsec) | Offset Y (arcsec) |
-| --- |   ---  |   ---   |
-| 0   | 0.00   | 0.00    |
-| 1   | 0.55   | 200.55  |
-| 2   | 200.55 | 0.55    |
-| 3   | 0.55   | -200.55 |
+| --- | --- | --- |
+| 0 | 0.00 | 0.00 |
+| 1 | 0.55 | 200.55 |
+| 2 | 200.55 | 0.55 |
+| 3 | 0.55 | -200.55 |
 
 From these four full-focal-plane exposures, a mosaic for detector 11 (WFI11) is also generated using each of the dither positions that cover the full extent of NGC 6535.
 
-## <a name="ccs-simulations"></a>Roman I-Sim CCS Simulations
+## Roman I-sim CCS Simulations
 
-The Roman I-Sim CCS simulations provide a suite of downscaled Roman WFI imaging data products designed to support workflow development, pipeline validation, and user exploration in the RRN. These simulated products were generated by creating uncalibrated L1 ramps with [Roman I-Sim](https://romanisim.readthedocs.io/en/latest/) and then processing those products through the Roman science calibration pipeline ([RomanCal](https://roman-pipeline.readthedocs.io/en/stable/)) to produce calibrated L2 images. In selected cases, later-stage products such as mosaics and catalog/segmentation outputs are also available.
+The Roman I-sim CCS simulations provide a suite of downscaled Roman WFI imaging data products designed to support workflow development, pipeline validation, and user exploration in the RRN. These simulated products were generated by creating uncalibrated L1 ramps with [Roman I-sim](https://romanisim.readthedocs.io/en/latest/) and then processing those products through the Roman science calibration pipeline ([RomanCal](https://roman-pipeline.readthedocs.io/en/stable/)) to produce calibrated L2 images. In selected cases, later-stage products such as mosaics and catalog/segmentation outputs are also available. See [WFI Data Levels and Products](https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products) for definitions of the product levels.
 
 The CCS simulation set includes two primary survey programs:
 - **Galactic Bulge Time-Domain Survey (GBTDS)**, designed to represent the scale and cadence of a high-volume time-domain observing program;
 - **High-Latitude Wide-Area Survey (HLWAS)**, designed to represent the tiered survey design, depth, and dither patterns expected for Roman wide-area imaging.
 
-These products are stored in the **Open Data Bucket** and can be accessed directly from AWS S3. A [notebook tutorial](../notebooks/ccs_simulations/ccs_simulations.ipynb) and supporting manifest files in ECSV format are provided to simplify searching by sky position, time range, detector, filter, and other metadata fields.
+The [CCS Simulations tutorial](../notebooks/ccs_simulations/ccs_simulations.ipynb) provides detailed information about these simulations.
 
 ### Galactic Bulge Time-Domain Survey (GBTDS)
 
 The GBTDS simulation was designed primarily to test Science Operations Center (SOC) data-processing performance at the scale expected for Galactic Bulge survey operations. The simulation includes a cadence with:
 - frequent **F146** observations,
 - less frequent **F087** and **F213** observations,
-- and snapshot observations in **F062, F106, F219, F158, and F184**.
+- and snapshot observations in **F062, F106, F129, F158, and F184**.
 
 The simulation footprint uses the GBTDS fall-season mosaic pattern with multiple fields and realistic stellar populations generated using [Synthpop](https://synthpop.readthedocs.io/en/latest/). The input catalog was partitioned into HEALPixels to support efficient simulation and data organization.
 
@@ -54,7 +54,7 @@ The GBTDS products include:
 - preview and thumbnail images of L2 products (`*_preview.png` and `*_thumb.png`)
 - updated WCS products aligned to Gaia (`*_wcs.asdf`)
 
-A caveat for these products is that an issue with the WCS was discovered after the L2 files were created, so users will need to apply a correction when working with the GBTDS WCS information. The correction is provided with the CCS simulations notebook tutorial.
+The Gaia alignment was unreliable for these simulated GBTDS data, so their L2 WCS may be offset. This simulation-specific issue is not expected in real observations. Apply the [correction in the CCS Simulations notebook](../notebooks/ccs_simulations/ccs_simulations.ipynb#correcting_gbtds) before position-dependent analysis.
 
 ### High-Latitude Wide-Area Survey (HLWAS)
 
@@ -65,7 +65,7 @@ The HLWAS simulation is intended to represent the tiered survey design, dither p
 The HLWAS simulation includes imaging data only and does not include grism observations. Its input catalog combines:
 - **OpenUniverse galaxies**
 - **OpenUniverse Milky Way faint stars**
-- **[Gaia DR2](https://ui.adsabs.harvard.edu/abs/2018A%26A...616A...1G/abstract) stars**
+- [**Gaia DR2**](https://ui.adsabs.harvard.edu/abs/2018A%26A...616A...1G/abstract) **stars**
 
 The HLWAS products include:
 - uncalibrated **L1** ramp cubes (`*_uncal.asdf`)
@@ -78,49 +78,48 @@ The HLWAS products include:
 
 ### Data Access and Search
 
-All CCS simulation data are available via the STScI AWS Open Data Bucket and can be streamed directly into memory without copying files to local storage. Manifest files are provided for the GBTDS and HLWAS datasets to support common searches, including:
+All CCS simulation data are available via the STScI AWS Open Data Bucket and can be streamed directly into memory without copying files to local storage. Use the [GBTDS manifest](../notebooks/ccs_simulations/gbtds_manifest.ecsv), [HLWAS exposure manifest](../notebooks/ccs_simulations/hlwas_manifest.ecsv), or [HLWAS coadd manifest](../notebooks/ccs_simulations/hlwas_coadd_manifest.ecsv) to locate data products. These manifests support common searches, including:
 - cone searches by sky position,
 - time-range selection,
 - detector and filter filtering,
 - and compound searches combining multiple criteria.
 
-The [CCS Simulations notebook](../notebooks/ccs_simulations/ccs_simulations.ipynb) also demonstrates how to:
-- identify preview images and other auxiliary files in the S3 directories;
-- locate and open input catalogs stored as FITS tables;
-- stream ASDF data products into memory;
-- read parquet source catalogs with `pandas` or `pyarrow`;
-- and visualize image data alongside associated catalog information.
+The [CCS Simulations tutorial](../notebooks/ccs_simulations/ccs_simulations.ipynb) demonstrates how to search these manifests and stream selected files. It also shows how to:
+- identify preview images and auxiliary files;
+- locate and open FITS input catalogs;
+- read Parquet source catalogs with `pandas` or `pyarrow`; and
+- visualize images with associated catalog information.
 
 ### Caveats and Limitations
 
 These simulations are intended for workflow development and demonstration purposes. Their fidelity depends on the calibration reference files and software versions available at the time they were generated. In addition:
 - time-variable sources are not included;
-- the GBTDS products include a known WCS issue that may require correction;
 - the HLWAS simulation is limited to imaging mode;
 - and the available catalog and segmentation products reflect the simulation configuration used when the datasets were produced.
 
-## <a name="openuniverse"></a>Open Universe Roman simulation
+## OpenUniverse Roman Simulation
 
-The Open Universe 2024 project aims to simulate overlapping images from surveys mimicking those that will be carried out by the Nancy Grace Roman Space Telescope and the Vera C. Rubin Observatory. These [data are publicly available](https://irsa.ipac.caltech.edu/data/theory/openuniverse2024/overview.html) as FITS images and Parquet catalogs. As a demonstration of ASDF and the Nexus, Roman-specific images from this project are available on the RRN.
+The OpenUniverse 2024 project aims to simulate overlapping images from surveys mimicking those that will be carried out by the Nancy Grace Roman Space Telescope and the Vera C. Rubin Observatory. These [data are publicly available](https://irsa.ipac.caltech.edu/data/theory/openuniverse2024/overview.html) as FITS images and Parquet catalogs. As a demonstration of ASDF and the Nexus, Roman-specific images from this project are available on the RRN.
 
 Two main datasets are currently converted:
-- Roman High Latitude Wide Area Survey single exposures in six photometric bands (F184, F158, F129, F213, F146, F106)
-- Roman High Latitude Time Domain Survey in seven photometric bands (F184, F158, F129, F213, F062, F106, and F087)
+- Roman High-Latitude Wide-Area Survey (HLWAS) single exposures in six photometric bands (F184, F158, F129, F213, F146, F106)
+- Roman High-Latitude Time-Domain Survey (HLTDS) single exposures in seven photometric bands (F184, F158, F129, F213, F062, F106, and F087)
 
-The data in the RRN consists of Roman images overlapping the LSST ELAIS-S1 Deep Drilling Field (DDF), simulating the [High Latitude Time Domain Survey](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-time-domain-survey), the [High Latitude Wide Area Survey](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-wide-area-survey), as well as a calibration deep field for the High Latitude Wide Area Survey.
+The data in the RRN consist of Roman images overlapping the LSST ELAIS-S1 Deep Drilling Field (DDF), simulating the [High-Latitude Time-Domain Survey (HLTDS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-time-domain-survey), the [High-Latitude Wide-Area Survey (HLWAS)](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-wide-area-survey), and an HLWAS calibration deep field.
 
-All data have been converted to ASDF format, which include, when available, the truth catalog with simulated sources overlapping the exposures. For simplicity, the ASDF files containing the simulated data follow a custom schema. 
+All data have been converted to ASDF format and include, when available, truth catalogs of simulated sources overlapping the exposures. For simplicity, the ASDF files containing the simulated data follow a custom schema.
 
-The data is contained in the `roman` block, which includes the following sub-blocks:
+The dataset is contained in the `roman` block, which includes the following sub-blocks:
 
 | Data block name | Description |
-| ----------------- |--------------|
-| DATA | 4096 × 4096 pixel images containing the accumulated total counts after the exposure|
-| DQ | 4096 × 4096 pixel images with the data quality flags|
-| META | Metadata block|
+| --- | --- |
+| DATA | 4096 × 4096 pixel images containing the accumulated total counts after the exposure |
+| DQ | 4096 × 4096 pixel images with the data quality flags |
+| META | Metadata block |
 | CATALOGS | Block containing the truth catalogs of the sources whose positions lie in the image of interest |
 
 ## Bright Star Ground Test Images
+
 The Bright Star Saturation test was conducted as part of the Wide Field Instrument (WFI) [thermal vacuum (TVAC) campaign](https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument/wfi-characterization-activities/wfi-ground-testing-campaigns#WFIGroundTestingCampaigns-WideFieldInstrument(WFI)TVACTestingWFI_Testing) to evaluate how the flight detectors behave when exposed to saturating light conditions. Nine in-focus point sources, with magnitudes spanning approximately 4 to 18 mag, were projected using a telescope simulator through the F146 filter onto grid positions across detectors 4 (WFI04) and 11 (WFI11).
 
 The test sequence begins with an initial 4-frame exposure to verify that the commanded flux and position match expectations. This is followed by a series of interleaved exposures: single point-source exposures with 55 read frames alternating with single exposures taken without illumination (but with the F146 filter remaining in place). The sequence concludes with 18 dark exposures of 55 frames each, taken with the dark element in place.
