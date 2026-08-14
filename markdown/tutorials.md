@@ -1,166 +1,61 @@
 # Notebook Tutorials
 
-Notebook Tutorials are short, self-contained examples presented as Jupyter notebooks that demonstrate a specific analysis task or tool in the Nexus environment. Each tutorial focuses on one component—such as data access, visualization, or simulation utilities—and can be run on its own or as part of a [Science Workflow](./workflows.md).
+Notebook Tutorials are short, self-contained Jupyter notebooks that demonstrate specific analysis tasks and tools in the Nexus environment. You can run each tutorial independently or use it as part of a guided [Science Workflow](./workflows.md). The current collection focuses primarily on WFI imaging, with additional spectroscopy material planned for future releases.
 
-Although the current content primarily focuses on WFI imaging mode, more material on spectroscopic products will be available in future releases.
+## Using the Notebook Tutorials
 
-## How to Use the Notebook Tutorials
-Tutorials are designed to be run interactively. Users may work through them directly or copy them into their personal or team spaces to modify and extend. Tutorials can be used independently or as components within a larger [workflow](./workflows.md).
+Open a tutorial in JupyterLab and work through its cells interactively. For help with the interface, see [Working in JupyterLab](./jupyter.md).
 
-When you finish a tutorial, close the notebook and return to the Launcher or File Browser. Closing the notebook or browser will not stop your server. Follow the instructions in the Server documentation to find out [how to stop your server](./server.md). Stopping your server when you are done working helps avoid unnecessary compute usage.
+Tutorials in the shared `notebooks/` directory are read-only and synchronized with the latest reference versions when you log in. To modify a tutorial and preserve your changes, copy it before editing to your persistent personal home directory (`/home/{your-username}/`) or a directory for a team you belong to (`/teams/{team-name}/`).
 
-## A Caveat: Read-Only Notebooks and Git Sync
-All tutorials in the shared `notebooks/` directory are read-only. The tutorials directory is synchronized with the latest reference versions when you log in. To edit or adapt a tutorial and to preserve your own edits, store your working copies outside the tutorials directory. Make a copy in your personal or team directory before making changes. For example, in `~/nexus-user-space/` or in a team space.
+When you finish working, close the notebook and return to the Launcher or File Browser. Closing a notebook or browser does not stop your server. To avoid unnecessary compute usage, follow the instructions for [stopping your server](./server.md).
 
-## All Notebooks
-Below is the current set of Notebook Tutorials available in the Nexus. Each tutorial can be run independently and may appear in one or more [Science Workflows](./workflows).
+## All Notebook Tutorials
 
 ### Data Access and Exploration
 
-- [**Catalog Database Access**](../notebooks/catalog_database_access/catalog_database_access.ipynb)  
-
-  Access and query a wide diversity of Roman catalogs from MAST databases.
-
-- [**Data Discovery and Access**](../notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
-
-  Retrieve data from MAST or access simulated Roman data in the cloud archive ("S3 bucket").
-
-  *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
-  
-- [**Working with ASDF**](../notebooks/working_with_asdf/working_with_asdf.ipynb)
-
-  Open ASDF files with roman_datamodels, access metadata, manipulate arrays, and save changes to disk.
-
-  *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md), [WFI Data Analysis](./workflows/wfi-data-analysys.md)
-
-- [**Data Visualization**](../notebooks/data_visualization/data_visualization.ipynb) 
-
-  Visualize and explore Roman WFI images.
-
-  *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md), [WFI Data Analysis](./workflows/wfi-data-analysys.md)
+| Tutorial | Purpose | Science workflow(s) |
+| --- | --- | --- |
+| [**Catalog Database Access**](../notebooks/catalog_database_access/catalog_database_access.ipynb) | Access and query Roman catalogs from MAST databases. | [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
+| [**Data Discovery and Access**](../notebooks/data_discovery_and_access/data_discovery_and_access.ipynb) | Retrieve data from MAST or access simulated Roman data in cloud storage. | [Roman Data Essentials](./workflows/Intro_Workflow.md), [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
+| [**Working with ASDF**](../notebooks/working_with_asdf/working_with_asdf.ipynb) | Open Roman ASDF files with `roman_datamodels`, inspect metadata and arrays, and save changes. | [Roman Data Essentials](./workflows/Intro_Workflow.md), [WFI Data Simulation](./workflows/wfi-data-sim.md), [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
+| [**Data Visualization with Matplotlib**](../notebooks/data_visualization/data_visualization.ipynb) | Visualize and explore Roman WFI images with Matplotlib. | [Roman Data Essentials](./workflows/Intro_Workflow.md), [WFI Data Simulation](./workflows/wfi-data-sim.md), [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
+| [**Data Visualization with Jdaviz**](../notebooks/data_visualization/jdaviz_data_visualization.ipynb) | Interactively examine, navigate, and compare Roman WFI images with Jdaviz. | [Roman Data Essentials](./workflows/Intro_Workflow.md), [WFI Data Simulation](./workflows/wfi-data-sim.md), [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
 
 ### WFI Data Simulation and Calibration Pipelines
 
-- [**Roman I-sim**](../notebooks/romanisim/romanisim.ipynb)
-  
-  Generate Level 1 and Level 2 WFI imaging products.
-
-  *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
-
-- [**Exposure Pipeline**](../notebooks/exposure_pipeline/exposure_pipeline.ipynb)     
-
-  Process Level 1 data with the Roman WFI science calibration pipeline, RomanCal, to produce Level 2 exposure-level data.
-
-  *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
-  
-- [**Mosaic Pipeline**](../notebooks/mosaic_pipeline/mosaic_pipeline.ipynb) 
-
-  Combine multiple Level 2 data products into a Level 3 distortion-corrected and co-added image using the Roman WFI science calibration pipeline, RomanCal.
-
-  *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
-
-- [**CCS Simulations**](../notebooks/ccs_simulations/ccs_simulations.ipynb)
-
-  Explore simulated data products from scaled-down versions of the Roman High-Latitude Wide-Area Survey (HLWAS) and Galactic Bulge Time-Domain Survey (GBTDS) Core Community Survey (CCS) programs.
-
-  *Science Workflow(s)*: [WFI Data Simulation](./workflows/wfi-data-sim.md)
-
-
-- [**CRDS Reference Files**](../notebooks/crds_reference_files/README.md)
-
-    - Understand the structure, content, and usage of Calibration Reference Data System. 
-    - Learn How to get reference files from CRDS
-    - Explore each major reference file type in detail.
-      
-  
-  *Science Workflow(s)*: [CRDS Reference Files Exploration](./workflows/crds-reference-files.md)
-
-- [**Time Domain Simulations**](../notebooks/time_domain_simulations/time_domain_simulations.ipynb)
-
-  Create simulations of time series observations of a Type Ia supernova explosion on top of a static scene, and make cutouts of the time-varying source.
-
-  *Science Workflow(s)*: [Time Domain](./workflows/time-domain.md)
-  
-- [**WFI TVAC Bright Star Data**](../notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb)
-   
-  Process and explore WFI Bright Star Saturation Test data from the TVAC campaign using RomanCal, and visualize the resulting calibrated products.
-
-  *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
+| Tutorial | Purpose | Science workflow(s) |
+| --- | --- | --- |
+| [**Roman I-sim**](../notebooks/romanisim/romanisim.ipynb) | Generate Level 1 and Level 2 WFI imaging products. | [WFI Data Simulation](./workflows/wfi-data-sim.md) |
+| [**Exposure Pipeline**](../notebooks/exposure_pipeline/exposure_pipeline.ipynb) | Process Level 1 data with the RomanCal calibration pipeline to produce Level 2 exposure-level data. | [WFI Data Simulation](./workflows/wfi-data-sim.md) |
+| [**Mosaic Pipeline**](../notebooks/mosaic_pipeline/mosaic_pipeline.ipynb) | Combine Level 2 products into a Level 3 distortion-corrected, co-added image with RomanCal. | [WFI Data Simulation](./workflows/wfi-data-sim.md) |
+| [**CCS Simulations**](../notebooks/ccs_simulations/ccs_simulations.ipynb) | Explore scaled-down simulations of the High-Latitude Wide-Area Survey and Galactic Bulge Time-Domain Survey Core Community Survey programs. | [WFI Data Simulation](./workflows/wfi-data-sim.md) |
+| [**CRDS Reference Files**](../notebooks/crds_reference_files/README.md) | Learn how the Calibration Reference Data System (CRDS) organizes and supplies reference files, and explore the major reference file types. | [CRDS Reference File Exploration](./workflows/crds-reference-files.md) |
+| [**Time Domain Simulations**](../notebooks/time_domain_simulations/time_domain_simulations.ipynb) | Simulate time-series observations of a Type Ia supernova on a static scene and create cutouts of the variable source. | [Time Domain](./workflows/time-domain.md) |
+| [**WFI TVAC Bright Star Data**](../notebooks/ground_test_analysis/wfi_tvac_brightstar.ipynb) | Process and explore WFI Bright Star Saturation Test data from the thermal vacuum campaign with RomanCal. | [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
 
 ### Measurements and Analysis Tools
 
-- [**Aperture Photometry**](../notebooks/aperture_photometry/aperture_photometry.ipynb) 
-
-  Perform forced aperture photometry on a simulated WFI image.
-
-  *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
-
-- [**Galaxy Shapes**](../notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.ipynb)  
-
-  Perform shape measurements of galaxies on a simulated WFI image.
-
-  *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
-
-- [**Roman Cutouts**](../notebooks/roman_cutouts/roman_cutouts.ipynb) 
-
-  Generate cutouts from a Roman WFI image.
-
-  *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
-
-- [**Time Domain Analysis**](../notebooks/time_domain_analysis/time_domain_analysis.ipynb)
-
-  Perform aperture and PSF photometry of a Type Ia supernova in a sequence of time-series observation cutouts, create a light curve, and fit the light curve to estimate properties of the time-variable source.
-
-  *Science Workflow(s)*: [Time Domain](./workflows/time-domain.md)
-  
-- [**Grism Spectral Extraction**](../notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb) 
-
-  Extract 1-D spectra from a simulated Roman WFI 2-D slitless spectral image.
-
-  *Science Workflow(s)*: [WFI Data Analysis](./workflows/wfi-data-analysys.md)
+| Tutorial | Purpose | Science workflow(s) |
+| --- | --- | --- |
+| [**Aperture Photometry**](../notebooks/aperture_photometry/aperture_photometry.ipynb) | Perform forced aperture photometry on a simulated WFI image. | [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
+| [**Galaxy Shapes**](../notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.ipynb) | Measure galaxy shapes in a simulated WFI image. | [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
+| [**Roman Cutouts**](../notebooks/roman_cutouts/roman_cutouts.ipynb) | Generate cutouts from a Roman WFI image. | [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
+| [**Time Domain Analysis**](../notebooks/time_domain_analysis/time_domain_analysis.ipynb) | Perform aperture and PSF photometry on time-series cutouts, create a light curve, and estimate properties of a Type Ia supernova. | [Time Domain](./workflows/time-domain.md) |
+| [**Grism Spectral Extraction**](../notebooks/grism_spectral_extraction/grism_spectral_extraction.ipynb) | Extract one-dimensional spectra from a simulated Roman WFI two-dimensional slitless spectral image. | [WFI Data Analysis](./workflows/wfi-data-analysis.md) |
 
 ### Planning Utilities
-- [**Pandeia**](../notebooks/pandeia/pandeia.ipynb)         
 
-  Estimate the exposure parameters needed to reach a given SNR for simulated sources in a small area of one WFI detector.
-
-  *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
-  
-- [**RIST**](../notebooks/rist/rist.ipynb)
-
-  Roman Interactive Sensitivity Tool. Simplified, interactive version of Pandeia. Estimate the SNR for a variety of target brightnesses and filters.
-
-  *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
-  
-- [**STIPS**](../notebooks/stips/stips.ipynb)
-
-  Simulate large astronomical scenes with the WFI full field-of-view.
-
-  *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
-  
-- [**Synphot**](../notebooks/synphot/synphot.ipynb)
-
-  Synthetic photometry software; estimate the brightness of sources observed with Roman WFI.
-
-  *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
-  
-- [**STPSF**](../notebooks/stpsf/stpsf.ipynb)  
-
-  Generate WFI simulated Point Spread Functions using STPSF.
-
-  *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
-  
-- [**Footprint Visualization Tool**](../notebooks/footprint_visualization/footprint_visualization.ipynb)
-  
-  Determine if astronomical source coordinates are within a survey footprint, visualize the on-sky footprint of an APT program, and generate optional exposure summaries or healsparse maps using footprint utilities.
-
-  *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
-  
-- [**Roman Background Visualization Tool (RBVT)**](../notebooks/background_visualization_tool/RBVT.ipynb)
-
-  Explore and visualize time-variable Roman sky backgrounds (zodiacal, ISM, thermal) across wavelength, sky position, and calendar date to support observation planning.
-
-  *Science Workflow(s)*: [WFI Observations Planning](./workflows/wfi-obs-plan.md)
+| Tutorial | Purpose | Science workflow(s) |
+| --- | --- | --- |
+| [**Pandeia**](../notebooks/pandeia/pandeia.ipynb) | Estimate the exposure parameters needed to reach a given signal-to-noise ratio (S/N) for simulated sources in a small area of one WFI detector. | [WFI Observation Planning](./workflows/wfi-obs-plan.md) |
+| [**RIST**](../notebooks/rist/rist.ipynb) | Estimate S/N for a range of target brightnesses and filters with the Roman Interactive Sensitivity Tool. | [WFI Observation Planning](./workflows/wfi-obs-plan.md) |
+| [**STIPS**](../notebooks/stips/stips.ipynb) | Simulate large astronomical scenes across the full WFI field of view. | [WFI Observation Planning](./workflows/wfi-obs-plan.md) |
+| [**Synphot**](../notebooks/synphot/synphot.ipynb) | Estimate the brightness of sources observed with Roman WFI using synthetic photometry. | [WFI Observation Planning](./workflows/wfi-obs-plan.md) |
+| [**STPSF**](../notebooks/stpsf/stpsf.ipynb) | Generate simulated WFI point-spread functions with STPSF. | [WFI Observation Planning](./workflows/wfi-obs-plan.md) |
+| [**Roman Target Visibility Tool (RTVT)**](../notebooks/target_visibility_tool/roman_target_visibility_tool.ipynb) | Estimate when astronomical targets are observable under Roman's Sun-angle constraints and compare visibility windows for multiple targets. | Not currently included in a Science Workflow |
+| [**Footprint Visualization Tool**](../notebooks/footprint_visualization/footprint_visualization.ipynb) | Explore survey and observing-program footprints, determine whether coordinates fall within them, and generate exposure summaries or healsparse maps. | [Roman Data Essentials](./workflows/Intro_Workflow.md), [WFI Observation Planning](./workflows/wfi-obs-plan.md) |
+| [**Roman Background Visualization Tool (RBVT)**](../notebooks/background_visualization_tool/RBVT.ipynb) | Explore time-variable Roman sky backgrounds across wavelength, sky position, and date to support observation planning. | [WFI Observation Planning](./workflows/wfi-obs-plan.md) |
 
 ---
-*Last Updated: August 2026* 
+*Last updated: August 2026*
