@@ -6,9 +6,9 @@ This science workflow guides users through the simulation, processing, manipulat
 
 
 ## Workflow Overview
-1. [**Roman I-sim**](../../notebooks/romanisim/romanisim.ipynb)
+1. [**Roman I-Sim**](../../notebooks/romanisim/romanisim.ipynb)
 
-   Simulate Roman WFI raw (L1) and exposure-level (L2) products using [Roman I-sim](https://romanisim.readthedocs.io/en/latest/), a GalSim-based simulator for WFI imaging data. Roman I-sim uses [Galsim](https://github.com/GalSim-developers/GalSim) to render astronomical scenes, [STPSF](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman) to model the point-spread function, and [CRDS](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) reference files to apply instrument calibration effects. Simulations can be generated from either synthetic catalogs or Gaia-based catalogs. Outputs are written in the standard [Roman ASDF format](https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/introduction-to-asdf).
+   Simulate Roman WFI raw (L1) and exposure-level (L2) products using [Roman I-Sim](https://romanisim.readthedocs.io/en/latest/), a GalSim-based simulator for WFI imaging data. Roman I-Sim uses [Galsim](https://github.com/GalSim-developers/GalSim) to render astronomical scenes, [STPSF](https://roman-docs.stsci.edu/simulation-tools-handbook-home/stpsf-for-roman) to model the point-spread function, and [CRDS](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) reference files to apply instrument calibration effects. Simulations can be generated from either synthetic catalogs or Gaia-based catalogs. Outputs are written in the standard [Roman ASDF format](https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/introduction-to-asdf).
   
 
 2. [**Working with ASDF**](../../notebooks/working_with_asdf/working_with_asdf.ipynb)
