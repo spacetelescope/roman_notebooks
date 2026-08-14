@@ -1,41 +1,38 @@
-# Intro Nexus Workflow
-Welcome to the Roman Research Nexus, an open platform which brings data from NASA's flagship missions, the Nancy Grace Roman Space Telescope (Roman), into the hands of everyone. Whether you're getting your start in citizen science, completing course work, or just wanting to look at some new images from Roman, this is the place to start.
+# RRN Science Workflows: Roman Data Essentials
 
-This workflow has preselected tutorial notebooks which are best suited for people either outside of the field of astronomy, or just beginning their astronomy education. These tutorial notebooks will teach the process by which one can access, filter, and visualize Roman data.
+Roman Data Essentials introduces the foundational concepts and tools needed to begin working with Roman data. Designed for users new to Roman or astronomy data analysis, it combines background resources with guided notebook tutorials on discovering, accessing, understanding, and visualizing Roman data, as well as exploring planned survey footprints.
 
-- [**Jupyter Notebook Tutorial)**](../../markdown/jupyter.md)
+## Before You Begin
 
-  Start here if you haven't already. Explore the basics of working in Jupyter and learn all the skills you'll need to be able to run the notebooks.
+Before starting the notebook tutorials, review the [Jupyter basics](../jupyter.md) to become familiar with running and interacting with notebooks. Then explore the [Roman Mission Introduction](../roman_Intro.md) for background on Roman's science goals, instruments, and data products.
 
 ## Workflow Overview
 
-- [**Roman Mission Introduction**](../../markdown/roman_Intro.md)
+1. [**Data Discovery and Access**](../../notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
 
-  Before we start utilizing the data, let's learn about where the data comes from. Explore this mission and get an idea of the type of technology and instrumentation we'll be working with. Gain a background on the purpose and details of the Roman Mission and its goals.
+   Search for and access simulated Roman Wide Field Instrument (WFI) data in the Nexus and observations from active missions through the Barbara A. Mikulski Archive for Space Telescopes (MAST). Learn how to identify relevant observations and retrieve data products for further exploration.
 
-- [**Data Discovery and Access**](../../notebooks/data_discovery_and_access/data_discovery_and_access.ipynb)
+2. [**Working with ASDF**](../../notebooks/working_with_asdf/working_with_asdf.ipynb)
 
-  Now that you know what Roman is, let's figure out how to find its data. Due to the vast amount of data which we will be receiving from the telescope, scientists working with data from Roman will utilize cloud-based storage processing. These cloud services are limited to registered MyST users only; regardless, this notebook will teach you how to search for and retrieve data from Roman's Wide Field Instrument (WFI), as well as data from other missions (such as the Hubble Space Telescope) from the Barbara A. Mikulski Archive for Space Telescopes (MAST). With this notebook you'll be able to search for observations of celestial objects in MAST, and allow you to take the data you found into the next notebooks.
+   Explore the Advanced Scientific Data Format used for Roman data products. Learn how to inspect metadata, access data arrays, and understand the organization of Roman WFI files.
 
-- [**Working With ASDF**](../../notebooks/working_with_asdf/working_with_asdf.ipynb)
+3. **Data Visualization**
 
-  Now that we have found our data let's figure out how to open and handle it. Roman stores its data using the Advanced Scientific Data Format (ASDF), so in this notebook you will learn about tools allowing you to search, load, and read ASDF files. Additionally learn about the process by which Roman Data are formatted and categorized as you explore ASDF metadata. By the end of this notebook you'll have an understanding of the structures and functions related to the data produced by Roman, enabling you to take on new data yourself.
+   Explore image data, inspect instrument artifacts, and apply common visualization techniques using two complementary approaches:
 
-- [**Data Visualization**](../../notebooks/data_visualization/data_visualization.ipynb)
+    - [**Create Static Images with Matplotlib**](../../notebooks/data_visualization/data_visualization.ipynb): Display Roman images and create figures that can be saved or included in reports.
+    - [**Interactively Explore Images with Jdaviz**](../../notebooks/data_visualization/jdaviz_data_visualization.ipynb): Examine, navigate, and compare image data using interactive controls.
 
-  You've learned about how find the data and how the products are formatted; now let's start to work with those data products. In this notebook, you will take the methods you learned to access data and apply it to methods of visualization so that we'll be able to look at the images and data Roman is providing.  Additionally, you will learn about some known instrument artifacts that can occur with the WFI. Explore different visualization techniques to gain all the tools you'll need to look at all the amazing images from Roman.
-
+### Additional Exploration
 
 - [**Footprint Visualization**](../../notebooks/footprint_visualization/footprint_visualization.ipynb)
 
-  Now, let's explore the kinds of science Roman will do. In this notebook, you will learn about the various surveys that the Roman Space Telescope will complete during its mission. Furthermore, you will be able to visualize Roman survey footprints on the sky to determine whether, when, and how Roman may observe an astronomical source. With this final tutorial in the workflow, take the step towards your own science and explore with these sources and tools yourself.
+  Explore planned Roman survey footprints and determine whether, when, and how Roman may observe a position on the sky. This tutorial can be completed independently of the preceding data-focused tutorials.
 
-  <img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/intro_workflow.jpg" alt="Introductory Nexus Workflow" width="250" />
+## Scope and Limitations
 
-## Caveats and Limitations
-- This workflow is primarily for individuals who do not have advanced degrees in astronomy, providing a curated selection of tutorials utilized by professional astronomers, and additionally providing explanations of concepts when possible to make certain ideas more accessible.
-- It is highly recommended to explore the resources linked throughout the notebooks in order to gain a better grasp of the ideas and concepts discussed in this workflow.
-
+- This workflow provides an introduction to Roman data products and common analysis tools. It does not cover calibration pipelines or advanced scientific analysis.
+- Data availability and platform functionality may continue to evolve during Early Access.
 
 ---
-*Last Updated: July 2026* 
+*Last Updated: August 2026*
