@@ -1,18 +1,15 @@
-# Introduction to the Nancy Grace Roman Space Telescope
+# Introduction to the Roman Mission
 
-The Nancy Grace Roman Space Telescope (Roman) is a NASA flagship mission with an expected launch in mid-2026. Roman is equipped with the Wide Field Instrument (WFI) as its primary instrument, as well as the Roman Coronagraph. The WFI has a large field of view, approximately 200 times larger than that of the Hubble Space Telescope Wide Field Camera 3 infrared detector. When compared to other space observatories, like Hubble Space Telescope, the scale of data collection will be magnitudes larger than what has been possible before. For example, in the first five years of operations, the estimated volume of Roman's data archive is 20 petabytes (PB), which is roughly 20,000 terabytes (TB), compared to Hubble's 172 TB during 30 years of operations.
+The [Nancy Grace Roman Space Telescope](https://science.nasa.gov/mission/roman-space-telescope/) (Roman) is NASA's next flagship astrophysics observatory, scheduled to launch in 2026. Its primary science instrument is the [Wide Field Instrument (WFI)](https://roman-docs.stsci.edu/roman-instruments/the-wide-field-instrument), which provides Hubble-like sensitivity and angular resolution over a field of view roughly 200 times larger than Hubble's infrared view. Roman also carries the [Coronagraph Instrument](https://roman-docs.stsci.edu/roman-instruments/roman-coronagraph-instrument), a technology demonstration designed to advance methods for directly imaging and characterizing exoplanets.
 
-During its mission, Roman will conduct different surveys of the sky including the Galactic Bulge Time-Domain Survey, High-Latitude Time-Domain Survey, High-Latitude Wide-Area Survey, and the Galactic Plane Survey. Each of these surveys will contribute to our understanding of the Universe, as well as serving Roman's primary missions of studying and discovering exoplanets, and measuring dark matter and dark energy. 
+Roman's community-defined observing program includes three Core Community Surveys: the [High-Latitude Wide-Area Survey](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-wide-area-survey), the [High-Latitude Time-Domain Survey](https://roman-docs.stsci.edu/roman-community-defined-surveys/high-latitude-time-domain-survey), and the [Galactic Bulge Time-Domain Survey](https://roman-docs.stsci.edu/roman-community-defined-surveys/galactic-bulge-time-domain-survey). It also includes the [Galactic Plane Survey](https://roman-docs.stsci.edu/roman-community-defined-surveys/galactic-plane-survey), a community-defined General Astrophysics Survey (GAS). Additional GAS programs will enable investigations beyond the Core Community Surveys. Together, these observations will address Roman's principal science goals in dark energy, dark matter, exoplanets, and infrared astrophysics while supporting a broad range of community-led research.
 
-Data from Roman will be stored and available to users via the Roman Archive in the Barbara A. Mikulski Archive for Space Telescopes (MAST), with WFI data stored in Advanced Scientific Data Format (ASDF). Instructions on how to access and utilize the Roman data is available throughout the Roman Nexus Workflows and Tutorial Notebooks.
+Roman WFI data products will be archived and made available to users through the Barbara A. Mikulski Archive for Space Telescopes (MAST). The `romancal` calibration pipeline natively produces [Advanced Scientific Data Format (ASDF)](https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products/asdf-format-information) products. Guidance for discovering and retrieving these products is provided in RDox's [Roman data-access documentation](https://roman-docs.stsci.edu/data-handbook/accessing-wfi-data). Tutorials in the Roman Research Nexus complement that documentation with executable examples.
 
-Welcome to the Nancy Grace Roman Space Telescope!
-
-
-## For Additional Information About Roman’s Mission Explore:
+## Learn More About the Roman Mission
 - [Roman Documentation (RDox)](https://roman-docs.stsci.edu/)
 - [Roman's Mission](https://science.nasa.gov/mission/roman-space-telescope/)
-- [Roman Space Telescope](https://www.stsci.edu/roman)
+- [STScI Roman Website](https://www.stsci.edu/roman)
 
 ---
-*Last updated: July 2026*
+*Last updated: August 2026*
