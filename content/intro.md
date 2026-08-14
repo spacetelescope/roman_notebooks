@@ -6,6 +6,8 @@ During Early Access, the Nexus provides simulated Roman datasets and tools that 
 
 ## Getting Started 
 
+<img src="../images/icons/roman-spacecraft.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Introduction to the Roman Mission](../markdown/roman_Intro.md)
+
 <img src="../images/icons/jupyter.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Working in JupyterLab](../markdown/jupyter.md)
 
 <img src="../images/icons/cloud_download.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Managing Your Server](../markdown/server.md)
