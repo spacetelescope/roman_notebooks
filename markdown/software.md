@@ -202,4 +202,4 @@ Example:
 This is supported. Use `kernel-create-venv` in place of `kernel-create` in step 3, and you will get a [**Python Virtual Environment**](https://docs.python.org/3/library/venv.html) instead.
 
 ---
-*Last updated: August 11, 2026*
+*Last updated: August 2026*
