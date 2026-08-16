@@ -17,6 +17,10 @@ Stopping ends your session and releases compute resources. Your files are not af
 To stop your server:
 **File → Hub Control Panel → Stop My Server**
 
+You can also stop it from the JupyterLab Launcher by selecting **SM (Stop My Server)**:
+
+<img src="../images/Launcher_SM.png" alt="JupyterLab Launcher showing the SM (Stop My Server) button" width="500" />
+
 Stopping is recommended when you are done working or when you need to relaunch your session with a different image or server type.
 
 ## Automatic Shutdown After Idle Time
