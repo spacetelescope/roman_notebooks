@@ -10,7 +10,7 @@ If you belong to any teams, you can also access shared storage at:
 
 `/teams/{team-name}/`
 
-The names of all team directories are visible on the Nexus, but you can access their contents only if you belong to the team.
+The names of all team directories are visible on the Nexus, but you can access their contents only if you belong to the team. You do not need to start a session under the team account to access its storage; team membership is sufficient.
 
 ## Managing Permissions
 RRN storage uses a Unix-like permission model. You may adjust file access using standard tools such as `chmod`. (For a walkthrough, see the [chmod tutorial](https://catcode.com/teachmod/index.html).)
@@ -59,7 +59,7 @@ To start an RTC server:
 
 1. Go to the **spawner page**.
 2. Under your team entry (e.g., `team-imviz`), click on the **Real Time Collaboration Server** link.
-3. On the RTC server spawner page, choose the **image** (e.g., `roman-17.1.1`) and the **server size** (e.g., *Small Server: 2 vCPU, 16 GB RAM*) for your RTC session.
+3. On the RTC server spawner page, choose the **image** (e.g., `Nexus-2026.1`) and the **server size** (e.g., *Small Server: 2 vCPU, 16 GB RAM*) for your RTC session.
 4. Click **Start server**.
 
 Any team member may join the running RTC session.
@@ -81,7 +81,7 @@ RTC works best for **interactive, real-time collaboration**.
 For independent work, version-controlled development, or long-running analysis, team members should start **non-RTC sessions** instead.
 
 ### Stopping an RTC Server
-Any team member can stop an RTC server from the JupyterLab launcher by clicking **SM (Stop My Server)**. The button works for all server types, including RTC servers.
+Any team member can stop an RTC server from the JupyterLab launcher by clicking the **SM (Stop My Server)** button. The button works for all server types, including RTC servers.
 
 <img src="../images/Launcher_SM.png" alt="JupyterLab Launcher showing the SM (Stop My Server) button" width="500" />
 
