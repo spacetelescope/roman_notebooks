@@ -32,7 +32,7 @@ These tips can help you use Roman Research Nexus resources efficiently and estim
 
 **Recommendation:** Run a representative pilot that includes the major operations in your workflow, such as calibration, mosaicking, simulation, photometry, shape measurement, or catalog processing. Record the number of exposures, detectors, simulations, or repetitions in the pilot, then scale the measured usage to the full program.
 
-Include a reasonable margin for development, failed runs, and scientific iteration. Use benchmark examples in RDox as an order-of-magnitude check rather than as a substitute for testing your own workflow.
+Include a reasonable margin for development, failed runs, and scientific iteration. Use [benchmark examples in RDox](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/benchmarking-examples-and-estimated-costs-on-the-roman-research-nexus) as an order-of-magnitude check rather than as a substitute for testing your own workflow.
 
 **Takeaway:** A small end-to-end pilot usually produces a more realistic estimate than adding together theoretical costs for individual steps.
 
