@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,7 +61,6 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Roman Spectroscopy: Grism Spectral Extraction" href="../grism_spectral_extraction/grism_spectral_extraction.html" />
@@ -69,26 +68,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../../_static/searchtools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-  
-  
-  
+
   
   <dialog id="pst-search-dialog">
     
@@ -114,51 +107,7 @@
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -461,7 +410,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
@@ -520,7 +469,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">notebook_data_dependencies</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ndd</span>
 
 <span class="c1"># Download reference data (if necessary)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stpsf&#39;</span><span class="p">,</span><span class="s1">&#39;synphot&#39;</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">ndd</span><span class="o">.</span><span class="n">install_files</span><span class="p">(</span><span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">'stpsf'</span><span class="p">,</span><span class="s1">'synphot'</span><span class="p">])</span>
 <span class="n">ndd</span><span class="o">.</span><span class="n">setup_env</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -533,7 +482,7 @@
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
-		export STPSF_PATH=&#39;/home/runner/refdata/stpsf-data&#39;
+		export STPSF_PATH='/home/runner/refdata/stpsf-data'
 Did not find synphot data in environment, setting it up...
 	Downloading and uncompressing file...
 	Found 9 data URL(s) to download and install...
@@ -565,7 +514,7 @@ Did not find synphot data in environment, setting it up...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Update environment variable with the following:
-		export PYSYN_CDBS=&#39;/home/runner/refdata/grp/redcat/trds/&#39;
+		export PYSYN_CDBS='/home/runner/refdata/grp/redcat/trds/'
 Reference data paths set to:
 	STPSF_PATH = /home/runner/refdata/stpsf-data
 	PYSYN_CDBS = /home/runner/refdata/grp/redcat/trds/
@@ -654,14 +603,14 @@ Reference data paths set to:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open an image from an S3 bucket or from disk</span>
-<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span><span class="p">):</span>
-    <span class="n">file</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">'r0003201001001001004_0001_wfi01_f106_cal.asdf'</span><span class="p">):</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'r0003201001001001004_0001_wfi01_f106_cal.asdf'</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">&quot;s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.2/&quot;</span>
+    <span class="n">asdf_dir_uri</span> <span class="o">=</span> <span class="s2">"s3://stpubdata/roman/nexus/soc_simulations/tutorial_data/roman-2026.2/"</span>
     <span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">asdf_file_uri_l2</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;r0003201001001001004_0001_wfi01_f106_cal.asdf&#39;</span>
+    <span class="n">asdf_file_uri_l2</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">'r0003201001001001004_0001_wfi01_f106_cal.asdf'</span>
 
-    <span class="n">file</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri_l2</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">rdm</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">asdf_file_uri_l2</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -680,12 +629,12 @@ Reference data paths set to:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open the catalog used for the simulation as an astropy.table.Table</span>
-<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;full_catalog.ecsv&#39;</span><span class="p">):</span>
-    <span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;full_catalog.ecsv&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">'full_catalog.ecsv'</span><span class="p">):</span>
+    <span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'full_catalog.ecsv'</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
 
-    <span class="n">cat_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">&#39;full_catalog.ecsv&#39;</span>    
-    <span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cat_uri</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.ecsv&#39;</span><span class="p">)</span>
+    <span class="n">cat_uri</span> <span class="o">=</span> <span class="n">asdf_dir_uri</span> <span class="o">+</span> <span class="s1">'full_catalog.ecsv'</span>    
+    <span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cat_uri</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'ascii.ecsv'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -694,14 +643,14 @@ Reference data paths set to:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a scatter plot of the positions of a subselection of catalog entries.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">][::</span><span class="mi">100</span><span class="p">],</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">][::</span><span class="mi">100</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;RA [deg]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Dec [deg]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">][::</span><span class="mi">100</span><span class="p">],</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">][::</span><span class="mi">100</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'RA [deg]'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Dec [deg]'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ef35b01d77575b45432f101c30cd398cd4232397bb228ddd4c9aa30ad0e12e70.png" src="../../_images/ef35b01d77575b45432f101c30cd398cd4232397bb228ddd4c9aa30ad0e12e70.png" />
+<img alt="../../_images/a3f1d37ef030651f0209e24b47e50dc373b556135b9239c56969ab368de6a913.png" src="../../_images/a3f1d37ef030651f0209e24b47e50dc373b556135b9239c56969ab368de6a913.png" />
 </div>
 </div>
 </section>
@@ -722,12 +671,12 @@ For more information about GWCS please check the documentation <a class="referen
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the catalog coordinates in a SkyCoord object and </span>
 <span class="c1"># convert to pixel positions.</span>
-<span class="n">coords</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">wcs</span><span class="o">.</span><span class="n">world_to_pixel</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
 
 <span class="c1"># Save the x and y coordinates in the catalog table for later.</span>
-<span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
-<span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+<span class="n">catalog</span><span class="p">[</span><span class="s1">'x'</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">catalog</span><span class="p">[</span><span class="s1">'y'</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -736,7 +685,7 @@ For more information about GWCS please check the documentation <a class="referen
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">band</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">optical_element</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The simulated bandpass is </span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'The simulated bandpass is </span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -754,10 +703,10 @@ For more information about GWCS please check the documentation <a class="referen
 <span class="n">mag_lo</span> <span class="o">=</span> <span class="mi">18</span>
 
 <span class="c1"># Compute the AB magnitude of the F106 filter in the catalog.</span>
-<span class="n">mag_ab</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;F106&#39;</span><span class="p">])</span>
+<span class="n">mag_ab</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">'F106'</span><span class="p">])</span>
 
 <span class="c1"># Select sources within our magnitude limits and that are extended.</span>
-<span class="n">bright</span> <span class="o">=</span> <span class="p">(</span><span class="n">mag_ab</span> <span class="o">&gt;</span> <span class="n">mag_lo</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mag_ab</span> <span class="o">&lt;</span> <span class="n">mag_hi</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;SER&#39;</span><span class="p">)</span>
+<span class="n">bright</span> <span class="o">=</span> <span class="p">(</span><span class="n">mag_ab</span> <span class="o">&gt;</span> <span class="n">mag_lo</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mag_ab</span> <span class="o">&lt;</span> <span class="n">mag_hi</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'SER'</span><span class="p">)</span>
 
 <span class="c1"># The input catalog may contain sources that are not on the WFI detector.</span>
 <span class="c1"># Identify where sources are on the detector. The padding variable will</span>
@@ -771,7 +720,7 @@ For more information about GWCS please check the documentation <a class="referen
 <span class="n">galaxies</span> <span class="o">=</span> <span class="p">(</span><span class="n">bright</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">inchip</span><span class="p">)</span>
 <span class="n">gal_tab</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="n">galaxies</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">galaxies</span><span class="p">),</span> <span class="s1">&#39;galaxies pass these selection criteria&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">galaxies</span><span class="p">),</span> <span class="s1">'galaxies pass these selection criteria'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -792,24 +741,24 @@ For more information about GWCS please check the documentation <a class="referen
 <span class="c1"># Generate a galsim image object of the simulated PSF. We specify the pixel scale for which</span>
 <span class="c1"># the WFI has 0.11 arcsecond pixels, and the PSF from STPSF is oversampled by a factor of 4.</span>
 <span class="c1"># Save the PSF as an interpolated image so we can convolve and deconvolve later on.</span>
-<span class="n">psf_img</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">psf</span><span class="p">[</span><span class="s1">&#39;OVERSAMP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.11</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">psf_img</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">psf</span><span class="p">[</span><span class="s1">'OVERSAMP'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.11</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">psf_obj</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">InterpolatedImage</span><span class="p">(</span><span class="n">psf_img</span><span class="p">,</span> <span class="n">flux</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
 
 <span class="c1"># Show the simulated PSF.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">psf_img</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">simple_norm</span><span class="p">(</span><span class="n">psf_img</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">percent</span><span class="o">=</span><span class="mi">95</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">psf_img</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">simple_norm</span><span class="p">(</span><span class="n">psf_img</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="s1">'log'</span><span class="p">,</span> <span class="n">percent</span><span class="o">=</span><span class="mi">95</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c38672cfeb7070064fd2ca40c81245b2cf0d5e36eb276db06da2d3ec06a3170a.png" src="../../_images/c38672cfeb7070064fd2ca40c81245b2cf0d5e36eb276db06da2d3ec06a3170a.png" />
+<img alt="../../_images/bc864dc5e795c30724c8bd7917056d2f012f07e1ccf195644a9a62f48e74d44d.png" src="../../_images/bc864dc5e795c30724c8bd7917056d2f012f07e1ccf195644a9a62f48e74d44d.png" />
 </div>
 </div>
 <p>By default the PSF is generated for detector WFI01 at (x, y) = (2048, 2048) in the science coordinate system. See the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/coordinate-systems">RDox article on WFI coordinate systems</a> for more information.</p>
 <p>These attributes can be confirmed and modified via the <code class="docutils literal notranslate"><span class="pre">wfi.detector</span></code> and <code class="docutils literal notranslate"><span class="pre">wfi.detector_position</span></code> attributes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;STPSF detector = </span><span class="si">{</span><span class="n">wfi</span><span class="o">.</span><span class="n">detector</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;STPSF position = </span><span class="si">{</span><span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'STPSF detector = </span><span class="si">{</span><span class="n">wfi</span><span class="o">.</span><span class="n">detector</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'STPSF position = </span><span class="si">{</span><span class="n">wfi</span><span class="o">.</span><span class="n">detector_position</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -825,7 +774,7 @@ STPSF position = (2048, 2048)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the sigma-clipped median as an estimate of the sky background</span>
 <span class="n">_</span><span class="p">,</span> <span class="n">med_bkg</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sigma_clipped_stats</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Median background = </span><span class="si">{</span><span class="n">med_bkg</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Median background = </span><span class="si">{</span><span class="n">med_bkg</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1"> DN / s'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -853,12 +802,12 @@ STPSF position = (2048, 2048)
 <span class="c1"># divide by the pixel scale of 0.11 arcseconds per pixel to get the half-light</span>
 <span class="c1"># radius in units of pixels. Add 1 pixel for padding so that small galaxies have</span>
 <span class="c1"># a sufficiently sized cutout.</span>
-<span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;half_light_radius&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">/</span> <span class="mf">0.11</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">'half_light_radius'</span><span class="p">][</span><span class="n">igal</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">/</span> <span class="mf">0.11</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Determine the x and y positions at the corners of our cutout.</span>
-<span class="n">xmin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">]</span> <span class="o">-</span> <span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">xmin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">'x'</span><span class="p">][</span><span class="n">igal</span><span class="p">]</span> <span class="o">-</span> <span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">xmax</span> <span class="o">=</span> <span class="n">xmin</span> <span class="o">+</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="n">ymin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">]</span> <span class="o">-</span> <span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">'y'</span><span class="p">][</span><span class="n">igal</span><span class="p">]</span> <span class="o">-</span> <span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ymax</span> <span class="o">=</span> <span class="n">ymin</span> <span class="o">+</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span>
 
 <span class="c1"># Make the cutout as a galsim Image object. Also subtract the sky background estimate,</span>
@@ -868,33 +817,33 @@ STPSF position = (2048, 2048)
 <span class="c1"># Display the cutout with and without the background subtraction.</span>
 <span class="c1"># Set the image normalization. To compare the cutout before and after</span>
 <span class="c1"># background subtraction, we manually set the limits.</span>
-<span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span> <span class="o">+</span> <span class="n">med_bkg</span><span class="p">,</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span> <span class="o">-</span><span class="n">med_bkg</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span> <span class="o">+</span> <span class="n">med_bkg</span><span class="p">,</span> <span class="s1">'linear'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span> <span class="o">-</span><span class="n">med_bkg</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>
 
 <span class="c1"># Setup the plot area.</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Original cutout (add the sky background back in)</span>
-<span class="n">cut</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span> <span class="o">+</span> <span class="n">med_bkg</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cutout&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X [pix]&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y [pix]&#39;</span><span class="p">)</span>
+<span class="n">cut</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span> <span class="o">+</span> <span class="n">med_bkg</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Cutout'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'X [pix]'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Y [pix]'</span><span class="p">)</span>
 
 <span class="c1"># Background-subtracted cutout</span>
-<span class="n">bkg_cut</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Bkgrnd Sub&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X [pix]&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y [pix]&#39;</span><span class="p">)</span>
+<span class="n">bkg_cut</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Bkgrnd Sub'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'X [pix]'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Y [pix]'</span><span class="p">)</span>
 
 <span class="c1"># Assign color bars. The color bars and normalization are the same</span>
 <span class="c1"># for both cutouts.</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;DN / s&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">bkg_cut</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;DN / s&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'DN / s'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">bkg_cut</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'DN / s'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">h_pad</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5c25e4e635e6c25faa0f584d144c808a1a8f3a0d6ae4a8e9c30bd0d3ff5ead20.png" src="../../_images/5c25e4e635e6c25faa0f584d144c808a1a8f3a0d6ae4a8e9c30bd0d3ff5ead20.png" />
+<img alt="../../_images/ac983121d8f01d3620885e9385052075f13a35c25573b1e793fa0ea0c98f11f3.png" src="../../_images/ac983121d8f01d3620885e9385052075f13a35c25573b1e793fa0ea0c98f11f3.png" />
 </div>
 </div>
 <p>As we can see, the background estimate seems to be reasonable. We could improve it by performing a local background estimate rather than using the whole image. For on-orbit observations, a 2-D local background model would likely provide the highest fidelity background estimate. Note that estimating the background should be treated with care, since it will affect the fitting results.</p>
@@ -924,8 +873,8 @@ STPSF position = (2048, 2048)
 <span class="c1"># Get the minor-to-major axis ratio (q)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">observed_shape</span><span class="o">.</span><span class="n">q</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;position angle: </span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> deg&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;minor-to-major axis ratio: </span><span class="si">{</span><span class="n">q</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'position angle: </span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> deg'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'minor-to-major axis ratio: </span><span class="si">{</span><span class="n">q</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -945,7 +894,7 @@ minor-to-major axis ratio: 0.80766
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=18, ymin=1, ymax=18), moments_status=0, observed_shape=galsim.Shear((0.10212971528807052-0.02985731420879724j)), moments_sigma=1.7330114841461182, moments_amp=393.8943176269531, moments_rho4=2.5441320171732604, moments_n_iter=30, correction_status=0, corrected_e1=1.1321930885314941, corrected_e2=-0.30008557438850403, meas_type=&#39;e&#39;, corrected_shape_err=0.0, correction_method=&#39;REGAUSS&#39;, resolution_factor=0.38316264748573303, psf_sigma=1.3743653297424316, psf_shape=galsim.Shear((-0.014325833994391213+0.0008789983818878098j)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=18, ymin=1, ymax=18), moments_status=0, observed_shape=galsim.Shear((0.10212971528807052-0.02985731420879724j)), moments_sigma=1.7330114841461182, moments_amp=393.8943176269531, moments_rho4=2.5441320171732604, moments_n_iter=30, correction_status=0, corrected_e1=1.1321930885314941, corrected_e2=-0.30008557438850403, meas_type='e', corrected_shape_err=0.0, correction_method='REGAUSS', resolution_factor=0.38316264748573303, psf_sigma=1.3743653297424316, psf_shape=galsim.Shear((-0.014325833994391213+0.0008789983818878098j)))
 </pre></div>
 </div>
 </div>
@@ -955,8 +904,8 @@ minor-to-major axis ratio: 0.80766
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">shape2</span><span class="o">.</span><span class="n">observed_shape</span><span class="o">.</span><span class="n">beta</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">center</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">coord</span><span class="o">.</span><span class="n">degrees</span><span class="p">)</span><span class="o">.</span><span class="n">deg</span>
 <span class="n">q</span> <span class="o">=</span> <span class="n">shape2</span><span class="o">.</span><span class="n">observed_shape</span><span class="o">.</span><span class="n">q</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;position angle: </span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> deg&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;minor-to-major axis ratio: </span><span class="si">{</span><span class="n">q</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'position angle: </span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> deg'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'minor-to-major axis ratio: </span><span class="si">{</span><span class="n">q</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -979,12 +928,12 @@ minor-to-major axis ratio: 0.80766
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the AB magnitude of the source.</span>
-<span class="n">abmag</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;F106&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">])</span>
+<span class="n">abmag</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">'F106'</span><span class="p">][</span><span class="n">igal</span><span class="p">])</span>
 
 <span class="c1"># Create the spectrum and bandpass objects, and then observe the spectrum</span>
 <span class="c1"># through the bandpass.</span>
 <span class="n">spec</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">SourceSpectrum</span><span class="p">(</span><span class="n">syn</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ConstFlux1D</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="n">abmag</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">ABmag</span><span class="p">)</span>
-<span class="n">band</span> <span class="o">=</span> <span class="n">stsyn</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="s1">&#39;roman,wfi,f106&#39;</span><span class="p">)</span>
+<span class="n">band</span> <span class="o">=</span> <span class="n">stsyn</span><span class="o">.</span><span class="n">band</span><span class="p">(</span><span class="s1">'roman,wfi,f106'</span><span class="p">)</span>
 <span class="n">obs</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">Observation</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span>
 
 <span class="c1"># Integrate over the bandpass. By default, calls to the obs variable, which</span>
@@ -996,7 +945,7 @@ minor-to-major axis ratio: 0.80766
 <span class="n">waves</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">binset</span>
 <span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">obs</span><span class="p">(</span><span class="n">waves</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">waves</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Source flux: </span><span class="si">{</span><span class="n">flux</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> photon / s / cm^2&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Source flux: </span><span class="si">{</span><span class="n">flux</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> photon / s / cm^2'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1039,7 +988,7 @@ minor-to-major axis ratio: 0.80766
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list of the truth paramters.</span>
-<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">],</span> <span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;half_light_radius&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">],</span> <span class="n">flux</span><span class="p">,</span> <span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;pa&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">],</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">gal_tab</span><span class="p">[</span><span class="s1">&#39;ba&#39;</span><span class="p">][</span><span class="n">igal</span><span class="p">]]</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="n">gal_tab</span><span class="p">[</span><span class="s1">'n'</span><span class="p">][</span><span class="n">igal</span><span class="p">],</span> <span class="n">gal_tab</span><span class="p">[</span><span class="s1">'half_light_radius'</span><span class="p">][</span><span class="n">igal</span><span class="p">],</span> <span class="n">flux</span><span class="p">,</span> <span class="n">gal_tab</span><span class="p">[</span><span class="s1">'pa'</span><span class="p">][</span><span class="n">igal</span><span class="p">],</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">gal_tab</span><span class="p">[</span><span class="s1">'ba'</span><span class="p">][</span><span class="n">igal</span><span class="p">]]</span>
 
 <span class="c1"># Create the model with our truth parameters</span>
 <span class="n">fid_model</span> <span class="o">=</span> <span class="n">sersic_mod</span><span class="p">(</span><span class="n">cutout</span><span class="p">,</span> <span class="o">*</span><span class="n">p0</span><span class="p">)</span>
@@ -1069,12 +1018,12 @@ minor-to-major axis ratio: 0.80766
 <p>Let’s see the resulting best-fit parameters of the fit and compare to our initial input model parameters (the <code class="docutils literal notranslate"><span class="pre">p0</span></code> variable above):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;hlr&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">,</span> <span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s1">'hlr'</span><span class="p">,</span> <span class="s1">'flux'</span><span class="p">,</span> <span class="s1">'pa'</span><span class="p">,</span> <span class="s1">'x0'</span><span class="p">,</span> <span class="s1">'y0'</span><span class="p">,</span> <span class="s1">'q'</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p0</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Initial: </span><span class="si">{</span><span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Fitted: </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">:'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">Initial: </span><span class="si">{</span><span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">Fitted: </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1115,24 +1064,24 @@ q:
 <span class="c1"># Plot the original cutout, initial input model, best-fit model, and fit residuals.</span>
 <span class="c1"># Plot all images with the same normalization for comparison. As we may have negative</span>
 <span class="c1"># residual values, we use a linear normalization.</span>
-<span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span> <span class="o">-</span><span class="n">med_bkg</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="s1">'linear'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span> <span class="o">-</span><span class="n">med_bkg</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1"># Original image</span>
-<span class="n">orig</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Image Cutout&#39;</span><span class="p">)</span>
+<span class="n">orig</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Image Cutout'</span><span class="p">)</span>
 
 <span class="c1"># Fiducial (initial input) model</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fid_model</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Init Model&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fid_model</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Init Model'</span><span class="p">)</span>
 
 <span class="c1"># Best-fitting model</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">model_out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Best-Fit&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">model_out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Best-Fit'</span><span class="p">)</span>
 
 <span class="c1"># Fit residuals</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Fit Residuals&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Fit Residuals'</span><span class="p">)</span>
 
 <span class="c1"># Set the colorbar</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
@@ -1146,14 +1095,14 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/222063ba59e9f592ea7c555df134902570f8182ad753a74d5ec91b9bbe4b7401.png" src="../../_images/222063ba59e9f592ea7c555df134902570f8182ad753a74d5ec91b9bbe4b7401.png" />
+<img alt="../../_images/f68589fca7692e6d6bbe548347b91fe2643039c8c0afe6eb33594c442cb5a446.png" src="../../_images/f68589fca7692e6d6bbe548347b91fe2643039c8c0afe6eb33594c442cb5a446.png" />
 </div>
 </div>
 <p>Our fit looks really good. Let’s take a quick look at the statistics of the fit residuals:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Residual median: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Residual std dev: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Residual median: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Residual std dev: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1176,15 +1125,15 @@ Residual std dev: 0.15022 DN / s
 <span class="n">pout_new</span><span class="p">,</span> <span class="n">pcov_new</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">sersic_mod</span><span class="p">,</span> <span class="n">cutout</span><span class="p">,</span> <span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">err_img</span><span class="p">,</span>
           <span class="n">p0</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">1e-11</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
 
-<span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;hlr&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">,</span> <span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s1">'hlr'</span><span class="p">,</span> <span class="s1">'flux'</span><span class="p">,</span> <span class="s1">'pa'</span><span class="p">,</span> <span class="s1">'x0'</span><span class="p">,</span> <span class="s1">'y0'</span><span class="p">,</span> <span class="s1">'q'</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p0</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Catalog (p0): </span><span class="si">{</span><span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">New inputs (p1): </span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Old fit: </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">New fit: </span><span class="si">{</span><span class="n">pout_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">:'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">Catalog (p0): </span><span class="si">{</span><span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">New inputs (p1): </span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">Old fit: </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">New fit: </span><span class="si">{</span><span class="n">pout_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1247,15 +1196,15 @@ q:
 <span class="n">pout_new</span><span class="p">,</span> <span class="n">pcov_new</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">sersic_mod</span><span class="p">,</span> <span class="n">cutout</span><span class="p">,</span> <span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">err_img</span><span class="p">,</span>
           <span class="n">p0</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">1e-11</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
 
-<span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;hlr&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">,</span> <span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s1">'hlr'</span><span class="p">,</span> <span class="s1">'flux'</span><span class="p">,</span> <span class="s1">'pa'</span><span class="p">,</span> <span class="s1">'x0'</span><span class="p">,</span> <span class="s1">'y0'</span><span class="p">,</span> <span class="s1">'q'</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p0</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Catalog (p0): </span><span class="si">{</span><span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">New inputs (p1): </span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Old fit: </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">New fit: </span><span class="si">{</span><span class="n">pout_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">:'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">Catalog (p0): </span><span class="si">{</span><span class="n">p0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">New inputs (p1): </span><span class="si">{</span><span class="n">p1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">Old fit: </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\t</span><span class="s1">New fit: </span><span class="si">{</span><span class="n">pout_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1317,24 +1266,24 @@ q:
 <span class="c1"># Plot the original cutout, initial input model, best-fit model, and fit residuals.</span>
 <span class="c1"># Plot all images with the same normalization for comparison. As we may have negative</span>
 <span class="c1"># residual values, we use a linear normalization.</span>
-<span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span> <span class="o">-</span><span class="n">med_bkg</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="s1">'linear'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span> <span class="o">-</span><span class="n">med_bkg</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">))</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1"># Original image</span>
-<span class="n">orig</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Image Cutout&#39;</span><span class="p">)</span>
+<span class="n">orig</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Image Cutout'</span><span class="p">)</span>
 
 <span class="c1"># Fiducial (initial input) model</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fid_model_new</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Init Model&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fid_model_new</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Init Model'</span><span class="p">)</span>
 
 <span class="c1"># Best-fitting model</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">model_out_new</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Best-Fit&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">model_out_new</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cutout</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Best-Fit'</span><span class="p">)</span>
 
 <span class="c1"># Fit residuals</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">residual_new</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Fit Residuals&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">residual_new</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Fit Residuals'</span><span class="p">)</span>
 
 <span class="c1"># Set the colorbar</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
@@ -1348,14 +1297,14 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b1af9160b38979b2ce13309645b0add34a6b232fbc0f1ead9cf4ba837bf0a332.png" src="../../_images/b1af9160b38979b2ce13309645b0add34a6b232fbc0f1ead9cf4ba837bf0a332.png" />
+<img alt="../../_images/3d943c5695ed853c57061f66c052bff9c7f3fcb09e66aad6d0f8c081162ab735.png" src="../../_images/3d943c5695ed853c57061f66c052bff9c7f3fcb09e66aad6d0f8c081162ab735.png" />
 </div>
 </div>
 <p>As we can see, the initial model is quite different from our previous one based on inputs from the catalog, but our best-fit model and residuals still look quite good. Finally, the statistics of our residuals:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Residual median: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">residual_new</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Residual std dev: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">residual_new</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Residual median: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">residual_new</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Residual std dev: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">residual_new</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DN / s'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1378,10 +1327,10 @@ Residual std dev: 0.15022 DN / s
 <p>where <code class="docutils literal notranslate"><span class="pre">pcov</span></code> is the covariance of the fit (recall that <code class="docutils literal notranslate"><span class="pre">pout</span></code> is the fitted values above). Now we can print the fitted values with the uncertainties:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;hlr&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">,</span> <span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s1">'hlr'</span><span class="p">,</span> <span class="s1">'flux'</span><span class="p">,</span> <span class="s1">'pa'</span><span class="p">,</span> <span class="s1">'x0'</span><span class="p">,</span> <span class="s1">'y0'</span><span class="p">,</span> <span class="s1">'q'</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p0</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">perr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">pout</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">perr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1493,7 +1442,7 @@ q = 0.73468 +/- 0.00939
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data">Reference Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-run-settings">Local Run Settings</a></li>
@@ -1561,8 +1510,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

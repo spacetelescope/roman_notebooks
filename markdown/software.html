@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Installing Extra Software &#8212; STScI Roman Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'markdown/software';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/stsci_logo2.png" class="logo__image only-light" alt="STScI Roman Notebooks - Home"/>
+    <img src="../_static/stsci_logo2.png" class="logo__image only-dark pst-js-only" alt="STScI Roman Notebooks - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Nancy Grace Roman Space Telescope Notebooks
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/ground_test_analysis/wfi_tvac_brightstar.html">Diving Into WFI TVAC Bright Star Test Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/aperture_photometry/aperture_photometry.html">Aperture Photometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/measuring_galaxy_shapes/measuring_galaxy_shapes.html">Measuring Galaxy Shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/grism_spectral_extraction/grism_spectral_extraction.html">Roman Spectroscopy: Grism Spectral Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/rist/rist.html">The Roman Interactive Sensitivity Tool (RIST)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/stips/stips.html">STIPS Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/stpsf/stpsf.html">STPSF Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandeia/pandeia.html">Pandeia Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/roman_notebooks/issues/new?title=Issue%20on%20page%20%2Fmarkdown/software.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/markdown/software.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Installing Extra Software</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-software-is-pre-installed">What software is pre-installed?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-install-and-manage-my-own-software">How do I install and manage my own software?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-environments">1. Listing Environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-requirments-txt-file">2. Making a requirments.txt file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-conda-environment">3. Creating a Conda Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-an-environment">4. Activating an Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-base-tools">5. Install base tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-software">6. Installing Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switching-to-a-different-environment">7. Switching to a Different Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-an-environment">8. Exporting an Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-an-environment">9. Deleting an Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-notes">Other Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i-want-to-use-venv">I want to use <code class="docutils literal notranslate"><span class="pre">venv</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="installing-extra-software">
+<h1>Installing Extra Software<a class="headerlink" href="#installing-extra-software" title="Link to this heading">#</a></h1>
+<p>As part of the Research Nexus, STScI provides some pre-installed software. However, you can also install your own software.</p>
+<p><strong>Note:</strong> Any commands shown on this page must be entered into a terminal window. To open a new terminal window, select <strong>File → New Terminal</strong> from the JupyterLab menu bar.</p>
+<section id="what-software-is-pre-installed">
+<h2>What software is pre-installed?<a class="headerlink" href="#what-software-is-pre-installed" title="Link to this heading">#</a></h2>
+<p>To view a full list of pre-installed software, run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code></p>
+<p>Since this list is lengthy, you can check the version of a specific package using:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">&lt;package&gt;</span></code></p>
+<p>For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">astropy</span></code>
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">numpy</span></code></p>
+<p>If you believe a package should be included by default, you can submit a request to the <a class="reference external" href="https://stsci.service-now.com/roman">Roman Help Desk</a>.</p>
+</section>
+<section id="how-do-i-install-and-manage-my-own-software">
+<h2>How do I install and manage my own software?<a class="headerlink" href="#how-do-i-install-and-manage-my-own-software" title="Link to this heading">#</a></h2>
+<p>When working in the Nexus, it is essential to create dedicated software environments. Running:
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package&gt;</span></code></p>
+<p>inside the default environment will not create a persistent installation; it will instead create a temporary environment that is deleted when you next log in.</p>
+<p>As part of the Roman Research Nexus (RRN), you can use helper commands to create and manage software environments. Follow the steps below to set up your own environments and install packages.</p>
+<section id="listing-environments">
+<h3>1. Listing Environments<a class="headerlink" href="#listing-environments" title="Link to this heading">#</a></h3>
+<p>To list environments, including those you have installed manually, run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">kernel-list</span></code></p>
+</section>
+<section id="making-a-requirments-txt-file">
+<h3>2. Making a requirments.txt file<a class="headerlink" href="#making-a-requirments-txt-file" title="Link to this heading">#</a></h3>
+<p>Creating an environment specification (requirements.txt) file is recommended wehen setting up a new computing environment on the RRN.</p>
+<p>The <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-environments-with-conda-export">Conda documentation</a> on exporting environments for sharing purposes gives a simple example of a requirements txt file. We show bellow an example of a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">romancal</span><span class="o">&gt;=</span><span class="mf">1.0.1</span>
+   <span class="n">roman_datamodels</span><span class="o">&gt;=</span><span class="mf">1.0.0</span>
+   <span class="n">rad</span><span class="o">&gt;=</span><span class="mf">1.0.0</span>
+   <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">astropy</span><span class="o">/</span><span class="n">astroquery</span><span class="o">.</span><span class="n">git</span><span class="nd">@refs</span><span class="o">/</span><span class="n">pull</span><span class="o">/</span><span class="mi">3593</span><span class="o">/</span><span class="n">head</span>
+   <span class="n">fsspec</span><span class="p">[</span><span class="n">s3</span><span class="p">]</span>
+   <span class="n">matplotlib</span>
+</pre></div>
+</div>
+<p>In the example specification above, there are several important things to note:</p>
+<ul class="simple">
+<li><p>Operators (e.g., &gt;, &gt;=, ==, &lt;, and &lt;=) can be used to specify package versions. Generally, packages should be specified as flexibly as possible to allow the package solver to find a solution and avoid dependency collisions. If you know you must have exactly a specific version of a package, then use the double equals sign (==) operator. If you do not specify an operator, the most recent package version possible, after accounting for dependencies and other requirements, will be used.</p></li>
+<li><p>One package (<code class="docutils literal notranslate"><span class="pre">astroquery</span></code>) is specified using the command. In this example, this will install the version of <code class="docutils literal notranslate"><span class="pre">astroquery</span></code> from a <a class="reference external" href="https://github.com/astropy/astroquery/pull/3593">GitHub pull request</a>
+(installing from the pull request is necessary to access Roman data via S3 until this change is merged and released). More pull request information on installing via <code class="docutils literal notranslate"><span class="pre">git</span></code> is available in the <a class="reference external" href="https://pip.pypa.io/en/stable/topics/vcs-support/">pip documentation</a></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fsspec</span></code> package is specified using <code class="docutils literal notranslate"><span class="pre">[s3]</span></code>. This defines extra instructions from the package maintainer. Not all packages have extras like this, but some do (e.g., <code class="docutils literal notranslate"><span class="pre">dask[complete]</span></code>). Check the documentation for the package if there are extras you need to specify, but in most casesd you will already be aware of these. Use of the <code class="docutils literal notranslate"><span class="pre">[s3]</span></code> option with <code class="docutils literal notranslate"><span class="pre">fsspec</span></code> installs additional tools for working with AWS S3 buckets.</p></li>
+</ul>
+</section>
+<section id="creating-a-conda-environment">
+<h3>3. Creating a Conda Environment<a class="headerlink" href="#creating-a-conda-environment" title="Link to this heading">#</a></h3>
+<div class="alert alert-warning" style="color:black; background-color:#ADE3FF; border-color:blue;">
+    <b>Note:</b> Installing new environments on the Nexus may take up to 20 minutes to complete. Updating packages within an existing environment is much faster.
+</div><BR>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">kernel-create</span></code> command to generate an environment for your software. You can select your desired Python version and choose a name for the environment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">kernel-create</span> <span class="pre">&lt;environment-name&gt;</span> <span class="pre">[&lt;python-version&gt;]</span> <span class="pre">[&lt;lab-display-name&gt;]</span></code></p>
+<p>The <em>environment name</em> is used in terminal commands, while <em>lab-display-name</em> is what appears when selecting a Notebook kernel.</p>
+<p><strong>Example</strong>: To create a Python 3.12 environment that will appear as “WFI Lightcurves” in Jupyter:</p>
+<p><code class="docutils literal notranslate"><span class="pre">kernel-create</span> <span class="pre">wfi-lc</span> <span class="pre">3.12</span> <span class="pre">&quot;WFI</span> <span class="pre">Lightcurves&quot;</span></code></p>
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">&lt;python-version&gt;</span></code> may be replaced with a path to a YAML file. The YAML file will then be used to build the environment. In this case the command would be:</p>
+<p><code class="docutils literal notranslate"><span class="pre">kernel-create</span> <span class="pre">wfi-lc</span> <span class="pre">./environment.yml</span> <span class="pre">&quot;WFI</span> <span class="pre">Lightcurves&quot;</span></code></p>
+<p>In the enviroment file you will add python version. Here an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">name</span><span class="p">:</span> <span class="n">wfi</span><span class="o">-</span><span class="n">lc</span>   <span class="c1"># optional</span>
+   <span class="n">channels</span><span class="p">:</span>
+       <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+   <span class="n">dependencies</span><span class="p">:</span>
+       <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.13</span>
+</pre></div>
+</div>
+<p>If using a YAML file we recommend to add <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">ipython</span></code>, <code class="docutils literal notranslate"><span class="pre">ipykernel</span></code>, and <code class="docutils literal notranslate"><span class="pre">uv</span></code> to the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code>. This will look as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">name</span><span class="p">:</span> <span class="n">wfi</span><span class="o">-</span><span class="n">lc</span>
+   <span class="n">channels</span><span class="p">:</span>
+       <span class="o">-</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+   <span class="n">dependencies</span><span class="p">:</span>
+       <span class="o">-</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.13</span>
+       <span class="o">-</span> <span class="n">pip</span>
+       <span class="o">-</span> <span class="n">ipykernel</span>    <span class="c1"># needed for a proper Jupyter kernel    </span>
+       <span class="o">-</span> <span class="n">ipython</span>              
+       <span class="o">-</span> <span class="n">uv</span>      
+</pre></div>
+</div>
+<p>These packages and their use are described in step 5 bellow.</p>
+<p>Once the environment is created, proceed to the next step.</p>
+</section>
+<section id="activating-an-environment">
+<h3>4. Activating an Environment<a class="headerlink" href="#activating-an-environment" title="Link to this heading">#</a></h3>
+<p>To install software, you must first activate the environment. Use the <em>environment name</em>, not the display name.</p>
+<p>Continuing the example above, activation would be:</p>
+<p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">kernel-activate</span> <span class="pre">wfi-lc</span></code></p>
+<p>With the environment activated, you can install software.</p>
+</section>
+<section id="install-base-tools">
+<h3>5. Install base tools<a class="headerlink" href="#install-base-tools" title="Link to this heading">#</a></h3>
+<p>If not already installed with the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file, then first install three tools needed for package managment and supporty interactive Python session. The command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--yes</span> <span class="pre">pip</span> <span class="pre">ipython</span> <span class="pre">uv</span></code></p>
+<p>These packages will be used later:</p>
+<ul class="simple">
+<li><p>pip for package management</p></li>
+<li><p>ipython for interactive Python sessions</p></li>
+<li><p>uv an extremely fast, Rust-based package management tool for use together with <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p></li>
+</ul>
+<p>Installation of <code class="docutils literal notranslate"><span class="pre">uv</span></code> is optional and can be skipped. The argument <code class="docutils literal notranslate"><span class="pre">--yes</span></code> answers any prompts with “yes” and removes the need for user interaction with the  installation process.</p>
+</section>
+<section id="installing-software">
+<h3>6. Installing Software<a class="headerlink" href="#installing-software" title="Link to this heading">#</a></h3>
+<p>Once an environment is activated, you can install your packages included in your <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> with file with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> </code></p>
+<p>if using <code class="docutils literal notranslate"><span class="pre">uv</span></code>, or</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p>
+<p>if using the usual <code class="docutils literal notranslate"><span class="pre">pip</span></code>. Make sure that the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file is in the current working directory.</p>
+<p>You can also install individual packages using simple <code class="docutils literal notranslate"><span class="pre">pip</span></code> as usual. For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">lightkurve</span></code></p>
+<p>See step 8 to learn how to export a YAML file from an existing environment.</p>
+</section>
+<section id="switching-to-a-different-environment">
+<h3>7. Switching to a Different Environment<a class="headerlink" href="#switching-to-a-different-environment" title="Link to this heading">#</a></h3>
+<p>Similar to the code block above, you can activate another defined environment using the <code class="docutils literal notranslate"><span class="pre">kernel</span> <span class="pre">source-activate</span></code> command and inputting the name of the environment. For example, upon logging into the Nexus, you may be in a different environment such as <code class="docutils literal notranslate"><span class="pre">roman_cal</span></code>. To instead activate the <code class="docutils literal notranslate"><span class="pre">wfi-lc</span></code> environment, use the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">kernel-activate</span> <span class="pre">wfi-lc1</span></code></p>
+<p>When using Jupyter notebooks, all kernels you have defined will be available regardless of the command line environment.</p>
+</section>
+<section id="exporting-an-environment">
+<h3>8. Exporting an Environment<a class="headerlink" href="#exporting-an-environment" title="Link to this heading">#</a></h3>
+<p>To export an environment for later use (e.g., after modifying the default installation), use the <code class="docutils literal notranslate"><span class="pre">kernel-export</span></code> command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">kernel-export</span> <span class="pre">&lt;environment-name&gt;</span> <span class="pre">&lt;output-file-name.yaml&gt;</span></code></p>
+<p>For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">kernel-export</span> <span class="pre">wfi-lc</span> <span class="pre">wfi-lc-specs.yaml</span></code></p>
+<p>To create an environment using this YAML file, replace the Python version in step 2 with a path to the YAML file.</p>
+</section>
+<section id="deleting-an-environment">
+<h3>9. Deleting an Environment<a class="headerlink" href="#deleting-an-environment" title="Link to this heading">#</a></h3>
+<p>To remove an environment you no longer want, use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">kernel-delete</span> <span class="pre">&lt;environment-name&gt;</span></code></p>
+<p>Example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">kernel-delete</span> <span class="pre">wfi-lc</span></code></p>
+</section>
+<section id="other-notes">
+<h3>Other Notes<a class="headerlink" href="#other-notes" title="Link to this heading">#</a></h3>
+<section id="i-want-to-use-venv">
+<h4>I want to use <code class="docutils literal notranslate"><span class="pre">venv</span></code><a class="headerlink" href="#i-want-to-use-venv" title="Link to this heading">#</a></h4>
+<p>This is supported. Use <code class="docutils literal notranslate"><span class="pre">kernel-create-venv</span></code> in place of <code class="docutils literal notranslate"><span class="pre">kernel-create</span></code> in step 1, and you will get a <a class="reference external" href="https://docs.python.org/3/library/venv.html"><strong>Python Virtual Environment</strong></a> instead.</p>
+<hr class="docutils" />
+<p><em>Last Updated: Jul 29, 2026</em></p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/roman_notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./markdown"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-software-is-pre-installed">What software is pre-installed?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-install-and-manage-my-own-software">How do I install and manage my own software?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-environments">1. Listing Environments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-requirments-txt-file">2. Making a requirments.txt file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-conda-environment">3. Creating a Conda Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-an-environment">4. Activating an Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-base-tools">5. Install base tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-software">6. Installing Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#switching-to-a-different-environment">7. Switching to a Different Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-an-environment">8. Exporting an Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-an-environment">9. Deleting an Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-notes">Other Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i-want-to-use-venv">I want to use <code class="docutils literal notranslate"><span class="pre">venv</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

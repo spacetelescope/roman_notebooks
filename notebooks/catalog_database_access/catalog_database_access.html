@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -61,32 +61,25 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/catalog_database_access/catalog_database_access';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
-  
-    
-    <script src="../../_static/searchtools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-  
-  
-  
+
   
   <dialog id="pst-search-dialog">
     
@@ -112,51 +105,7 @@
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -461,7 +410,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining terms</a></li>
@@ -498,7 +447,7 @@
 <hr class="docutils" />
 <section id="kernel-information-and-read-only-status">
 <h2>Kernel Information and Read-Only Status<a class="headerlink" href="#kernel-information-and-read-only-status" title="Link to this heading">#</a></h2>
-<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.1”.</p>
+<p>To run this notebook, please select “Roman Research Nexus {VERSION}” kernel at the top right of your window. For example “Roman Research Nexus 2026.2”.</p>
 <p>This notebook is read-only. You can run cells and make edits, but you must save changes to a different location. We recommend saving the notebook within your home directory, or to a new folder within your home (e.g. <span style="font-variant:small-caps;">file &gt; save notebook as &gt; my-nbs/nb.ipynb</span>). Note that a directory must exist before you attempt to add a notebook to it.</p>
 </section>
 <section id="introduction">
@@ -553,8 +502,13 @@ This notebook demonstrates methods of querying these catalogs from MAST database
 <section id="obtaining-information-about-roman-catalogs">
 <h3>Obtaining information about Roman Catalogs<a class="headerlink" href="#obtaining-information-about-roman-catalogs" title="Link to this heading">#</a></h3>
 <p>Roman catalogs are <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/wfi-data-levels-and-products#WFIDataLevelsandProducts-Level4-ExtractedDataLevel4">Level 4 (L4) extracted products</a>, and are produced by multiple Roman data pipelines. For full details about the data processing and detailed contents of Roman catalogs, please see <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook/roman-wfi-data-pipelines">RDox</a>.</p>
-<p>In the future, user-contributed catalogs (L5) are anticipated to be made available through similar methods; these will be documented separately.</p>
-</section>
+<p>Users can also search and explore information about Roman catalogs using <strong>MAST’s <a href="https://mast.stsci.edu/schema_browser">Catalog Schema Browser</a></strong>. The schema browser provides searchable listings of column names, units, and descriptions for a number of catalogs available at MAST. As Roman catalogs become available, their schemas will be made available through this Schema Browser.</p>
+<p>The MAST Catalog Schema Browser is <strong>integrated into RRN</strong>, and can be launched from the JupyterLab Launcher:</p>
+<p><em>Open the Launcher from the JupyterLab menu using <strong>File -&gt; New Launcher</strong>.</em></p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/Launcher_SB.jpg"><img alt="Launcher panel" src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/Launcher_SB.jpg" style="width: 300px;" />
+</a>
+<br>
+In the future, user-contributed catalogs (L5) are anticipated to be made available through similar methods; these will be documented separately.</section>
 <section id="querying-roman-catalogs-using-astroquery">
 <h3>Querying Roman Catalogs using <code class="docutils literal notranslate"><span class="pre">astroquery</span></code><a class="headerlink" href="#querying-roman-catalogs-using-astroquery" title="Link to this heading">#</a></h3>
 <p>To begin, we will query Roman catalogs using <code class="docutils literal notranslate"><span class="pre">astroquery</span></code>.</p>
@@ -570,14 +524,14 @@ The specific selection criteria we will apply are:</p>
 <li><p>Have $g-y$ colors less than 0.8  (the bluest, reddest filters for PanSTARRS)</p></li>
 </ul>
 <p>Though the specifics of the PanSTARRS and forthcoming Roman catalogs differ (in terms of filters, specific columns stemming from different processing pipelines, etc.), similar queries combining spatial, point vs. resolved source, and multiband color/magnitude criteria will be possible with Roman WFI multiband catalogs.</p>
-<p>Based on the <code class="docutils literal notranslate"><span class="pre">astroquery.mast</span></code> PanSTARRS <a class="reference external" href="https://catalogs.mast.stsci.edu/docs/panstarrs.html">catalog information</a> and the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a>,
+<p>Based on documentation about PanSTARRS catalogs — the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a>, the <code class="docutils literal notranslate"><span class="pre">astroquery.mast</span></code> PanSTARRS <a class="reference external" href="https://catalogs.mast.stsci.edu/docs/panstarrs.html">catalog information</a>, and the <a class="reference external" href="https://mast.stsci.edu/schema_browser/#/ps1_dr2/mean_object">MAST Catalog Schema Browser</a> —
 we will use the <code class="docutils literal notranslate"><span class="pre">MeanObject</span></code> catalog provided by <code class="docutils literal notranslate"><span class="pre">astroquery.mast</span></code>. This table provides relevant photometric information in the columns <code class="docutils literal notranslate"><span class="pre">gMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">iMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">yMeanPSFMag</span></code> (magnitudes optimized for point sources), and <code class="docutils literal notranslate"><span class="pre">iMeanKronMag</span></code> (used to distinguish between point and resolved sources), as well as position information (<code class="docutils literal notranslate"><span class="pre">raMean</span></code>, <code class="docutils literal notranslate"><span class="pre">decMean</span></code>).</p>
 <p>Also, with <code class="docutils literal notranslate"><span class="pre">astroquery</span></code>, we can directly filter for some of these constraints. However, we will need to post-process the returned results to apply other constraints.</p>
 <p>We first obtain the sky coordinates for NGC 6535.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resolve the position of NGC 6535</span>
-<span class="n">c0</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s2">&quot;NGC 6535&quot;</span><span class="p">)</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s2">"NGC 6535"</span><span class="p">)</span>
 <span class="n">c0</span>
 </pre></div>
 </div>
@@ -600,33 +554,35 @@ We also include constraints to limit the results to only objects with measured m
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query MAST for matching observations in </span>
 <span class="c1"># the PanSTARRS DR2 Mean catalog</span>
 <span class="n">results_aq</span> <span class="o">=</span> <span class="n">Catalogs</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span>
-    <span class="n">catalog</span><span class="o">=</span><span class="s2">&quot;Panstarrs&quot;</span><span class="p">,</span>
-    <span class="n">data_release</span><span class="o">=</span><span class="s2">&quot;dr2&quot;</span><span class="p">,</span>
-    <span class="n">table</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+    <span class="n">collection</span><span class="o">=</span><span class="s2">"ps1_dr2"</span><span class="p">,</span>
+    <span class="n">catalog</span><span class="o">=</span><span class="s2">"mean_object"</span><span class="p">,</span>
     <span class="n">coordinates</span><span class="o">=</span><span class="n">c0</span><span class="p">,</span>
     <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcmin</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;objID&quot;</span><span class="p">,</span> <span class="s2">&quot;raMean&quot;</span><span class="p">,</span><span class="s2">&quot;decMean&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;gMeanPSFMag&quot;</span><span class="p">,</span><span class="s2">&quot;iMeanPSFMag&quot;</span><span class="p">,</span><span class="s2">&quot;yMeanPSFMag&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;iMeanKronMag&quot;</span><span class="p">],</span>    <span class="c1"># List of columns to return</span>
-    <span class="n">gMeanPSFMag</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;gt&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">999</span><span class="p">)],</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
-    <span class="n">iMeanPSFMag</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;gt&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">999</span><span class="p">)],</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
-    <span class="n">yMeanPSFMag</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;gt&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">999</span><span class="p">)],</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
-    <span class="n">iMeanKronMag</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;gt&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">999</span><span class="p">)],</span>  <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">select_cols</span><span class="o">=</span><span class="p">[</span><span class="s2">"objID"</span><span class="p">,</span> <span class="s2">"raMean"</span><span class="p">,</span><span class="s2">"decMean"</span><span class="p">,</span>
+             <span class="s2">"gMeanPSFMag"</span><span class="p">,</span><span class="s2">"iMeanPSFMag"</span><span class="p">,</span><span class="s2">"yMeanPSFMag"</span><span class="p">,</span>
+             <span class="s2">"iMeanKronMag"</span><span class="p">],</span>    <span class="c1"># List of columns to return</span>
+    <span class="n">gMeanPSFMag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">iMeanPSFMag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">yMeanPSFMag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">iMeanKronMag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>  <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
 <span class="p">)</span>
+
+<span class="c1"># Note: the returned table column names are all lower case, </span>
+<span class="c1"># which we use below.</span>
 
 <span class="c1"># Post-process cuts:</span>
 <span class="c1"># 1. Distinguish stars from extended objects using</span>
 <span class="c1">#    difference of PSF, Kron magnitudes</span>
 <span class="n">results_aq</span> <span class="o">=</span> <span class="n">results_aq</span><span class="p">[</span>
-    <span class="p">(</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;iMeanPSFMag&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;iMeanKronMag&#39;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mf">0.05</span>
+    <span class="p">(</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">'imeanpsfmag'</span><span class="p">]</span> <span class="o">-</span> <span class="n">results_aq</span><span class="p">[</span><span class="s1">'imeankronmag'</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mf">0.05</span>
 <span class="p">]</span>
 
 <span class="c1"># 2. Apply color, magnitude cuts</span>
 <span class="c1"># Copy original catalog for reference:</span>
 <span class="n">results_aq_all</span> <span class="o">=</span> <span class="n">results_aq</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">results_aq</span> <span class="o">=</span> <span class="n">results_aq</span><span class="p">[</span>
-    <span class="p">((</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;gMeanPSFMag&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;yMeanPSFMag&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.8</span><span class="p">)</span> 
-    <span class="o">&amp;</span> <span class="p">(</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;iMeanPSFMag&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">)</span>
+    <span class="p">((</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">'gmeanpsfmag'</span><span class="p">]</span> <span class="o">-</span> <span class="n">results_aq</span><span class="p">[</span><span class="s1">'ymeanpsfmag'</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.8</span><span class="p">)</span> 
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">'imeanpsfmag'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">)</span>
 <span class="p">]</span>
 
 <span class="c1"># Final sample selection</span>
@@ -635,21 +591,22 @@ We also include constraints to limit the results to only objects with measured m
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div><i>Table masked=True length=11</i>
-<table id="table140121800880160" class="table-striped table-bordered table-condensed">
-<thead><tr><th>objID</th><th>raMean</th><th>decMean</th><th>gMeanPSFMag</th><th>iMeanPSFMag</th><th>yMeanPSFMag</th><th>iMeanKronMag</th></tr></thead>
-<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.441299438476562</td><td>16.227399826049805</td><td>16.039400100708008</td><td>16.18600082397461</td></tr>
-<tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.256999969482422</td><td>16.015300750732422</td><td>15.856499671936035</td><td>16.000900268554688</td></tr>
-<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.464500427246094</td><td>16.194299697875977</td><td>16.032499313354492</td><td>16.24020004272461</td></tr>
-<tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.447200775146484</td><td>17.333200454711914</td><td>17.336599349975586</td><td>17.46820068359375</td></tr>
-<tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.654499053955078</td><td>16.470300674438477</td><td>16.359500885009766</td><td>16.436100006103516</td></tr>
-<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.36639976501465</td><td>16.102699279785156</td><td>15.92140007019043</td><td>16.158100128173828</td></tr>
-<tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.076499938964844</td><td>16.768299102783203</td><td>16.63520050048828</td><td>16.750900268554688</td></tr>
-<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.925399780273438</td><td>16.762800216674805</td><td>16.702299118041992</td><td>16.884599685668945</td></tr>
-<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.86199951171875</td><td>16.69300079345703</td><td>16.6112003326416</td><td>16.781299591064453</td></tr>
-<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.11750030517578</td><td>16.989999771118164</td><td>16.94890022277832</td><td>17.06839942932129</td></tr>
-<tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.10580062866211</td><td>15.742500305175781</td><td>15.529999732971191</td><td>15.738699913024902</td></tr>
+<div class="output text_html"><div><i>Table length=11</i>
+<table id="table140618844453248" class="table-striped table-bordered table-condensed">
+<thead><tr><th>objid</th><th>ramean</th><th>decmean</th><th>gmeanpsfmag</th><th>imeanpsfmag</th><th>ymeanpsfmag</th><th>imeankronmag</th></tr></thead>
+<thead><tr><th></th><th>deg</th><th>deg</th><th>mag</th><th>mag</th><th>mag</th><th>mag</th></tr></thead>
+<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
+<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
+<tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.6545</td><td>16.4703</td><td>16.3595</td><td>16.4361</td></tr>
+<tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.0765</td><td>16.7683</td><td>16.6352</td><td>16.7509</td></tr>
+<tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.4472</td><td>17.3332</td><td>17.3366</td><td>17.4682</td></tr>
+<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
+<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
+<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
+<tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.257</td><td>16.0153</td><td>15.8565</td><td>16.0009</td></tr>
+<tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.1058</td><td>15.7425</td><td>15.53</td><td>15.7387</td></tr>
+<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
+<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
 </table></div></div></div>
 </div>
 <p>We visualize our results by plotting a $g-y$ vs $i$ color-magnitude diagram.</p>
@@ -661,24 +618,24 @@ We also include constraints to limit the results to only objects with measured m
 
 <span class="c1"># Stars meeting the color/magnitude cuts</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-    <span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;gMeanPSFMag&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;yMeanPSFMag&#39;</span><span class="p">],</span>
-    <span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;iMeanPSFMag&#39;</span><span class="p">],</span> 
-    <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Bright blue stars&#39;</span><span class="p">,</span>
+    <span class="n">results_aq</span><span class="p">[</span><span class="s1">'gmeanpsfmag'</span><span class="p">]</span><span class="o">-</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">'ymeanpsfmag'</span><span class="p">],</span>
+    <span class="n">results_aq</span><span class="p">[</span><span class="s1">'imeanpsfmag'</span><span class="p">],</span> 
+    <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">'Bright blue stars'</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="c1"># Plot the full set of stars for comparison</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-    <span class="n">results_aq_all</span><span class="p">[</span><span class="s1">&#39;gMeanPSFMag&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">results_aq_all</span><span class="p">[</span><span class="s1">&#39;yMeanPSFMag&#39;</span><span class="p">],</span>
-    <span class="n">results_aq_all</span><span class="p">[</span><span class="s1">&#39;iMeanPSFMag&#39;</span><span class="p">],</span> 
-    <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;All stars in region&#39;</span><span class="p">,</span>
+    <span class="n">results_aq_all</span><span class="p">[</span><span class="s1">'gmeanpsfmag'</span><span class="p">]</span><span class="o">-</span><span class="n">results_aq_all</span><span class="p">[</span><span class="s1">'ymeanpsfmag'</span><span class="p">],</span>
+    <span class="n">results_aq_all</span><span class="p">[</span><span class="s1">'imeanpsfmag'</span><span class="p">],</span> 
+    <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s1">'All stars in region'</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;g-y, PSF Mag&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;i, PSF Mag&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"g-y, PSF Mag"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"i, PSF Mag"</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># Invert for correct magnitude order</span>
 </pre></div>
@@ -688,7 +645,7 @@ We also include constraints to limit the results to only objects with measured m
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(21.140229082107545, 12.911569738388062)
 </pre></div>
 </div>
-<img alt="../../_images/2167e4d8a72371796762df6d13d65332b4220e1c6074e19023f14cb280aa421a.png" src="../../_images/2167e4d8a72371796762df6d13d65332b4220e1c6074e19023f14cb280aa421a.png" />
+<img alt="../../_images/361bab9d7b5f1c264b45b127d93dbaf7c5975c066c2fb8d2d21e657520836393.png" src="../../_images/361bab9d7b5f1c264b45b127d93dbaf7c5975c066c2fb8d2d21e657520836393.png" />
 </div>
 </div>
 </section>
@@ -697,39 +654,20 @@ We also include constraints to limit the results to only objects with measured m
 <p>It is also possible to access Roman catalogs via a TAP service at MAST, by submitting queries written in <a class="reference external" href="http://www.ivoa.net/documents/latest/ADQL.html">ADQL</a>. A benefit of constructing queries in the SQL-like language ADQL is that we can specify advanced query patterns, such as comparison constraints and derived constraints (i.e., as needed to apply the star/resolved and color criteria in this example), directly in the query. This makes it possible get the sample of interest in one query, avoiding a two step process where we load a larger sample into memory and then perform final cuts in our notebook.</p>
 <p>For this second demonstration, we will apply the same selection criteria as above to select bright, blue stars near NGC 6535 from the PanSTARRS DR2 catalog.</p>
 <p>First, we connect to the MAST PanSTARRS DR2 TAP service.</p>
+<p><em>(Note: A full list of MAST TAP services is available via <a class="reference external" href="https://mast.stsci.edu/vo-tap/">https://mast.stsci.edu/vo-tap/</a>.)</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use `pyvo` to connect to the MAST PanSTARRS TAP service:</span>
 <span class="n">TAP_service</span> <span class="o">=</span> <span class="n">vo</span><span class="o">.</span><span class="n">dal</span><span class="o">.</span><span class="n">TAPService</span><span class="p">(</span>
-    <span class="s2">&quot;https://mast.stsci.edu/vo-tap/api/v0.1/mast_catalogs/&quot;</span>
+    <span class="s2">"https://mast.stsci.edu/vo-tap/api/v0.1/mast_catalogs/"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Again, we will access the mean object catalog (<code class="docutils literal notranslate"><span class="pre">mean_object</span></code> here; see the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a>), which contains all the columns we will need.</p>
-<p>Note that it is possible to use the TAP service to directly access catalog/table
-schemas, which describe the tables and columns.
-An example of this is provided here, commented out as we have pre-identified
-the relevent columns from the documentation</p>
-<p>An overview description of methods, capabilities, and
-maximum result set sizes is available via:</p>
+<p>Again, we will access the mean object catalog (<code class="docutils literal notranslate"><span class="pre">mean_object</span></code> here; see the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a> and <a class="reference external" href="https://mast.stsci.edu/schema_browser/#/ps1_dr2/mean_object">MAST Catalog Schema Browser</a>), which contains all the columns we will need.</p>
+<p><em>Note:</em> As a reference when constructing queries, an overview description of methods, capabilities, and maximum result set sizes is available via:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TAP_service</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Additionally, the <code class="docutils literal notranslate"><span class="pre">pyvo</span></code> TAPService class objects contain
-metadata information about the full catalog schema, including tables and columns.
-It’s possible to iterate through the tables and print column names
-as in this code snippet (here, only printing columns for the <code class="docutils literal notranslate"><span class="pre">mean_object</span></code> table).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TAP_tables</span> <span class="o">=</span> <span class="n">TAP_service</span><span class="o">.</span><span class="n">tables</span>
-<span class="k">for</span> <span class="n">tablename</span> <span class="ow">in</span> <span class="n">TAP_tables</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="c1"># This can be refined by table name to print columns only for subsets of tables.</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">tablename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;ps1_dr2.mean_object&quot;</span><span class="p">)):</span>  <span class="c1"># Include only PS1 tables </span>
-        <span class="c1">####</span>
-        <span class="c1"># The table descriptions only include an overview, so this also prints the column names</span>
-        <span class="n">TAP_tables</span><span class="p">[</span><span class="n">tablename</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span> 
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sorted</span><span class="p">([</span><span class="n">k</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">TAP_tables</span><span class="p">[</span><span class="n">tablename</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">])))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We now construct our query, including the color/magnitude constraints and
@@ -745,20 +683,21 @@ This includes:</p>
 <li><p>the $g-y$ color and $i$ magnitude cuts.</p></li>
 </ul>
 <p>We then submit this query to the TAP service, and retrieve and display the table with the query results.</p>
+<p><em>(Note: This MAST PanSTARRS TAP service, and the Roman catalog TAP service, are case-insensitive for column names.)</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query MAST for matching observations in </span>
 <span class="c1"># the PanSTARRS DR2 mean catalog</span>
 
-<span class="c1"># Note: ADQL comments are preceded by &quot;--&quot;</span>
-<span class="n">adql_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="c1"># Note: ADQL comments are preceded by "--"</span>
+<span class="n">adql_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
 <span class="s2">SELECT objid, ramean, decmean, </span>
 <span class="s2">    gmeanpsfmag, imeanpsfmag, ymeanpsfmag, </span>
 <span class="s2">    imeankronmag</span>
 <span class="s2">FROM mean_object</span>
 <span class="s2">WHERE CONTAINS(</span>
-<span class="s2">    POINT(&#39;ICRS&#39;, ramean, decmean),</span>
-<span class="s2">    CIRCLE(&#39;ICRS&#39;,</span><span class="si">{</span><span class="n">c0</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">deg</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">c0</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">deg</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="p">(</span><span class="mf">1.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcmin</span><span class="p">)</span><span class="o">.</span><span class="n">to_value</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span><span class="si">}</span><span class="s2">)          </span>
+<span class="s2">    POINT('ICRS', ramean, decmean),</span>
+<span class="s2">    CIRCLE('ICRS',</span><span class="si">{</span><span class="n">c0</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">deg</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">c0</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">deg</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="p">(</span><span class="mf">1.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcmin</span><span class="p">)</span><span class="o">.</span><span class="n">to_value</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span><span class="si">}</span><span class="s2">)          </span>
 <span class="s2">)=1                                       -- 1.5 arcmin around NGC 6535</span>
 <span class="s2">AND gmeanpsfmag &gt; -999                    -- mag &gt; -999; missing magnitudes are -999</span>
 <span class="s2">AND imeanpsfmag &gt; -999                    -- mag &gt; -999; missing magnitudes are -999</span>
@@ -767,7 +706,7 @@ This includes:</p>
 <span class="s2">AND (imeanpsfmag - imeankronmag) &lt;= 0.05  -- distinguish stars from extended objects</span>
 <span class="s2">AND (gmeanpsfmag-ymeanpsfmag) &lt; 0.8       -- color cut</span>
 <span class="s2">AND imeanpsfmag &lt; 18                      -- magnitude cut</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">"""</span>
 
 <span class="c1"># Submit query to the MAST TAP service:</span>
 <span class="n">job</span> <span class="o">=</span> <span class="n">TAP_service</span><span class="o">.</span><span class="n">run_async</span><span class="p">(</span><span class="n">adql_query</span><span class="p">)</span>
@@ -781,26 +720,26 @@ This includes:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/pyvo/dal/query.py:404: DALOverflowWarning: Results truncated due to server limits. Consider setting a maxrec value.
-  warn(&quot;Results truncated due to server limits. Consider &quot;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/pyvo/dal/query.py:403: DALOverflowWarning: Results truncated due to server limits. Consider setting a maxrec value.
+  warn("Results truncated due to server limits. Consider "
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=11</i>
-<table id="table140121800006640" class="table-striped table-bordered table-condensed">
+<table id="table140618772123712" class="table-striped table-bordered table-condensed">
 <thead><tr><th>objid</th><th>ramean</th><th>decmean</th><th>gmeanpsfmag</th><th>imeanpsfmag</th><th>ymeanpsfmag</th><th>imeankronmag</th></tr></thead>
 <thead><tr><th></th><th>deg</th><th>deg</th><th>mag</th><th>mag</th><th>mag</th><th>mag</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
-<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
 <tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
-<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
 <tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
-<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
-<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
-<tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.257</td><td>16.0153</td><td>15.8565</td><td>16.0009</td></tr>
-<tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.1058</td><td>15.7425</td><td>15.53</td><td>15.7387</td></tr>
-<tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.0765</td><td>16.7683</td><td>16.6352</td><td>16.7509</td></tr>
 <tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.4472</td><td>17.3332</td><td>17.3366</td><td>17.4682</td></tr>
 <tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.6545</td><td>16.4703</td><td>16.3595</td><td>16.4361</td></tr>
+<tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.257</td><td>16.0153</td><td>15.8565</td><td>16.0009</td></tr>
+<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
+<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
+<tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.0765</td><td>16.7683</td><td>16.6352</td><td>16.7509</td></tr>
+<tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.1058</td><td>15.7425</td><td>15.53</td><td>15.7387</td></tr>
+<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
+<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
 </table></div></div></div>
 </div>
 <p>By leveraging the advanced usage patterns possible with AQDL, this single TAP query returns the same results as our two-step <code class="docutils literal notranslate"><span class="pre">astroquery</span></code> example where we first queried and then applied the final cuts.</p>
@@ -809,10 +748,10 @@ This includes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort both by objid</span>
-<span class="n">results_aq</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;objID&#39;</span><span class="p">)</span>
-<span class="n">results_tap</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;objid&#39;</span><span class="p">)</span>
+<span class="n">results_aq</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">'objid'</span><span class="p">)</span>
+<span class="n">results_tap</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">'objid'</span><span class="p">)</span>
 <span class="c1"># Check the ID lists are the same:</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">&#39;objID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">results_tap</span><span class="p">[</span><span class="s1">&#39;objid&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">'objid'</span><span class="p">]</span> <span class="o">==</span> <span class="n">results_tap</span><span class="p">[</span><span class="s1">'objid'</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -865,7 +804,7 @@ This includes:</p>
 <h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
 <p>The information about TAP access is based on the TIKE MAST PanSTARRS DR2 TAP notebook by Rick White &amp; Theresa Dower, with edits from T. Dutkiewicz.</p>
 <p><strong>Author:</strong>  Sedona Price<br />
-<strong>Updated On:</strong> 2026-04-08</p>
+<strong>Updated On:</strong> 2026-08-03</p>
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
@@ -890,16 +829,16 @@ This includes:</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "roman-cal"
+            mode: "roman_cal"
         },
         kernelOptions: {
-            name: "roman-cal",
+            name: "roman_cal",
             path: "./notebooks/catalog_database_access"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'roman-cal'</script>
+    <script>kernelName = 'roman_cal'</script>
 
                 </article>
               
@@ -928,7 +867,7 @@ This includes:</p>
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-information-and-read-only-status">Kernel Information and Read-Only Status</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-terms">Defining terms</a></li>
@@ -997,8 +936,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
