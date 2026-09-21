@@ -53,6 +53,21 @@ install_files:
     environment_variable: PYSYN_CDBS
     install_path: ${HOME}/refdata/
     data_path: grp/redcat/trds/
+# Configuration baseline for Straylight cache and users/consumers.
+remote_data:
+  roman_straylight_cache:
+    cache_dir: https://archive.stsci.edu/missions/roman/simulations/straylight/sl_cache/
+    cache_version: R2025.9 # Pandeia release that produced the cache
+  healpix:
+    nside: 128
+    ordering: RING # nest=False
+  generator: generate_stray_light_with_threads.c
+  wave_file: std_spectrum_wavelengths.txt
+  thermal_file: thermal_curve_roman_rryan_v1.0.csv
+  consumers:
+    - notebooks/pandeia
+    - notebooks/background_visualization_tool
+# End of Straylight cache configuration
 # Add environment variables that do not require an data download
 # and install. For each variable, the name of the variable is given
 # followed by a value.

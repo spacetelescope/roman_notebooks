@@ -251,6 +251,17 @@ def setup_env(result, dependencies=None, verbose=True):
             )
 
 
+def get_remote_data(name, dependencies=None):
+    """Return one remote-data product from refdata_dependencies.yaml."""
+    manifest = _load_yaml(dependencies)
+    try:
+        return manifest["remote_data"][name]
+    except (KeyError, TypeError) as exc:
+        raise KeyError(
+            f"{name!r} not found under remote_data in refdata_dependencies.yaml"
+        ) from exc
+
+
 if __name__ == "__main__":
     installation_result = install_files()
     setup_env(installation_result)
