@@ -23,6 +23,40 @@ from astropy import units as u
 __version__ = "no_version_info"
 
 import tgt_vis
+from notebook_data_dependencies import get_remote_data
+
+_CACHE = get_remote_data("roman_straylight_cache")
+_HEALPIX = get_remote_data("healpix")
+
+
+def validate_reference_data(wave_path=None, thermal_path=None):
+    """Read and validate the spectral grids before starting the Bokeh app."""
+    refdata = Path(__file__).parent / "refdata"
+    wave_path = Path(wave_path) if wave_path is not None else refdata / get_remote_data("wave_file")
+    thermal_path = Path(thermal_path) if thermal_path is not None else refdata / get_remote_data("thermal_file")
+
+    def read_table(path):
+        try:
+            return np.loadtxt(path, delimiter="," if path == thermal_path else None, ndmin=2)
+        except (OSError, ValueError) as exc:
+            raise ValueError(
+                f"Cannot read reference file {path}. Restore the refdata files "
+                "from the same repository release as this notebook."
+            ) from exc
+
+    wave = read_table(wave_path)
+    thermal = read_table(thermal_path)
+    for path, table, columns in [(wave_path, wave, 1), (thermal_path, thermal, 2)]:
+        if (table.shape[1] != columns or table.shape[0] < 2
+                or not np.isfinite(table).all()
+                or not np.all(np.diff(table[:, 0]) > 0)):
+            raise ValueError(
+                f"Invalid reference file {path}: expected at least two rows, "
+                f"{columns} numeric column(s), finite values, and strictly "
+                "increasing wavelengths. Restore the refdata files from the "
+                "same repository release as this notebook."
+            )
+    return wave[:, 0], thermal[:, 0], thermal[:, 1]
 
 
 class background:
@@ -44,16 +78,20 @@ class background:
 
     def __init__(self, ra, dec, wavelength, thresh=1.1):
         # Remote source (no local caching)
-        self.remote_dir = "https://archive.stsci.edu/missions/roman/simulations/straylight/sl_cache/"
-        self.cache_version = "2025.5"
+        self.remote_dir = _CACHE["cache_dir"]
+        self.cache_version = str(_CACHE["cache_version"])
 
         # Static refdata (still read from local repo files)
         self.local_path = Path(__file__).parent / "refdata"
-        self.wave_file = "std_spectrum_wavelengths.txt"
-        self.thermal_file = "thermal_curve_roman_rryan_v1.0.csv"
+        self.wave_file = get_remote_data("wave_file")
+        self.thermal_file = get_remote_data("thermal_file")
 
         # Healpix details used by cache partitioning
-        self.nside = 128
+        self.nside = int(_HEALPIX["nside"])
+        ordering = str(_HEALPIX["ordering"]).upper()
+        if ordering not in {"RING", "NESTED"}:
+            raise ValueError("HEALPix ordering must be RING or NESTED.")
+        self.nest = ordering == "NESTED"
 
         # Load static spectral grids / thermal background
         self.abs_wave_array, self.thermal_wave_array, self.thermal_bg = self.read_static_data()
@@ -79,17 +117,16 @@ class background:
 
     def myfile_from_healpix(self, ra, dec):
         """Map (RA, DEC) to the cache file path via healpix indexing."""
-        healpix_idx = healpy.pixelfunc.ang2pix(self.nside, ra, dec, nest=False, lonlat=True)
+        healpix_idx = healpy.pixelfunc.ang2pix(self.nside, ra, dec, nest=self.nest, lonlat=True)
         healpix_str_pad = str(healpix_idx).zfill(6)
         return f"{healpix_str_pad[0:4]}/sl_pix_{healpix_str_pad}.bin"
 
     def read_static_data(self):
         """Load static wavelength grid and thermal curve from refdata."""
-        abs_wave_array = np.loadtxt(self.local_path / self.wave_file)
-        thermal = np.transpose(np.genfromtxt(self.local_path / self.thermal_file, delimiter=","))
-        thermal_wave_array = thermal[0]
-        thermal_flux = thermal[1]
-        return abs_wave_array, thermal_wave_array, thermal_flux
+        return validate_reference_data(
+            self.local_path / self.wave_file,
+            self.local_path / self.thermal_file,
+        )
 
     # ---------- Remote cache reading ----------
 
