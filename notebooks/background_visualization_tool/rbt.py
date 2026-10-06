@@ -11,6 +11,7 @@ intentionally contains **no plotting code**.
 import io
 import copy
 import urllib.request
+from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 
 import healpy
@@ -23,7 +24,26 @@ from astropy import units as u
 __version__ = "no_version_info"
 
 import tgt_vis
-from notebook_data_dependencies import get_remote_data
+
+try:
+    from notebook_data_dependencies import get_remote_data
+except ModuleNotFoundError as exc:
+    if exc.name != "notebook_data_dependencies":
+        raise
+    # A full repository checkout can use the shared helper without installing
+    # the repository package or adding a copy/symlink to this notebook folder.
+    helper_path = Path(__file__).resolve().parents[2] / "shared" / "notebook_data_dependencies.py"
+    if not helper_path.is_file():
+        raise ModuleNotFoundError(
+            "RBVT needs the repository's shared/notebook_data_dependencies.py. "
+            "Clone the full roman_notebooks repository, or install its helper "
+            "package with 'pip install -e /path/to/roman_notebooks' and set "
+            "ROMAN_REFDATA_MANIFEST to that release's refdata_dependencies.yaml."
+        ) from exc
+    helper_spec = spec_from_file_location("_rbvt_data_dependencies", helper_path)
+    helper_module = module_from_spec(helper_spec)
+    helper_spec.loader.exec_module(helper_module)
+    get_remote_data = helper_module.get_remote_data
 
 _CACHE = get_remote_data("roman_straylight_cache")
 _HEALPIX = get_remote_data("healpix")
