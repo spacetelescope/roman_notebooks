@@ -224,6 +224,20 @@ class background:
         # Base total = static (nonzodi + thermal) + zodi(day)
         total_bg = np.tile(nonzodi_bg_int + self.thermal_bg, (Ndays, 1)) + zodi_bgs_int
 
+        # Apply NIRCam-informed modification to total and components
+        for dd in range(Ndays):
+            if dd == 0:
+                mod_wave_array, mod_total_bg_first = self.modify_background(total_bg[dd])
+                mod_total_bg = np.zeros((Ndays, len(mod_total_bg_first)))
+                mod_total_bg[dd] = mod_total_bg_first
+            else:
+                _, mod_total_bg[dd] = self.modify_background(total_bg[dd])
+
+        mod_zodi_bgs_int = np.zeros((Ndays, self.sl_thermal_nwave))
+        for dd in range(Ndays):
+            _, mod_zodi_bgs_int[dd] = self.modify_background(zodi_bgs_int[dd])
+        _, mod_nonzodi_flux = self.modify_background(nonzodi_bg_int)
+
         return {
             "calendar": np.array(calendar),      # day-of-year indices present in the cache
             "ra": ra,
@@ -233,11 +247,31 @@ class background:
             "nonzodi_bg": nonzodi_bg_int,
             "thermal_bg": self.thermal_bg,
             "zodi_bg": zodi_bgs_int,
-            "total_bg": total_bg,
+            "total_bg": mod_total_bg,
+            "mod_zodi_bg": mod_zodi_bgs_int,
+            "mod_nonzodi_bg": mod_nonzodi_flux,
         }
 
     # ---------- Spectral modification / interpolation ----------
+    def modify_background(self, bg_flux):
+        """
+        E. Han's modification to incorporate NIRCam measurements.
+        Returns (modified_wavelength_grid, modified_flux_interpolated_to_thermal_grid).
+        """
+        bg_wvl_to_mod = self.thermal_wave_array
+        bg_flux_to_mod = copy.deepcopy(bg_flux)
 
+        # Smooth the hard 0.5 μm cutoff to 0.4–0.5 μm
+        first_pass = np.where((bg_wvl_to_mod >= 0.4) & (bg_wvl_to_mod <= 0.5))[0]
+        if first_pass.size > 1:
+            bg_flux_to_mod[first_pass] = np.interp(
+                bg_wvl_to_mod[first_pass],
+                [bg_wvl_to_mod[first_pass[0]], bg_wvl_to_mod[first_pass[-1]]],
+                [bg_flux_to_mod[first_pass[0]], bg_flux_to_mod[first_pass[-1]]],
+            )
+
+        return bg_wvl_to_mod, bg_flux_to_mod
+    
 
     def interpolate_spec(self, wave, specin, new_wave, fill=np.nan):
         """Interpolate spectral data to a new wavelength grid."""
