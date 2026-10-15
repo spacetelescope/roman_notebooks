@@ -218,28 +218,17 @@ class background:
             self.abs_wave_array, nonzodi_bg_flux, self.thermal_wave_array, fill=0.0
         )
 
-        # Base total = static (nonzodi + thermal) + zodi(day)
-        total_bg = np.tile(nonzodi_bg_int + self.thermal_bg, (Ndays, 1)) + zodi_bgs_int
-
-        # Base total = static (nonzodi + thermal) + zodi(day)
-        total_bg = np.tile(nonzodi_bg_int + self.thermal_bg, (Ndays, 1)) + zodi_bgs_int
-
-        # Apply NIRCam-informed modification to total and components
+        # Smooth the hard 0.5 μm cutoff on the cache-derived components
+        # (NIRCam ratio corrections are already in the R2025.9+ cache).
         for dd in range(Ndays):
-            if dd == 0:
-                mod_wave_array, mod_total_bg_first = self.modify_background(total_bg[dd])
-                mod_total_bg = np.zeros((Ndays, len(mod_total_bg_first)))
-                mod_total_bg[dd] = mod_total_bg_first
-            else:
-                _, mod_total_bg[dd] = self.modify_background(total_bg[dd])
+            _, zodi_bgs_int[dd] = self.modify_background(zodi_bgs_int[dd])
+        _, nonzodi_bg_int = self.modify_background(nonzodi_bg_int)
 
-        mod_zodi_bgs_int = np.zeros((Ndays, self.sl_thermal_nwave))
-        for dd in range(Ndays):
-            _, mod_zodi_bgs_int[dd] = self.modify_background(zodi_bgs_int[dd])
-        _, mod_nonzodi_flux = self.modify_background(nonzodi_bg_int)
+        # Total = smoothed non-zodi + thermal + smoothed zodi
+        total_bg = np.tile(nonzodi_bg_int + self.thermal_bg, (Ndays, 1)) + zodi_bgs_int
 
         return {
-            "calendar": np.array(calendar),      # day-of-year indices present in the cache
+            "calendar": np.array(calendar),
             "ra": ra,
             "dec": dec,
             "pos": pos,
@@ -247,9 +236,7 @@ class background:
             "nonzodi_bg": nonzodi_bg_int,
             "thermal_bg": self.thermal_bg,
             "zodi_bg": zodi_bgs_int,
-            "total_bg": mod_total_bg,
-            "mod_zodi_bg": mod_zodi_bgs_int,
-            "mod_nonzodi_bg": mod_nonzodi_flux,
+            "total_bg": total_bg,
         }
 
     # ---------- Spectral modification / interpolation ----------
