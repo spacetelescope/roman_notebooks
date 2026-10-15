@@ -733,6 +733,13 @@ def plot_rbt(doc):
         selected_filter_label.text = f"Optical element: {selected}"
         selected_filter_label.visible = not show_all
 
+        # Spectrum plot (always independent of “show all filters”)
+        spectrum_total.visible   = want_total
+        spectrum_zodi.visible    = want_zodi
+        spectrum_thermal.visible = want_thermal
+        spectrum_ism.visible     = want_ism
+
+
         _refresh_bathtub_legend()
         _refresh_violin_legend()
         _autoscale_violin_y()
