@@ -223,8 +223,10 @@ class background:
         for dd in range(Ndays):
             _, zodi_bgs_int[dd] = self.modify_background(zodi_bgs_int[dd])
         _, nonzodi_bg_int = self.modify_background(nonzodi_bg_int)
+        # _, thermal_bg_smoothed = self.modify_background(self.thermal_bg)  # scaling the thermal component. Not done now.
 
         # Total = smoothed non-zodi + thermal + smoothed zodi
+        # total_bg = np.tile(nonzodi_bg_int + thermal_bg_smoothed, (Ndays, 1)) + zodi_bgs_int
         total_bg = np.tile(nonzodi_bg_int + self.thermal_bg, (Ndays, 1)) + zodi_bgs_int
 
         return {
