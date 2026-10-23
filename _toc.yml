@@ -1,9 +1,13 @@
 format: jb-book
 root: README
 chapters:
+- file: notebooks/catalog_database_access/catalog_database_access
 - file: notebooks/data_discovery_and_access/data_discovery_and_access
+- file: notebooks/ccs_simulations/ccs_simulations
+- file: notebooks/target_visibility_tool/target_visibility_tool
 - file: notebooks/working_with_asdf/working_with_asdf
 - file: notebooks/data_visualization/data_visualization
+- file: notebooks/crds_reference_files/crds_reference_files
 - file: notebooks/romanisim/romanisim
 - file: notebooks/exposure_pipeline/exposure_pipeline
 - file: notebooks/mosaic_pipeline/mosaic_pipeline
@@ -20,3 +24,4 @@ chapters:
 - file: notebooks/footprint_visualization/footprint_visualization
 - file: notebooks/background_visualization_tool/RBVT
 - file: notebooks/time_domain_simulations/time_domain_simulations
+- file: notebooks/time_domain_analysis/time_domain_analysis
