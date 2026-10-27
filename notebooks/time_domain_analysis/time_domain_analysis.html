@@ -63,6 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/time_domain_analysis/time_domain_analysis';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="The Roman Background Visualization Tool (RBVT)" href="../background_visualization_tool/RBVT.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -113,8 +114,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -168,10 +167,14 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../catalog_database_access/catalog_database_access.html">Roman Research Nexus Catalog Database access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ccs_simulations/ccs_simulations.html">Core Community Survey Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../target_visibility_tool/roman_target_visibility_tool.html">Roman Target Visibility Tool (RTVT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crds_reference_files/crds_reference_files.html">Understanding CRDS and How to Select Calibration Reference Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -188,6 +191,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Time Domain Analysis: Photometry of Simulated Transients</a></li>
 </ul>
 
     </div>
@@ -706,9 +710,7 @@ Reference data paths set to:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No files matching 'roman_sn1a_*_*.asdf' were found in /home/runner/work/roman_notebooks/roman_notebooks/notebooks/time_domain_analysis. Creating lightweight demo cutouts instead.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://sncosmo.github.io/data/models/salt3-nir/salt3nir-p22.tar.gz
+Downloading https://sncosmo.github.io/data/models/salt3-nir/salt3nir-p22.tar.gz
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [Done]
@@ -821,7 +823,7 @@ Refined cutout source position: (150.47, 149.57)
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140529267073232" class="table-striped table-bordered table-condensed">
+<table id="table140096224794960" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th></tr></thead>
 <tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td></tr>
@@ -969,14 +971,14 @@ Refined cutout source position: (150.47, 149.57)
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140529224909840" class="table-striped table-bordered table-condensed">
+<table id="table140096131469296" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>raw_flux</th><th>background_per_pixel</th><th>background_total</th><th>aperture_flux</th><th>aperture_flux_err</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>65.40967691164082</td><td>1.1445989608764648</td><td>32.362773181164115</td><td>40.77686526507198</td><td>1.8954132676836153</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>100.63278295644182</td><td>1.1394889950752258</td><td>32.21829230197271</td><td>84.41724194037138</td><td>1.9067792928501341</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>155.06791300509246</td><td>1.1276179552078247</td><td>31.88264655723162</td><td>151.9993840740358</td><td>1.898063391381031</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>222.10938567676408</td><td>1.1375049352645874</td><td>32.16219433244425</td><td>234.37751058605602</td><td>1.9221055330802854</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>296.9062145341124</td><td>1.1380136013031006</td><td>32.176576525851765</td><td>326.65222947282774</td><td>1.924037495716232</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>65.4096769116408</td><td>1.1445989608764648</td><td>32.362773181164115</td><td>40.77686526507196</td><td>1.895413267683614</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>100.6327829564418</td><td>1.1394889950752258</td><td>32.21829230197271</td><td>84.41724194037135</td><td>1.9067792928501341</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>155.06791300509246</td><td>1.1276179552078247</td><td>31.88264655723162</td><td>151.99938407403576</td><td>1.8980633913810305</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>222.10938567676405</td><td>1.1375049352645874</td><td>32.16219433244425</td><td>234.37751058605596</td><td>1.9221055330802863</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>296.90621453411234</td><td>1.1380136013031006</td><td>32.176576525851765</td><td>326.6522294728276</td><td>1.9240374957162327</td></tr>
 </table></div></div></div>
 </div>
 </section>
@@ -1137,7 +1139,7 @@ $$</p>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 1/9 centroid: (np.float64(201.1861484784975), np.float64(201.53324686097415))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 1/9 centroid: (np.float64(201.18614847849747), np.float64(201.53324686097412))
     Position 2/9: (0, 2048) pixels
 </pre></div>
 </div>
@@ -1205,15 +1207,15 @@ $$</p>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 3/9 centroid: (np.float64(201.0791296251614), np.float64(201.51704892115737))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 3/9 centroid: (np.float64(201.0791296251613), np.float64(201.5170489211573))
     Position 4/9: (2048, 0) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 4/9 centroid: (np.float64(201.1922226809663), np.float64(201.62229933057256))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 4/9 centroid: (np.float64(201.19222268096635), np.float64(201.62229933057256))
     Position 5/9: (2048, 2048) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 5/9 centroid: (np.float64(201.13401916890652), np.float64(201.63039878629877))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 5/9 centroid: (np.float64(201.13401916890646), np.float64(201.63039878629866))
     Position 6/9: (2048, 4095) pixels
 </pre></div>
 </div>
@@ -1247,15 +1249,15 @@ $$</p>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 6/9 centroid: (np.float64(201.10523923076383), np.float64(201.66477462004127))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 6/9 centroid: (np.float64(201.10523923076386), np.float64(201.66477462004127))
     Position 7/9: (4095, 0) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 7/9 centroid: (np.float64(201.19867950677187), np.float64(201.71232738681357))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 7/9 centroid: (np.float64(201.19867950677187), np.float64(201.71232738681354))
     Position 8/9: (4095, 2048) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 8/9 centroid: (np.float64(201.16478982775345), np.float64(201.76433060832548))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 8/9 centroid: (np.float64(201.16478982775357), np.float64(201.76433060832562))
     Position 9/9: (4095, 4095) pixels
 </pre></div>
 </div>
@@ -1330,14 +1332,14 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140529224915600" class="table-striped table-bordered table-condensed">
+<table id="table140096131472816" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>psf_flux</th><th>psf_flux_err</th><th>psf_background</th><th>psf_background_x_slope</th><th>psf_background_y_slope</th><th>psf_x</th><th>psf_y</th><th>psf_residual_rms</th><th>psf_max_abs_residual_fraction</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>13.935346491531448</td><td>1.1740599789110175</td><td>1.2160176709417787</td><td>0.013627428745918484</td><td>-0.01849862837767159</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.36327172971429866</td><td>0.4187999451696031</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>35.72213796450756</td><td>1.4516010910542279</td><td>1.2332818214877317</td><td>0.013254067845078524</td><td>-0.018361047086818</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.44914710378897826</td><td>0.5520871949147577</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>69.30864388751769</td><td>2.102539657292327</td><td>1.2581017619448587</td><td>0.013393677789446017</td><td>-0.017866464495455273</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.6505572388268764</td><td>0.5976213250463683</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>111.13586204528421</td><td>3.0401663080365067</td><td>1.2898321111210558</td><td>0.012898177750616498</td><td>-0.01799381499670851</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.9406729580919124</td><td>0.6135691072171596</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>157.35360626075345</td><td>4.152841327107456</td><td>1.3265062443465374</td><td>0.012566029254290638</td><td>-0.017379125079890013</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.284951262478633</td><td>0.6267013098193152</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>13.935346491531462</td><td>1.1740599789110373</td><td>1.2160176709417787</td><td>0.013627428745918442</td><td>-0.018498628377671522</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.36327172971429866</td><td>0.418799945169603</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>35.722137964507574</td><td>1.4516010910542518</td><td>1.2332818214877315</td><td>0.013254067845078488</td><td>-0.01836104708681796</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.4491471037889782</td><td>0.5520871949147577</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>69.3086438875177</td><td>2.102539657292362</td><td>1.2581017619448585</td><td>0.013393677789446001</td><td>-0.017866464495455273</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.6505572388268764</td><td>0.5976213250463683</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>111.1358620452842</td><td>3.0401663080365577</td><td>1.2898321111210556</td><td>0.01289817775061651</td><td>-0.017993814996708504</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.9406729580919124</td><td>0.6135691072171596</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>157.35360626075348</td><td>4.152841327107526</td><td>1.3265062443465372</td><td>0.012566029254290637</td><td>-0.017379125079890062</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.284951262478633</td><td>0.6267013098193152</td></tr>
 </table></div></div></div>
 </div>
 <section id="inspect-the-psf-fit">
@@ -1479,14 +1481,14 @@ Max absolute residual / max data value: 0.637
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140529172986960" class="table-striped table-bordered table-condensed">
+<table id="table140096131446768" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>raw_flux</th><th>background_per_pixel</th><th>background_total</th><th>aperture_flux</th><th>aperture_flux_err</th><th>psf_flux</th><th>psf_flux_err</th><th>psf_background</th><th>psf_background_x_slope</th><th>psf_background_y_slope</th><th>psf_x</th><th>psf_y</th><th>psf_residual_rms</th><th>psf_max_abs_residual_fraction</th><th>flux_difference</th><th>flux_ratio</th><th>aperture_snr</th><th>psf_snr</th><th>aperture_background_fraction</th><th>aperture_flux_normalized</th><th>psf_flux_normalized</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>65.40967691164082</td><td>1.1445989608764648</td><td>32.362773181164115</td><td>40.77686526507198</td><td>1.8954132676836153</td><td>13.935346491531448</td><td>1.1740599789110175</td><td>1.2160176709417787</td><td>0.013627428745918484</td><td>-0.01849862837767159</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.36327172971429866</td><td>0.4187999451696031</td><td>26.841518773540535</td><td>2.926146493009859</td><td>21.51344298381186</td><td>11.869365059574706</td><td>0.49477041791356996</td><td>0.0745058515662191</td><td>0.051945454907511464</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>100.63278295644182</td><td>1.1394889950752258</td><td>32.21829230197271</td><td>84.41724194037138</td><td>1.9067792928501341</td><td>35.72213796450756</td><td>1.4516010910542279</td><td>1.2332818214877317</td><td>0.013254067845078524</td><td>-0.018361047086818</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.44914710378897826</td><td>0.5520871949147577</td><td>48.69510397586382</td><td>2.363163202164602</td><td>44.272162099154</td><td>24.608784179518832</td><td>0.3201570239383936</td><td>0.15424379624949605</td><td>0.13315798842625737</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>155.06791300509246</td><td>1.1276179552078247</td><td>31.88264655723162</td><td>151.9993840740358</td><td>1.898063391381031</td><td>69.30864388751769</td><td>2.102539657292327</td><td>1.2581017619448587</td><td>0.013393677789446017</td><td>-0.017866464495455273</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.6505572388268764</td><td>0.5976213250463683</td><td>82.6907401865181</td><td>2.193079759585521</td><td>80.08130011055165</td><td>32.964250470677975</td><td>0.2056044086708292</td><td>0.27772717383641793</td><td>0.2583551860693033</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>222.10938567676408</td><td>1.1375049352645874</td><td>32.16219433244425</td><td>234.37751058605602</td><td>1.9221055330802854</td><td>111.13586204528421</td><td>3.0401663080365067</td><td>1.2898321111210558</td><td>0.012898177750616498</td><td>-0.01799381499670851</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.9406729580919124</td><td>0.6135691072171596</td><td>123.2416485407718</td><td>2.108927813873031</td><td>121.93789911756431</td><td>36.555849511095126</td><td>0.14480340051568064</td><td>0.42824518021846053</td><td>0.41427049653835285</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>296.9062145341124</td><td>1.1380136013031006</td><td>32.176576525851765</td><td>326.65222947282774</td><td>1.924037495716232</td><td>157.35360626075345</td><td>4.152841327107456</td><td>1.3265062443465374</td><td>0.012566029254290638</td><td>-0.017379125079890013</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.284951262478633</td><td>0.6267013098193152</td><td>169.2986232120743</td><td>2.0759119364034566</td><td>169.77435741252532</td><td>37.89058956662658</td><td>0.10837286304815592</td><td>0.5968458429717423</td><td>0.586551950001353</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>65.4096769116408</td><td>1.1445989608764648</td><td>32.362773181164115</td><td>40.77686526507196</td><td>1.895413267683614</td><td>13.935346491531462</td><td>1.1740599789110373</td><td>1.2160176709417787</td><td>0.013627428745918442</td><td>-0.018498628377671522</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.36327172971429866</td><td>0.418799945169603</td><td>26.8415187735405</td><td>2.926146493009854</td><td>21.513442983811863</td><td>11.869365059574518</td><td>0.49477041791357007</td><td>0.07450585156621908</td><td>0.051945454907511485</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>100.6327829564418</td><td>1.1394889950752258</td><td>32.21829230197271</td><td>84.41724194037135</td><td>1.9067792928501341</td><td>35.722137964507574</td><td>1.4516010910542518</td><td>1.2332818214877315</td><td>0.013254067845078488</td><td>-0.01836104708681796</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.4491471037889782</td><td>0.5520871949147577</td><td>48.69510397586378</td><td>2.3631632021646003</td><td>44.27216209915399</td><td>24.608784179518437</td><td>0.3201570239383936</td><td>0.15424379624949602</td><td>0.13315798842625734</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>155.06791300509246</td><td>1.1276179552078247</td><td>31.88264655723162</td><td>151.99938407403576</td><td>1.8980633913810305</td><td>69.3086438875177</td><td>2.102539657292362</td><td>1.2581017619448585</td><td>0.013393677789446001</td><td>-0.017866464495455273</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.6505572388268764</td><td>0.5976213250463683</td><td>82.69074018651806</td><td>2.1930797595855203</td><td>80.08130011055165</td><td>32.96425047067743</td><td>0.2056044086708292</td><td>0.27772717383641793</td><td>0.2583551860693032</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>222.10938567676405</td><td>1.1375049352645874</td><td>32.16219433244425</td><td>234.37751058605596</td><td>1.9221055330802863</td><td>111.1358620452842</td><td>3.0401663080365577</td><td>1.2898321111210556</td><td>0.01289817775061651</td><td>-0.017993814996708504</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.9406729580919124</td><td>0.6135691072171596</td><td>123.24164854077176</td><td>2.108927813873031</td><td>121.93789911756423</td><td>36.55584951109451</td><td>0.14480340051568066</td><td>0.42824518021846053</td><td>0.4142704965383525</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>296.90621453411234</td><td>1.1380136013031006</td><td>32.176576525851765</td><td>326.6522294728276</td><td>1.9240374957162327</td><td>157.35360626075348</td><td>4.152841327107526</td><td>1.3265062443465372</td><td>0.012566029254290637</td><td>-0.017379125079890062</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.284951262478633</td><td>0.6267013098193152</td><td>169.29862321207415</td><td>2.0759119364034553</td><td>169.7743574125252</td><td>37.89058956662594</td><td>0.10837286304815595</td><td>0.5968458429717421</td><td>0.5865519500013526</td></tr>
 </table></div></div></div>
 </div>
 <section id="signal-to-noise-ratio">
@@ -1510,7 +1512,7 @@ Max absolute residual / max data value: 0.637
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcf828612b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6ab2538590&gt;
 </pre></div>
 </div>
 <img alt="../../_images/58ad834f24496c245ce0096947c3660cf51abf4565c649e7c55b41721563a868.png" src="../../_images/58ad834f24496c245ce0096947c3660cf51abf4565c649e7c55b41721563a868.png" />
@@ -1587,7 +1589,7 @@ Max absolute residual / max data value: 0.637
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcf7f47f4d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6aac1eda90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/51b61ec3d9c534a5a8d0f0243e1372dad57bf6070c960e6637e3a4459d95cd1e.png" src="../../_images/51b61ec3d9c534a5a8d0f0243e1372dad57bf6070c960e6637e3a4459d95cd1e.png" />
@@ -1746,11 +1748,11 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=2</i>
-<table id="table140529170861584" class="table-striped table-bordered table-condensed">
+<table id="table140096129305168" class="table-striped table-bordered table-condensed">
 <thead><tr><th>method</th><th>scale</th><th>offset</th><th>reduced_chi2</th><th>measured_peak_mjd</th><th>model_peak_mjd</th><th>peak_offset_days</th></tr></thead>
 <thead><tr><th>str8</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>Aperture</td><td>18486465835.909264</td><td>27.052672505725624</td><td>0.01826602702517961</td><td>61565.0</td><td>61567.48120300752</td><td>-2.4812030075190705</td></tr>
-<tr><td>PSF</td><td>9286538442.655098</td><td>6.886823032988413</td><td>0.001609833818903963</td><td>61565.0</td><td>61567.48120300752</td><td>-2.4812030075190705</td></tr>
+<tr><td>Aperture</td><td>18486465835.909264</td><td>27.052672505725493</td><td>0.018266027025178478</td><td>61565.0</td><td>61567.48120300752</td><td>-2.4812030075190705</td></tr>
+<tr><td>PSF</td><td>9286538442.655098</td><td>6.886823032988385</td><td>0.0016098338189036328</td><td>61565.0</td><td>61567.48120300752</td><td>-2.4812030075190705</td></tr>
 </table></div></div></div>
 </div>
 <section id="model-calibrated-magnitudes">
@@ -1899,32 +1901,30 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/sncosmo/models.py:189: RuntimeWarning: divide by zero encountered in log10
-  result[i] = -2.5 * np.log10(f / zpf)
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://sncosmo.github.io/data/spectra/alpha_lyr_stis_007.fits
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [Done]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2972/1817952548.py:31: RuntimeWarning: invalid value encountered in subtract
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/sncosmo/models.py:189: RuntimeWarning: divide by zero encountered in log10
+  result[i] = -2.5 * np.log10(f / zpf)
+/tmp/ipykernel_3192/1817952548.py:31: RuntimeWarning: invalid value encountered in subtract
   offsets = np.asarray(abmag, dtype=float) - np.asarray(vegamag, dtype=float)
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=8</i>
-<table id="table140529170864304" class="table-striped table-bordered table-condensed">
+<table id="table140096129307248" class="table-striped table-bordered table-condensed">
 <thead><tr><th>mjd</th><th>filter</th><th>aperture_abmag</th><th>aperture_abmag_err</th><th>aperture_vega_mag</th><th>psf_abmag</th><th>psf_abmag_err</th><th>psf_vega_mag</th><th>sncosmo_model_abmag</th><th>sncosmo_model_vega_mag</th></tr></thead>
 <thead><tr><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>61525.0</td><td>F129</td><td>22.82341770832153</td><td>0.14994825880025203</td><td>21.866113959932658</td><td>22.799389278510624</td><td>0.18084914282526182</td><td>21.842085530121754</td><td>22.815232702251524</td><td>21.857928953862654</td></tr>
-<tr><td>61530.0</td><td>F129</td><td>21.270525385751377</td><td>0.03608951192580809</td><td>20.313221637362506</td><td>21.269822904656582</td><td>0.05465714049480454</td><td>20.31251915626771</td><td>21.266688245768464</td><td>20.309384497379593</td></tr>
-<tr><td>61535.0</td><td>F129</td><td>20.4253226549003</td><td>0.01649340040311279</td><td>19.46801890651143</td><td>20.431293569821612</td><td>0.03657059977763194</td><td>19.473989821432742</td><td>20.430013374345684</td><td>19.472709625956814</td></tr>
-<tr><td>61540.0</td><td>F129</td><td>19.87550639411432</td><td>0.01006584443019122</td><td>18.91820264572545</td><td>19.874454501570785</td><td>0.03166282068779331</td><td>18.917150753181915</td><td>19.87490019268315</td><td>18.91759644429428</td></tr>
-<tr><td>61545.0</td><td>F129</td><td>19.47578181425881</td><td>0.006972631033098165</td><td>18.51847806586994</td><td>19.476033061070574</td><td>0.029966016982174413</td><td>18.518729312681703</td><td>19.475182084403023</td><td>18.517878336014153</td></tr>
-<tr><td>61550.0</td><td>F129</td><td>19.178889316894946</td><td>0.0052444868113078755</td><td>18.221585568506075</td><td>19.178874155150552</td><td>0.029129121868882387</td><td>18.221570406761682</td><td>19.179227865384437</td><td>18.221924116995567</td></tr>
-<tr><td>61555.0</td><td>F129</td><td>18.998041243895855</td><td>0.004447966527931878</td><td>18.040737495506985</td><td>18.997780892891775</td><td>0.02879531958685275</td><td>18.040477144502905</td><td>18.997456425793875</td><td>18.040152677405004</td></tr>
-<tr><td>61560.0</td><td>F129</td><td>18.921579137276257</td><td>0.004120667544817387</td><td>17.964275388887387</td><td>18.92202593223201</td><td>0.028659353699461997</td><td>17.96472218384314</td><td>18.922088381815417</td><td>17.964784633426547</td></tr>
+<tr><td>61525.0</td><td>F129</td><td>22.82341770832152</td><td>0.14994825880025073</td><td>21.86611395993265</td><td>22.799389278510613</td><td>0.18084914282526376</td><td>21.842085530121743</td><td>22.815232702251524</td><td>21.857928953862654</td></tr>
+<tr><td>61530.0</td><td>F129</td><td>21.270525385751377</td><td>0.036089511925808025</td><td>20.313221637362506</td><td>21.269822904656582</td><td>0.054657140494805356</td><td>20.31251915626771</td><td>21.266688245768464</td><td>20.309384497379593</td></tr>
+<tr><td>61535.0</td><td>F129</td><td>20.4253226549003</td><td>0.016493400403112774</td><td>19.46801890651143</td><td>20.431293569821612</td><td>0.03657059977763252</td><td>19.473989821432742</td><td>20.430013374345684</td><td>19.472709625956814</td></tr>
+<tr><td>61540.0</td><td>F129</td><td>19.87550639411432</td><td>0.01006584443019122</td><td>18.91820264572545</td><td>19.874454501570785</td><td>0.03166282068779384</td><td>18.917150753181915</td><td>19.87490019268315</td><td>18.91759644429428</td></tr>
+<tr><td>61545.0</td><td>F129</td><td>19.47578181425881</td><td>0.006972631033098165</td><td>18.51847806586994</td><td>19.476033061070574</td><td>0.029966016982174905</td><td>18.518729312681703</td><td>19.475182084403023</td><td>18.517878336014153</td></tr>
+<tr><td>61550.0</td><td>F129</td><td>19.178889316894946</td><td>0.005244486811307878</td><td>18.221585568506075</td><td>19.178874155150552</td><td>0.02912912186888286</td><td>18.221570406761682</td><td>19.179227865384437</td><td>18.221924116995567</td></tr>
+<tr><td>61555.0</td><td>F129</td><td>18.998041243895855</td><td>0.004447966527931878</td><td>18.040737495506985</td><td>18.997780892891775</td><td>0.02879531958685322</td><td>18.040477144502905</td><td>18.997456425793875</td><td>18.040152677405004</td></tr>
+<tr><td>61560.0</td><td>F129</td><td>18.921579137276257</td><td>0.004120667544817388</td><td>17.964275388887387</td><td>18.92202593223201</td><td>0.02865935369946246</td><td>17.96472218384314</td><td>18.922088381815417</td><td>17.964784633426547</td></tr>
 </table></div></div></div>
 </div>
 <p>Let’s plot the model-calibrated magnitude light-curve</p>
@@ -2060,11 +2060,11 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=2</i>
-<table id="table140529168850352" class="table-striped table-bordered table-condensed">
+<table id="table140096127293616" class="table-striped table-bordered table-condensed">
 <thead><tr><th>method</th><th>rms_normalized_residual</th><th>median_normalized_residual</th></tr></thead>
 <thead><tr><th>str8</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>Aperture</td><td>0.028946985333705433</td><td>0.025851502088473866</td></tr>
-<tr><td>PSF</td><td>0.015008775292137922</td><td>0.013964189968344476</td></tr>
+<tr><td>Aperture</td><td>0.02894698533370537</td><td>0.025851502088473866</td></tr>
+<tr><td>PSF</td><td>0.015008775292137767</td><td>0.013964189968344143</td></tr>
 </table></div></div></div>
 </div>
 <p>We can visualize the results</p>
@@ -2173,19 +2173,19 @@ $$</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using MJD 61675 as the difference-image reference epoch.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2972/719397172.py:76: RuntimeWarning: invalid value encountered in scalar divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3192/719397172.py:76: RuntimeWarning: invalid value encountered in scalar divide
   'psf_max_abs_residual_fraction': np.nanmax(np.abs(residual)) / np.nanmax(np.abs(stamp)),
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140529167848368" class="table-striped table-bordered table-condensed">
+<table id="table140096126231536" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>difference_aperture_flux</th><th>difference_aperture_flux_err</th><th>difference_psf_flux</th><th>difference_psf_flux_err</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>14.026397049483185</td><td>0.30851481783480456</td><td>7.045512679766618</td><td>0.22995743845251787</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>57.46425695380687</td><td>0.29398576074635996</td><td>28.832304152742736</td><td>0.7442808893897248</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>124.66636821931772</td><td>0.3185763697031807</td><td>62.41881007575284</td><td>1.5888463672890045</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>207.51836022771582</td><td>0.3146753672564536</td><td>104.24602823351941</td><td>2.629915005690077</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>299.8493790596286</td><td>0.318880768641555</td><td>150.4637724489886</td><td>3.801126161583328</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>14.026397049483181</td><td>0.30851481783480467</td><td>7.04551267976662</td><td>0.2299574384525217</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>57.46425695380687</td><td>0.29398576074635985</td><td>28.83230415274274</td><td>0.7442808893897371</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>124.66636821931772</td><td>0.31857636970318076</td><td>62.41881007575285</td><td>1.5888463672890314</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>207.51836022771582</td><td>0.3146753672564537</td><td>104.24602823351945</td><td>2.629915005690121</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>299.8493790596286</td><td>0.318880768641555</td><td>150.46377244898866</td><td>3.8011261615833916</td></tr>
 </table></div></div></div>
 </div>
 <div class="cell docutils container">
@@ -2246,11 +2246,11 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=2</i>
-<table id="table140529167848528" class="table-striped table-bordered table-condensed">
+<table id="table140096126230896" class="table-striped table-bordered table-condensed">
 <thead><tr><th>method</th><th>template_mjd</th><th>scale</th><th>offset</th><th>reduced_chi2</th></tr></thead>
 <thead><tr><th>str19</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>Difference aperture</td><td>61675.0</td><td>18487495639.7506</td><td>0.08044071413572725</td><td>0.2444563514856384</td></tr>
-<tr><td>Difference PSF</td><td>61675.0</td><td>9277524662.956182</td><td>0.08478422762009948</td><td>0.004768983452158653</td></tr>
+<tr><td>Difference aperture</td><td>61675.0</td><td>18487495639.750595</td><td>0.08044071413563766</td><td>0.24445635148539252</td></tr>
+<tr><td>Difference PSF</td><td>61675.0</td><td>9277524662.956186</td><td>0.08478422762010758</td><td>0.004768983452158085</td></tr>
 </table></div></div></div>
 </div>
 <p>Ploting the results</p>
@@ -2299,7 +2299,7 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcf7f043110&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6aabd9d6d0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/2513622550500277a7d9f0348e27ad1b6359a2f8f84d0510f4fabee934430719.png" src="../../_images/2513622550500277a7d9f0348e27ad1b6359a2f8f84d0510f4fabee934430719.png" />
@@ -2367,13 +2367,13 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=4</i>
-<table id="table140529166183280" class="table-striped table-bordered table-condensed">
+<table id="table140096126996464" class="table-striped table-bordered table-condensed">
 <thead><tr><th>diagnostic</th><th>correlation</th></tr></thead>
 <thead><tr><th>str57</th><th>float64</th></tr></thead>
-<tr><td>Aperture residual vs aperture background</td><td>0.1077282022099978</td></tr>
-<tr><td>PSF residual vs fitted PSF background</td><td>-0.9986078131191547</td></tr>
-<tr><td>Aperture / PSF flux ratio vs aperture background</td><td>0.2048584669843213</td></tr>
-<tr><td>Aperture background fraction vs truth residual difference</td><td>0.7883006930576953</td></tr>
+<tr><td>Aperture residual vs aperture background</td><td>0.10772820220999123</td></tr>
+<tr><td>PSF residual vs fitted PSF background</td><td>-0.9986078131191554</td></tr>
+<tr><td>Aperture / PSF flux ratio vs aperture background</td><td>0.20485846698432084</td></tr>
+<tr><td>Aperture background fraction vs truth residual difference</td><td>0.7883006930576941</td></tr>
 </table></div></div></div>
 </div>
 <p>Visualizing the residuals vs background and how the trransient flux compares with time using both methods.</p>
@@ -2508,11 +2508,11 @@ $$</p>
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=2</i>
-<table id="table140529169949840" class="table-striped table-bordered table-condensed">
+<table id="table140096125903536" class="table-striped table-bordered table-condensed">
 <thead><tr><th>method</th><th>best_t0</th><th>t0_offset_days</th><th>scale</th><th>offset</th><th>reduced_chi2</th></tr></thead>
 <thead><tr><th>str8</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>Aperture</td><td>61564.55951388889</td><td>0.0</td><td>0.9507421343786253</td><td>0.049429557399244275</td><td>0.018266027025179345</td></tr>
-<tr><td>PSF</td><td>61564.55951388889</td><td>0.0</td><td>0.97435214406621</td><td>0.025671349868014372</td><td>0.0016098338189039956</td></tr>
+<tr><td>Aperture</td><td>61564.55951388889</td><td>0.0</td><td>0.9507421343786255</td><td>0.04942955739924422</td><td>0.018266027025178103</td></tr>
+<tr><td>PSF</td><td>61564.55951388889</td><td>0.0</td><td>0.9743521440662094</td><td>0.025671349868014157</td><td>0.0016098338189037193</td></tr>
 </table></div></div></div>
 </div>
 <p>We now plt the results</p>
@@ -2533,7 +2533,7 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcf7f3ee850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6aabd46e90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/f4a91ceec2b653b2535b8ab29cf487a62d965d7ce36e843e9bd945d30444a26f.png" src="../../_images/f4a91ceec2b653b2535b8ab29cf487a62d965d7ce36e843e9bd945d30444a26f.png" />
@@ -2691,17 +2691,17 @@ $$</p>
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=8</i>
-<table id="table140529164051120" class="table-striped table-bordered table-condensed">
+<table id="table140096123735568" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>aperture_flux</th><th>aperture_flux_err</th><th>psf_flux</th><th>psf_flux_err</th><th>psf_background</th><th>psf_background_x_slope</th><th>psf_background_y_slope</th><th>psf_x</th><th>psf_y</th><th>psf_residual_rms</th><th>psf_max_abs_residual_fraction</th><th>aperture_snr</th><th>psf_snr</th><th>sncosmo_model_abmag</th><th>sncosmo_model_maggies</th><th>aperture_flux_normalized</th><th>psf_flux_normalized</th><th>sncosmo_model_maggies_normalized</th><th>sncosmo_model_vega_mag</th><th>aperture_maggies_calibrated</th><th>aperture_maggies_calibrated_err</th><th>aperture_abmag</th><th>aperture_abmag_err</th><th>aperture_vega_mag</th><th>aperture_vega_mag_err</th><th>psf_maggies_calibrated</th><th>psf_maggies_calibrated_err</th><th>psf_abmag</th><th>psf_abmag_err</th><th>psf_vega_mag</th><th>psf_vega_mag_err</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>40.77686526507198</td><td>1.8954132676836153</td><td>13.935346491531448</td><td>1.1740599789110175</td><td>1.2160176709417787</td><td>0.013627428745918484</td><td>-0.01849862837767159</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.36327172971429866</td><td>0.4187999451696031</td><td>21.51344298381186</td><td>11.869365059574706</td><td>22.815232702251524</td><td>7.480091649981226e-10</td><td>0.0745058515662191</td><td>0.051945454907511464</td><td>0.026575082238984363</td><td>21.857928953862654</td><td>7.423913732979544e-10</td><td>1.025297795970199e-10</td><td>22.82341770832153</td><td>0.14994825880025162</td><td>21.866113959932658</td><td>0.14994825880025162</td><td>7.590043913637e-10</td><td>1.2642600751193833e-10</td><td>22.799389278510624</td><td>0.18084914282526182</td><td>21.842085530121754</td><td>0.18084914282526182</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>84.41724194037138</td><td>1.9067792928501341</td><td>35.72213796450756</td><td>1.4516010910542279</td><td>1.2332818214877317</td><td>0.013254067845078524</td><td>-0.018361047086818</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.44914710378897826</td><td>0.5520871949147577</td><td>44.272162099154</td><td>24.608784179518832</td><td>21.266688245768464</td><td>3.114043691941633e-09</td><td>0.15424379624949605</td><td>0.13315798842625737</td><td>0.11063496422446521</td><td>20.309384497379593</td><td>3.103057660876276e-09</td><td>1.0314460913055035e-10</td><td>21.270525385751377</td><td>0.03608951192580806</td><td>20.313221637362506</td><td>0.03608951192580806</td><td>3.105066016748744e-09</td><td>1.5631239778071742e-10</td><td>21.269822904656582</td><td>0.05465714049480454</td><td>20.31251915626771</td><td>0.05465714049480454</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>151.9993840740358</td><td>1.898063391381031</td><td>69.30864388751769</td><td>2.102539657292327</td><td>1.2581017619448587</td><td>0.013393677789446017</td><td>-0.017866464495455273</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.6505572388268764</td><td>0.5976213250463683</td><td>80.08130011055165</td><td>32.964250470677975</td><td>20.430013374345684</td><td>6.72968366455753e-09</td><td>0.27772717383641793</td><td>0.2583551860693033</td><td>0.23909051545968008</td><td>19.472709625956814</td><td>6.758820895100777e-09</td><td>1.0267313440160714e-10</td><td>20.4253226549003</td><td>0.016493400403112785</td><td>19.46801890651143</td><td>0.016493400403112785</td><td>6.721753346522772e-09</td><td>2.264072528505243e-10</td><td>20.431293569821612</td><td>0.03657059977763194</td><td>19.473989821432742</td><td>0.03657059977763194</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>234.37751058605602</td><td>1.9221055330802854</td><td>111.13586204528421</td><td>3.0401663080365067</td><td>1.2898321111210558</td><td>0.012898177750616498</td><td>-0.01799381499670851</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.9406729580919124</td><td>0.6135691072171596</td><td>121.93789911756431</td><td>36.555849511095126</td><td>19.87490019268315</td><td>1.122121601639446e-08</td><td>0.42824518021846053</td><td>0.41427049653835285</td><td>0.39866455173425547</td><td>18.91759644429428</td><td>1.1214952599409765e-08</td><td>1.0397366106325566e-10</td><td>19.87550639411432</td><td>0.010065844430191217</td><td>18.91820264572545</td><td>0.010065844430191217</td><td>1.1225823233925055e-08</td><td>3.2737346932979457e-10</td><td>19.874454501570785</td><td>0.03166282068779331</td><td>18.917150753181915</td><td>0.03166282068779331</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>326.65222947282774</td><td>1.924037495716232</td><td>157.35360626075345</td><td>4.152841327107456</td><td>1.3265062443465374</td><td>0.012566029254290638</td><td>-0.017379125079890013</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.284951262478633</td><td>0.6267013098193152</td><td>169.77435741252532</td><td>37.89058956662658</td><td>19.475182084403023</td><td>1.6215381329893388e-08</td><td>0.5968458429717423</td><td>0.586551950001353</td><td>0.5760960059620259</td><td>18.517878336014153</td><td>1.6206426886914276e-08</td><td>1.0407816793077135e-10</td><td>19.47578181425881</td><td>0.006972631033098163</td><td>18.51847806586994</td><td>0.006972631033098163</td><td>1.620267704235609e-08</td><td>4.471893755408958e-10</td><td>19.476033061070574</td><td>0.029966016982174413</td><td>18.518729312681703</td><td>0.029966016982174413</td></tr>
-<tr><td>roman_sn1a_61550_f129.asdf</td><td>61550.0</td><td>F129</td><td>420.87303333861286</td><td>1.9022905189688262</td><td>204.72231114035944</td><td>5.3077110423458915</td><td>1.3629224852447293</td><td>0.012249083639885895</td><td>-0.017199379814734572</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.642285237390593</td><td>0.6315973467702639</td><td>221.24540344487198</td><td>38.57073407106139</td><td>19.179227865384437</td><td>2.1296530364436267e-08</td><td>0.7690023140893765</td><td>0.763123729170683</td><td>0.7566177960417663</td><td>18.221924116995567</td><td>2.1303171970702263e-08</td><td>1.0290179506748651e-10</td><td>19.178889316894946</td><td>0.005244486811307875</td><td>18.221585568506075</td><td>0.005244486811307875</td><td>2.1303469460554802e-08</td><td>5.715489226821499e-10</td><td>19.178874155150552</td><td>0.029129121868882387</td><td>18.221570406761682</td><td>0.029129121868882387</td></tr>
-<tr><td>roman_sn1a_61555_f129.asdf</td><td>61555.0</td><td>F129</td><td>492.25019695235335</td><td>1.9057879884150366</td><td>240.63137846666558</td><td>6.199249086382791</td><td>1.392521705024216</td><td>0.01212206386925558</td><td>-0.01679069672781303</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.9181404519289411</td><td>0.6346004114915773</td><td>258.29221295582676</td><td>38.8162138855227</td><td>18.997456425793875</td><td>2.517777972537858e-08</td><td>0.8994198026053049</td><td>0.8969785162549501</td><td>0.8945098510907259</td><td>18.040152677405004</td><td>2.5164221683898012e-08</td><td>1.0309098587752316e-10</td><td>18.998041243895855</td><td>0.004447966527931877</td><td>18.040737495506985</td><td>0.004447966527931877</td><td>2.51702565899084e-08</td><td>6.67552191235034e-10</td><td>18.997780892891775</td><td>0.02879531958685275</td><td>18.040477144502905</td><td>0.02879531958685275</td></tr>
-<tr><td>roman_sn1a_61560_f129.asdf</td><td>61560.0</td><td>F129</td><td>526.1925149657346</td><td>1.8943729979128918</td><td>257.5228444667273</td><td>6.615848634886077</td><td>1.4051919484310167</td><td>0.011900584212655397</td><td>-0.01704331619681149</td><td>150.4696553521533</td><td>149.5748627933132</td><td>2.047042587510938</td><td>0.6350187572198474</td><td>277.76605533623126</td><td>38.92514153192408</td><td>18.922088381815417</td><td>2.69876237809323e-08</td><td>0.9614378437489569</td><td>0.9599432144030147</td><td>0.9588095373334712</td><td>17.964784633426547</td><td>2.7000284797024243e-08</td><td>1.0247350763135824e-10</td><td>18.921579137276257</td><td>0.004120667544817387</td><td>17.964275388887387</td><td>0.004120667544817387</td><td>2.6989176104899638e-08</td><td>7.124127763794139e-10</td><td>18.92202593223201</td><td>0.028659353699461997</td><td>17.96472218384314</td><td>0.028659353699461997</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>40.77686526507196</td><td>1.895413267683614</td><td>13.935346491531462</td><td>1.1740599789110373</td><td>1.2160176709417787</td><td>0.013627428745918442</td><td>-0.018498628377671522</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.36327172971429866</td><td>0.418799945169603</td><td>21.513442983811863</td><td>11.869365059574518</td><td>22.815232702251524</td><td>7.480091649981226e-10</td><td>0.07450585156621908</td><td>0.051945454907511485</td><td>0.026575082238984363</td><td>21.857928953862654</td><td>7.423913732979584e-10</td><td>1.0252977959701985e-10</td><td>22.82341770832152</td><td>0.14994825880025073</td><td>21.86611395993265</td><td>0.14994825880025073</td><td>7.590043913637045e-10</td><td>1.2642600751194045e-10</td><td>22.799389278510613</td><td>0.18084914282526376</td><td>21.842085530121743</td><td>0.18084914282526376</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>84.41724194037135</td><td>1.9067792928501341</td><td>35.722137964507574</td><td>1.4516010910542518</td><td>1.2332818214877315</td><td>0.013254067845078488</td><td>-0.01836104708681796</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.4491471037889782</td><td>0.5520871949147577</td><td>44.27216209915399</td><td>24.608784179518437</td><td>21.266688245768464</td><td>3.114043691941633e-09</td><td>0.15424379624949602</td><td>0.13315798842625734</td><td>0.11063496422446521</td><td>20.309384497379593</td><td>3.1030576608762797e-09</td><td>1.0314460913055037e-10</td><td>21.270525385751377</td><td>0.036089511925808025</td><td>20.313221637362506</td><td>0.036089511925808025</td><td>3.1050660167487484e-09</td><td>1.5631239778072e-10</td><td>21.269822904656582</td><td>0.054657140494805356</td><td>20.31251915626771</td><td>0.054657140494805356</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>151.99938407403576</td><td>1.8980633913810305</td><td>69.3086438875177</td><td>2.102539657292362</td><td>1.2581017619448585</td><td>0.013393677789446001</td><td>-0.017866464495455273</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.6505572388268764</td><td>0.5976213250463683</td><td>80.08130011055165</td><td>32.96425047067743</td><td>20.430013374345684</td><td>6.72968366455753e-09</td><td>0.27772717383641793</td><td>0.2583551860693032</td><td>0.23909051545968008</td><td>19.472709625956814</td><td>6.758820895100782e-09</td><td>1.0267313440160714e-10</td><td>20.4253226549003</td><td>0.016493400403112774</td><td>19.46801890651143</td><td>0.016493400403112774</td><td>6.7217533465227764e-09</td><td>2.2640725285052808e-10</td><td>20.431293569821612</td><td>0.03657059977763252</td><td>19.473989821432742</td><td>0.03657059977763252</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>234.37751058605596</td><td>1.9221055330802863</td><td>111.1358620452842</td><td>3.0401663080365577</td><td>1.2898321111210556</td><td>0.01289817775061651</td><td>-0.017993814996708504</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.9406729580919124</td><td>0.6135691072171596</td><td>121.93789911756423</td><td>36.55584951109451</td><td>19.87490019268315</td><td>1.122121601639446e-08</td><td>0.42824518021846053</td><td>0.4142704965383525</td><td>0.39866455173425547</td><td>18.91759644429428</td><td>1.1214952599409768e-08</td><td>1.0397366106325573e-10</td><td>19.87550639411432</td><td>0.01006584443019122</td><td>18.91820264572545</td><td>0.01006584443019122</td><td>1.1225823233925057e-08</td><td>3.2737346932980005e-10</td><td>19.874454501570785</td><td>0.03166282068779384</td><td>18.917150753181915</td><td>0.03166282068779384</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>326.6522294728276</td><td>1.9240374957162327</td><td>157.35360626075348</td><td>4.152841327107526</td><td>1.3265062443465372</td><td>0.012566029254290637</td><td>-0.017379125079890062</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.284951262478633</td><td>0.6267013098193152</td><td>169.7743574125252</td><td>37.89058956662594</td><td>19.475182084403023</td><td>1.6215381329893388e-08</td><td>0.5968458429717421</td><td>0.5865519500013526</td><td>0.5760960059620259</td><td>18.517878336014153</td><td>1.620642688691428e-08</td><td>1.040781679307714e-10</td><td>19.47578181425881</td><td>0.006972631033098165</td><td>18.51847806586994</td><td>0.006972631033098165</td><td>1.6202677042356097e-08</td><td>4.4718937554090337e-10</td><td>19.476033061070574</td><td>0.029966016982174905</td><td>18.518729312681703</td><td>0.029966016982174905</td></tr>
+<tr><td>roman_sn1a_61550_f129.asdf</td><td>61550.0</td><td>F129</td><td>420.87303333861263</td><td>1.9022905189688266</td><td>204.72231114035952</td><td>5.3077110423459795</td><td>1.3629224852447286</td><td>0.01224908363988584</td><td>-0.017199379814734475</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.6422852373905925</td><td>0.6315973467702639</td><td>221.2454034448718</td><td>38.57073407106077</td><td>19.179227865384437</td><td>2.1296530364436267e-08</td><td>0.7690023140893762</td><td>0.7631237291706829</td><td>0.7566177960417663</td><td>18.221924116995567</td><td>2.130317197070226e-08</td><td>1.0290179506748656e-10</td><td>19.178889316894946</td><td>0.005244486811307878</td><td>18.221585568506075</td><td>0.005244486811307878</td><td>2.1303469460554812e-08</td><td>5.715489226821594e-10</td><td>19.178874155150552</td><td>0.02912912186888286</td><td>18.221570406761682</td><td>0.02912912186888286</td></tr>
+<tr><td>roman_sn1a_61555_f129.asdf</td><td>61555.0</td><td>F129</td><td>492.25019695235324</td><td>1.9057879884150366</td><td>240.63137846666564</td><td>6.199249086382895</td><td>1.3925217050242151</td><td>0.012122063869255545</td><td>-0.01679069672781297</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.918140451928941</td><td>0.6346004114915773</td><td>258.2922129558267</td><td>38.81621388552205</td><td>18.997456425793875</td><td>2.517777972537858e-08</td><td>0.8994198026053049</td><td>0.8969785162549497</td><td>0.8945098510907259</td><td>18.040152677405004</td><td>2.5164221683898015e-08</td><td>1.0309098587752318e-10</td><td>18.998041243895855</td><td>0.004447966527931878</td><td>18.040737495506985</td><td>0.004447966527931878</td><td>2.517025658990841e-08</td><td>6.675521912350451e-10</td><td>18.997780892891775</td><td>0.02879531958685322</td><td>18.040477144502905</td><td>0.02879531958685322</td></tr>
+<tr><td>roman_sn1a_61560_f129.asdf</td><td>61560.0</td><td>F129</td><td>526.1925149657345</td><td>1.8943729979128923</td><td>257.5228444667274</td><td>6.615848634886188</td><td>1.4051919484310156</td><td>0.01190058421265533</td><td>-0.017043316196811417</td><td>150.4696553521533</td><td>149.5748627933132</td><td>2.047042587510938</td><td>0.6350187572198474</td><td>277.76605533623115</td><td>38.92514153192345</td><td>18.922088381815417</td><td>2.69876237809323e-08</td><td>0.9614378437489569</td><td>0.9599432144030146</td><td>0.9588095373334712</td><td>17.964784633426547</td><td>2.700028479702425e-08</td><td>1.0247350763135829e-10</td><td>18.921579137276257</td><td>0.004120667544817388</td><td>17.964275388887387</td><td>0.004120667544817388</td><td>2.6989176104899655e-08</td><td>7.124127763794258e-10</td><td>18.92202593223201</td><td>0.02865935369946246</td><td>17.96472218384314</td><td>0.02865935369946246</td></tr>
 </table></div></div></div>
 </div>
 </section>
@@ -2954,7 +2954,7 @@ Wrote time_domain_analysis_multifilter_photometry.ecsv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcf7edce990&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6aaba0ce10&gt;
 </pre></div>
 </div>
 <img alt="../../_images/f2ecead115dea3914a1953905b07ba569d08f6ccab14be4b62319499d31e5dfb.png" src="../../_images/f2ecead115dea3914a1953905b07ba569d08f6ccab14be4b62319499d31e5dfb.png" />
@@ -3055,6 +3055,15 @@ Wrote sn1a_lightcurve.gif
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../background_visualization_tool/RBVT.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Roman Background Visualization Tool (RBVT)</p>
+      </div>
+    </a>
 </div>
                 </footer>
               

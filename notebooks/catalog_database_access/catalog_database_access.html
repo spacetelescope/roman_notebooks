@@ -63,6 +63,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/catalog_database_access/catalog_database_access';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Roman Research Nexus Data Discovery and Access in the Cloud" href="../data_discovery_and_access/data_discovery_and_access.html" />
+    <link rel="prev" title="Nancy Grace Roman Space Telescope Notebooks" href="../../README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -113,8 +115,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -168,10 +168,14 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Roman Research Nexus Catalog Database access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ccs_simulations/ccs_simulations.html">Core Community Survey Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../target_visibility_tool/roman_target_visibility_tool.html">Roman Target Visibility Tool (RTVT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crds_reference_files/crds_reference_files.html">Understanding CRDS and How to Select Calibration Reference Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -188,6 +192,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time_domain_analysis/time_domain_analysis.html">Time Domain Analysis: Photometry of Simulated Transients</a></li>
 </ul>
 
     </div>
@@ -524,8 +529,8 @@ The specific selection criteria we will apply are:</p>
 <li><p>Have $g-y$ colors less than 0.8  (the bluest, reddest filters for PanSTARRS)</p></li>
 </ul>
 <p>Though the specifics of the PanSTARRS and forthcoming Roman catalogs differ (in terms of filters, specific columns stemming from different processing pipelines, etc.), similar queries combining spatial, point vs. resolved source, and multiband color/magnitude criteria will be possible with Roman WFI multiband catalogs.</p>
-<p>Based on documentation about PanSTARRS catalogs — the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a>, the <code class="docutils literal notranslate"><span class="pre">astroquery.mast</span></code> PanSTARRS <a class="reference external" href="https://catalogs.mast.stsci.edu/docs/panstarrs.html">catalog information</a>, and the <a class="reference external" href="https://mast.stsci.edu/schema_browser/#/ps1_dr2/mean_object">MAST Catalog Schema Browser</a> —
-we will use the <code class="docutils literal notranslate"><span class="pre">MeanObject</span></code> catalog provided by <code class="docutils literal notranslate"><span class="pre">astroquery.mast</span></code>. This table provides relevant photometric information in the columns <code class="docutils literal notranslate"><span class="pre">gMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">iMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">yMeanPSFMag</span></code> (magnitudes optimized for point sources), and <code class="docutils literal notranslate"><span class="pre">iMeanKronMag</span></code> (used to distinguish between point and resolved sources), as well as position information (<code class="docutils literal notranslate"><span class="pre">raMean</span></code>, <code class="docutils literal notranslate"><span class="pre">decMean</span></code>).</p>
+<p>Based on documentation about PanSTARRS catalogs — the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a> (and the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/442401036/PS1+Migration+guide+from+legacy+TAP+CASJobs+to+TAP+on+Postgres">migration guide for MAST’s new catalog backend</a>), the <code class="docutils literal notranslate"><span class="pre">astroquery.mast</span></code> PanSTARRS <a class="reference external" href="https://catalogs.mast.stsci.edu/docs/panstarrs.html">catalog information</a>, and the <a class="reference external" href="https://mast.stsci.edu/schema_browser/#/ps1_dr2/mean_object">MAST Catalog Schema Browser</a> —
+we will use the <code class="docutils literal notranslate"><span class="pre">mean_object</span></code> catalog provided by <code class="docutils literal notranslate"><span class="pre">astroquery.mast</span></code>. This table provides relevant photometric information in the columns <code class="docutils literal notranslate"><span class="pre">gmeanpsfmag</span></code>, <code class="docutils literal notranslate"><span class="pre">imeanpsfmag</span></code>, <code class="docutils literal notranslate"><span class="pre">ymeanpsfmag</span></code> (magnitudes optimized for point sources), and <code class="docutils literal notranslate"><span class="pre">imeankronmag</span></code> (used to distinguish between point and resolved sources), as well as position information (<code class="docutils literal notranslate"><span class="pre">ramean</span></code>, <code class="docutils literal notranslate"><span class="pre">decmean</span></code>).</p>
 <p>Also, with <code class="docutils literal notranslate"><span class="pre">astroquery</span></code>, we can directly filter for some of these constraints. However, we will need to post-process the returned results to apply other constraints.</p>
 <p>We first obtain the sky coordinates for NGC 6535.</p>
 <div class="cell docutils container">
@@ -544,10 +549,10 @@ we will use the <code class="docutils literal notranslate"><span class="pre">Mea
 </div>
 </div>
 <p>We then extract photometric and position data (by selecting specific columns to return) for all objects
-in the <code class="docutils literal notranslate"><span class="pre">MeanObject</span></code> catalog that are within a 1.5 arcminute radius around NGC 6535.
-We also include constraints to limit the results to only objects with measured magnitudes for <code class="docutils literal notranslate"><span class="pre">gMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">iMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">yMeanPSFMag</span></code>, <code class="docutils literal notranslate"><span class="pre">iMeanKronMag</span></code>.</p>
+in the <code class="docutils literal notranslate"><span class="pre">mean_object</span></code> catalog that are within a 1.5 arcminute radius around NGC 6535.
+We also include constraints to limit the results to only objects with measured magnitudes for <code class="docutils literal notranslate"><span class="pre">gmeanpsfmag</span></code>, <code class="docutils literal notranslate"><span class="pre">imeanpsfmag</span></code>, <code class="docutils literal notranslate"><span class="pre">ymeanpsfmag</span></code>, <code class="docutils literal notranslate"><span class="pre">imeankronmag</span></code>.</p>
 <p>Next we apply post-processing constraints to refine our sample.</p>
-<p>As we are interested only in stars, we compare the Kron and PSF magnitudes in the $i$ band. Stars (point sources) typically have <code class="docutils literal notranslate"><span class="pre">iMeanPSFMAG-iMeanKronMag</span> <span class="pre">&lt;=</span> <span class="pre">0.05</span></code> (as shown in the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812369/How+to+separate+stars+and+galaxies#Howtoseparatestarsandgalaxies-PSF-Kron">PanSTARRS documentation</a>).</p>
+<p>As we are interested only in stars, we compare the Kron and PSF magnitudes in the $i$ band. Stars (point sources) typically have <code class="docutils literal notranslate"><span class="pre">imeanpsfmag-imeankronmag</span> <span class="pre">&lt;=</span> <span class="pre">0.05</span></code> (as shown in the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812369/How+to+separate+stars+and+galaxies#Howtoseparatestarsandgalaxies-PSF-Kron">PanSTARRS documentation</a>).</p>
 <p>Lastly, we apply the color and magnitude cuts, and then display the table with our final sample.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -557,18 +562,15 @@ We also include constraints to limit the results to only objects with measured m
     <span class="n">collection</span><span class="o">=</span><span class="s2">"ps1_dr2"</span><span class="p">,</span>
     <span class="n">catalog</span><span class="o">=</span><span class="s2">"mean_object"</span><span class="p">,</span>
     <span class="n">coordinates</span><span class="o">=</span><span class="n">c0</span><span class="p">,</span>
-    <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcmin</span><span class="p">,</span>
-    <span class="n">select_cols</span><span class="o">=</span><span class="p">[</span><span class="s2">"objID"</span><span class="p">,</span> <span class="s2">"raMean"</span><span class="p">,</span><span class="s2">"decMean"</span><span class="p">,</span>
-             <span class="s2">"gMeanPSFMag"</span><span class="p">,</span><span class="s2">"iMeanPSFMag"</span><span class="p">,</span><span class="s2">"yMeanPSFMag"</span><span class="p">,</span>
-             <span class="s2">"iMeanKronMag"</span><span class="p">],</span>    <span class="c1"># List of columns to return</span>
-    <span class="n">gMeanPSFMag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
-    <span class="n">iMeanPSFMag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
-    <span class="n">yMeanPSFMag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
-    <span class="n">iMeanKronMag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>  <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">radius</span><span class="o">=</span><span class="mf">1.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcmin</span><span class="p">,</span>
+    <span class="n">select_cols</span><span class="o">=</span><span class="p">[</span><span class="s2">"objid"</span><span class="p">,</span> <span class="s2">"ramean"</span><span class="p">,</span> <span class="s2">"decmean"</span><span class="p">,</span>
+                 <span class="s2">"gmeanpsfmag"</span><span class="p">,</span> <span class="s2">"imeanpsfmag"</span><span class="p">,</span> <span class="s2">"ymeanpsfmag"</span><span class="p">,</span>
+                 <span class="s2">"imeankronmag"</span><span class="p">],</span>    <span class="c1"># List of columns to return</span>
+    <span class="n">gmeanpsfmag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">imeanpsfmag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">ymeanpsfmag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>   <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
+    <span class="n">imeankronmag</span><span class="o">=</span><span class="s2">"&gt;-999"</span><span class="p">,</span>  <span class="c1"># mag &gt; -999; missing magnitudes are -999</span>
 <span class="p">)</span>
-
-<span class="c1"># Note: the returned table column names are all lower case, </span>
-<span class="c1"># which we use below.</span>
 
 <span class="c1"># Post-process cuts:</span>
 <span class="c1"># 1. Distinguish stars from extended objects using</span>
@@ -592,21 +594,21 @@ We also include constraints to limit the results to only objects with measured m
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=11</i>
-<table id="table140618844453248" class="table-striped table-bordered table-condensed">
+<table id="table140566912006528" class="table-striped table-bordered table-condensed">
 <thead><tr><th>objid</th><th>ramean</th><th>decmean</th><th>gmeanpsfmag</th><th>imeanpsfmag</th><th>ymeanpsfmag</th><th>imeankronmag</th></tr></thead>
 <thead><tr><th></th><th>deg</th><th>deg</th><th>mag</th><th>mag</th><th>mag</th><th>mag</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
-<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
-<tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.6545</td><td>16.4703</td><td>16.3595</td><td>16.4361</td></tr>
-<tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.0765</td><td>16.7683</td><td>16.6352</td><td>16.7509</td></tr>
 <tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.4472</td><td>17.3332</td><td>17.3366</td><td>17.4682</td></tr>
-<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
+<tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.6545</td><td>16.4703</td><td>16.3595</td><td>16.4361</td></tr>
+<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
+<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
 <tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
-<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
+<tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.0765</td><td>16.7683</td><td>16.6352</td><td>16.7509</td></tr>
+<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
 <tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.257</td><td>16.0153</td><td>15.8565</td><td>16.0009</td></tr>
 <tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.1058</td><td>15.7425</td><td>15.53</td><td>15.7387</td></tr>
-<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
-<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
+<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
+<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
 </table></div></div></div>
 </div>
 <p>We visualize our results by plotting a $g-y$ vs $i$ color-magnitude diagram.</p>
@@ -614,13 +616,13 @@ We also include constraints to limit the results to only objects with measured m
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">f</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
 <span class="c1"># Stars meeting the color/magnitude cuts</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
     <span class="n">results_aq</span><span class="p">[</span><span class="s1">'gmeanpsfmag'</span><span class="p">]</span><span class="o">-</span><span class="n">results_aq</span><span class="p">[</span><span class="s1">'ymeanpsfmag'</span><span class="p">],</span>
     <span class="n">results_aq</span><span class="p">[</span><span class="s1">'imeanpsfmag'</span><span class="p">],</span> 
-    <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s1">'Bright blue stars'</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -628,7 +630,7 @@ We also include constraints to limit the results to only objects with measured m
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
     <span class="n">results_aq_all</span><span class="p">[</span><span class="s1">'gmeanpsfmag'</span><span class="p">]</span><span class="o">-</span><span class="n">results_aq_all</span><span class="p">[</span><span class="s1">'ymeanpsfmag'</span><span class="p">],</span>
     <span class="n">results_aq_all</span><span class="p">[</span><span class="s1">'imeanpsfmag'</span><span class="p">],</span> 
-    <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s1">'All stars in region'</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -645,7 +647,7 @@ We also include constraints to limit the results to only objects with measured m
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(21.140229082107545, 12.911569738388062)
 </pre></div>
 </div>
-<img alt="../../_images/361bab9d7b5f1c264b45b127d93dbaf7c5975c066c2fb8d2d21e657520836393.png" src="../../_images/361bab9d7b5f1c264b45b127d93dbaf7c5975c066c2fb8d2d21e657520836393.png" />
+<img alt="../../_images/2bf4f614cf9d206e4a88d6a03bda05248de3333ee720f236e6d0bea2f6e2eb01.png" src="../../_images/2bf4f614cf9d206e4a88d6a03bda05248de3333ee720f236e6d0bea2f6e2eb01.png" />
 </div>
 </div>
 </section>
@@ -665,7 +667,7 @@ We also include constraints to limit the results to only objects with measured m
 </div>
 </div>
 </div>
-<p>Again, we will access the mean object catalog (<code class="docutils literal notranslate"><span class="pre">mean_object</span></code> here; see the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a> and <a class="reference external" href="https://mast.stsci.edu/schema_browser/#/ps1_dr2/mean_object">MAST Catalog Schema Browser</a>), which contains all the columns we will need.</p>
+<p>Again, we will access the mean object catalog (<code class="docutils literal notranslate"><span class="pre">mean_object</span></code> here; see the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812351/PS1+Source+extraction+and+catalogs">PanSTARRS DR2 catalogs documentation</a>, the <a class="reference external" href="https://outerspace.stsci.edu/spaces/PANSTARRS/pages/442401036/PS1+Migration+guide+from+legacy+TAP+CASJobs+to+TAP+on+Postgres">migration guide for MAST’s new catalog backend</a> and <a class="reference external" href="https://mast.stsci.edu/schema_browser/#/ps1_dr2/mean_object">MAST Catalog Schema Browser</a>), which contains all the columns we will need.</p>
 <p><em>Note:</em> As a reference when constructing queries, an overview description of methods, capabilities, and maximum result set sizes is available via:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TAP_service</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
@@ -725,21 +727,21 @@ This includes:</p>
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=11</i>
-<table id="table140618772123712" class="table-striped table-bordered table-condensed">
+<table id="table140566906756928" class="table-striped table-bordered table-condensed">
 <thead><tr><th>objid</th><th>ramean</th><th>decmean</th><th>gmeanpsfmag</th><th>imeanpsfmag</th><th>ymeanpsfmag</th><th>imeankronmag</th></tr></thead>
 <thead><tr><th></th><th>deg</th><th>deg</th><th>mag</th><th>mag</th><th>mag</th><th>mag</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
-<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
-<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
-<tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.4472</td><td>17.3332</td><td>17.3366</td><td>17.4682</td></tr>
-<tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.6545</td><td>16.4703</td><td>16.3595</td><td>16.4361</td></tr>
-<tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.257</td><td>16.0153</td><td>15.8565</td><td>16.0009</td></tr>
-<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
-<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
 <tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.0765</td><td>16.7683</td><td>16.6352</td><td>16.7509</td></tr>
-<tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.1058</td><td>15.7425</td><td>15.53</td><td>15.7387</td></tr>
 <tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
 <tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
+<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
+<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
+<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
+<tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.4472</td><td>17.3332</td><td>17.3366</td><td>17.4682</td></tr>
+<tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.6545</td><td>16.4703</td><td>16.3595</td><td>16.4361</td></tr>
+<tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
+<tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.257</td><td>16.0153</td><td>15.8565</td><td>16.0009</td></tr>
+<tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.1058</td><td>15.7425</td><td>15.53</td><td>15.7387</td></tr>
 </table></div></div></div>
 </div>
 <p>By leveraging the advanced usage patterns possible with AQDL, this single TAP query returns the same results as our two-step <code class="docutils literal notranslate"><span class="pre">astroquery</span></code> example where we first queried and then applied the final cuts.</p>
@@ -804,7 +806,7 @@ This includes:</p>
 <h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
 <p>The information about TAP access is based on the TIKE MAST PanSTARRS DR2 TAP notebook by Rick White &amp; Theresa Dower, with edits from T. Dutkiewicz.</p>
 <p><strong>Author:</strong>  Sedona Price<br />
-<strong>Updated On:</strong> 2026-08-03</p>
+<strong>Updated On:</strong> 2026-10-21</p>
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
@@ -850,6 +852,24 @@ This includes:</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../../README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Nancy Grace Roman Space Telescope Notebooks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../data_discovery_and_access/data_discovery_and_access.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Roman Research Nexus Data Discovery and Access in the Cloud</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

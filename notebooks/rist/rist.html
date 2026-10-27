@@ -169,9 +169,13 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../catalog_database_access/catalog_database_access.html">Roman Research Nexus Catalog Database access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ccs_simulations/ccs_simulations.html">Core Community Survey Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../target_visibility_tool/roman_target_visibility_tool.html">Roman Target Visibility Tool (RTVT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crds_reference_files/crds_reference_files.html">Understanding CRDS and How to Select Calibration Reference Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -188,6 +192,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time_domain_analysis/time_domain_analysis.html">Time Domain Analysis: Photometry of Simulated Transients</a></li>
 </ul>
 
     </div>
@@ -502,7 +507,7 @@ Execute the cell below to start using RIST.</p>
     </style>
     <div>
         <a href="https://bokeh.org" target="_blank" class="bk-notebook-logo"></a>
-        <span id="b1c71d61-40a6-4b89-a060-a34b0d34445f">Loading BokehJS ...</span>
+        <span id="a8dbce94-da9b-48fc-a1b6-f597eaea4a2c">Loading BokehJS ...</span>
     </div>
 </div><script type="application/javascript">'use strict';
 (function(root) {
@@ -667,7 +672,7 @@ const JS_MIME_TYPE = 'application/javascript';
      "</div>"}};
 
   function display_loaded(error = null) {
-    const el = document.getElementById("b1c71d61-40a6-4b89-a060-a34b0d34445f");
+    const el = document.getElementById("a8dbce94-da9b-48fc-a1b6-f597eaea4a2c");
     if (el != null) {
       const html = (() => {
         if (typeof root.Bokeh === "undefined") {
@@ -775,7 +780,7 @@ const JS_MIME_TYPE = 'application/javascript';
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.10.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.10.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.10.0.min.js"];
+  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.10.1.min.js"];
   const css_urls = [];
 
   const inline_js = [    function(Bokeh) {
@@ -801,7 +806,7 @@ function(Bokeh) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     } else if (force !== true) {
-      const cell = $(document.getElementById("b1c71d61-40a6-4b89-a060-a34b0d34445f")).parents('.cell').data().cell;
+      const cell = $(document.getElementById("a8dbce94-da9b-48fc-a1b6-f597eaea4a2c")).parents('.cell').data().cell;
       cell.output_area.append_execute_result(NB_LOAD_WARNING)
     }
   }
@@ -815,11 +820,11 @@ function(Bokeh) {
       run_inline_js();
     });
   }
-}(window));</script><div class="output text_html"><script id="a55fdf2a-a8be-43bf-86c6-ecf3369843cd">
+}(window));</script><div class="output text_html"><script id="eb840872-53c3-42a1-8c5c-a685f1a43500">
   (function() {
     const xhr = new XMLHttpRequest()
     xhr.responseType = 'blob';
-    xhr.open('GET', "http://localhost:43555/autoload.js?bokeh-autoload-element=a55fdf2a-a8be-43bf-86c6-ecf3369843cd&bokeh-absolute-url=http://localhost:43555&resources=none", true);
+    xhr.open('GET', "http://localhost:39787/autoload.js?bokeh-autoload-element=eb840872-53c3-42a1-8c5c-a685f1a43500&bokeh-absolute-url=http://localhost:39787&resources=none", true);
     xhr.withCredentials = false;
     xhr.onload = function (event) {
       const script = document.createElement('script');

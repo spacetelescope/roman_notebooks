@@ -63,6 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/background_visualization_tool/RBVT';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Time Domain Analysis: Photometry of Simulated Transients" href="../time_domain_analysis/time_domain_analysis.html" />
     <link rel="prev" title="Visualization of Roman APT products" href="../footprint_visualization/footprint_visualization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -168,9 +169,13 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../catalog_database_access/catalog_database_access.html">Roman Research Nexus Catalog Database access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ccs_simulations/ccs_simulations.html">Core Community Survey Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../target_visibility_tool/roman_target_visibility_tool.html">Roman Target Visibility Tool (RTVT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crds_reference_files/crds_reference_files.html">Understanding CRDS and How to Select Calibration Reference Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -187,6 +192,7 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time_domain_analysis/time_domain_analysis.html">Time Domain Analysis: Photometry of Simulated Transients</a></li>
 </ul>
 
     </div>
@@ -461,10 +467,15 @@
 <section id="import">
 <h2>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
 <p>The Roman Background Visualization Tool (RBVT) is launched from within a Jupyter notebook using the <code class="docutils literal notranslate"><span class="pre">plot_rbt</span></code> module.</p>
-<p><strong>Note</strong>: If running within VS Code, Jupyter Notebook, or JupyterLab, set the WebSocket to conect to Bokeh before importing <code class="docutils literal notranslate"><span class="pre">plot_rist</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up Bokeh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bokeh assumes port 8888. If Jupyter uses another port, uncomment the URL</span>
+<span class="c1"># below and match your browser's hostname and Jupyter port (no path/token).</span>
+<span class="n">NOTEBOOK_URL</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="c1">#NOTEBOOK_URL = "http://localhost:8890"</span>
+
+<span class="c1"># Allow Bokeh WebSocket connections from any origin.</span>
+<span class="c1"># Required for local Jupyter, JupyterLab, and VS Code; harmless on Nexus.</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="k">if</span> <span class="s1">'BOKEH_ALLOW_WS_ORIGIN'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'BOKEH_ALLOW_WS_ORIGIN'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'*'</span>
@@ -481,7 +492,8 @@
 <p>To begin, run the cell below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rbvt</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_rbt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rbt</span><span class="w"> </span><span class="kn">import</span> <span class="n">validate_reference_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rbvt</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_rbt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_notebook</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.application</span><span class="w"> </span><span class="kn">import</span> <span class="n">Application</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.application.handlers.function</span><span class="w"> </span><span class="kn">import</span> <span class="n">FunctionHandler</span>
@@ -491,9 +503,18 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_notebook</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check reference files before starting the Bokeh server.</span>
+<span class="n">validate_reference_data</span><span class="p">()</span>
+
+<span class="n">output_notebook</span><span class="p">()</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">FunctionHandler</span><span class="p">(</span><span class="n">plot_rbt</span><span class="p">))</span>
-<span class="n">show</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="c1"># Nexus needs no local port override. Bokeh uses its configured connection.</span>
+<span class="c1"># For local use, uncomment NOTEBOOK_URL in the setup cell above.</span>
+<span class="n">show_options</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">if</span> <span class="n">NOTEBOOK_URL</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">show_options</span><span class="p">[</span><span class="s2">"notebook_url"</span><span class="p">]</span> <span class="o">=</span> <span class="n">NOTEBOOK_URL</span>
+<span class="n">show</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="o">**</span><span class="n">show_options</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -508,7 +529,7 @@
     </style>
     <div>
         <a href="https://bokeh.org" target="_blank" class="bk-notebook-logo"></a>
-        <span id="be114a84-f915-46f7-8d25-66d6d0f9b02d">Loading BokehJS ...</span>
+        <span id="b0154444-3206-4aca-8238-8b94b8b978de">Loading BokehJS ...</span>
     </div>
 </div><script type="application/javascript">'use strict';
 (function(root) {
@@ -673,7 +694,7 @@ const JS_MIME_TYPE = 'application/javascript';
      "</div>"}};
 
   function display_loaded(error = null) {
-    const el = document.getElementById("be114a84-f915-46f7-8d25-66d6d0f9b02d");
+    const el = document.getElementById("b0154444-3206-4aca-8238-8b94b8b978de");
     if (el != null) {
       const html = (() => {
         if (typeof root.Bokeh === "undefined") {
@@ -781,7 +802,7 @@ const JS_MIME_TYPE = 'application/javascript';
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.10.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.10.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.10.0.min.js"];
+  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.10.1.min.js"];
   const css_urls = [];
 
   const inline_js = [    function(Bokeh) {
@@ -807,7 +828,7 @@ function(Bokeh) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     } else if (force !== true) {
-      const cell = $(document.getElementById("be114a84-f915-46f7-8d25-66d6d0f9b02d")).parents('.cell').data().cell;
+      const cell = $(document.getElementById("b0154444-3206-4aca-8238-8b94b8b978de")).parents('.cell').data().cell;
       cell.output_area.append_execute_result(NB_LOAD_WARNING)
     }
   }
@@ -821,11 +842,11 @@ function(Bokeh) {
       run_inline_js();
     });
   }
-}(window));</script><div class="output text_html"><script id="e3270e8d-80b2-4dda-8074-26f37730f480">
+}(window));</script><div class="output text_html"><script id="f551fa61-030c-4289-bc4f-cde200cb29e4">
   (function() {
     const xhr = new XMLHttpRequest()
     xhr.responseType = 'blob';
-    xhr.open('GET', "http://localhost:39539/autoload.js?bokeh-autoload-element=e3270e8d-80b2-4dda-8074-26f37730f480&bokeh-absolute-url=http://localhost:39539&resources=none", true);
+    xhr.open('GET', "http://localhost:44571/autoload.js?bokeh-autoload-element=f551fa61-030c-4289-bc4f-cde200cb29e4&bokeh-absolute-url=http://localhost:44571&resources=none", true);
     xhr.withCredentials = false;
     xhr.onload = function (event) {
       const script = document.createElement('script');
@@ -855,7 +876,7 @@ function(Bokeh) {
 <section id="about-this-notebook">
 <h2>About this Notebook<a class="headerlink" href="#about-this-notebook" title="Link to this heading">#</a></h2>
 <p><strong>Author:</strong> Melissa Shahbandeh &amp; R. Diaz</p>
-<p><strong>Last Updated</strong>: 2025-12-10</p>
+<p><strong>Last Updated</strong>: 2026-10-14</p>
 <table width="100%" style="border:none; border-collapse:collapse;">
   <tr style="border:none;">
     <td style="border:none; width:180px; white-space:nowrap;">
@@ -880,16 +901,16 @@ function(Bokeh) {
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "roman_cal"
         },
         kernelOptions: {
-            name: "python3",
+            name: "roman_cal",
             path: "./notebooks/background_visualization_tool"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'roman_cal'</script>
 
                 </article>
               
@@ -909,6 +930,15 @@ function(Bokeh) {
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Visualization of Roman APT products</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../time_domain_analysis/time_domain_analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Time Domain Analysis: Photometry of Simulated Transients</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

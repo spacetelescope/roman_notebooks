@@ -169,9 +169,13 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../catalog_database_access/catalog_database_access.html">Roman Research Nexus Catalog Database access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ccs_simulations/ccs_simulations.html">Core Community Survey Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../target_visibility_tool/roman_target_visibility_tool.html">Roman Target Visibility Tool (RTVT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crds_reference_files/crds_reference_files.html">Understanding CRDS and How to Select Calibration Reference Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -188,6 +192,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time_domain_analysis/time_domain_analysis.html">Time Domain Analysis: Photometry of Simulated Transients</a></li>
 </ul>
 
     </div>
@@ -1030,25 +1035,25 @@ minor-to-major axis ratio: 0.80766
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n:
 	Initial: 2.79877
-	Fitted: 2.72732
+	Fitted: 2.72779
 hlr:
 	Initial: 0.44776
-	Fitted: 0.43058
+	Fitted: 0.43064
 flux:
 	Initial: 0.03482
-	Fitted: 0.03071
+	Fitted: 0.03069
 pa:
 	Initial: 261.97015
-	Fitted: 172.24804
+	Fitted: 0.00000
 x0:
 	Initial: 0.00000
-	Fitted: -0.28364
+	Fitted: -0.28517
 y0:
 	Initial: 0.00000
-	Fitted: 0.01207
+	Fitted: 0.01282
 q:
 	Initial: 0.70971
-	Fitted: 0.73468
+	Fitted: 0.74352
 </pre></div>
 </div>
 </div>
@@ -1095,7 +1100,7 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f68589fca7692e6d6bbe548347b91fe2643039c8c0afe6eb33594c442cb5a446.png" src="../../_images/f68589fca7692e6d6bbe548347b91fe2643039c8c0afe6eb33594c442cb5a446.png" />
+<img alt="../../_images/3bdd63a920edd0ece90338e87d547aec96a87ded885a049ce5763ab531465aa6.png" src="../../_images/3bdd63a920edd0ece90338e87d547aec96a87ded885a049ce5763ab531465aa6.png" />
 </div>
 </div>
 <p>Our fit looks really good. Let’s take a quick look at the statistics of the fit residuals:</p>
@@ -1107,8 +1112,8 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.00192 DN / s
-Residual std dev: 0.15022 DN / s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.01329 DN / s
+Residual std dev: 0.16784 DN / s
 </pre></div>
 </div>
 </div>
@@ -1142,43 +1147,43 @@ Residual std dev: 0.15022 DN / s
 	Catalog (p0): 2.79877
 	New inputs (p1): 1.00000
 
-	Old fit: 2.72732
+	Old fit: 2.72779
 	New fit: 2.72778
 hlr:
 	Catalog (p0): 0.44776
 	New inputs (p1): 0.44000
 
-	Old fit: 0.43058
+	Old fit: 0.43064
 	New fit: 0.43063
 flux:
 	Catalog (p0): 0.03482
 	New inputs (p1): 0.03482
 
-	Old fit: 0.03071
+	Old fit: 0.03069
 	New fit: 0.03069
 pa:
 	Catalog (p0): 261.97015
 	New inputs (p1): 0.00000
 
-	Old fit: 172.24804
+	Old fit: 0.00000
 	New fit: 0.00000
 x0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: -0.28364
+	Old fit: -0.28517
 	New fit: -0.28517
 y0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: 0.01207
+	Old fit: 0.01282
 	New fit: 0.01282
 q:
 	Catalog (p0): 0.70971
 	New inputs (p1): 0.50000
 
-	Old fit: 0.73468
+	Old fit: 0.74352
 	New fit: 0.74352
 </pre></div>
 </div>
@@ -1213,43 +1218,43 @@ q:
 	Catalog (p0): 2.79877
 	New inputs (p1): 1.00000
 
-	Old fit: 2.72732
+	Old fit: 2.72779
 	New fit: 2.72732
 hlr:
 	Catalog (p0): 0.44776
 	New inputs (p1): 0.44000
 
-	Old fit: 0.43058
+	Old fit: 0.43064
 	New fit: 0.43058
 flux:
 	Catalog (p0): 0.03482
 	New inputs (p1): 0.03482
 
-	Old fit: 0.03071
+	Old fit: 0.03069
 	New fit: 0.03071
 pa:
 	Catalog (p0): 261.97015
 	New inputs (p1): 351.85194
 
-	Old fit: 172.24804
+	Old fit: 0.00000
 	New fit: 352.24804
 x0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: -0.28364
+	Old fit: -0.28517
 	New fit: -0.28364
 y0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: 0.01207
+	Old fit: 0.01282
 	New fit: 0.01207
 q:
 	Catalog (p0): 0.70971
 	New inputs (p1): 0.80766
 
-	Old fit: 0.73468
+	Old fit: 0.74352
 	New fit: 0.73468
 </pre></div>
 </div>
@@ -1335,13 +1340,13 @@ Residual std dev: 0.15022 DN / s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 2.72732 +/- 0.08497
-hlr = 0.43058 +/- 0.01144
-flux = 0.03071 +/- 0.00049
-pa = 172.24804 +/- 1.13138
-x0 = -0.28364 +/- 0.01311
-y0 = 0.01207 +/- 0.01035
-q = 0.73468 +/- 0.00939
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 2.72779 +/- 0.09090
+hlr = 0.43064 +/- 0.01225
+flux = 0.03069 +/- 0.00053
+pa = 0.00000 +/- 1.25950
+x0 = -0.28517 +/- 0.01401
+y0 = 0.01282 +/- 0.01106
+q = 0.74352 +/- 0.01018
 </pre></div>
 </div>
 </div>

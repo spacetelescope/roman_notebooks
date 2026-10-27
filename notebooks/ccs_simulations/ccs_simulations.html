@@ -63,6 +63,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/ccs_simulations/ccs_simulations';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Roman Target Visibility Tool (RTVT)" href="../target_visibility_tool/roman_target_visibility_tool.html" />
+    <link rel="prev" title="Roman Research Nexus Data Discovery and Access in the Cloud" href="../data_discovery_and_access/data_discovery_and_access.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -113,8 +115,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -168,10 +168,14 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../catalog_database_access/catalog_database_access.html">Roman Research Nexus Catalog Database access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_discovery_and_access/data_discovery_and_access.html">Roman Research Nexus Data Discovery and Access in the Cloud</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Core Community Survey Simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../target_visibility_tool/roman_target_visibility_tool.html">Roman Target Visibility Tool (RTVT)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../working_with_asdf/working_with_asdf.html">How to Open Roman Data Files (ASDF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_visualization/data_visualization.html">Visualizing Data in Roman ASDF Files with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crds_reference_files/crds_reference_files.html">Understanding CRDS and How to Select Calibration Reference Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../romanisim/romanisim.html">Simulating WFI Imaging Data with Roman I-Sim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exposure_pipeline/exposure_pipeline.html">Calibrating WFI Exposures with RomanCal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mosaic_pipeline/mosaic_pipeline.html">Making WFI Mosaics with RomanCal</a></li>
@@ -188,6 +192,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time_domain_analysis/time_domain_analysis.html">Time Domain Analysis: Photometry of Simulated Transients</a></li>
 </ul>
 
     </div>
@@ -726,7 +731,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140581261524736" class="table-striped table-bordered table-condensed">
+<table id="table140317541464768" class="table-striped table-bordered table-condensed">
 <thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>wfi_pa</th><th>detector_ra</th><th>detector_dec</th><th>detector</th><th>optical_element</th><th>start_time</th><th>end_time</th><th>ma_table_id</th><th>exptime</th><th>pass</th><th>segment</th><th>observation</th><th>visit</th><th>exposure</th><th>l1_s3_uri</th><th>l2_s3_uri</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str5</th><th>str4</th><th>str23</th><th>str23</th><th>str7</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>str100</th><th>str98</th></tr></thead>
 <tr><td>268.536419</td><td>-28.539441</td><td>90.46325045085938</td><td>268.11703729056586</td><td>-28.493460496328897</td><td>WFI09</td><td>F146</td><td>2027-10-07T01:23:41.000</td><td>2027-10-07T01:24:47.412</td><td>SCI1002</td><td>66.41188</td><td>4</td><td>1</td><td>25</td><td>17</td><td>1</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l1/r0034001004001025017_0001_wfi09_f146_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00340/l2/r0034001004001025017_0001_wfi09_f146_cal.asdf</td></tr>
@@ -773,7 +778,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140581258962000" class="table-striped table-bordered table-condensed">
+<table id="table140317448655184" class="table-striped table-bordered table-condensed">
 <thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>wfi_pa</th><th>detector_ra</th><th>detector_dec</th><th>detector</th><th>optical_element</th><th>start_time</th><th>end_time</th><th>ma_table_id</th><th>exptime</th><th>pass</th><th>segment</th><th>observation</th><th>visit</th><th>exposure</th><th>l1_s3_uri</th><th>l2_s3_uri</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str5</th><th>str4</th><th>str23</th><th>str23</th><th>str7</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>str100</th><th>str98</th></tr></thead>
 <tr><td>8.096021</td><td>-43.708709</td><td>0.40705870754605994</td><td>8.493435848846008</td><td>-43.639085407254484</td><td>WFI15</td><td>F129</td><td>2027-07-13T12:59:05.000</td><td>2027-07-13T13:03:59.110</td><td>SCI1018</td><td>294.10974</td><td>10</td><td>1</td><td>5</td><td>7</td><td>3</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l1/r0034201010001005007_0003_wfi15_f129_uncal.asdf</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201010001005007_0003_wfi15_f129_cal.asdf</td></tr>
@@ -839,7 +844,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140581259242592" class="table-striped table-bordered table-condensed">
+<table id="table140318057554208" class="table-striped table-bordered table-condensed">
 <thead><tr><th>skycell_ra</th><th>skycell_dec</th><th>skycell_name</th><th>grouping</th><th>exptime</th><th>max_exptime</th><th>optical_element</th><th>l3_s3_uri</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>str12</th><th>str15</th><th>float64</th><th>float64</th><th>str4</th><th>str106</th></tr></thead>
 <tr><td>8.975205942985813</td><td>-43.26800876245513</td><td>010m42x30y36</td><td>v01001001004017</td><td>732.3993542471724</td><td>882.3294067382812</td><td>F146</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l3/r00342_p_v01001001004017_010m42x30y36_f146_coadd.asdf</td></tr>
@@ -911,7 +916,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140581259110768" class="table-striped table-bordered table-condensed">
+<table id="table140318057440528" class="table-striped table-bordered table-condensed">
 <thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>separation</th><th>l2_s3_uri</th></tr></thead>
 <thead><tr><th></th><th></th><th>deg</th><th></th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>float64</th><th>str98</th></tr></thead>
@@ -942,7 +947,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140581258590384" class="table-striped table-bordered table-condensed">
+<table id="table140318057063440" class="table-striped table-bordered table-condensed">
 <thead><tr><th>l2_s3_uri</th><th>start_time</th></tr></thead>
 <thead><tr><th>str98</th><th>str23</th></tr></thead>
 <tr><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201008001002018_0003_wfi01_f129_cal.asdf</td><td>2027-07-10T10:48:02.000</td></tr>
@@ -976,7 +981,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140582938546032" class="table-striped table-bordered table-condensed">
+<table id="table140318057062736" class="table-striped table-bordered table-condensed">
 <thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>exptime</th><th>detector</th><th>optical_element</th><th>l2_s3_uri</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>float64</th><th>str5</th><th>str4</th><th>str98</th></tr></thead>
 <tr><td>9.365006</td><td>-44.185182</td><td>294.10974</td><td>WFI13</td><td>F158</td><td>s3://stpubdata/roman/nexus/soc_simulations/r00342/l2/r0034201003001005010_0002_wfi13_f158_cal.asdf</td></tr>
@@ -1030,7 +1035,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=6</i>
-<table id="table140581232509184" class="table-striped table-bordered table-condensed">
+<table id="table140318057064320" class="table-striped table-bordered table-condensed">
 <thead><tr><th>wfi_ra</th><th>wfi_dec</th><th>separation</th><th>start_time</th><th>optical_element</th><th>detector</th><th>l2_s3_uri</th></tr></thead>
 <thead><tr><th></th><th></th><th>deg</th><th></th><th></th><th></th><th></th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>float64</th><th>str23</th><th>str4</th><th>str5</th><th>str98</th></tr></thead>
@@ -1151,7 +1156,7 @@
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140581232524496" class="table-striped table-bordered table-condensed">
+<table id="table140317018922992" class="table-striped table-bordered table-condensed">
 <thead><tr><th>ra</th><th>dec</th><th>type</th><th>n</th><th>half_light_radius</th><th>pa</th><th>ba</th><th>F062</th><th>F087</th><th>F106</th><th>F129</th><th>F158</th><th>F184</th><th>F146</th><th>F213</th><th>source_id</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>str3</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th></tr></thead>
 <tr><td>8.224220976849999</td><td>-43.62374634609125</td><td>SER</td><td>4.0</td><td>0.026187511160969734</td><td>-7837.499406084476</td><td>0.9190793699396409</td><td>2.1236773461804743e-12</td><td>2.020929656711365e-12</td><td>1.863445016467042e-12</td><td>1.995959368127208e-12</td><td>2.708228921234155e-12</td><td>3.399810313307699e-12</td><td>2.4363423274935717e-12</td><td>2.716980394487369e-12</td><td>13394</td></tr>
@@ -1771,106 +1776,109 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
   warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:50,684 - CRDS - INFO -  Syncing 30 files
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:52,858 - CRDS - INFO -  Syncing 31 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:50,686 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_specpsf_0001.rmap      572 bytes  (1 / 30 files) (0 / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:52,861 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_specpsf_0002.rmap      787 bytes  (1 / 31 files) (0 / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:50,742 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_skycells_0002.rmap      712 bytes  (2 / 30 files) (572 / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:53,177 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_skycells_0002.rmap      712 bytes  (2 / 31 files) (787 / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:50,805 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_sflat_0001.rmap      548 bytes  (3 / 30 files) (1.3 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:53,746 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_sflat_0002.rmap      759 bytes  (3 / 31 files) (1.5 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:50,845 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_saturation_0003.rmap    2.4 K bytes  (4 / 30 files) (1.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:54,039 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_saturation_0004.rmap    3.6 K bytes  (4 / 31 files) (2.3 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:50,971 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_relflux_0001.rmap      555 bytes  (5 / 30 files) (4.3 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:54,322 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_relflux_0002.rmap      770 bytes  (5 / 31 files) (5.9 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,006 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_refpix_0005.rmap    2.3 K bytes  (6 / 30 files) (4.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:54,520 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_refpix_0005.rmap    2.3 K bytes  (6 / 31 files) (6.6 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,077 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_readnoise_0007.rmap    3.4 K bytes  (7 / 30 files) (7.1 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:54,838 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_readnoise_0008.rmap    3.8 K bytes  (7 / 31 files) (9.0 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,182 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_photom_0004.rmap    2.3 K bytes  (8 / 30 files) (10.5 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:55,139 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_photom_0006.rmap    3.4 K bytes  (8 / 31 files) (12.8 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,225 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_optmodel_0001.rmap      586 bytes  (9 / 30 files) (12.9 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:55,331 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_optmodel_0002.rmap      823 bytes  (9 / 31 files) (16.2 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,270 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_matable_0004.rmap      690 bytes  (10 / 30 files) (13.4 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:55,542 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_matable_0004.rmap      690 bytes  (10 / 31 files) (17.1 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,399 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_mask_0003.rmap    2.3 K bytes  (11 / 30 files) (14.1 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:55,775 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_mask_0005.rmap    3.3 K bytes  (11 / 31 files) (17.8 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,459 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_linearity_0005.rmap    2.4 K bytes  (12 / 30 files) (16.4 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:56,245 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_linearity_0006.rmap    3.6 K bytes  (12 / 31 files) (21.1 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,589 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_ipc_0003.rmap    3.3 K bytes  (13 / 30 files) (18.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:56,503 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_ipc_0003.rmap    3.3 K bytes  (13 / 31 files) (24.7 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,694 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_inverselinearity_0005.rmap    2.6 K bytes  (14 / 30 files) (22.1 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:56,706 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_inverselinearity_0006.rmap    3.9 K bytes  (14 / 31 files) (28.0 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,738 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_integralnonlinearity_0002.rmap    2.8 K bytes  (15 / 30 files) (24.7 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:57,008 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_integralnonlinearity_0002.rmap    2.8 K bytes  (15 / 31 files) (31.9 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,833 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_gain_0004.rmap    2.3 K bytes  (16 / 30 files) (27.5 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:57,309 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_gain_0004.rmap    2.3 K bytes  (16 / 31 files) (34.6 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:51,971 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_flat_0006.rmap    8.5 K bytes  (17 / 30 files) (29.7 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:57,544 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_flat_0008.rmap   24.2 K bytes  (17 / 31 files) (36.9 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,007 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_etc_0002.rmap    2.3 K bytes  (18 / 30 files) (38.2 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:57,881 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_etc_0002.rmap    2.3 K bytes  (18 / 31 files) (61.1 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,126 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_epsf_0004.rmap   16.3 K bytes  (19 / 30 files) (40.5 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:58,068 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_epsf_0004.rmap   16.3 K bytes  (19 / 31 files) (63.4 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,275 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dustmap_0003.rmap      855 bytes  (20 / 30 files) (56.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:58,311 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dustmap_0003.rmap      855 bytes  (20 / 31 files) (79.7 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,309 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_distortion_0002.rmap    3.6 K bytes  (21 / 30 files) (57.7 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:58,559 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_distortion_0006.rmap    8.3 K bytes  (21 / 31 files) (80.5 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,382 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_detectorstatus_0002.rmap      773 bytes  (22 / 30 files) (61.2 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:58,785 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_detectorstatus_0002.rmap      773 bytes  (22 / 31 files) (88.8 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,508 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_darkdecaysignal_0002.rmap      783 bytes  (23 / 30 files) (62.0 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:59,067 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_darkdecaysignal_0002.rmap      783 bytes  (23 / 31 files) (89.6 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,542 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dark_0011.rmap    4.4 K bytes  (24 / 30 files) (62.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:59,366 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dark_0012.rmap    4.9 K bytes  (24 / 31 files) (90.4 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,577 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_area_0002.rmap    2.3 K bytes  (25 / 30 files) (67.2 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:59,636 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_bam_0008.rmap      895 bytes  (25 / 31 files) (95.3 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,620 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_apcorr_0003.rmap    2.3 K bytes  (26 / 30 files) (69.5 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:24:59,831 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_area_0006.rmap    6.6 K bytes  (26 / 31 files) (96.2 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,737 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_abvegaoffset_0002.rmap    2.5 K bytes  (27 / 30 files) (71.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:00,126 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_apcorr_0003.rmap    2.3 K bytes  (27 / 31 files) (102.7 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,862 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_absflux_0001.rmap      555 bytes  (28 / 30 files) (74.3 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:00,326 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_abvegaoffset_0002.rmap    2.5 K bytes  (28 / 31 files) (105.1 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:52,929 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_0059.imap    2.4 K bytes  (29 / 30 files) (74.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:00,745 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_absflux_0002.rmap      770 bytes  (29 / 31 files) (107.5 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:53,056 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_0061.pmap       344 bytes  (30 / 30 files) (77.3 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:01,168 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_0075.imap    2.4 K bytes  (30 / 31 files) (108.3 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:53,159 - stpipe.step - INFO - SourceCatalogStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:01,595 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_0077.pmap       344 bytes  (31 / 31 files) (110.8 K / 111.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:53,710 - stpipe.step - INFO - Step SourceCatalogStep running with args (&lt;roman_datamodels.datamodels._datamodels.ImageModel object at 0x7fdb88cf1760&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:01,945 - stpipe.step - INFO - SourceCatalogStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:53,713 - stpipe.step - INFO - Step SourceCatalogStep parameters are:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:02,529 - stpipe.step - INFO - Step SourceCatalogStep running with args (&lt;roman_datamodels.datamodels._datamodels.ImageModel object at 0x7f9e22452cf0&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:02,531 - stpipe.step - INFO - Step SourceCatalogStep parameters are:
   pre_hooks: []
   post_hooks: []
   output_file: None
@@ -1893,100 +1901,100 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
   forced_segmentation: ''
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:56,295 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/romancal/datamodels/fileio.py:69: MigrationWarning: Migration is adding keyword hga_move to the exposure block and arbitrarily setting it to False.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:06,722 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/romancal/datamodels/fileio.py:69: MigrationWarning: Migration is adding keyword hga_move to the exposure block and arbitrarily setting it to False.
   result = update_model_version(dataset)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:56,299 - CRDS - INFO -  Syncing 1 files
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:06,726 - CRDS - INFO -  Syncing 1 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:56,300 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_epsf_0190.asdf  178.5 M bytes  (1 / 1 files) (0 / 178.5 M bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:06,726 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_epsf_0190.asdf  178.5 M bytes  (1 / 1 files) (0 / 178.5 M bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:57,876 - romancal.source_catalog.source_catalog_step - INFO - Using ePSF reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_epsf_0190.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:14,473 - romancal.source_catalog.source_catalog_step - INFO - Using ePSF reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_epsf_0190.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:23:57,892 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:308: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_epsf_0190.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.0.0' (from package roman_datamodels==0.27.0), which is not currently installed
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:14,485 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:308: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_epsf_0190.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.0.0' (from package roman_datamodels==0.27.0), which is not currently installed
   warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:00,466 - romancal.source_catalog.psf - INFO - Performed jitter convolution.  Image kernel: (8, 8, 0) Reference kernel: (0, 0, 0)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,677 - romancal.source_catalog.psf - INFO - Performed jitter convolution.  Image kernel: (8, 8, 0) Reference kernel: (0, 0, 0)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:00,709 - romancal.source_catalog.source_catalog_step - INFO - Calculating and subtracting background
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,860 - romancal.source_catalog.source_catalog_step - INFO - Calculating and subtracting background
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:03,534 - romancal.source_catalog._background - INFO - Background could not be estimated in meshes. Using the entire unmasked array for background estimation: bkg_boxsize=(4088, 4088).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:18,613 - romancal.source_catalog._background - INFO - Background could not be estimated in meshes. Using the entire unmasked array for background estimation: bkg_boxsize=(4088, 4088).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:03,548 - romancal.source_catalog.source_catalog_step - INFO - Creating detection image
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:18,625 - romancal.source_catalog.source_catalog_step - INFO - Creating detection image
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:04,298 - romancal.source_catalog.source_catalog_step - INFO - Detecting sources
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:19,248 - romancal.source_catalog.source_catalog_step - INFO - Detecting sources
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:05,054 - romancal.source_catalog._detection - INFO - Detected 38067 sources
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:19,838 - romancal.source_catalog._detection - INFO - Detected 38067 sources
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:05,055 - romancal.source_catalog.source_catalog_step - INFO - Creating ee_fractions model
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:19,839 - romancal.source_catalog.source_catalog_step - INFO - Creating ee_fractions model
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:05,058 - CRDS - INFO -  Syncing 1 files
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:19,841 - CRDS - INFO -  Syncing 1 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:05,058 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_apcorr_0027.asdf   46.9 K bytes  (1 / 1 files) (0 / 46.9 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:19,842 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_apcorr_0027.asdf   46.9 K bytes  (1 / 1 files) (0 / 46.9 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:05,141 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:308: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_apcorr_0027.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0' (from package roman_datamodels==0.30.0), which is not currently installed
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:20,165 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:308: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_apcorr_0027.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0' (from package roman_datamodels==0.30.0), which is not currently installed
   warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:05,203 - romancal.source_catalog.source_catalog_step - INFO - Creating source catalog
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:20,202 - romancal.source_catalog.source_catalog_step - INFO - Creating source catalog
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:05,251 - romancal.source_catalog._source_catalog - INFO - Calculating segment properties
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:20,241 - romancal.source_catalog._source_catalog - INFO - Calculating segment properties
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:24:48,185 - romancal.source_catalog._source_catalog - INFO - Calculating aperture photometry
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:27,098 - romancal.source_catalog._source_catalog - INFO - Calculating aperture photometry
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:25:37,593 - romancal.source_catalog._source_catalog - INFO - Calculating DAOFind properties
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:52,940 - romancal.source_catalog._source_catalog - INFO - Calculating DAOFind properties
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:25:38,562 - romancal.source_catalog._source_catalog - INFO - Calculating nearest neighbor properties
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:53,657 - romancal.source_catalog._source_catalog - INFO - Calculating nearest neighbor properties
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:25:38,599 - romancal.source_catalog._source_catalog - INFO - Calculating PSF photometry
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:53,688 - romancal.source_catalog._source_catalog - INFO - Calculating PSF photometry
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:25:38,601 - romancal.source_catalog.psf - INFO - Integrating over the native pixel scale.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:53,690 - romancal.source_catalog.psf - INFO - Integrating over the native pixel scale.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:07,135 - romancal.source_catalog._source_catalog - WARNING - meta.wcsinfo missing skycell_name/pixel_scale_ref; flagged_spatial_id will be zero.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:29,224 - romancal.source_catalog._source_catalog - WARNING - meta.wcsinfo missing skycell_name/pixel_scale_ref; flagged_spatial_id will be zero.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:07,147 - CRDS - INFO -  Syncing 1 files
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:29,232 - CRDS - INFO -  Syncing 1 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:07,148 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/SFD_dust_4096_ngp.fits   67.1 M bytes  (1 / 1 files) (0 / 67.1 M bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:29,232 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/SFD_dust_4096_ngp.fits   67.1 M bytes  (1 / 1 files) (0 / 67.1 M bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:07,813 - CRDS - INFO -  Syncing 1 files
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:31,619 - CRDS - INFO -  Syncing 1 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:07,814 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/SFD_dust_4096_sgp.fits   67.1 M bytes  (1 / 1 files) (0 / 67.1 M bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:31,619 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/SFD_dust_4096_sgp.fits   67.1 M bytes  (1 / 1 files) (0 / 67.1 M bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:08,964 - stpipe.step - INFO - Saved model in r0034001002001015025_0001_wfi10_f146_segm.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:34,253 - stpipe.step - INFO - Saved model in r0034001002001015025_0001_wfi10_f146_segm.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:09,556 - stpipe.step - INFO - Saved model in r0034001002001015025_0001_wfi10_f146_cat.parquet
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:34,688 - stpipe.step - INFO - Saved model in r0034001002001015025_0001_wfi10_f146_cat.parquet
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:10,144 - romancal.stpipe.core - INFO - Results used CRDS context: roman_0061.pmap
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:35,029 - romancal.stpipe.core - INFO - Results used CRDS context: roman_0077.pmap
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:10,145 - stpipe.step - INFO - Step SourceCatalogStep done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:35,030 - stpipe.step - INFO - Step SourceCatalogStep done
 </pre></div>
 </div>
 </div>
@@ -2057,13 +2065,13 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>...</td>
       <td>1598.632202</td>
       <td>7.674439e+05</td>
-      <td>1596.995361</td>
+      <td>1595.046875</td>
       <td>16.687384</td>
-      <td>0.002257</td>
+      <td>0.002254</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1376.645508</td>
+      <td>1376.645386</td>
       <td>1.321356</td>
     </tr>
     <tr>
@@ -2079,15 +2087,15 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>310.052734</td>
+      <td>310.052765</td>
       <td>1.503112e+05</td>
-      <td>461.452667</td>
-      <td>18.457521</td>
-      <td>0.003328</td>
+      <td>458.220276</td>
+      <td>18.457523</td>
+      <td>0.003305</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1393.673584</td>
+      <td>1393.673096</td>
       <td>1.322209</td>
     </tr>
     <tr>
@@ -2105,13 +2113,13 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>...</td>
       <td>1149.919922</td>
       <td>4.945273e+05</td>
-      <td>1153.872803</td>
-      <td>17.164524</td>
-      <td>0.002530</td>
+      <td>1152.619385</td>
+      <td>17.164526</td>
+      <td>0.002528</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1005.412354</td>
+      <td>1005.411133</td>
       <td>1.327222</td>
     </tr>
     <tr>
@@ -2127,15 +2135,15 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>1297.992432</td>
+      <td>1297.992554</td>
       <td>5.368336e+05</td>
-      <td>1298.069702</td>
+      <td>1296.839966</td>
       <td>17.075401</td>
-      <td>0.002622</td>
+      <td>0.002620</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>3567.332275</td>
+      <td>3567.331055</td>
       <td>1.328343</td>
     </tr>
     <tr>
@@ -2153,13 +2161,13 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>...</td>
       <td>1990.789062</td>
       <td>1.253287e+06</td>
-      <td>1992.381104</td>
-      <td>16.154873</td>
-      <td>0.001725</td>
+      <td>1990.640259</td>
+      <td>16.154875</td>
+      <td>0.001723</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>5437.518066</td>
+      <td>5437.505371</td>
       <td>1.328740</td>
     </tr>
     <tr>
@@ -2201,13 +2209,13 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>...</td>
       <td>2314.165283</td>
       <td>1.282857e+06</td>
-      <td>2313.438965</td>
+      <td>2312.558350</td>
       <td>16.129555</td>
-      <td>0.001956</td>
+      <td>0.001955</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>1510.198120</td>
+      <td>1508.198120</td>
       <td>1.367353</td>
     </tr>
     <tr>
@@ -2223,15 +2231,15 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>443.522064</td>
+      <td>443.522034</td>
       <td>4.386967e+05</td>
-      <td>616.066895</td>
+      <td>610.871887</td>
       <td>17.294590</td>
-      <td>0.001524</td>
+      <td>0.001511</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>9117.288086</td>
+      <td>4097</td>
+      <td>2426.431396</td>
       <td>1.474364</td>
     </tr>
     <tr>
@@ -2249,13 +2257,13 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>...</td>
       <td>251.165894</td>
       <td>1.635395e+05</td>
-      <td>423.409882</td>
+      <td>419.261475</td>
       <td>18.365944</td>
-      <td>0.002807</td>
+      <td>0.002780</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>5233.841309</td>
+      <td>5233.225586</td>
       <td>1.485824</td>
     </tr>
     <tr>
@@ -2273,13 +2281,13 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>...</td>
       <td>1670.910034</td>
       <td>8.348259e+05</td>
-      <td>1672.681519</td>
+      <td>1671.818604</td>
       <td>16.596010</td>
-      <td>0.002173</td>
+      <td>0.002172</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1822.084839</td>
+      <td>1797.006470</td>
       <td>1.503953</td>
     </tr>
     <tr>
@@ -2295,15 +2303,15 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>296.650665</td>
+      <td>296.650635</td>
       <td>2.193033e+05</td>
-      <td>469.560425</td>
+      <td>463.319458</td>
       <td>18.047388</td>
-      <td>0.002322</td>
+      <td>0.002291</td>
       <td>0</td>
       <td>0</td>
-      <td>3</td>
-      <td>5113.699707</td>
+      <td>1</td>
+      <td>7214.950195</td>
       <td>1.293415</td>
     </tr>
   </tbody>
@@ -2367,13 +2375,13 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
   warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:15,581 - stpipe.step - INFO - AssignWcsStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,006 - stpipe.step - INFO - AssignWcsStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,116 - stpipe.step - INFO - Step AssignWcsStep running with args (&lt;roman_datamodels.datamodels._datamodels.ImageModel object at 0x7fdb8d8fbbf0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,617 - stpipe.step - INFO - Step AssignWcsStep running with args (&lt;roman_datamodels.datamodels._datamodels.ImageModel object at 0x7f9e23c8fec0&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,118 - stpipe.step - INFO - Step AssignWcsStep parameters are:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,619 - stpipe.step - INFO - Step AssignWcsStep parameters are:
   pre_hooks: []
   post_hooks: []
   output_file: None
@@ -2389,36 +2397,36 @@ y_centroid_win_err: [[0,0,0,0,0,...,0,0,0,0,0]]
   update_version: False
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,118 - romancal.assign_wcs.assign_wcs_step - INFO - reftype, distortion
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,619 - romancal.assign_wcs.assign_wcs_step - INFO - reftype, distortion
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,122 - CRDS - INFO -  Syncing 1 files
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,621 - CRDS - INFO -  Syncing 1 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,122 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_distortion_0001.asdf   11.3 K bytes  (1 / 1 files) (0 / 11.3 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,622 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_distortion_0082.asdf   11.1 K bytes  (1 / 1 files) (0 / 11.1 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,162 - romancal.assign_wcs.assign_wcs_step - INFO - Using reference files: {'distortion': '/home/runner/crds_cache/references/roman/wfi/roman_wfi_distortion_0001.asdf'} for assign_wcs
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,915 - romancal.assign_wcs.assign_wcs_step - INFO - Using reference files: {'distortion': '/home/runner/crds_cache/references/roman/wfi/roman_wfi_distortion_0082.asdf'} for assign_wcs
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,221 - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  267.717554764 -30.004495689 267.790241511 -29.898981041 267.665309326 -29.835437207 267.593145595 -29.941290701
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,946 - stcal.alignment.util - INFO - Update S_REGION to POLYGON ICRS  267.678012267 -30.043079934 267.750442806 -29.937638443 267.625457447 -29.874356556 267.553537599 -29.980158985
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,221 - romancal.assign_wcs.assign_wcs - INFO - S_REGION VALUES: POLYGON ICRS  267.717554764 -30.004495689 267.790241511 -29.898981041 267.665309326 -29.835437207 267.593145595 -29.941290701
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,947 - romancal.assign_wcs.assign_wcs - INFO - S_REGION VALUES: POLYGON ICRS  267.678012267 -30.043079934 267.750442806 -29.937638443 267.625457447 -29.874356556 267.553537599 -29.980158985
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,222 - romancal.assign_wcs.assign_wcs - INFO - Update S_REGION to POLYGON ICRS  267.717554764 -30.004495689 267.790241511 -29.898981041 267.665309326 -29.835437207 267.593145595 -29.941290701
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:42,947 - romancal.assign_wcs.assign_wcs - INFO - Update S_REGION to POLYGON ICRS  267.678012267 -30.043079934 267.750442806 -29.937638443 267.625457447 -29.874356556 267.553537599 -29.980158985
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,673 - romancal.stpipe.core - INFO - Results used CRDS context: roman_0061.pmap
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:43,357 - romancal.stpipe.core - INFO - Results used CRDS context: roman_0077.pmap
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-09-13 02:33:16,674 - stpipe.step - INFO - Step AssignWcsStep done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:43,358 - stpipe.step - INFO - Step AssignWcsStep done
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wrong coordinates = (267.69055, -29.92081)
-Corrected coordinates = (267.69142, -29.92037)
-Separation = 3.143 arcsec
+Corrected coordinates = (267.65172, -29.95913)
+Separation = 183.582 arcsec
 </pre></div>
 </div>
 </div>
@@ -2491,6 +2499,24 @@ Separation = 3.143 arcsec
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../data_discovery_and_access/data_discovery_and_access.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Roman Research Nexus Data Discovery and Access in the Cloud</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../target_visibility_tool/roman_target_visibility_tool.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Roman Target Visibility Tool (RTVT)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
