@@ -1,0 +1,119 @@
+name: RRN preflight (GitHub App)
+
+# Proves the delivery GitHub App has the access rrn-deliver.yaml needs on
+# nb-wrangler-images, without running a delivery.  Run it once after installing
+# or changing the App.  Each check prints PASS or FAIL.
+#
+# The two write checks are harmless: one creates and deletes a throwaway branch,
+# the other dispatches a workflow with no inputs, which GitHub rejects with
+# 422 ("required input") when permission is fine and 403 when it is not.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  TARGET_REPO: spacetelescope/nb-wrangler-images
+
+jobs:
+  app:
+    name: Check App access
+    # The App key is an environment secret limited to main, so this can only run there.
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    environment: rrn-delivery
+    steps:
+      - name: Create token (needs the App installed on nb-wrangler-images)
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.RRN_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RRN_APP_PRIVATE_KEY }}
+          owner: spacetelescope
+          repositories: nb-wrangler-images
+          permission-contents: write
+          permission-actions: write
+
+      - name: Run checks
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+        shell: bash
+        run: |
+          set -uo pipefail
+          # Count failed checks; the step exits with this count so the run turns red on any failure.
+          failures=0
+          # Print one result line (to the log and the run summary) and count failures.
+          report() { # <PASS|FAIL> <name> [detail]
+            printf '%-5s %s %s\n' "$1" "$2" "${3:-}" | tee -a "$GITHUB_STEP_SUMMARY"
+            [[ "$1" == PASS ]] || failures=$((failures + 1))
+          }
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+          # Read: the repository and its workflows are visible (actions: read).
+          if names=$(gh api "repos/${TARGET_REPO}/actions/workflows" --jq '[.workflows[].path | split("/")[-1]] | join(",")' 2>&1); then
+            report PASS "read workflows" "($names)"
+            for wf in curate.yml retag.yml promote.yml; do
+              if [[ ",${names}," == *",${wf},"* ]]; then
+                report PASS "workflow present: ${wf}"
+              else
+                report FAIL "workflow present: ${wf}" "(merge the nb-wrangler-images changes first)"
+              fi
+            done
+          else
+            report FAIL "read workflows" "($names)"
+          fi
+
+          # Contents write: create and delete a throwaway branch.
+          # The commit main points at, needed to create the throwaway branch.
+          sha=$(gh api "repos/${TARGET_REPO}/git/ref/heads/main" --jq .object.sha 2>&1) || sha=""
+          if [[ "$sha" =~ ^[0-9a-f]{40}$ ]]; then
+            ref="rrn/preflight-${GITHUB_RUN_ID}"
+            if gh api -X POST "repos/${TARGET_REPO}/git/refs" -f "ref=refs/heads/${ref}" -f "sha=${sha}" >/dev/null 2>&1; then
+              report PASS "contents write (created ${ref})"
+              if gh api -X DELETE "repos/${TARGET_REPO}/git/refs/heads/${ref}" >/dev/null 2>&1; then
+                report PASS "contents write (deleted ${ref})"
+              else
+                report FAIL "delete throwaway branch" "(remove ${ref} by hand)"
+              fi
+            else
+              report FAIL "contents write" "(App lacks Contents: write on ${TARGET_REPO})"
+            fi
+          else
+            report FAIL "read main" "($sha)"
+          fi
+
+          # Actions write: dispatch with a missing required input.  422 means the
+          # request was authorised and then rejected for its inputs.
+          # Dispatch retag.yml with no inputs. It cannot do anything without them, so the answer only tells us
+          # whether the token is allowed to dispatch.
+          probe=$(gh api -X POST "repos/${TARGET_REPO}/actions/workflows/retag.yml/dispatches" -f ref=main 2>&1) || true
+          if grep -qiE 'required input|HTTP 422' <<<"$probe"; then
+            report PASS "actions write (dispatch authorised, rejected for missing inputs as expected)"
+          elif grep -qE 'HTTP 40[34]|Resource not accessible' <<<"$probe"; then
+            report FAIL "actions write" "(App lacks Actions: write on ${TARGET_REPO}: ${probe})"
+          else
+            report FAIL "actions write" "(unexpected response: ${probe:-none})"
+          fi
+
+          # Which RRN_* variables are set (names only; values are not printed).
+          # Report which variables are set. Only names are printed, never values.
+          for v in RRN_DELIVERY_ENABLED RRN_DEV_CHANNEL RRN_RUNNER_GROUP RRN_APP_CLIENT_ID RRN_ALIAS_PREFIX RRN_PROMOTE_TO_OPS; do
+            case "$v" in
+              RRN_DELIVERY_ENABLED) val='${{ vars.RRN_DELIVERY_ENABLED }}' ;;
+              RRN_DEV_CHANNEL) val='${{ vars.RRN_DEV_CHANNEL }}' ;;
+              RRN_RUNNER_GROUP) val='${{ vars.RRN_RUNNER_GROUP }}' ;;
+              RRN_APP_CLIENT_ID) val='${{ vars.RRN_APP_CLIENT_ID }}' ;;
+              RRN_ALIAS_PREFIX) val='${{ vars.RRN_ALIAS_PREFIX }}' ;;
+              RRN_PROMOTE_TO_OPS) val='${{ vars.RRN_PROMOTE_TO_OPS }}' ;;
+            esac
+            if [[ -n "$val" ]]; then
+              echo "info  variable set: $v" | tee -a "$GITHUB_STEP_SUMMARY"
+            else
+              echo "info  variable not set: $v" | tee -a "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          exit "$failures"
