@@ -1,6 +1,8 @@
-cff-version: 2026.2
+cff-version: 1.2.0
 message: "If you use these notebooks in your work, please cite it using the following metadata."
 authors:
+# set lead author?
+# - name: "RTB", "Nexus", "STScI Roman", etc?
 - family-names: "Barnes"
   given-names: "Amethyst"
   orcid: "https://orcid.org/0009-0001-0447-0793"
@@ -41,7 +43,7 @@ authors:
   given-names: "Brett"
   orcid: "https://orcid.org/0000-0003-2528-3409"
 - family-names: "Otor"
-  given-names: "Justin"
+  given-names: "O. Justin"
   orcid: "https://orcid.org/0000-0002-4679-5692"
 - family-names: "Price"
   given-names: "Sedona"
@@ -60,19 +62,18 @@ authors:
   orcid: "https://orcid.org/0000-0002-0920-809X"
 - family-names: "Wilson"
   given-names: "Robby"
-  orcid: "https://orcid.org/0000-0002-4235-6369
+  orcid: "https://orcid.org/0000-0002-4235-6369"
 - family-names: "Wu"
   given-names: "John F."
   orcid: "https://orcid.org/0000-0002-5077-881X"
 
-abstract: " The Roman Notebooks. Jupyter notebooks "
-repository-code: "https://github.com/spacetelescope/roman_notebooks"  
-
+abstract: "Jupyter Notebook tutorials and workflows that demonstrate how to simulate images, access and analyze data, and plan observations with the Nancy Grace Roman Space Telescope."
+repository-code: "https://github.com/spacetelescope/roman_notebooks"
 
 title: "Roman Notebooks"
 version: 2026.2.0
-doi: 10.5281/zenodo.17179608
+doi: https://doi.org/10.5281/zenodo.17179608
 license: BSD-3-Clause
-date-released: 2026-09-15
+date-released: 2026-10-23
 type: software
 url: "https://github.com/spacetelescope/roman_notebooks"
