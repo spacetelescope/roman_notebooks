@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Users: Contact the Roman Help Desk"
+    url: https://stsci.service-now.com/roman
+    about: 'Click on "Get Help with the Roman Space Telescope" then "Roman Research Nexus" for assistance with questions concerning Roman Notebooks.'
