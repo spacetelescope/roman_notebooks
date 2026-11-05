@@ -27,9 +27,30 @@ import copy
 import pdb
 import urllib
 import io
+from pathlib import Path
+from importlib.util import module_from_spec, spec_from_file_location
 
 __version__ = "R2025.9"
 
+try:
+    from notebook_data_dependencies import get_remote_data
+except ModuleNotFoundError as exc:
+    if exc.name != "notebook_data_dependencies":
+        raise
+    # Fall back to the shared helper when running from a full checkout
+    helper_path = Path(__file__).resolve().parents[2] / "shared" / "notebook_data_dependencies.py"
+    if not helper_path.is_file():
+        raise ModuleNotFoundError(
+            "Pandeia rbt needs shared/notebook_data_dependencies.py. "
+            "Clone the full roman_notebooks repository or install it in editable mode."
+        ) from exc
+    helper_spec = spec_from_file_location("_pandeia_data_dependencies", helper_path)
+    helper_module = module_from_spec(helper_spec)
+    helper_spec.loader.exec_module(helper_module)
+    get_remote_data = helper_module.get_remote_data
+
+_CACHE = get_remote_data("roman_straylight_cache")
+_HEALPIX = get_remote_data("healpix")
 
 class background():
     '''
@@ -59,13 +80,28 @@ class background():
     '''
     def __init__(self, ra, dec, wavelength, thresh=1.1):
         # global attributes
-        self.cache_dir = 'https://archive.stsci.edu/missions/roman/simulations/straylight/sl_cache/' 
-        self.cache_version = 'R2025.9'    # Corresponding Pandeia release when the cache was generated
-        self.local_path = os.path.join(os.path.dirname(__file__), 'refdata')
-        self.wave_file = 'std_spectrum_wavelengths.txt'  # The wavelength grid of the background cache
-        self.thermal_file = 'thermal_curve_roman_rryan_v1.0.csv'  # The constant (not time variable) thermal self-emission curve
-        self.nside = 128  # Healpy parameter, from generate_backgroundmodel_cache.c .
+        #self.cache_dir = 'https://archive.stsci.edu/missions/roman/simulations/straylight/sl_cache/' 
+        #self.cache_version = 'R2025.9'    # Corresponding Pandeia release when the cache was generated
+        #self.local_path = os.path.join(os.path.dirname(__file__), 'refdata')
+        #self.wave_file = 'std_spectrum_wavelengths.txt'  # The wavelength grid of the background cache
+        #self.thermal_file = 'thermal_curve_roman_rryan_v1.0.csv'  # The constant (not time variable) thermal self-emission curve
+        #self.nside = 128  # Healpy parameter, from generate_backgroundmodel_cache.c .
+
+        # Remote source (from shared configuration)
+        self.cache_dir = _CACHE["cache_dir"]
+        self.cache_version = str(_CACHE["cache_version"])
+
+        # Static refdata (still local files)
+        self.local_path = os.path.join(os.path.dirname(__file__), "refdata")
+        self.wave_file = get_remote_data("wave_file")
+        self.thermal_file = get_remote_data("thermal_file")
+
+        # Healpix parameters
+        self.nside = int(_HEALPIX["nside"])
+        # ordering is currently RING (nest=False); keep the existing call in myfile_from_healpix
+
         self.abs_wave_array, self.thermal_wave_array, self.thermal_bg = self.read_static_data()
+
         self.sl_abs_nwave = self.abs_wave_array.size  # Size of the absolute wavelength array
         self.sl_thermal_nwave = self.thermal_wave_array.size
 
