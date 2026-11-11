@@ -1,0 +1,479 @@
+name: RRN delivery
+
+# Delivers a roman_notebooks version to the Roman Research Nexus.
+#
+# This repo does not build images.  It hands the version to
+# spacetelescope/nb-wrangler-images, which curates the wrangler spec, builds and
+# tests the image, and publishes it to GHCR.  Roman TEST picks it up from there.
+#
+#   calver  a release published by a person (see rrn-on-release.yaml).  Always
+#           builds, publishes the alias <prefix>-<calver>, then requests ops promotion.
+#   semver  a merge to main, tagged by semver-version-bump.yaml.  Runs only when
+#           the dev channel is enabled.  Anything a session can see, notebook content
+#           included, rebuilds the image so its spec carries the new notebooks ref,
+#           and moves the alias <prefix>-dev.
+#
+# How this is kept from becoming a way around review
+#   - It can only be dispatched on main, and only deploys a tag that is an ancestor
+#     of main.  A commit that was never reviewed cannot be delivered.
+#   - The GitHub App private key is an environment secret of `rrn-delivery`
+#     (deployment branches: main only), so a workflow on any other branch cannot read it.
+#   - Aliases are created for the digest the build reported, and checked afterwards.
+#   - Promotion to ops is only *requested* here.  The approval gate and the retag run
+#     in nb-wrangler-images (promote.yml, protected `rrn-ops` environment), and the
+#     ops alias name is configured there, not chosen here.
+#
+# Repository variables
+#   RRN_DELIVERY_ENABLED  kill switch; must be 'true'
+#   RRN_DEV_CHANNEL       'true' to deliver SemVer merges
+#   RRN_RUNNER_GROUP      larger-runner group for the build and tests (empty: ubuntu-24.04)
+#   RRN_APP_CLIENT_ID     client id of the delivery GitHub App
+#   RRN_ALIAS_PREFIX      default RomanNexus; the proving-ground repo uses RRNTest
+#   RRN_PROMOTE_TO_OPS    'true' to request ops promotion after a release
+# Environment `rrn-delivery` secret
+#   RRN_APP_PRIVATE_KEY   private key of the delivery GitHub App
+
+run-name: RRN delivery ${{ inputs.version }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_kind:
+        description: 'calver (release) or semver (dev channel)'
+        required: true
+        type: choice
+        options:
+          - calver
+          - semver
+      version:
+        description: 'Version tag: 2026.2.4 for calver, v0.0.70 for semver'
+        required: true
+        type: string
+      source_sha:
+        description: 'Commit the version tag points at'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+# Releases are never cancelled and never queue behind dev builds.  The dev
+# channel is a moving alias, so only the newest dev delivery matters.
+concurrency:
+  group: ${{ inputs.version_kind == 'semver' && 'rrn-dev-channel' || format('rrn-release-{0}', inputs.version) }}
+  cancel-in-progress: ${{ inputs.version_kind == 'semver' }}
+
+env:
+  TARGET_REPO: spacetelescope/nb-wrangler-images
+  IMAGE_ROOT: ghcr.io/spacetelescope/nb-wrangler-images
+  KIND: ${{ inputs.version_kind }}
+  VERSION: ${{ inputs.version }}
+  SOURCE_SHA: ${{ inputs.source_sha }}
+  ALIAS_PREFIX: ${{ vars.RRN_ALIAS_PREFIX || 'RomanNexus' }}
+
+jobs:
+  # First job. Cheap, and it holds no secrets and no environment: it only decides
+  # whether there is anything to deliver, and refuses anything it should not deliver.
+  classify:
+    name: Classify change
+    if: ${{ github.ref == 'refs/heads/main' && vars.RRN_DELIVERY_ENABLED == 'true' && (inputs.version_kind == 'calver' || vars.RRN_DEV_CHANNEL == 'true') }}
+    runs-on: ubuntu-latest
+    outputs:
+      change_scope: ${{ steps.scope.outputs.change_scope }}
+      reason: ${{ steps.scope.outputs.reason }}
+    steps:
+      # The default ref is main, so the scripts used below are reviewed code, not
+      # whatever the tagged commit contains.
+      - name: Checkout main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      # Refuse bad input before any effort is spent: a malformed version, a tag that does not
+      # point at the requested commit, a commit that is not on main, or a release that is not the newest.
+      - name: Validate version and commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$KIND" in
+            calver) pattern='^[0-9]{4}\.[0-9]+\.[0-9]+$' ;;
+            semver) pattern='^v[0-9]+\.[0-9]+\.[0-9]+$' ;;
+            *) echo "::error::version_kind must be calver or semver, got '$KIND'"; exit 1 ;;
+          esac
+          if ! [[ "$VERSION" =~ $pattern ]]; then
+            echo "::error::'$VERSION' is not a valid $KIND version"
+            exit 1
+          fi
+          if ! [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::source_sha must be a full 40-character commit SHA"
+            exit 1
+          fi
+          # Resolve the tag to the commit it really points at (^{commit} unwraps annotated tags).
+          tag_sha=$(git rev-parse "refs/tags/${VERSION}^{commit}")
+          if [[ "$tag_sha" != "$SOURCE_SHA" ]]; then
+            echo "::error::Tag $VERSION points at $tag_sha, not the requested $SOURCE_SHA"
+            exit 1
+          fi
+          # Only reviewed code can be delivered: the commit must already be on main.
+          if ! git merge-base --is-ancestor "$SOURCE_SHA" HEAD; then
+            echo "::error::$SOURCE_SHA is not on main. Only commits that were merged to main can be delivered."
+            exit 1
+          fi
+          # A release must be the newest one, so an old tag cannot be replayed as a release.
+          if [[ "$KIND" == "calver" ]]; then
+            newest=$(git tag --list '[0-9][0-9][0-9][0-9].*.*' | grep -E '^[0-9]{4}\.[0-9]+\.[0-9]+$' | sort -V | tail -n1)
+            if [[ "$newest" != "$VERSION" ]]; then
+              echo "::error::$VERSION is not the newest release tag (newest is $newest)."
+              exit 1
+            fi
+          fi
+
+      # Decide the change scope. A release always delivers. A dev-channel merge is compared with the
+      # previous SemVer tag, so changes no session can see (CI config, repo docs) are skipped.
+      - name: Classify what changed
+        id: scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$KIND" == "calver" ]]; then
+            change_scope=release
+            reason="A CalVer release always delivers"
+          else
+            # The previous SemVer tag: sort tags by version and print the one just before this version.
+            base=$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' | sort -V \
+              | awk -v v="$VERSION" '$0 == v { print prev; exit } { prev = $0 }')
+            if [[ -z "$base" ]]; then
+              change_scope=environment
+              reason="No earlier SemVer tag to compare against"
+            else
+              # Parsed, never eval'd: the reason can contain a file name from the diff.
+              classified=$(bash .github/scripts/rrn_classify.sh "$base" "$SOURCE_SHA")
+              change_scope=$(sed -n 's/^change_scope=//p' <<<"$classified")
+              reason=$(sed -n 's/^reason=//p' <<<"$classified")
+            fi
+          fi
+          echo "change_scope=${change_scope}" >> "$GITHUB_OUTPUT"
+          echo "reason=${reason}" >> "$GITHUB_OUTPUT"
+          {
+            echo "### RRN delivery ${VERSION}: ${change_scope}"
+            echo "${reason}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # The main job. Binding it to the 'rrn-delivery' environment is what makes the App private key
+  # available (and only on main). It can run for hours, so it waits on the build with the
+  # workflow's own token rather than the App token, which expires after an hour.
+  deliver:
+    name: Build and publish image
+    needs: classify
+    if: ${{ needs.classify.outputs.change_scope != 'none' }}
+    runs-on: ubuntu-latest
+    environment: rrn-delivery
+    timeout-minutes: 360
+    outputs:
+      alias: ${{ steps.alias.outputs.alias }}
+      digest: ${{ steps.result.outputs.image_digest }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # The spec generator, a Python script from nb-wrangler-images, needs Python and ruamel.yaml.
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      # Branch rrn/<repo>/<version> holds the spec for this delivery.  A rerun
+      # reuses it, but only after checking it is what this workflow would have made.
+      # No token is present in this step: it clones the public repo and runs a
+      # script from it, so it must not be able to see credentials.
+      - name: Prepare the spec
+        id: spec
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Namespaced by source repo: notebook-ci-testing and roman_notebooks
+          # both produce versions such as 2026.2.4.
+          branch="rrn/${GITHUB_REPOSITORY##*/}/${VERSION}"
+          if [[ "$KIND" == "calver" ]]; then
+            spec_file="specs/roman/${ALIAS_PREFIX}-${VERSION}.yaml"
+          else
+            spec_file="specs/roman/${ALIAS_PREFIX}-dev.yaml"
+          fi
+
+          # Anonymous clone of the public repository. No credentials exist in this step.
+          git clone --quiet "https://github.com/${TARGET_REPO}.git" images
+          cd images
+          git config user.name "rrn-delivery[bot]"
+          git config user.email "rrn-delivery@users.noreply.github.com"
+          # The commit of nb-wrangler-images main right now. The generator pins the spec's downloaded assets to it,
+          # so a later push to that repository cannot change what this release builds.
+          assets_sha=$(git rev-parse HEAD)
+
+          # Is there a branch from an earlier attempt of this same delivery? Reuse it only if it is exactly what
+          # this workflow would have created, which is checked below.
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+            git fetch --quiet origin "$branch"
+            git checkout --quiet -B "$branch" "origin/$branch"
+            # The branch must be made by this workflow, change only the spec file, and pin the commit being delivered.
+            if [[ "$(git log -1 --format=%an)" != "rrn-delivery[bot]" ]] \
+              || [[ "$(git diff --name-only origin/main...HEAD)" != "$spec_file" ]] \
+              || ! grep -qF "ref: '${SOURCE_SHA}'" "$spec_file"; then
+              echo "::error::Branch ${branch} exists but is not the spec this delivery would create. Delete it and rerun."
+              exit 1
+            fi
+            echo "Reusing verified branch $branch"
+            push_needed=false
+          else
+            # No earlier attempt: start a new branch and generate the spec for this version.
+            git checkout --quiet -b "$branch"
+            pip install --quiet 'ruamel.yaml==0.19.1'
+            python scripts/new_spec_from_release.py \
+              --spec-dir specs/roman \
+              --kind "$KIND" \
+              --version "$VERSION" \
+              --ref "$SOURCE_SHA" \
+              --assets-ref "$assets_sha" \
+              --name-prefix "$ALIAS_PREFIX" \
+              --notebooks-url "https://github.com/${GITHUB_REPOSITORY}.git"
+            git add specs/roman
+            git commit --quiet -m "Roman spec for ${VERSION} (${GITHUB_REPOSITORY}@${SOURCE_SHA})"
+            push_needed=true
+          fi
+          # Fail here, not later, if the spec we expect does not exist.
+          test -f "$spec_file"
+          {
+            # Hand the branch, the spec path and whether it still needs pushing to the following steps.
+            echo "branch=${branch}"
+            echo "spec_file=${spec_file}"
+            echo "push_needed=${push_needed}"
+          } >> "$GITHUB_OUTPUT"
+
+      # Exchange the App's private key for a token valid for one hour, limited to the
+      # nb-wrangler-images repository and to the two permissions named below.
+      - name: Create token for nb-wrangler-images
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.RRN_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RRN_APP_PRIVATE_KEY }}
+          owner: spacetelescope
+          repositories: nb-wrangler-images
+          permission-contents: write
+          permission-actions: write
+
+      # The only step that writes to Git. It pushes the commit prepared above;
+      # gh auth setup-git lets git use the token for that push.
+      - name: Push the spec branch
+        if: ${{ steps.spec.outputs.push_needed == 'true' }}
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          BRANCH: ${{ steps.spec.outputs.branch }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh auth setup-git
+          git -C images push --quiet origin "$BRANCH"
+
+      # The target repo is public, so looking up, watching and downloading use the
+      # workflow's own read-only token.  It does not expire mid-build (an App token
+      # lasts one hour); the App token is used only for the dispatch itself.
+      - name: Curate, build and test the image
+        id: curate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RRN_DISPATCH_TOKEN: ${{ steps.app.outputs.token }}
+          RRN_CORRELATION_ID: ${{ inputs.version }}-curate-${{ github.run_id }}
+          SPEC_BRANCH: ${{ steps.spec.outputs.branch }}
+          SPEC_FILE: ${{ steps.spec.outputs.spec_file }}
+          RUNNER_GROUP: ${{ vars.RRN_RUNNER_GROUP }}
+        shell: bash
+        run: |
+          bash .github/scripts/rrn_dispatch_and_wait.sh curate.yml "$SPEC_BRANCH" \
+            "spec_file=${SPEC_FILE}" \
+            "runner_group=${RUNNER_GROUP}"
+
+      # The build uploaded rrn-result.json (image tag and digest) as an artifact. Read it, and refuse
+      # anything that does not look like an image tag and a sha256 digest.
+      - name: Read build result
+        id: result
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ steps.curate.outputs.run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # The repository is public, so the workflow's own token is enough to download the artifact.
+          gh run download "$RUN_ID" --repo "$TARGET_REPO" --name rrn-result --dir result
+          image_tag=$(jq -r .image_tag result/rrn-result.json)
+          image_digest=$(jq -r .image_digest result/rrn-result.json)
+          if ! [[ "$image_tag" =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$ && "$image_digest" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            echo "::error::Build result has a missing or malformed image tag or digest"
+            cat result/rrn-result.json
+            exit 1
+          fi
+          echo "image_tag=${image_tag}" >> "$GITHUB_OUTPUT"
+          echo "image_digest=${image_digest}" >> "$GITHUB_OUTPUT"
+
+      # Give the built image its stable alias. A release alias never moves (allow_move=false); the dev
+      # alias is a moving pointer. The retag is by digest, so only the image that was built and
+      # tested can receive the alias.
+      - name: Publish alias
+        id: alias
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RRN_DISPATCH_TOKEN: ${{ steps.app.outputs.token }}
+          IMAGE_TAG: ${{ steps.result.outputs.image_tag }}
+          IMAGE_DIGEST: ${{ steps.result.outputs.image_digest }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$KIND" == "calver" ]]; then
+            alias="${ALIAS_PREFIX}-${VERSION}"
+            allow_move=false
+          else
+            alias="${ALIAS_PREFIX}-dev"
+            allow_move=true
+          fi
+          echo "alias=${alias}" >> "$GITHUB_OUTPUT"
+          # A stable id per delivery, so a rerun of this job finds and reuses the retag run it already started.
+          RRN_CORRELATION_ID="${VERSION}-retag-${GITHUB_RUN_ID}" \
+            bash .github/scripts/rrn_dispatch_and_wait.sh retag.yml main \
+              "input_tag=${IMAGE_TAG}" \
+              "input_digest=${IMAGE_DIGEST}" \
+              "output_tag=${alias}" \
+              "allow_move=${allow_move}"
+
+      # Do not trust that the retag did what it was asked: the package is public,
+      # so anyone can check what the alias points at, and so can we.
+      - name: Verify the alias points at the built image
+        env:
+          ALIAS: ${{ steps.alias.outputs.alias }}
+          EXPECTED: ${{ steps.result.outputs.image_digest }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          got=$(docker buildx imagetools inspect "${IMAGE_ROOT}:${ALIAS}" --format '{{.Manifest.Digest}}')
+          if [[ "$got" != "$EXPECTED" ]]; then
+            echo "::error::${ALIAS} resolves to ${got}, not the built ${EXPECTED}."
+            exit 1
+          fi
+          echo "${ALIAS} -> ${got}"
+
+      # An App installation token lasts one hour, and the build can take longer, so
+      # cleanup gets a fresh one.
+      - name: Create a fresh token for cleanup
+        id: app_late
+        if: ${{ always() && steps.spec.outcome == 'success' }}
+        continue-on-error: true
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.RRN_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RRN_APP_PRIVATE_KEY }}
+          owner: spacetelescope
+          repositories: nb-wrangler-images
+          permission-contents: write
+          permission-actions: write
+
+      # Dev-channel specs are throwaway.  Release specs and their branches stay.
+      - name: Delete temporary spec branch
+        if: ${{ success() && inputs.version_kind == 'semver' }}
+        env:
+          GH_TOKEN: ${{ steps.app_late.outputs.token }}
+          BRANCH: ${{ steps.spec.outputs.branch }}
+        shell: bash
+        run: gh api -X DELETE "repos/${TARGET_REPO}/git/refs/heads/${BRANCH}" || true
+
+      # Cancelling this job does not cancel what it dispatched in another
+      # repository.  A newer dev delivery cancels an older one, so without this a
+      # superseded multi-hour build would keep running.
+      - name: Cancel builds this delivery started
+        if: ${{ cancelled() }}
+        env:
+          GH_TOKEN: ${{ steps.app_late.outputs.token }}
+        shell: bash
+        run: |
+          bash .github/scripts/rrn_cancel.sh curate.yml "${VERSION}-curate-${GITHUB_RUN_ID}"
+          bash .github/scripts/rrn_cancel.sh retag.yml "${VERSION}-retag-${GITHUB_RUN_ID}"
+
+      # Leave a short table on the run page: scope, alias, digest and the build run.
+      - name: Summary
+        if: ${{ always() }}
+        env:
+          ALIAS: ${{ steps.alias.outputs.alias }}
+          DIGEST: ${{ steps.result.outputs.image_digest }}
+          RUN_URL: ${{ steps.curate.outputs.run_url }}
+          SCOPE: ${{ needs.classify.outputs.change_scope }}
+        shell: bash
+        run: |
+          {
+            echo "### RRN image delivery ${VERSION}"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Change scope | \`${SCOPE}\` |"
+            echo "| Alias | \`${ALIAS:-not created}\` |"
+            echo "| Digest | \`${DIGEST:-none}\` |"
+            echo "| Build run | ${RUN_URL:-none} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # A release flows build -> test -> ops.  This only *requests* promotion.  The
+  # approval gate, the ops alias name and the retag all live in nb-wrangler-images
+  # (promote.yml, protected `rrn-ops` environment).  Approvals can outlast a runner,
+  # so this does not wait for them.
+  promote:
+    name: Request promotion to ops
+    needs: deliver
+    if: ${{ inputs.version_kind == 'calver' && vars.RRN_PROMOTE_TO_OPS == 'true' && github.repository == 'spacetelescope/roman_notebooks' }}
+    runs-on: ubuntu-latest
+    environment: rrn-delivery
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Create token for nb-wrangler-images
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.RRN_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RRN_APP_PRIVATE_KEY }}
+          owner: spacetelescope
+          repositories: nb-wrangler-images
+          permission-actions: write
+
+      # Ask nb-wrangler-images to promote this release. The alias and digest are passed so the promotion is
+      # refused if the alias has moved. RRN_NO_WAIT is set because an approval can take longer than a
+      # runner may live.
+      - name: Request promotion
+        id: request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RRN_DISPATCH_TOKEN: ${{ steps.app.outputs.token }}
+          RELEASE_ALIAS: ${{ needs.deliver.outputs.alias }}
+          RELEASE_DIGEST: ${{ needs.deliver.outputs.digest }}
+          RRN_CORRELATION_ID: ${{ inputs.version }}-promote-${{ github.run_id }}
+          RRN_NO_WAIT: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$RELEASE_ALIAS" || -z "$RELEASE_DIGEST" ]]; then
+            echo "::error::The delivery did not report a release alias and digest."
+            exit 1
+          fi
+          bash .github/scripts/rrn_dispatch_and_wait.sh promote.yml main \
+            "release_alias=${RELEASE_ALIAS}" \
+            "release_digest=${RELEASE_DIGEST}"
+
+      # Tell whoever reads the run where the approval is waiting.
+      - name: Summary
+        env:
+          RUN_URL: ${{ steps.request.outputs.run_url }}
+          RELEASE_ALIAS: ${{ needs.deliver.outputs.alias }}
+        shell: bash
+        run: |
+          {
+            echo "### Ops promotion requested for ${VERSION}"
+            echo ""
+            echo "\`${RELEASE_ALIAS}\` is waiting in the \`rrn-ops\` environment of nb-wrangler-images."
+            echo "Approve or reject it here: ${RUN_URL}"
+          } >> "$GITHUB_STEP_SUMMARY"

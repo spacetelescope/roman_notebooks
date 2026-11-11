@@ -1,0 +1,50 @@
+name: RRN delivery on release
+
+# Starts a delivery when a person publishes a GitHub Release.  Releases are cut
+# by hand today, so this is the trigger that matches how they are made.
+#
+# This workflow holds NO secrets and cannot deliver anything itself.  A workflow
+# triggered by a tag runs the version from the *tagged commit*, which may not have
+# been reviewed, so it must never be given the App key.  All it can do is ask
+# rrn-deliver.yaml, which always runs from main, to deliver the tag.  rrn-deliver
+# then refuses anything that is not a CalVer tag on main, and the newest one.
+#
+# (A release created by another workflow with GITHUB_TOKEN does not trigger this;
+# release.yaml, if adopted, requests delivery itself.)
+
+on:
+  release:
+    types: [published]
+
+permissions: {}
+
+jobs:
+  request:
+    name: Request delivery
+    if: ${{ !github.event.release.prerelease && !github.event.release.draft && vars.RRN_DELIVERY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Dispatch rrn-deliver on main
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+          SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Only CalVer tags are releases; ignore anything else, for example a SemVer tag.
+          if ! [[ "$TAG" =~ ^[0-9]{4}\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release '${TAG}' is not a CalVer release; nothing to deliver."
+            exit 0
+          fi
+          # workflow_dispatch is one of the few events a workflow's own GITHUB_TOKEN may trigger. --ref main makes the
+          # delivery run from reviewed code and with the delivery secrets, not from the tagged commit.
+          gh workflow run rrn-deliver.yaml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f version_kind=calver \
+            -f version="$TAG" \
+            -f source_sha="$SHA"
+          echo "Requested delivery of ${TAG} (${SHA})." >> "$GITHUB_STEP_SUMMARY"
