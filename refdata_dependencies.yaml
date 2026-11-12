@@ -14,6 +14,7 @@ install_files:
   pandeia_data:
     version: 2026.1
     data_url:
+      # ensure data at link below are sustainably compatible with version above
       - https://stsci.box.com/shared/static/j3rx9dz3e27oxd4o69vnccikwkgglnxe.gz
     environment_variable: pandeia_refdata
     install_path: ${HOME}/refdata/
@@ -21,13 +22,15 @@ install_files:
   pandeia_psf:
     version: 2026.1
     data_url:
+      # ensure data at link below are sustainably compatible with version above
       - https://stsci.box.com/shared/static/qiib69fwu0l1lli5u2om7a9abt8xosgz.gz
     environment_variable: PSF_DIR
     install_path: ${HOME}/refdata/
     data_path: pandeia_psfs-2026.1-roman
   stpsf:
-    version: 2.3.0
+    version: 2.3.1
     data_url:
+      # ensure data at link below are sustainably compatible with version above
       - https://stsci.box.com/shared/static/6bddlzcocmty1fsvfgpxrbo2s836z90j.gz
     environment_variable: STPSF_PATH
     install_path: ${HOME}/refdata/
@@ -35,6 +38,7 @@ install_files:
   stips:
     version: 2.3.0
     data_url:
+      # ensure data at link below are sustainably compatible with version above
       - https://stsci.box.com/shared/static/761vz7zav7pux03fg0hhqq7z2uw8nmqw.tgz
     environment_variable: stips_data
     install_path: ${HOME}/refdata/
