@@ -1,6 +1,6 @@
 stips>=2.3.1
 astropy>=8.0.2,<9
 matplotlib>=3.9
-esutil>=0.6.16 #--no-cache-diroptionrecommendedonpipinstall>=in1file(s)
+esutil>=0.6.16 #--no-cache-dir option recommended on pip install >= in 1 file(s)
 stsynphot>=1.5.1
 pandeia.engine==2026.2
