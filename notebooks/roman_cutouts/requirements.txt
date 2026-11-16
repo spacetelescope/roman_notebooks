@@ -1,6 +1,6 @@
 asdf>=5.3.0,<6
 asdf-astropy>=0.11.0
-astrocut>=1.4.0
+astrocut>=1.5.1
 astropy>=7.2.0,<9
 astroquery @ git+https://github.com/snbianco/astroquery.git@mast-beta-release
 matplotlib>=3.9
