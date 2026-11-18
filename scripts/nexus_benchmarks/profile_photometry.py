@@ -1,9 +1,20 @@
+"""Profile source detection and forced aperture and PSF photometry.
+
+The cases operate on representative calibrated WFI images and source catalogs
+with different source counts.
+"""
+
 from astropy.coordinates import SkyCoord
 from astropy.table import Table
 from astropy.stats import SigmaClip, sigma_clipped_stats
 import astropy.units as u
 import numpy as np
-from photutils.aperture import CircularAperture, CircularAnnulus, aperture_photometry, ApertureStats
+from photutils.aperture import (
+    ApertureStats,
+    CircularAnnulus,
+    CircularAperture,
+    aperture_photometry,
+)
 from photutils.detection import DAOStarFinder
 from photutils.psf import ImagePSF, PSFPhotometry
 import roman_datamodels as rdm
@@ -14,33 +25,42 @@ import stpsf
 from profile_workflows import profile_resources
 
 
-def source_detection(image, fwhm=0.791, background_sigma=3.0, threshold_sigma=5.0):
+def source_detection(image, fwhm=0.791, background_sigma=3.0,
+                     threshold_sigma=5.0):
+    """Detect sources in an image and profile the detection calculation.
 
+    Returns:
+        Detected sources and resource metrics.
+    """
     dm = rdm.open(image)
 
     @profile_resources()
     def perform_calc(image, fwhm, background_sigma, threshold_sigma):
-
+        """Find sources after estimating and subtracting the background."""
         data = image.data
         mask = image.dq
         _, median, std = sigma_clipped_stats(data, sigma=3.0)
-        
+
         finder = DAOStarFinder(
             fwhm=fwhm,
             threshold=threshold_sigma * std,
         )
-        
+
         sources = finder(data - median, mask=mask)
 
         return sources
 
     sources, result = perform_calc(dm, fwhm, background_sigma, threshold_sigma)
-    
+
     return sources, result
 
 
 def forced_aperture_photometry(image, catalog, radius=3.0):
+    """Measure background statistics in annuli around catalogued stars.
 
+    Returns:
+        The aperture-statistics table and resource metrics.
+    """
     dm = rdm.open(image)
     cat = Table.read(catalog)
 
@@ -54,23 +74,34 @@ def forced_aperture_photometry(image, catalog, radius=3.0):
 
     @profile_resources()
     def perform_calc(dm, positions, radius=3.0):
-    
+        """Calculate local background statistics for the selected positions."""
         star_apertures = CircularAperture(positions=positions, r=radius)
-        star_bkg_apertures = CircularAnnulus(positions=positions, r_in=20, r_out=25)
+        star_bkg_apertures = CircularAnnulus(
+            positions=positions, r_in=20, r_out=25)
 
         columns = ('id', 'x_centroid', 'y_centroid', 'median', 'std')
         sigclip = SigmaClip(sigma=3.0, maxiters=5)
-        star_bkg = ApertureStats(dm.data, star_bkg_apertures, sigma_clip=sigclip, mask=dm.dq.astype(np.bool))
+        star_bkg = ApertureStats(
+            dm.data,
+            star_bkg_apertures,
+            sigma_clip=sigclip,
+            mask=dm.dq.astype(
+                np.bool))
         tab = star_bkg.to_table(columns=columns)
 
         return tab
 
     tab, results = perform_calc(dm, star_positions, radius=radius)
-    
+
     return tab, results
-    
+
 
 def forced_psf_photometry(image, catalog, fit_shape=(9, 9), fov_pixels=21):
+    """Fit an STPSF model at catalogued star positions.
+
+    Returns:
+        PSF photometry results and resource metrics.
+    """
     with rdm.open(image) as dm:
         cat = Table.read(catalog)
         coords = SkyCoord(ra=cat["ra"] * u.deg, dec=cat["dec"] * u.deg)
@@ -81,7 +112,8 @@ def forced_psf_photometry(image, catalog, fit_shape=(9, 9), fov_pixels=21):
         valid = np.isfinite(x) & np.isfinite(y) & (cat["type"] == "PSF")
         stars = cat[valid]
         if len(stars) == 0:
-            raise ValueError("The catalog contains no on-detector PSF sources.")
+            raise ValueError(
+                "The catalog contains no on-detector PSF sources.")
 
         positions = Table()
         positions["x_0"] = np.asarray(stars["x"], dtype=float)
@@ -89,7 +121,8 @@ def forced_psf_photometry(image, catalog, fit_shape=(9, 9), fov_pixels=21):
 
         data = np.array(dm.data, dtype=float, copy=True)
         error = np.array(dm.err, dtype=float, copy=True)
-        mask = np.asarray(dm.dq, dtype=bool) | ~np.isfinite(data) | ~np.isfinite(error)
+        mask = np.asarray(dm.dq, dtype=bool) | ~np.isfinite(
+            data) | ~np.isfinite(error)
         _, median, _ = sigma_clipped_stats(data, mask=mask)
         data -= median
 
@@ -100,12 +133,15 @@ def forced_psf_photometry(image, catalog, fit_shape=(9, 9), fov_pixels=21):
         for xpos, ypos in zip(positions["x_0"], positions["y_0"]):
             xc = int(np.rint(xpos))
             yc = int(np.rint(ypos))
-            xmin, xmax = max(0, xc - radius), min(data.shape[1], xc + radius + 1)
-            ymin, ymax = max(0, yc - radius), min(data.shape[0], yc + radius + 1)
+            xmin, xmax = max(
+                0, xc - radius), min(data.shape[1], xc + radius + 1)
+            ymin, ymax = max(
+                0, yc - radius), min(data.shape[0], yc + radius + 1)
             stamp = data[ymin:ymax, xmin:xmax]
             stamp_mask = mask[ymin:ymax, xmin:xmax]
             usable = stamp[~stamp_mask]
-            initial_flux.append(max(float(np.sum(usable)), np.finfo(float).eps))
+            initial_flux.append(
+                max(float(np.sum(usable)), np.finfo(float).eps))
         positions["flux"] = initial_flux
 
         wfi = stpsf.WFI()
@@ -123,6 +159,7 @@ def forced_psf_photometry(image, catalog, fit_shape=(9, 9), fov_pixels=21):
 
         @profile_resources()
         def perform_calc(data, error, mask, positions, psf_model):
+            """Fit the PSF model to the image at the supplied positions."""
             psf_photometry = PSFPhotometry(
                 psf_model,
                 fit_shape=fit_shape,
@@ -134,10 +171,10 @@ def forced_psf_photometry(image, catalog, fit_shape=(9, 9), fov_pixels=21):
                 init_params=positions,
             )
 
-        results, metrics = perform_calc(data, error, mask, positions, psf_model)
+        results, metrics = perform_calc(
+            data, error, mask, positions, psf_model)
 
     return results, metrics
-
 
 
 def case1():
@@ -145,8 +182,12 @@ def case1():
     Source Detection, 10k stars
     """
 
-    sources, results = source_detection('photometry_10k_cal.asdf', threshold_sigma=10.0)
-    print(f'Found {len(sources)} out of 10,000 ({len(sources)/10_000:.1%}) sources')
+    sources, results = source_detection(
+        'photometry_10k_cal.asdf', threshold_sigma=10.0)
+    print(
+        f'Found {len(sources)} out of 10,000 '
+        f'({len(sources) / 10_000:.1%}) sources'
+    )
 
     return results
 
@@ -156,8 +197,12 @@ def case2():
     Source Detection, 1k stars
     """
 
-    sources, results = source_detection('photometry_1k_cal.asdf', threshold_sigma=10.0)
-    print(f'Found {len(sources)} out of 1,000 ({len(sources)/1_000:.1%}) sources')
+    sources, results = source_detection(
+        'photometry_1k_cal.asdf', threshold_sigma=10.0)
+    print(
+        f'Found {len(sources)} out of 1,000 '
+        f'({len(sources) / 1_000:.1%}) sources'
+    )
 
     return results
 
@@ -167,7 +212,8 @@ def case3():
     Aperture Photometry, 10k stars
     """
 
-    photometry, results = forced_aperture_photometry('photometry_10k_cal.asdf', 'photometry_10k_catalog.ecsv')
+    photometry, results = forced_aperture_photometry(
+        'photometry_10k_cal.asdf', 'photometry_10k_catalog.ecsv')
 
     return results
 
@@ -177,7 +223,8 @@ def case4():
     Aperture Photometry, 1k stars
     """
 
-    photometry, results = forced_aperture_photometry('photometry_1k_cal.asdf', 'photometry_1k_catalog.ecsv')
+    photometry, results = forced_aperture_photometry(
+        'photometry_1k_cal.asdf', 'photometry_1k_catalog.ecsv')
 
     return results
 
@@ -206,5 +253,3 @@ def case6():
     )
 
     return results
-
-    

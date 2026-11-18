@@ -1,3 +1,10 @@
+"""Profile a spatial cross-match between ZTF and Pan-STARRS catalogs.
+
+The benchmark opens the catalogs, builds a one-arcsecond cross-match, and
+computes the result. Input size and available compute resources affect the
+measurement; consult the benchmark article for planning context.
+"""
+
 from os import cpu_count
 from datetime import datetime
 
@@ -54,7 +61,7 @@ def case1(nrows=10_000, *, client=None):
         "s3://stpubdata/panstarrs/ps1/public/hats/otmo",
         columns=["objName", "objID", "raMean", "decMean"],
     )
-    
+
     matched = ztf.crossmatch(
         ps1,
         radius_arcsec=1,
@@ -62,10 +69,10 @@ def case1(nrows=10_000, *, client=None):
         suffixes=("_ztf", "_ps1"),
         suffix_method="all_columns",
     )
-    
+
     if client is None:
         with dask.config.set(scheduler="threads"):
             return matched.compute()
-    
+
     with client.as_current():
         return matched.compute()

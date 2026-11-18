@@ -1,3 +1,9 @@
+"""Profile Roman galaxy shape measurements and Sérsic model fitting.
+
+The cases use a calibrated exposure and simulated source catalog to measure
+adaptive moments or fit PSF-convolved Sérsic models.
+"""
+
 from astropy.coordinates import SkyCoord
 from astropy.stats import sigma_clipped_stats
 from astropy.table import Table
@@ -17,6 +23,11 @@ PIXEL_SCALE = 0.11
 
 
 def get_data():
+    """Load the calibrated image and select on-detector galaxy sources.
+
+    Returns:
+        Background-subtracted image data, uncertainties, and galaxy catalog.
+    """
     image_url = (
         "https://s3.amazonaws.com/stpubdata/roman/nexus/"
         "soc_simulations/tutorial_data/"
@@ -68,6 +79,7 @@ def get_data():
 
 
 def make_cutout(image, catalog, index, scale=4, err=False):
+    """Extract a galaxy or uncertainty cutout using catalog coordinates."""
     size = int(
         catalog["half_light_radius"][index] * scale / PIXEL_SCALE
     ) + 1
@@ -96,6 +108,7 @@ def make_cutout(image, catalog, index, scale=4, err=False):
 
 
 def make_psf():
+    """Build a normalized, oversampled Roman WFI PSF model."""
     wfi = stpsf.WFI()
     wfi.filter = "F106"
     psf = wfi.calc_psf(fov_pixels=64)
@@ -108,6 +121,7 @@ def make_psf():
 
 
 def convert_flux(mag):
+    """Convert an AB magnitude to a bandpass-integrated flux."""
     spec = syn.SourceSpectrum(
         syn.models.ConstFlux1D,
         amplitude=mag * u.ABmag,
@@ -133,6 +147,7 @@ def convert_flux(mag):
 
 
 def sersic_mod(cutout, psf_obj, n, hlr, influx, pa, x0, y0, q):
+    """Render a PSF-convolved Sérsic model on the cutout pixel grid."""
     ny, nx = cutout.array.shape
 
     ser = galsim.Sersic(n, half_light_radius=hlr, flux=influx)
@@ -152,6 +167,7 @@ def sersic_mod(cutout, psf_obj, n, hlr, influx, pa, x0, y0, q):
 
 
 def mean_profile_metrics(measurements):
+    """Average numeric metrics while preserving the profiled function name."""
     if not measurements:
         raise ValueError("At least one measurement is required.")
 
@@ -166,6 +182,11 @@ def mean_profile_metrics(measurements):
 
 
 def case1(n_galaxies=20):
+    """Measure adaptive moments for the first cataloged galaxies.
+
+    Args:
+        n_galaxies: Number of catalog entries to process.
+    """
     data, _, catalog = get_data()
 
     if not 1 <= n_galaxies <= len(catalog):
@@ -173,6 +194,7 @@ def case1(n_galaxies=20):
 
     @profile_resources()
     def get_moments(data, catalog, index):
+        """Measure adaptive moments for one galaxy cutout."""
         cutout = make_cutout(data, catalog, index)
         return galsim.hsm.FindAdaptiveMom(cutout, strict=False)
 
@@ -188,6 +210,11 @@ def case1(n_galaxies=20):
 
 
 def case2(n_galaxies=10):
+    """Fit PSF-convolved Sérsic profiles to cataloged galaxies.
+
+    Args:
+        n_galaxies: Number of catalog entries to process.
+    """
     data, err, catalog = get_data()
 
     if not 1 <= n_galaxies <= len(catalog):
@@ -197,6 +224,7 @@ def case2(n_galaxies=10):
 
     @profile_resources()
     def fit_sersic(data, err, catalog, index):
+        """Fit a Sérsic model and profile the fit for one catalog source."""
         flux = convert_flux(-2.5 * np.log10(catalog["F106"][index]))
 
         p0 = [
@@ -238,8 +266,10 @@ def case2(n_galaxies=10):
                 f"for catalog index {index}: {p0}"
             )
 
-        # curve_fit receives numeric xdata; the image and PSF stay in the closure.
+        # curve_fit receives numeric xdata; the image and PSF stay in the
+        # closure.
         def model(pixel_indices, n, hlr, influx, pa, x0, y0, q):
+            """Evaluate the Sérsic model for the optimizer's pixel indices."""
             return sersic_mod(
                 cutout, psf_obj, n, hlr, influx, pa, x0, y0, q
             )
