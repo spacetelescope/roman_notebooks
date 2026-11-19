@@ -1,6 +1,6 @@
-astropy>=7.2.0,<9
+astropy>=8.0.2,<9
 matplotlib>=3.9
-numpy>=2.4.4
+numpy>=2.5.4
 pandas>=3.0.3
 pysiaf>=0.25.0
 healpy>=1.19.1
