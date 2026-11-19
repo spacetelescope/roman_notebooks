@@ -1,0 +1,30 @@
+name: Test reference-data snapshot (no release)
+
+on:
+  workflow_dispatch:
+    inputs:
+      download_pandeia:
+        description: "Also download and verify the two real Pandeia archives (no uploads)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - run: python -m pip install requests pyyaml
+      - run: python -m unittest discover -s tests -v
+      - name: Download and verify Pandeia only
+        if: inputs.download_pandeia
+        run: |
+          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release snapshot-test --packages pandeia_data pandeia_psf
+          python -m shared.refdata_snapshot verify --lock refdata-assets/refdata-lock.json --assets refdata-assets
+          cat refdata-assets/refdata-lock.json
+      # Intentionally no artifact upload, tag push, or release creation.

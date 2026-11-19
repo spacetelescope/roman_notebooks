@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [tool.setuptools]
-py-modules = ["notebook_data_dependencies"]
+py-modules = ["notebook_data_dependencies", "refdata_snapshot"]
 
 [tool.setuptools.package-dir]
 "" = "shared"

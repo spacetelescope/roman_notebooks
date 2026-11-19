@@ -2,3 +2,9 @@
 .DS_Store
 mastDownload
 *.asdf
+__pycache__/
+.venv/
+refdata-assets/
+build/
+dist/
+*.egg-info/
