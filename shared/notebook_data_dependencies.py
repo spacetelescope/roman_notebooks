@@ -6,6 +6,11 @@ import tempfile
 import requests
 import yaml
 
+try:  # Support both installed modules and imports from the source tree.
+    from . import refdata_snapshot as snapshot
+except ImportError:
+    import refdata_snapshot as snapshot
+
 
 _MANIFEST_NAME = "refdata_dependencies.yaml"
 _MANIFEST_ENV_VAR = "ROMAN_REFDATA_MANIFEST"
@@ -18,8 +23,8 @@ def _resolve_dependencies(dependencies=None):
     Resolution order:
     1. An explicitly supplied local path or URL.
     2. The ROMAN_REFDATA_MANIFEST environment variable.
-    3. refdata_dependencies.yaml beside the checked-out repository.
-    4. refdata_dependencies.yaml in the current working directory.
+    3. refdata-lock.json, then refdata_dependencies.yaml in the repository.
+    4. refdata-lock.json, then refdata_dependencies.yaml in the working directory.
 
     Mutable GitHub branches such as ``main`` are deliberately not used as a
     fallback because their manifest may not match the checked-out release.
@@ -33,7 +38,9 @@ def _resolve_dependencies(dependencies=None):
 
     module_path = Path(__file__).resolve()
     candidates = [
+        module_path.parent.parent / "refdata-lock.json",
         module_path.parent.parent / _MANIFEST_NAME,
+        Path.cwd() / "refdata-lock.json",
         Path.cwd() / _MANIFEST_NAME,
     ]
 
@@ -51,10 +58,12 @@ def _resolve_dependencies(dependencies=None):
 
 
 def _load_yaml(dependencies=None):
-    """Load the dependency manifest from a local path or URL."""
+    """Load a YAML development manifest or JSON release lock from a path/URL."""
     dependencies = _resolve_dependencies(dependencies)
 
     if os.path.isfile(dependencies):
+        if Path(dependencies).suffix == ".json":
+            return snapshot.load_lock(dependencies)
         with open(dependencies, "r", encoding="utf-8") as manifest:
             return yaml.safe_load(manifest)
 
@@ -65,6 +74,11 @@ def _load_yaml(dependencies=None):
             timeout=(10, 60),
         )
         response.raise_for_status()
+        if dependencies.split("?", 1)[0].endswith(".json"):
+            with tempfile.TemporaryDirectory() as temporary:
+                path = Path(temporary) / "refdata-lock.json"
+                path.write_bytes(response.content)
+                return snapshot.load_lock(path)
         return yaml.safe_load(response.content)
 
     raise FileNotFoundError(
@@ -110,6 +124,14 @@ def install_files(dependencies=None, verbose=True, packages=None):
                 if package.strip()
             ]
 
+        if manifest.get("schema_version") == 1:
+            missing = set(packages) - install_definitions.keys()
+            if missing:
+                raise ValueError(
+                    f"Datasets absent from this release snapshot: {sorted(missing)}. "
+                    "Select an explicit YAML manifest for upstream development mode."
+                )
+
         install_definitions = {
             package: definition
             for package, definition in install_definitions.items()
@@ -145,7 +167,8 @@ def install_files(dependencies=None, verbose=True, packages=None):
         )
         os.makedirs(install_path, exist_ok=True)
 
-        data_urls = definition["data_url"]
+        locked = manifest.get("schema_version") == 1
+        data_urls = definition["archives"] if locked else definition["data_url"]
         if isinstance(data_urls, str):
             data_urls = [data_urls]
 
@@ -162,14 +185,6 @@ def install_files(dependencies=None, verbose=True, packages=None):
             if verbose:
                 print(f"\tWorking on file {index} out of {total_files}")
 
-            response = requests.get(
-                url,
-                allow_redirects=True,
-                stream=True,
-                timeout=(10, 300),
-            )
-            response.raise_for_status()
-
             with tempfile.NamedTemporaryFile(
                 dir=install_path,
                 suffix=".tar.gz",
@@ -177,18 +192,22 @@ def install_files(dependencies=None, verbose=True, packages=None):
             ) as temporary_file:
                 temporary_name = temporary_file.name
 
-                for chunk in response.iter_content(chunk_size=8192):
-                    if chunk:
-                        temporary_file.write(chunk)
-
             try:
+                if locked:
+                    snapshot.assemble(
+                        url, temporary_name,
+                        lambda part, target: snapshot.download(
+                            snapshot.release_url(manifest, part["name"]), target),
+                    )
+                else:
+                    snapshot.download(url, temporary_name)
                 with tarfile.open(temporary_name) as tarball:
                     tarball.extractall(
                         path=install_path,
                         filter="data",
                     )
             finally:
-                os.remove(temporary_name)
+                Path(temporary_name).unlink(missing_ok=True)
 
         data_path = os.path.join(
             install_path,

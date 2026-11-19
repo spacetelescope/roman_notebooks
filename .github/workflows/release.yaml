@@ -46,6 +46,7 @@ concurrency:
 
 jobs:
   release:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -264,6 +265,19 @@ jobs:
             notebooks \
             || true
 
+      - name: Test snapshot implementation
+        run: |
+          python -m pip install requests pyyaml
+          python -m unittest discover -s tests -v
+
+      - name: Prepare and verify reference-data snapshot
+        env:
+          CALVER: ${{ steps.ver.outputs.calver }}
+        run: |
+          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release "$CALVER" --packages pandeia_data pandeia_psf
+          python -m shared.refdata_snapshot verify --lock refdata-assets/refdata-lock.json --assets refdata-assets
+          cp refdata-assets/refdata-lock.json refdata-lock.json
+
       - name: Commit version bump
         shell: bash
         env:
@@ -275,7 +289,7 @@ jobs:
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add pyproject.toml notebooks
+          git add pyproject.toml notebooks refdata-lock.json
 
           if git diff --cached --quiet; then
             current_version="$(sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml | head -n1)"
@@ -337,7 +351,7 @@ jobs:
             "refs/tags/$SEMVER" \
             "refs/tags/$CALVER"
 
-      - name: Create GitHub release
+      - name: Create draft GitHub release and upload snapshot
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -362,10 +376,22 @@ jobs:
           fi
 
           gh release create "$CALVER" \
+            refdata-assets/* \
             --title "${display_name} - ${CALVER}" \
             --generate-notes \
             --verify-tag \
-            --latest
+            --draft
+
+      - name: Verify uploaded snapshot before publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CALVER: ${{ steps.ver.outputs.calver }}
+        run: |
+          set -euo pipefail
+          gh release download "$CALVER" --dir "$RUNNER_TEMP/refdata-upload-check"
+          cmp refdata-lock.json "$RUNNER_TEMP/refdata-upload-check/refdata-lock.json"
+          python -m shared.refdata_snapshot verify --lock refdata-lock.json --assets "$RUNNER_TEMP/refdata-upload-check"
+          gh release edit "$CALVER" --draft=false --latest
 
 #      - name: Summary
 #        shell: bash
