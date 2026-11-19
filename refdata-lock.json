@@ -41,6 +41,48 @@
       "environment_variable": "PSF_DIR",
       "install_path": "${HOME}/refdata/",
       "version": 2026.1
+    },
+    "stips": {
+      "archives": [
+        {
+          "name": "refdata-stips-001.tar",
+          "parts": [
+            {
+              "name": "refdata-stips-001.tar",
+              "sha256": "15a430e67c7526abb4bd0f56379631ef7cb10a93f72b5d5dbd7919b441422d6a",
+              "size": 153097868
+            }
+          ],
+          "sha256": "15a430e67c7526abb4bd0f56379631ef7cb10a93f72b5d5dbd7919b441422d6a",
+          "size": 153097868,
+          "source_url": "https://stsci.box.com/shared/static/761vz7zav7pux03fg0hhqq7z2uw8nmqw.tgz"
+        }
+      ],
+      "data_path": "stips_data",
+      "environment_variable": "stips_data",
+      "install_path": "${HOME}/refdata/",
+      "version": "2.3.0"
+    },
+    "stpsf": {
+      "archives": [
+        {
+          "name": "refdata-stpsf-001.tar",
+          "parts": [
+            {
+              "name": "refdata-stpsf-001.tar",
+              "sha256": "c1bcaacea472b424795ae8b202ade2a330328ee01bc2de1f8d0030a4b14e7431",
+              "size": 183641655
+            }
+          ],
+          "sha256": "c1bcaacea472b424795ae8b202ade2a330328ee01bc2de1f8d0030a4b14e7431",
+          "size": 183641655,
+          "source_url": "https://stsci.box.com/shared/static/kqfolg2bfzqc4mjkgmujo06d3iaymahv.gz"
+        }
+      ],
+      "data_path": "stpsf-data",
+      "environment_variable": "STPSF_PATH",
+      "install_path": "${HOME}/refdata/",
+      "version": "2.1.0"
     }
   },
   "other_variables": {
@@ -49,7 +91,7 @@
     "CRDS_PATH": "${HOME}/crds_cache",
     "CRDS_SERVER_URL": "https://roman-crds.stsci.edu"
   },
-  "release": "2026.1.0",
+  "release": "2026.1.1",
   "remote_data": {
     "consumers": [
       "notebooks/pandeia",
