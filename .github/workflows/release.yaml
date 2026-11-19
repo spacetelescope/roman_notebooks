@@ -274,7 +274,7 @@ jobs:
         env:
           CALVER: ${{ steps.ver.outputs.calver }}
         run: |
-          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release "$CALVER" --packages pandeia_data pandeia_psf
+          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release "$CALVER" --packages pandeia_data pandeia_psf stpsf stips
           python -m shared.refdata_snapshot verify --lock refdata-assets/refdata-lock.json --assets refdata-assets
           cp refdata-assets/refdata-lock.json refdata-lock.json
 

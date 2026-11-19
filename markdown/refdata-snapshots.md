@@ -7,15 +7,42 @@ versions, installation paths, original URLs, archive sizes and SHA-256 hashes,
 and the ordered asset parts with their sizes and hashes. Schema version 1 embeds
 the YAML's `other_variables` and `remote_data` settings as well.
 
-## Initial test scope
+## Snapshot scope
 
-This first version snapshots **pandeia_data and pandeia_psf only**. No real lock
-is checked in on the implementation branch: checksums must come from actual
-downloads, never invented values. The release workflow generates the lock before
-committing its version bump. STPSF, STIPS and Synphot can use explicit YAML mode
-during this trial. In particular, the full Synphot collection is not downloaded
-by default. Remote-data products such as the straylight cache and CRDS remain
-external; this feature snapshots archives under `install_files` only.
+The next release snapshots **pandeia_data, pandeia_psf, stpsf and stips**.
+Release `2026.1.0` contains only the two Pandeia datasets and remains unchanged.
+The root lock still belongs to that published release until the release workflow
+generates and commits a new lock with the next version bump. Merging this change
+does not add assets to an existing release or immediately enable the new datasets
+in the old lock. Checksums always come from actual downloads.
+
+Synphot still requires explicit YAML mode; its nine archives are not downloaded
+by default or by the release workflow. Remote-data products such as the straylight
+cache and CRDS remain external; this feature snapshots archives under
+`install_files` only. STIPS can also require Pandeia, STPSF and Synphot data for
+scientific calculations: snapshotting its own archive does not replace those
+dependencies.
+
+The YAML's `version` is a declared package/version label, copied into the lock;
+it is not inferred from the downloaded data or a compatibility assertion. In
+local validation on 2026-11-19, the existing STPSF URL served data whose
+`version.txt` reads `2.3.0`, while the YAML label was `2.1.0`. The STIPS archive's
+`VERSION.txt` reads `1.0.10`, distinct from the YAML's software label `2.3.0`.
+The snapshot preserves the exact bytes returned by those existing URLs without
+changing notebook software requirements.
+
+Both real snapshots passed checksum verification and fresh installation through
+a local HTTP asset server, including `setup_env` and repeated-install skipping:
+
+| Dataset | Archive bytes | Extracted files | SHA-256 |
+| --- | ---: | ---: | --- |
+| STPSF | 183,641,655 | 539 | `c1bcaacea472b424795ae8b202ade2a330328ee01bc2de1f8d0030a4b14e7431` |
+| STIPS | 153,097,868 | 93 | `15a430e67c7526abb4bd0f56379631ef7cb10a93f72b5d5dbd7919b441422d6a` |
+
+Neither needed splitting. This validates snapshot preparation and installation,
+not scientific calculations or published GitHub transfers for these new assets.
+The next release must generate its own lock from that run's downloads; the hashes
+above document this validation rather than supply a replacement lock.
 
 ## Existing notebook calls
 
@@ -24,6 +51,13 @@ import notebook_data_dependencies as ndd
 
 result = ndd.install_files(packages=["pandeia_data", "pandeia_psf"])
 ndd.setup_env(result)
+```
+
+From a release whose lock includes STPSF and STIPS, use the same API:
+
+```python
+result = ndd.install_files(packages=["stpsf", "stips"])
+ndd.setup_env(result)  # Configures STPSF_PATH and stips_data.
 ```
 
 Manifest resolution uses an explicit `dependencies` path/URL first, then
@@ -48,7 +82,7 @@ calls, or set the environment override once:
 ```python
 import os
 os.environ["ROMAN_REFDATA_MANIFEST"] = "/path/to/roman_notebooks/refdata_dependencies.yaml"
-result = ndd.install_files(packages=["stpsf"])
+result = ndd.install_files(packages=["synphot"])
 ndd.setup_env(result)
 ```
 
@@ -64,7 +98,7 @@ python -m pip install requests pyyaml
 python -m unittest discover -s tests -v
 python -m shared.refdata_snapshot prepare \
   --repository mgough-970/roman_notebooks --release snapshot-test \
-  --packages pandeia_data pandeia_psf
+  --packages pandeia_data pandeia_psf stpsf stips
 python -m shared.refdata_snapshot verify \
   --lock refdata-assets/refdata-lock.json --assets refdata-assets
 ```
@@ -85,8 +119,10 @@ verification, and for a full archive plus one part and extracted data during
 installation. There is no persistent download cache or resume support yet.
 
 The utility supports `--packages all` or explicit dataset names for later
-expansion after review. The release workflow deliberately uses only Pandeia in
-this trial; change that list when approving broader coverage.
+expansion after review. Its CLI/API default remains the two Pandeia datasets for
+backward compatibility. The release workflow explicitly selects Pandeia, STPSF
+and STIPS; pass `--packages stpsf stips` to prepare only the new pair locally.
+Do not use `all` until Synphot coverage and storage requirements are reviewed.
 
 ## Release ordering and failure behavior
 
@@ -96,7 +132,7 @@ release. It:
 
 1. Computes versions and updates existing package pins (PyPI publication stays
    disabled).
-2. Runs offline tests, prepares the two Pandeia datasets, and verifies every
+2. Runs offline tests, prepares Pandeia, STPSF and STIPS, and verifies every
    local asset and complete archive.
 3. Copies `refdata-lock.json` to the repository root and commits it **with** the
    version bump, before pushing the release commit and creating either tag.
@@ -120,13 +156,16 @@ detect altered bytes but cannot prevent deletion.
 Use `.github/workflows/refdata-snapshot-test.yaml` (**Test reference-data snapshot
 (no release)**) on the test branch. Default mode runs offline fixture tests only.
 The optional `download_pandeia` input downloads and verifies just the real two
-Pandeia archives on the runner. It creates no tag, release, or uploaded artifact
+Pandeia archives on the runner. The independent `download_stpsf_stips` input does
+the same for STPSF and STIPS. Both can be selected together; their outputs use
+separate directories. Neither option includes Synphot. The workflow creates no
+tag, release, or uploaded artifact
 and has read-only repository permissions. No production release or large asset
 upload is needed to review this implementation. To dispatch a newly added
 manual workflow, GitHub may require that workflow to exist on the default
 branch first; use the local commands above until then.
 
-Before a production rollout, review the generated real Pandeia lock and disk
+Before a production rollout, review the generated real lock and disk
 usage, then validate an approved test release's upload/download cycle. Offline
 tests cover split and unsplit archives, checksum failures, missing assets,
 manifest overrides, and the existing notebook API; they do not prove upstream
