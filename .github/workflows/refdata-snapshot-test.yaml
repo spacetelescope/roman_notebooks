@@ -7,6 +7,10 @@ on:
         description: "Also download and verify the two real Pandeia archives (no uploads)"
         type: boolean
         default: false
+      download_stpsf_stips:
+        description: "Also download and verify STPSF and STIPS archives (no uploads)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -24,7 +28,13 @@ jobs:
       - name: Download and verify Pandeia only
         if: inputs.download_pandeia
         run: |
-          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release snapshot-test --packages pandeia_data pandeia_psf
-          python -m shared.refdata_snapshot verify --lock refdata-assets/refdata-lock.json --assets refdata-assets
-          cat refdata-assets/refdata-lock.json
+          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release snapshot-test --packages pandeia_data pandeia_psf --output refdata-assets/pandeia
+          python -m shared.refdata_snapshot verify --lock refdata-assets/pandeia/refdata-lock.json --assets refdata-assets/pandeia
+          cat refdata-assets/pandeia/refdata-lock.json
+      - name: Download and verify STPSF and STIPS
+        if: inputs.download_stpsf_stips
+        run: |
+          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release snapshot-test --packages stpsf stips --output refdata-assets/stpsf-stips
+          python -m shared.refdata_snapshot verify --lock refdata-assets/stpsf-stips/refdata-lock.json --assets refdata-assets/stpsf-stips
+          cat refdata-assets/stpsf-stips/refdata-lock.json
       # Intentionally no artifact upload, tag push, or release creation.

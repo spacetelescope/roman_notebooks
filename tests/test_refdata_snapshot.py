@@ -194,6 +194,51 @@ class SnapshotTests(unittest.TestCase):
         with self.assertRaises(tarfile.ReadError):
             snapshot.verify(path, self.assets)
 
+    def test_stpsf_stips_repository_definitions_install_and_setup_env(self):
+        """The new release datasets retain their real directory/env conventions."""
+        repository = Path(__file__).resolve().parents[1]
+        document = yaml.safe_load((repository / "refdata_dependencies.yaml").read_text())
+        packages = ["stpsf", "stips"]
+        definitions = {name: document["install_files"][name] for name in packages}
+        document["install_files"] = definitions
+        self.manifest.write_text(yaml.safe_dump(document), encoding="utf-8")
+        os.environ["HOME"] = str(self.root / "home")
+        sources = {}
+        for package, definition in definitions.items():
+            os.environ.pop(definition["environment_variable"], None)
+            path = self.root / f"{package}.tgz"
+            with tarfile.open(path, "w:gz") as archive:
+                member = tarfile.TarInfo(f"{definition['data_path']}/fixture.txt")
+                data = package.encode()
+                member.size = len(data)
+                archive.addfile(member, io.BytesIO(data))
+            sources[definition["data_url"][0]] = path
+        with patch.object(snapshot, "download", side_effect=lambda url, target: shutil.copyfile(sources[url], target)):
+            path = snapshot.prepare(self.manifest, self.assets, "owner/repo", "next-release", packages=packages)
+        snapshot.verify(path, self.assets)
+        lock = snapshot.load_lock(path)
+        self.assertEqual(set(lock["install_files"]), set(packages))
+        for package in packages:
+            self.assertEqual(lock["install_files"][package]["version"], definitions[package]["version"])
+        os.environ["ROMAN_REFDATA_MANIFEST"] = str(path)
+
+        def fetch(url, target):
+            self.assertIn("/releases/download/next-release/", url)
+            shutil.copyfile(self.assets / url.rsplit("/", 1)[-1], target)
+
+        with patch.object(snapshot, "download", side_effect=fetch):
+            result = ndd.install_files(packages=packages, verbose=False)
+        for key in document.get("other_variables", {}):
+            os.environ.pop(key, None)
+        ndd.setup_env(result, verbose=False)
+        self.assertEqual(set(result), {"STPSF_PATH", "stips_data"})
+        for package, definition in definitions.items():
+            expected = self.root / "home/refdata" / definition["data_path"]
+            variable = definition["environment_variable"]
+            self.assertEqual(Path(os.environ[variable]), expected)
+            self.assertEqual((expected / "fixture.txt").read_text(), package)
+            self.assertFalse(result[variable]["pre_installed"])
+
 
 if __name__ == "__main__":
     unittest.main()
