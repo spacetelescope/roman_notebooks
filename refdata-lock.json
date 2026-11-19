@@ -1,0 +1,72 @@
+{
+  "install_files": {
+    "pandeia_data": {
+      "archives": [
+        {
+          "name": "refdata-pandeia_data-001.tar",
+          "parts": [
+            {
+              "name": "refdata-pandeia_data-001.tar",
+              "sha256": "a048cecef53ed29bec2b39981bbb633cc2f0ad1c63c61f6dfebae56bbf91c83d",
+              "size": 17365154
+            }
+          ],
+          "sha256": "a048cecef53ed29bec2b39981bbb633cc2f0ad1c63c61f6dfebae56bbf91c83d",
+          "size": 17365154,
+          "source_url": "https://stsci.box.com/shared/static/0qjvuqwkurhx1xd13i63j760cosep9wh.gz"
+        }
+      ],
+      "data_path": "pandeia_data-2026.1-roman",
+      "environment_variable": "pandeia_refdata",
+      "install_path": "${HOME}/refdata/",
+      "version": 2026.1
+    },
+    "pandeia_psf": {
+      "archives": [
+        {
+          "name": "refdata-pandeia_psf-001.tar",
+          "parts": [
+            {
+              "name": "refdata-pandeia_psf-001.tar",
+              "sha256": "6de88ab72c8d4fadafec52aac69705b8ed842ad34d38c3fb3e9866e3f934f4e9",
+              "size": 548548732
+            }
+          ],
+          "sha256": "6de88ab72c8d4fadafec52aac69705b8ed842ad34d38c3fb3e9866e3f934f4e9",
+          "size": 548548732,
+          "source_url": "https://stsci.box.com/shared/static/5qkyvr5steg2fo2zxbqj2jxcmbmz1c4w.gz"
+        }
+      ],
+      "data_path": "pandeia_psfs-2026.1-roman",
+      "environment_variable": "PSF_DIR",
+      "install_path": "${HOME}/refdata/",
+      "version": 2026.1
+    }
+  },
+  "other_variables": {
+    "CRDS_CONTEXT": "roman-edit",
+    "CRDS_OBSERVATORY": "roman",
+    "CRDS_PATH": "${HOME}/crds_cache",
+    "CRDS_SERVER_URL": "https://roman-crds.stsci.edu"
+  },
+  "release": "2026.1.0",
+  "remote_data": {
+    "consumers": [
+      "notebooks/pandeia",
+      "notebooks/background_visualization_tool"
+    ],
+    "generator": "generate_stray_light_with_threads.c",
+    "healpix": {
+      "nside": 128,
+      "ordering": "RING"
+    },
+    "roman_straylight_cache": {
+      "cache_dir": "https://archive.stsci.edu/missions/roman/simulations/straylight/sl_cache/",
+      "cache_version": "R2025.9"
+    },
+    "thermal_file": "thermal_curve_roman_rryan_v1.0.csv",
+    "wave_file": "std_spectrum_wavelengths.txt"
+  },
+  "repository": "mgough-970/roman_notebooks",
+  "schema_version": 1
+}

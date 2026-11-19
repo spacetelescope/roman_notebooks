@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "roman-dataref-test"
-version = "2026.1.1"
+version = "2026.1.0"
 description = "Reference data installer helper for Roman notebooks"
 readme = "README.md"
 requires-python = ">=3.9"
