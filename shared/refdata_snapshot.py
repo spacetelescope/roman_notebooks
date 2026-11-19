@@ -97,6 +97,8 @@ def assemble(archive, destination, get_part):
                     with path.open("rb") as source:
                         for block in iter(lambda: source.read(CHUNK_SIZE), b""):
                             output.write(block)
+                    # A multi-GiB archive must not retain all temporary parts.
+                    path.unlink()
         check_file(destination, archive)
     except Exception:
         destination.unlink(missing_ok=True)
@@ -128,6 +130,7 @@ def prepare(manifest, output, repository, release, packages=None, part_size=DEFA
         definition["archives"] = []
         for index, url in enumerate(urls, 1):
             name = f"refdata-{package}-{index:03d}.tar"
+            print(f"Snapshotting {package} archive {index}/{len(urls)}...", flush=True)
             with tempfile.TemporaryDirectory(dir=output) as temporary:
                 original = Path(temporary) / name
                 download(url, original)
@@ -150,6 +153,7 @@ def prepare(manifest, output, repository, release, packages=None, part_size=DEFA
                         remaining -= count
                         number += 1
                 definition["archives"].append(archive)
+                print(f"Prepared {archive['size']:,} bytes in {len(archive['parts'])} asset(s)", flush=True)
     path = output / "refdata-lock.json"
     path.write_text(json.dumps(lock, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     load_lock(path)

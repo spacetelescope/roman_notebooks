@@ -9,16 +9,18 @@ the YAML's `other_variables` and `remote_data` settings as well.
 
 ## Snapshot scope
 
-The next release snapshots **pandeia_data, pandeia_psf, stpsf and stips**.
-Release `2026.1.0` contains only the two Pandeia datasets and remains unchanged.
-The root lock still belongs to that published release until the release workflow
+The next release snapshots **pandeia_data, pandeia_psf, stpsf, stips and synphot**.
+Release `2026.1.0` contains only the two Pandeia datasets; `2026.1.1` adds STPSF
+and STIPS. Both releases remain unchanged.
+The root lock still belongs to `2026.1.1` until the release workflow
 generates and commits a new lock with the next version bump. Merging this change
 does not add assets to an existing release or immediately enable the new datasets
 in the old lock. Checksums always come from actual downloads.
 
-Synphot still requires explicit YAML mode; its nine archives are not downloaded
-by default or by the release workflow. Remote-data products such as the straylight
-cache and CRDS remain external; this feature snapshots archives under
+Synphot's nine archives are included by the next release workflow. Until that
+release is cut, use explicit YAML mode or a locally prepared Synphot lock to
+test it. Remote-data products such as the straylight cache and CRDS remain external;
+this feature snapshots archives under
 `install_files` only. STIPS can also require Pandeia, STPSF and Synphot data for
 scientific calculations: snapshotting its own archive does not replace those
 dependencies.
@@ -60,6 +62,20 @@ result = ndd.install_files(packages=["stpsf", "stips"])
 ndd.setup_env(result)  # Configures STPSF_PATH and stips_data.
 ```
 
+To install Synphot's complete collection from the next release:
+
+```python
+result = ndd.install_files(packages=["synphot"])
+ndd.setup_env(result)  # Configures PYSYN_CDBS to refdata/grp/redcat/trds/.
+```
+
+This request downloads all nine Synphot archives (including every part of a
+split archive). The current API selects datasets, not individual spectral
+atlases. Downloading the notebook source ZIP does not download these assets.
+Calling `ndd.install_files()` without `packages` requests every dataset in the
+release lock, including the full Synphot collection; use an explicit package
+list to limit downloads.
+
 Manifest resolution uses an explicit `dependencies` path/URL first, then
 `ROMAN_REFDATA_MANIFEST`, then the checkout's lock (preferred) or YAML, then a
 lock or YAML in the current working directory. It never fetches `main` or
@@ -98,7 +114,7 @@ python -m pip install requests pyyaml
 python -m unittest discover -s tests -v
 python -m shared.refdata_snapshot prepare \
   --repository mgough-970/roman_notebooks --release snapshot-test \
-  --packages pandeia_data pandeia_psf stpsf stips
+  --packages pandeia_data pandeia_psf stpsf stips synphot
 python -m shared.refdata_snapshot verify \
   --lock refdata-assets/refdata-lock.json --assets refdata-assets
 ```
@@ -114,15 +130,61 @@ Files larger than the default 1,900 MiB part size are split into ordered
 `.part00001`, `.part00002`, etc. Files at or below the threshold have one asset.
 `--part-size` accepts bytes, must be positive and strictly below 2 GiB, and can
 be tiny for local split tests. The original archive and every part have hashes.
-Allow disk space for assets plus a full archive during preparation and
-verification, and for a full archive plus one part and extracted data during
-installation. There is no persistent download cache or resume support yet.
+Allow disk space for assets plus a full archive during preparation, assets plus
+a full archive and one part during verification, and a full archive plus one
+part and extracted data during installation. Temporary parts are discarded
+immediately after being appended to the reconstructed archive. There is no
+persistent download cache or resume support yet.
 
 The utility supports `--packages all` or explicit dataset names for later
 expansion after review. Its CLI/API default remains the two Pandeia datasets for
-backward compatibility. The release workflow explicitly selects Pandeia, STPSF
-and STIPS; pass `--packages stpsf stips` to prepare only the new pair locally.
-Do not use `all` until Synphot coverage and storage requirements are reviewed.
+backward compatibility. The release workflow explicitly selects all five
+datasets; pass `--packages synphot` to prepare only Synphot locally.
+
+## Synphot size and release runner
+
+The nine upstream archives measured on 2026-11-19 total **12,821,002,240 bytes**
+(11.94 GiB). At the default 1,900 MiB part size:
+
+| Archive | Bytes | Release assets |
+| --- | ---: | ---: |
+| Synphot 1: everything / v20 SED | 1,420,943,360 | 1 |
+| Synphot 2: star/galaxy models | 90,347,520 | 1 |
+| Synphot 3: Castelli/Kurucz | 42,772,480 | 1 |
+| Synphot 4: Kurucz 1993 | 81,684,480 | 1 |
+| Synphot 5: Phoenix | 1,868,328,960 | 1 |
+| Synphot 6: calibration spectra | 9,032,151,040 | 5 |
+| Synphot 7: ETC models | 128,256,000 | 1 |
+| Synphot 8: modewave | 34,160,640 | 1 |
+| Synphot 9: other spectra | 122,357,760 | 1 |
+
+Synphot therefore adds thirteen assets. With the four existing dataset archives
+and the lock, the complete release contains eighteen assets. Sizes may change
+upstream; each release's generated lock records the bytes actually captured.
+
+Local validation on 2026-11-19 passed all archive/part checksums, real five-part
+reassembly, and fresh installation of **24,124 files**. `setup_env` configured
+`PYSYN_CDBS` and a repeated install skipped downloading. Using Synphot 1.9.0 and
+STSynphot 1.7.0, Roman F129 bandpass evaluation, Phoenix spectrum loading, Johnson
+V normalization and an F129 synthetic observation passed with network connections
+blocked. These checks used prepared assets served over local HTTP; publishing
+and downloading the Synphot assets from GitHub remain a release-time check.
+
+The complete release and the optional Synphot manual test require **30 GiB free**
+before preparation, checked before downloading. The default `ubuntu-latest`
+runner is not guaranteed to provide this: GitHub documents 14 GB storage for
+standard Linux runners. Configure a suitable Linux runner label using the
+repository Actions variable `REFDATA_RUNNER` when needed (for example, your
+configured larger-runner label). The variable defaults to `ubuntu-latest`; the
+space check reports an actionable failure if it is too small. No runner settings
+or paid resources are provisioned by this change.
+
+See [GitHub-hosted runner storage](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)
+and [larger runners](https://docs.github.com/en/actions/reference/runners/larger-runners).
+For local validation that retains prepared assets **and** extracts the full
+collection on the same disk, allow at least 40 GiB free. Notebook installation
+alone should start with at least 25 GiB free; allow more when installing other
+datasets too.
 
 ## Release ordering and failure behavior
 
@@ -132,12 +194,13 @@ release. It:
 
 1. Computes versions and updates existing package pins (PyPI publication stays
    disabled).
-2. Runs offline tests, prepares Pandeia, STPSF and STIPS, and verifies every
+2. Runs offline tests, checks free disk, prepares all five datasets, and verifies every
    local asset and complete archive.
 3. Copies `refdata-lock.json` to the repository root and commits it **with** the
    version bump, before pushing the release commit and creating either tag.
 4. Creates a draft CalVer GitHub Release and uploads the lock and all parts.
-5. Downloads those draft assets with the authenticated GitHub CLI, compares the
+5. Removes the successfully uploaded local archive copies (retaining the lock),
+   downloads those draft assets with the authenticated GitHub CLI, compares the
    uploaded lock with the committed lock, and checks all hashes again.
 6. Publishes the verified draft and marks it latest.
 
@@ -157,10 +220,11 @@ Use `.github/workflows/refdata-snapshot-test.yaml` (**Test reference-data snapsh
 (no release)**) on the test branch. Default mode runs offline fixture tests only.
 The optional `download_pandeia` input downloads and verifies just the real two
 Pandeia archives on the runner. The independent `download_stpsf_stips` input does
-the same for STPSF and STIPS. Both can be selected together; their outputs use
-separate directories. Neither option includes Synphot. The workflow creates no
-tag, release, or uploaded artifact
-and has read-only repository permissions. No production release or large asset
+the same for STPSF and STIPS. The `download_synphot` input prepares and verifies
+all nine real Synphot archives, including split reassembly, after checking free
+disk. All three options can be selected together; their outputs use separate
+directories. The workflow creates no tag, release, or uploaded artifact and has
+read-only repository permissions. No production release or large asset
 upload is needed to review this implementation. To dispatch a newly added
 manual workflow, GitHub may require that workflow to exist on the default
 branch first; use the local commands above until then.

@@ -11,13 +11,17 @@ on:
         description: "Also download and verify STPSF and STIPS archives (no uploads)"
         type: boolean
         default: false
+      download_synphot:
+        description: "Download and verify all nine Synphot archives (~13 GB, needs 30 GiB free; no uploads)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.REFDATA_RUNNER || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -37,4 +41,11 @@ jobs:
           python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release snapshot-test --packages stpsf stips --output refdata-assets/stpsf-stips
           python -m shared.refdata_snapshot verify --lock refdata-assets/stpsf-stips/refdata-lock.json --assets refdata-assets/stpsf-stips
           cat refdata-assets/stpsf-stips/refdata-lock.json
+      - name: Download and verify Synphot
+        if: inputs.download_synphot
+        run: |
+          python -c 'import shutil; free = shutil.disk_usage(".").free; print(f"Free snapshot disk: {free / 1024**3:.1f} GiB"); assert free >= 30 * 1024**3, "Full Synphot snapshot needs 30 GiB free; choose a larger Linux runner with the REFDATA_RUNNER repository variable"'
+          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release snapshot-test --packages synphot --output refdata-assets/synphot
+          python -m shared.refdata_snapshot verify --lock refdata-assets/synphot/refdata-lock.json --assets refdata-assets/synphot
+          cat refdata-assets/synphot/refdata-lock.json
       # Intentionally no artifact upload, tag push, or release creation.

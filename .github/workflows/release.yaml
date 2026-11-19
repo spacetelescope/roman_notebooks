@@ -47,7 +47,7 @@ concurrency:
 jobs:
   release:
     if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.REFDATA_RUNNER || 'ubuntu-latest' }}
 
     steps:
       - name: Checkout
@@ -274,7 +274,8 @@ jobs:
         env:
           CALVER: ${{ steps.ver.outputs.calver }}
         run: |
-          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release "$CALVER" --packages pandeia_data pandeia_psf stpsf stips
+          python -c 'import shutil; free = shutil.disk_usage(".").free; print(f"Free snapshot disk: {free / 1024**3:.1f} GiB"); assert free >= 30 * 1024**3, "Full Synphot snapshot needs 30 GiB free; choose a larger Linux runner with the REFDATA_RUNNER repository variable"'
+          python -m shared.refdata_snapshot prepare --repository "$GITHUB_REPOSITORY" --release "$CALVER" --packages pandeia_data pandeia_psf stpsf stips synphot
           python -m shared.refdata_snapshot verify --lock refdata-assets/refdata-lock.json --assets refdata-assets
           cp refdata-assets/refdata-lock.json refdata-lock.json
 
@@ -388,6 +389,9 @@ jobs:
           CALVER: ${{ steps.ver.outputs.calver }}
         run: |
           set -euo pipefail
+          # Upload completed successfully. Keep the committed lock as the trust
+          # anchor, but remove prepared archives before downloading a second set.
+          find refdata-assets -maxdepth 1 -type f ! -name refdata-lock.json -delete
           gh release download "$CALVER" --dir "$RUNNER_TEMP/refdata-upload-check"
           cmp refdata-lock.json "$RUNNER_TEMP/refdata-upload-check/refdata-lock.json"
           python -m shared.refdata_snapshot verify --lock refdata-lock.json --assets "$RUNNER_TEMP/refdata-upload-check"

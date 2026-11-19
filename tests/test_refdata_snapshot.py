@@ -239,6 +239,68 @@ class SnapshotTests(unittest.TestCase):
             self.assertEqual((expected / "fixture.txt").read_text(), package)
             self.assertFalse(result[variable]["pre_installed"])
 
+    def test_reassembly_removes_each_part_before_fetching_the_next(self):
+        path = self.prepare(part_size=32)
+        archive = snapshot.load_lock(path)["install_files"]["pandeia_data"]["archives"][0]
+
+        def fetch(part, target):
+            self.assertEqual(list(target.parent.iterdir()), [])
+            shutil.copyfile(self.assets / part["name"], target)
+
+        destination = self.root / "joined.tar.gz"
+        snapshot.assemble(archive, destination, fetch)
+        self.assertEqual(destination.read_bytes(), self.source.read_bytes())
+
+    def test_synphot_nine_archives_share_one_installation_and_environment(self):
+        repository = Path(__file__).resolve().parents[1]
+        document = yaml.safe_load((repository / "refdata_dependencies.yaml").read_text())
+        definition = document["install_files"]["synphot"]
+        document["install_files"] = {"synphot": definition}
+        urls = definition["data_url"]
+        self.assertEqual(len(urls), 9)
+        sources = {}
+        files = ["mtab/graph.fits", "grid/bz77/model.fits", "grid/ck04models/catalog.fits",
+                 "grid/k93models/catalog.fits", "grid/phoenix/catalog.fits",
+                 "calspec/alpha_lyr_stis_011.fits", "grid/etc_models/model.fits",
+                 "mtab/throughput.fits", "grid/pickles/model.fits"]
+        for index, (url, name) in enumerate(zip(urls, files), 1):
+            source = self.root / f"synphot-{index}.tar"
+            with tarfile.open(source, "w") as archive:
+                data = f"fixture {index}".encode()
+                member = tarfile.TarInfo(f"{definition['data_path']}/{name}")
+                member.size = len(data)
+                archive.addfile(member, io.BytesIO(data))
+            sources[url] = source
+        self.manifest.write_text(yaml.safe_dump(document), encoding="utf-8")
+        with patch.object(snapshot, "download", side_effect=lambda url, target: shutil.copyfile(sources[url], target)):
+            path = snapshot.prepare(self.manifest, self.assets, "owner/repo", "synphot-test",
+                                    packages=["synphot"], part_size=4096)
+        lock = snapshot.load_lock(path)
+        self.assertEqual(len(lock["install_files"]["synphot"]["archives"]), 9)
+        snapshot.verify(path, self.assets)
+        os.environ["HOME"] = str(self.root / "home")
+        os.environ["ROMAN_REFDATA_MANIFEST"] = str(path)
+        os.environ.pop("PYSYN_CDBS", None)
+        downloads = []
+
+        def fetch(url, target):
+            self.assertIn("/releases/download/synphot-test/", url)
+            downloads.append(url)
+            shutil.copyfile(self.assets / url.rsplit("/", 1)[-1], target)
+
+        with patch.object(snapshot, "download", side_effect=fetch):
+            result = ndd.install_files(packages=["synphot"], verbose=False)
+        self.assertEqual(set(result), {"PYSYN_CDBS"})
+        self.assertFalse(result["PYSYN_CDBS"]["pre_installed"])
+        expected = self.root / "home/refdata" / definition["data_path"]
+        for index, name in enumerate(files, 1):
+            self.assertEqual((expected / name).read_text(), f"fixture {index}")
+        ndd.setup_env(result, verbose=False)
+        self.assertEqual(Path(os.environ["PYSYN_CDBS"]), expected)
+        self.assertEqual(len(downloads), sum(len(a["parts"]) for a in lock["install_files"]["synphot"]["archives"]))
+        with patch.object(snapshot, "download", side_effect=AssertionError("must skip")):
+            self.assertTrue(ndd.install_files(packages="synphot", verbose=False)["PYSYN_CDBS"]["pre_installed"])
+
 
 if __name__ == "__main__":
     unittest.main()
