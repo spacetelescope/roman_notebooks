@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # to request a delivery (workflow_dispatch) below
 
 # Serialize with the release workflow so two runs never race on tags.
 concurrency:
@@ -51,3 +52,21 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag "${{ steps.ver.outputs.next }}"
           git push origin "${{ steps.ver.outputs.next }}"
+
+      # Dev channel: ask rrn-deliver.yaml (which always runs from main, where the
+      # delivery secrets are available) to deliver this merge.  Does nothing unless
+      # the repository variables RRN_DELIVERY_ENABLED and RRN_DEV_CHANNEL are 'true'.
+      - name: Request delivery (dev channel)
+        if: ${{ vars.RRN_DELIVERY_ENABLED == 'true' && vars.RRN_DEV_CHANNEL == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.ver.outputs.next }}
+          SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh workflow run rrn-deliver.yaml \
+            --ref main \
+            -f version_kind=semver \
+            -f version="$VERSION" \
+            -f source_sha="$SHA"
