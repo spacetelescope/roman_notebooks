@@ -1,7 +1,8 @@
 # For each Python package that requires a data installation, give the
 # package name and:
 #   version - package version number
-#   data_url - the data_url is a list of URLs of tarballs to install
+#   data_url - the data_url is a list of URLs of tarballs to install.
+#              ensure data version always matches software version.
 #   environment_variable - variable to reference the installed data
 #   install_path - top directory under which to install the data
 #   data_path - name of the directory the tarball is expended into
@@ -12,28 +13,32 @@
 install_files:
   pandeia_data:
     version: 2026.1
-    data_url: 
-      - https://stsci.box.com/shared/static/0qjvuqwkurhx1xd13i63j760cosep9wh.gz
+    data_url:
+      # ensure data at link below are sustainably compatible with version above
+      - https://stsci.box.com/shared/static/j3rx9dz3e27oxd4o69vnccikwkgglnxe.gz
     environment_variable: pandeia_refdata
     install_path: ${HOME}/refdata/
     data_path: pandeia_data-2026.1-roman
   pandeia_psf:
     version: 2026.1
-    data_url: 
-      - https://stsci.box.com/shared/static/5qkyvr5steg2fo2zxbqj2jxcmbmz1c4w.gz
+    data_url:
+      # ensure data at link below are sustainably compatible with version above
+      - https://stsci.box.com/shared/static/qiib69fwu0l1lli5u2om7a9abt8xosgz.gz
     environment_variable: PSF_DIR
     install_path: ${HOME}/refdata/
     data_path: pandeia_psfs-2026.1-roman
   stpsf:
-    version: 2.1.0
+    version: 2.3.1
     data_url:
-      - https://stsci.box.com/shared/static/kqfolg2bfzqc4mjkgmujo06d3iaymahv.gz
+      # ensure data at link below are sustainably compatible with version above
+      - https://stsci.box.com/shared/static/6bddlzcocmty1fsvfgpxrbo2s836z90j.gz
     environment_variable: STPSF_PATH
     install_path: ${HOME}/refdata/
     data_path: stpsf-data
   stips:
     version: 2.3.0
     data_url:
+      # ensure data at link below are sustainably compatible with version above
       - https://stsci.box.com/shared/static/761vz7zav7pux03fg0hhqq7z2uw8nmqw.tgz
     environment_variable: stips_data
     install_path: ${HOME}/refdata/
