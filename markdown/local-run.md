@@ -86,7 +86,7 @@ Here the notebook commands:
 your_data_dir = '/your/preferred/path/to/data_dir/'
 os.environ['pandeia_refdata'] = your_data_dir + "pandeia-data-2026.1-roman"
 os.environ['PSF_DIR'] = your_data_dir + "pandeia_psfs-2026.1-roman"
-os.environ['PYSYN_CDBS'] = your_data_dir + "grp/"
+os.environ['PYSYN_CDBS'] = your_data_dir + "grp/redcat/trds"
 os.environ['stips_data'] = your_data_dir + "stips-data"
 ```
 
