@@ -1,32 +1,37 @@
 # Monitoring Credit Usage
-The Nexus provides a built-in **Credits Dashboard** for tracking credit consumption. For credit and account policies, see the [Roman Research Nexus overview](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus) and [benchmarking examples and estimated costs](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/benchmarking-examples-and-estimated-costs-on-the-roman-research-nexus) in RDox.
+The Nexus provides a built-in **Credits Dashboard** for tracking credit consumption.
+For more information about Nexus credits and resource usage, see the following RDox documentation:
 
-You can launch the dashboard from the **JupyterLab Launcher**.
+- [Accounts and Credit Allocations](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/accounts-and-credit-allocations) — account policies, credit allocations, and resource accounting.
+- [Compute Resources](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/compute-resources) — available compute resources and associated costs.
+- [Storage Resources](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/storage-resources) — persistent storage and associated costs.
+- [Computational Benchmarks](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/accounts-and-credit-allocations/computational-benchmarks) — measured resource usage for representative scientific workflows.
+- [Estimating Resource Usage and Costs](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/accounts-and-credit-allocations/estimating-resource-usage-and-costs) — guidance for estimating resource requirements and credit consumption.
 
-*Open the Launcher from the JupyterLab menu using **File → New Launcher***.
+You can launch the dashboard from the **JupyterLab Launcher**.
 
-<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/Launcher.png" alt="JupyterLab Launcher showing the Credits Dashboard under Jupyter App" width="400" />
+*Open the Launcher from the JupyterLab menu using **File → New Launcher**.*
 
+<img src="https://raw.githubusercontent.com/spacetelescope/roman\_notebooks/refs/heads/main/images/Launcher.png" alt="JupyterLab Launcher showing the Credits Dashboard under Jupyter App" width="400" />
 
 The dashboard allows you to:
 - View daily aggregated credit usage
 - Filter results by user, account, date range, and credit metric
-- Review cumulative total, server, egress, and EFS storage credits
+- Review cumulative total, server, egress, EFS storage, and S3 storage credits
 - Export filtered data to a CSV file in your home directory
 
-**Team admins** can also view total team usage and usage broken down by individual team members.
-
+**Team members** can also view total team usage and usage broken down by individual team members.
 ## Using the Dashboard
 1. **Open the dashboard.** In the Launcher, select **Credits Dashboard** under **Jupyter App**.
-2. **Select a user and account.** Choose the account whose usage you want to review, such as your Personal Server or an available team account. Admins can choose any team member.
+2. **Select a user and account.** Choose the account whose usage you want to review, such as your personal account or an available team account. Team members can view usage for individual members of their teams.
 3. **Set a date range** for the period you want to examine.
 4. **Choose a credit metric**:
-   - **Total Credits** combines all usage.
-   - **Server Credits (CPU+Mem)** covers CPU and memory usage.
-   - **Egress Credits** covers data transfer.
-   - **EFS Storage Credits** covers persistent storage.
+    - **Total Credits** combines all usage.
+    - **Server Credits (CPU+Mem)** covers CPU and memory usage.
+    - **Egress Credits** covers data transfer.
+    - **EFS Storage Credits** covers persistent storage.
+    - **S3 Storage Credits** covers S3 object storage.
 5. **Review the daily usage plot and cumulative credit summary**, which update automatically based on your filters.
 6. **Export results** using the Export CSV button.
-
 ---
-*Last Updated: August 2026*
+*Last Updated: November 2026*
