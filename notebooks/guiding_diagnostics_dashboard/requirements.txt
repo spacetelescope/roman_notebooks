@@ -1,0 +1,14 @@
+roman_datamodels==1.2.0
+numpy
+pandas
+asdf
+astropy
+astroquery @ git+https://github.com/snbianco/astroquery.git@mast-beta-fork
+bokeh
+ipywidgets
+ipython
+python-dotenv
+pyerfa
+crds
+Pillow>=10.1
+imageio-ffmpeg
