@@ -1,6 +1,6 @@
 # Working Locally
 
-Running some notebooks in your local machine will require additional settings that should be run before launching the Jupyter Notebook. Some of these apply to all notebooks will other to a selected few.
+Running some notebooks in your local machine will require additional settings that should be run before launching the Jupyter Notebook. Some of these apply to all notebooks, while others apply to a selected few.
 
 ## Setting up the environment for all notebooks
 
@@ -80,7 +80,7 @@ The other variables you might need to set are:
 - `PYSYN_CDBS` when using `synphot`
 - `stips_data` when using `stips`
 
-Here the notebook commands:
+Here are the notebook commands:
 
 ```
 your_data_dir = '/your/preferred/path/to/data_dir/'
