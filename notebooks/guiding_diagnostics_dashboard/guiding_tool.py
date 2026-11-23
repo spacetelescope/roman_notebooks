@@ -2283,6 +2283,7 @@ def make_gw_grid_movie(windows, telemetry, path, fps=5.0, progress=None, scale=N
         np.concatenate([w["frames"].ravel() for w in available.values()]).astype(float)
     )
     span = max(high - low, 1.0)
+    
     def scale_of(window):
         return scale or (3 if window["frames"].shape[1] >= 64 else 10)
 
