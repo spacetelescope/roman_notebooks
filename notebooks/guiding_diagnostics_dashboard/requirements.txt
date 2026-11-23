@@ -3,7 +3,7 @@ numpy
 pandas
 asdf
 astropy
-astroquery @ git+https://github.com/snbianco/astroquery.git@mast-beta-release
+astroquery @ git+https://github.com/snbianco/astroquery.git@2026.3
 bokeh
 ipywidgets
 ipython
