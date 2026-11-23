@@ -4,8 +4,8 @@ astropy>=7.2.0,<9
 asdf-astropy>=0.11.0
 gwcs>=1.0.3,<2
 s3fs>=2026.4.0
-jdaviz>=5.0
+jdaviz>=5.1
 matplotlib>=3.9
 numpy>=2.4.4
-mast-aladin==0.0.3
-mast-table==0.0.2
+mast-aladin @ git+https://github.com/spacetelescope/mast-aladin@v0.1.0
+mast-table==1.0
