@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -188,7 +188,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Kernel Information and Read-Only Status</a></li>
+
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
@@ -543,7 +545,7 @@ we will use the <code class="docutils literal notranslate"><span class="pre">mea
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;SkyCoord (ICRS): (ra, dec) in deg
-    (270.96045833, -0.29763889)&gt;
+    (270.960458, -0.297639)&gt;
 </pre></div>
 </div>
 </div>
@@ -594,21 +596,21 @@ We also include constraints to limit the results to only objects with measured m
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=11</i>
-<table id="table140566912006528" class="table-striped table-bordered table-condensed">
+<table id="table132001395493776" class="table-striped table-bordered table-condensed">
 <thead><tr><th>objid</th><th>ramean</th><th>decmean</th><th>gmeanpsfmag</th><th>imeanpsfmag</th><th>ymeanpsfmag</th><th>imeankronmag</th></tr></thead>
 <thead><tr><th></th><th>deg</th><th>deg</th><th>mag</th><th>mag</th><th>mag</th><th>mag</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
+<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
+<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
+<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
 <tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.4472</td><td>17.3332</td><td>17.3366</td><td>17.4682</td></tr>
 <tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.6545</td><td>16.4703</td><td>16.3595</td><td>16.4361</td></tr>
-<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
-<tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
 <tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
 <tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.0765</td><td>16.7683</td><td>16.6352</td><td>16.7509</td></tr>
-<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
 <tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.257</td><td>16.0153</td><td>15.8565</td><td>16.0009</td></tr>
 <tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.1058</td><td>15.7425</td><td>15.53</td><td>15.7387</td></tr>
 <tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
-<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
+<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
 </table></div></div></div>
 </div>
 <p>We visualize our results by plotting a $g-y$ vs $i$ color-magnitude diagram.</p>
@@ -647,7 +649,7 @@ We also include constraints to limit the results to only objects with measured m
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(21.140229082107545, 12.911569738388062)
 </pre></div>
 </div>
-<img alt="../../_images/2bf4f614cf9d206e4a88d6a03bda05248de3333ee720f236e6d0bea2f6e2eb01.png" src="../../_images/2bf4f614cf9d206e4a88d6a03bda05248de3333ee720f236e6d0bea2f6e2eb01.png" />
+<img alt="../../_images/8a352219d757bd834c090db7781541f748dc09fbecb33c7bd1bde8a37816bad8.png" src="../../_images/8a352219d757bd834c090db7781541f748dc09fbecb33c7bd1bde8a37816bad8.png" />
 </div>
 </div>
 </section>
@@ -727,21 +729,21 @@ This includes:</p>
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=11</i>
-<table id="table140566906756928" class="table-striped table-bordered table-condensed">
+<table id="table132001395500976" class="table-striped table-bordered table-condensed">
 <thead><tr><th>objid</th><th>ramean</th><th>decmean</th><th>gmeanpsfmag</th><th>imeanpsfmag</th><th>ymeanpsfmag</th><th>imeankronmag</th></tr></thead>
 <thead><tr><th></th><th>deg</th><th>deg</th><th>mag</th><th>mag</th><th>mag</th><th>mag</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
 <tr><td>107632709534144766</td><td>270.95338546879503</td><td>-0.3047455642018009</td><td>17.0765</td><td>16.7683</td><td>16.6352</td><td>16.7509</td></tr>
-<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
 <tr><td>107662709570245695</td><td>270.9569986424153</td><td>-0.2789625156917366</td><td>16.862</td><td>16.693</td><td>16.6112</td><td>16.7813</td></tr>
-<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
-<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
-<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
 <tr><td>107622709573665384</td><td>270.957335353332</td><td>-0.3125668951948708</td><td>17.4472</td><td>17.3332</td><td>17.3366</td><td>17.4682</td></tr>
 <tr><td>107642709703759594</td><td>270.9703642717264</td><td>-0.2923859347624948</td><td>16.6545</td><td>16.4703</td><td>16.3595</td><td>16.4361</td></tr>
 <tr><td>107622709526829524</td><td>270.9526486988225</td><td>-0.30911800835201964</td><td>16.4645</td><td>16.1943</td><td>16.0325</td><td>16.2402</td></tr>
 <tr><td>107642709674579676</td><td>270.9674327466154</td><td>-0.29231323509207785</td><td>16.257</td><td>16.0153</td><td>15.8565</td><td>16.0009</td></tr>
+<tr><td>107662709583301962</td><td>270.9583027798802</td><td>-0.28207893918943006</td><td>17.1175</td><td>16.99</td><td>16.9489</td><td>17.0684</td></tr>
 <tr><td>107642709539600777</td><td>270.95393138778394</td><td>-0.2997383831209724</td><td>16.1058</td><td>15.7425</td><td>15.53</td><td>15.7387</td></tr>
+<tr><td>107642709657944948</td><td>270.9657688899816</td><td>-0.29625281205122417</td><td>16.4413</td><td>16.2274</td><td>16.0394</td><td>16.186</td></tr>
+<tr><td>107632709733451952</td><td>270.97331765199516</td><td>-0.3070894397722286</td><td>16.9254</td><td>16.7628</td><td>16.7023</td><td>16.8846</td></tr>
+<tr><td>107652709505976571</td><td>270.95056941908393</td><td>-0.2865710588205479</td><td>16.3664</td><td>16.1027</td><td>15.9214</td><td>16.1581</td></tr>
 </table></div></div></div>
 </div>
 <p>By leveraging the advanced usage patterns possible with AQDL, this single TAP query returns the same results as our two-step <code class="docutils literal notranslate"><span class="pre">astroquery</span></code> example where we first queried and then applied the final cuts.</p>

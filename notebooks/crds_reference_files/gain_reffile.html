@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -188,7 +188,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Kernel Information and Read-Only Status</a></li>
+
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
@@ -478,7 +480,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">colors</span><span class="p">,</span> <span class="n">colormaps</span> <span class="k">as</span> <span class="n">cm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">colormaps</span> <span class="k">as</span> <span class="n">cm</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.axes_grid1</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_axes_locatable</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
@@ -521,7 +523,7 @@ CRDS context file: roman-edit
 <p>If we want to change the context, we can do it in the next cell. In this case, we choose context <code class="docutils literal notranslate"><span class="pre">roman_0058.pmap</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_CONTEXT'</span><span class="p">]</span><span class="o">=</span><span class="s1">'roman_0058.pmap'</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_CONTEXT'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'roman_0058.pmap'</span>
 </pre></div>
 </div>
 </div>
@@ -540,11 +542,14 @@ CRDS context file: roman-edit
 <p>These keywords may be combined into a single dictionary to find and download the file using <code class="docutils literal notranslate"><span class="pre">crds.getreferences()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'ROMAN.META.INSTRUMENT.NAME'</span><span class="p">:</span> <span class="s1">'WFI'</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We set the CRDS context to 'roman-edit' or latest context available</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_CONTEXT'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'roman-edit'</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CRDS context file: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'CRDS_CONTEXT'</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'ROMAN.META.INSTRUMENT.NAME'</span><span class="p">:</span> <span class="s1">'WFI'</span><span class="p">,</span>
         <span class="s1">'ROMAN.META.INSTRUMENT.DETECTOR'</span><span class="p">:</span> <span class="s1">'WFI01'</span><span class="p">,</span>
         <span class="s1">'ROMAN.META.EXPOSURE.TYPE'</span><span class="p">:</span> <span class="s1">'WFI_IMAGE'</span><span class="p">,</span>
-        <span class="s1">'ROMAN.META.EXPOSURE.START_TIME'</span><span class="p">:</span> <span class="s1">'2026-01-01 00:00:00'</span>
-       <span class="p">}</span>
+        <span class="s1">'ROMAN.META.EXPOSURE.START_TIME'</span><span class="p">:</span> <span class="s1">'2026-01-01 00:00:00'</span><span class="p">}</span>
 
 <span class="n">ref_files</span> <span class="o">=</span> <span class="n">crds</span><span class="o">.</span><span class="n">getreferences</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">reftypes</span><span class="o">=</span><span class="p">[</span><span class="s1">'gain'</span><span class="p">],</span> <span class="n">observatory</span><span class="o">=</span><span class="s1">'roman'</span><span class="p">)</span>
 <span class="n">ref_files</span>
@@ -552,106 +557,112 @@ CRDS context file: roman-edit
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Syncing 30 files
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS context file: roman-edit
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_specpsf_0001.rmap      572 bytes  (1 / 30 files) (0 / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Syncing 31 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_skycells_0002.rmap      712 bytes  (2 / 30 files) (572 / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_specpsf_0002.rmap      787 bytes  (1 / 31 files) (0 / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_sflat_0001.rmap      548 bytes  (3 / 30 files) (1.3 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_skycells_0002.rmap      712 bytes  (2 / 31 files) (787 / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_saturation_0003.rmap    2.4 K bytes  (4 / 30 files) (1.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_sflat_0002.rmap      759 bytes  (3 / 31 files) (1.5 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_relflux_0001.rmap      555 bytes  (5 / 30 files) (4.3 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_saturation_0004.rmap    3.6 K bytes  (4 / 31 files) (2.3 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_refpix_0003.rmap    2.3 K bytes  (6 / 30 files) (4.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_relflux_0002.rmap      770 bytes  (5 / 31 files) (5.9 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_readnoise_0006.rmap    3.4 K bytes  (7 / 30 files) (7.1 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_refpix_0005.rmap    2.3 K bytes  (6 / 31 files) (6.6 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_photom_0004.rmap    2.3 K bytes  (8 / 30 files) (10.5 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_readnoise_0008.rmap    3.8 K bytes  (7 / 31 files) (9.0 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_optmodel_0001.rmap      586 bytes  (9 / 30 files) (12.9 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_photom_0006.rmap    3.4 K bytes  (8 / 31 files) (12.8 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_matable_0004.rmap      690 bytes  (10 / 30 files) (13.4 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_optmodel_0002.rmap      823 bytes  (9 / 31 files) (16.2 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_mask_0003.rmap    2.3 K bytes  (11 / 30 files) (14.1 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_matable_0004.rmap      690 bytes  (10 / 31 files) (17.1 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_linearity_0005.rmap    2.4 K bytes  (12 / 30 files) (16.4 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_mask_0005.rmap    3.3 K bytes  (11 / 31 files) (17.8 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_ipc_0003.rmap    3.3 K bytes  (13 / 30 files) (18.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_linearity_0006.rmap    3.6 K bytes  (12 / 31 files) (21.1 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_inverselinearity_0005.rmap    2.6 K bytes  (14 / 30 files) (22.1 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_ipc_0003.rmap    3.3 K bytes  (13 / 31 files) (24.7 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_integralnonlinearity_0002.rmap    2.8 K bytes  (15 / 30 files) (24.7 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_inverselinearity_0006.rmap    3.9 K bytes  (14 / 31 files) (28.0 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_gain_0003.rmap    2.3 K bytes  (16 / 30 files) (27.5 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_integralnonlinearity_0002.rmap    2.8 K bytes  (15 / 31 files) (31.9 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_flat_0006.rmap    8.5 K bytes  (17 / 30 files) (29.7 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_gain_0004.rmap    2.3 K bytes  (16 / 31 files) (34.6 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_etc_0002.rmap    2.3 K bytes  (18 / 30 files) (38.2 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_flat_0008.rmap   24.2 K bytes  (17 / 31 files) (36.9 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_epsf_0004.rmap   16.3 K bytes  (19 / 30 files) (40.5 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_etc_0002.rmap    2.3 K bytes  (18 / 31 files) (61.1 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dustmap_0003.rmap      855 bytes  (20 / 30 files) (56.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_epsf_0005.rmap   15.5 K bytes  (19 / 31 files) (63.4 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_distortion_0002.rmap    3.6 K bytes  (21 / 30 files) (57.7 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dustmap_0003.rmap      855 bytes  (20 / 31 files) (78.8 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_detectorstatus_0002.rmap      773 bytes  (22 / 30 files) (61.2 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_distortion_0006.rmap    8.3 K bytes  (21 / 31 files) (79.7 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_darkdecaysignal_0002.rmap      783 bytes  (23 / 30 files) (62.0 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_detectorstatus_0002.rmap      773 bytes  (22 / 31 files) (88.0 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dark_0011.rmap    4.4 K bytes  (24 / 30 files) (62.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_darkdecaysignal_0002.rmap      783 bytes  (23 / 31 files) (88.8 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_area_0002.rmap    2.3 K bytes  (25 / 30 files) (67.2 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dark_0012.rmap    4.9 K bytes  (24 / 31 files) (89.6 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_apcorr_0003.rmap    2.3 K bytes  (26 / 30 files) (69.5 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_bam_0008.rmap      895 bytes  (25 / 31 files) (94.5 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_abvegaoffset_0002.rmap    2.5 K bytes  (27 / 30 files) (71.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_area_0006.rmap    6.6 K bytes  (26 / 31 files) (95.3 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_absflux_0001.rmap      555 bytes  (28 / 30 files) (74.3 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_apcorr_0003.rmap    2.3 K bytes  (27 / 31 files) (101.9 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_0056.imap    2.4 K bytes  (29 / 30 files) (74.8 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_abvegaoffset_0002.rmap    2.5 K bytes  (28 / 31 files) (104.3 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_0058.pmap       344 bytes  (30 / 30 files) (77.3 K / 77.6 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_absflux_0002.rmap      770 bytes  (29 / 31 files) (106.7 K / 110.3 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_0076.imap    2.4 K bytes  (30 / 31 files) (107.5 K / 110.3 K bytes)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_0078.pmap       344 bytes  (31 / 31 files) (110.0 K / 110.3 K bytes)
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Syncing 1 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_gain_0022.asdf   67.1 M bytes  (1 / 1 files) (0 / 67.1 M bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_gain_0044.asdf   67.2 M bytes  (1 / 1 files) (0 / 67.2 M bytes)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'gain': '/home/runner/crds_cache/references/roman/wfi/roman_wfi_gain_0022.asdf'}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'gain': '/home/runner/crds_cache/references/roman/wfi/roman_wfi_gain_0044.asdf'}
 </pre></div>
 </div>
 </div>
@@ -673,7 +684,7 @@ CRDS context file: roman-edit
 │ ├─author (str): The ASDF Developers
 │ ├─homepage (str): http://github.com/asdf-format/asdf
 │ ├─name (str): asdf
-│ └─version (str): 4.1.0
+│ └─version (str): 5.3.1
 ├─history (AsdfDictNode)
 │ └─extensions (AsdfListNode)
 │   ├─0 (ExtensionMetadata) ...
@@ -681,13 +692,13 @@ CRDS context file: roman-edit
 │   └─2 (ExtensionMetadata) ...
 └─roman (GainRef) # Gain Reference File Schema
   ├─meta (AsdfDictNode) # Common Reference File Metadata Properties
-  │ ├─author (str): Timothy Brandt # Author
-  │ ├─description (str): Derived from TVAC1 and FPS test flat fields. Updated to Build 17 versions of romanc (truncated)
+  │ ├─author (str): Richard Cosentino # Author
+  │ ├─description (str): Gain calibration reference files were derived from TVAC1, TVAC2, and SCIPA Thermal  (truncated)
   │ ├─instrument (AsdfDictNode) ...
-  │ ├─origin (Origin): STSCI # Institution / Organization Name
+  │ ├─origin (str): STSCI # Organization
   │ ├─pedigree (str): GROUND # Pedigree
   │ ├─reftype (str): GAIN
-  │ ├─telescope (Telescope): ROMAN # Telescope Name
+  │ ├─telescope (str): ROMAN # Telescope Name
   │ └─useafter (Time): 2023-08-01T00:00:00.000 # Use After Date
   └─data (NDArrayType) # Gain Data Array ...
 Some nodes not shown.
@@ -716,11 +727,13 @@ Some nodes not shown.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gain array shape: (4096, 4096)
 
 Gain statistics:
-  Min: 1.0000 e-/DN
-  Max: 3.0000 e-/DN
-  Mean: 1.9948 e-/DN
-  Median: 1.9944 e-/DN
-  Std: 0.0984 e-/DN
+  Min: 0.1000 e-/DN
+  Max: 171.0091 e-/DN
+  Mean: 2.1057 e-/DN
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Median: 2.1011 e-/DN
+  Std: 0.3681 e-/DN
 </pre></div>
 </div>
 </div>
@@ -754,7 +767,7 @@ Gain statistics:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/608ca7608a5ce6c84aedc2973dc18d58a785071471be7f6d1f154a01b564824c.png" src="../../_images/608ca7608a5ce6c84aedc2973dc18d58a785071471be7f6d1f154a01b564824c.png" />
+<img alt="../../_images/0dc12e44ce5b47bba4d8bde94031feea6a57d60e8bb770c5b9130f6ae96dd7ed.png" src="../../_images/0dc12e44ce5b47bba4d8bde94031feea6a57d60e8bb770c5b9130f6ae96dd7ed.png" />
 </div>
 </div>
 </section>
@@ -787,16 +800,16 @@ Gain statistics:
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "roman_cal"
+            mode: "astro_cut"
         },
         kernelOptions: {
-            name: "roman_cal",
+            name: "astro_cut",
             path: "./notebooks/crds_reference_files"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'roman_cal'</script>
+    <script>kernelName = 'astro_cut'</script>
 
                 </article>
               

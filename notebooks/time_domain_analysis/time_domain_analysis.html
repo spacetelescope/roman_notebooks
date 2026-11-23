@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -187,7 +187,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Kernel Information and Read-Only Status</a></li>
+
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
@@ -823,7 +825,7 @@ Refined cutout source position: (150.47, 149.57)
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140096224794960" class="table-striped table-bordered table-condensed">
+<table id="table125170466774768" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th></tr></thead>
 <tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td></tr>
@@ -939,7 +941,7 @@ Refined cutout source position: (150.47, 149.57)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F129 aperture correction for r = 3.0 pixels: 1.234
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>F129 aperture correction for r = 3.0 pixels: 1.241
 </pre></div>
 </div>
 </div>
@@ -971,14 +973,14 @@ Refined cutout source position: (150.47, 149.57)
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140096131469296" class="table-striped table-bordered table-condensed">
+<table id="table125170345019024" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>raw_flux</th><th>background_per_pixel</th><th>background_total</th><th>aperture_flux</th><th>aperture_flux_err</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>65.4096769116408</td><td>1.1445989608764648</td><td>32.362773181164115</td><td>40.77686526507196</td><td>1.895413267683614</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>100.6327829564418</td><td>1.1394889950752258</td><td>32.21829230197271</td><td>84.41724194037135</td><td>1.9067792928501341</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>155.06791300509246</td><td>1.1276179552078247</td><td>31.88264655723162</td><td>151.99938407403576</td><td>1.8980633913810305</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>222.10938567676405</td><td>1.1375049352645874</td><td>32.16219433244425</td><td>234.37751058605596</td><td>1.9221055330802863</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>296.90621453411234</td><td>1.1380136013031006</td><td>32.176576525851765</td><td>326.6522294728276</td><td>1.9240374957162327</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>65.4096769116408</td><td>1.1445989608764648</td><td>32.362773181164115</td><td>40.99498390243263</td><td>1.9055519813021082</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>100.6327829564418</td><td>1.1394889950752258</td><td>32.21829230197271</td><td>84.86879636129325</td><td>1.9169788042250377</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>155.06791300509246</td><td>1.1276179552078247</td><td>31.88264655723162</td><td>152.8124406520334</td><td>1.908216280718182</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>222.10938567676405</td><td>1.1375049352645874</td><td>32.16219433244425</td><td>235.63121419727509</td><td>1.932387025711305</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>296.90621453411234</td><td>1.1380136013031006</td><td>32.176576525851765</td><td>328.39951776289803</td><td>1.9343293225662956</td></tr>
 </table></div></div></div>
 </div>
 </section>
@@ -1109,71 +1111,44 @@ $$</p>
     Position 1/9: (0, 0) pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest interpolated point (31.993143027288347, 0.015652222616090228)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 1/9 centroid: (np.float64(201.18614847849747), np.float64(201.53324686097412))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 1/9 centroid: (np.float64(201.9712976762907), np.float64(201.45479549333763))
     Position 2/9: (0, 2048) pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (30.9911863199469, 2048.0151620285324)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 2/9 centroid: (np.float64(201.1317100494458), np.float64(201.52558235141015))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 2/9 centroid: (np.float64(202.03210025346633), np.float64(201.448370482307))
     Position 3/9: (0, 4095) pixels
 </pre></div>
 </div>
@@ -1204,94 +1179,181 @@ $$</p>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (0, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 3/9 centroid: (np.float64(201.0791296251613), np.float64(201.5170489211573))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 3/9 centroid: (np.float64(202.03207539996808), np.float64(201.44598210666788))
     Position 4/9: (2048, 0) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 4/9 centroid: (np.float64(201.19222268096635), np.float64(201.62229933057256))
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 0) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2047.9997807826962), np.float64(17.4786934794725))
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 4/9 centroid: (np.float64(201.97428284965224), np.float64(201.37323095554257))
     Position 5/9: (2048, 2048) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 5/9 centroid: (np.float64(201.13401916890646), np.float64(201.63039878629866))
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 5/9 centroid: (np.float64(202.0021384308768), np.float64(201.35140819106593))
     Position 6/9: (2048, 4095) pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(2048.001903254884), np.float64(4068.7573836664606))
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (2048, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (2048.0050174304056, 4074.4937619323296)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 6/9 centroid: (np.float64(201.10523923076386), np.float64(201.66477462004127))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 6/9 centroid: (np.float64(201.9792014302994), np.float64(201.30061243256324))
     Position 7/9: (4095, 0) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 7/9 centroid: (np.float64(201.19867950677187), np.float64(201.71232738681354))
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 0) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 7/9 centroid: (np.float64(201.96043085427212), np.float64(201.25927379632162))
     Position 8/9: (4095, 2048) pixels
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 8/9 centroid: (np.float64(201.16478982775357), np.float64(201.76433060832562))
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 2048) which is outside the range of the reference data; approximating to nearest interpolated point (np.float64(4068.39115690253), np.float64(2047.9135201378836))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 8/9 centroid: (np.float64(201.9154668645271), np.float64(201.2085070077647))
     Position 9/9: (4095, 4095) pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest input grid point
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempted to get aberrations at field point (4095, 4095) which is outside the range of the reference data; approximating to nearest interpolated point (4095.004894881753, 4074.994618276213)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 9/9 centroid: (np.float64(201.13199432475577), np.float64(201.81459752157272))
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Position 9/9 centroid: (np.float64(201.96520231540666), np.float64(201.14693027117653))
 </pre></div>
 </div>
 </div>
@@ -1332,14 +1394,14 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140096131472816" class="table-striped table-bordered table-condensed">
+<table id="table125170345021424" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>psf_flux</th><th>psf_flux_err</th><th>psf_background</th><th>psf_background_x_slope</th><th>psf_background_y_slope</th><th>psf_x</th><th>psf_y</th><th>psf_residual_rms</th><th>psf_max_abs_residual_fraction</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>13.935346491531462</td><td>1.1740599789110373</td><td>1.2160176709417787</td><td>0.013627428745918442</td><td>-0.018498628377671522</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.36327172971429866</td><td>0.418799945169603</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>35.722137964507574</td><td>1.4516010910542518</td><td>1.2332818214877315</td><td>0.013254067845078488</td><td>-0.01836104708681796</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.4491471037889782</td><td>0.5520871949147577</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>69.3086438875177</td><td>2.102539657292362</td><td>1.2581017619448585</td><td>0.013393677789446001</td><td>-0.017866464495455273</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.6505572388268764</td><td>0.5976213250463683</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>111.1358620452842</td><td>3.0401663080365577</td><td>1.2898321111210556</td><td>0.01289817775061651</td><td>-0.017993814996708504</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.9406729580919124</td><td>0.6135691072171596</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>157.35360626075348</td><td>4.152841327107526</td><td>1.3265062443465372</td><td>0.012566029254290637</td><td>-0.017379125079890062</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.284951262478633</td><td>0.6267013098193152</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>16.221027118714478</td><td>1.277320638128802</td><td>1.2136546845761529</td><td>0.013627831584261348</td><td>-0.01853453259282073</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.3599447372173375</td><td>0.38869787522197574</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>41.626799947710275</td><td>1.528841193831594</td><td>1.2271769573890234</td><td>0.013254847427792107</td><td>-0.018452921027754282</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.43082239911734893</td><td>0.4852897748348663</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>80.75782800883911</td><td>2.1369228375347977</td><td>1.2462644615652512</td><td>0.013395230012613286</td><td>-0.018044745380925403</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.602177798001435</td><td>0.5395574440720514</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>129.41186203035988</td><td>3.033657787866136</td><td>1.2709374673394978</td><td>0.012901126515735092</td><td>-0.018279984271064392</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.8548747453579436</td><td>0.5542537237054382</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>183.25903050397</td><td>4.109992431774407</td><td>1.2997236040596978</td><td>0.01257004282513368</td><td>-0.017784198315262706</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.1581822932004553</td><td>0.5625198367417626</td></tr>
 </table></div></div></div>
 </div>
 <section id="inspect-the-psf-fit">
@@ -1421,12 +1483,12 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitted source position: x=150.47, y=149.57
-PSF flux: 268.27 +/- 6.88
-Residual RMS: 2.130
-Max absolute residual / max data value: 0.637
+PSF flux: 312.41 +/- 6.77
+Residual RMS: 1.908
+Max absolute residual / max data value: 0.571
 </pre></div>
 </div>
-<img alt="../../_images/08404569506c7e0ce0600645d46e24b35b1bec3729c9110933f3745a4b6c0deb.png" src="../../_images/08404569506c7e0ce0600645d46e24b35b1bec3729c9110933f3745a4b6c0deb.png" />
+<img alt="../../_images/a876c4d9669f898e4cf1ecbbae651466bcc25ec89ffd2714ce2bcc199df772b9.png" src="../../_images/a876c4d9669f898e4cf1ecbbae651466bcc25ec89ffd2714ce2bcc199df772b9.png" />
 </div>
 </div>
 </section>
@@ -1481,14 +1543,14 @@ Max absolute residual / max data value: 0.637
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140096131446768" class="table-striped table-bordered table-condensed">
+<table id="table125170347090608" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>raw_flux</th><th>background_per_pixel</th><th>background_total</th><th>aperture_flux</th><th>aperture_flux_err</th><th>psf_flux</th><th>psf_flux_err</th><th>psf_background</th><th>psf_background_x_slope</th><th>psf_background_y_slope</th><th>psf_x</th><th>psf_y</th><th>psf_residual_rms</th><th>psf_max_abs_residual_fraction</th><th>flux_difference</th><th>flux_ratio</th><th>aperture_snr</th><th>psf_snr</th><th>aperture_background_fraction</th><th>aperture_flux_normalized</th><th>psf_flux_normalized</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>65.4096769116408</td><td>1.1445989608764648</td><td>32.362773181164115</td><td>40.77686526507196</td><td>1.895413267683614</td><td>13.935346491531462</td><td>1.1740599789110373</td><td>1.2160176709417787</td><td>0.013627428745918442</td><td>-0.018498628377671522</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.36327172971429866</td><td>0.418799945169603</td><td>26.8415187735405</td><td>2.926146493009854</td><td>21.513442983811863</td><td>11.869365059574518</td><td>0.49477041791357007</td><td>0.07450585156621908</td><td>0.051945454907511485</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>100.6327829564418</td><td>1.1394889950752258</td><td>32.21829230197271</td><td>84.41724194037135</td><td>1.9067792928501341</td><td>35.722137964507574</td><td>1.4516010910542518</td><td>1.2332818214877315</td><td>0.013254067845078488</td><td>-0.01836104708681796</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.4491471037889782</td><td>0.5520871949147577</td><td>48.69510397586378</td><td>2.3631632021646003</td><td>44.27216209915399</td><td>24.608784179518437</td><td>0.3201570239383936</td><td>0.15424379624949602</td><td>0.13315798842625734</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>155.06791300509246</td><td>1.1276179552078247</td><td>31.88264655723162</td><td>151.99938407403576</td><td>1.8980633913810305</td><td>69.3086438875177</td><td>2.102539657292362</td><td>1.2581017619448585</td><td>0.013393677789446001</td><td>-0.017866464495455273</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.6505572388268764</td><td>0.5976213250463683</td><td>82.69074018651806</td><td>2.1930797595855203</td><td>80.08130011055165</td><td>32.96425047067743</td><td>0.2056044086708292</td><td>0.27772717383641793</td><td>0.2583551860693032</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>222.10938567676405</td><td>1.1375049352645874</td><td>32.16219433244425</td><td>234.37751058605596</td><td>1.9221055330802863</td><td>111.1358620452842</td><td>3.0401663080365577</td><td>1.2898321111210556</td><td>0.01289817775061651</td><td>-0.017993814996708504</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.9406729580919124</td><td>0.6135691072171596</td><td>123.24164854077176</td><td>2.108927813873031</td><td>121.93789911756423</td><td>36.55584951109451</td><td>0.14480340051568066</td><td>0.42824518021846053</td><td>0.4142704965383525</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>296.90621453411234</td><td>1.1380136013031006</td><td>32.176576525851765</td><td>326.6522294728276</td><td>1.9240374957162327</td><td>157.35360626075348</td><td>4.152841327107526</td><td>1.3265062443465372</td><td>0.012566029254290637</td><td>-0.017379125079890062</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.284951262478633</td><td>0.6267013098193152</td><td>169.29862321207415</td><td>2.0759119364034553</td><td>169.7743574125252</td><td>37.89058956662594</td><td>0.10837286304815595</td><td>0.5968458429717421</td><td>0.5865519500013526</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>65.4096769116408</td><td>1.1445989608764648</td><td>32.362773181164115</td><td>40.99498390243263</td><td>1.9055519813021082</td><td>16.221027118714478</td><td>1.277320638128802</td><td>1.2136546845761529</td><td>0.013627831584261348</td><td>-0.01853453259282073</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.3599447372173375</td><td>0.38869787522197574</td><td>24.773956783718152</td><td>2.5272742350042687</td><td>21.51344298381186</td><td>12.699260181435186</td><td>0.49477041791357007</td><td>0.07450585156621907</td><td>0.05192200567663273</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>100.6327829564418</td><td>1.1394889950752258</td><td>32.21829230197271</td><td>84.86879636129325</td><td>1.9169788042250377</td><td>41.626799947710275</td><td>1.528841193831594</td><td>1.2271769573890234</td><td>0.013254847427792107</td><td>-0.018452921027754282</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.43082239911734893</td><td>0.4852897748348663</td><td>43.241996413582974</td><td>2.0388018408309465</td><td>44.27216209915399</td><td>27.227680753018472</td><td>0.3201570239383936</td><td>0.15424379624949602</td><td>0.13324353182860318</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>155.06791300509246</td><td>1.1276179552078247</td><td>31.88264655723162</td><td>152.8124406520334</td><td>1.908216280718182</td><td>80.75782800883911</td><td>2.1369228375347977</td><td>1.2462644615652512</td><td>0.013395230012613286</td><td>-0.018044745380925403</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.602177798001435</td><td>0.5395574440720514</td><td>72.05461264319428</td><td>1.8922306904453614</td><td>80.08130011055164</td><td>37.79164441052217</td><td>0.2056044086708292</td><td>0.27772717383641793</td><td>0.25849832896646924</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>222.10938567676405</td><td>1.1375049352645874</td><td>32.16219433244425</td><td>235.63121419727509</td><td>1.932387025711305</td><td>129.41186203035988</td><td>3.033657787866136</td><td>1.2709374673394978</td><td>0.012901126515735092</td><td>-0.018279984271064392</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.8548747453579436</td><td>0.5542537237054382</td><td>106.2193521669152</td><td>1.8207852858341242</td><td>121.93789911756423</td><td>42.658688316122735</td><td>0.14480340051568066</td><td>0.42824518021846053</td><td>0.4142353863160588</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>296.90621453411234</td><td>1.1380136013031006</td><td>32.176576525851765</td><td>328.39951776289803</td><td>1.9343293225662956</td><td>183.25903050397</td><td>4.109992431774407</td><td>1.2997236040596978</td><td>0.01257004282513368</td><td>-0.017784198315262706</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.1581822932004553</td><td>0.5625198367417626</td><td>145.14048725892803</td><td>1.7919963718010818</td><td>169.7743574125252</td><td>44.58865400510034</td><td>0.10837286304815595</td><td>0.5968458429717423</td><td>0.5865951861422831</td></tr>
 </table></div></div></div>
 </div>
 <section id="signal-to-noise-ratio">
@@ -1512,10 +1574,10 @@ Max absolute residual / max data value: 0.637
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6ab2538590&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x71d78521e660&gt;
 </pre></div>
 </div>
-<img alt="../../_images/58ad834f24496c245ce0096947c3660cf51abf4565c649e7c55b41721563a868.png" src="../../_images/58ad834f24496c245ce0096947c3660cf51abf4565c649e7c55b41721563a868.png" />
+<img alt="../../_images/7a249ca02b4d4d89d1ab80c64f65367df02eef4d295b8a074dd062466e610121.png" src="../../_images/7a249ca02b4d4d89d1ab80c64f65367df02eef4d295b8a074dd062466e610121.png" />
 </div>
 </div>
 <p>and use it to derive the light curve</p>
@@ -1559,7 +1621,7 @@ Max absolute residual / max data value: 0.637
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b9b7455ca84e4163453ef7ebd60af54a74057accf9d33edb6b2230457f349a2.png" src="../../_images/0b9b7455ca84e4163453ef7ebd60af54a74057accf9d33edb6b2230457f349a2.png" />
+<img alt="../../_images/f15505b823b7fb216d6061f179fa1e3f818f13b09616d086d6183903880c2544.png" src="../../_images/f15505b823b7fb216d6061f179fa1e3f818f13b09616d086d6183903880c2544.png" />
 </div>
 </div>
 <p>It is also useful to compare the two light-curve shapes after normalizing each method by its own peak flux. This emphasizes differences in the recovered time evolution rather than the absolute flux scale.</p>
@@ -1589,10 +1651,10 @@ Max absolute residual / max data value: 0.637
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6aac1eda90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x71d77dfb79d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/51b61ec3d9c534a5a8d0f0243e1372dad57bf6070c960e6637e3a4459d95cd1e.png" src="../../_images/51b61ec3d9c534a5a8d0f0243e1372dad57bf6070c960e6637e3a4459d95cd1e.png" />
+<img alt="../../_images/f3f86c030c8a15f678c672e49b299e650141baa82053c0687cbd9cefb386765f.png" src="../../_images/f3f86c030c8a15f678c672e49b299e650141baa82053c0687cbd9cefb386765f.png" />
 </div>
 </div>
 </section>
@@ -1748,11 +1810,11 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=2</i>
-<table id="table140096129305168" class="table-striped table-bordered table-condensed">
+<table id="table125170345670960" class="table-striped table-bordered table-condensed">
 <thead><tr><th>method</th><th>scale</th><th>offset</th><th>reduced_chi2</th><th>measured_peak_mjd</th><th>model_peak_mjd</th><th>peak_offset_days</th></tr></thead>
 <thead><tr><th>str8</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>Aperture</td><td>18486465835.909264</td><td>27.052672505725493</td><td>0.018266027025178478</td><td>61565.0</td><td>61567.48120300752</td><td>-2.4812030075190705</td></tr>
-<tr><td>PSF</td><td>9286538442.655098</td><td>6.886823032988385</td><td>0.0016098338189036328</td><td>61565.0</td><td>61567.48120300752</td><td>-2.4812030075190705</td></tr>
+<tr><td>Aperture</td><td>18585351385.6329</td><td>27.197379364027558</td><td>0.01826602702518599</td><td>61565.0</td><td>61567.48120300752</td><td>-2.4812030075190705</td></tr>
+<tr><td>PSF</td><td>10815485104.632648</td><td>8.022366193620204</td><td>0.0016472512095252528</td><td>61565.0</td><td>61567.48120300752</td><td>-2.4812030075190705</td></tr>
 </table></div></div></div>
 </div>
 <section id="model-calibrated-magnitudes">
@@ -1909,22 +1971,22 @@ $$</p>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/sncosmo/models.py:189: RuntimeWarning: divide by zero encountered in log10
   result[i] = -2.5 * np.log10(f / zpf)
-/tmp/ipykernel_3192/1817952548.py:31: RuntimeWarning: invalid value encountered in subtract
+/tmp/ipykernel_3330/1817952548.py:31: RuntimeWarning: invalid value encountered in subtract
   offsets = np.asarray(abmag, dtype=float) - np.asarray(vegamag, dtype=float)
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=8</i>
-<table id="table140096129307248" class="table-striped table-bordered table-condensed">
+<table id="table125170364416400" class="table-striped table-bordered table-condensed">
 <thead><tr><th>mjd</th><th>filter</th><th>aperture_abmag</th><th>aperture_abmag_err</th><th>aperture_vega_mag</th><th>psf_abmag</th><th>psf_abmag_err</th><th>psf_vega_mag</th><th>sncosmo_model_abmag</th><th>sncosmo_model_vega_mag</th></tr></thead>
 <thead><tr><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>61525.0</td><td>F129</td><td>22.82341770832152</td><td>0.14994825880025073</td><td>21.86611395993265</td><td>22.799389278510613</td><td>0.18084914282526376</td><td>21.842085530121743</td><td>22.815232702251524</td><td>21.857928953862654</td></tr>
-<tr><td>61530.0</td><td>F129</td><td>21.270525385751377</td><td>0.036089511925808025</td><td>20.313221637362506</td><td>21.269822904656582</td><td>0.054657140494805356</td><td>20.31251915626771</td><td>21.266688245768464</td><td>20.309384497379593</td></tr>
-<tr><td>61535.0</td><td>F129</td><td>20.4253226549003</td><td>0.016493400403112774</td><td>19.46801890651143</td><td>20.431293569821612</td><td>0.03657059977763252</td><td>19.473989821432742</td><td>20.430013374345684</td><td>19.472709625956814</td></tr>
-<tr><td>61540.0</td><td>F129</td><td>19.87550639411432</td><td>0.01006584443019122</td><td>18.91820264572545</td><td>19.874454501570785</td><td>0.03166282068779384</td><td>18.917150753181915</td><td>19.87490019268315</td><td>18.91759644429428</td></tr>
-<tr><td>61545.0</td><td>F129</td><td>19.47578181425881</td><td>0.006972631033098165</td><td>18.51847806586994</td><td>19.476033061070574</td><td>0.029966016982174905</td><td>18.518729312681703</td><td>19.475182084403023</td><td>18.517878336014153</td></tr>
-<tr><td>61550.0</td><td>F129</td><td>19.178889316894946</td><td>0.005244486811307878</td><td>18.221585568506075</td><td>19.178874155150552</td><td>0.02912912186888286</td><td>18.221570406761682</td><td>19.179227865384437</td><td>18.221924116995567</td></tr>
-<tr><td>61555.0</td><td>F129</td><td>18.998041243895855</td><td>0.004447966527931878</td><td>18.040737495506985</td><td>18.997780892891775</td><td>0.02879531958685322</td><td>18.040477144502905</td><td>18.997456425793875</td><td>18.040152677405004</td></tr>
-<tr><td>61560.0</td><td>F129</td><td>18.921579137276257</td><td>0.004120667544817388</td><td>17.964275388887387</td><td>18.92202593223201</td><td>0.02865935369946246</td><td>17.96472218384314</td><td>18.922088381815417</td><td>17.964784633426547</td></tr>
+<tr><td>61525.0</td><td>F129</td><td>22.823417708321525</td><td>0.14994825880025126</td><td>21.866113959932655</td><td>22.800757695038023</td><td>0.1691536306442934</td><td>21.843453946649152</td><td>22.815232702251524</td><td>21.857928953862654</td></tr>
+<tr><td>61530.0</td><td>F129</td><td>21.270525385751377</td><td>0.03608951192580805</td><td>20.313221637362506</td><td>21.269123554343775</td><td>0.04939581031525551</td><td>20.311819805954904</td><td>21.266688245768464</td><td>20.309384497379593</td></tr>
+<tr><td>61535.0</td><td>F129</td><td>20.4253226549003</td><td>0.01649340040311278</td><td>19.46801890651143</td><td>20.430749507268608</td><td>0.03189825751543585</td><td>19.473445758879738</td><td>20.430013374345684</td><td>19.472709625956814</td></tr>
+<tr><td>61540.0</td><td>F129</td><td>19.87550639411432</td><td>0.010065844430191224</td><td>18.91820264572545</td><td>19.874662239617198</td><td>0.027133748850580824</td><td>18.917358491228327</td><td>19.87490019268315</td><td>18.91759644429428</td></tr>
+<tr><td>61545.0</td><td>F129</td><td>19.47578181425881</td><td>0.006972631033098167</td><td>18.51847806586994</td><td>19.476052564719733</td><td>0.02546480556464133</td><td>18.518748816330863</td><td>19.475182084403023</td><td>18.517878336014153</td></tr>
+<tr><td>61550.0</td><td>F129</td><td>19.178889316894946</td><td>0.005244486811307878</td><td>18.221585568506075</td><td>19.179062348886895</td><td>0.024661877462743904</td><td>18.221758600498024</td><td>19.17922786538444</td><td>18.22192411699557</td></tr>
+<tr><td>61555.0</td><td>F129</td><td>18.998041243895855</td><td>0.004447966527931878</td><td>18.040737495506985</td><td>18.997844543459152</td><td>0.02433314616337679</td><td>18.04054079507028</td><td>18.997456425793875</td><td>18.040152677405004</td></tr>
+<tr><td>61560.0</td><td>F129</td><td>18.921579137276257</td><td>0.004120667544817389</td><td>17.964275388887387</td><td>18.92214156785764</td><td>0.024205268392423703</td><td>17.96483781946877</td><td>18.92208838181542</td><td>17.96478463342655</td></tr>
 </table></div></div></div>
 </div>
 <p>Let’s plot the model-calibrated magnitude light-curve</p>
@@ -1969,7 +2031,7 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0351cbee796d8225703290eab9afae2aa99240ac8b2b41675a473e166bb3be4a.png" src="../../_images/0351cbee796d8225703290eab9afae2aa99240ac8b2b41675a473e166bb3be4a.png" />
+<img alt="../../_images/d2eb1e048cf00fb0d3aa6d1cf1e15b19579dcee2735f505714518b2745730935.png" src="../../_images/d2eb1e048cf00fb0d3aa6d1cf1e15b19579dcee2735f505714518b2745730935.png" />
 </div>
 </div>
 <p>We can also plot the aperture and PSF photometry compared with the <code class="docutils literal notranslate"><span class="pre">sncosmo</span></code>  model and residuals</p>
@@ -2023,7 +2085,7 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3f6af90b20d14fce2b50957d54edaa8493358f112f3eb9e170e4e9c59ce9983b.png" src="../../_images/3f6af90b20d14fce2b50957d54edaa8493358f112f3eb9e170e4e9c59ce9983b.png" />
+<img alt="../../_images/80e8d191b3d6964d37feea8b3020d1dd5de1f0aa179e170201d71ecb6f1621c1.png" src="../../_images/80e8d191b3d6964d37feea8b3020d1dd5de1f0aa179e170201d71ecb6f1621c1.png" />
 </div>
 </div>
 <p>The fitted scale factors map the dimensionless <code class="docutils literal notranslate"><span class="pre">sncosmo</span></code> model fluxes into the image units measured from the simulated cutouts. The constant offsets are useful diagnostics: a large offset can indicate that residual host-galaxy light or sky background remains in the measurement. The residual panel is a quick check for time-dependent structure that is not captured by the input light-curve model.</p>
@@ -2060,11 +2122,11 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=2</i>
-<table id="table140096127293616" class="table-striped table-bordered table-condensed">
+<table id="table125170363467248" class="table-striped table-bordered table-condensed">
 <thead><tr><th>method</th><th>rms_normalized_residual</th><th>median_normalized_residual</th></tr></thead>
 <thead><tr><th>str8</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>Aperture</td><td>0.02894698533370537</td><td>0.025851502088473866</td></tr>
-<tr><td>PSF</td><td>0.015008775292137767</td><td>0.013964189968344143</td></tr>
+<tr><td>Aperture</td><td>0.02894698533370544</td><td>0.025851502088473866</td></tr>
+<tr><td>PSF</td><td>0.01504160837783557</td><td>0.013916837390793246</td></tr>
 </table></div></div></div>
 </div>
 <p>We can visualize the results</p>
@@ -2107,7 +2169,7 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/85dd6bced9130874ed97868825815055905eb1a7c642758f43342ca1894fb437.png" src="../../_images/85dd6bced9130874ed97868825815055905eb1a7c642758f43342ca1894fb437.png" />
+<img alt="../../_images/fa339a7195479a112bbac69403aa5ce0aa116bc3e322e9908eed54ee15b7e180.png" src="../../_images/fa339a7195479a112bbac69403aa5ce0aa116bc3e322e9908eed54ee15b7e180.png" />
 </div>
 </div>
 </section>
@@ -2173,19 +2235,19 @@ $$</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using MJD 61675 as the difference-image reference epoch.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3192/719397172.py:76: RuntimeWarning: invalid value encountered in scalar divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3330/719397172.py:76: RuntimeWarning: invalid value encountered in scalar divide
   'psf_max_abs_residual_fraction': np.nanmax(np.abs(residual)) / np.nanmax(np.abs(stamp)),
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=5</i>
-<table id="table140096126231536" class="table-striped table-bordered table-condensed">
+<table id="table125170363951184" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>difference_aperture_flux</th><th>difference_aperture_flux_err</th><th>difference_psf_flux</th><th>difference_psf_flux_err</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>14.026397049483181</td><td>0.30851481783480467</td><td>7.04551267976662</td><td>0.2299574384525217</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>57.46425695380687</td><td>0.29398576074635985</td><td>28.83230415274274</td><td>0.7442808893897371</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>124.66636821931772</td><td>0.31857636970318076</td><td>62.41881007575285</td><td>1.5888463672890314</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>207.51836022771582</td><td>0.3146753672564537</td><td>104.24602823351945</td><td>2.629915005690121</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>299.8493790596286</td><td>0.318880768641555</td><td>150.46377244898866</td><td>3.8011261615833916</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>14.10142534289478</td><td>0.31016508769332035</td><td>8.206367615278987</td><td>0.23647091558201477</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>57.77163775275328</td><td>0.29555831354365303</td><td>33.6121404442748</td><td>0.7311545311523199</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>125.3332183605421</td><td>0.3202804595885425</td><td>72.74316850540359</td><td>1.5564272462494724</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>208.6283921457152</td><td>0.3163585903750228</td><td>121.39720252692436</td><td>2.574804993717463</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>301.4532968092833</td><td>0.3205864867806145</td><td>175.2443710005346</td><td>3.721542709581521</td></tr>
 </table></div></div></div>
 </div>
 <div class="cell docutils container">
@@ -2246,11 +2308,11 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=2</i>
-<table id="table140096126230896" class="table-striped table-bordered table-condensed">
+<table id="table125170363950704" class="table-striped table-bordered table-condensed">
 <thead><tr><th>method</th><th>template_mjd</th><th>scale</th><th>offset</th><th>reduced_chi2</th></tr></thead>
 <thead><tr><th>str19</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>Difference aperture</td><td>61675.0</td><td>18487495639.750595</td><td>0.08044071413563766</td><td>0.24445635148539252</td></tr>
-<tr><td>Difference PSF</td><td>61675.0</td><td>9277524662.956186</td><td>0.08478422762010758</td><td>0.004768983452158085</td></tr>
+<tr><td>Difference aperture</td><td>61675.0</td><td>18586386697.975418</td><td>0.08087099779854759</td><td>0.24445635148579317</td></tr>
+<tr><td>Difference PSF</td><td>61675.0</td><td>10806049091.96315</td><td>0.10081703062974887</td><td>0.005041721004574196</td></tr>
 </table></div></div></div>
 </div>
 <p>Ploting the results</p>
@@ -2299,10 +2361,10 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6aabd9d6d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x71d77f19d810&gt;
 </pre></div>
 </div>
-<img alt="../../_images/2513622550500277a7d9f0348e27ad1b6359a2f8f84d0510f4fabee934430719.png" src="../../_images/2513622550500277a7d9f0348e27ad1b6359a2f8f84d0510f4fabee934430719.png" />
+<img alt="../../_images/81fed58c6dd72dc1c4ffb4895810ebc89df387ff63958cc787326ba4c5169a5d.png" src="../../_images/81fed58c6dd72dc1c4ffb4895810ebc89df387ff63958cc787326ba4c5169a5d.png" />
 </div>
 </div>
 </section>
@@ -2367,13 +2429,13 @@ $$</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><i>Table length=4</i>
-<table id="table140096126996464" class="table-striped table-bordered table-condensed">
+<table id="table125170350953552" class="table-striped table-bordered table-condensed">
 <thead><tr><th>diagnostic</th><th>correlation</th></tr></thead>
 <thead><tr><th>str57</th><th>float64</th></tr></thead>
-<tr><td>Aperture residual vs aperture background</td><td>0.10772820220999123</td></tr>
-<tr><td>PSF residual vs fitted PSF background</td><td>-0.9986078131191554</td></tr>
-<tr><td>Aperture / PSF flux ratio vs aperture background</td><td>0.20485846698432084</td></tr>
-<tr><td>Aperture background fraction vs truth residual difference</td><td>0.7883006930576941</td></tr>
+<tr><td>Aperture residual vs aperture background</td><td>0.10772820220999423</td></tr>
+<tr><td>PSF residual vs fitted PSF background</td><td>-0.9986835090222514</td></tr>
+<tr><td>Aperture / PSF flux ratio vs aperture background</td><td>0.20541784782790423</td></tr>
+<tr><td>Aperture background fraction vs truth residual difference</td><td>0.7905061817114258</td></tr>
 </table></div></div></div>
 </div>
 <p>Visualizing the residuals vs background and how the trransient flux compares with time using both methods.</p>
@@ -2409,7 +2471,7 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/30f62a8e84684f52acd9230a3c5d3ecc00f0d77b9bc1a7532feac983476a8dd7.png" src="../../_images/30f62a8e84684f52acd9230a3c5d3ecc00f0d77b9bc1a7532feac983476a8dd7.png" />
+<img alt="../../_images/2884d53b742b708435dda3adbb2e00858ee2663e20239dd14036269aa16b43da.png" src="../../_images/2884d53b742b708435dda3adbb2e00858ee2663e20239dd14036269aa16b43da.png" />
 </div>
 </div>
 </section>
@@ -2508,11 +2570,11 @@ $$</p>
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=2</i>
-<table id="table140096125903536" class="table-striped table-bordered table-condensed">
+<table id="table125170362590032" class="table-striped table-bordered table-condensed">
 <thead><tr><th>method</th><th>best_t0</th><th>t0_offset_days</th><th>scale</th><th>offset</th><th>reduced_chi2</th></tr></thead>
 <thead><tr><th>str8</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>Aperture</td><td>61564.55951388889</td><td>0.0</td><td>0.9507421343786255</td><td>0.04942955739924422</td><td>0.018266027025178103</td></tr>
-<tr><td>PSF</td><td>61564.55951388889</td><td>0.0</td><td>0.9743521440662094</td><td>0.025671349868014157</td><td>0.0016098338189037193</td></tr>
+<tr><td>Aperture</td><td>61564.55951388889</td><td>0.0</td><td>0.9507421343786263</td><td>0.04942955739924419</td><td>0.018266027025185875</td></tr>
+<tr><td>PSF</td><td>61564.55951388889</td><td>0.0</td><td>0.9744317258888107</td><td>0.025678851283381873</td><td>0.0016472512095252773</td></tr>
 </table></div></div></div>
 </div>
 <p>We now plt the results</p>
@@ -2533,10 +2595,10 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6aabd46e90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x71d77f099950&gt;
 </pre></div>
 </div>
-<img alt="../../_images/f4a91ceec2b653b2535b8ab29cf487a62d965d7ce36e843e9bd945d30444a26f.png" src="../../_images/f4a91ceec2b653b2535b8ab29cf487a62d965d7ce36e843e9bd945d30444a26f.png" />
+<img alt="../../_images/eb1ea06db25cdda5ef00cc81246652172036c5dc88dd9e737a4fa2d667b9a6e1.png" src="../../_images/eb1ea06db25cdda5ef00cc81246652172036c5dc88dd9e737a4fa2d667b9a6e1.png" />
 </div>
 </div>
 </section>
@@ -2691,17 +2753,17 @@ $$</p>
 </pre></div>
 </div>
 <div class="output text_html"><div><i>Table length=8</i>
-<table id="table140096123735568" class="table-striped table-bordered table-condensed">
+<table id="table125170360236816" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>mjd</th><th>filter</th><th>aperture_flux</th><th>aperture_flux_err</th><th>psf_flux</th><th>psf_flux_err</th><th>psf_background</th><th>psf_background_x_slope</th><th>psf_background_y_slope</th><th>psf_x</th><th>psf_y</th><th>psf_residual_rms</th><th>psf_max_abs_residual_fraction</th><th>aperture_snr</th><th>psf_snr</th><th>sncosmo_model_abmag</th><th>sncosmo_model_maggies</th><th>aperture_flux_normalized</th><th>psf_flux_normalized</th><th>sncosmo_model_maggies_normalized</th><th>sncosmo_model_vega_mag</th><th>aperture_maggies_calibrated</th><th>aperture_maggies_calibrated_err</th><th>aperture_abmag</th><th>aperture_abmag_err</th><th>aperture_vega_mag</th><th>aperture_vega_mag_err</th><th>psf_maggies_calibrated</th><th>psf_maggies_calibrated_err</th><th>psf_abmag</th><th>psf_abmag_err</th><th>psf_vega_mag</th><th>psf_vega_mag_err</th></tr></thead>
 <thead><tr><th>str26</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>40.77686526507196</td><td>1.895413267683614</td><td>13.935346491531462</td><td>1.1740599789110373</td><td>1.2160176709417787</td><td>0.013627428745918442</td><td>-0.018498628377671522</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.36327172971429866</td><td>0.418799945169603</td><td>21.513442983811863</td><td>11.869365059574518</td><td>22.815232702251524</td><td>7.480091649981226e-10</td><td>0.07450585156621908</td><td>0.051945454907511485</td><td>0.026575082238984363</td><td>21.857928953862654</td><td>7.423913732979584e-10</td><td>1.0252977959701985e-10</td><td>22.82341770832152</td><td>0.14994825880025073</td><td>21.86611395993265</td><td>0.14994825880025073</td><td>7.590043913637045e-10</td><td>1.2642600751194045e-10</td><td>22.799389278510613</td><td>0.18084914282526376</td><td>21.842085530121743</td><td>0.18084914282526376</td></tr>
-<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>84.41724194037135</td><td>1.9067792928501341</td><td>35.722137964507574</td><td>1.4516010910542518</td><td>1.2332818214877315</td><td>0.013254067845078488</td><td>-0.01836104708681796</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.4491471037889782</td><td>0.5520871949147577</td><td>44.27216209915399</td><td>24.608784179518437</td><td>21.266688245768464</td><td>3.114043691941633e-09</td><td>0.15424379624949602</td><td>0.13315798842625734</td><td>0.11063496422446521</td><td>20.309384497379593</td><td>3.1030576608762797e-09</td><td>1.0314460913055037e-10</td><td>21.270525385751377</td><td>0.036089511925808025</td><td>20.313221637362506</td><td>0.036089511925808025</td><td>3.1050660167487484e-09</td><td>1.5631239778072e-10</td><td>21.269822904656582</td><td>0.054657140494805356</td><td>20.31251915626771</td><td>0.054657140494805356</td></tr>
-<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>151.99938407403576</td><td>1.8980633913810305</td><td>69.3086438875177</td><td>2.102539657292362</td><td>1.2581017619448585</td><td>0.013393677789446001</td><td>-0.017866464495455273</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.6505572388268764</td><td>0.5976213250463683</td><td>80.08130011055165</td><td>32.96425047067743</td><td>20.430013374345684</td><td>6.72968366455753e-09</td><td>0.27772717383641793</td><td>0.2583551860693032</td><td>0.23909051545968008</td><td>19.472709625956814</td><td>6.758820895100782e-09</td><td>1.0267313440160714e-10</td><td>20.4253226549003</td><td>0.016493400403112774</td><td>19.46801890651143</td><td>0.016493400403112774</td><td>6.7217533465227764e-09</td><td>2.2640725285052808e-10</td><td>20.431293569821612</td><td>0.03657059977763252</td><td>19.473989821432742</td><td>0.03657059977763252</td></tr>
-<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>234.37751058605596</td><td>1.9221055330802863</td><td>111.1358620452842</td><td>3.0401663080365577</td><td>1.2898321111210556</td><td>0.01289817775061651</td><td>-0.017993814996708504</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.9406729580919124</td><td>0.6135691072171596</td><td>121.93789911756423</td><td>36.55584951109451</td><td>19.87490019268315</td><td>1.122121601639446e-08</td><td>0.42824518021846053</td><td>0.4142704965383525</td><td>0.39866455173425547</td><td>18.91759644429428</td><td>1.1214952599409768e-08</td><td>1.0397366106325573e-10</td><td>19.87550639411432</td><td>0.01006584443019122</td><td>18.91820264572545</td><td>0.01006584443019122</td><td>1.1225823233925057e-08</td><td>3.2737346932980005e-10</td><td>19.874454501570785</td><td>0.03166282068779384</td><td>18.917150753181915</td><td>0.03166282068779384</td></tr>
-<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>326.6522294728276</td><td>1.9240374957162327</td><td>157.35360626075348</td><td>4.152841327107526</td><td>1.3265062443465372</td><td>0.012566029254290637</td><td>-0.017379125079890062</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.284951262478633</td><td>0.6267013098193152</td><td>169.7743574125252</td><td>37.89058956662594</td><td>19.475182084403023</td><td>1.6215381329893388e-08</td><td>0.5968458429717421</td><td>0.5865519500013526</td><td>0.5760960059620259</td><td>18.517878336014153</td><td>1.620642688691428e-08</td><td>1.040781679307714e-10</td><td>19.47578181425881</td><td>0.006972631033098165</td><td>18.51847806586994</td><td>0.006972631033098165</td><td>1.6202677042356097e-08</td><td>4.4718937554090337e-10</td><td>19.476033061070574</td><td>0.029966016982174905</td><td>18.518729312681703</td><td>0.029966016982174905</td></tr>
-<tr><td>roman_sn1a_61550_f129.asdf</td><td>61550.0</td><td>F129</td><td>420.87303333861263</td><td>1.9022905189688266</td><td>204.72231114035952</td><td>5.3077110423459795</td><td>1.3629224852447286</td><td>0.01224908363988584</td><td>-0.017199379814734475</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.6422852373905925</td><td>0.6315973467702639</td><td>221.2454034448718</td><td>38.57073407106077</td><td>19.179227865384437</td><td>2.1296530364436267e-08</td><td>0.7690023140893762</td><td>0.7631237291706829</td><td>0.7566177960417663</td><td>18.221924116995567</td><td>2.130317197070226e-08</td><td>1.0290179506748656e-10</td><td>19.178889316894946</td><td>0.005244486811307878</td><td>18.221585568506075</td><td>0.005244486811307878</td><td>2.1303469460554812e-08</td><td>5.715489226821594e-10</td><td>19.178874155150552</td><td>0.02912912186888286</td><td>18.221570406761682</td><td>0.02912912186888286</td></tr>
-<tr><td>roman_sn1a_61555_f129.asdf</td><td>61555.0</td><td>F129</td><td>492.25019695235324</td><td>1.9057879884150366</td><td>240.63137846666564</td><td>6.199249086382895</td><td>1.3925217050242151</td><td>0.012122063869255545</td><td>-0.01679069672781297</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.918140451928941</td><td>0.6346004114915773</td><td>258.2922129558267</td><td>38.81621388552205</td><td>18.997456425793875</td><td>2.517777972537858e-08</td><td>0.8994198026053049</td><td>0.8969785162549497</td><td>0.8945098510907259</td><td>18.040152677405004</td><td>2.5164221683898015e-08</td><td>1.0309098587752318e-10</td><td>18.998041243895855</td><td>0.004447966527931878</td><td>18.040737495506985</td><td>0.004447966527931878</td><td>2.517025658990841e-08</td><td>6.675521912350451e-10</td><td>18.997780892891775</td><td>0.02879531958685322</td><td>18.040477144502905</td><td>0.02879531958685322</td></tr>
-<tr><td>roman_sn1a_61560_f129.asdf</td><td>61560.0</td><td>F129</td><td>526.1925149657345</td><td>1.8943729979128923</td><td>257.5228444667274</td><td>6.615848634886188</td><td>1.4051919484310156</td><td>0.01190058421265533</td><td>-0.017043316196811417</td><td>150.4696553521533</td><td>149.5748627933132</td><td>2.047042587510938</td><td>0.6350187572198474</td><td>277.76605533623115</td><td>38.92514153192345</td><td>18.922088381815417</td><td>2.69876237809323e-08</td><td>0.9614378437489569</td><td>0.9599432144030146</td><td>0.9588095373334712</td><td>17.964784633426547</td><td>2.700028479702425e-08</td><td>1.0247350763135829e-10</td><td>18.921579137276257</td><td>0.004120667544817388</td><td>17.964275388887387</td><td>0.004120667544817388</td><td>2.6989176104899655e-08</td><td>7.124127763794258e-10</td><td>18.92202593223201</td><td>0.02865935369946246</td><td>17.96472218384314</td><td>0.02865935369946246</td></tr>
+<tr><td>roman_sn1a_61525_f129.asdf</td><td>61525.0</td><td>F129</td><td>40.99498390243263</td><td>1.9055519813021082</td><td>16.221027118714478</td><td>1.277320638128802</td><td>1.2136546845761529</td><td>0.013627831584261348</td><td>-0.01853453259282073</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.3599447372173375</td><td>0.38869787522197574</td><td>21.51344298381186</td><td>12.699260181435186</td><td>22.815232702251524</td><td>7.480091649981226e-10</td><td>0.07450585156621907</td><td>0.05192200567663273</td><td>0.026575082238984363</td><td>21.857928953862654</td><td>7.423913732979556e-10</td><td>1.0252977959701982e-10</td><td>22.823417708321525</td><td>0.14994825880025126</td><td>21.866113959932655</td><td>0.14994825880025126</td><td>7.580483765432307e-10</td><td>1.1810109539901092e-10</td><td>22.800757695038023</td><td>0.1691536306442934</td><td>21.843453946649152</td><td>0.1691536306442934</td></tr>
+<tr><td>roman_sn1a_61530_f129.asdf</td><td>61530.0</td><td>F129</td><td>84.86879636129325</td><td>1.9169788042250377</td><td>41.626799947710275</td><td>1.528841193831594</td><td>1.2271769573890234</td><td>0.013254847427792107</td><td>-0.018452921027754282</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.43082239911734893</td><td>0.4852897748348663</td><td>44.27216209915399</td><td>27.227680753018472</td><td>21.266688245768464</td><td>3.114043691941633e-09</td><td>0.15424379624949602</td><td>0.13324353182860318</td><td>0.11063496422446521</td><td>20.309384497379593</td><td>3.103057660876277e-09</td><td>1.0314460913055035e-10</td><td>21.270525385751377</td><td>0.03608951192580805</td><td>20.313221637362506</td><td>0.03608951192580805</td><td>3.107066713049803e-09</td><td>1.4135669172867134e-10</td><td>21.269123554343775</td><td>0.04939581031525551</td><td>20.311819805954904</td><td>0.04939581031525551</td></tr>
+<tr><td>roman_sn1a_61535_f129.asdf</td><td>61535.0</td><td>F129</td><td>152.8124406520334</td><td>1.908216280718182</td><td>80.75782800883911</td><td>2.1369228375347977</td><td>1.2462644615652512</td><td>0.013395230012613286</td><td>-0.018044745380925403</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.602177798001435</td><td>0.5395574440720514</td><td>80.08130011055164</td><td>37.79164441052217</td><td>20.430013374345684</td><td>6.72968366455753e-09</td><td>0.27772717383641793</td><td>0.25849832896646924</td><td>0.23909051545968008</td><td>19.472709625956814</td><td>6.7588208951007775e-09</td><td>1.0267313440160713e-10</td><td>20.4253226549003</td><td>0.01649340040311278</td><td>19.46801890651143</td><td>0.01649340040311278</td><td>6.725122462058015e-09</td><td>1.9757993440529814e-10</td><td>20.430749507268608</td><td>0.03189825751543585</td><td>19.473445758879738</td><td>0.03189825751543585</td></tr>
+<tr><td>roman_sn1a_61540_f129.asdf</td><td>61540.0</td><td>F129</td><td>235.63121419727509</td><td>1.932387025711305</td><td>129.41186203035988</td><td>3.033657787866136</td><td>1.2709374673394978</td><td>0.012901126515735092</td><td>-0.018279984271064392</td><td>150.4696553521533</td><td>149.5748627933132</td><td>0.8548747453579436</td><td>0.5542537237054382</td><td>121.93789911756423</td><td>42.658688316122735</td><td>19.87490019268315</td><td>1.122121601639446e-08</td><td>0.42824518021846053</td><td>0.4142353863160588</td><td>0.39866455173425547</td><td>18.91759644429428</td><td>1.1214952599409762e-08</td><td>1.0397366106325571e-10</td><td>19.87550639411432</td><td>0.010065844430191224</td><td>18.91820264572545</td><td>0.010065844430191224</td><td>1.1223675559845608e-08</td><td>2.8049206841094117e-10</td><td>19.874662239617198</td><td>0.027133748850580824</td><td>18.917358491228327</td><td>0.027133748850580824</td></tr>
+<tr><td>roman_sn1a_61545_f129.asdf</td><td>61545.0</td><td>F129</td><td>328.39951776289803</td><td>1.9343293225662956</td><td>183.25903050397</td><td>4.109992431774407</td><td>1.2997236040596978</td><td>0.01257004282513368</td><td>-0.017784198315262706</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.1581822932004553</td><td>0.5625198367417626</td><td>169.7743574125252</td><td>44.58865400510034</td><td>19.475182084403023</td><td>1.6215381329893388e-08</td><td>0.5968458429717423</td><td>0.5865951861422831</td><td>0.5760960059620259</td><td>18.517878336014153</td><td>1.6206426886914272e-08</td><td>1.0407816793077139e-10</td><td>19.47578181425881</td><td>0.006972631033098167</td><td>18.51847806586994</td><td>0.006972631033098167</td><td>1.62023859877806e-08</td><td>3.800099941900854e-10</td><td>19.476052564719733</td><td>0.02546480556464133</td><td>18.518748816330863</td><td>0.02546480556464133</td></tr>
+<tr><td>roman_sn1a_61550_f129.asdf</td><td>61550.0</td><td>F129</td><td>423.12431606809463</td><td>1.9124660195416237</td><td>238.38978912152362</td><td>5.232664371657094</td><td>1.328115345349887</td><td>0.012254507563859568</td><td>-0.017726524352768197</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.474547538010352</td><td>0.5671993037802809</td><td>221.2454034448718</td><td>45.5580125514585</td><td>19.17922786538444</td><td>2.1296530364436224e-08</td><td>0.7690023140893764</td><td>0.7630636391538173</td><td>0.7566177960417648</td><td>18.22192411699557</td><td>2.1303171970702253e-08</td><td>1.0290179506748654e-10</td><td>19.178889316894946</td><td>0.005244486811307878</td><td>18.221585568506075</td><td>0.005244486811307878</td><td>2.1299777189765536e-08</td><td>4.838122674142246e-10</td><td>19.179062348886895</td><td>0.024661877462743904</td><td>18.221758600498024</td><td>0.024661877462743904</td></tr>
+<tr><td>roman_sn1a_61555_f129.asdf</td><td>61555.0</td><td>F129</td><td>494.8832817052348</td><td>1.9159821972250866</td><td>280.2349426714002</td><td>6.100734581673816</td><td>1.3515772056382338</td><td>0.012128268530694826</td><td>-0.017410194080292235</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.7191668562172504</td><td>0.5715731216650267</td><td>258.2922129558267</td><td>45.934622940851504</td><td>18.997456425793875</td><td>2.517777972537858e-08</td><td>0.8994198026053049</td><td>0.8970061006425596</td><td>0.8945098510907259</td><td>18.040152677405004</td><td>2.5164221683898005e-08</td><td>1.0309098587752314e-10</td><td>18.998041243895855</td><td>0.004447966527931878</td><td>18.040737495506985</td><td>0.004447966527931878</td><td>2.5168781043504176e-08</td><td>5.640740588751455e-10</td><td>18.997844543459152</td><td>0.02433314616337679</td><td>18.04054079507028</td><td>0.02433314616337679</td></tr>
+<tr><td>roman_sn1a_61560_f129.asdf</td><td>61560.0</td><td>F129</td><td>529.0071598288849</td><td>1.904506147047128</td><td>299.89231126910096</td><td>6.50691238375698</td><td>1.3613880493606227</td><td>0.011907302981610648</td><td>-0.017706350853852332</td><td>150.4696553521533</td><td>149.5748627933132</td><td>1.8336264193607041</td><td>0.5713048699895489</td><td>277.76605533623115</td><td>46.08826638233421</td><td>18.92208838181542</td><td>2.698762378093225e-08</td><td>0.961437843748957</td><td>0.9599275171748051</td><td>0.9588095373334693</td><td>17.96478463342655</td><td>2.700028479702424e-08</td><td>1.0247350763135828e-10</td><td>18.921579137276257</td><td>0.004120667544817389</td><td>17.964275388887387</td><td>0.004120667544817389</td><td>2.6986301793385365e-08</td><td>6.016292677403664e-10</td><td>18.92214156785764</td><td>0.024205268392423703</td><td>17.96483781946877</td><td>0.024205268392423703</td></tr>
 </table></div></div></div>
 </div>
 </section>
@@ -2954,7 +3016,7 @@ Wrote time_domain_analysis_multifilter_photometry.ecsv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6aaba0ce10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x71d77ebd9810&gt;
 </pre></div>
 </div>
 <img alt="../../_images/f2ecead115dea3914a1953905b07ba569d08f6ccab14be4b62319499d31e5dfb.png" src="../../_images/f2ecead115dea3914a1953905b07ba569d08f6ccab14be4b62319499d31e5dfb.png" />
@@ -2989,7 +3051,7 @@ Wrote time_domain_analysis_multifilter_photometry.ecsv
 Wrote sn1a_lightcurve.gif
 </pre></div>
 </div>
-<img alt="../../_images/2c2534d2443d679c05bbc41ffa9f58d2c0b4ad85c63a58e75748cba00fb18208.gif" src="../../_images/2c2534d2443d679c05bbc41ffa9f58d2c0b4ad85c63a58e75748cba00fb18208.gif" />
+<img alt="../../_images/6f0ba84a52ed23e7e3f54b6004a954738e2669144f51329e43f2f3e8f2b0949c.gif" src="../../_images/6f0ba84a52ed23e7e3f54b6004a954738e2669144f51329e43f2f3e8f2b0949c.gif" />
 </div>
 </div>
 </section>

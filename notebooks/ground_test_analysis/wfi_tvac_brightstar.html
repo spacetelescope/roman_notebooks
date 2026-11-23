@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -188,7 +188,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Kernel Information and Read-Only Status</a></li>
+
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
@@ -487,17 +489,12 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">convolve2d</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">asdf</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">roman_datamodels</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rdm</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">roman_datamodels.dqflags</span><span class="w"> </span><span class="kn">import</span> <span class="n">pixel</span> <span class="k">as</span> <span class="n">dqflags</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">romancal.saturation</span><span class="w"> </span><span class="kn">import</span> <span class="n">SaturationStep</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">roman_datamodels.datamodels</span><span class="w"> </span><span class="kn">import</span> <span class="n">SaturationRefModel</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">romancal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">romancal.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExposurePipeline</span>
 </pre></div>
 </div>
@@ -557,7 +554,10 @@
 <span class="n">dm18</span> <span class="o">=</span> <span class="n">open_asdf_datamodel</span><span class="p">(</span><span class="n">asdf_file_uri_d3</span><span class="p">,</span> <span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Close the files afterward</span>
-<span class="n">dm_illum</span><span class="o">.</span><span class="n">close</span><span class="p">();</span> <span class="n">dm16</span><span class="o">.</span><span class="n">close</span><span class="p">();</span> <span class="n">dm17</span><span class="o">.</span><span class="n">close</span><span class="p">();</span> <span class="n">dm18</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">dm_illum</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">dm16</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">dm17</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">dm18</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -647,148 +647,148 @@ Some nodes not shown.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:10,769 - CRDS - INFO -  Syncing 31 files
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:03,689 - CRDS - INFO -  Syncing 31 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:10,771 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_specpsf_0002.rmap      787 bytes  (1 / 31 files) (0 / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:03,692 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_specpsf_0002.rmap      787 bytes  (1 / 31 files) (0 / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:11,075 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_skycells_0002.rmap      712 bytes  (2 / 31 files) (787 / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:03,919 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_skycells_0002.rmap      712 bytes  (2 / 31 files) (787 / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:11,410 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_sflat_0002.rmap      759 bytes  (3 / 31 files) (1.5 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:04,555 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_sflat_0002.rmap      759 bytes  (3 / 31 files) (1.5 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:11,638 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_saturation_0004.rmap    3.6 K bytes  (4 / 31 files) (2.3 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:04,785 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_saturation_0004.rmap    3.6 K bytes  (4 / 31 files) (2.3 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:11,980 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_relflux_0002.rmap      770 bytes  (5 / 31 files) (5.9 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:05,106 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_relflux_0002.rmap      770 bytes  (5 / 31 files) (5.9 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:12,234 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_refpix_0005.rmap    2.3 K bytes  (6 / 31 files) (6.6 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:05,338 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_refpix_0005.rmap    2.3 K bytes  (6 / 31 files) (6.6 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:12,485 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_readnoise_0008.rmap    3.8 K bytes  (7 / 31 files) (9.0 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:05,581 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_readnoise_0008.rmap    3.8 K bytes  (7 / 31 files) (9.0 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:12,677 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_photom_0006.rmap    3.4 K bytes  (8 / 31 files) (12.8 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:05,778 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_photom_0006.rmap    3.4 K bytes  (8 / 31 files) (12.8 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:12,804 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_optmodel_0002.rmap      823 bytes  (9 / 31 files) (16.2 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:05,961 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_optmodel_0002.rmap      823 bytes  (9 / 31 files) (16.2 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:13,088 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_matable_0004.rmap      690 bytes  (10 / 31 files) (17.1 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:06,185 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_matable_0004.rmap      690 bytes  (10 / 31 files) (17.1 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:13,302 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_mask_0005.rmap    3.3 K bytes  (11 / 31 files) (17.8 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:06,371 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_mask_0005.rmap    3.3 K bytes  (11 / 31 files) (17.8 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:13,509 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_linearity_0006.rmap    3.6 K bytes  (12 / 31 files) (21.1 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:06,602 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_linearity_0006.rmap    3.6 K bytes  (12 / 31 files) (21.1 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:13,695 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_ipc_0003.rmap    3.3 K bytes  (13 / 31 files) (24.7 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:06,785 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_ipc_0003.rmap    3.3 K bytes  (13 / 31 files) (24.7 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:13,870 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_inverselinearity_0006.rmap    3.9 K bytes  (14 / 31 files) (28.0 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:07,021 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_inverselinearity_0006.rmap    3.9 K bytes  (14 / 31 files) (28.0 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:14,045 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_integralnonlinearity_0002.rmap    2.8 K bytes  (15 / 31 files) (31.9 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:07,212 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_integralnonlinearity_0002.rmap    2.8 K bytes  (15 / 31 files) (31.9 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:14,184 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_gain_0004.rmap    2.3 K bytes  (16 / 31 files) (34.6 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:07,446 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_gain_0004.rmap    2.3 K bytes  (16 / 31 files) (34.6 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:14,392 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_flat_0008.rmap   24.2 K bytes  (17 / 31 files) (36.9 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:07,634 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_flat_0008.rmap   24.2 K bytes  (17 / 31 files) (36.9 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:14,544 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_etc_0002.rmap    2.3 K bytes  (18 / 31 files) (61.1 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:07,905 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_etc_0002.rmap    2.3 K bytes  (18 / 31 files) (61.1 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:14,686 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_epsf_0004.rmap   16.3 K bytes  (19 / 31 files) (63.4 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:08,091 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_epsf_0005.rmap   15.5 K bytes  (19 / 31 files) (63.4 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:14,864 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dustmap_0003.rmap      855 bytes  (20 / 31 files) (79.7 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:08,365 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dustmap_0003.rmap      855 bytes  (20 / 31 files) (78.8 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:14,992 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_distortion_0006.rmap    8.3 K bytes  (21 / 31 files) (80.5 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:08,552 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_distortion_0006.rmap    8.3 K bytes  (21 / 31 files) (79.7 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:15,153 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_detectorstatus_0002.rmap      773 bytes  (22 / 31 files) (88.8 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:08,738 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_detectorstatus_0002.rmap      773 bytes  (22 / 31 files) (88.0 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:15,324 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_darkdecaysignal_0002.rmap      783 bytes  (23 / 31 files) (89.6 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:08,921 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_darkdecaysignal_0002.rmap      783 bytes  (23 / 31 files) (88.8 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:15,518 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dark_0012.rmap    4.9 K bytes  (24 / 31 files) (90.4 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:09,106 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_dark_0012.rmap    4.9 K bytes  (24 / 31 files) (89.6 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:15,709 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_bam_0008.rmap      895 bytes  (25 / 31 files) (95.3 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:09,295 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_bam_0008.rmap      895 bytes  (25 / 31 files) (94.5 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:15,910 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_area_0006.rmap    6.6 K bytes  (26 / 31 files) (96.2 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:09,483 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_area_0006.rmap    6.6 K bytes  (26 / 31 files) (95.3 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,077 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_apcorr_0003.rmap    2.3 K bytes  (27 / 31 files) (102.7 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:09,666 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_apcorr_0003.rmap    2.3 K bytes  (27 / 31 files) (101.9 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,190 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_abvegaoffset_0002.rmap    2.5 K bytes  (28 / 31 files) (105.1 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:09,862 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_abvegaoffset_0002.rmap    2.5 K bytes  (28 / 31 files) (104.3 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,307 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_absflux_0002.rmap      770 bytes  (29 / 31 files) (107.5 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,050 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_absflux_0002.rmap      770 bytes  (29 / 31 files) (106.7 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,423 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_0075.imap    2.4 K bytes  (30 / 31 files) (108.3 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,237 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_wfi_0076.imap    2.4 K bytes  (30 / 31 files) (107.5 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,729 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_0077.pmap       344 bytes  (31 / 31 files) (110.8 K / 111.1 K bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,425 - CRDS - INFO -  Fetching  /home/runner/crds_cache/mappings/roman/roman_0078.pmap       344 bytes  (31 / 31 files) (110.0 K / 110.3 K bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,883 - stpipe.step - INFO - ExposurePipeline instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,697 - stpipe.step - INFO - ExposurePipeline instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,883 - stpipe.step - INFO - DQInitStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,698 - stpipe.step - INFO - DQInitStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,884 - stpipe.step - INFO - SaturationStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,699 - stpipe.step - INFO - SaturationStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,884 - stpipe.step - INFO - RefPixStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,700 - stpipe.step - INFO - RefPixStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,884 - stpipe.step - INFO - DarkDecayStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,701 - stpipe.step - INFO - DarkDecayStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,885 - stpipe.step - INFO - WFI18TransientStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,701 - stpipe.step - INFO - WFI18TransientStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,885 - stpipe.step - INFO - LinearityStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,702 - stpipe.step - INFO - LinearityStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,886 - stpipe.step - INFO - DarkCurrentStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,703 - stpipe.step - INFO - DarkCurrentStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,886 - stpipe.step - INFO - RampFitStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,704 - stpipe.step - INFO - RampFitStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,886 - stpipe.step - INFO - AssignWcsStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,705 - stpipe.step - INFO - AssignWcsStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,887 - stpipe.step - INFO - FlatFieldStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,705 - stpipe.step - INFO - FlatFieldStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,887 - stpipe.step - INFO - PhotomStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,706 - stpipe.step - INFO - PhotomStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,887 - stpipe.step - INFO - SourceCatalogStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,707 - stpipe.step - INFO - SourceCatalogStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:16,888 - stpipe.step - INFO - TweakRegStep instance created.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,708 - stpipe.step - INFO - TweakRegStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:17,068 - stpipe.step - INFO - Step ExposurePipeline running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7fd79244d670&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,848 - stpipe.step - INFO - Step ExposurePipeline running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7f0c3be5d620&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:17,079 - stpipe.step - INFO - Step ExposurePipeline parameters are:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,861 - stpipe.step - INFO - Step ExposurePipeline parameters are:
   pre_hooks: []
   post_hooks: []
   output_file: None
@@ -833,7 +833,7 @@ Some nodes not shown.
       search_output_file: True
       input_dir: ''
       update_version: False
-      n_pix_grow_sat: 0
+      n_pix_grow_sat: 1
       backup: 0
     refpix:
       pre_hooks: []
@@ -853,6 +853,10 @@ Some nodes not shown.
       remove_trends: True
       cosine_interpolate: True
       fft_interpolate: True
+      weight_mode: dynamic
+      sigma_thresh: 3.5
+      sigma_width: 1.0
+      smooth_sigma: 12.0
     dark_decay:
       pre_hooks: []
       post_hooks: []
@@ -930,6 +934,7 @@ Some nodes not shown.
       threshold_intercept: None
       threshold_constant: None
       include_var_rnoise: False
+      record_jumps: True
       maximum_cores: '1'
       expand_large_events: False
       min_sat_area: 1.0
@@ -996,13 +1001,18 @@ Some nodes not shown.
       search_output_file: True
       input_dir: ''
       update_version: False
-      bkg_boxsize: 1000
-      kernel_fwhm: 2.0
-      snr_threshold: 3.0
-      npixels: 25
-      deblend: False
+      bkg_boxsize: 55.0
+      kernel_fwhm: 0.2
+      template_fwhm:
+      - 0.6
+      snr_threshold: 5.0
+      npixels: 9
+      deblend: True
+      max_sources: 0
       fit_psf: True
+      match_jitter: True
       forced_segmentation: ''
+      compute_skyvals: True
     tweakreg:
       pre_hooks: []
       post_hooks: []
@@ -1027,8 +1037,9 @@ Some nodes not shown.
       separation: 1.0
       tolerance: 0.7
       fitgeometry: general
-      nclip: 3
+      nclip: 10
       sigma: 3.0
+      sigma_stat: mad
       abs_refcat: GAIADR3_S3
       save_abs_catalog: False
       abs_minobj: 10
@@ -1037,188 +1048,191 @@ Some nodes not shown.
       abs_separation: 1.0
       abs_tolerance: 0.7
       abs_fitgeometry: general
-      abs_nclip: 3
+      abs_nclip: 10
       abs_sigma: 3.0
       update_source_catalog_coordinates: False
       vo_timeout: 1200.0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:17,081 - stpipe.pipeline - INFO - Prefetching reference files for dataset: 'TVAC2_TOHOTQUAL_WFISAT_20240506204523_WFI11_uncal.asdf' reftypes = ['darkdecaysignal', 'integralnonlinearity', 'inverselinearity', 'linearity', 'mask', 'refpix', 'saturation']
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,863 - stpipe.pipeline - INFO - Prefetching reference files for dataset: 'TVAC2_TOHOTQUAL_WFISAT_20240506204523_WFI11_uncal.asdf' reftypes = ['darkdecaysignal', 'integralnonlinearity', 'inverselinearity', 'linearity', 'mask', 'refpix', 'saturation']
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:17,083 - CRDS - INFO -  Syncing 7 files
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,866 - CRDS - INFO -  Syncing 7 files
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:17,084 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf    2.8 K bytes  (1 / 7 files) (0 / 1.6 G bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:10,866 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf    2.8 K bytes  (1 / 7 files) (0 / 1.6 G bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:17,224 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf   16.9 M bytes  (2 / 7 files) (2.8 K / 1.6 G bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:11,054 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf   16.9 M bytes  (2 / 7 files) (2.8 K / 1.6 G bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:17,990 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf  469.8 M bytes  (3 / 7 files) (16.9 M / 1.6 G bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:18:22,425 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf  469.8 M bytes  (3 / 7 files) (16.9 M / 1.6 G bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:26,877 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf  469.8 M bytes  (4 / 7 files) (486.7 M / 1.6 G bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:24:32,985 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf  469.8 M bytes  (4 / 7 files) (486.7 M / 1.6 G bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:36,941 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_mask_0023.asdf   67.1 M bytes  (5 / 7 files) (956.5 M / 1.6 G bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:30:03,921 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_mask_0023.asdf   67.1 M bytes  (5 / 7 files) (956.5 M / 1.6 G bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:38,926 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_refpix_0022.asdf  440.4 M bytes  (6 / 7 files) (1.0 G / 1.6 G bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:30:06,503 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_refpix_0022.asdf  440.4 M bytes  (6 / 7 files) (1.0 G / 1.6 G bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:53,047 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf  134.2 M bytes  (7 / 7 files) (1.5 G / 1.6 G bytes)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:32:34,935 - CRDS - INFO -  Fetching  /home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf  134.2 M bytes  (7 / 7 files) (1.5 G / 1.6 G bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:57,347 - stpipe.pipeline - INFO - Prefetch for DARKDECAYSIGNAL reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf'.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:35,856 - stpipe.pipeline - INFO - Prefetch for DARKDECAYSIGNAL reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:57,347 - stpipe.pipeline - INFO - Prefetch for INTEGRALNONLINEARITY reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf'.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:35,857 - stpipe.pipeline - INFO - Prefetch for INTEGRALNONLINEARITY reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:57,347 - stpipe.pipeline - INFO - Prefetch for INVERSELINEARITY reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf'.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:35,857 - stpipe.pipeline - INFO - Prefetch for INVERSELINEARITY reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:57,348 - stpipe.pipeline - INFO - Prefetch for LINEARITY reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf'.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:35,857 - stpipe.pipeline - INFO - Prefetch for LINEARITY reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:57,348 - stpipe.pipeline - INFO - Prefetch for MASK reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_mask_0023.asdf'.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:35,858 - stpipe.pipeline - INFO - Prefetch for MASK reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_mask_0023.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:57,348 - stpipe.pipeline - INFO - Prefetch for REFPIX reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_refpix_0022.asdf'.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:35,858 - stpipe.pipeline - INFO - Prefetch for REFPIX reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_refpix_0022.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:57,348 - stpipe.pipeline - INFO - Prefetch for SATURATION reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf'.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:35,859 - stpipe.pipeline - INFO - Prefetch for SATURATION reference file is '/home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:57,348 - romancal.pipeline.exposure_pipeline - INFO - Starting Roman exposure calibration pipeline ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:35,859 - romancal.pipeline.exposure_pipeline - INFO - Starting Roman exposure calibration pipeline ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:57,524 - stpipe.step - INFO - Step dq_init running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7fd79244d670&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:36,001 - stpipe.step - INFO - Step dq_init running with args (&lt;roman_datamodels.datamodels._datamodels.TvacModel object at 0x7f0c3be5d620&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:58,150 - romancal.dq_init.dq_initialization - INFO - Invalid guide window location: -999999, -999999, -999999, -999999
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:37,742 - romancal.dq_init.dq_initialization - INFO - Invalid guide window location: -999999, -999998, -999999, -999998
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:58,282 - stpipe.step - INFO - Step dq_init done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:38,142 - stpipe.step - INFO - Step dq_init done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:58,466 - stpipe.step - INFO - Step saturation running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:38,308 - stpipe.step - INFO - Step saturation running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:25:58,469 - romancal.saturation.saturation_step - INFO - Using SATURATION reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:38,312 - romancal.saturation.saturation_step - INFO - Using SATURATION reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_saturation_0030.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:03,055 - stcal.saturation.saturation - INFO - Detected 93159 saturated pixels
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:49,064 - stcal.saturation.saturation - INFO - Detected 133221 saturated pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:03,270 - stcal.saturation.saturation - INFO - Detected 868 A/D floor pixels
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:49,714 - stcal.saturation.saturation - INFO - Detected 868 A/D floor pixels
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:03,282 - stpipe.step - INFO - Step saturation done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:49,775 - stpipe.step - INFO - Step saturation done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:03,621 - stpipe.step - INFO - Step refpix running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:50,396 - stpipe.step - INFO - Step refpix running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:19,888 - stpipe.step - INFO - Step refpix done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:50,737 - romancal.ramp_fitting.ramp_fit_step - INFO - Number of resultants: -999999 
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:20,075 - stpipe.step - INFO - Step dark_decay running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:50,740 - romancal.refpix.refpix - INFO - Dynamic weights active on 0 Left rows (full weight on 0 rows).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:20,077 - romancal.dark_decay.dark_decay_step - INFO - Using DARKDECAYSIGNAL reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:33:50,740 - romancal.refpix.refpix - INFO - Dynamic weights active on 104 Right rows (full weight on 90 rows).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:20,083 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:308: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0' (from package roman_datamodels==0.27.0), which is not currently installed
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:33,478 - stpipe.step - INFO - Step refpix done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:33,629 - stpipe.step - INFO - Step dark_decay running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:33,633 - romancal.dark_decay.dark_decay_step - INFO - Using DARKDECAYSIGNAL reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:33,635 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:303: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_darkdecaysignal_0001.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0' (from package roman_datamodels==0.27.0), which is not currently installed
   warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,419 - stpipe.step - INFO - Step dark_decay done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,590 - stpipe.step - INFO - Step dark_decay done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,602 - stpipe.step - INFO - Step wfi18_transient running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,748 - stpipe.step - INFO - Step wfi18_transient running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,604 - stpipe.step - INFO - Step wfi18_transient done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,750 - stpipe.step - INFO - Step wfi18_transient done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,786 - stpipe.step - INFO - Step linearity running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,906 - stpipe.step - INFO - Step linearity running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,792 - romancal.linearity.linearity_step - INFO - Using LINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,914 - romancal.linearity.linearity_step - INFO - Using LINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,792 - romancal.linearity.linearity_step - INFO - Using INVERSELINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,915 - romancal.linearity.linearity_step - INFO - Using INVERSELINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,793 - romancal.linearity.linearity_step - INFO - Using INTEGRALNONLINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,915 - romancal.linearity.linearity_step - INFO - Using INTEGRALNONLINEARITY reference file: /home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,806 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:308: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0' (from package roman_datamodels==0.27.0), which is not currently installed
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,919 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:303: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_integralnonlinearity_0006.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.1.0' (from package roman_datamodels==0.27.0), which is not currently installed
   warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,818 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:308: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.0.0' (from package roman_datamodels==0.27.0), which is not currently installed
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,931 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:303: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_linearity_0054.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.0.0' (from package roman_datamodels==0.27.0), which is not currently installed
   warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:26:25,825 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:308: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.0.0' (from package roman_datamodels==0.27.0), which is not currently installed
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:35:47,933 - py.warnings - WARNING - /home/runner/micromamba/envs/ci-env/lib/python3.13/site-packages/asdf/_asdf.py:303: AsdfPackageVersionWarning: File 'file:///home/runner/crds_cache/references/roman/wfi/roman_wfi_inverselinearity_0047.asdf'was created with extension URI 'asdf://stsci.edu/datamodels/roman/extensions/static-1.0.0' (from package roman_datamodels==0.27.0), which is not currently installed
   warnings.warn(msg, AsdfPackageVersionWarning)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:36,951 - romancal.linearity.linearity_step - WARNING - Flagged 130 spurious values outside remotely plausible range.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:30,660 - romancal.linearity.linearity_step - WARNING - Flagged 39230 spurious values outside remotely plausible range.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:36,959 - stpipe.step - INFO - Step linearity done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:30,668 - stpipe.step - INFO - Step linearity done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,149 - stpipe.step - INFO - Step rampfit running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:30,816 - stpipe.step - INFO - Step rampfit running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,149 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:30,816 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,325 - stpipe.step - INFO - Step dark_current running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:30,953 - stpipe.step - INFO - Step dark_current running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,325 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:30,954 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,501 - stpipe.step - INFO - Step assign_wcs running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,099 - stpipe.step - INFO - Step assign_wcs running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,501 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,099 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,679 - stpipe.step - INFO - Step photom running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,247 - stpipe.step - INFO - Step photom running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,679 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,247 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,894 - stpipe.step - INFO - Step flatfield running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,394 - stpipe.step - INFO - Step flatfield running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7f0c3bbc0a40&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:37,894 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,395 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:38,067 - stpipe.step - INFO - Step source_catalog running with args (&lt;roman_datamodels.datamodels._datamodels.RampModel object at 0x7fd79229fce0&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,553 - stpipe.step - INFO - Step tweakreg running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7f0c3bf95940&gt;,).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:38,068 - stpipe.step - INFO - Step skipped.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,553 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:38,243 - stpipe.step - INFO - Step tweakreg running with args (&lt;romancal.datamodels.library.ModelLibrary object at 0x7fd79234dd30&gt;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,554 - romancal.pipeline.exposure_pipeline - INFO - Roman exposure calibration pipeline ending...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:38,244 - stpipe.step - INFO - Step skipped.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:38,245 - romancal.pipeline.exposure_pipeline - INFO - Roman exposure calibration pipeline ending...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-10-25 02:27:38,245 - stpipe.step - INFO - Step ExposurePipeline done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-11-22 02:37:31,555 - stpipe.step - INFO - Step ExposurePipeline done
 </pre></div>
 </div>
 </div>
@@ -1258,7 +1272,7 @@ Some nodes not shown.
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Need at least 2 frames (after dropping reset) to fit a line."</span><span class="p">)</span>
 
-    <span class="n">sum_t</span>  <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">sum_t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="n">sum_t2</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="n">den</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">sum_t2</span> <span class="o">-</span> <span class="n">sum_t</span> <span class="o">*</span> <span class="n">sum_t</span>
     <span class="k">if</span> <span class="n">den</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1276,7 +1290,7 @@ Some nodes not shown.
             <span class="n">arr</span> <span class="o">=</span> <span class="n">cube</span><span class="p">[</span><span class="n">start</span><span class="p">:,</span> <span class="n">r0</span><span class="p">:</span><span class="n">r1</span><span class="p">,</span> <span class="n">c0</span><span class="p">:</span><span class="n">c1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># (n, rt', ct')</span>
 
             <span class="c1"># Accumulate sums (float64 math for accuracy)</span>
-            <span class="n">sY</span>  <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="c1"># Sum(Y)</span>
+            <span class="n">sY</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="c1"># Sum(Y)</span>
             <span class="n">sTY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tensordot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1"># Sum(T * Y)</span>
 
             <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">sTY</span> <span class="o">-</span> <span class="n">sum_t</span> <span class="o">*</span> <span class="n">sY</span><span class="p">)</span> <span class="o">/</span> <span class="n">den</span>                              <span class="c1"># b</span>
@@ -1297,15 +1311,16 @@ Some nodes not shown.
 <span class="n">B18</span> <span class="o">=</span> <span class="n">bias_intercept_from_cube</span><span class="p">(</span><span class="n">dm18</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">chunk</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">out_dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
 <span class="c1"># Combine into a "superbias"</span>
-<span class="n">stack</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">B16</span><span class="p">,</span> <span class="n">B17</span><span class="p">,</span> <span class="n">B18</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>        <span class="c1"># (3, H, W)</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">B16</span><span class="p">,</span> <span class="n">B17</span><span class="p">,</span> <span class="n">B18</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>        <span class="c1"># (3, H, W)</span>
 <span class="n">B_median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="n">B_mean</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">B_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
 <span class="c1"># Visualization of the superbias</span>
 <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanpercentile</span><span class="p">(</span><span class="n">B_median</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">B_median</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">"lower"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Bias (Median of FinalDark exp16–18)"</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span> <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">"DN (1–99</span><span class="si">% s</span><span class="s2">tretch)"</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">"DN (1–99</span><span class="si">% s</span><span class="s2">tretch)"</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x [pix]"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y [pix]"</span><span class="p">)</span>
 
@@ -1324,7 +1339,7 @@ Some nodes not shown.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check to see if the refpix step was indeed completed. If so, then we do not need</span>
 <span class="c1"># to apply another bias.</span>
-<span class="n">cal</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">"illum"</span><span class="p">]</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="s2">"cal_step"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">cal</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">"illum"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="s2">"cal_step"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"The refpix step is"</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cal</span><span class="p">,</span> <span class="s2">"refpix"</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1342,7 +1357,7 @@ Some nodes not shown.
 <p>We will first look at the signal in three arbitary frames to see how the signal builds with time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dm_cube</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">"illum"</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dm_cube</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">"illum"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
 <span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">54</span><span class="p">]</span>
 <span class="n">baseline_frame</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -1384,13 +1399,15 @@ Some nodes not shown.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 2: 2nd=-14.3, 98th=80.5
-frame 27: 2nd=-1.06, 98th=2e+03
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 54: 2nd=10.4, 98th=4.03e+03
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 27: 2nd=-0.979, 98th=2e+03
 </pre></div>
 </div>
-<img alt="../../_images/dabc163652e3e478d236b514f46e185c88dc227b3ffeac52107268f14bf50d86.png" src="../../_images/dabc163652e3e478d236b514f46e185c88dc227b3ffeac52107268f14bf50d86.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 54: 2nd=10.5, 98th=4.03e+03
+</pre></div>
+</div>
+<img alt="../../_images/15406cdea5e9d9c573d36b94935b05028ad6d91ee997c801110c3bc4ecd2794e.png" src="../../_images/15406cdea5e9d9c573d36b94935b05028ad6d91ee997c801110c3bc4ecd2794e.png" />
 </div>
 </div>
 <section id="cutouts-around-the-bright-source">
@@ -1400,13 +1417,13 @@ frame 27: 2nd=-1.06, 98th=2e+03
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the cutout region</span>
-<span class="n">col_0</span><span class="o">=</span><span class="mi">1900</span>
-<span class="n">row_0</span><span class="o">=</span><span class="mi">1900</span>
-<span class="n">q1</span><span class="o">=</span><span class="mi">256</span>
-<span class="n">q2</span><span class="o">=</span><span class="mi">256</span>
+<span class="n">col_0</span> <span class="o">=</span> <span class="mi">1900</span>
+<span class="n">row_0</span> <span class="o">=</span> <span class="mi">1900</span>
+<span class="n">q1</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">q2</span> <span class="o">=</span> <span class="mi">256</span>
 <span class="c1"># Get the cutouts for the raw and corrected data</span>
 <span class="n">raw_cube_cutout</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dm_illum</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">row_0</span><span class="o">-</span><span class="n">q1</span><span class="p">:</span><span class="n">row_0</span><span class="o">+</span><span class="n">q1</span><span class="p">,</span> <span class="n">col_0</span><span class="o">-</span><span class="n">q2</span><span class="p">:</span><span class="n">col_0</span><span class="o">+</span><span class="n">q2</span><span class="p">])</span>
-<span class="n">dm_cube_cutout</span> <span class="o">=</span> <span class="n">dm_cube</span><span class="p">[:,</span><span class="n">row_0</span><span class="o">-</span><span class="n">q1</span><span class="p">:</span><span class="n">row_0</span><span class="o">+</span><span class="n">q1</span><span class="p">,</span> <span class="n">col_0</span><span class="o">-</span><span class="n">q2</span><span class="p">:</span><span class="n">col_0</span><span class="o">+</span><span class="n">q2</span><span class="p">]</span>
+<span class="n">dm_cube_cutout</span> <span class="o">=</span> <span class="n">dm_cube</span><span class="p">[:,</span> <span class="n">row_0</span><span class="o">-</span><span class="n">q1</span><span class="p">:</span><span class="n">row_0</span><span class="o">+</span><span class="n">q1</span><span class="p">,</span> <span class="n">col_0</span><span class="o">-</span><span class="n">q2</span><span class="p">:</span><span class="n">col_0</span><span class="o">+</span><span class="n">q2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1423,7 +1440,7 @@ frame 27: 2nd=-1.06, 98th=2e+03
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the pixel DQ flags for the cutout</span>
-<span class="n">pixeldq</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">"illum"</span><span class="p">]</span><span class="o">.</span><span class="n">pixeldq</span><span class="p">[</span><span class="n">row_0</span><span class="o">-</span><span class="n">q1</span><span class="p">:</span><span class="n">row_0</span><span class="o">+</span><span class="n">q1</span><span class="p">,</span> <span class="n">col_0</span><span class="o">-</span><span class="n">q2</span><span class="p">:</span><span class="n">col_0</span><span class="o">+</span><span class="n">q2</span><span class="p">]</span>
+<span class="n">pixeldq</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">"illum"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pixeldq</span><span class="p">[</span><span class="n">row_0</span><span class="o">-</span><span class="n">q1</span><span class="p">:</span><span class="n">row_0</span><span class="o">+</span><span class="n">q1</span><span class="p">,</span> <span class="n">col_0</span><span class="o">-</span><span class="n">q2</span><span class="p">:</span><span class="n">col_0</span><span class="o">+</span><span class="n">q2</span><span class="p">]</span>
 <span class="n">bad</span> <span class="o">=</span> <span class="p">(</span><span class="n">pixeldq</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">good</span> <span class="o">=</span> <span class="o">~</span><span class="n">bad</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Good pixel count:         "</span><span class="p">,</span> <span class="n">good</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s2">"of"</span><span class="p">,</span> <span class="n">pixeldq</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
@@ -1455,7 +1472,8 @@ frame 27: 2nd=-1.06, 98th=2e+03
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># if everything is masked</span>
         <span class="n">vmin_i</span><span class="p">,</span> <span class="n">vmax_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-    <span class="n">vmins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vmin_i</span><span class="p">);</span> <span class="n">vmaxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vmax_i</span><span class="p">)</span>
+    <span class="n">vmins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vmin_i</span><span class="p">)</span>
+    <span class="n">vmaxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vmax_i</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"frame </span><span class="si">{</span><span class="n">nframe</span><span class="si">}</span><span class="s2">: 2nd=</span><span class="si">{</span><span class="n">vmin_i</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">, 98th=</span><span class="si">{</span><span class="n">vmax_i</span><span class="si">:</span><span class="s2">.3g</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Shared limits across panels</span>
@@ -1470,7 +1488,8 @@ frame 27: 2nd=-1.06, 98th=2e+03
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">nframe</span><span class="p">,</span> <span class="n">dm</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">diffs_masked</span><span class="p">):</span>
     <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dm</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">"lower"</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SCA </span><span class="si">{</span><span class="n">SCA</span><span class="si">}</span><span class="s2">, Mag </span><span class="si">{</span><span class="n">Mag</span><span class="si">}</span><span class="s2">, frames </span><span class="si">{</span><span class="n">nframe</span><span class="si">}</span><span class="s2">-1"</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"x [pix]"</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"y [pix]"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"x [pix]"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"y [pix]"</span><span class="p">)</span>
 
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">"DN"</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
@@ -1479,12 +1498,12 @@ frame 27: 2nd=-1.06, 98th=2e+03
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 2: 2nd=0.524, 98th=4.59e+03
-frame 27: 2nd=171, 98th=5.11e+04
-frame 54: 2nd=352, 98th=5.59e+04
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>frame 2: 2nd=0.526, 98th=4.69e+03
+frame 27: 2nd=171, 98th=5.03e+04
+frame 54: 2nd=352, 98th=5.58e+04
 </pre></div>
 </div>
-<img alt="../../_images/8fc613fa868e5764ef4b98f2b76f23c5814baeeaf3dc39d19f76e2bcfda561e7.png" src="../../_images/8fc613fa868e5764ef4b98f2b76f23c5814baeeaf3dc39d19f76e2bcfda561e7.png" />
+<img alt="../../_images/b57fe79edf2a80098965f88a9be917bd0ee8c7f8372322994b29d4e7bbf1a769.png" src="../../_images/b57fe79edf2a80098965f88a9be917bd0ee8c7f8372322994b29d4e7bbf1a769.png" />
 </div>
 </div>
 </section>
@@ -1529,6 +1548,7 @@ frame 54: 2nd=352, 98th=5.59e+04
         <span class="k">return</span> <span class="n">sat_dn</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"sat_dn shape </span><span class="si">{</span><span class="n">sat_dn</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> does not match frames </span><span class="si">{</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">make_saturation_mask_dn</span><span class="p">(</span><span class="n">frames_dn</span><span class="p">,</span> <span class="n">sat_dn</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    DN-based saturation masks using a per-pixel DN threshold.</span>
@@ -1560,28 +1580,28 @@ frame 54: 2nd=352, 98th=5.59e+04
     <span class="n">sat_mask</span> <span class="o">=</span> <span class="n">frames_dn</span> <span class="o">&gt;=</span> <span class="n">sat_dn_use</span>  <span class="c1"># (N,H,W) bool</span>
 
     <span class="c1"># Neighborhood kernels (no center in 4-neighborhood kernel)</span>
-    <span class="n">kernel_4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
-                         <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
-                         <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-    <span class="n">kernel_diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
-                            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
-                            <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">kernel_4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">kernel_diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
 
     <span class="n">nearby_sat_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-    <span class="n">diag_sat_mask</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-    <span class="n">new_sat_mask</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">diag_sat_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">new_sat_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">sat_mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
         <span class="c1"># Convolve boolean as uint8 to count neighboring saturated pixels</span>
-        <span class="n">conv4</span>  <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">kernel_4</span><span class="p">,</span>  <span class="n">mode</span><span class="o">=</span><span class="s1">'same'</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">'fill'</span><span class="p">,</span> <span class="n">fillvalue</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">conv4</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">kernel_4</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'same'</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">'fill'</span><span class="p">,</span> <span class="n">fillvalue</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">convdg</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">kernel_diag</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'same'</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="s1">'fill'</span><span class="p">,</span> <span class="n">fillvalue</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 
         <span class="c1"># neighbors that are not themselves saturated</span>
         <span class="n">nearby_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">s</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">conv4</span>
         <span class="c1"># diagonal neighbors that are neither saturated nor 4-neighbors</span>
-        <span class="n">diag_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>   <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">s</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">nearby_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;</span> <span class="n">convdg</span>
+        <span class="n">diag_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">s</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">nearby_sat_mask</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;</span> <span class="n">convdg</span>
 
         <span class="c1"># newly saturated in this frame (unsaturated previously)</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1646,7 +1666,7 @@ frame 54: 2nd=352, 98th=5.59e+04
 <span class="n">mean_slope_image</span> <span class="o">=</span> <span class="n">make_mean_debiased_difference_image_dn</span><span class="p">(</span><span class="n">dm_cube_cutout</span><span class="p">,</span> <span class="n">raw_cube_cutout</span><span class="p">,</span> <span class="n">sat_dn_cutout</span><span class="p">)</span>
 
 <span class="c1"># Get the 3D saturation mask</span>
-<span class="n">sat_mask</span><span class="p">,</span> <span class="n">nearby_sat_mask</span><span class="p">,</span> <span class="n">new_sat_mask</span><span class="p">,</span> <span class="n">diag_mask</span><span class="o">=</span> <span class="n">make_saturation_mask_dn</span><span class="p">(</span><span class="n">raw_cube_cutout</span><span class="p">,</span> <span class="n">sat_dn_cutout</span><span class="p">)</span>
+<span class="n">sat_mask</span><span class="p">,</span> <span class="n">nearby_sat_mask</span><span class="p">,</span> <span class="n">new_sat_mask</span><span class="p">,</span> <span class="n">diag_mask</span> <span class="o">=</span> <span class="n">make_saturation_mask_dn</span><span class="p">(</span><span class="n">raw_cube_cutout</span><span class="p">,</span> <span class="n">sat_dn_cutout</span><span class="p">)</span>
 
 <span class="c1"># Get the difference images (AKA the instantaneous slope)</span>
 <span class="n">difference_images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">dm_cube_cutout</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>                                                 
@@ -1706,8 +1726,8 @@ We see trends in these plotted quantities as the exposure time progresses.</p></
         <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">'w'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'0.8'</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
     <span class="p">)</span>
 
-    <span class="c1"># Zoom window settings</span>
-    <span class="c1">#for ax in axes:</span>
+    <span class="c1"># Here are the zoom window settings (uncomment to zoom in on a specific region)</span>
+    <span class="c1"># for ax in axes:</span>
     <span class="c1">#    ax.set_xlim(6, 36)</span>
     <span class="c1">#    ax.set_ylim(6, 36)</span>
 
@@ -1720,9 +1740,9 @@ We see trends in these plotted quantities as the exposure time progresses.</p></
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plotting frames: [2, 27, 54]
 </pre></div>
 </div>
-<img alt="../../_images/53729858417610da8d05ee9de090c1de16e6f28d62c093a8355a74eec7b40c3e.png" src="../../_images/53729858417610da8d05ee9de090c1de16e6f28d62c093a8355a74eec7b40c3e.png" />
-<img alt="../../_images/dc45a9fd1465235d1d9e1c529ac52282f1449b0eb19808e3c294a136d90a8dc4.png" src="../../_images/dc45a9fd1465235d1d9e1c529ac52282f1449b0eb19808e3c294a136d90a8dc4.png" />
-<img alt="../../_images/be27d783b002aa67060d7f8af41d4096c8641e8bea75ded4616211608c4f6924.png" src="../../_images/be27d783b002aa67060d7f8af41d4096c8641e8bea75ded4616211608c4f6924.png" />
+<img alt="../../_images/47d0e1e9227fcc1408f13ca9bd2521f2da259a79244c204ca35cecb97b456c1b.png" src="../../_images/47d0e1e9227fcc1408f13ca9bd2521f2da259a79244c204ca35cecb97b456c1b.png" />
+<img alt="../../_images/c18417f2b2581f38fffeae911519b8a3a07531713bcfa81cd06768866b9d9828.png" src="../../_images/c18417f2b2581f38fffeae911519b8a3a07531713bcfa81cd06768866b9d9828.png" />
+<img alt="../../_images/38b34b5f7ee183646aba17f9152cc02b27b0e323b822c2c3ce1a5d50a0a2d329.png" src="../../_images/38b34b5f7ee183646aba17f9152cc02b27b0e323b822c2c3ce1a5d50a0a2d329.png" />
 </div>
 </div>
 </section>

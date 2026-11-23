@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -188,7 +188,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Kernel Information and Read-Only Status</a></li>
+
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
@@ -755,7 +757,7 @@ For more information about GWCS please check the documentation <a class="referen
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bc864dc5e795c30724c8bd7917056d2f012f07e1ccf195644a9a62f48e74d44d.png" src="../../_images/bc864dc5e795c30724c8bd7917056d2f012f07e1ccf195644a9a62f48e74d44d.png" />
+<img alt="../../_images/745171ee6dbf8cd4c90ed83e9561500839cd8001a6bfe60295d7ebc47c58800f.png" src="../../_images/745171ee6dbf8cd4c90ed83e9561500839cd8001a6bfe60295d7ebc47c58800f.png" />
 </div>
 </div>
 <p>By default the PSF is generated for detector WFI01 at (x, y) = (2048, 2048) in the science coordinate system. See the <a class="reference external" href="https://roman-docs.stsci.edu/data-handbook-home/wfi-data-format/coordinate-systems">RDox article on WFI coordinate systems</a> for more information.</p>
@@ -899,7 +901,7 @@ minor-to-major axis ratio: 0.80766
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=18, ymin=1, ymax=18), moments_status=0, observed_shape=galsim.Shear((0.10212971528807052-0.02985731420879724j)), moments_sigma=1.7330114841461182, moments_amp=393.8943176269531, moments_rho4=2.5441320171732604, moments_n_iter=30, correction_status=0, corrected_e1=1.1321930885314941, corrected_e2=-0.30008557438850403, meas_type='e', corrected_shape_err=0.0, correction_method='REGAUSS', resolution_factor=0.38316264748573303, psf_sigma=1.3743653297424316, psf_shape=galsim.Shear((-0.014325833994391213+0.0008789983818878098j)))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>galsim.hsm.ShapeData(image_bounds=galsim.BoundsI(xmin=1, xmax=18, ymin=1, ymax=18), moments_status=0, observed_shape=galsim.Shear((0.10212971528807052-0.02985731420879724j)), moments_sigma=1.7329459190368652, moments_amp=393.8943176269531, moments_rho4=2.5441320171732604, moments_n_iter=30, correction_status=0, corrected_e1=0.9187675714492798, corrected_e2=-0.18146145343780518, meas_type='e', corrected_shape_err=0.0, correction_method='REGAUSS', resolution_factor=0.41673120856285095, psf_sigma=1.3363773822784424, psf_shape=galsim.Shear((-0.018112298995539174-0.009166935906103046j)))
 </pre></div>
 </div>
 </div>
@@ -1035,25 +1037,25 @@ minor-to-major axis ratio: 0.80766
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n:
 	Initial: 2.79877
-	Fitted: 2.72779
+	Fitted: 2.65891
 hlr:
 	Initial: 0.44776
-	Fitted: 0.43064
+	Fitted: 0.41994
 flux:
 	Initial: 0.03482
-	Fitted: 0.03069
+	Fitted: 0.03018
 pa:
 	Initial: 261.97015
 	Fitted: 0.00000
 x0:
 	Initial: 0.00000
-	Fitted: -0.28517
+	Fitted: -0.26735
 y0:
 	Initial: 0.00000
-	Fitted: 0.01282
+	Fitted: -0.12570
 q:
 	Initial: 0.70971
-	Fitted: 0.74352
+	Fitted: 0.74582
 </pre></div>
 </div>
 </div>
@@ -1100,7 +1102,7 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3bdd63a920edd0ece90338e87d547aec96a87ded885a049ce5763ab531465aa6.png" src="../../_images/3bdd63a920edd0ece90338e87d547aec96a87ded885a049ce5763ab531465aa6.png" />
+<img alt="../../_images/f8afb850ea5299a201ae7b25f8e4526d691129f0a2f8c896d191a083f9c57faf.png" src="../../_images/f8afb850ea5299a201ae7b25f8e4526d691129f0a2f8c896d191a083f9c57faf.png" />
 </div>
 </div>
 <p>Our fit looks really good. Let’s take a quick look at the statistics of the fit residuals:</p>
@@ -1112,8 +1114,8 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.01329 DN / s
-Residual std dev: 0.16784 DN / s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.01345 DN / s
+Residual std dev: 0.23486 DN / s
 </pre></div>
 </div>
 </div>
@@ -1147,20 +1149,20 @@ Residual std dev: 0.16784 DN / s
 	Catalog (p0): 2.79877
 	New inputs (p1): 1.00000
 
-	Old fit: 2.72779
-	New fit: 2.72778
+	Old fit: 2.65891
+	New fit: 2.65891
 hlr:
 	Catalog (p0): 0.44776
 	New inputs (p1): 0.44000
 
-	Old fit: 0.43064
-	New fit: 0.43063
+	Old fit: 0.41994
+	New fit: 0.41994
 flux:
 	Catalog (p0): 0.03482
 	New inputs (p1): 0.03482
 
-	Old fit: 0.03069
-	New fit: 0.03069
+	Old fit: 0.03018
+	New fit: 0.03018
 pa:
 	Catalog (p0): 261.97015
 	New inputs (p1): 0.00000
@@ -1171,20 +1173,20 @@ x0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: -0.28517
-	New fit: -0.28517
+	Old fit: -0.26735
+	New fit: -0.26735
 y0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: 0.01282
-	New fit: 0.01282
+	Old fit: -0.12570
+	New fit: -0.12570
 q:
 	Catalog (p0): 0.70971
 	New inputs (p1): 0.50000
 
-	Old fit: 0.74352
-	New fit: 0.74352
+	Old fit: 0.74582
+	New fit: 0.74582
 </pre></div>
 </div>
 </div>
@@ -1218,44 +1220,44 @@ q:
 	Catalog (p0): 2.79877
 	New inputs (p1): 1.00000
 
-	Old fit: 2.72779
-	New fit: 2.72732
+	Old fit: 2.65891
+	New fit: 2.65714
 hlr:
 	Catalog (p0): 0.44776
 	New inputs (p1): 0.44000
 
-	Old fit: 0.43064
-	New fit: 0.43058
+	Old fit: 0.41994
+	New fit: 0.41997
 flux:
 	Catalog (p0): 0.03482
 	New inputs (p1): 0.03482
 
-	Old fit: 0.03069
-	New fit: 0.03071
+	Old fit: 0.03018
+	New fit: 0.03020
 pa:
 	Catalog (p0): 261.97015
 	New inputs (p1): 351.85194
 
 	Old fit: 0.00000
-	New fit: 352.24804
+	New fit: 352.73049
 x0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: -0.28517
-	New fit: -0.28364
+	Old fit: -0.26735
+	New fit: -0.26664
 y0:
 	Catalog (p0): 0.00000
 	New inputs (p1): 0.00000
 
-	Old fit: 0.01282
-	New fit: 0.01207
+	Old fit: -0.12570
+	New fit: -0.12750
 q:
 	Catalog (p0): 0.70971
 	New inputs (p1): 0.80766
 
-	Old fit: 0.74352
-	New fit: 0.73468
+	Old fit: 0.74582
+	New fit: 0.73803
 </pre></div>
 </div>
 </div>
@@ -1302,7 +1304,7 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3d943c5695ed853c57061f66c052bff9c7f3fcb09e66aad6d0f8c081162ab735.png" src="../../_images/3d943c5695ed853c57061f66c052bff9c7f3fcb09e66aad6d0f8c081162ab735.png" />
+<img alt="../../_images/8ea68c2144e44a7ec964572fb59bc71409a184cfdbb6f6ba40222d20cbff0240.png" src="../../_images/8ea68c2144e44a7ec964572fb59bc71409a184cfdbb6f6ba40222d20cbff0240.png" />
 </div>
 </div>
 <p>As we can see, the initial model is quite different from our previous one based on inputs from the catalog, but our best-fit model and residuals still look quite good. Finally, the statistics of our residuals:</p>
@@ -1314,8 +1316,8 @@ q:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.00192 DN / s
-Residual std dev: 0.15022 DN / s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residual median: 0.00293 DN / s
+Residual std dev: 0.22429 DN / s
 </pre></div>
 </div>
 </div>
@@ -1340,13 +1342,13 @@ Residual std dev: 0.15022 DN / s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 2.72779 +/- 0.09090
-hlr = 0.43064 +/- 0.01225
-flux = 0.03069 +/- 0.00053
-pa = 0.00000 +/- 1.25950
-x0 = -0.28517 +/- 0.01401
-y0 = 0.01282 +/- 0.01106
-q = 0.74352 +/- 0.01018
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n = 2.65891 +/- 0.09646
+hlr = 0.41994 +/- 0.01261
+flux = 0.03018 +/- 0.00055
+pa = 0.00000 +/- 1.41741
+x0 = -0.26735 +/- 0.01556
+y0 = -0.12570 +/- 0.01266
+q = 0.74582 +/- 0.01134
 </pre></div>
 </div>
 </div>

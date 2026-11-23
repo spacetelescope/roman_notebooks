@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -188,7 +188,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Kernel Information and Read-Only Status</a></li>
+
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="../background_visualization_tool/RBVT.html">The Roman Background Visualization Tool (RBVT)</a></li>
@@ -492,7 +494,7 @@ Execute the cell below to start using RIST.</p>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">plot_rist</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_rist</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">plot_rist</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_rist</span>  <span class="c1"># noqa: F401</span>
 </pre></div>
 </div>
 </div>
@@ -507,7 +509,7 @@ Execute the cell below to start using RIST.</p>
     </style>
     <div>
         <a href="https://bokeh.org" target="_blank" class="bk-notebook-logo"></a>
-        <span id="a8dbce94-da9b-48fc-a1b6-f597eaea4a2c">Loading BokehJS ...</span>
+        <span id="c1ad36e6-fd55-462d-87ea-68136abef78a">Loading BokehJS ...</span>
     </div>
 </div><script type="application/javascript">'use strict';
 (function(root) {
@@ -672,7 +674,7 @@ const JS_MIME_TYPE = 'application/javascript';
      "</div>"}};
 
   function display_loaded(error = null) {
-    const el = document.getElementById("a8dbce94-da9b-48fc-a1b6-f597eaea4a2c");
+    const el = document.getElementById("c1ad36e6-fd55-462d-87ea-68136abef78a");
     if (el != null) {
       const html = (() => {
         if (typeof root.Bokeh === "undefined") {
@@ -780,7 +782,7 @@ const JS_MIME_TYPE = 'application/javascript';
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.10.1.min.js"];
+  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.10.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.10.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.10.2.min.js"];
   const css_urls = [];
 
   const inline_js = [    function(Bokeh) {
@@ -806,7 +808,7 @@ function(Bokeh) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     } else if (force !== true) {
-      const cell = $(document.getElementById("a8dbce94-da9b-48fc-a1b6-f597eaea4a2c")).parents('.cell').data().cell;
+      const cell = $(document.getElementById("c1ad36e6-fd55-462d-87ea-68136abef78a")).parents('.cell').data().cell;
       cell.output_area.append_execute_result(NB_LOAD_WARNING)
     }
   }
@@ -820,11 +822,11 @@ function(Bokeh) {
       run_inline_js();
     });
   }
-}(window));</script><div class="output text_html"><script id="eb840872-53c3-42a1-8c5c-a685f1a43500">
+}(window));</script><div class="output text_html"><script id="b036da6d-8c80-4230-bf64-99cf70186604">
   (function() {
     const xhr = new XMLHttpRequest()
     xhr.responseType = 'blob';
-    xhr.open('GET', "http://localhost:39787/autoload.js?bokeh-autoload-element=eb840872-53c3-42a1-8c5c-a685f1a43500&bokeh-absolute-url=http://localhost:39787&resources=none", true);
+    xhr.open('GET', "http://localhost:42371/autoload.js?bokeh-autoload-element=b036da6d-8c80-4230-bf64-99cf70186604&bokeh-absolute-url=http://localhost:42371&resources=none", true);
     xhr.withCredentials = false;
     xhr.onload = function (event) {
       const script = document.createElement('script');
@@ -940,16 +942,16 @@ function(Bokeh) {
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "roman_cal"
         },
         kernelOptions: {
-            name: "python3",
+            name: "roman_cal",
             path: "./notebooks/rist"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'roman_cal'</script>
 
                 </article>
               

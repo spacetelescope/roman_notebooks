@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Time Domain Analysis: Photometry of Simulated Transients" href="../time_domain_analysis/time_domain_analysis.html" />
-    <link rel="prev" title="Visualization of Roman APT products" href="../footprint_visualization/footprint_visualization.html" />
+    <link rel="prev" title="Kernel Information and Read-Only Status" href="../footprint_visualization/footprint_visualization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -188,7 +188,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../stpsf/stpsf.html">STPSF Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../synphot/synphot.html">Roman WFI Synthetic Photometry with synphot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandeia/pandeia.html">Pandeia Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Visualization of Roman APT products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footprint_visualization/footprint_visualization.html">Kernel Information and Read-Only Status</a></li>
+
+
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">The Roman Background Visualization Tool (RBVT)</a></li>
@@ -529,7 +531,7 @@
     </style>
     <div>
         <a href="https://bokeh.org" target="_blank" class="bk-notebook-logo"></a>
-        <span id="b0154444-3206-4aca-8238-8b94b8b978de">Loading BokehJS ...</span>
+        <span id="e4d23745-1dd2-4ade-893d-2c8ff950c4e3">Loading BokehJS ...</span>
     </div>
 </div><script type="application/javascript">'use strict';
 (function(root) {
@@ -694,7 +696,7 @@ const JS_MIME_TYPE = 'application/javascript';
      "</div>"}};
 
   function display_loaded(error = null) {
-    const el = document.getElementById("b0154444-3206-4aca-8238-8b94b8b978de");
+    const el = document.getElementById("e4d23745-1dd2-4ade-893d-2c8ff950c4e3");
     if (el != null) {
       const html = (() => {
         if (typeof root.Bokeh === "undefined") {
@@ -802,7 +804,7 @@ const JS_MIME_TYPE = 'application/javascript';
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.10.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.10.1.min.js"];
+  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.10.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.10.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.10.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.10.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.10.2.min.js"];
   const css_urls = [];
 
   const inline_js = [    function(Bokeh) {
@@ -828,7 +830,7 @@ function(Bokeh) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     } else if (force !== true) {
-      const cell = $(document.getElementById("b0154444-3206-4aca-8238-8b94b8b978de")).parents('.cell').data().cell;
+      const cell = $(document.getElementById("e4d23745-1dd2-4ade-893d-2c8ff950c4e3")).parents('.cell').data().cell;
       cell.output_area.append_execute_result(NB_LOAD_WARNING)
     }
   }
@@ -842,11 +844,11 @@ function(Bokeh) {
       run_inline_js();
     });
   }
-}(window));</script><div class="output text_html"><script id="f551fa61-030c-4289-bc4f-cde200cb29e4">
+}(window));</script><div class="output text_html"><script id="fd72f1ab-bf7a-4a64-864e-061dcd4b1a75">
   (function() {
     const xhr = new XMLHttpRequest()
     xhr.responseType = 'blob';
-    xhr.open('GET', "http://localhost:44571/autoload.js?bokeh-autoload-element=f551fa61-030c-4289-bc4f-cde200cb29e4&bokeh-absolute-url=http://localhost:44571&resources=none", true);
+    xhr.open('GET', "http://localhost:36585/autoload.js?bokeh-autoload-element=fd72f1ab-bf7a-4a64-864e-061dcd4b1a75&bokeh-absolute-url=http://localhost:36585&resources=none", true);
     xhr.withCredentials = false;
     xhr.onload = function (event) {
       const script = document.createElement('script');
@@ -928,7 +930,7 @@ function(Bokeh) {
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Visualization of Roman APT products</p>
+        <p class="prev-next-title">Kernel Information and Read-Only Status</p>
       </div>
     </a>
     <a class="right-next"
