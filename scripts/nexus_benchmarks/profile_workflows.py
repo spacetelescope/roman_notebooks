@@ -29,7 +29,8 @@ CPU totals deduplicate shared processes; calling-process and worker subtotals
 overlap if workers share the calling process, so do not sum those subtotals.
 
 The crossmatch measurement includes catalog opening, graph construction, data
-loading, computation, and result transfer, but excludes cluster startup/shutdown.
+loading, computation, and result transfer, but excludes cluster startup and
+shutdown.
 No cache clearing or repeated execution happens automatically. For independent
 fresh-process trials, restart the kernel and workers between calls; OS and
 remote-service caches may still be warm. RSS peak minus baseline is an observed
@@ -49,6 +50,7 @@ import yaml
 
 
 def _process_identity():
+    """Return a process ID and creation time to identify a live process."""
     process = psutil.Process()
     return process.pid, process.create_time()
 
@@ -74,16 +76,19 @@ def profile_resources(*, sample_seconds=0.05):
         raise ValueError("sample_seconds must be finite and positive.")
 
     def decorate(function):
+        """Wrap a supported synchronous function with resource sampling."""
         if (
             inspect.iscoroutinefunction(function)
             or inspect.isgeneratorfunction(function)
             or inspect.isasyncgenfunction(function)
         ):
-            raise TypeError("Only synchronous, non-generator functions are supported.")
+            raise TypeError(
+                "Only synchronous, non-generator functions are supported.")
         signature = inspect.signature(function)
 
         @wraps(function)
         def measured(*args, **kwargs):
+            """Run the function and return its result with resource metrics."""
             bound = signature.bind(*args, **kwargs)
             bound.apply_defaults()
             client = bound.arguments.get("client")
@@ -100,17 +105,20 @@ def profile_resources(*, sample_seconds=0.05):
                 }
                 if not set(workers_before.values()).issubset(local_identities):
                     raise RuntimeError(
-                        "Workers must be in the calling process's local process "
-                        "tree. Remote/external clusters require worker-side profiling."
+                        "Workers must be in the calling process's local "
+                        "process tree. Remote/external clusters require "
+                        "worker-side profiling."
                     )
 
             worker_identities = set(workers_before.values())
             identities = {kernel_identity, *worker_identities}
             processes = {
-                identity: psutil.Process(identity[0]) for identity in identities
+                identity: psutil.Process(identity[0])
+                for identity in identities
             }
 
             def snapshot():
+                """Return monitored process CPU times and aggregate RSS."""
                 cpu = {}
                 rss = 0
                 for identity, process in processes.items():
@@ -127,12 +135,14 @@ def profile_resources(*, sample_seconds=0.05):
             stop = threading.Event()
 
             def sample_memory():
+                """Sample process memory until the profiling run completes."""
                 try:
                     while not stop.wait(sample_seconds):
                         _, rss = snapshot()
                         peak[0] = max(peak[0], rss)
                 except Exception as error:
-                    # Propagate thread failures to the caller, not partial metrics.
+                    # Propagate thread failures to the caller, not partial
+                    # metrics.
                     errors.append(error)
                     stop.set()
 
@@ -151,7 +161,8 @@ def profile_resources(*, sample_seconds=0.05):
                 raise RuntimeError(
                     "Memory sampling failed; discard this run."
                 ) from errors[0]
-            if client is not None and client.run(_process_identity) != workers_before:
+            if client is not None and client.run(
+                    _process_identity) != workers_before:
                 raise RuntimeError(
                     "Workers changed during measurement; discard this run. "
                     "Disable adaptive scaling and retry."
@@ -169,11 +180,13 @@ def profile_resources(*, sample_seconds=0.05):
                 "function": function.__name__,
                 "wall_seconds": wall_seconds,
                 "cpu_hours": sum(cpu_deltas.values()) / 3600,
-                "calling_process_cpu_hours": cpu_deltas[kernel_identity] / 3600,
+                "calling_process_cpu_hours": (
+                    cpu_deltas[kernel_identity] / 3600
+                ),
                 "worker_cpu_hours": sum(
                     cpu_deltas[identity] for identity in worker_identities
                 ) / 3600,
-                "baseline_rss_gb": baseline / gb ,
+                "baseline_rss_gb": baseline / gb,
                 "sampled_peak_rss_gb": peak[0] / gb,
                 "peak_increase_gb": (peak[0] - baseline) / gb,
                 "final_rss_gb": final / gb,
@@ -188,7 +201,14 @@ def profile_resources(*, sample_seconds=0.05):
 
 
 def save_results(file, testname, description, results):
+    """Append profiling results for a named test to a YAML file.
 
+    Args:
+        file: YAML file path to update.
+        testname: Key under which results are stored.
+        description: Human-readable description of the test.
+        results: Measurement to append.
+    """
     with open(file, 'a+') as outfile:
         outfile.seek(0)
 
@@ -209,7 +229,7 @@ def save_results(file, testname, description, results):
                     'results': [results]
                 }
             }
-    
+
         outfile.seek(0)
         outfile.truncate()
         yaml.safe_dump(current_data, outfile, sort_keys=False)

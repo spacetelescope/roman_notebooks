@@ -18,10 +18,10 @@ photutils>=3.0.0,<4
 psutil
 python-dotenv
 PyYAML
-rad>=1.0
-roman_datamodels>=1.0
-romanisim>=0.14.0,<=0.16.0
-romancal>=1.0.0
+rad==1.2.1
+roman_datamodels==1.2.0
+romanisim==0.16.0
+romancal==1.2.0
 s3fs>=2026.4.0
 scipy>=1.17.1
 stdatamodels>=6.0

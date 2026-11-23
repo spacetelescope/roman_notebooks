@@ -1,3 +1,10 @@
+"""Profile representative Roman WFI exposure calculations with Pandeia.
+
+The functions calculate signal-to-noise ratios or exposure counts for sampled
+source magnitudes. Measurements depend on the input assumptions and compute
+configuration.
+"""
+
 from pandeia.engine.calc_utils import build_default_calc
 from pandeia.engine.perform_calculation import perform_calculation
 from scipy.optimize import minimize_scalar
@@ -17,8 +24,7 @@ FILTER = 'f129'
 
 
 def compute_mag(filt, nexp, bracket=(18, 30)):
-    """
-    Method to compute the S/N from a range of magnitudes and a fixed number of exposures
+    """Calculate signal-to-noise ratios across a range of magnitudes.
 
     Parameters
     ----------
@@ -27,14 +33,14 @@ def compute_mag(filt, nexp, bracket=(18, 30)):
     nexp : int
         Number of exposures
     bracket : tuple
-        Range of magnitudes to test. default: (18, 30)
+        Inclusive magnitude range to test; defaults to (18, 30).
 
     Returns
     -------
-    mag_range : float
-        An array of magnitudes used to compute the SNRs
-    computed_snrs: float
-        An array of computed SNRs from Pandeia calculations
+    mag_range : numpy.ndarray
+        Magnitudes used to compute signal-to-noise ratios.
+    computed_snrs : list
+        Signal-to-noise ratios returned by Pandeia.
     """
 
     # Set up default Roman observation
@@ -43,7 +49,7 @@ def compute_mag(filt, nexp, bracket=(18, 30)):
     # Modify defaults to place a source with an AB magnitude
     calc['scene'][0]['spectrum']['normalization']['norm_fluxunit'] = 'abmag'
     calc['scene'][0]['spectrum']['normalization']['norm_waveunit'] = 'um'
-    
+
     # Set number of exposures and filter
     calc['configuration']['detector']['nexp'] = nexp
     calc['configuration']['instrument']['filter'] = filt
@@ -63,17 +69,19 @@ def compute_mag(filt, nexp, bracket=(18, 30)):
 
 
 def _mag2sn_(mag_range, computed_snrs, sntarget):
-    """
-    Calculate a magnitude given a desired SNR by interpolating (computed_snrs, mag_range) from compute_mag
-    
+    """Interpolate the magnitude that yields a requested signal-to-noise ratio.
+
     Parameters
     ----------
-    mag_range: float
-        An array of magnitudes used in calculating a range of SNRs in compute_mag
-    computed_snrs: float
-        An array of computed SNR given the mag_range using Pandeia calculation object
-    sntarget: float
-        Required S/N
+    mag_range : array-like
+        Magnitudes used to calculate the sampled signal-to-noise ratios.
+    computed_snrs : array-like
+        Pandeia signal-to-noise ratios corresponding to ``mag_range``.
+    sntarget : float
+        Requested signal-to-noise ratio.
+
+    Returns:
+        The interpolated magnitude for ``sntarget``.
     """
     interpolator = interpolate.interp1d(computed_snrs, mag_range)
     mag = interpolator(sntarget)
@@ -82,28 +90,28 @@ def _mag2sn_(mag_range, computed_snrs, sntarget):
 
 
 def _nexp2sn_(nexp, calc, sntarget):
-    """
-    Optimize a S/N ratio given a number of exposures. This is a helper function
-    used as an argument for scipy's minimize_scalar() as used in compute_mag().
-    
+    """Return squared signal-to-noise error for an exposure-count estimate.
+
     Parameters
     ----------
-    nexp : int
-        The number of exposures used in an iteration of minimize_scalar()
-    calc : 
-        A Pandeia calculation object
-    sntarget : 
-        Required S/N from the matching argument of compute_mag()
+    nexp : float
+        Candidate exposure count supplied to the optimizer.
+    calc : dict
+        Pandeia calculation configuration, updated in place.
+    sntarget : float
+        Requested signal-to-noise ratio.
+
+    Returns:
+        Squared difference between the requested and calculated ratios.
     """
     calc['configuration']['detector']['nexp'] = int(nexp)
     etc = perform_calculation(calc)['scalar']
-    
+
     return (sntarget - etc['sn'])**2
 
 
 def compute_nexp(filt, sn, mag, bracket=(1, 1000), xtol=0.1):
-    """
-    Method to compute the number of exposures from S/N and magnitude
+    """Estimate the exposure count needed for a target signal-to-noise ratio.
 
     Parameters
     ----------
@@ -114,18 +122,18 @@ def compute_nexp(filt, sn, mag, bracket=(1, 1000), xtol=0.1):
     mag : float
         AB Magnitude of source
     bracket : tuple, default (1, 1000)
-        Range of magnitudes to test
-    xtold: float, default 0.1
-        Target tolerance for minimizer
+        Bounds for the exposure-count search.
+    xtol : float, default 0.1
+        Absolute tolerance passed to the minimizer.
 
     Returns
     -------
-    nexp : float
-        Optimal number of exposures for specified S/N and magnitude
-    report: dict
-        Pandeia dictionary with optimal parameters
-    exptime: float
-        Exposure time for optimal observation
+    nexp : int
+        Estimated exposure count.
+    report : dict
+        Pandeia report for the selected exposure count.
+    exptime : float
+        Total exposure time in the report.
     """
     # Set up default Roman observation
     calc = build_default_calc('roman', 'wfi', 'imaging')
@@ -153,7 +161,8 @@ def compute_nexp(filt, sn, mag, bracket=(1, 1000), xtol=0.1):
 
         # Take the optimization result and set it to nexp
         # 'x' is the solution array in the optimization result object
-        # For more details on the minimize_scalar function, refer to https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html
+        # For more details on the minimize_scalar function, refer to
+        # https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html
         nexp = int(res['x'])
         calc['configuration']['detector']['nexp'] = nexp
         report = perform_calculation(calc)
@@ -174,26 +183,33 @@ def compute_nexp(filt, sn, mag, bracket=(1, 1000), xtol=0.1):
 
 
 def case1(nsamples):
+    """Profile Pandeia for a randomly sampled WFI exposure setup."""
 
     rng = np.random.default_rng()
     mags = rng.normal(25, 3, nsamples)
     for m in mags:
         # Creating a default calculation using Roman's WFI with an imaing mode
         calc = build_default_calc('roman', 'wfi', 'imaging')
-        calc['configuration']['instrument']['filter'] = 'f158'  # Setting the filter to F129
-        calc['configuration']['detector']['nexp'] = 3  # Taking three exposures of multi-accum sequence
-        calc['configuration']['detector']['nresultants'] = 7  # Truncate after 6 resultant
+        # Setting the filter to F129
+        calc['configuration']['instrument']['filter'] = 'f158'
+        # Taking three exposures of multi-accum sequence
+        calc['configuration']['detector']['nexp'] = 3
+        # Truncate after 6 resultant
+        calc['configuration']['detector']['nresultants'] = 7
         calc['scene'][0]['spectrum']['normalization']['norm_flux'] = m
-        calc['scene'][0]['spectrum']['normalization']['norm_fluxunit'] = 'abmag'
-        
+        calc['scene'][0]['spectrum']['normalization'][
+            'norm_fluxunit'] = 'abmag'
+
         @profile_resources()
         def run_calc():
+            """Run Pandeia for the currently configured magnitude."""
             report = perform_calculation(calc)
 
-    return run_calc() 
+    return run_calc()
 
-    
+
 def case2(nsamples):
+    """Profile magnitude interpolation across sampled targets and exposures."""
 
     rng = np.random.default_rng()
     SN = rng.normal(5, 1, nsamples)
@@ -201,6 +217,7 @@ def case2(nsamples):
 
     @profile_resources()
     def perform_calc():
+        """Calculate and interpolate magnitudes for all sampled cases."""
         for i in range(nsamples):
             mag_range, computed_snrs = compute_mag('f158', NEXP[i])
             mag = _mag2sn_(mag_range, computed_snrs, SN[i])
@@ -209,6 +226,7 @@ def case2(nsamples):
 
 
 def case3(nsamples):
+    """Profile exposure-count estimates for sampled signal and magnitudes."""
 
     rng = np.random.default_rng()
     SN = rng.normal(5, 1, 100)
@@ -216,6 +234,7 @@ def case3(nsamples):
 
     @profile_resources()
     def perform_calc():
+        """Estimate exposure counts for all requested samples."""
         for i in range(nsamples):
             nexp, etc, exptime = compute_nexp('f158', SN[i], MAG[i])
 
