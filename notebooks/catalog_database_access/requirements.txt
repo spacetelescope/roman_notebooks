@@ -1,4 +1,4 @@
-astropy>=7.2.0,<9
-astroquery @ git+https://github.com/snbianco/astroquery.git@2026.2
+astropy>=8.0.2,<9
+astroquery@git+https://github.com/snbianco/astroquery.git@2026.3
 pyvo>=1.8.1
 matplotlib>=3.9
