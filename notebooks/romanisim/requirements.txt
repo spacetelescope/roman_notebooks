@@ -1,16 +1,16 @@
-romancal>=1.0.0
-romanisim>=0.14.0,<0.15
-roman_datamodels>=1.0,<1.1
-crds>=13.1.15
-rad>=1.0,<1.1
-asdf>=5.3.0,<6
-astropy>=7.2.0,<9
+romancal>=1.2.0
+romanisim>=0.16.0,<0.17
+roman_datamodels>=1.2.0,<1.4
+crds>=14.0.6
+rad>=1.2.1,<1.3
+asdf>=6.0,<7
+astropy>=8.0.2,<9
 asdf-astropy>=0.11.0
 gwcs>=1.0.3,<2
-astroquery @ git+https://github.com/snbianco/astroquery.git@2026.2
+astroquery@git+https://github.com/snbianco/astroquery.git@2026.3
 galsim>=2.8.4
 matplotlib>=3.9
-numpy>=2.4.4
+numpy>=2.5.4
 s3fs>=2026.4.0
 dask[complete]
-stpsf>=2.1.0
+stpsf>=2.3.0
