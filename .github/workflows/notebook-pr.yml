@@ -17,15 +17,7 @@ on:
       - '*.css'
       - '*.js'
 
-env:
-  JDAVIZ_SKIP_DISPLAY: "true"  # prevents nbval timeouts with jdaviz in sidecar
-
 jobs:
-  check-env-var:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo $JDAVIZ_SKIP_DISPLAY
-
   resolve-crds:
     runs-on: ubuntu-latest
     outputs:
@@ -75,7 +67,8 @@ jobs:
       crds-server-url: ${{ needs.resolve-crds.outputs.crds_server_url }}
       crds-context: ${{ needs.resolve-crds.outputs.crds_context }}
       crds-path: ${{ needs.resolve-crds.outputs.crds_path }}
-
+      JDAVIZ-SKIP-DISPLAY: true  # prevents nbval timeouts with jdaviz in sidecar
+      
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
