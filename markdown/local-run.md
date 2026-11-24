@@ -1,7 +1,6 @@
 # Working Locally
 
-Running some notebooks in your local machine will require additional settings that should be run before launching the Jupyter Notebook.
-Some of these apply to all notebooks will other to a selected few.
+Running some notebooks in your local machine will require additional settings that should be run before launching the Jupyter Notebook. Some of these apply to all notebooks, while others apply to a selected few.
 
 ## Setting up the environment for all notebooks
 
@@ -47,7 +46,6 @@ where `CRDS_PATH` points to your CRDS cache. If you do not have a cache already,
 
 This will point to the configuration file for the data files.
 
-
 ### How it works:
 
 The script includes the `install_files()` function:
@@ -81,6 +79,16 @@ The other variables you might need to set are:
 - `pandeia_refdata` and `PSF_DIR` when using `pandeia`
 - `PYSYN_CDBS` when using `synphot`
 - `stips_data` when using `stips`
+
+Here are the notebook commands:
+
+```
+your_data_dir = '/your/preferred/path/to/data_dir/'
+os.environ['pandeia_refdata'] = your_data_dir + "pandeia-data-2026.1-roman"
+os.environ['PSF_DIR'] = your_data_dir + "pandeia_psfs-2026.1-roman"
+os.environ['PYSYN_CDBS'] = your_data_dir + "grp/redcat/trds"
+os.environ['stips_data'] = your_data_dir + "stips-data"
+```
 
 ### To force re-download:
 
