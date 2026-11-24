@@ -1,7 +1,6 @@
 # Working Locally
 
-Running some notebooks in your local machine will require additional settings that should be run before launching the Jupyter Notebook.
-Some of these apply to all notebooks will other to a selected few.
+Running some notebooks in your local machine will require additional settings that should be run before launching the Jupyter Notebook. Some of these apply to all notebooks, while others apply to a selected few.
 
 ## Setting up the environment for all notebooks
 
@@ -37,7 +36,15 @@ where `CRDS_PATH` points to your CRDS cache. If you do not have a cache already,
 
  Some notebooks use packages like **STPSF**, **Pandeia**, **STIPS**, and **Synphot** requiring data files that are distributed separately and that are expected to follow a certain directory structure under the root directory.
 
- For convenience, we have included the script `notebook_data_dependencies.py` which does this for you. The script is located in the directory *repo-root/shared/*. You can copy this script to your notebook folder or leave it in the *repo-root/shared/* directory.
+ For convenience, we have included the script `notebook_data_dependencies.py` which does this for you.This script is in the notebook folder or in the *repo-root/shared/* folder.
+
+ If only downloading the content of a folder, you need to add the following environment variable before running your notebook.
+
+ ```
+ export ROMAN_REFDATA_MANIFEST https://raw.githubusercontent.com/spacetelescope/roman_notebooks/main/refdata_dependencies.yaml
+ ```
+
+This will point to the configuration file for the data files.
 
 ### How it works:
 
@@ -73,6 +80,16 @@ The other variables you might need to set are:
 - `PYSYN_CDBS` when using `synphot`
 - `stips_data` when using `stips`
 
+Here are the notebook commands:
+
+```
+your_data_dir = '/your/preferred/path/to/data_dir/'
+os.environ['pandeia_refdata'] = your_data_dir + "pandeia-data-2026.1-roman"
+os.environ['PSF_DIR'] = your_data_dir + "pandeia_psfs-2026.1-roman"
+os.environ['PYSYN_CDBS'] = your_data_dir + "grp/redcat/trds"
+os.environ['stips_data'] = your_data_dir + "stips-data"
+```
+
 ### To force re-download:
 
 If you wish to re-download the data files, even after setting the environment variable, you can accomplish this in the command line with:
@@ -88,3 +105,6 @@ os.environ.pop('STPSF_PATH', None)
 ```
 
 Depending on which (if any) reference data are missing, this cell may take several minutes to execute.
+
+---
+*Last Updated: August 2026*
