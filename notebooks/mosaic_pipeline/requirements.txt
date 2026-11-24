@@ -11,4 +11,4 @@ crds>=14.0.6
 photutils>=3.0.0,<4
 matplotlib>=3.9
 numpy>=2.5.4
-stpsf>=2.3.0
+stpsf>=2.3.1
