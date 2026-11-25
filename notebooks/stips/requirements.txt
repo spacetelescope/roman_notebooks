@@ -3,4 +3,4 @@ astropy>=8.0.2,<9
 matplotlib>=3.9
 esutil >= 0.6.17
 stsynphot>=1.5.1
-pandeia.engine==2026.2
+pandeia.engine==2026.1
