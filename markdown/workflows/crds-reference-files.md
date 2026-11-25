@@ -60,15 +60,15 @@ Explore reference-pixel correction coefficients, point-spread-function (PSF) mod
 ## Related Resources
 
 - [**CRDS for Roman Reference Files**](https://roman-docs.stsci.edu/data-handbook-home/accessing-wfi-data/crds-for-reference-files) provides additional background on obtaining and using Roman calibration reference files.
-- [**WFI Data Simulation**](./wfi-data-sim.md) uses CRDS reference files to model instrumental effects in Roman I-sim products.
+- [**WFI Data Simulation**](./wfi-data-sim.md) uses CRDS reference files to model instrumental effects in Roman I-Sim products.
 - [**WFI Data Analysis**](./wfi-data-analysis.md) works with calibrated products whose accuracy depends on the applicable reference files.
-- [**Exposure Pipeline**](../../notebooks/exposure_pipeline/exposure_pipeline.ipynb) demonstrates where RomanCal applies reference files while processing Level 1 data into Level 2 products.
+- [**Exposure Pipeline**](../../notebooks/exposure_pipeline/exposure_pipeline.ipynb) demonstrates where `romancal` applies reference files while processing Level 1 data into Level 2 products.
 
 ## Caveats and Limitations
 
 - Reference files and CRDS recommendations may change as WFI characterization and calibration mature.
-- The notebooks demonstrate the reference files available for the Early Access environment and may not represent the complete set of products used during Roman science operations.
+- The notebooks demonstrate selected Roman calibration reference-file types and do not cover the complete set of reference files used during Roman science operations.
 - Reference-file recommendations depend on the CRDS context and dataset metadata used for a query.
 
 ---
-*Last Updated: August 2026*
+*Last Updated: November 2026*

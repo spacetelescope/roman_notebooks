@@ -12,9 +12,9 @@ Before starting the notebook tutorials, review the [Jupyter basics](../jupyter.m
 
    Search for and access simulated Roman Wide Field Instrument (WFI) data in the Nexus and observations from active missions through the Barbara A. Mikulski Archive for Space Telescopes (MAST). Learn how to identify relevant observations and retrieve data products for further exploration.
 
-2. [**Working with ASDF**](../../notebooks/working_with_asdf/working_with_asdf.ipynb)
+2. [**Working with ASDF and Parquet Files**](../../notebooks/working_with_asdf/working_with_asdf.ipynb)
 
-   Explore the Advanced Scientific Data Format used for Roman data products. Learn how to inspect metadata, access data arrays, and understand the organization of Roman WFI files.
+   Become familiar with Roman data formats and learn how to open, inspect, and explore imaging and catalog data.
 
 3. **Data Visualization**
 
@@ -31,8 +31,7 @@ Before starting the notebook tutorials, review the [Jupyter basics](../jupyter.m
 
 ## Scope and Limitations
 
-- This workflow provides an introduction to Roman data products and common analysis tools. It does not cover calibration pipelines or advanced scientific analysis.
-- Data availability and platform functionality may continue to evolve during Early Access.
+This workflow provides an introduction to Roman data products and common analysis tools. It does not cover calibration pipelines or advanced scientific analysis.
 
 ---
-*Last Updated: August 2026*
+*Last Updated: November 2026*

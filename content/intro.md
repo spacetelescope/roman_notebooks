@@ -16,9 +16,9 @@ Explore the resources below to learn how to use the Nexus, access its tools, and
 
 <img src="../images/icons/book-stack.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Notebook Tutorials](../markdown/tutorials.md)
 
-<img src="../images/icons/database.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [ Simulated Datasets and Ancillary data](../markdown/simulated-data.md)
+<img src="../images/icons/database.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [ Simulated Datasets and Ancillary Data](../markdown/simulated-data.md)
 
-<img src="../images/icons/team.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Working on a Team](../markdown/teams.md) - Includes information on Real Time Collaboration Servers!
+<img src="../images/icons/team.svg" style="vertical-align: bottom; width:1.5em; margin-right:0.25em;"/> [Working on a Team](../markdown/teams.md) - Includes information on shared team resources and Real-Time Collaboration (RTC) servers.
 
 <img src="../images/icons/question\_mark.svg" style="vertical-align: middle; width:1.5em; margin-right:0.25em;"/> [Monitoring Credit Usage ](../markdown/credit_monitor.md)
 
@@ -34,15 +34,18 @@ The Nexus is intended for anyone working with—or preparing to work with—Roma
 ## What You Can Do in the Nexus
 The Nexus brings together the core components needed for Roman science:
 
-- [**Configurable compute options**](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/compute-resources), from small exploratory servers to larger CPU- or memory-optimized setups
-- [**Computing resources colocated with Roman data products archived in MAST**](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus), enabling efficient analysis without large data transfers
-- [**Roman software and tools**](https://spacetelescope.github.io/roman_notebooks/README.html) in an STScI-curated environment
-- [**Notebook tutorials**](../markdown/tutorials.md) introducing specific tools or concepts
-- [**Science workflows**](../markdown/workflows.md) illustrating representative end-to-end use cases
-- [**Simulated datasets**](../markdown/simulated-data.md) for developing, validating, and benchmarking scientific analysis workflows
-- [**Team collaboration**](../markdown/teams.md), with shared team directories and Real-Time Collaboration (RTC) servers
+- [**Configurable compute options**](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/compute-resources), from small exploratory servers to larger CPU- or memory-optimized setups and GPU-enabled servers.
+- [**Computing resources colocated with Roman data products archived in MAST**](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus), enabling efficient analysis without large data transfers.
+- [**Persistent storage resources**](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/storage-resources), including personal and shared team directories (EFS) and team S3 buckets.
+- [**Team collaboration**](../markdown/teams.md), with shared team directories and Real-Time Collaboration (RTC) servers.
+- [**Roman software and tools**](https://spacetelescope.github.io/roman_notebooks/README.html) in an STScI-curated environment.
+- [**Notebook tutorials**](../markdown/tutorials.md) introducing specific tools or concepts.
+- [**Science workflows**](../markdown/workflows.md) illustrating representative end-to-end use cases.
+- [**Simulated datasets**](../markdown/simulated-data.md) for developing, validating, and benchmarking scientific analysis workflows.
 ## Persistent Storage and Software Environment
 Your home directory and any team directories you belong to persist across sessions and remain available even when servers are stopped. Software installed inside a running session does not persist unless saved in a custom environment located in persistent storage. More information is available on the [Installing extra software](../markdown/software.md) page.  
+
+Your personal home directory and shared team directories persist across sessions, including when servers are stopped. Teams can also request S3 buckets for storing and managing larger datasets. More information about the available storage options is provided on the [Storage Resources page.](https://roman-docs.stsci.edu/data-handbook/roman-research-nexus/storage-resources)
 ## Current Content and Scope
 The scientific content available in the Nexus is primarily focused on the Roman Wide Field Instrument (WFI), with an emphasis on imaging. Spectroscopic capabilities are currently more limited, but the available software, tutorials, and workflows will continue to expand.
 ## More Information

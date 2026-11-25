@@ -20,4 +20,4 @@ This science workflow guides users through simulating and analyzing a time-varia
 - The reported photometric uncertainties and signal-to-noise values are diagnostic estimates rather than a final uncertainty model.
 
 ---
-*Last Updated: August 2026*
+*Last Updated: November 2026*
