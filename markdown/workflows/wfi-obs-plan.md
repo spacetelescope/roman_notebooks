@@ -1,4 +1,4 @@
-# RRN Science Workflows: WFI Observations Planning
+# RRN Science Workflows: WFI Observation Planning
 
 This science workflow is designed to support planning of Roman Wide Field Instrument (WFI) observations by combining exposure estimation, instrument characterization, and survey-level planning tools. Together, these components help users evaluate observing strategies, survey geometry, and observing conditions in support of Roman proposal development and early-stage analyses.
 
@@ -24,7 +24,7 @@ This science workflow is designed to support planning of Roman Wide Field Instru
 
 5. **Survey and observing-strategy evaluation tools**
 
-   After defining initial exposure parameters with Pandeia, use one or more of the following tools to evaluate survey geometry, and observing conditions. Iterate between these evaluations and Pandeia as needed to refine the exposure parameters and observing strategy:
+   After defining initial exposure parameters with Pandeia, use one or more of the following tools to evaluate exposure choices, survey geometry, and observing conditions. Iterate between these evaluations and Pandeia as needed to refine the exposure parameters and observing strategy:
 
     - [**STIPS (Space Telescope Image Product Simulator)**](../../notebooks/stips/stips.ipynb) simulates realistic astronomical scenes over a full WFI field of view or multiple detectors, enabling validation of exposure choices in crowded or extended fields.
     - [**Footprint Visualization Tool**](../../notebooks/footprint_visualization/footprint_visualization.ipynb) determines whether astronomical source coordinates fall within a survey footprint and visualizes Astronomer's Proposal Tool (APT) program footprints and exposure coverage on the sky, supporting survey tiling and geometry evaluation.
@@ -32,11 +32,11 @@ This science workflow is designed to support planning of Roman Wide Field Instru
 
 These tools are complementary and are often used iteratively to refine observing strategies. User documentation is available at the [Simulation Tools User Manual in RDox](https://roman-docs.stsci.edu/simulation-tools-handbook-home).
 
-<img src="https://raw.githubusercontent.com/spacetelescope/roman_notebooks/refs/heads/main/images/wfi-obs-plan.jpg" alt="WFI observation planning workflow connecting sensitivity, exposure, instrument, survey footprint, and background tools" width="600" />
+<img src="../../images/wfi-obs-plan.png" alt="WFI observation planning workflow connecting sensitivity, exposure, instrument, survey footprint, and background tools" width="512" />
 
 ## Caveats and Limitations
 - This workflow primarily targets WFI imaging-mode planning. While some tools support spectroscopic configurations, a more comprehensive spectroscopic planning workflow is planned for a future release.
 - Users should expect to iterate between steps (e.g., between Pandeia, background evaluation, and scene simulations) as science requirements are refined.
 
 ---
-*Last Updated: August 2026*
+*Last Updated: November 2026*

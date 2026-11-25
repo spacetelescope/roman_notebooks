@@ -1,5 +1,5 @@
 # Installing Extra Software
-The Roman Research Nexus (RRN) provides some pre-installed software. You can also install your own software.
+The Roman Research Nexus (RRN) provides a selection of pre-installed software. You can also install additional software in your own environments.
 
 **Note:** Any commands shown on this page must be entered into a terminal window. To open one, select **File → New → Terminal** from the JupyterLab menu bar. See [Working in JupyterLab](./jupyter.md) for more information about the interface.
 
@@ -26,7 +26,7 @@ When working in the Nexus, it is essential to create dedicated software environm
 
 `pip install <package>`
 
-may be lost when the server is restarted or reconfigured. Create a dedicated environment for software that must persist across sessions. For information about restarting and reconfiguring servers, see [Managing Your Server](./server.md).
+may be lost when the server is restarted or reconfigured. To ensure that installed packages persist across sessions, create a dedicated software environment using the Nexus environment management tools described below.  For information about restarting and reconfiguring servers, see [Managing Your Server](./server.md).
 
 On the RRN, you can use helper commands to create and manage software environments. Follow the steps below to set up your own environments and install packages.
 
@@ -104,6 +104,7 @@ channels:
 dependencies:
   - python=3.13
 ```
+The `name` field in the YAML file is optional when using `kernel-create`, since the environment name is specified in the command.
 
 If using a YAML file, we recommend adding `pip`, `ipython`, `ipykernel`, and `uv` to the `dependencies` list. The resulting file would look as follows:
 
@@ -135,7 +136,7 @@ With the environment activated, you can install software.
 
 ### 5. Installing Base Tools
 
-If these packages were not already installed through the `environment.yml` file, first install the tools needed for package management and interactive Python sessions. The command:
+If these packages were not already installed through the `environment.yml` file, first install the tools needed for package management and interactive Python sessions. Run:
 
 `conda install --yes pip ipython ipykernel uv`
 
@@ -202,4 +203,4 @@ Example:
 This is supported. Use `kernel-create-venv` in place of `kernel-create` in step 3, and you will get a [**Python Virtual Environment**](https://docs.python.org/3/library/venv.html) instead.
 
 ---
-*Last updated: August 2026*
+*Last updated: November 2026*
